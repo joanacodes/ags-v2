@@ -6,7 +6,7 @@ import React from "react";
  * Deterministic, safe (no HTML injection — pure text parsing).
  */
 export function renderInline(text: string): React.ReactNode[] {
-  const pattern = /(\*\*[^*]+\*\*|==[^=]+==|_[^_]+_)/g;
+  const pattern = /(\*\*.+?\*\*|==.+?==|_[^_\s][^_]*_)/g;
   const parts = text.split(pattern);
   return parts.map((part, index) => {
     if (part.startsWith("**") && part.endsWith("**")) {

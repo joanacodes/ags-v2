@@ -170,7 +170,7 @@ function markersToHtml(markers: string): string {
       const isHeading = paragraph.startsWith("## ");
       const body = escapeHtml(isHeading ? paragraph.slice(3) : paragraph)
         .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-        .replace(/==([^=]+)==/g, "<mark>$1</mark>")
+        .replace(/==(.+?)==/g, "<mark>$1</mark>")
         .replace(/_([^_]+)_/g, "<em>$1</em>");
       return isHeading ? `<h4>${body}</h4>` : `<p>${body}</p>`;
     })
@@ -203,7 +203,12 @@ function htmlToMarkers(root: HTMLElement | null): string[] {
     for (const piece of text.split(/\n{2,}/)) {
       const trimmed = piece.trim();
       if (trimmed.length === 0) continue;
-      paragraphs.push(tag === "h4" || tag === "h3" ? `## ${trimmed}` : trimmed);
+      const fused = trimmed
+        .replace(/====/g, "")
+        .replace(/\*\*\*\*/g, "")
+        .replace(/== +==/g, " ")
+        .replace(/==\s*(.+?)\s*==/g, "==$1==");
+      paragraphs.push(tag === "h4" || tag === "h3" ? `## ${fused}` : fused);
     }
   }
   return paragraphs;
