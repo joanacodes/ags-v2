@@ -5,7 +5,7 @@ import { Bell, Plus, Search } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { ProgressPanel } from "@/components/layout/progress-panel";
 import { StatCards } from "@/components/dashboard/stat-cards";
-import { TransitDensityCard } from "@/components/dashboard/transit-density-card";
+import { LiveSky } from "@/components/dashboard/live-sky";
 import { QuickActions, UpsellCard } from "@/components/dashboard/quick-panels";
 import {
   EngineStatusBar,
@@ -109,7 +109,7 @@ export default function DashboardPage() {
             <StatCards stats={stats} />
 
             <div className="grid gap-4 xl:grid-cols-[1fr_320px]">
-              <TransitDensityCard data={density} />
+              <LiveSky />
               <div className="space-y-4">
                 <UpsellCard />
                 <QuickActions />
