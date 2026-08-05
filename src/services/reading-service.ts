@@ -38,11 +38,12 @@ export const ReadingService = {
     chartId: string,
     slug: string,
     style: WritingStyle,
+    language: string = "en",
   ): Promise<Reading> {
     const response = await fetch(`/api/charts/${chartId}/readings/${slug}/generate`, {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ style }),
+      body: JSON.stringify({ style, language }),
     });
     if (!response.ok) throw new Error(await readError(response));
     return (await response.json()) as Reading;

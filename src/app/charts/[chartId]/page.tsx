@@ -27,6 +27,7 @@ import { useCalculateChart, useChart, useDeleteChart, useSetChartStatus } from "
 import { readingKeys } from "@/hooks/use-readings";
 import { useQueryClient } from "@tanstack/react-query";
 import { ReadingService } from "@/services/reading-service";
+import { getReadingLanguage } from "@/lib/reading-prefs";
 import { PRIMARY_CHART_ID } from "@/lib/navigation";
 import { useReadingProgress, useReadings } from "@/hooks/use-readings";
 import { formatBirthMoment } from "@/lib/format";
@@ -52,7 +53,7 @@ export default function ChartOverviewPage() {
     for (let i = 0; i < pending.length; i += 1) {
       setBulk({ done: i, total: pending.length });
       try {
-        await ReadingService.regenerateReading(chartId, pending[i], "clinical");
+        await ReadingService.regenerateReading(chartId, pending[i], "clinical", getReadingLanguage());
       } catch {
         break; // stop on first failure (missing key, etc.) — page stays usable
       }

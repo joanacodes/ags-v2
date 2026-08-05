@@ -157,19 +157,68 @@ export default function ReportPreviewPage() {
             <div className="mx-auto w-full max-w-2xl space-y-10">
               <ReportCover chart={chart} report={report} />
 
-              {report.sections
-                .filter((section) => section.status !== "locked")
-                .map((section) => (
-                  <EditableSection key={section.id} section={section} chartId={chartId} />
-                ))}
-
-              <div className="space-y-3">
-                {report.sections
-                  .filter((section) => section.status === "locked")
-                  .map((section) => (
-                    <ReportSectionView key={section.id} section={section} chartId={chartId} />
+              {/* -------- Contents (indexed) -------- */}
+              <section className="print-keep rounded-card border border-line bg-surface-raised p-6">
+                <h2 className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-faint">
+                  Contents
+                </h2>
+                <ol className="mt-3 space-y-1.5 text-sm">
+                  <li className="flex items-baseline justify-between gap-3 text-ink-secondary">
+                    <span>Glossary</span>
+                    <span className="text-xs text-ink-faint">§0</span>
+                  </li>
+                  {report.sections.map((section) => (
+                    <li
+                      key={section.id}
+                      className="flex items-baseline justify-between gap-3 text-ink-secondary"
+                    >
+                      <span>
+                        {section.title}
+                        {section.status === "locked" && (
+                          <span className="pl-2 text-xs text-ink-faint">(not generated)</span>
+                        )}
+                      </span>
+                      <span className="text-xs text-ink-faint">
+                        §{String(section.index).padStart(2, "0")}
+                      </span>
+                    </li>
                   ))}
-              </div>
+                  <li className="flex items-baseline justify-between gap-3 text-ink-secondary">
+                    <span>Technical Appendix</span>
+                    <span className="text-xs text-ink-faint">§{report.sections.length + 1}</span>
+                  </li>
+                </ol>
+                <p className="pt-3 text-[11px] text-ink-faint print:hidden">
+                  Tip: enable “Headers and footers” in the print dialog to add page numbers.
+                </p>
+              </section>
+
+              {/* -------- Glossary -------- */}
+              {report.glossary.length > 0 && (
+                <section className="print-keep rounded-card border border-line bg-surface-raised p-6">
+                  <h2 className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-faint">
+                    §0 · Glossary — the terms this chart uses
+                  </h2>
+                  <dl className="mt-4 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                    {report.glossary.map((entry) => (
+                      <div key={entry.term}>
+                        <dt className="text-xs font-semibold text-ink">{entry.term}</dt>
+                        <dd className="pt-0.5 text-xs leading-relaxed text-ink-muted">
+                          {entry.definition}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </section>
+              )}
+
+              {report.sections.map((section) =>
+                section.status === "locked" ? (
+                  <ReportSectionView key={section.id} section={section} chartId={chartId} />
+                ) : (
+                  <EditableSection key={section.id} section={section} chartId={chartId} />
+                ),
+              )}
 
               {settings.technicalAppendix && <TechnicalAppendix appendix={report.appendix} />}
             </div>

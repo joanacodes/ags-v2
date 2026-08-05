@@ -276,6 +276,8 @@ export interface Report {
   format: string;
   sections: ReportSection[];
   appendix: TechnicalAppendix;
+  /** Astrological terms used in this chart, grounded in the knowledge base. */
+  glossary: { term: string; definition: string }[];
 }
 
 export type ExportFormat = "pdf" | "docx" | "print" | "link";

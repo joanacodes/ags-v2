@@ -5,6 +5,8 @@
  * reading unlocks them.
  */
 import { READING_DOMAINS } from "@/interpretation/domains";
+import { createCoreKnowledgeRegistry } from "@/knowledge/pack-loader";
+import type { KnowledgeRegistry } from "@/knowledge/registry";
 import type { Chart, Reading, Report, ReportSection, TechnicalAppendix } from "@/types";
 
 const PLANET_GLYPHS: Readonly<Record<string, string>> = {
@@ -69,6 +71,64 @@ function sectionFromReading(
 
 export type ReportEdits = Readonly<Record<string, readonly string[]>>;
 
+function glossaryDefinition(registry: KnowledgeRegistry, key: string): string | undefined {
+  const resolution = registry.resolve(key);
+  if (resolution.status !== "resolved") return undefined;
+  const identity = resolution.record.modules.identity;
+  if (typeof identity !== "object" || identity === null || Array.isArray(identity)) return undefined;
+  const fn = (identity as Record<string, unknown>).canonicalFunction;
+  if (typeof fn === "string" && fn.length > 0) return fn.charAt(0).toUpperCase() + fn.slice(1) + ".";
+  const domains = (identity as Record<string, unknown>).coreDomains;
+  if (Array.isArray(domains) && domains.length > 0) {
+    return `Carries the domains of ${domains.slice(0, 3).join(", ").replace(/_/g, " ")}.`;
+  }
+  return undefined;
+}
+
+function slugify(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "_");
+}
+
+/** Glossary of every term this chart actually uses, from the knowledge base. */
+export function buildGlossaryForChart(chart: Chart): { term: string; definition: string }[] {
+  const registry = createCoreKnowledgeRegistry();
+  const entries: { term: string; definition: string }[] = [];
+  const seen = new Set<string>();
+  const push = (term: string, key: string) => {
+    if (seen.has(key)) return;
+    seen.add(key);
+    const definition = glossaryDefinition(registry, key);
+    if (definition !== undefined) entries.push({ term, definition });
+  };
+  for (const p of chart.planets) push(p.planet, `planets/${slugify(p.planet)}`);
+  for (const p of chart.planets) push(p.sign, `signs/${slugify(p.sign)}`);
+  for (const h of chart.houses) push(`House ${h.number}`, `houses/house_${h.number}`);
+  for (const a of chart.angles) {
+    const names: Record<string, [string, string]> = {
+      ASC: ["Ascendant (ASC)", "angles/ascendant"],
+      MC: ["Midheaven (MC)", "angles/midheaven"],
+      DC: ["Descendant (DC)", "angles/descendant"],
+      IC: ["Imum Coeli (IC)", "angles/imum_coeli"],
+    };
+    const hit = names[a.point];
+    if (hit) push(hit[0], hit[1]);
+  }
+  for (const p of chart.points ?? []) {
+    const keys: Record<string, string> = {
+      Chiron: "points/chiron", Lilith: "points/lilith",
+      "North Node": "points/north_node", "South Node": "points/south_node",
+      Vertex: "angles/vertex",
+    };
+    if (keys[p.point]) push(p.point, keys[p.point]);
+  }
+  const aspectTypes = new Set(chart.aspects.map((a) => a.type));
+  for (const type of aspectTypes) push(type.charAt(0).toUpperCase() + type.slice(1), `aspects/${type}`);
+  if (chart.planets.some((p) => p.retrograde) || (chart.points ?? []).some((p) => p.retrograde)) {
+    push("Retrograde (℞)", "conditions/retrograde");
+  }
+  return entries;
+}
+
 /** Assemble the report from the chart and its (possibly partial) readings. */
 export function buildReport(
   chart: Chart,
@@ -101,5 +161,6 @@ export function buildReport(
     format: "A4 · Print / PDF",
     sections,
     appendix: buildAppendix(chart),
+    glossary: buildGlossaryForChart(chart),
   };
 }

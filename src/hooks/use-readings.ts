@@ -2,6 +2,16 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ReadingService } from "@/services/reading-service";
+import { getReadingLanguage } from "@/lib/reading-prefs";
+import { notify } from "@/components/common/toaster";
+
+function await_import_free_language(): string {
+  try {
+    return getReadingLanguage();
+  } catch {
+    return "en";
+  }
+}
 import type { WritingStyle } from "@/types";
 
 export const readingKeys = {
@@ -40,8 +50,15 @@ export function useRegenerateReading(chartId: string, slug: string) {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (style: WritingStyle) =>
-      ReadingService.regenerateReading(chartId, slug, style),
+      ReadingService.regenerateReading(
+        chartId,
+        slug,
+        style,
+        // Preference is browser-side; hooks always run client-side.
+        (await_import_free_language()),
+      ),
     onSuccess: (reading) => {
+      notify(`${reading.title} reading generated.`);
       // Without this, the freshly generated reading never reached the
       // screen — the mutation succeeded but the page kept the scaffold.
       queryClient.setQueryData(readingKeys.detail(chartId, slug), reading);

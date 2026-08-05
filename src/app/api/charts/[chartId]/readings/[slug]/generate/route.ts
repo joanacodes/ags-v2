@@ -13,12 +13,15 @@ export async function POST(
   { params }: { params: { chartId: string; slug: string } },
 ) {
   try {
-    const body = (await request.json().catch(() => ({}))) as { style?: string };
+    const body = (await request.json().catch(() => ({}))) as { style?: string; language?: string };
     const style = ["clinical", "poetic", "conversational"].includes(body.style ?? "")
       ? (body.style as string)
       : "clinical";
+    const language = ["en", "fr", "es", "pt", "de", "it"].includes(body.language ?? "")
+      ? (body.language as string)
+      : "en";
     const chart = await ChartsStore.getChart(params.chartId);
-    const outcome = await generateDomainReading(chart, params.slug, style);
+    const outcome = await generateDomainReading(chart, params.slug, style, language);
     if (outcome.status === "ok") {
       await ReadingsStore.saveReading(chart, outcome.reading);
       return NextResponse.json(outcome.reading);

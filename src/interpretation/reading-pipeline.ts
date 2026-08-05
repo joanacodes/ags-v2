@@ -230,16 +230,26 @@ const STYLE_INSTRUCTIONS: Readonly<Record<string, string>> = {
     "STYLE: conversational — relaxed, direct, like a knowledgeable friend explaining over coffee. Contractions welcome; precision still mandatory.",
 };
 
+const LANGUAGE_NAMES: Readonly<Record<string, string>> = {
+  en: "English", fr: "French", es: "Spanish", pt: "Portuguese", de: "German", it: "Italian",
+};
+
 function buildUserPrompt(
   personName: string,
   domain: ReadingDomainDefinition,
   groups: readonly ComposedGroup[],
   style: string,
+  language: string,
 ): string {
   const lines: string[] = [];
   lines.push(`Reading domain: ${domain.title}`);
   lines.push(`Subject: ${personName}`);
   lines.push(STYLE_INSTRUCTIONS[style] ?? STYLE_INSTRUCTIONS.clinical);
+  const langName = LANGUAGE_NAMES[language] ?? "English";
+  lines.push(
+    `OUTPUT LANGUAGE: write every heading, paragraph, example, and pull quote in ${langName}. ` +
+    "Keep planet, sign, and house names in their conventional form for that language.",
+  );
   if (domain.promptFocus !== undefined) {
     lines.push(`Domain guidance: ${domain.promptFocus}`);
   }
@@ -294,6 +304,7 @@ async function callReadingAi(
   domain: ReadingDomainDefinition,
   groups: readonly ComposedGroup[],
   style: string,
+  language: string,
 ): Promise<AiResult> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (apiKey === undefined || apiKey.length === 0) return { status: "no_api_key" };
@@ -301,7 +312,7 @@ async function callReadingAi(
     model: MODEL,
     max_tokens: 6000,
     system: TEACHING_SYSTEM_PROMPT,
-    messages: [{ role: "user", content: buildUserPrompt(personName, domain, groups, style) }],
+    messages: [{ role: "user", content: buildUserPrompt(personName, domain, groups, style, language) }],
   };
   // One retry on invalid JSON — structure corruption is rare but cheap to absorb.
   for (let attempt = 0; attempt < 2; attempt += 1) {
@@ -398,6 +409,7 @@ export async function generateDomainReading(
   chart: Chart,
   slug: string,
   style: string = "clinical",
+  language: string = "en",
 ): Promise<GeneratedReadingOutcome> {
   const domain = getDomain(slug);
   if (domain === undefined) return { status: "provider_error", message: `Unknown domain "${slug}".` };
@@ -411,7 +423,7 @@ export async function generateDomainReading(
     .filter((g) => g.items.length > 0);
 
   const personName = `${chart.person.firstName} ${chart.person.lastName}`.trim();
-  const ai = await callReadingAi(personName, domain, groups, style);
+  const ai = await callReadingAi(personName, domain, groups, style, language);
   if (ai.status !== "ok") return ai;
 
   const factors = buildChartFactors(domainMatches);

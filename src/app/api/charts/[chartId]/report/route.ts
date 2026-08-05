@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 import reportJson from "@/data/sample-report.json";
 import { ChartsStore } from "@/server/charts-store";
 import { ReadingsStore, ReportEditsStore } from "@/server/readings-store";
-import { buildReport } from "@/server/report-builder";
+import { buildGlossaryForChart, buildReport } from "@/server/report-builder";
 import type { Report } from "@/types";
 
 const demoReport = reportJson.report as Report;
@@ -16,7 +16,8 @@ export async function GET(
 ) {
   try {
     if (params.chartId === demoReport.chartId) {
-      return NextResponse.json(demoReport);
+      const demoChart = await ChartsStore.getChart(params.chartId);
+      return NextResponse.json({ ...demoReport, glossary: buildGlossaryForChart(demoChart) });
     }
     const chart = await ChartsStore.getChart(params.chartId);
     const readings = await ReadingsStore.listReadings(chart);

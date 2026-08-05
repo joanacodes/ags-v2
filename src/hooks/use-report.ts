@@ -2,6 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ReportService } from "@/services/report-service";
+import { notify } from "@/components/common/toaster";
 import { SettingsService } from "@/services/settings-service";
 import type { ExportFormat, ReportSettings } from "@/types";
 
@@ -48,6 +49,7 @@ export function useSaveSectionEdit(chartId: string) {
     mutationFn: ({ sectionId, paragraphs }: { sectionId: string; paragraphs: string[] }) =>
       ReportService.saveSectionEdit(chartId, sectionId, paragraphs),
     onSuccess: () => {
+      notify("Section edits saved with this chart.");
       void queryClient.invalidateQueries({ queryKey: reportKeys.detail(chartId) });
     },
   });

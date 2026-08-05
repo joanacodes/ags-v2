@@ -37,7 +37,7 @@ export function EditableSection({
             setDraft((section.paragraphs ?? []).join("\n\n"));
             setEditing(true);
           }}
-          className="absolute right-0 top-0 inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-xs text-ink-muted opacity-0 transition-opacity hover:border-line-strong hover:text-ink focus-visible:opacity-100 group-hover:opacity-100 print:hidden"
+          className="absolute right-0 top-0 inline-flex items-center gap-1.5 rounded-lg border border-line px-2.5 py-1.5 text-xs text-ink-muted opacity-100 transition-opacity hover:border-line-strong hover:text-ink lg:opacity-0 lg:focus-visible:opacity-100 lg:group-hover:opacity-100 print:hidden"
         >
           <PencilLine size={12} />
           Edit

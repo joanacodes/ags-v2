@@ -2,6 +2,7 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ChartService } from "@/services/chart-service";
+import { notify } from "@/components/common/toaster";
 
 export const chartKeys = {
   all: ["charts"] as const,
@@ -40,7 +41,13 @@ export function useCreateChart() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: ChartService.createChart,
-    onSuccess: () => {
+    onSuccess: (result) => {
+      notify(
+        result.persisted
+          ? "Chart saved to your account."
+          : "Chart created — session only (see the notice).",
+        result.persisted ? "success" : "info",
+      );
       queryClient.invalidateQueries({ queryKey: chartKeys.all });
     },
   });
