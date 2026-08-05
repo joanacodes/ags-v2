@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "trine_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "trine",
+  "content": {
+    "verbs": [
+      "facilitates",
+      "harmonizes",
+      "reinforces",
+      "coordinates"
+    ],
+    "templates": [
+      "{A} and {B} reinforce one another.",
+      "{A} flows naturally with {B}."
+    ]
+  }
+}

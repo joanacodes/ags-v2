@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "duodecile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "duodecile",
+  "content": {
+    "verbs": [
+      "refines",
+      "harmonizes",
+      "integrates",
+      "divides"
+    ],
+    "templates": [
+      "{A} refines subtle expression through interaction with {B}.",
+      "{A} and {B} integrate through harmonic differentiation."
+    ]
+  }
+}

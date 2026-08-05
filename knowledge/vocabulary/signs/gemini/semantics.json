@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "gemini_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "modifier",
+  "parentObject": "gemini",
+  "content": {
+    "domains": {
+      "differentiation": "Separates meaningful distinctions.",
+      "comparison": "Evaluates alternatives.",
+      "connection": "Links otherwise separate elements.",
+      "exchange": "Supports reciprocal information movement.",
+      "adaptation": "Adjusts according to changing conditions.",
+      "variation": "Allows multiple approaches.",
+      "curiosity": "Encourages exploration.",
+      "information_flow": "Maintains movement of information.",
+      "multiplicity": "Supports concurrent perspectives.",
+      "responsive_pacing": "Adjusts tempo to context."
+    },
+    "boundaries": [
+      "Adaptation is not inconsistency.",
+      "Multiplicity is not duplicity.",
+      "Curiosity is not gossip.",
+      "Variation is not indecision."
+    ]
+  }
+}

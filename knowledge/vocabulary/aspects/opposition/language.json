@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "opposition_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "opposition",
+  "content": {
+    "verbs": [
+      "balances",
+      "contrasts",
+      "polarizes",
+      "integrates"
+    ],
+    "templates": [
+      "{A} is balanced through {B}.",
+      "{A} and {B} form a polarity requiring integration."
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_expression",
+  "moduleType": "expression",
+  "grammarRole": "canonical_function",
+  "parentObject": "pluto",
+  "content": {
+    "families": [
+      {
+        "id": "transformation",
+        "components": [
+          "enables transformation",
+          "supports renewal"
+        ]
+      },
+      {
+        "id": "regeneration",
+        "components": [
+          "regenerates after release"
+        ]
+      },
+      {
+        "id": "empowerment",
+        "components": [
+          "cultivates authentic agency"
+        ]
+      },
+      {
+        "id": "integration",
+        "components": [
+          "integrates deep psychological material"
+        ]
+      },
+      {
+        "id": "evolution",
+        "components": [
+          "supports evolutionary growth"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "sign": "Modifies style only.",
+      "house": "Provides context only.",
+      "aspect": "Creates canonical relations.",
+      "dignity": "Changes condition only."
+    },
+    "constraints": [
+      "Pluto remains the acting canonical function.",
+      "Expressions are compositional, not interpretations."
+    ]
+  }
+}

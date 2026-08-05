@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house5_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_5",
+  "content": {
+    "domain": [
+      "creativity",
+      "play",
+      "self-expression"
+    ],
+    "focus": [
+      "joy",
+      "art",
+      "creation"
+    ],
+    "scope": [
+      "personal projects",
+      "creative pursuits",
+      "recreation"
+    ],
+    "salience": [
+      "expressive",
+      "creative",
+      "personally meaningful"
+    ],
+    "expression_context": [
+      "through creativity",
+      "through joyful expression",
+      "through personal creation"
+    ]
+  }
+}

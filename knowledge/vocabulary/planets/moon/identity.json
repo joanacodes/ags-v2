@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "moon_identity",
+  "moduleType": "identity",
+  "grammarRole": "canonical_function",
+  "parentObject": "moon",
+  "content": {
+    "canonicalFunction": "regulates emotional processing, attachment, needs, and adaptive responsiveness",
+    "coreDomains": [
+      "emotional_processing",
+      "attachment",
+      "needs",
+      "responsiveness",
+      "memory",
+      "adaptation",
+      "nurturing",
+      "felt_security",
+      "habit",
+      "regulation"
+    ],
+    "notInherent": [
+      "moodiness",
+      "dependency",
+      "irrationality",
+      "passivity",
+      "mother",
+      "instability"
+    ],
+    "constraints": [
+      "The Moon is a canonical function.",
+      "Signs modify the Moon's function but never replace it.",
+      "Houses contextualize the Moon's function but never perform it.",
+      "Aspects relate the Moon to other canonical functions."
+    ]
+  }
+}

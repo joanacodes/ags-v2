@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biseptile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "biseptile",
+  "content": {
+    "families": [
+      {
+        "id": "recursive_differentiation",
+        "components": [
+          "reveals recursive distinctions",
+          "supports adaptive branching"
+        ]
+      },
+      {
+        "id": "distributed_coordination",
+        "components": [
+          "coordinates distributed patterns",
+          "organizes nonlinear relationships"
+        ]
+      },
+      {
+        "id": "pattern_evolution",
+        "components": [
+          "supports evolving structures",
+          "integrates recursive development"
+        ]
+      },
+      {
+        "id": "higher_order_emergence",
+        "components": [
+          "stabilizes emergent organization",
+          "encourages systemic refinement"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

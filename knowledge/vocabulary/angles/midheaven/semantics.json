@@ -1,0 +1,29 @@
+{
+  "domains": [
+    {
+      "id": "actualization",
+      "definition": "Bringing capacities into observable participation."
+    },
+    {
+      "id": "public_role",
+      "definition": "Structured participation within a wider social context."
+    },
+    {
+      "id": "responsibility",
+      "definition": "Accepting and sustaining visible obligations."
+    },
+    {
+      "id": "contribution",
+      "definition": "Creating value beyond immediate personal concerns."
+    },
+    {
+      "id": "visibility",
+      "definition": "Observable expression without implying fame."
+    }
+  ],
+  "rules": [
+    "Actualization does not guarantee recognition.",
+    "Visibility is not fame.",
+    "Contribution may occur without status."
+  ]
+}

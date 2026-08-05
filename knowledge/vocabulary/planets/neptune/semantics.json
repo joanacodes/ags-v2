@@ -1,0 +1,21 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "canonical_function",
+  "parentObject": "neptune",
+  "content": {
+    "domains": {
+      "imagination": "Generation of novel symbolic possibilities.",
+      "transcendence": "Movement beyond limiting frames.",
+      "compassion": "Empathic concern for others.",
+      "symbolic_perception": "Recognition of symbolic meaning.",
+      "inspiration": "Creative and intuitive emergence."
+    },
+    "boundaries": [
+      "Compassion is not self-erasure.",
+      "Idealization is not delusion.",
+      "Transcendence is not escapism."
+    ]
+  }
+}

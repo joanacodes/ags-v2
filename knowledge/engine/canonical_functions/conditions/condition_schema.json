@@ -1,0 +1,12 @@
+{
+  "input": [
+    "canonical_function",
+    "condition_type",
+    "context"
+  ],
+  "output": [
+    "expression_state",
+    "functional_availability",
+    "adaptation_mode"
+  ]
+}

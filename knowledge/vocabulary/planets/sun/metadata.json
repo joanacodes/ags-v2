@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sun_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "canonical_function",
+  "parentObject": "sun",
+  "content": {
+    "canonicalId": "sun",
+    "displayName": "Sun",
+    "ontologyClass": "planet",
+    "grammarRole": "canonical_function",
+    "semanticClass": "identity_vitality_function",
+    "canonicalQuestion": "What function organizes identity, vitality, purpose, and coherent self-expression?"
+  }
+}

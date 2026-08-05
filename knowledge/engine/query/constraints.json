@@ -1,0 +1,8 @@
+{
+  "rules": [
+    "Do not skip ontology resolution.",
+    "Do not produce deterministic predictions.",
+    "Maintain relational interpretation.",
+    "Preserve uncertainty and context."
+  ]
+}

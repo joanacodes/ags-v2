@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house5_development",
+  "moduleType": "development",
+  "grammarRole": "context",
+  "parentObject": "house_5",
+  "content": {
+    "coreRule": "Development changes how functions are experienced within the House 5 context; House 5 remains a context.",
+    "stages": {
+      "unconscious": [
+        "through impulsive self-expression",
+        "within unexamined creative habits"
+      ],
+      "defensive": [
+        "through performative expression",
+        "within approval-seeking creativity"
+      ],
+      "learning": [
+        "through developing creative confidence",
+        "within intentional play"
+      ],
+      "healthy": [
+        "through authentic self-expression",
+        "within joyful creativity"
+      ],
+      "integrated": [
+        "through generative creativity",
+        "within life-affirming expression"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Creative context never implies vanity."
+    ]
+  }
+}

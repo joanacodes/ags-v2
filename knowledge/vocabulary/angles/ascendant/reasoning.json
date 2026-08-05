@@ -1,0 +1,21 @@
+{
+  "id": "ascendant_reasoning",
+  "resolutionOrder": [
+    "Load Ascendant and Descendant",
+    "Resolve Ascendant sign",
+    "Resolve chart ruler",
+    "Resolve house and aspects",
+    "Build orientation clause",
+    "Validate reference-frame constraints"
+  ],
+  "heuristics": [
+    "Orientation precedes planetary action.",
+    "Reference frame is not identity.",
+    "Prefer integration with Descendant."
+  ],
+  "forbiddenInferences": [
+    "Ascendant equals personality.",
+    "Ascendant guarantees appearance.",
+    "Ascendant acts independently."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "chartInputs": [
+    "canonical_functions",
+    "positions",
+    "aspect_relationships",
+    "condition_modifiers",
+    "context_layers"
+  ],
+  "output": [
+    "functional_map",
+    "relationship_network",
+    "developmental_patterns",
+    "expression_summary"
+  ]
+}

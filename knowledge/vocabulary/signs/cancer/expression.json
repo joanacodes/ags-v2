@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "cancer_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "cancer",
+  "content": {
+    "families": [
+      {
+        "id": "protection",
+        "components": [
+          "protectively",
+          "while maintaining safety"
+        ]
+      },
+      {
+        "id": "nurturance",
+        "components": [
+          "through nurturance",
+          "with emphasis on care"
+        ]
+      },
+      {
+        "id": "belonging",
+        "components": [
+          "toward belonging",
+          "through adaptive support"
+        ]
+      },
+      {
+        "id": "continuity",
+        "components": [
+          "while preserving continuity",
+          "responsively"
+        ]
+      },
+      {
+        "id": "adaptive_security",
+        "components": [
+          "through sheltering",
+          "while maintaining safety"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Modify manner, strategy, and regulation only.",
+      "angle": "Modify orientation without changing reference-frame function.",
+      "node": "Support developmental continuity while preserving nodal polarity.",
+      "chiron": "Support healing processes without implying cure."
+    },
+    "constraints": [
+      "Care is not dependency.",
+      "Protection is not control.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

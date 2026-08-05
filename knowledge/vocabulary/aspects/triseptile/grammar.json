@@ -1,0 +1,23 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "triseptile_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "relational_operator",
+  "parentObject": "triseptile",
+  "content": {
+    "operator": "A \u29c9 B -> recursive_convergence_process",
+    "operands": [
+      "planet",
+      "point"
+    ],
+    "allowedModifiers": [
+      "orb",
+      "applying_separating",
+      "sign",
+      "house"
+    ],
+    "forbidden": [
+      "Treat triseptile as a planet."
+    ]
+  }
+}

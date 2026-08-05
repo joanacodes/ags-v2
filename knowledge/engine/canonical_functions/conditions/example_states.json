@@ -1,0 +1,14 @@
+{
+  "examples": [
+    {
+      "function": "mercury",
+      "condition": "retrograde",
+      "expression": "reflective_pattern_processing"
+    },
+    {
+      "function": "saturn",
+      "condition": "dignity",
+      "expression": "structured_functional_expression"
+    }
+  ]
+}

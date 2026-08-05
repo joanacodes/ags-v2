@@ -1,0 +1,8 @@
+{
+  "rules": [
+    "Avoid deterministic predictions.",
+    "Avoid fixed personality labels.",
+    "Preserve functional complexity.",
+    "Maintain relational interpretation."
+  ]
+}

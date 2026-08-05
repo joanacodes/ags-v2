@@ -1,0 +1,26 @@
+{
+  "$schemaVersion": "0.1.0",
+  "type": "axis_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "direction",
+  "parentObject": "nodal_axis",
+  "id": "nodal_axis_grammar",
+  "name": "Nodal Axis Grammar",
+  "content": {
+    "axisRole": "direction",
+    "southNodeRole": "established_reference",
+    "northNodeRole": "developmental_direction",
+    "connectors": [
+      "while developing",
+      "without abandoning",
+      "by integrating",
+      "when overreliance limits"
+    ],
+    "prohibited": [
+      "either Node as a planet",
+      "North Node as outcome",
+      "South Node as defect"
+    ]
+  }
+}

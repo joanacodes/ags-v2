@@ -1,0 +1,9 @@
+{
+  "id": "imum_coeli_changelog",
+  "version": "0.1.0",
+  "changes": [
+    "Canonized Imum Coeli → root.",
+    "Completed Imum Coeli ontology.",
+    "Completed Midheaven–Imum Coeli reference-frame axis."
+  ]
+}

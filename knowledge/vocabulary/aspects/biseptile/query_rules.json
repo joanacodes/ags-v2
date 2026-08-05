@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biseptile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "biseptile",
+  "content": {
+    "defaultOperator": "recursive_differentiation_operator",
+    "supportedQueries": {
+      "identity": [
+        "recursive_differentiation",
+        "distributed_coordination"
+      ],
+      "relationship": [
+        "pattern_evolution",
+        "higher_order_emergence"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Biseptile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

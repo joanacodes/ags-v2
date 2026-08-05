@@ -1,0 +1,23 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sesquiquadrate_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "relational_operator",
+  "parentObject": "sesquiquadrate",
+  "content": {
+    "operator": "A \u26bc B -> compound_friction_process",
+    "operands": [
+      "planet",
+      "point"
+    ],
+    "allowedModifiers": [
+      "orb",
+      "applying_separating",
+      "sign",
+      "house"
+    ],
+    "forbidden": [
+      "Treat sesquiquadrate as a planet."
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "canonical_function",
+  "parentObject": "saturn",
+  "content": {
+    "resolutionOrder": [
+      "Load Saturn canonical function",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity modifiers",
+      "Apply aspect relations",
+      "Validate Saturn function unchanged",
+      "Generate semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "function": "structure",
+      "process": "responsibility",
+      "goal": "discipline",
+      "output": "mastery",
+      "salience": "enduring"
+    },
+    "compositionRules": [
+      "Saturn remains the canonical function.",
+      "Signs modify expression only.",
+      "Houses provide context only.",
+      "Aspects create relations only.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer sustainable structure over rigidity.",
+      "Prefer accountability over blame.",
+      "Return an empty result rather than invent semantics."
+    ],
+    "forbiddenInferences": [
+      "Saturn is replaced by a sign.",
+      "Saturn becomes a house.",
+      "Saturn inherently predicts suffering or failure."
+    ]
+  }
+}

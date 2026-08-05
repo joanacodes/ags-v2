@@ -1,0 +1,10 @@
+{
+  "steps": [
+    "Receive raw chart data",
+    "Validate input completeness",
+    "Calculate astronomical positions",
+    "Generate angular relationships",
+    "Map relationships to aspect operators",
+    "Pass data to interpretation engines"
+  ]
+}

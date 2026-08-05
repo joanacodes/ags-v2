@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "virgo_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "virgo",
+  "content": {
+    "defaultModifierSet": [
+      "virgo_manner_precisely",
+      "virgo_strategy_refinement",
+      "virgo_priority_quality"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "refinement",
+        "discernment"
+      ],
+      "relationships": [
+        "calibration",
+        "functional_order"
+      ],
+      "work": [
+        "optimization",
+        "quality_assurance"
+      ],
+      "health": [
+        "maintenance",
+        "precision"
+      ],
+      "transits": [
+        "incremental_improvement",
+        "analysis"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'precisely' as the neutral manner.",
+      "Prefer 'through refinement' as the neutral strategy.",
+      "Suppress unnecessary analysis when incompatible with the target.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

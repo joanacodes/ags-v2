@@ -1,0 +1,116 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_identity",
+  "name": "Aries Identity",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Aries as an initiating modifier through element, modality, polarity, orientation, pace, strategy, and semantic boundaries.",
+  "grammarRole": "modifier",
+  "compliesWith": [
+    "LAW-002",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ags_sign_blueprint",
+    "ags_semantic_principles"
+  ],
+  "priority": 10,
+  "tags": [
+    "aries",
+    "identity",
+    "sign",
+    "modifier"
+  ],
+  "parentObject": "aries",
+  "moduleType": "identity",
+  "content": {
+    "ontology": {
+      "class": "sign",
+      "grammarRole": "modifier",
+      "semanticClass": "initiating_modifier"
+    },
+    "zodiacStructure": {
+      "element": "fire",
+      "modality": "cardinal",
+      "polarity": "active",
+      "seasonalPosition": "first_sign",
+      "rulerReferences": [
+        "mars"
+      ]
+    },
+    "coreModifierIdentity": {
+      "orientation": "toward initiation and self-directed movement",
+      "defaultPace": "rapid",
+      "defaultStrategy": "begin, test, and establish momentum",
+      "attentionPattern": "detects openings, obstacles, immediate priorities, and opportunities for first action",
+      "motivationPattern": "mobilize energy through autonomy, immediacy, challenge, and direct engagement"
+    },
+    "functionalContribution": {
+      "supplies": [
+        "initiative",
+        "directness",
+        "immediacy",
+        "independence",
+        "assertion",
+        "courage",
+        "experimentation through action",
+        "first movement",
+        "competitive activation",
+        "self-definition"
+      ],
+      "doesNotSupply": [
+        "the primary planetary action",
+        "a life domain",
+        "an aspect relationship",
+        "a timing activation",
+        "a finished interpretation"
+      ]
+    },
+    "semanticBoundaries": [
+      {
+        "neighbor": "leo",
+        "distinction": "Aries initiates and tests individual action; Leo sustains personal expression, visibility, and creative centrality."
+      },
+      {
+        "neighbor": "sagittarius",
+        "distinction": "Aries begins through immediate action; Sagittarius extends action through meaning, exploration, and broader direction."
+      },
+      {
+        "neighbor": "libra",
+        "distinction": "Aries prioritizes autonomous initiation; Libra prioritizes relational calibration, balance, and agreement."
+      },
+      {
+        "neighbor": "capricorn",
+        "distinction": "Both are cardinal, but Aries initiates rapidly and directly while Capricorn initiates strategically through structure and long-range control."
+      },
+      {
+        "neighbor": "mars",
+        "distinction": "Mars supplies the action verb; Aries modifies a function with directness, immediacy, initiative, and autonomous momentum."
+      }
+    ],
+    "identityConstraints": [
+      "Aries may modify a planetary verb but may not become the verb.",
+      "Aries may describe pace, strategy, orientation, or style.",
+      "Aries may not be reduced to anger, aggression, or impulsiveness.",
+      "Aries may not be treated as a complete personality description.",
+      "Aries components must remain reusable across all planetary functions."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only sign vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Aries identity module."
+    }
+  ]
+}

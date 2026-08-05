@@ -1,0 +1,67 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_changelog",
+  "name": "North Node Changelog",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines the North Node ontology version history and future work.",
+  "grammarRole": "developmental_direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "north_node_metadata"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "changelog",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "changelog",
+  "content": {
+    "object": "north_node",
+    "history": [
+      {
+        "version": "0.1.0",
+        "date": "2026-07-16",
+        "changes": [
+          "Established `develop` as the North Node canonical primary verb.",
+          "Defined the North Node as developmental direction rather than destiny.",
+          "Required explicit South Node reference in all directional resolution.",
+          "Completed identity, grammar, language, semantics, psychology, development, expression, query, reasoning, and test architecture.",
+          "Added fatalism, moral-ranking, and South-Node-abandonment regression protections."
+        ]
+      }
+    ],
+    "nextPlannedModules": [
+      "South Node full ontology",
+      "Nodal axis integration refinements",
+      "Nodal return timing ontology",
+      "Localization mappings"
+    ]
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Developmental-direction vocabulary only. No destiny, fate, moral ranking, or guaranteed outcome claims are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node changelog module."
+    }
+  ]
+}

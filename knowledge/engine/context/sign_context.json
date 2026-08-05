@@ -1,0 +1,18 @@
+{
+  "principles": [
+    "Signs describe style of expression, not fixed outcomes.",
+    "Element describes mode of engagement.",
+    "Modality describes behavioral orientation."
+  ],
+  "elements": [
+    "fire",
+    "earth",
+    "air",
+    "water"
+  ],
+  "modalities": [
+    "cardinal",
+    "fixed",
+    "mutable"
+  ]
+}

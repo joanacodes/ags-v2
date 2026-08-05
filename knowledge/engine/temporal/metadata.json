@@ -1,0 +1,6 @@
+{
+  "id": "temporal_analysis_engine",
+  "moduleType": "time_context_reasoning_layer",
+  "version": "0.1.0",
+  "purpose": "Add timing and activation analysis while preserving relational interpretation."
+}

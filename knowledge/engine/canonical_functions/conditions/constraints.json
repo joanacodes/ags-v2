@@ -1,0 +1,7 @@
+{
+  "rules": [
+    "Avoid deterministic outcomes.",
+    "Avoid universal positive or negative labels.",
+    "Preserve canonical function identity."
+  ]
+}

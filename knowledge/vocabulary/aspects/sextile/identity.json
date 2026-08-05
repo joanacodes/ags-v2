@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sextile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "sextile",
+  "content": {
+    "canonicalFunction": "relates canonical functions through opportunity, cooperation, and responsive activation",
+    "coreDomains": [
+      "opportunity",
+      "cooperation",
+      "responsiveness",
+      "activation",
+      "collaboration",
+      "potential"
+    ],
+    "notInherent": [
+      "automatic_success",
+      "luck",
+      "passivity",
+      "beneficence"
+    ],
+    "constraints": [
+      "Sextile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

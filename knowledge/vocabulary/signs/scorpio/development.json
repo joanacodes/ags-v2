@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "scorpio_development",
+  "moduleType": "development",
+  "grammarRole": "modifier",
+  "parentObject": "scorpio",
+  "content": {
+    "coreRule": "Development changes how Scorpio modifiers transform and integrate; Scorpio remains a modifier.",
+    "stages": {
+      "unconscious": [
+        "automatically investigating",
+        "through habitual intensity"
+      ],
+      "defensive": [
+        "over-intensely",
+        "through excessive control"
+      ],
+      "learning": [
+        "deliberately",
+        "through investigation"
+      ],
+      "healthy": [
+        "deeply",
+        "through transformation"
+      ],
+      "integrated": [
+        "context-responsively",
+        "through adaptive regeneration"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Transformation never implies destruction."
+    ]
+  }
+}

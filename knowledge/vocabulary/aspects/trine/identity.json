@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "trine_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "trine",
+  "content": {
+    "canonicalFunction": "relates canonical functions through facilitative flow while preserving their identities",
+    "coreDomains": [
+      "flow",
+      "facilitation",
+      "reinforcement",
+      "coordination",
+      "ease",
+      "coherence"
+    ],
+    "notInherent": [
+      "luck",
+      "passivity",
+      "automatic_success",
+      "beneficence"
+    ],
+    "constraints": [
+      "Trine never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

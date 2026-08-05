@@ -1,0 +1,15 @@
+{
+  "id": "descendant_tests",
+  "cases": [
+    "Primary verb defaults to relate",
+    "Require Ascendant pairing",
+    "Reject partnership prediction",
+    "Reject finished Descendant-sign interpretation",
+    "Preserve reference-frame ontology"
+  ],
+  "regressions": [
+    "Relating != submission",
+    "Relationship != outcome",
+    "Angle != planet"
+  ]
+}

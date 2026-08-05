@@ -1,0 +1,6 @@
+{
+  "id": "knowledge_base_integration",
+  "moduleType": "ontology_index_system",
+  "version": "0.1.0",
+  "purpose": "Index and connect AGS ontology modules for retrieval and reasoning."
+}

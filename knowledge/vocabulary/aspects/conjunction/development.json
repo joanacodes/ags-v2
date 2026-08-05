@@ -1,0 +1,30 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "conjunction_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "conjunction",
+  "content": {
+    "coreRule": "Development changes how conjunction is managed, never its relational role.",
+    "stages": {
+      "unconscious": [
+        "fusion without differentiation"
+      ],
+      "defensive": [
+        "over-identification of functions"
+      ],
+      "learning": [
+        "recognizing distinct functions within co-activation"
+      ],
+      "healthy": [
+        "coordinated integration"
+      ],
+      "integrated": [
+        "stable co-activation preserving each function"
+      ]
+    },
+    "constraints": [
+      "Conjunction never becomes a canonical function."
+    ]
+  }
+}

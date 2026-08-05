@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "decile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "decile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through creative potential, specialized expression, and refined development.",
+    "coreDomains": [
+      "creativity",
+      "potential",
+      "specialization",
+      "expression",
+      "refinement",
+      "development"
+    ],
+    "notInherent": [
+      "talent guarantee",
+      "superiority",
+      "destiny",
+      "beneficence"
+    ],
+    "constraints": [
+      "Decile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

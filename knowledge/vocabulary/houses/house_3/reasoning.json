@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house3_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "context",
+  "parentObject": "house_3",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm House 3 is a context",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible contextual components",
+      "Apply sign, degree, and dignity modifiers",
+      "Validate canonical function unchanged",
+      "Generate contextual semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "domain": "communication",
+      "focus": "learning",
+      "expression_context": "through information exchange",
+      "salience": "locally relevant"
+    },
+    "compositionRules": [
+      "House 3 provides context but never performs actions.",
+      "Planets retain canonical functions.",
+      "Signs modify functions before contextual placement.",
+      "Houses provide experiential context only.",
+      "Aspects remain relational operators.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer communication over gossip.",
+      "Prefer learning over assumptions about intelligence.",
+      "Prefer curiosity over restlessness.",
+      "Return an empty context set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "House 3 creates intelligence.",
+      "House 3 implies gossip.",
+      "House 3 replaces the target function."
+    ]
+  }
+}

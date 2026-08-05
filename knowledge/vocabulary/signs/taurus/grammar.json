@@ -1,0 +1,74 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "taurus_grammar",
+  "name": "Taurus Grammar",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines allowed grammatical roles, attachment patterns, and forbidden constructions.",
+  "grammarRole": "modifier",
+  "parentObject": "taurus",
+  "moduleType": "grammar",
+  "dependsOn": [
+    "taurus_identity",
+    "ags_sign_blueprint"
+  ],
+  "content": {
+    "allowedModifierTypes": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "allowedPatterns": [
+      "[target_function] steadily",
+      "[target_function] through consolidation",
+      "[target_function] gradually",
+      "[target_function] toward continuity",
+      "[target_function] with emphasis on preservation",
+      "[target_function] while maintaining stability",
+      "[target_function] through repeated reinforcement"
+    ],
+    "forbiddenRoles": [
+      "subject",
+      "verb",
+      "house",
+      "aspect",
+      "planet",
+      "outcome",
+      "personality"
+    ],
+    "forbiddenPatterns": [
+      "Taurus acts.",
+      "Taurus stabilizes.",
+      "Taurus causes wealth.",
+      "Taurus makes people patient.",
+      "Taurus always moves slowly.",
+      "Venus in Taurus loves luxury."
+    ],
+    "compositionRules": [
+      "Load the target object's canonical function first.",
+      "Attach Taurus only as a modifier.",
+      "Do not change the target verb.",
+      "Use no more than one Taurus component per modifier slot unless stacking is explicitly enabled.",
+      "Reject any phrase that completes a placement interpretation inside the sign layer.",
+      "Return an empty modifier set when no compatible component exists."
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Taurus grammar module."
+    }
+  ]
+}

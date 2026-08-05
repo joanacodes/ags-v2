@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_language",
+  "moduleType": "language",
+  "grammarRole": "canonical_function",
+  "parentObject": "pluto",
+  "content": {
+    "function": [
+      "transforms",
+      "regenerates",
+      "empowers",
+      "eliminates obsolete structures"
+    ],
+    "process": [
+      "transforming",
+      "renewing",
+      "integrating"
+    ],
+    "orientation": [
+      "deep",
+      "evolutionary"
+    ],
+    "goal": [
+      "renewal",
+      "empowerment"
+    ],
+    "output": [
+      "regeneration",
+      "integration"
+    ],
+    "salience": [
+      "intense",
+      "transformative"
+    ]
+  }
+}

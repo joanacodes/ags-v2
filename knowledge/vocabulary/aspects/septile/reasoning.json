@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "septile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Septile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate recursive pattern emergence semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Septile introduces recursive pattern emergence without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer recursive organization over deterministic outcomes.",
+      "Interpret recursive patterns through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Septile is inherently fated or magical.",
+      "Septile guarantees destiny.",
+      "Septile replaces planetary functions."
+    ]
+  }
+}

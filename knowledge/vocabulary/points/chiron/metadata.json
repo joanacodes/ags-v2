@@ -1,0 +1,22 @@
+{
+  "objectId": "chiron",
+  "objectType": "centaur",
+  "version": "0.1.0",
+  "modules": [
+    "metadata",
+    "identity",
+    "grammar",
+    "language",
+    "semantics"
+  ],
+  "plannedRemaining": [
+    "psychology",
+    "development",
+    "expression",
+    "query_rules",
+    "reasoning",
+    "tests",
+    "changelog"
+  ],
+  "primaryVerbCandidate": "adapt"
+}

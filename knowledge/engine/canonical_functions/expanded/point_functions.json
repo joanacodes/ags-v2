@@ -1,0 +1,36 @@
+{
+  "functions": {
+    "ascendant": {
+      "coreFunction": "interface_expression",
+      "domains": [
+        "presentation",
+        "orientation",
+        "engagement"
+      ]
+    },
+    "midheaven": {
+      "coreFunction": "public_direction",
+      "domains": [
+        "trajectory",
+        "social expression",
+        "achievement"
+      ]
+    },
+    "north_node": {
+      "coreFunction": "developmental_vector",
+      "domains": [
+        "growth direction",
+        "learning",
+        "adaptation"
+      ]
+    },
+    "south_node": {
+      "coreFunction": "established_pattern",
+      "domains": [
+        "familiar structures",
+        "prior integration",
+        "habitual expression"
+      ]
+    }
+  }
+}

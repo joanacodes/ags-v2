@@ -1,0 +1,56 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_expression",
+  "moduleType": "expression",
+  "grammarRole": "canonical_function",
+  "parentObject": "saturn",
+  "content": {
+    "families": [
+      {
+        "id": "structure",
+        "components": [
+          "establishes structure",
+          "creates durable frameworks"
+        ]
+      },
+      {
+        "id": "responsibility",
+        "components": [
+          "supports responsibility",
+          "accepts accountability"
+        ]
+      },
+      {
+        "id": "discipline",
+        "components": [
+          "cultivates discipline",
+          "sustains practice"
+        ]
+      },
+      {
+        "id": "boundaries",
+        "components": [
+          "defines healthy boundaries",
+          "maintains limits"
+        ]
+      },
+      {
+        "id": "mastery",
+        "components": [
+          "supports mastery",
+          "integrates long-term learning"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "sign": "Modifies style without replacing Saturn's function.",
+      "house": "Places Saturn's function into experiential context.",
+      "aspect": "Relates Saturn to another canonical function.",
+      "dignity": "Adjusts condition without changing ontology."
+    },
+    "constraints": [
+      "Saturn remains the acting canonical function.",
+      "No expression is a complete interpretation."
+    ]
+  }
+}

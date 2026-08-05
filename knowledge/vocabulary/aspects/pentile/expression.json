@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pentile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "pentile",
+  "content": {
+    "families": [
+      {
+        "id": "creative_potential",
+        "components": [
+          "reveals generative capacity",
+          "supports invention"
+        ]
+      },
+      {
+        "id": "harmonic_expression",
+        "components": [
+          "organizes creative flow",
+          "supports proportion"
+        ]
+      },
+      {
+        "id": "refinement",
+        "components": [
+          "improves technique",
+          "clarifies output"
+        ]
+      },
+      {
+        "id": "synthesis",
+        "components": [
+          "combines functions",
+          "creates integrated expression"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

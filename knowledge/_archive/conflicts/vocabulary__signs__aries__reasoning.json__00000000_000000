@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_reasoning",
+  "name": "Aries Reasoning",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Architectural rationale.",
+  "grammarRole": "modifier",
+  "parentObject": "aries",
+  "moduleType": "reasoning",
+  "content": {
+    "designGoals": [
+      "Signs remain reusable modifier libraries.",
+      "Planet knowledge never lives inside sign objects.",
+      "Semantics are composable instead of interpretive."
+    ],
+    "acceptedDecisions": [
+      "Aries modifies verbs; it never supplies verbs.",
+      "Modifiers reference semantic domains.",
+      "Development affects modifier selection, not sign identity."
+    ],
+    "rejectedAlternatives": [
+      "Prewritten Aries placement meanings",
+      "Planet-specific sign files",
+      "Keyword-only astrology lists"
+    ],
+    "openQuestions": [
+      "Should elements become independent vocabulary objects?",
+      "Should modality have its own ontology?"
+    ]
+  }
+}

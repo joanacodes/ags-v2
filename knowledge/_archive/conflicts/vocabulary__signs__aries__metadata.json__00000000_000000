@@ -1,0 +1,55 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_metadata",
+  "name": "Aries Metadata",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines the Aries package manifest and blueprint reference.",
+  "grammarRole": "modifier",
+  "dependsOn": [
+    "ags_sign_blueprint"
+  ],
+  "parentObject": "aries",
+  "moduleType": "metadata",
+  "content": {
+    "objectId": "aries",
+    "objectName": "Aries",
+    "objectType": "sign",
+    "objectVersion": "0.1.0",
+    "blueprintReference": "ags_sign_blueprint",
+    "element": "fire",
+    "modality": "cardinal",
+    "polarity": "yang",
+    "manifest": [
+      "metadata.json",
+      "identity.json",
+      "grammar.json",
+      "language.json",
+      "semantics.json",
+      "modifier_types.json"
+    ],
+    "plannedRemaining": [
+      "development.json",
+      "expression.json",
+      "query_rules.json",
+      "reasoning.json",
+      "tests.json",
+      "changelog.json"
+    ],
+    "forbiddenContentConfirmed": [
+      "No finished placement interpretations",
+      "No standalone Aries action",
+      "No personality-type reduction",
+      "No deterministic aggression claim",
+      "No moral ranking"
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries metadata module."
+    }
+  ]
+}

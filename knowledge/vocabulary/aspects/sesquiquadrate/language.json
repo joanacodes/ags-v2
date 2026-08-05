@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sesquiquadrate_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "sesquiquadrate",
+  "content": {
+    "verbs": [
+      "restructures",
+      "intensifies",
+      "refines",
+      "adapts"
+    ],
+    "templates": [
+      "{A} and {B} require higher-order restructuring.",
+      "{A} intensifies adaptive refinement with {B}."
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_changelog",
+  "name": "Aries Changelog",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Version history.",
+  "grammarRole": "modifier",
+  "parentObject": "aries",
+  "moduleType": "changelog",
+  "content": {
+    "history": [
+      {
+        "version": "0.1.0",
+        "date": "2026-07-16",
+        "changes": [
+          "Created Aries modifier package",
+          "Separated semantics from interpretation",
+          "Introduced compatibility model",
+          "Completed first reusable sign object"
+        ]
+      }
+    ],
+    "nextMilestones": [
+      "Refine compatibility after engine prototype",
+      "Create Taurus from same blueprint",
+      "Cross-sign validation suite"
+    ]
+  }
+}

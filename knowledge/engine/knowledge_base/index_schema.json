@@ -1,0 +1,9 @@
+{
+  "entries": [
+    "ontology_object",
+    "module_type",
+    "semantic_class",
+    "relationships",
+    "dependencies"
+  ]
+}

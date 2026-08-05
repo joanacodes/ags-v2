@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quincunx_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "quincunx",
+  "content": {
+    "definition": "A Quincunx relates participating canonical functions through adaptive adjustment and recalibration while preserving each function's identity.",
+    "boundaries": [
+      "Adjustment is not failure.",
+      "Recalibration does not replace canonical functions."
+    ]
+  }
+}

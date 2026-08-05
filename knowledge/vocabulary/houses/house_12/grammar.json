@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house12_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "context",
+  "parentObject": "house_12",
+  "content": {
+    "contextSlots": [
+      "domain",
+      "setting",
+      "focus",
+      "scope",
+      "salience",
+      "expression_context"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] in the context of inner life",
+      "[target] through reflection",
+      "[target] within retreat",
+      "[target] through transcendence"
+    ],
+    "forbidden": [
+      "House 12 acts.",
+      "House 12 creates suffering.",
+      "House 12 replaces the target function."
+    ]
+  }
+}

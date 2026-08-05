@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house9_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_9",
+  "content": {
+    "defaultContextSet": [
+      "house9_learning",
+      "house9_exploration",
+      "house9_meaning"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "worldview",
+        "truth_seeking"
+      ],
+      "relationships": [
+        "beliefs",
+        "teaching"
+      ],
+      "work": [
+        "higher_learning",
+        "discovery"
+      ],
+      "health": [
+        "wisdom",
+        "meaning"
+      ],
+      "transits": [
+        "travel",
+        "philosophy"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of higher learning' as the neutral domain.",
+      "Prefer 'through exploration' as the neutral focus.",
+      "Suppress assumptions about certainty or superiority.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

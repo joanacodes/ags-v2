@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_tests",
+  "name": "Aries Tests",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Validation rules.",
+  "grammarRole": "modifier",
+  "parentObject": "aries",
+  "moduleType": "tests",
+  "content": {
+    "mustPass": [
+      "No completed sentences",
+      "No planetary verbs",
+      "No house references",
+      "No aspect references",
+      "Every modifier maps to a semantic domain",
+      "Every compatibility rule has fallback"
+    ],
+    "examples": [
+      {
+        "input": "directly",
+        "valid": true
+      },
+      {
+        "input": "Saturn structures directly through initiative.",
+        "valid": false,
+        "reason": "Sentence belongs to engine"
+      },
+      {
+        "input": "through initiation",
+        "valid": true
+      },
+      {
+        "input": "Aries people are aggressive.",
+        "valid": false,
+        "reason": "Interpretation not vocabulary"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "grammarRole": "verb",
+  "semanticClass": "adaptive_function",
+  "primaryVerb": "adapt",
+  "definition": "Modify functioning in response to a persistent limitation, asymmetry, vulnerability, or constraint without requiring that limitation to disappear.",
+  "functionalAim": "Preserve or improve viability by developing new modes of functioning around enduring constraints.",
+  "functionalContributions": [
+    "adaptation",
+    "compensation",
+    "accommodation",
+    "skill acquisition",
+    "resilience",
+    "practical wisdom",
+    "mentorship through experience",
+    "rehabilitation"
+  ],
+  "doesNotInherentlySupply": [
+    "trauma",
+    "healing",
+    "suffering",
+    "illness",
+    "disability",
+    "victimhood"
+  ],
+  "distinctions": {
+    "saturn": "Structures constraints; Chiron adapts to them.",
+    "uranus": "Reconfigures systems; Chiron adapts within realities.",
+    "neptune": "Permeates boundaries; Chiron adapts to vulnerability.",
+    "pluto": "Regenerates viability; Chiron adapts when limitation persists."
+  },
+  "constraints": [
+    "The wound is context, not identity.",
+    "Healing is one possible outcome, not the primary function."
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_expression",
+  "name": "Aries Expression",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines how Aries modifier components vary across unconscious, defensive, learning, healthy, and integrated stages.",
+  "grammarRole": "modifier",
+  "compliesWith": [
+    "LAW-002",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "aries_identity",
+    "aries_modifiers",
+    "ags_sign_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "aries",
+    "expression",
+    "sign",
+    "modifier"
+  ],
+  "parentObject": "aries",
+  "moduleType": "expression",
+  "content": {
+    "developmentalStages": [
+      {
+        "id": "unconscious",
+        "modifierProfile": {
+          "manner": [
+            "automatically",
+            "immediately",
+            "without extended reflection"
+          ],
+          "strategy": [
+            "through first response",
+            "through habitual self-direction"
+          ],
+          "pace": [
+            "rapidly",
+            "in short bursts"
+          ]
+        },
+        "selectionLimits": [
+          "Do not label the expression immature.",
+          "Do not infer harmful impulsiveness without additional evidence."
+        ]
+      },
+      {
+        "id": "defensive",
+        "modifierProfile": {
+          "manner": [
+            "reactively",
+            "aggressively",
+            "prematurely"
+          ],
+          "strategy": [
+            "through forced independence",
+            "through unnecessary confrontation",
+            "through action before adequate assessment"
+          ],
+          "pace": [
+            "too rapidly for the context",
+            "without sufficient preparation"
+          ]
+        },
+        "selectionLimits": [
+          "Requires an explicit stress, defense, or underdeveloped condition.",
+          "May not be selected from Aries identity alone."
+        ]
+      },
+      {
+        "id": "learning",
+        "modifierProfile": {
+          "manner": [
+            "proactively",
+            "experimentally",
+            "with increasing directness"
+          ],
+          "strategy": [
+            "through active experimentation",
+            "through first-hand experience",
+            "through repeated attempts at self-directed action"
+          ],
+          "pace": [
+            "quickly but with growing attention to feedback"
+          ]
+        },
+        "selectionLimits": [
+          "Use when the composition explicitly frames practice, adaptation, or developmental effort."
+        ]
+      },
+      {
+        "id": "healthy",
+        "modifierProfile": {
+          "manner": [
+            "directly",
+            "courageously",
+            "decisively",
+            "with proportionate assertiveness"
+          ],
+          "strategy": [
+            "through clear initiative",
+            "through direct engagement",
+            "through timely action"
+          ],
+          "pace": [
+            "without unnecessary delay"
+          ]
+        },
+        "selectionLimits": [
+          "Use when no defensive or highly integrated condition is specified."
+        ]
+      },
+      {
+        "id": "integrated",
+        "modifierProfile": {
+          "manner": [
+            "directly and responsively",
+            "with courageous restraint",
+            "with independent judgment and situational awareness"
+          ],
+          "strategy": [
+            "through timely initiative",
+            "through action that remains open to correction",
+            "through autonomy coordinated with context"
+          ],
+          "pace": [
+            "quickly enough to create momentum and slowly enough to incorporate feedback"
+          ]
+        },
+        "selectionLimits": [
+          "Requires an explicit integration or synthesis condition."
+        ]
+      }
+    ],
+    "crossStageRules": [
+      {
+        "id": "ARI-EXP-001",
+        "rule": "The same semantic domain may appear differently across stages."
+      },
+      {
+        "id": "ARI-EXP-002",
+        "rule": "Defensive modifiers may never be used as neutral Aries descriptors."
+      },
+      {
+        "id": "ARI-EXP-003",
+        "rule": "Integrated modifiers must preserve initiative while adding proportion, context awareness, or responsiveness."
+      },
+      {
+        "id": "ARI-EXP-004",
+        "rule": "Expression stages modify modifier selection; they do not change Aries into an actor."
+      }
+    ],
+    "prohibitedStageClaims": [
+      "Aries is immature.",
+      "Aries is aggressive.",
+      "Aries always acts impulsively.",
+      "Integrated Aries never makes mistakes.",
+      "Defensive Aries guarantees conflict."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only sign vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Aries expression module."
+    }
+  ]
+}

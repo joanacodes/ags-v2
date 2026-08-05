@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_changelog",
+  "moduleType": "changelog",
+  "grammarRole": "relational_operator",
+  "parentObject": "septile",
+  "content": {
+    "currentVersion": "0.1.0",
+    "status": "ontology_complete",
+    "completedModules": [
+      "metadata.json",
+      "identity.json",
+      "grammar.json",
+      "language.json",
+      "semantics.json",
+      "modifier_types.json",
+      "development.json",
+      "expression.json",
+      "query_rules.json",
+      "reasoning.json",
+      "tests.json",
+      "changelog.json"
+    ],
+    "completion": {
+      "completed": 12,
+      "total": 12,
+      "percentage": 100
+    },
+    "nextPlannedObject": "biseptile"
+  }
+}

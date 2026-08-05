@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "moon_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "canonical_function",
+  "parentObject": "moon",
+  "content": {
+    "domains": {
+      "emotional_processing": "Internal regulation of affective experience.",
+      "attachment": "Patterns of emotional bonding.",
+      "needs": "Core requirements for regulation and wellbeing.",
+      "responsiveness": "Adaptive response to changing conditions.",
+      "memory": "Emotionally encoded continuity.",
+      "adaptation": "Flexible adjustment to experience.",
+      "nurturing": "Supportive regulation of self and others.",
+      "felt_security": "Subjective experience of safety.",
+      "habit": "Repeated regulatory patterns.",
+      "regulation": "Coordination of internal states."
+    },
+    "boundaries": [
+      "Attachment is not dependency.",
+      "Responsiveness is not passivity.",
+      "Emotion is not irrationality.",
+      "Nurturing is not self-sacrifice."
+    ]
+  }
+}

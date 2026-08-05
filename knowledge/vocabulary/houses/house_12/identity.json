@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house12_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_12",
+  "content": {
+    "coreDomains": [
+      "inner_life",
+      "solitude",
+      "retreat",
+      "reflection",
+      "spirituality",
+      "unconscious",
+      "compassion",
+      "release",
+      "transcendence",
+      "closure"
+    ],
+    "notInherent": [
+      "isolation",
+      "self_undoing",
+      "escapism",
+      "victimhood",
+      "madness",
+      "secrecy"
+    ],
+    "constraints": [
+      "House 12 is a context.",
+      "House 12 never performs actions.",
+      "House 12 never replaces a planet's canonical function."
+    ]
+  }
+}

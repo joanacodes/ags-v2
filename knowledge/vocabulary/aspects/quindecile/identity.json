@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quindecile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "quindecile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through focused intensification, concentrated engagement, and directed integration.",
+    "coreDomains": [
+      "focus",
+      "intensification",
+      "concentration",
+      "directed engagement",
+      "integration",
+      "commitment"
+    ],
+    "notInherent": [
+      "obsession",
+      "compulsion",
+      "certainty",
+      "beneficence"
+    ],
+    "constraints": [
+      "Quindecile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

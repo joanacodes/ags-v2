@@ -1,0 +1,23 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "duodecile_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "relational_operator",
+  "parentObject": "duodecile",
+  "content": {
+    "operator": "A \u2b22 B -> harmonic_refinement_process",
+    "operands": [
+      "planet",
+      "point"
+    ],
+    "allowedModifiers": [
+      "orb",
+      "applying_separating",
+      "sign",
+      "house"
+    ],
+    "forbidden": [
+      "Treat duodecile as a planet."
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "mappingLayers": [
+    {
+      "layer": "major_aspects",
+      "operators": [
+        "conjunction",
+        "opposition",
+        "square",
+        "trine",
+        "sextile"
+      ]
+    },
+    {
+      "layer": "minor_harmonics",
+      "operators": [
+        "pentile",
+        "bipentile",
+        "septile_family",
+        "novile_family",
+        "undecile_family",
+        "tredecile_family",
+        "quattuordecile_family"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house1_expression",
+  "moduleType": "expression",
+  "grammarRole": "context",
+  "parentObject": "house_1",
+  "content": {
+    "families": [
+      {
+        "id": "identity",
+        "components": [
+          "in the context of identity",
+          "through personal self-definition"
+        ]
+      },
+      {
+        "id": "self_expression",
+        "components": [
+          "through personal expression",
+          "within outward self-presentation"
+        ]
+      },
+      {
+        "id": "embodiment",
+        "components": [
+          "through lived embodiment",
+          "within immediate physical presence"
+        ]
+      },
+      {
+        "id": "initiative",
+        "components": [
+          "within personally initiated experience",
+          "through direct engagement"
+        ]
+      },
+      {
+        "id": "presence",
+        "components": [
+          "as immediate presence",
+          "within a highly visible personal context"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Locate the planetary function within identity, embodiment, and personal expression.",
+      "angle": "Contextualize the angle's reference-frame function without replacing it.",
+      "node": "Locate nodal development within self-definition while preserving polarity.",
+      "chiron": "Locate wounding and healing themes within identity without implying completion."
+    },
+    "constraints": [
+      "Presence is not confidence.",
+      "Initiative is not dominance.",
+      "Appearance is not superficiality.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

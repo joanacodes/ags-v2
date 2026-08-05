@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house12_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "context",
+  "parentObject": "house_12",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm House 12 is a context",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible contextual components",
+      "Apply sign, degree, and dignity modifiers",
+      "Validate canonical function unchanged",
+      "Generate contextual semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "domain": "inner_life",
+      "focus": "reflection",
+      "expression_context": "through transcendence",
+      "salience": "contemplative"
+    },
+    "compositionRules": [
+      "House 12 provides context but never performs actions.",
+      "Planets retain canonical functions.",
+      "Signs modify functions before contextual placement.",
+      "Houses provide experiential context only.",
+      "Aspects remain relational operators.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer reflection over escapism.",
+      "Prefer compassion over victimhood.",
+      "Prefer transcendence over pathology.",
+      "Return an empty context set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "House 12 creates suffering.",
+      "House 12 implies pathology.",
+      "House 12 replaces the target function."
+    ]
+  }
+}

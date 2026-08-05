@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "square_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "square",
+  "content": {
+    "canonicalId": "square",
+    "displayName": "Square",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "constructive_friction_operator",
+    "canonicalQuestion": "How do two canonical functions interact through constructive friction requiring adaptation?"
+  }
+}

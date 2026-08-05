@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "type": "axis_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "direction",
+  "parentObject": "nodal_axis",
+  "id": "nodal_axis_identity",
+  "name": "Nodal Axis Identity",
+  "content": {
+    "semanticClass": "developmental_polarity",
+    "definition": "A paired relationship between a familiar consolidated mode and a less practiced complementary developmental direction.",
+    "members": {
+      "south_node": {
+        "provisionalFunction": "consolidate",
+        "role": "established_reference"
+      },
+      "north_node": {
+        "provisionalFunction": "develop",
+        "role": "developmental_direction"
+      }
+    },
+    "coreRule": "Develop the emerging capacity without abandoning useful established capacity.",
+    "exclusions": [
+      "destiny",
+      "punishment",
+      "moral ranking",
+      "automatic fulfillment"
+    ]
+  }
+}

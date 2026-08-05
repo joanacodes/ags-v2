@@ -1,0 +1,124 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_grammar",
+  "name": "North Node Grammar",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines the North Node's developmental direction role and approved verbs.",
+  "grammarRole": "direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "north_node_identity",
+    "nodal_axis_grammar",
+    "ags_clause_builder"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "grammar",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "grammar",
+  "content": {
+    "primaryGrammarRole": "developmental_direction",
+    "defaultVerbClass": "developmental_verbs",
+    "subjectBehavior": {
+      "mayActAsSubject": false,
+      "mayActAsPrimaryVerb": false,
+      "mayActAsDevelopmentalDirection": true,
+      "mayActAsSecondaryReference": true,
+      "mustReferenceOppositeNode": true
+    },
+    "primaryVerb": {
+      "lemma": "develop",
+      "surfacePatterns": [
+        "develop",
+        "practice",
+        "build capacity for",
+        "extend toward",
+        "increase range through"
+      ]
+    },
+    "approvedSecondaryVerbs": [
+      {
+        "lemma": "practice",
+        "semanticDomain": "practice",
+        "useWhen": "Repetition and feedback are central."
+      },
+      {
+        "lemma": "extend",
+        "semanticDomain": "range_expansion",
+        "useWhen": "The operating range is being broadened."
+      },
+      {
+        "lemma": "cultivate",
+        "semanticDomain": "capacity_building",
+        "useWhen": "A capacity requires sustained deliberate attention."
+      },
+      {
+        "lemma": "experiment",
+        "semanticDomain": "developmental_experimentation",
+        "useWhen": "A less familiar response is being tested."
+      },
+      {
+        "lemma": "integrate",
+        "semanticDomain": "integration",
+        "useWhen": "The emerging capacity is coordinated with the South Node resource."
+      }
+    ],
+    "correctiveVerbs": [
+      {
+        "lemma": "pursue",
+        "useRule": "Use only when active orientation is explicit; never as a universal destiny mandate.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "become",
+        "useRule": "Avoid as a vague identity claim unless the target state is explicitly defined.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "fulfill",
+        "useRule": "Use only in bounded non-guaranteed developmental language.",
+        "neverPrimary": true
+      }
+    ],
+    "clauseCapabilities": [
+      "developmental_direction_clause",
+      "axis_relationship_clause",
+      "natal_activation_clause"
+    ],
+    "prohibitedGrammar": [
+      "North Node as a planetary action",
+      "North Node as guaranteed future identity",
+      "North Node without South Node reference",
+      "North Node as moral command",
+      "A completed North-Node-in-sign or house interpretation"
+    ]
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Directional developmental vocabulary only. No destiny, fate, moral ranking, or guaranteed outcome claims are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node grammar module."
+    }
+  ]
+}

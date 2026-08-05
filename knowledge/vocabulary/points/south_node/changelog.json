@@ -1,0 +1,9 @@
+{
+  "id": "south_node_changelog",
+  "version": "0.1.0",
+  "changes": [
+    "Established 'consolidate' as the canonical South Node verb.",
+    "Defined resource-first reasoning.",
+    "Completed South Node ontology."
+  ]
+}

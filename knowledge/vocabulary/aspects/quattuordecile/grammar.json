@@ -1,0 +1,23 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quattuordecile_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "relational_operator",
+  "parentObject": "quattuordecile",
+  "content": {
+    "operator": "A \u25c7 B -> structured_reorientation_process",
+    "operands": [
+      "planet",
+      "point"
+    ],
+    "allowedModifiers": [
+      "orb",
+      "applying_separating",
+      "sign",
+      "house"
+    ],
+    "forbidden": [
+      "Treat quattuordecile as a planet."
+    ]
+  }
+}

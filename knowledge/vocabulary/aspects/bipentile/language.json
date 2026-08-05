@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "bipentile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "bipentile",
+  "content": {
+    "verbs": [
+      "amplifies",
+      "synthesizes",
+      "integrates",
+      "expresses"
+    ],
+    "templates": [
+      "{A} amplifies creative synthesis through interaction with {B}.",
+      "{A} and {B} combine through reciprocal harmonic expression."
+    ]
+  }
+}

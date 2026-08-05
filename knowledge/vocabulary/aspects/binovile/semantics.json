@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "binovile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "binovile",
+  "content": {
+    "definition": "A Binovile relates participating canonical functions through dual maturation and recursive integration while preserving each function's identity.",
+    "boundaries": [
+      "Maturation does not imply perfection.",
+      "Synthesis does not replace canonical functions."
+    ]
+  }
+}

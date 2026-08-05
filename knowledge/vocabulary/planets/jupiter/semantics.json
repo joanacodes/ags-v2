@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "jupiter_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "canonical_function",
+  "parentObject": "jupiter",
+  "content": {
+    "domains": {
+      "expansion": "Broadening scope and possibility.",
+      "meaning": "Integration of experience into significance.",
+      "wisdom": "Judicious application of understanding.",
+      "growth": "Development through experience.",
+      "synthesis": "Combining parts into coherent wholes.",
+      "learning": "Acquisition of higher understanding.",
+      "principles": "Guiding frameworks for action.",
+      "beliefs": "Organizing systems of meaning.",
+      "opportunity": "Potential for constructive development.",
+      "generativity": "Creating future possibilities."
+    },
+    "boundaries": [
+      "Expansion is not excess.",
+      "Beliefs are not dogmatism.",
+      "Opportunity is not guaranteed success.",
+      "Wisdom is not certainty."
+    ]
+  }
+}

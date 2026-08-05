@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "tredecile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "tredecile",
+  "content": {
+    "definition": "A Tredecile relates participating canonical functions through adaptive restructuring and transformative reorganization while preserving each function's identity.",
+    "boundaries": [
+      "Transformation does not imply instability.",
+      "Restructuring does not replace canonical functions."
+    ]
+  }
+}

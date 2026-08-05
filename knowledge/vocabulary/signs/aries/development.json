@@ -1,0 +1,104 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_development",
+  "name": "Aries Development",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Aries modifier expression across developmental stages.",
+  "grammarRole": "modifier",
+  "dependsOn": [
+    "aries_identity",
+    "aries_semantics",
+    "aries_modifier_types",
+    "ags_sign_development_blueprint"
+  ],
+  "parentObject": "aries",
+  "moduleType": "development",
+  "content": {
+    "developmentReference": "ags_sign_development_blueprint",
+    "coreRule": "Development changes how Aries modifiers express directness, initiation, immediacy, and autonomy; Aries remains a modifier at every stage.",
+    "stageProfiles": {
+      "unconscious": {
+        "modifiers": [
+          "automatically",
+          "through reflexive commencement",
+          "without preliminary assessment"
+        ],
+        "learningTasks": [
+          "Notice what triggers immediate engagement",
+          "Separate useful speed from automatic reaction",
+          "Keep the first move revisable"
+        ]
+      },
+      "defensive": {
+        "modifiers": [
+          "reactively",
+          "prematurely",
+          "through forced immediacy",
+          "with disregard for pacing"
+        ],
+        "requiresExplicitEvidence": true,
+        "learningTasks": [
+          "Restore contextual sampling",
+          "Distinguish agency from opposition",
+          "Match urgency to actual conditions"
+        ]
+      },
+      "learning": {
+        "modifiers": [
+          "experimentally",
+          "through bounded first steps",
+          "with feedback after initiation",
+          "through reversible testing"
+        ],
+        "learningTasks": [
+          "Define the smallest actionable step",
+          "Observe consequences quickly",
+          "Revise without treating correction as failure"
+        ]
+      },
+      "healthy": {
+        "modifiers": [
+          "directly and responsively",
+          "with decisive but revisable initiation",
+          "with proportionate urgency",
+          "while preserving momentum"
+        ],
+        "learningTasks": [
+          "Apply directness selectively",
+          "Use speed only where speed serves the target function",
+          "Sustain action after commencement"
+        ]
+      },
+      "integrated": {
+        "modifiers": [
+          "with precise timing",
+          "through autonomous yet context-aware initiation",
+          "with immediate engagement and adaptive correction",
+          "directly without sacrificing reciprocity"
+        ],
+        "requiresExplicitEvidence": true,
+        "developmentalContribution": [
+          "Makes initiation efficient without making immediacy compulsory",
+          "Preserves autonomy without isolation",
+          "Uses the first move as provisional entry rather than final answer"
+        ]
+      }
+    },
+    "crossStageRules": [
+      "Defensive Aries wording requires explicit defensive evidence.",
+      "Integrated Aries may include deliberate delay when the target requires it.",
+      "Directness remains neutral; hostility is not inherent.",
+      "No stage may add a planetary action or outcome.",
+      "All modifiers must remain traceable to approved Aries domains."
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries development module."
+    }
+  ]
+}

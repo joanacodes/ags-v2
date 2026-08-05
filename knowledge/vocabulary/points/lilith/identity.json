@@ -1,0 +1,11 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.points.lilith.identity",
+  "status": "DRAFT — added by implementation, pending architect validation",
+  "content": {
+    "canonicalFunction": "marks where instinctive autonomy resists domestication, holding the themes of refusal, raw desire, and reclaimed self-possession",
+    "coreDomains": ["autonomy", "refusal", "raw_desire", "reclamation"],
+    "notInherent": ["malice", "punishment", "moral_judgement"],
+    "constraints": ["describes a calculated point, not a body; expression is thematic, not behavioural prescription"]
+  }
+}

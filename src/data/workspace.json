@@ -1,0 +1,123 @@
+{
+  "user": {
+    "name": "Alexander Vance",
+    "email": "a.vance@ags.io",
+    "workspace": "AGS",
+    "plan": "Pro Workspace"
+  },
+  "dashboard": {
+    "totalCharts": 42,
+    "totalChartsDelta": "+12% this week",
+    "recentReports": 8,
+    "pendingExports": 3,
+    "favourites": 12,
+    "lastReadingLabel": "2h ago",
+    "engineVersion": "Ephemeris Engine V2.4",
+    "syncLatency": "0.04ms",
+    "lastCalculationLabel": "2 hours ago"
+  },
+  "transitDensity": [
+    {
+      "hour": 0,
+      "density": 22
+    },
+    {
+      "hour": 1,
+      "density": 18
+    },
+    {
+      "hour": 2,
+      "density": 25
+    },
+    {
+      "hour": 3,
+      "density": 31
+    },
+    {
+      "hour": 4,
+      "density": 28
+    },
+    {
+      "hour": 5,
+      "density": 36
+    },
+    {
+      "hour": 6,
+      "density": 44
+    },
+    {
+      "hour": 7,
+      "density": 52
+    },
+    {
+      "hour": 8,
+      "density": 47
+    },
+    {
+      "hour": 9,
+      "density": 58
+    },
+    {
+      "hour": 10,
+      "density": 63
+    },
+    {
+      "hour": 11,
+      "density": 55
+    },
+    {
+      "hour": 12,
+      "density": 61
+    },
+    {
+      "hour": 13,
+      "density": 72
+    },
+    {
+      "hour": 14,
+      "density": 68
+    },
+    {
+      "hour": 15,
+      "density": 76
+    },
+    {
+      "hour": 16,
+      "density": 70
+    },
+    {
+      "hour": 17,
+      "density": 64
+    },
+    {
+      "hour": 18,
+      "density": 57
+    },
+    {
+      "hour": 19,
+      "density": 49
+    },
+    {
+      "hour": 20,
+      "density": 42
+    },
+    {
+      "hour": 21,
+      "density": 38
+    },
+    {
+      "hour": 22,
+      "density": 30
+    },
+    {
+      "hour": 23,
+      "density": 26
+    }
+  ],
+  "library": {
+    "total": 42,
+    "favourited": 12,
+    "active": 28,
+    "archived": 6
+  }
+}

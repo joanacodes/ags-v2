@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pisces_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "modifier",
+  "parentObject": "pisces",
+  "content": {
+    "canonicalId": "pisces",
+    "displayName": "Pisces",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "integrative_mode",
+    "canonicalQuestion": "How does this integrate and transcend?"
+  }
+}

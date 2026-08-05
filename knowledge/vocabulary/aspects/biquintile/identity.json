@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biquintile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "biquintile",
+  "content": {
+    "canonicalFunction": "relates canonical functions through higher-order creative synthesis and complex pattern integration",
+    "coreDomains": [
+      "advanced creativity",
+      "pattern integration",
+      "innovation",
+      "craft refinement",
+      "systemic synthesis",
+      "emergence"
+    ],
+    "notInherent": [
+      "genius",
+      "automatic success",
+      "beneficence",
+      "perfection"
+    ],
+    "constraints": [
+      "Biquintile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

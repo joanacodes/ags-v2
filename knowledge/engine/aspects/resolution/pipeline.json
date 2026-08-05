@@ -1,0 +1,11 @@
+{
+  "resolutionPipeline": [
+    "Receive planetary or point operands",
+    "Calculate angular separation",
+    "Match angle to aspect operator",
+    "Identify harmonic family",
+    "Apply orb weighting",
+    "Apply contextual modifiers",
+    "Generate semantic relationship object"
+  ]
+}

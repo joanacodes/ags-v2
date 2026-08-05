@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house1_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_1",
+  "content": {
+    "coreDomains": [
+      "identity",
+      "self_expression",
+      "embodiment",
+      "appearance",
+      "initiative",
+      "presence",
+      "temperament",
+      "orientation",
+      "self_awareness",
+      "personal_style"
+    ],
+    "notInherent": [
+      "egoism",
+      "selfishness",
+      "narcissism",
+      "immaturity",
+      "dominance",
+      "confidence"
+    ],
+    "constraints": [
+      "House 1 is a context.",
+      "House 1 never performs actions.",
+      "House 1 never replaces a planet's canonical function."
+    ]
+  }
+}

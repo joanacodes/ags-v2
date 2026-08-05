@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "square_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "square",
+  "content": {
+    "coreRule": "Development changes how constructive friction is managed, never the relational role of Square.",
+    "stages": {
+      "unconscious": [
+        "reactive friction",
+        "unrecognized growth opportunity"
+      ],
+      "defensive": [
+        "resistance to adaptation",
+        "rigid conflict patterns"
+      ],
+      "learning": [
+        "recognizing developmental challenges",
+        "building adaptive responses"
+      ],
+      "healthy": [
+        "constructive problem solving",
+        "adaptive effort"
+      ],
+      "integrated": [
+        "friction consistently transformed into development"
+      ]
+    },
+    "constraints": [
+      "Square never becomes a canonical function.",
+      "Participating functions always retain identity."
+    ]
+  }
+}

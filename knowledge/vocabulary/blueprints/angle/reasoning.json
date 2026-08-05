@@ -1,0 +1,13 @@
+{
+  "resolutionOrder": [
+    "Resolve angle",
+    "Apply sign modifier",
+    "Apply house context",
+    "Resolve planetary function",
+    "Generate clause"
+  ],
+  "heuristics": [
+    "Reference frame precedes actor resolution.",
+    "Angles never generate standalone interpretations."
+  ]
+}

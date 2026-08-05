@@ -1,0 +1,30 @@
+{
+  "id": "south_node_query_rules",
+  "primaryVerb": "consolidate",
+  "requiredOppositePoint": "north_node",
+  "selectionRules": [
+    "Default to 'consolidate' unless a narrower approved verb is justified.",
+    "Always resolve the North Node alongside the South Node.",
+    "Treat established capacity as a resource before considering overreliance.",
+    "Never recommend abandoning the South Node."
+  ],
+  "supportedQueries": {
+    "identity": [
+      "consolidation",
+      "resource",
+      "integration"
+    ],
+    "work": [
+      "established_competence",
+      "resource"
+    ],
+    "love": [
+      "familiar_patterns",
+      "integration"
+    ],
+    "nodal_return": [
+      "integration",
+      "range_balance"
+    ]
+  }
+}

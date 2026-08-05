@@ -1,0 +1,304 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_language",
+  "name": "Neptune Language",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Neptune's controlled verb hierarchy, nouns, adjectives, adverbs, fragments, selection rules, and rejected wording.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "neptune_identity",
+    "neptune_grammar",
+    "ags_semantic_domain_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "neptune",
+    "language",
+    "planet",
+    "function"
+  ],
+  "parentObject": "neptune",
+  "moduleType": "language",
+  "content": {
+    "verbHierarchy": {
+      "primaryVerb": {
+        "lemma": "permeate",
+        "priority": 100,
+        "definition": "Allow experience, meaning, feeling, image, or identity to pass across a boundary."
+      },
+      "primaryVerbPhrases": [
+        {
+          "text": "make a boundary more permeable",
+          "priority": 100,
+          "semanticDomain": "permeability"
+        },
+        {
+          "text": "allow feeling to cross a boundary",
+          "priority": 94,
+          "semanticDomain": "emotional_permeability"
+        },
+        {
+          "text": "allow symbolic meaning to enter literal perception",
+          "priority": 92,
+          "semanticDomain": "symbolic_perception"
+        },
+        {
+          "text": "open perception to atmosphere and association",
+          "priority": 90,
+          "semanticDomain": "attunement"
+        },
+        {
+          "text": "soften separation without necessarily erasing it",
+          "priority": 88,
+          "semanticDomain": "boundary_softening"
+        }
+      ],
+      "secondaryVerbs": [
+        {
+          "lemma": "attune",
+          "domain": "attunement",
+          "priority": 96
+        },
+        {
+          "lemma": "resonate",
+          "domain": "resonance",
+          "priority": 94
+        },
+        {
+          "lemma": "imagine",
+          "domain": "imagination",
+          "priority": 92
+        },
+        {
+          "lemma": "symbolize",
+          "domain": "symbolic_perception",
+          "priority": 90
+        },
+        {
+          "lemma": "empathize",
+          "domain": "empathy",
+          "priority": 88
+        },
+        {
+          "lemma": "inspire",
+          "domain": "inspiration",
+          "priority": 86
+        },
+        {
+          "lemma": "diffuse",
+          "domain": "diffusion",
+          "priority": 82
+        },
+        {
+          "lemma": "surrender",
+          "domain": "surrender",
+          "priority": 80
+        },
+        {
+          "lemma": "idealize",
+          "domain": "idealization",
+          "priority": 72
+        },
+        {
+          "lemma": "absorb",
+          "domain": "absorption",
+          "priority": 70
+        }
+      ],
+      "defensiveVerbs": [
+        "obscure",
+        "project",
+        "idealize excessively",
+        "escape",
+        "dissolve without containment",
+        "absorb without filtering",
+        "blur",
+        "avoid through fantasy"
+      ],
+      "integratedVerbs": [
+        "permeate with discernment",
+        "attune without self-erasure",
+        "imagine without abandoning fact",
+        "empathize with boundaries",
+        "symbolize without literalizing",
+        "surrender without abandoning agency",
+        "inspire without idealizing",
+        "absorb selectively"
+      ]
+    },
+    "nounSystem": {
+      "primaryNoun": "permeability",
+      "secondaryNouns": [
+        "attunement",
+        "resonance",
+        "imagination",
+        "symbol",
+        "empathy",
+        "inspiration",
+        "diffusion",
+        "surrender",
+        "ideal",
+        "image",
+        "atmosphere",
+        "boundary softening"
+      ],
+      "usageRule": "Nouns support indexing and explanation but may not replace Neptune's verb system."
+    },
+    "adjectiveSystem": {
+      "neutral": [
+        "permeable",
+        "receptive",
+        "symbolic",
+        "imaginal",
+        "diffuse",
+        "associative",
+        "nonliteral",
+        "atmospheric"
+      ],
+      "constructive": [
+        "attuned",
+        "empathetic",
+        "inspired",
+        "imaginative",
+        "compassionate",
+        "receptive with discernment",
+        "symbolically precise"
+      ],
+      "defensive": [
+        "blurred",
+        "idealized",
+        "projective",
+        "unfiltered",
+        "escapist",
+        "dissociated",
+        "obscured",
+        "self-erasing"
+      ]
+    },
+    "adverbSystem": {
+      "neutral": [
+        "receptively",
+        "symbolically",
+        "imaginatively",
+        "associatively",
+        "diffusely",
+        "nonliterally"
+      ],
+      "constructive": [
+        "attentively",
+        "empathetically",
+        "with discernment",
+        "with symbolic awareness",
+        "with bounded receptivity",
+        "without literalizing the image"
+      ],
+      "defensive": [
+        "indiscriminately",
+        "projectively",
+        "evasively",
+        "without filtering",
+        "without sufficient distinction",
+        "through idealization"
+      ]
+    },
+    "technicalFragments": [
+      "Neptune supplies the permeating function.",
+      "Neptune makes a boundary more permeable.",
+      "Neptune allows symbolic and literal meaning to overlap.",
+      "Neptune increases receptivity to image, atmosphere, feeling, or field.",
+      "Neptune softens separation without necessarily eliminating it."
+    ],
+    "firstPersonFragments": [
+      "I permeate",
+      "I attune",
+      "I resonate",
+      "I imagine",
+      "I symbolize",
+      "I empathize",
+      "I absorb",
+      "I surrender"
+    ],
+    "learningFragments": [
+      "I am learning to remain receptive without losing discernment",
+      "I am learning to imagine without replacing fact",
+      "I am learning to empathize without erasing my own boundary",
+      "I am learning to distinguish symbol from literal prediction",
+      "I am learning to surrender control without abandoning agency"
+    ],
+    "lexicalSelectionRules": [
+      {
+        "id": "NEP-LANG-001",
+        "rule": "Use `permeate` when no narrower Neptunian function is justified."
+      },
+      {
+        "id": "NEP-LANG-002",
+        "rule": "Use `attune` when receptivity is directed toward a person, atmosphere, rhythm, or field."
+      },
+      {
+        "id": "NEP-LANG-003",
+        "rule": "Use `symbolize` when literal content carries associative meaning."
+      },
+      {
+        "id": "NEP-LANG-004",
+        "rule": "Use `empathize` only when another person's experience is explicitly relevant."
+      },
+      {
+        "id": "NEP-LANG-005",
+        "rule": "Use `dissolve` only when a defined boundary or form is losing coherence."
+      },
+      {
+        "id": "NEP-LANG-006",
+        "rule": "Use `idealize`, `project`, or `escape` only under explicit contextual support."
+      },
+      {
+        "id": "NEP-LANG-007",
+        "rule": "Never equate imagination with factual accuracy."
+      }
+    ],
+    "rejectedWording": [
+      {
+        "text": "Neptune is confusion.",
+        "reason": "Confusion is a possible effect of reduced distinction, not the neutral function."
+      },
+      {
+        "text": "Neptune dissolves everything.",
+        "reason": "Permeability does not always eliminate a boundary."
+      },
+      {
+        "text": "Neptune is spirituality.",
+        "reason": "Spirituality is one possible context or expression."
+      },
+      {
+        "text": "Neptune means psychic ability.",
+        "reason": "Receptivity and symbolic perception do not guarantee accuracy."
+      },
+      {
+        "text": "Neptune is self-sacrifice.",
+        "reason": "Self-erasure is one possible defensive expression, not the core identity."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Neptune language module."
+    }
+  ]
+}

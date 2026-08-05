@@ -1,0 +1,38 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mercury_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "canonical_function",
+  "parentObject": "mercury",
+  "content": {
+    "functionComponents": [
+      {
+        "id": "mercury_cognition",
+        "text": "processes information",
+        "type": "function"
+      },
+      {
+        "id": "mercury_meaning",
+        "text": "creates meaning",
+        "type": "process"
+      },
+      {
+        "id": "mercury_learning",
+        "text": "supports learning",
+        "type": "goal"
+      },
+      {
+        "id": "mercury_communication",
+        "text": "enables communication",
+        "type": "output"
+      }
+    ],
+    "modifierPolicy": {
+      "sign": "modifies style",
+      "house": "supplies context",
+      "degree": "adds emphasis",
+      "dignity": "changes condition",
+      "aspect": "creates relational structure"
+    }
+  }
+}

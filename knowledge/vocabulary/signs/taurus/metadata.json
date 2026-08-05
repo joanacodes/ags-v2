@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "taurus_metadata",
+  "name": "Taurus Metadata",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines canonical identifiers and implementation metadata for Taurus.",
+  "grammarRole": "modifier",
+  "parentObject": "taurus",
+  "moduleType": "metadata",
+  "dependsOn": [
+    "ags_sign_blueprint"
+  ],
+  "content": {
+    "canonicalId": "taurus",
+    "displayName": "Taurus",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "stabilizing_mode",
+    "symbol": "♉",
+    "sequenceIndex": 2,
+    "blueprint": "ags_sign_blueprint",
+    "implementationStatus": "foundation_complete",
+    "canonicalQuestion": "How does this become durable?",
+    "coreConstraint": "Taurus modifies how a target function stabilizes, consolidates, preserves, or sustains expression; Taurus never acts independently."
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Taurus metadata module."
+    }
+  ]
+}

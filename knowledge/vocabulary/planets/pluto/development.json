@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_development",
+  "moduleType": "development",
+  "grammarRole": "canonical_function",
+  "parentObject": "pluto",
+  "content": {
+    "coreRule": "Development changes expression, never Pluto's canonical function.",
+    "stages": {
+      "unconscious": [
+        "unintegrated intensity",
+        "unexamined control dynamics"
+      ],
+      "defensive": [
+        "compulsive elimination",
+        "power struggles"
+      ],
+      "learning": [
+        "developing self-awareness",
+        "healthy release"
+      ],
+      "healthy": [
+        "constructive transformation",
+        "authentic empowerment"
+      ],
+      "integrated": [
+        "regeneration aligned with wisdom and integrity"
+      ]
+    },
+    "constraints": [
+      "Canonical function is immutable.",
+      "Development must not alter ontology."
+    ]
+  }
+}

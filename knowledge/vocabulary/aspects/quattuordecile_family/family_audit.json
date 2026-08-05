@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quattuordecile_family_audit",
+  "moduleType": "family_audit",
+  "parentObject": "quattuordecile_family",
+  "content": {
+    "family": "structured_reorientation_family",
+    "members": [
+      {
+        "id": "quattuordecile",
+        "angle": "25.714\u00b0",
+        "role": "structured_reorientation_operator"
+      }
+    ],
+    "inheritanceRules": [
+      "Family members inherit structured reorientation semantics.",
+      "Each aspect retains independent operator identity.",
+      "No family member replaces canonical functions."
+    ],
+    "sharedDomains": [
+      "reorientation",
+      "adaptive refinement",
+      "structural change",
+      "reorganization",
+      "integration"
+    ],
+    "excludedAssumptions": [
+      "instability as a requirement",
+      "disruption as an inherent quality",
+      "superiority",
+      "inherent beneficence"
+    ]
+  }
+}

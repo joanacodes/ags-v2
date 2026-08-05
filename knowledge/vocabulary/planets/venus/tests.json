@@ -1,0 +1,52 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "venus_tests",
+  "moduleType": "tests",
+  "grammarRole": "canonical_function",
+  "parentObject": "venus",
+  "content": {
+    "suite": "venus_ontology_v0.1",
+    "cases": [
+      {
+        "id": "VEN-T-001",
+        "name": "Canonical function preserved",
+        "expected": true
+      },
+      {
+        "id": "VEN-T-002",
+        "name": "Sign modifies only",
+        "expected": true
+      },
+      {
+        "id": "VEN-T-003",
+        "name": "House contextualizes only",
+        "expected": true
+      },
+      {
+        "id": "VEN-T-004",
+        "name": "Aspect remains relational",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "VEN-T-005",
+        "name": "Dignity changes condition only",
+        "expected": true
+      },
+      {
+        "id": "VEN-T-006",
+        "name": "Deterministic resolution",
+        "expected": true
+      },
+      {
+        "id": "VEN-T-007",
+        "name": "Valuation function available",
+        "expected": true
+      },
+      {
+        "id": "VEN-T-008",
+        "name": "Empty result preferred",
+        "expected": []
+      }
+    ]
+  }
+}

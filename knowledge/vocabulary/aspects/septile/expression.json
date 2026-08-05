@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "septile",
+  "content": {
+    "families": [
+      {
+        "id": "recursive_emergence",
+        "components": [
+          "reveals recurring structures",
+          "supports emergence"
+        ]
+      },
+      {
+        "id": "nonlinear_organization",
+        "components": [
+          "coordinates nonlinear relationships",
+          "organizes complexity"
+        ]
+      },
+      {
+        "id": "cyclic_development",
+        "components": [
+          "integrates developmental cycles",
+          "supports adaptation"
+        ]
+      },
+      {
+        "id": "transformation",
+        "components": [
+          "stabilizes emergent patterns",
+          "encourages refinement"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pisces_identity",
+  "moduleType": "identity",
+  "grammarRole": "modifier",
+  "parentObject": "pisces",
+  "content": {
+    "coreDomains": [
+      "integration",
+      "compassion",
+      "imagination",
+      "empathy",
+      "acceptance",
+      "transcendence",
+      "adaptability",
+      "symbolic_understanding",
+      "interconnectedness",
+      "spiritual_orientation"
+    ],
+    "notInherent": [
+      "escapism",
+      "confusion",
+      "deception",
+      "passivity",
+      "victimhood",
+      "lack_of_boundaries"
+    ],
+    "constraints": [
+      "Pisces is a modifier.",
+      "Pisces never acts independently.",
+      "Pisces never replaces the target canonical function."
+    ]
+  }
+}

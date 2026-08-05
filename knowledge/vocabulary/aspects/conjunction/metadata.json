@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "conjunction_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "conjunction",
+  "content": {
+    "canonicalId": "conjunction",
+    "displayName": "Conjunction",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "coactivation_operator",
+    "canonicalQuestion": "How are two canonical functions co-activated as a unified process?"
+  }
+}

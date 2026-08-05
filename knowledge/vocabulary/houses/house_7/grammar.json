@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house7_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "context",
+  "parentObject": "house_7",
+  "content": {
+    "contextSlots": [
+      "domain",
+      "setting",
+      "focus",
+      "scope",
+      "salience",
+      "expression_context"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] in the context of partnership",
+      "[target] through cooperation",
+      "[target] within one-to-one relationships",
+      "[target] through reciprocal engagement"
+    ],
+    "forbidden": [
+      "House 7 acts.",
+      "House 7 creates relationships.",
+      "House 7 replaces the target function."
+    ]
+  }
+}

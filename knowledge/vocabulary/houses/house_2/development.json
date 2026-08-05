@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house2_development",
+  "moduleType": "development",
+  "grammarRole": "context",
+  "parentObject": "house_2",
+  "content": {
+    "coreRule": "Development changes how functions are experienced within the House 2 context; House 2 remains a context.",
+    "stages": {
+      "unconscious": [
+        "through habitual resource patterns",
+        "within automatic value assumptions"
+      ],
+      "defensive": [
+        "through scarcity-oriented responses",
+        "within overprotective stewardship"
+      ],
+      "learning": [
+        "through developing values",
+        "within responsible resource management"
+      ],
+      "healthy": [
+        "through sustainable stewardship",
+        "within coherent self-worth"
+      ],
+      "integrated": [
+        "through adaptive value systems",
+        "within resilient stewardship"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Resource context never implies wealth."
+    ]
+  }
+}

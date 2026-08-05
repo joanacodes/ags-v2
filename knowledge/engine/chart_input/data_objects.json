@@ -1,0 +1,23 @@
+{
+  "objects": [
+    {
+      "id": "planet_position",
+      "fields": [
+        "body",
+        "longitude",
+        "sign",
+        "house"
+      ]
+    },
+    {
+      "id": "aspect_relationship",
+      "fields": [
+        "body_a",
+        "body_b",
+        "angle",
+        "orb",
+        "operator"
+      ]
+    }
+  ]
+}

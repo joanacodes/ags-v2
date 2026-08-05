@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house10_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_10",
+  "content": {
+    "domain": [
+      "public role",
+      "career",
+      "achievement"
+    ],
+    "focus": [
+      "responsibility",
+      "leadership",
+      "legacy"
+    ],
+    "scope": [
+      "professional life",
+      "public contribution",
+      "social standing"
+    ],
+    "salience": [
+      "visible",
+      "responsible",
+      "purposeful"
+    ],
+    "expression_context": [
+      "through public responsibility",
+      "through achievement",
+      "through leadership"
+    ]
+  }
+}

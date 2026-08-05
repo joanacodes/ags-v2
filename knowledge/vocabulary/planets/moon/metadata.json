@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "moon_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "canonical_function",
+  "parentObject": "moon",
+  "content": {
+    "canonicalId": "moon",
+    "displayName": "Moon",
+    "ontologyClass": "planet",
+    "grammarRole": "canonical_function",
+    "semanticClass": "regulation_attachment_function",
+    "canonicalQuestion": "What function regulates emotional processing, attachment, needs, and adaptive responsiveness?"
+  }
+}

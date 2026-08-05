@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quindecile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "quindecile",
+  "content": {
+    "canonicalId": "quindecile",
+    "displayName": "Quindecile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "focused_intensification_operator",
+    "canonicalQuestion": "How do two canonical functions interact through focused intensification, concentrated engagement, and directed integration?"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "midheaven_psychology",
+  "name": "Midheaven Psychology",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines needs, sensitivities, defensive strategies, regulation needs, blind spots, and integration markers for public actualization.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "midheaven_identity",
+    "midheaven_semantics",
+    "ags_angle_blueprint",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "midheaven",
+    "psychology",
+    "angle",
+    "reference_frame",
+    "public_actualization"
+  ],
+  "parentObject": "midheaven",
+  "moduleType": "psychology",
+  "content": {
+    "coreNeed": {
+      "id": "meaningful_visible_participation",
+      "definition": "A workable way to bring capacities into visible social participation through roles, responsibilities, contribution, and public accountability."
+    },
+    "coreMotivation": {
+      "id": "make_capacity_socially_operational",
+      "definition": "Translate ability, effort, and purpose into forms that can function in the wider social world."
+    },
+    "coreSensitivity": [
+      {
+        "id": "visibility_sensitivity",
+        "definition": "Heightened awareness of being observed, evaluated, recognized, or overlooked."
+      },
+      {
+        "id": "role_fit_sensitivity",
+        "definition": "Heightened awareness of whether a public role matches actual capacities and responsibilities."
+      },
+      {
+        "id": "contribution_sensitivity",
+        "definition": "Heightened awareness of whether visible activity creates value beyond the private sphere."
+      },
+      {
+        "id": "authority_sensitivity",
+        "definition": "Heightened awareness of public expectations, legitimacy, accountability, and influence."
+      }
+    ],
+    "coreFearPatterns": [
+      {
+        "id": "public_failure",
+        "definition": "Fear that visible participation will expose incapacity, inconsistency, or unpreparedness."
+      },
+      {
+        "id": "meaningless_visibility",
+        "definition": "Fear of being seen without making a real contribution."
+      },
+      {
+        "id": "role_entrapment",
+        "definition": "Fear that a public role will become fixed and consume the wider identity."
+      },
+      {
+        "id": "lack_of_recognition",
+        "definition": "Fear that contribution will remain unseen, unsupported, or socially irrelevant."
+      }
+    ],
+    "protectiveStrategies": [
+      {
+        "id": "status_substitution",
+        "definition": "Use title, prestige, or external recognition as a substitute for actual contribution."
+      },
+      {
+        "id": "visibility_avoidance",
+        "definition": "Reduce public participation to avoid evaluation or responsibility."
+      },
+      {
+        "id": "role_overidentification",
+        "definition": "Treat the public role as the entire self."
+      },
+      {
+        "id": "performance_overcontrol",
+        "definition": "Manage public expression so tightly that spontaneity, adaptation, or learning is reduced."
+      },
+      {
+        "id": "authority_projection",
+        "definition": "Assign legitimacy or responsibility entirely to external authority figures."
+      }
+    ],
+    "blindSpots": [
+      "Confusing visibility with value",
+      "Confusing status with contribution",
+      "Confusing recognition with legitimacy",
+      "Confusing public role with total identity",
+      "Underestimating invisible forms of contribution",
+      "Overestimating the permanence of reputation",
+      "Treating career as the only expression of actualization",
+      "Assuming responsibility requires self-erasure"
+    ],
+    "regulationNeeds": [
+      {
+        "id": "role_identity_separation",
+        "definition": "Keep public role distinct from total identity."
+      },
+      {
+        "id": "contribution_clarity",
+        "definition": "Identify the actual value, function, or service created by public participation."
+      },
+      {
+        "id": "visibility_pacing",
+        "definition": "Match exposure and responsibility to current capacity."
+      },
+      {
+        "id": "ic_foundation_access",
+        "definition": "Maintain contact with private foundations, internal support, and restoration."
+      },
+      {
+        "id": "feedback_and_accountability",
+        "definition": "Use public response to refine role performance without converting feedback into identity judgment."
+      }
+    ],
+    "healthyPsychologicalFunctions": [
+      "Bring capacities into visible use",
+      "Assume responsibility without total role identification",
+      "Contribute without requiring fame",
+      "Use recognition as feedback rather than proof of worth",
+      "Coordinate public participation with private foundations",
+      "Accept authority proportionate to actual responsibility",
+      "Revise roles as capacities and contexts change",
+      "Distinguish public impact from image management"
+    ],
+    "integrationMarkers": [
+      "Can be visible without performing status",
+      "Can contribute without overidentifying with role",
+      "Can accept responsibility without self-erasure",
+      "Can tolerate limited recognition",
+      "Can revise public direction after feedback",
+      "Can withdraw for restoration without seeing it as failure",
+      "Can hold authority without inflation",
+      "Can coordinate Midheaven and Imum Coeli reference frames"
+    ],
+    "reflectionComponents": [
+      "What capacity is being actualized here?",
+      "What contribution is this role making?",
+      "Is this visibility serving function or image?",
+      "What responsibility is actually mine?",
+      "How is the private foundation supporting public participation?",
+      "What would remain valuable without recognition?"
+    ],
+    "psychologyConstraints": [
+      "No career outcome may be guaranteed.",
+      "No status or fame claim may be inferred from the Midheaven alone.",
+      "Public role must remain distinct from total identity.",
+      "The Imum Coeli must remain available as the foundational opposite reference frame.",
+      "Developmental language must reference the global development blueprint."
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. Psychology and development qualify public actualization but do not redefine the Midheaven as career, status, fame, or guaranteed achievement.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Midheaven psychology module."
+    }
+  ]
+}

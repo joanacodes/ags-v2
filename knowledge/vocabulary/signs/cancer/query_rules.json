@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "cancer_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "cancer",
+  "content": {
+    "defaultModifierSet": [
+      "cancer_manner_protectively",
+      "cancer_strategy_nurturance",
+      "cancer_priority_care"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "care",
+        "protection"
+      ],
+      "relationships": [
+        "belonging",
+        "nurturance"
+      ],
+      "family": [
+        "continuity_of_support",
+        "care"
+      ],
+      "work": [
+        "adaptive_security",
+        "responsiveness"
+      ],
+      "health": [
+        "protection",
+        "support"
+      ],
+      "transits": [
+        "responsiveness",
+        "continuity"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'protectively' as neutral manner.",
+      "Prefer 'through nurturance' as neutral strategy.",
+      "Suppress excessive sheltering when incompatible with the target.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

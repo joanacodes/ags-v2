@@ -1,0 +1,6 @@
+{
+  "id": "chart_interpretation_engine",
+  "moduleType": "integrative_reasoning_engine",
+  "version": "0.1.0",
+  "purpose": "Combine canonical functions, conditions, aspects, and context into a structured AGS chart semantic map."
+}

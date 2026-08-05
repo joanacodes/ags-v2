@@ -1,0 +1,12 @@
+{
+  "coreDomains": [
+    "orientation",
+    "relationship",
+    "public_actualization",
+    "foundational_rooting"
+  ],
+  "constraints": [
+    "Reference frames are value-neutral.",
+    "Reference frames require other objects to generate complete meaning."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quattuordecile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "quattuordecile",
+  "content": {
+    "definition": "A Quattuordecile relates participating canonical functions through structured reorientation and adaptive refinement while preserving each function's identity.",
+    "boundaries": [
+      "Reorientation does not imply instability.",
+      "Structural change does not replace canonical functions."
+    ]
+  }
+}

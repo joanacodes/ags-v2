@@ -1,0 +1,227 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_grammar",
+  "name": "Saturn Grammar",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Saturn's subject, object, slot, aspect-directionality, timing, and validation behavior.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-004",
+    "LAW-005",
+    "LAW-009",
+    "LAW-010",
+    "LAW-012",
+    "LAW-014",
+    "LAW-019"
+  ],
+  "dependsOn": [
+    "saturn_identity",
+    "ags_sentence_engine",
+    "ags_grammar_roles"
+  ],
+  "priority": 10,
+  "tags": [
+    "saturn",
+    "grammar",
+    "grammar",
+    "directionality",
+    "syntax"
+  ],
+  "parentObject": "saturn",
+  "moduleType": "grammar",
+  "content": {
+    "role": {
+      "primaryGrammarRole": "verb",
+      "canonicalSubjectFunction": "structure",
+      "allowedSecondaryRoles": [
+        "secondary_function",
+        "delegated_actor",
+        "timing_activated_function"
+      ]
+    },
+    "subjectBehavior": {
+      "rule": "When Saturn is the selected subject, Saturn supplies the primary structuring verb.",
+      "canonicalPattern": "{subject} {saturnVerb} {signModifier} within {houseContext}.",
+      "aspectPattern": "{subject} {saturnVerb}, {aspectConnector} {otherPlanetVerb}.",
+      "fullAspectPattern": "{subject} {saturnVerb} {signModifier} within {houseContext}, {aspectConnector} {otherPlanetVerb}.",
+      "timingPattern": "{timingFrame}, {subject} is called to {saturnVerb} within {activatedNatalContext}.",
+      "examples": [
+        "Saturn structures.",
+        "I take responsibility directly within public life.",
+        "I build durable authority while allowing Uranus to innovate.",
+        "During the Saturn return, I reassess how I carry responsibility."
+      ]
+    },
+    "objectBehavior": {
+      "rule": "When another planet is the selected subject, Saturn contributes structure, limits, accountability, durability, timing, formalization, or consequence to that planet's function.",
+      "canonicalPattern": "{subject} {subjectVerb}, {aspectConnector} Saturn's capacity to {saturnObjectVerb}.",
+      "approvedObjectFunctions": [
+        "stabilize",
+        "contain",
+        "formalize",
+        "pace",
+        "discipline",
+        "consolidate",
+        "make sustainable",
+        "introduce consequences",
+        "define limits",
+        "support long-term construction"
+      ],
+      "examples": [
+        "Uranus innovates while using Saturn to stabilize change.",
+        "Mars acts while Saturn requires pacing and accountability.",
+        "Venus relates while Saturn asks for commitment and durable boundaries."
+      ]
+    },
+    "slotCompatibility": {
+      "subject": [
+        "saturn"
+      ],
+      "voice": [
+        "direct",
+        "retrograde",
+        "stationary_direct",
+        "stationary_retrograde"
+      ],
+      "verb": [
+        "structure",
+        "define",
+        "commit",
+        "discipline",
+        "consolidate",
+        "stabilize",
+        "formalize",
+        "mature",
+        "preserve"
+      ],
+      "modifier": [
+        "sign"
+      ],
+      "context": [
+        "house"
+      ],
+      "threshold": [
+        "cusp"
+      ],
+      "connector": [
+        "aspect"
+      ],
+      "secondaryFunction": [
+        "planet",
+        "luminary",
+        "node",
+        "chiron",
+        "asteroid",
+        "calculated_point"
+      ],
+      "reference": [
+        "house_ruler",
+        "dispositor",
+        "reception"
+      ],
+      "capacity": [
+        "dignity",
+        "angularity"
+      ],
+      "nuance": [
+        "degree"
+      ],
+      "developmentalDirection": [
+        "node"
+      ],
+      "timing": [
+        "transit",
+        "progression",
+        "direction",
+        "return",
+        "profection",
+        "eclipse_activation"
+      ]
+    },
+    "directionality": {
+      "rule": "Aspect geometry is symmetrical, but sentence direction follows the selected subject.",
+      "subjectExample": {
+        "input": "Saturn sextile Uranus",
+        "output": "Saturn structures while allowing Uranus to innovate."
+      },
+      "objectExample": {
+        "input": "Uranus sextile Saturn",
+        "output": "Uranus innovates while using Saturn to stabilize change."
+      },
+      "balancedSynthesisRule": "Generate both directional sentences before composing a balanced synthesis."
+    },
+    "grammarRestrictions": [
+      {
+        "prohibited": "Saturn is responsibility.",
+        "reason": "This collapses a verbal process into one noun."
+      },
+      {
+        "prohibited": "Saturn punishes.",
+        "reason": "Punishment is not an approved primary Saturn function."
+      },
+      {
+        "prohibited": "The tenth house makes Saturn ambitious.",
+        "reason": "The house must remain a context, not a causal actor."
+      },
+      {
+        "prohibited": "The sextile cancels Uranus.",
+        "reason": "The connector must preserve both planetary functions."
+      },
+      {
+        "prohibited": "The Saturn return changes natal Saturn.",
+        "reason": "Timing activates natal grammar without rewriting it."
+      }
+    ],
+    "canonicalPrepositions": {
+      "houseContext": [
+        "within",
+        "through",
+        "regarding"
+      ],
+      "signModifier": [
+        "in a",
+        "through",
+        "with"
+      ],
+      "timingFrame": [
+        "during",
+        "throughout",
+        "as"
+      ]
+    },
+    "evidenceTraceRequirements": [
+      "saturn identity version",
+      "selected Saturn verb",
+      "subject or object direction",
+      "sign modifier if present",
+      "house context if present",
+      "aspect connector if present",
+      "state if present",
+      "timing layer if present",
+      "applied laws",
+      "surface template id"
+    ],
+    "validationRules": [
+      "Saturn must remain the primary verb when selected as subject.",
+      "Saturn must remain a visible secondary function when selected as object.",
+      "No sign, house, aspect, state, degree, or timing layer may replace Saturn's core function.",
+      "Every directed aspect output must preserve both planetary functions.",
+      "Every timing output must reference the natal Saturn composition."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Built from approved AGS specifications and reviewed verb-centered astrological synthesis.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Saturn grammar module."
+    }
+  ]
+}

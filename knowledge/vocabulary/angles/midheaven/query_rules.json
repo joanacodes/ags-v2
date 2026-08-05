@@ -1,0 +1,186 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "midheaven_query_rules",
+  "name": "Midheaven Query Rules",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines query-specific actualization domains, verb preferences, and public-role constraints.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "midheaven_semantics",
+    "midheaven_expression",
+    "ags_query_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "midheaven",
+    "query_rules",
+    "angle",
+    "reference_frame",
+    "public_actualization"
+  ],
+  "parentObject": "midheaven",
+  "moduleType": "query_rules",
+  "content": {
+    "primaryVerb": "actualize",
+    "requiredOppositeAngle": "imum_coeli",
+    "supportedQueries": {
+      "identity": {
+        "priorityDomains": [
+          "actualization",
+          "public_role",
+          "visibility"
+        ],
+        "preferredVerbs": [
+          "actualize",
+          "participate",
+          "express"
+        ]
+      },
+      "family": {
+        "priorityDomains": [
+          "public_private_balance",
+          "visible_responsibility",
+          "role_identity_separation"
+        ],
+        "preferredVerbs": [
+          "actualize",
+          "undertake",
+          "coordinate"
+        ]
+      },
+      "friendship": {
+        "priorityDomains": [
+          "public_participation",
+          "contribution",
+          "reputation_feedback"
+        ],
+        "preferredVerbs": [
+          "participate",
+          "contribute",
+          "express"
+        ]
+      },
+      "love": {
+        "priorityDomains": [
+          "public_private_balance",
+          "visible_responsibility",
+          "role_identity_separation"
+        ],
+        "preferredVerbs": [
+          "actualize",
+          "coordinate",
+          "undertake"
+        ]
+      },
+      "work": {
+        "priorityDomains": [
+          "public_role",
+          "contribution",
+          "responsibility",
+          "authority_expression"
+        ],
+        "preferredVerbs": [
+          "actualize",
+          "contribute",
+          "undertake",
+          "participate"
+        ]
+      },
+      "money": {
+        "priorityDomains": [
+          "contribution",
+          "public_role",
+          "visible_responsibility"
+        ],
+        "preferredVerbs": [
+          "contribute",
+          "actualize",
+          "undertake"
+        ]
+      },
+      "health": {
+        "priorityDomains": [
+          "public_private_balance",
+          "visibility_pacing",
+          "responsibility_limits"
+        ],
+        "preferredVerbs": [
+          "coordinate",
+          "pace",
+          "undertake"
+        ]
+      },
+      "wounds_and_healing": {
+        "priorityDomains": [
+          "role_identity_separation",
+          "reputation_feedback",
+          "public_private_balance"
+        ],
+        "preferredVerbs": [
+          "actualize",
+          "separate",
+          "coordinate"
+        ]
+      }
+    },
+    "selectionRules": [
+      {
+        "id": "MC-QUERY-001",
+        "rule": "Default to `actualize` when no narrower approved Midheaven verb is justified."
+      },
+      {
+        "id": "MC-QUERY-002",
+        "rule": "Always resolve the Imum Coeli as the foundational opposite reference frame."
+      },
+      {
+        "id": "MC-QUERY-003",
+        "rule": "Use `contribute` when outward value creation is explicit."
+      },
+      {
+        "id": "MC-QUERY-004",
+        "rule": "Use `undertake` when visible responsibility or role obligation is explicit."
+      },
+      {
+        "id": "MC-QUERY-005",
+        "rule": "Use `participate` when public or communal involvement is central."
+      },
+      {
+        "id": "MC-QUERY-006",
+        "rule": "Never convert actualization into predicted achievement, status, fame, or success."
+      }
+    ],
+    "queryConstraints": [
+      "Career is one possible Midheaven context, not the universal meaning.",
+      "Visibility may be present without recognition.",
+      "Authority requires an explicit scope and responsibility.",
+      "Public role may not replace total identity.",
+      "No query authorizes guaranteed outcomes."
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. No career prediction, fame guarantee, status guarantee, or finished Midheaven-sign interpretation is permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Midheaven query_rules module."
+    }
+  ]
+}

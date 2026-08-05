@@ -1,0 +1,178 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "virgo_tests",
+  "moduleType": "tests",
+  "grammarRole": "modifier",
+  "parentObject": "virgo",
+  "content": {
+    "suite": "virgo_ontology_v0.1",
+    "cases": [
+      {
+        "id": "VIR-T-001",
+        "name": "Modifier role preserved",
+        "assertion": "Virgo is resolved only as a modifier.",
+        "expected": true
+      },
+      {
+        "id": "VIR-T-002",
+        "name": "Reject Virgo as actor",
+        "input": "Virgo analyzes.",
+        "expected": false
+      },
+      {
+        "id": "VIR-T-003",
+        "name": "Reject perfectionism default",
+        "input": "Virgo is perfectionistic.",
+        "expected": false
+      },
+      {
+        "id": "VIR-T-004",
+        "name": "Allow precise manner modifier",
+        "input": {
+          "target": "mercury",
+          "modifier": "precisely"
+        },
+        "expected": true
+      },
+      {
+        "id": "VIR-T-005",
+        "name": "Preserve target canonical verb",
+        "input": {
+          "target": "mars",
+          "canonicalFunction": "assert",
+          "sign": "virgo"
+        },
+        "expectedCanonicalFunction": "assert"
+      },
+      {
+        "id": "VIR-T-006",
+        "name": "Reject finished interpretation",
+        "input": "Mercury in Virgo is always intelligent and critical.",
+        "expected": false
+      },
+      {
+        "id": "VIR-T-007",
+        "name": "Suppress incompatible analysis",
+        "input": {
+          "targetRequirement": "immediate response",
+          "candidateModifier": "extended analysis"
+        },
+        "expected": "suppressed"
+      },
+      {
+        "id": "VIR-T-008",
+        "name": "Developmental wording requires evidence",
+        "input": {
+          "stage": "defensive",
+          "evidence": false
+        },
+        "expected": false
+      },
+      {
+        "id": "VIR-T-009",
+        "name": "Integrated wording requires evidence",
+        "input": {
+          "stage": "integrated",
+          "evidence": false
+        },
+        "expected": false
+      },
+      {
+        "id": "VIR-T-010",
+        "name": "Degree modifier composes after sign modifier",
+        "input": {
+          "target": "mercury",
+          "signModifier": "precisely",
+          "degreeModifier": "with increased specialization"
+        },
+        "expectedOrder": [
+          "canonicalFunction",
+          "signModifier",
+          "degreeModifier"
+        ]
+      },
+      {
+        "id": "VIR-T-011",
+        "name": "House remains context",
+        "input": {
+          "target": "venus",
+          "sign": "virgo",
+          "house": 6
+        },
+        "expectedHouseRole": "context"
+      },
+      {
+        "id": "VIR-T-012",
+        "name": "Aspect remains relational operator",
+        "input": {
+          "target": "mars",
+          "aspect": "trine",
+          "otherTarget": "saturn"
+        },
+        "expectedAspectRole": "relational_operator"
+      },
+      {
+        "id": "VIR-T-013",
+        "name": "Dignity modifies condition, not identity",
+        "input": {
+          "target": "mercury",
+          "condition": "domicile"
+        },
+        "expectedConditionRole": "expression_condition"
+      },
+      {
+        "id": "VIR-T-014",
+        "name": "Sentence generation uses semantic structure",
+        "input": {
+          "canonicalFunction": "communicate",
+          "signModifier": "precisely",
+          "houseContext": "work and maintenance"
+        },
+        "expected": "composable_semantic_proposition"
+      },
+      {
+        "id": "VIR-T-015",
+        "name": "No criticism inference",
+        "input": {
+          "sign": "virgo"
+        },
+        "forbiddenOutput": "critical"
+      },
+      {
+        "id": "VIR-T-016",
+        "name": "No anxiety inference",
+        "input": {
+          "sign": "virgo"
+        },
+        "forbiddenOutput": "anxious"
+      },
+      {
+        "id": "VIR-T-017",
+        "name": "Deterministic modifier selection",
+        "input": {
+          "target": "mercury",
+          "query": "work",
+          "stage": "healthy"
+        },
+        "expectedStableResult": true
+      },
+      {
+        "id": "VIR-T-018",
+        "name": "Empty modifier set preferred to invention",
+        "input": {
+          "targetCompatibility": false
+        },
+        "expectedModifierSet": []
+      }
+    ],
+    "requiredAssertions": [
+      "modifier role preserved",
+      "canonical function preserved",
+      "house context preserved",
+      "aspect relational role preserved",
+      "degree modifier composable",
+      "finished interpretations rejected",
+      "deterministic selection"
+    ]
+  }
+}

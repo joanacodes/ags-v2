@@ -1,0 +1,18 @@
+{
+  "$schemaVersion": "0.1.0",
+  "type": "axis_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "direction",
+  "parentObject": "nodal_axis",
+  "id": "nodal_axis_changelog",
+  "name": "Nodal Axis Changelog",
+  "content": {
+    "version": "0.1.0",
+    "changes": [
+      "Defined the Nodes as a developmental polarity.",
+      "Assigned provisional functions: consolidate and develop.",
+      "Established integration rather than replacement."
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_reasoning_blueprint",
+  "resolutionOrder": [
+    "Load target object",
+    "Confirm target grammar role",
+    "Resolve target canonical function",
+    "Load sign object",
+    "Resolve query and stage",
+    "Filter and rank modifier inventory",
+    "Return optimized modifier set",
+    "Validate that the sign layer contains no finished sentence"
+  ],
+  "heuristics": [
+    "Prefer the narrowest modifier that preserves the target function.",
+    "Prefer one high-value modifier per slot.",
+    "Never change the target object's canonical verb.",
+    "Omit incompatible modifiers rather than replacing the function.",
+    "Keep all surface wording traceable to approved components."
+  ],
+  "forbiddenInferences": [
+    "A sign determines complete personality.",
+    "A sign guarantees behavior.",
+    "A sign supplies a planet's action.",
+    "A sign predicts an event.",
+    "A sign is inherently healthy or unhealthy."
+  ]
+}

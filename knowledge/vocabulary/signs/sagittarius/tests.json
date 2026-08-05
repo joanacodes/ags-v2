@@ -1,0 +1,80 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sagittarius_tests",
+  "moduleType": "tests",
+  "grammarRole": "modifier",
+  "parentObject": "sagittarius",
+  "content": {
+    "suite": "sagittarius_ontology_v0.1",
+    "cases": [
+      {
+        "id": "SAG-T-001",
+        "name": "Modifier role preserved",
+        "expected": true
+      },
+      {
+        "id": "SAG-T-002",
+        "name": "Reject Sagittarius as actor",
+        "expected": false
+      },
+      {
+        "id": "SAG-T-003",
+        "name": "Reject recklessness default",
+        "expected": false
+      },
+      {
+        "id": "SAG-T-004",
+        "name": "Allow expansive modifier",
+        "expected": true
+      },
+      {
+        "id": "SAG-T-005",
+        "name": "Canonical function preserved",
+        "expected": true
+      },
+      {
+        "id": "SAG-T-006",
+        "name": "Reject finished interpretation",
+        "expected": false
+      },
+      {
+        "id": "SAG-T-007",
+        "name": "House remains context",
+        "expected": "context"
+      },
+      {
+        "id": "SAG-T-008",
+        "name": "Aspect remains relational_operator",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "SAG-T-009",
+        "name": "Degree composes after sign",
+        "expected": true
+      },
+      {
+        "id": "SAG-T-010",
+        "name": "Development evidence required",
+        "expected": false
+      },
+      {
+        "id": "SAG-T-011",
+        "name": "Deterministic selection",
+        "expected": true
+      },
+      {
+        "id": "SAG-T-012",
+        "name": "Empty modifier preferred",
+        "expected": []
+      }
+    ],
+    "requiredAssertions": [
+      "modifier role preserved",
+      "canonical function preserved",
+      "house context preserved",
+      "aspect operator preserved",
+      "degree composition preserved",
+      "deterministic selection"
+    ]
+  }
+}

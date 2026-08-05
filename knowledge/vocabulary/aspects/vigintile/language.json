@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "vigintile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "vigintile",
+  "content": {
+    "verbs": [
+      "refines",
+      "adjusts",
+      "differentiates",
+      "optimizes"
+    ],
+    "templates": [
+      "{A} refines subtle expression with {B}.",
+      "{A} and {B} integrate through precise adjustment."
+    ]
+  }
+}

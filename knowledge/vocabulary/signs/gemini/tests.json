@@ -1,0 +1,61 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "gemini_tests",
+  "moduleType": "tests",
+  "grammarRole": "modifier",
+  "parentObject": "gemini",
+  "content": {
+    "suite": "gemini_ontology_v0.1",
+    "cases": [
+      {
+        "id": "GEM-T-001",
+        "name": "Modifier role preserved",
+        "expected": true
+      },
+      {
+        "id": "GEM-T-002",
+        "name": "Reject Gemini as actor",
+        "input": "Gemini acts.",
+        "expected": false
+      },
+      {
+        "id": "GEM-T-003",
+        "name": "Reject dishonesty default",
+        "input": "Gemini is dishonest.",
+        "expected": false
+      },
+      {
+        "id": "GEM-T-004",
+        "name": "Allow 'adaptively' modifier",
+        "expected": true
+      },
+      {
+        "id": "GEM-T-005",
+        "name": "Preserve target verb",
+        "expected": true
+      },
+      {
+        "id": "GEM-T-006",
+        "name": "Reject finished interpretation",
+        "input": "Mercury in Gemini is always witty.",
+        "expected": false
+      },
+      {
+        "id": "GEM-T-007",
+        "name": "Suppress incompatible variation",
+        "expected": true
+      },
+      {
+        "id": "GEM-T-008",
+        "name": "Deterministic selection",
+        "expected": true
+      }
+    ],
+    "requiredAssertions": [
+      "modifier role preserved",
+      "canonical function preserved",
+      "finished interpretations rejected",
+      "deterministic selection"
+    ]
+  }
+}

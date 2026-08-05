@@ -1,0 +1,60 @@
+{
+  "functions": {
+    "sun": {
+      "coreFunction": "identity_coherence",
+      "domains": [
+        "vitality",
+        "self-expression",
+        "creative center"
+      ]
+    },
+    "moon": {
+      "coreFunction": "regulation_adaptation",
+      "domains": [
+        "memory",
+        "needs",
+        "emotional processing"
+      ]
+    },
+    "mercury": {
+      "coreFunction": "pattern_processing",
+      "domains": [
+        "communication",
+        "analysis",
+        "exchange"
+      ]
+    },
+    "venus": {
+      "coreFunction": "valuation_connection",
+      "domains": [
+        "relating",
+        "aesthetics",
+        "attraction"
+      ]
+    },
+    "mars": {
+      "coreFunction": "directed_action",
+      "domains": [
+        "initiative",
+        "assertion",
+        "activation"
+      ]
+    },
+    "jupiter": {
+      "coreFunction": "expansion_integration",
+      "domains": [
+        "growth",
+        "meaning",
+        "synthesis"
+      ]
+    },
+    "saturn": {
+      "coreFunction": "structure_limitation",
+      "domains": [
+        "boundaries",
+        "discipline",
+        "organization"
+      ]
+    }
+  }
+}

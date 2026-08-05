@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novemseptile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "novemseptile",
+  "content": {
+    "coreRule": "Development changes how deep recursive transformation is expressed, never the relational role of Novemseptile.",
+    "stages": {
+      "unconscious": [
+        "latent transformation cycles",
+        "unrecognized maturation"
+      ],
+      "defensive": [
+        "resistance to renewal",
+        "repetitive patterns"
+      ],
+      "learning": [
+        "recognizing recursive processes",
+        "intentional transformation"
+      ],
+      "healthy": [
+        "constructive maturation",
+        "transformational integration"
+      ],
+      "integrated": [
+        "continuous renewal",
+        "stable emergent development"
+      ]
+    },
+    "constraints": [
+      "Novemseptile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "septile",
+  "content": {
+    "definition": "A Septile relates participating canonical functions through recursive pattern emergence while preserving each function's identity.",
+    "boundaries": [
+      "Recursive emergence is not destiny.",
+      "Relational organization does not replace canonical functions."
+    ]
+  }
+}

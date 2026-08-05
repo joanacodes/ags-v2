@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "type": "axis_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "direction",
+  "parentObject": "nodal_axis",
+  "id": "nodal_axis_directionality",
+  "name": "Nodal Axis Directionality",
+  "content": {
+    "rule": "South Node supplies the established reference; North Node supplies developmental direction; both remain visible.",
+    "patterns": [
+      {
+        "id": "resource_to_development",
+        "source": "south_node",
+        "target": "north_node"
+      },
+      {
+        "id": "overreliance_to_expansion",
+        "source": "south_node_overreliance",
+        "target": "north_node_practice"
+      },
+      {
+        "id": "integration_loop",
+        "source": "north_node_development",
+        "target": "south_node_resource"
+      }
+    ],
+    "balanceRules": [
+      "preserve useful South Node capacity",
+      "describe North Node as practice, not outcome",
+      "never suppress either pole permanently"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "pluto_tests",
+  "content": {
+    "cases": [
+      "Primary verb defaults to regenerate",
+      "Destroy cannot replace primary verb",
+      "Finished placement interpretation rejected",
+      "Relationship reversal preserves function"
+    ],
+    "regressions": [
+      "Pluto != death",
+      "Pluto != trauma",
+      "Pluto != crisis"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "types": [
+    {
+      "id": "functional_cluster",
+      "description": "Multiple relationships emphasizing the same canonical function."
+    },
+    {
+      "id": "aspect_cluster",
+      "description": "Repeated aspect families forming a structural theme."
+    },
+    {
+      "id": "elemental_pattern",
+      "description": "Repeated elemental engagement modes."
+    },
+    {
+      "id": "modal_pattern",
+      "description": "Repeated cardinal, fixed, or mutable orientations."
+    },
+    {
+      "id": "developmental_pattern",
+      "description": "Recurring developmental themes across relationships."
+    }
+  ]
+}

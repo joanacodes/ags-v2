@@ -1,0 +1,323 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_semantics",
+  "name": "Pluto Semantics",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Pluto's reusable semantic domains, boundaries, relationships, query hints, and exclusions.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "pluto_identity",
+    "pluto_grammar",
+    "pluto_language",
+    "ags_semantic_domain_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "pluto",
+    "semantics",
+    "planet",
+    "function"
+  ],
+  "parentObject": "pluto",
+  "moduleType": "semantics",
+  "content": {
+    "coreDomains": [
+      {
+        "id": "regeneration",
+        "name": "Regeneration",
+        "definition": "The restoration of viability through exposure, removal, reorganization, and reintegration of material that could not remain unchanged.",
+        "primaryVerbs": [
+          "regenerate",
+          "renew",
+          "reconstitute"
+        ],
+        "boundaries": [
+          "Does not require total destruction.",
+          "Does not guarantee improvement.",
+          "Requires a prior form, system, or function undergoing deep change."
+        ]
+      },
+      {
+        "id": "exposure",
+        "name": "Exposure",
+        "definition": "Making concealed, denied, compressed, or structurally hidden material available to awareness or action.",
+        "primaryVerbs": [
+          "expose",
+          "reveal",
+          "uncover"
+        ],
+        "boundaries": [
+          "Does not imply punishment.",
+          "Does not guarantee readiness for integration.",
+          "Must distinguish evidence from suspicion."
+        ]
+      },
+      {
+        "id": "elimination",
+        "name": "Elimination",
+        "definition": "Removing a defined component that is nonviable, toxic, exhausted, obstructive, or incompatible with regeneration.",
+        "primaryVerbs": [
+          "eliminate",
+          "remove",
+          "release"
+        ],
+        "boundaries": [
+          "Requires a defined target.",
+          "Does not justify indiscriminate destruction.",
+          "Must remain subordinate to a regenerative aim."
+        ]
+      },
+      {
+        "id": "concentration",
+        "name": "Concentration",
+        "definition": "Gathering energy, attention, resource, motive, or leverage into a denser field.",
+        "primaryVerbs": [
+          "concentrate",
+          "intensify",
+          "focus"
+        ],
+        "boundaries": [
+          "Does not imply truth.",
+          "May increase effectiveness or compulsion.",
+          "May become monopolization if distribution is suppressed."
+        ]
+      },
+      {
+        "id": "reclamation",
+        "name": "Reclamation",
+        "definition": "Recovering agency, resource, voice, capacity, or material from suppression, dependency, abandonment, or loss.",
+        "primaryVerbs": [
+          "reclaim",
+          "recover",
+          "retrieve"
+        ],
+        "boundaries": [
+          "Does not justify retaliation.",
+          "Recovered agency may require new responsibility.",
+          "Must distinguish ownership from possession."
+        ]
+      },
+      {
+        "id": "power_redistribution",
+        "name": "Power Redistribution",
+        "definition": "Changing how agency, leverage, resource, risk, or decision-making capacity is distributed.",
+        "primaryVerbs": [
+          "redistribute",
+          "reorganize",
+          "rebalance"
+        ],
+        "boundaries": [
+          "Power is not moral worth.",
+          "Redistribution does not guarantee equality.",
+          "Requires explicit actors or systems."
+        ]
+      },
+      {
+        "id": "compulsion",
+        "name": "Compulsion",
+        "definition": "Pressure toward repetition, action, or confrontation that becomes increasingly difficult to avoid or regulate.",
+        "primaryVerbs": [
+          "compel",
+          "drive",
+          "repeat"
+        ],
+        "boundaries": [
+          "Does not equal diagnosis.",
+          "Requires evidence of reduced choice or repetitive pressure.",
+          "May be internal, relational, or systemic."
+        ]
+      },
+      {
+        "id": "purification",
+        "name": "Purification",
+        "definition": "Separating contaminating, corrupting, mixed, or nonviable material from what remains functional.",
+        "primaryVerbs": [
+          "purify",
+          "separate",
+          "clarify"
+        ],
+        "boundaries": [
+          "Must not become moral purity language.",
+          "Requires a defined contaminant or obstruction.",
+          "May involve loss, refinement, or concentration."
+        ]
+      },
+      {
+        "id": "irreversibility",
+        "name": "Irreversibility",
+        "definition": "A threshold after which a prior arrangement cannot be restored in exactly the same form.",
+        "primaryVerbs": [
+          "cross",
+          "commit",
+          "transform"
+        ],
+        "boundaries": [
+          "Does not predict a specific event.",
+          "May be psychological, relational, systemic, or material.",
+          "Irreversibility does not mean total loss."
+        ]
+      },
+      {
+        "id": "survival_adaptation",
+        "name": "Survival Adaptation",
+        "definition": "A concentrated reorganization of behavior, resource, attachment, or power under conditions of threat, scarcity, or necessity.",
+        "primaryVerbs": [
+          "survive",
+          "adapt",
+          "consolidate"
+        ],
+        "boundaries": [
+          "Does not imply trauma by default.",
+          "May become rigid after the threat passes.",
+          "Requires explicit survival conditions."
+        ]
+      },
+      {
+        "id": "shadow_integration",
+        "name": "Shadow Integration",
+        "definition": "Consciously incorporating previously excluded, denied, feared, or concealed material.",
+        "primaryVerbs": [
+          "integrate",
+          "acknowledge",
+          "incorporate"
+        ],
+        "boundaries": [
+          "Does not imply Jungian doctrine is required.",
+          "Does not guarantee complete integration.",
+          "Must not pathologize excluded material."
+        ]
+      },
+      {
+        "id": "deep_restructuring",
+        "name": "Deep Restructuring",
+        "definition": "Changing the internal distribution of power, attachment, resource, motive, or dependency rather than only changing surface form.",
+        "primaryVerbs": [
+          "reorganize",
+          "restructure",
+          "redistribute"
+        ],
+        "boundaries": [
+          "Distinct from Uranian reconfiguration through alternative design.",
+          "Usually involves exposure and consequence.",
+          "Does not require visible crisis."
+        ]
+      }
+    ],
+    "domainRelationships": [
+      {
+        "from": "exposure",
+        "to": "regeneration",
+        "relationship": "Exposure makes hidden material available for regenerative change."
+      },
+      {
+        "from": "elimination",
+        "to": "regeneration",
+        "relationship": "Elimination removes defined obstructions to renewal."
+      },
+      {
+        "from": "concentration",
+        "to": "compulsion",
+        "relationship": "Concentration may become compulsion when choice and distribution narrow excessively."
+      },
+      {
+        "from": "reclamation",
+        "to": "power_redistribution",
+        "relationship": "Reclamation changes where agency and resource are held."
+      },
+      {
+        "from": "irreversibility",
+        "to": "deep_restructuring",
+        "relationship": "An irreversible threshold may require a new internal arrangement."
+      },
+      {
+        "from": "shadow_integration",
+        "to": "regeneration",
+        "relationship": "Integration of excluded material can restore depth and viability."
+      }
+    ],
+    "querySelectionHints": {
+      "identity": [
+        "reclamation",
+        "shadow_integration",
+        "regeneration"
+      ],
+      "work": [
+        "power_redistribution",
+        "deep_restructuring",
+        "concentration",
+        "reclamation"
+      ],
+      "money": [
+        "resource_reclamation",
+        "power_redistribution",
+        "concentration",
+        "elimination"
+      ],
+      "love": [
+        "attachment_restructuring",
+        "exposure",
+        "power_redistribution",
+        "compulsion"
+      ],
+      "family": [
+        "hidden_system_exposure",
+        "power_redistribution",
+        "survival_adaptation"
+      ],
+      "friendship": [
+        "trust_exposure",
+        "power_redistribution",
+        "reclamation"
+      ],
+      "health": [
+        "elimination",
+        "regeneration",
+        "survival_adaptation"
+      ],
+      "wounds_and_healing": [
+        "exposure",
+        "shadow_integration",
+        "reclamation",
+        "regeneration"
+      ],
+      "saturn_return": [
+        "deep_restructuring",
+        "elimination",
+        "reclamation",
+        "irreversibility"
+      ]
+    },
+    "semanticExclusions": [
+      "Do not derive physical death from regeneration.",
+      "Do not derive trauma from exposure.",
+      "Do not derive abuse from power redistribution.",
+      "Do not derive truth from intensity.",
+      "Do not derive moral purity from purification.",
+      "Do not derive inevitability from irreversibility.",
+      "Do not derive transformation from crisis alone."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Pluto semantics module."
+    }
+  ]
+}

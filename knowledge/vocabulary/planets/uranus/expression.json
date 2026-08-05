@@ -1,0 +1,56 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_expression",
+  "moduleType": "expression",
+  "grammarRole": "canonical_function",
+  "parentObject": "uranus",
+  "content": {
+    "families": [
+      {
+        "id": "innovation",
+        "components": [
+          "enables innovation",
+          "generates novel approaches"
+        ]
+      },
+      {
+        "id": "differentiation",
+        "components": [
+          "supports differentiation",
+          "expresses uniqueness"
+        ]
+      },
+      {
+        "id": "liberation",
+        "components": [
+          "facilitates liberation",
+          "removes unnecessary constraints"
+        ]
+      },
+      {
+        "id": "systems",
+        "components": [
+          "drives systemic reform",
+          "reorganizes structures"
+        ]
+      },
+      {
+        "id": "experimentation",
+        "components": [
+          "encourages experimentation",
+          "tests alternatives"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "sign": "Modifies style without replacing Uranus's function.",
+      "house": "Places Uranus's function into experiential context.",
+      "aspect": "Relates Uranus to another canonical function.",
+      "dignity": "Adjusts condition without changing ontology."
+    },
+    "constraints": [
+      "Uranus remains the acting canonical function.",
+      "No expression is a complete interpretation."
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mercury_expression",
+  "moduleType": "expression",
+  "grammarRole": "canonical_function",
+  "parentObject": "mercury",
+  "content": {
+    "families": [
+      {
+        "id": "cognition",
+        "components": [
+          "processes information",
+          "organizes understanding"
+        ]
+      },
+      {
+        "id": "communication",
+        "components": [
+          "enables communication",
+          "shares meaning"
+        ]
+      },
+      {
+        "id": "learning",
+        "components": [
+          "supports learning",
+          "integrates knowledge"
+        ]
+      },
+      {
+        "id": "analysis",
+        "components": [
+          "analyzes patterns",
+          "distinguishes concepts"
+        ]
+      },
+      {
+        "id": "symbolic_processing",
+        "components": [
+          "interprets symbols",
+          "constructs meaning"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "sign": "Modify style without replacing Mercury's function.",
+      "house": "Place Mercury's function into experiential context.",
+      "aspect": "Relate Mercury to another canonical function.",
+      "dignity": "Adjust condition without changing ontology."
+    },
+    "constraints": [
+      "Mercury remains the acting canonical function.",
+      "No expression is a complete interpretation."
+    ]
+  }
+}

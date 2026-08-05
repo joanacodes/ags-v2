@@ -1,0 +1,31 @@
+{
+  "grammarRole": "reference_frame",
+  "semanticClass": "public_actualization",
+  "primaryVerb": "actualize",
+  "definition": "Establish the reference frame through which capacities become observable through role, responsibility, contribution, and public participation.",
+  "functionalAim": "Orient activity toward visible participation in the wider social world without reducing the angle to career.",
+  "contributions": [
+    "public participation",
+    "role formation",
+    "responsibility",
+    "visibility",
+    "contribution"
+  ],
+  "doesNotMean": [
+    "career only",
+    "status",
+    "fame",
+    "success",
+    "authority by itself"
+  ],
+  "distinctions": {
+    "ascendant": "Ascendant orients entry; Midheaven orients public actualization.",
+    "saturn": "Saturn structures responsibility; Midheaven frames where capacities become publicly expressed.",
+    "tenth_house": "The Midheaven is a reference frame; the tenth house is contextual."
+  },
+  "constraints": [
+    "Must remain paired conceptually with the Imum Coeli.",
+    "Must not replace planetary functions.",
+    "Actualization is not guaranteed achievement."
+  ]
+}

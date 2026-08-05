@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "definition": "A Semisextile relates participating canonical functions through adjacent adjustment and subtle coordination while preserving each function's identity.",
+    "boundaries": [
+      "Subtlety does not imply insignificance.",
+      "Adjustment does not replace canonical functions."
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house4_expression",
+  "moduleType": "expression",
+  "grammarRole": "context",
+  "parentObject": "house_4",
+  "content": {
+    "families": [
+      {
+        "id": "home",
+        "components": [
+          "in the context of home",
+          "through domestic foundations"
+        ]
+      },
+      {
+        "id": "family",
+        "components": [
+          "through family relationships",
+          "within familial belonging"
+        ]
+      },
+      {
+        "id": "roots",
+        "components": [
+          "through personal roots",
+          "within formative influences"
+        ]
+      },
+      {
+        "id": "foundations",
+        "components": [
+          "through foundational security",
+          "within emotional grounding"
+        ]
+      },
+      {
+        "id": "private_life",
+        "components": [
+          "within private life",
+          "through inner stability"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Locate the planetary function within home, family, and foundational experience.",
+      "angle": "Contextualize the angle within foundational belonging without changing its reference-frame role.",
+      "node": "Place developmental themes within roots while preserving nodal polarity.",
+      "chiron": "Contextualize healing themes through emotional foundations without implying completion."
+    },
+    "constraints": [
+      "Privacy is not isolation.",
+      "Roots are not limitation.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quincunx_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "quincunx",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Quincunx relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate adaptive recalibration semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Quincunx introduces adaptive recalibration without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer adaptive integration over deterministic outcomes.",
+      "Interpret recalibration through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Quincunx is inherently malefic.",
+      "Quincunx guarantees difficulty.",
+      "Quincunx replaces planetary functions."
+    ]
+  }
+}

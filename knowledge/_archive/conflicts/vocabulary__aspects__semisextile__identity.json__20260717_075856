@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "canonicalFunction": "relates canonical functions through subtle connection, emerging coordination, and incremental integration",
+    "coreDomains": [
+      "subtle connection",
+      "incremental integration",
+      "emerging coordination",
+      "awareness",
+      "adaptation",
+      "continuity"
+    ],
+    "notInherent": [
+      "weakness",
+      "insignificance",
+      "automatic growth",
+      "beneficence"
+    ],
+    "constraints": [
+      "Semisextile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "dist-test",
+    "rootDir": "src",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "target": "ES2022",
+    "jsx": "preserve",
+    "incremental": false,
+    "plugins": [],
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src/grammar/**/*.ts",
+    "src/knowledge/**/*.ts",
+    "src/normalization/**/*.ts",
+    "src/interpretation/**/*.ts",
+    "src/types/**/*.ts",
+    "src/data/knowledge-pack.json",
+    "src/server/providers/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

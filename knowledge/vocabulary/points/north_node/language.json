@@ -1,0 +1,216 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_language",
+  "name": "North Node Language",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines controlled developmental vocabulary and rejected fatalistic wording.",
+  "grammarRole": "direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "north_node_identity",
+    "north_node_grammar",
+    "ags_semantic_domain_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "language",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "language",
+  "content": {
+    "verbHierarchy": {
+      "primaryVerb": {
+        "lemma": "develop",
+        "priority": 100,
+        "definition": "Build practical capacity in a less familiar complementary function."
+      },
+      "primaryVerbPhrases": [
+        {
+          "text": "build capacity for",
+          "priority": 98,
+          "semanticDomain": "capacity_building"
+        },
+        {
+          "text": "practice a less familiar response",
+          "priority": 96,
+          "semanticDomain": "practice"
+        },
+        {
+          "text": "extend the operating range toward",
+          "priority": 94,
+          "semanticDomain": "range_expansion"
+        },
+        {
+          "text": "cultivate a complementary function",
+          "priority": 92,
+          "semanticDomain": "complementary_development"
+        },
+        {
+          "text": "integrate an emerging capacity",
+          "priority": 90,
+          "semanticDomain": "integration"
+        }
+      ],
+      "secondaryVerbs": [
+        {
+          "lemma": "practice",
+          "domain": "practice",
+          "priority": 96
+        },
+        {
+          "lemma": "cultivate",
+          "domain": "capacity_building",
+          "priority": 94
+        },
+        {
+          "lemma": "extend",
+          "domain": "range_expansion",
+          "priority": 92
+        },
+        {
+          "lemma": "experiment",
+          "domain": "developmental_experimentation",
+          "priority": 88
+        },
+        {
+          "lemma": "integrate",
+          "domain": "integration",
+          "priority": 86
+        }
+      ],
+      "defensiveVerbs": [
+        "force",
+        "perform prematurely",
+        "reject familiarity",
+        "idealize the unfamiliar",
+        "overcorrect"
+      ],
+      "integratedVerbs": [
+        "develop without abandoning existing strengths",
+        "practice with feedback",
+        "extend range gradually",
+        "integrate emerging and familiar capacities",
+        "cultivate without moralizing"
+      ]
+    },
+    "nounSystem": {
+      "primaryNoun": "development",
+      "secondaryNouns": [
+        "practice",
+        "capacity",
+        "range",
+        "emergence",
+        "experimentation",
+        "integration",
+        "complementarity",
+        "direction"
+      ],
+      "usageRule": "Nouns support indexing and explanation but may not become destiny claims."
+    },
+    "adjectiveSystem": {
+      "neutral": [
+        "developmental",
+        "emerging",
+        "less familiar",
+        "complementary",
+        "practice-based",
+        "range-expanding"
+      ],
+      "constructive": [
+        "integrative",
+        "capacity-building",
+        "adaptive",
+        "responsive",
+        "developmentally useful"
+      ],
+      "defensive": [
+        "forced",
+        "idealized",
+        "premature",
+        "overcorrective",
+        "disconnected from existing strengths"
+      ]
+    },
+    "technicalFragments": [
+      "The North Node supplies developmental direction.",
+      "The North Node identifies a less familiar capacity for practice.",
+      "The North Node extends the operating range.",
+      "The North Node develops a complementary function."
+    ],
+    "firstPersonFragments": [
+      "I develop",
+      "I practice",
+      "I cultivate",
+      "I extend toward",
+      "I build capacity for"
+    ],
+    "learningFragments": [
+      "I am learning to practice this capacity without rejecting what I already know",
+      "I am learning to treat direction as practice rather than destiny",
+      "I am learning to integrate unfamiliar responses gradually"
+    ],
+    "lexicalSelectionRules": [
+      {
+        "id": "NN-LANG-001",
+        "rule": "Use `develop` when no narrower developmental action is justified."
+      },
+      {
+        "id": "NN-LANG-002",
+        "rule": "Use `practice` when repetition and feedback are explicit."
+      },
+      {
+        "id": "NN-LANG-003",
+        "rule": "Use `integrate` only when the South Node resource remains visible."
+      },
+      {
+        "id": "NN-LANG-004",
+        "rule": "Never use destiny, fate, or guaranteed fulfillment as neutral vocabulary."
+      }
+    ],
+    "rejectedWording": [
+      {
+        "text": "The North Node is your destiny.",
+        "reason": "Direction is not guaranteed outcome."
+      },
+      {
+        "text": "You must become your North Node.",
+        "reason": "The North Node develops capacities; it does not replace identity."
+      },
+      {
+        "text": "The North Node is always good.",
+        "reason": "Developmental unfamiliarity is not moral virtue."
+      },
+      {
+        "text": "Leave the South Node behind.",
+        "reason": "The nodal axis requires integration, not abandonment."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Directional developmental vocabulary only. No destiny, fate, moral ranking, or guaranteed outcome claims are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node language module."
+    }
+  ]
+}

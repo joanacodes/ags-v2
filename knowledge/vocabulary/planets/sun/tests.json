@@ -1,0 +1,52 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sun_tests",
+  "moduleType": "tests",
+  "grammarRole": "canonical_function",
+  "parentObject": "sun",
+  "content": {
+    "suite": "sun_ontology_v0.1",
+    "cases": [
+      {
+        "id": "SUN-T-001",
+        "name": "Canonical function preserved",
+        "expected": true
+      },
+      {
+        "id": "SUN-T-002",
+        "name": "Sign modifies only",
+        "expected": true
+      },
+      {
+        "id": "SUN-T-003",
+        "name": "House contextualizes only",
+        "expected": true
+      },
+      {
+        "id": "SUN-T-004",
+        "name": "Aspect remains relational",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "SUN-T-005",
+        "name": "Dignity changes condition only",
+        "expected": true
+      },
+      {
+        "id": "SUN-T-006",
+        "name": "Deterministic resolution",
+        "expected": true
+      },
+      {
+        "id": "SUN-T-007",
+        "name": "Identity function available",
+        "expected": true
+      },
+      {
+        "id": "SUN-T-008",
+        "name": "Empty result preferred",
+        "expected": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "septile",
+  "content": {
+    "defaultOperator": "recursive_pattern_emergence_operator",
+    "supportedQueries": {
+      "identity": [
+        "recursive_emergence",
+        "nonlinear_organization"
+      ],
+      "relationship": [
+        "cyclic_development",
+        "transformation"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Septile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

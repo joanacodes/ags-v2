@@ -1,0 +1,29 @@
+{
+  "domains": [
+    {
+      "id": "consolidation",
+      "definition": "Repeated functioning becomes established and readily accessible."
+    },
+    {
+      "id": "familiarity",
+      "definition": "Previously developed responses are available with relatively little effort."
+    },
+    {
+      "id": "resource",
+      "definition": "Established competence can support future development."
+    },
+    {
+      "id": "overreliance",
+      "definition": "Exclusive dependence on consolidated capacity reduces adaptive range."
+    },
+    {
+      "id": "integration",
+      "definition": "Established capacity remains available while complementary capacity develops."
+    }
+  ],
+  "rules": [
+    "Consolidation precedes overreliance conceptually.",
+    "Overreliance requires evidence.",
+    "Integration preserves established capacity."
+  ]
+}

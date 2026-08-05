@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sextile_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "sextile",
+  "content": {
+    "suite": "sextile_ontology_v0.1",
+    "cases": [
+      {
+        "id": "SEX-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "SEX-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "SEX-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "SEX-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "SEX-T-005",
+        "name": "No intrinsic benefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

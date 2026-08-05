@@ -1,0 +1,23 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quincunx_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "relational_operator",
+  "parentObject": "quincunx",
+  "content": {
+    "operator": "A \u26bb B -> recalibration_process",
+    "operands": [
+      "planet",
+      "point"
+    ],
+    "allowedModifiers": [
+      "orb",
+      "applying_separating",
+      "sign",
+      "house"
+    ],
+    "forbidden": [
+      "Treat quincunx as a planet."
+    ]
+  }
+}

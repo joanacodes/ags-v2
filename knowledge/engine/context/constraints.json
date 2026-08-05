@@ -1,0 +1,7 @@
+{
+  "rules": [
+    "Avoid deterministic interpretation.",
+    "Avoid reducing signs to personality labels.",
+    "Preserve relational complexity."
+  ]
+}

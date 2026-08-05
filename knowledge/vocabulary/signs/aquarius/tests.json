@@ -1,0 +1,80 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aquarius_tests",
+  "moduleType": "tests",
+  "grammarRole": "modifier",
+  "parentObject": "aquarius",
+  "content": {
+    "suite": "aquarius_ontology_v0.1",
+    "cases": [
+      {
+        "id": "AQU-T-001",
+        "name": "Modifier role preserved",
+        "expected": true
+      },
+      {
+        "id": "AQU-T-002",
+        "name": "Reject Aquarius as actor",
+        "expected": false
+      },
+      {
+        "id": "AQU-T-003",
+        "name": "Reject rebellion default",
+        "expected": false
+      },
+      {
+        "id": "AQU-T-004",
+        "name": "Allow innovation modifier",
+        "expected": true
+      },
+      {
+        "id": "AQU-T-005",
+        "name": "Canonical function preserved",
+        "expected": true
+      },
+      {
+        "id": "AQU-T-006",
+        "name": "Reject finished interpretation",
+        "expected": false
+      },
+      {
+        "id": "AQU-T-007",
+        "name": "House remains context",
+        "expected": "context"
+      },
+      {
+        "id": "AQU-T-008",
+        "name": "Aspect remains relational_operator",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "AQU-T-009",
+        "name": "Degree composes after sign",
+        "expected": true
+      },
+      {
+        "id": "AQU-T-010",
+        "name": "Development evidence required",
+        "expected": false
+      },
+      {
+        "id": "AQU-T-011",
+        "name": "Deterministic selection",
+        "expected": true
+      },
+      {
+        "id": "AQU-T-012",
+        "name": "Empty modifier preferred",
+        "expected": []
+      }
+    ],
+    "requiredAssertions": [
+      "modifier role preserved",
+      "canonical function preserved",
+      "house context preserved",
+      "aspect operator preserved",
+      "degree composition preserved",
+      "deterministic selection"
+    ]
+  }
+}

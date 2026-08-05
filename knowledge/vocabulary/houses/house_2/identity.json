@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house2_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_2",
+  "content": {
+    "coreDomains": [
+      "resources",
+      "values",
+      "possessions",
+      "stewardship",
+      "security",
+      "self_worth",
+      "material_management",
+      "sustainability",
+      "ownership",
+      "stability"
+    ],
+    "notInherent": [
+      "greed",
+      "materialism",
+      "wealth",
+      "poverty",
+      "selfishness",
+      "consumerism"
+    ],
+    "constraints": [
+      "House 2 is a context.",
+      "House 2 never performs actions.",
+      "House 2 never replaces a planet's canonical function."
+    ]
+  }
+}

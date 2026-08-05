@@ -1,0 +1,30 @@
+{
+  "id": "descendant_query_rules",
+  "primaryVerb": "relate",
+  "requiredOppositeAngle": "ascendant",
+  "selectionRules": [
+    "Default to 'relate'.",
+    "Always resolve the Ascendant alongside the Descendant.",
+    "Treat signs as modifiers of relational orientation.",
+    "Treat the angle ruler as delegated planetary function.",
+    "Never reduce the Descendant to relationship prediction."
+  ],
+  "supportedQueries": {
+    "identity": [
+      "relational_orientation",
+      "counterpart_awareness"
+    ],
+    "relationships": [
+      "reciprocity",
+      "coordination"
+    ],
+    "work": [
+      "coordination",
+      "counterpart_awareness"
+    ],
+    "health": [
+      "relational_balance",
+      "coordination"
+    ]
+  }
+}

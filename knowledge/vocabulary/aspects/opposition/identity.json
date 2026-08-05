@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "opposition_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "opposition",
+  "content": {
+    "canonicalFunction": "relates two canonical functions through polarity, differentiation, and integration",
+    "coreDomains": [
+      "polarity",
+      "awareness",
+      "differentiation",
+      "integration",
+      "complementarity",
+      "dynamic_balance"
+    ],
+    "notInherent": [
+      "conflict",
+      "failure",
+      "separation",
+      "maleficence"
+    ],
+    "constraints": [
+      "Opposition never replaces planetary functions.",
+      "Meaning arises from participating functions."
+    ]
+  }
+}

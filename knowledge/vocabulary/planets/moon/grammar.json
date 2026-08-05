@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "moon_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "canonical_function",
+  "parentObject": "moon",
+  "content": {
+    "functionSlots": [
+      "function",
+      "process",
+      "orientation",
+      "goal",
+      "output",
+      "salience"
+    ],
+    "allowedModifiers": [
+      "sign",
+      "house",
+      "degree",
+      "dignity"
+    ],
+    "allowedRelations": [
+      "aspect"
+    ],
+    "patterns": [
+      "The Moon regulates [domain].",
+      "The Moon adapts through [process].",
+      "The Moon expresses within [house_context].",
+      "The Moon is modified by [sign_modifier]."
+    ],
+    "forbidden": [
+      "The Moon is merely emotion.",
+      "The Moon is replaced by its sign.",
+      "The Moon inherently indicates dependency."
+    ]
+  }
+}

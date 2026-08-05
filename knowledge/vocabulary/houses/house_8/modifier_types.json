@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house8_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "context",
+  "parentObject": "house_8",
+  "content": {
+    "contextComponents": [
+      {
+        "id": "house8_transformation",
+        "text": "in the context of transformation",
+        "type": "domain"
+      },
+      {
+        "id": "house8_shared",
+        "text": "through shared resources",
+        "type": "focus"
+      },
+      {
+        "id": "house8_regeneration",
+        "text": "through regenerative development",
+        "type": "expression_context"
+      },
+      {
+        "id": "house8_depth",
+        "text": "within deep exchange",
+        "type": "salience"
+      }
+    ]
+  }
+}

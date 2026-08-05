@@ -1,0 +1,9 @@
+{
+  "requiredFields": [
+    "id",
+    "name",
+    "coreFunction",
+    "expressionDomains",
+    "developmentalModes"
+  ]
+}

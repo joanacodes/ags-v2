@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "opposition_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "opposition",
+  "content": {
+    "definition": "An opposition creates a polarity between participating canonical functions while preserving each function's identity.",
+    "boundaries": [
+      "Polarity is not contradiction.",
+      "Tension is contextual, not inherent."
+    ]
+  }
+}

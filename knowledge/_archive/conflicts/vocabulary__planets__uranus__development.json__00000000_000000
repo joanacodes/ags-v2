@@ -1,0 +1,204 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_development",
+  "name": "Uranus Development",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Uranian expression across the universal developmental stages without changing the core function.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "uranus_identity",
+    "uranus_semantics",
+    "uranus_psychology",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "uranus",
+    "development",
+    "planet",
+    "function"
+  ],
+  "parentObject": "uranus",
+  "moduleType": "development",
+  "content": {
+    "developmentReference": "ags_development_blueprint",
+    "coreRule": "Development changes how reconfiguration operates; it does not change Uranus's identity.",
+    "stageExpressions": [
+      {
+        "stage": "unconscious",
+        "functionalPattern": [
+          "Registers constraint before identifying its source",
+          "Changes direction automatically when repetition feels enclosing",
+          "Creates difference without yet understanding its purpose",
+          "Uses distance to preserve psychological space"
+        ],
+        "eligibleVerbs": [
+          "interrupt",
+          "depart",
+          "detach",
+          "deviate"
+        ],
+        "ineligibleClaims": [
+          "deliberate reform",
+          "integrated innovation",
+          "systems accountability"
+        ],
+        "learningTaskComponents": [
+          "Identify the pattern being resisted",
+          "Separate real constraint from anticipated constraint",
+          "Observe the consequences of automatic discontinuity"
+        ]
+      },
+      {
+        "stage": "defensive",
+        "functionalPattern": [
+          "Uses opposition to protect autonomy",
+          "Destabilizes continuity before dependence can form",
+          "Treats unpredictability as protection from control",
+          "May prioritize shock, novelty, or distance over workable redesign"
+        ],
+        "eligibleVerbs": [
+          "reject",
+          "provoke",
+          "destabilize",
+          "fragment",
+          "disrupt without design"
+        ],
+        "requiredConditions": [
+          "explicit stress condition",
+          "explicit defensive activation",
+          "explicit fear of constraint or absorption"
+        ],
+        "learningTaskComponents": [
+          "Distinguish freedom from avoidance",
+          "Name the constraint before opposing it",
+          "Preserve useful structure during change",
+          "Remain available for feedback"
+        ]
+      },
+      {
+        "stage": "learning",
+        "functionalPattern": [
+          "Tests alternatives consciously",
+          "Experiments with different arrangements",
+          "Learns to revise change after feedback",
+          "Begins distinguishing innovation from novelty"
+        ],
+        "eligibleVerbs": [
+          "experiment",
+          "test",
+          "update",
+          "differentiate",
+          "reform"
+        ],
+        "learningTaskComponents": [
+          "Define the problem before changing the system",
+          "Test at an observable scale",
+          "Measure consequences",
+          "Keep autonomy and accountability together"
+        ]
+      },
+      {
+        "stage": "healthy",
+        "functionalPattern": [
+          "Recognizes obsolete assumptions",
+          "Introduces viable alternatives",
+          "Uses interruption only when continuity blocks adaptation",
+          "Coordinates independence with systems awareness"
+        ],
+        "eligibleVerbs": [
+          "reconfigure",
+          "innovate",
+          "reform",
+          "update",
+          "differentiate",
+          "decentralize"
+        ],
+        "operatingConditions": [
+          "query relevance",
+          "verb compatibility",
+          "evidence of a defined system or constraint",
+          "feedback remains available"
+        ],
+        "learningTaskComponents": [
+          "Sustain what proves useful",
+          "Communicate change across different adaptation speeds",
+          "Allow innovation to become ordinary practice"
+        ]
+      },
+      {
+        "stage": "integrated",
+        "functionalPattern": [
+          "Reconfigures systems without idealizing change",
+          "Preserves continuity where continuity supports function",
+          "Coordinates innovation with responsibility, timing, and human impact",
+          "Can move between independence and participation without role loss"
+        ],
+        "eligibleVerbs": [
+          "reconfigure responsively",
+          "innovate sustainably",
+          "reform with systems awareness",
+          "decentralize with accountability",
+          "differentiate without isolation",
+          "experiment with feedback"
+        ],
+        "requiredConditions": [
+          "explicit integration stage",
+          "explicit synthesis evidence",
+          "sustained coordination between change and continuity"
+        ],
+        "developmentalContribution": [
+          "Makes systems more adaptive without requiring permanent disruption",
+          "Turns alternatives into transferable methods",
+          "Creates room for difference inside durable structures",
+          "Uses future orientation without abandoning present constraints"
+        ]
+      }
+    ],
+    "crossStageRules": [
+      {
+        "id": "URA-DEV-001",
+        "rule": "The same semantic domain may use different verbs at different stages."
+      },
+      {
+        "id": "URA-DEV-002",
+        "rule": "Disruption is more likely to appear as a mechanism in unconscious or defensive stages, but is not limited to them."
+      },
+      {
+        "id": "URA-DEV-003",
+        "rule": "Integrated Uranus still permits interruption when interruption is functionally necessary."
+      },
+      {
+        "id": "URA-DEV-004",
+        "rule": "Healthy and integrated expression do not imply social approval."
+      },
+      {
+        "id": "URA-DEV-005",
+        "rule": "No stage may introduce a semantic domain absent from Uranus's approved vocabulary."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. Development and psychology qualify expression but do not redefine Uranus.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Uranus development module."
+    }
+  ]
+}

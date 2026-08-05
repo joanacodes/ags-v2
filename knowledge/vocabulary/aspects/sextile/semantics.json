@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sextile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "sextile",
+  "content": {
+    "definition": "A Sextile relates participating canonical functions through opportunity and cooperative activation while preserving each function's identity.",
+    "boundaries": [
+      "Opportunity requires engagement.",
+      "Potential is not guaranteed realization."
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pisces_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "pisces",
+  "content": {
+    "defaultModifierSet": [
+      "pisces_manner_compassionately",
+      "pisces_strategy_integration",
+      "pisces_priority_compassion"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "integration",
+        "compassion"
+      ],
+      "relationships": [
+        "empathy",
+        "interconnectedness"
+      ],
+      "work": [
+        "adaptability",
+        "imagination"
+      ],
+      "health": [
+        "acceptance",
+        "healthy_boundaries"
+      ],
+      "transits": [
+        "transcendence",
+        "symbolic_understanding"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'compassionately' as the neutral manner.",
+      "Prefer 'through integration' as the neutral strategy.",
+      "Suppress unnecessary diffusion when incompatible with the target.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novemseptile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "novemseptile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through deep recursive transformation and extended maturation cycles.",
+    "coreDomains": [
+      "deep transformation",
+      "recursive cycles",
+      "maturation",
+      "integration",
+      "renewal",
+      "emergence"
+    ],
+    "notInherent": [
+      "destiny",
+      "inevitability",
+      "magic",
+      "beneficence"
+    ],
+    "constraints": [
+      "Novemseptile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

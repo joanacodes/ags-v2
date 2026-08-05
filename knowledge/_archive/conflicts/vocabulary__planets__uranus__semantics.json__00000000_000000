@@ -1,0 +1,320 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_semantics",
+  "name": "Uranus Semantics",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Uranus's reusable semantic domains, boundaries, relationships, query hints, and exclusions.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "uranus_identity",
+    "uranus_grammar",
+    "uranus_language",
+    "ags_semantic_domain_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "uranus",
+    "semantics",
+    "planet",
+    "function"
+  ],
+  "parentObject": "uranus",
+  "moduleType": "semantics",
+  "content": {
+    "coreDomains": [
+      {
+        "id": "reconfiguration",
+        "name": "Reconfiguration",
+        "definition": "Changing the arrangement, relationship, or operating logic of parts within a system.",
+        "primaryVerbs": [
+          "reconfigure",
+          "rearrange",
+          "redesign"
+        ],
+        "boundaries": [
+          "Does not inherently imply destruction.",
+          "Does not guarantee improvement.",
+          "Requires an existing or emerging system."
+        ]
+      },
+      {
+        "id": "innovation",
+        "name": "Innovation",
+        "definition": "Creating and applying a novel arrangement, method, or design that changes how a function operates.",
+        "primaryVerbs": [
+          "innovate",
+          "invent",
+          "redesign"
+        ],
+        "boundaries": [
+          "Novelty alone is insufficient.",
+          "An idea becomes innovation only when it changes operation or application.",
+          "Innovation may be constructive, premature, or untested."
+        ]
+      },
+      {
+        "id": "differentiation",
+        "name": "Differentiation",
+        "definition": "Establishing a distinct operating identity, method, or position relative to precedent or collective norms.",
+        "primaryVerbs": [
+          "differentiate",
+          "separate",
+          "individualize"
+        ],
+        "boundaries": [
+          "Does not inherently require isolation.",
+          "Does not imply superiority.",
+          "Difference must remain distinct from reflexive opposition."
+        ]
+      },
+      {
+        "id": "experimentation",
+        "name": "Experimentation",
+        "definition": "Testing alternative arrangements through action, feedback, comparison, and revision.",
+        "primaryVerbs": [
+          "experiment",
+          "test",
+          "iterate"
+        ],
+        "boundaries": [
+          "Requires feedback to remain experimental rather than random.",
+          "Does not guarantee success.",
+          "May coexist with structure and accountability."
+        ]
+      },
+      {
+        "id": "reform",
+        "name": "Reform",
+        "definition": "Deliberately changing an existing system while preserving enough continuity for the revised system to function.",
+        "primaryVerbs": [
+          "reform",
+          "update",
+          "revise"
+        ],
+        "boundaries": [
+          "Distinct from total replacement.",
+          "Requires an identifiable existing system.",
+          "May be gradual or sudden."
+        ]
+      },
+      {
+        "id": "liberation",
+        "name": "Liberation",
+        "definition": "Increasing available agency by removing, bypassing, or redesigning a limiting constraint.",
+        "primaryVerbs": [
+          "liberate",
+          "release",
+          "open"
+        ],
+        "boundaries": [
+          "Requires a defined constraint.",
+          "Freedom is not equivalent to lack of responsibility.",
+          "Release may create new responsibilities."
+        ]
+      },
+      {
+        "id": "interruption",
+        "name": "Interruption",
+        "definition": "Breaking continuity long enough for a pattern, assumption, or alternative to become visible.",
+        "primaryVerbs": [
+          "interrupt",
+          "pause",
+          "break continuity"
+        ],
+        "boundaries": [
+          "Interruption is a mechanism, not a complete purpose.",
+          "May be deliberate or involuntary.",
+          "Does not automatically produce reform."
+        ]
+      },
+      {
+        "id": "discontinuity",
+        "name": "Discontinuity",
+        "definition": "A break in sequence, repetition, or expected development.",
+        "primaryVerbs": [
+          "break",
+          "depart",
+          "deviate"
+        ],
+        "boundaries": [
+          "Distinct from chaos.",
+          "Can be temporary or structural.",
+          "Requires a prior expectation of continuity."
+        ]
+      },
+      {
+        "id": "decentralization",
+        "name": "Decentralization",
+        "definition": "Distributing agency, authority, information, or function across multiple nodes.",
+        "primaryVerbs": [
+          "decentralize",
+          "distribute",
+          "network"
+        ],
+        "boundaries": [
+          "Does not eliminate coordination.",
+          "Does not guarantee equality.",
+          "Requires attention to accountability."
+        ]
+      },
+      {
+        "id": "systems_awareness",
+        "name": "Systems Awareness",
+        "definition": "Perceiving patterns, dependencies, assumptions, and alternative configurations within a system.",
+        "primaryVerbs": [
+          "map",
+          "detect",
+          "reframe"
+        ],
+        "boundaries": [
+          "Distinct from Mercury's detailed cognitive processing.",
+          "May detect architecture without mastering every component.",
+          "Pattern recognition alone does not guarantee accurate reform."
+        ]
+      },
+      {
+        "id": "future_orientation",
+        "name": "Future Orientation",
+        "definition": "Evaluating present systems according to emerging conditions and unrealized possibilities.",
+        "primaryVerbs": [
+          "anticipate",
+          "prototype",
+          "prepare"
+        ],
+        "boundaries": [
+          "Does not guarantee prediction.",
+          "The future remains uncertain.",
+          "Present realities cannot be ignored."
+        ]
+      },
+      {
+        "id": "detachment",
+        "name": "Detachment",
+        "definition": "Creating enough distance from identification, habit, or group pressure to observe alternatives.",
+        "primaryVerbs": [
+          "detach",
+          "distance",
+          "observe"
+        ],
+        "boundaries": [
+          "Distinct from emotional avoidance.",
+          "Distance may be temporary.",
+          "Detachment must not be assumed to equal objectivity."
+        ]
+      }
+    ],
+    "domainRelationships": [
+      {
+        "from": "systems_awareness",
+        "to": "reconfiguration",
+        "relationship": "Systems awareness identifies which arrangement can be changed."
+      },
+      {
+        "from": "experimentation",
+        "to": "innovation",
+        "relationship": "Experimentation tests whether an alternative becomes functional innovation."
+      },
+      {
+        "from": "interruption",
+        "to": "reform",
+        "relationship": "Interruption can create room for reform but does not guarantee it."
+      },
+      {
+        "from": "differentiation",
+        "to": "liberation",
+        "relationship": "Differentiation may increase agency by loosening inherited identification."
+      },
+      {
+        "from": "decentralization",
+        "to": "networking",
+        "relationship": "Distributed agency often requires networked coordination."
+      },
+      {
+        "from": "future_orientation",
+        "to": "adaptation",
+        "relationship": "Future orientation informs updates to changed or emerging conditions."
+      }
+    ],
+    "querySelectionHints": {
+      "identity": [
+        "differentiation",
+        "detachment",
+        "liberation"
+      ],
+      "work": [
+        "innovation",
+        "reform",
+        "systems_awareness",
+        "decentralization"
+      ],
+      "money": [
+        "experimentation",
+        "adaptation",
+        "decentralization"
+      ],
+      "love": [
+        "differentiation",
+        "liberation",
+        "interruption"
+      ],
+      "family": [
+        "differentiation",
+        "reform",
+        "discontinuity"
+      ],
+      "friendship": [
+        "networking",
+        "decentralization",
+        "differentiation"
+      ],
+      "health": [
+        "interruption",
+        "adaptation",
+        "experimentation"
+      ],
+      "wounds_and_healing": [
+        "liberation",
+        "differentiation",
+        "reconfiguration"
+      ],
+      "saturn_return": [
+        "reform",
+        "reconfiguration",
+        "experimentation",
+        "systems_awareness"
+      ]
+    },
+    "semanticExclusions": [
+      "Do not derive chaos from reconfiguration.",
+      "Do not derive moral progress from innovation.",
+      "Do not derive isolation from differentiation.",
+      "Do not derive irresponsibility from liberation.",
+      "Do not derive genius from systems awareness.",
+      "Do not derive successful reform from interruption.",
+      "Do not derive a sudden external event from discontinuity alone."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Uranus semantics module."
+    }
+  ]
+}

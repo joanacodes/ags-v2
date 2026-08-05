@@ -1,0 +1,83 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "libra_tests",
+  "moduleType": "tests",
+  "grammarRole": "modifier",
+  "parentObject": "libra",
+  "content": {
+    "suite": "libra_ontology_v0.1",
+    "cases": [
+      {
+        "id": "LIB-T-001",
+        "name": "Modifier role preserved",
+        "expected": true
+      },
+      {
+        "id": "LIB-T-002",
+        "name": "Reject Libra as actor",
+        "input": "Libra acts.",
+        "expected": false
+      },
+      {
+        "id": "LIB-T-003",
+        "name": "Reject indecision default",
+        "input": "Libra is indecisive.",
+        "expected": false
+      },
+      {
+        "id": "LIB-T-004",
+        "name": "Allow harmonious modifier",
+        "expected": true
+      },
+      {
+        "id": "LIB-T-005",
+        "name": "Preserve target canonical function",
+        "expected": true
+      },
+      {
+        "id": "LIB-T-006",
+        "name": "Reject finished interpretation",
+        "input": "Venus in Libra always avoids conflict.",
+        "expected": false
+      },
+      {
+        "id": "LIB-T-007",
+        "name": "House remains context",
+        "expected": "context"
+      },
+      {
+        "id": "LIB-T-008",
+        "name": "Aspect remains relational operator",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "LIB-T-009",
+        "name": "Degree composes after sign",
+        "expected": true
+      },
+      {
+        "id": "LIB-T-010",
+        "name": "Development evidence required",
+        "expected": false
+      },
+      {
+        "id": "LIB-T-011",
+        "name": "Deterministic selection",
+        "expected": true
+      },
+      {
+        "id": "LIB-T-012",
+        "name": "Empty modifier preferred",
+        "expected": []
+      }
+    ],
+    "requiredAssertions": [
+      "modifier role preserved",
+      "canonical function preserved",
+      "house context preserved",
+      "aspect operator preserved",
+      "degree composition preserved",
+      "deterministic selection"
+    ]
+  }
+}

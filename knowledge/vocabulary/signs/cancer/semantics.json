@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "cancer_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "modifier",
+  "parentObject": "cancer",
+  "content": {
+    "domains": {
+      "protection": "Reduces unnecessary exposure to preserve functional integrity.",
+      "nurturance": "Supports growth through ongoing care.",
+      "containment": "Provides boundaries that enable development.",
+      "belonging": "Maintains relational inclusion.",
+      "care": "Responds to genuine needs.",
+      "responsiveness": "Adjusts support according to changing conditions.",
+      "continuity_of_support": "Sustains care across time.",
+      "emotional_attunement": "Tracks affective context without determining outcomes.",
+      "sheltering": "Buffers against unnecessary disruption.",
+      "adaptive_security": "Balances protection with flexibility."
+    },
+    "boundaries": [
+      "Protection is not control.",
+      "Care is not dependency.",
+      "Belonging is not enmeshment.",
+      "Responsiveness is not moodiness."
+    ]
+  }
+}

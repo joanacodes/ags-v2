@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aquarius_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "modifier",
+  "parentObject": "aquarius",
+  "content": {
+    "components": [
+      {
+        "id": "aquarius_manner_innovatively",
+        "text": "innovatively",
+        "type": "manner"
+      },
+      {
+        "id": "aquarius_strategy_experimentation",
+        "text": "through experimentation",
+        "type": "strategy"
+      },
+      {
+        "id": "aquarius_pace_adaptive",
+        "text": "at an adaptive pace",
+        "type": "pace"
+      },
+      {
+        "id": "aquarius_orientation_progress",
+        "text": "toward collective progress",
+        "type": "orientation"
+      },
+      {
+        "id": "aquarius_priority_innovation",
+        "text": "with emphasis on innovation",
+        "type": "priority"
+      },
+      {
+        "id": "aquarius_regulation_adaptability",
+        "text": "while preserving adaptability",
+        "type": "regulation"
+      },
+      {
+        "id": "aquarius_development_evolving",
+        "text": "through evolving perspective",
+        "type": "developmental"
+      }
+    ]
+  }
+}

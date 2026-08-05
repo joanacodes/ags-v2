@@ -1,0 +1,56 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "moon_expression",
+  "moduleType": "expression",
+  "grammarRole": "canonical_function",
+  "parentObject": "moon",
+  "content": {
+    "families": [
+      {
+        "id": "emotion",
+        "components": [
+          "regulates emotional processing",
+          "supports affective integration"
+        ]
+      },
+      {
+        "id": "attachment",
+        "components": [
+          "organizes attachment",
+          "supports secure bonding"
+        ]
+      },
+      {
+        "id": "needs",
+        "components": [
+          "coordinates needs",
+          "supports adaptive care"
+        ]
+      },
+      {
+        "id": "security",
+        "components": [
+          "maintains felt security",
+          "stabilizes regulation"
+        ]
+      },
+      {
+        "id": "adaptation",
+        "components": [
+          "supports adaptive responsiveness",
+          "adjusts to changing conditions"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "sign": "Modify style without replacing the Moon's function.",
+      "house": "Place the Moon's function into experiential context.",
+      "aspect": "Relate the Moon to another canonical function.",
+      "dignity": "Adjust condition without changing ontology."
+    },
+    "constraints": [
+      "The Moon remains the acting canonical function.",
+      "No expression is a complete interpretation."
+    ]
+  }
+}

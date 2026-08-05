@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "opposition_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "opposition",
+  "content": {
+    "defaultOperator": "polarity_operator",
+    "supportedQueries": {
+      "identity": [
+        "polarity",
+        "integration"
+      ],
+      "relationship": [
+        "dynamic_balance"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Opposition operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

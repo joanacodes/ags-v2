@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mercury_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "canonical_function",
+  "parentObject": "mercury",
+  "content": {
+    "resolutionOrder": [
+      "Load Mercury canonical function",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity modifiers",
+      "Apply aspect relations",
+      "Validate Mercury function unchanged",
+      "Generate semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "function": "cognition",
+      "process": "meaning",
+      "goal": "learning",
+      "output": "communication",
+      "salience": "interpretive"
+    },
+    "compositionRules": [
+      "Mercury remains the canonical function.",
+      "Signs modify expression only.",
+      "Houses provide context only.",
+      "Aspects create relations only.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer accurate interpretation over assumption.",
+      "Prefer communication over verbosity.",
+      "Return an empty result rather than invent semantics."
+    ],
+    "forbiddenInferences": [
+      "Mercury is replaced by a sign.",
+      "Mercury becomes a house.",
+      "Mercury inherently indicates intelligence or deceit."
+    ]
+  }
+}

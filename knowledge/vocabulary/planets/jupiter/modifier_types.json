@@ -1,0 +1,38 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "jupiter_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "canonical_function",
+  "parentObject": "jupiter",
+  "content": {
+    "functionComponents": [
+      {
+        "id": "jupiter_expansion",
+        "text": "expands understanding",
+        "type": "function"
+      },
+      {
+        "id": "jupiter_meaning",
+        "text": "synthesizes meaning",
+        "type": "process"
+      },
+      {
+        "id": "jupiter_growth",
+        "text": "supports growth",
+        "type": "goal"
+      },
+      {
+        "id": "jupiter_wisdom",
+        "text": "cultivates wisdom",
+        "type": "output"
+      }
+    ],
+    "modifierPolicy": {
+      "sign": "modifies style",
+      "house": "supplies context",
+      "degree": "adds emphasis",
+      "dignity": "changes condition",
+      "aspect": "creates relational structure"
+    }
+  }
+}

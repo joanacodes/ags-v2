@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_tests",
+  "moduleType": "tests",
+  "grammarRole": "canonical_function",
+  "parentObject": "neptune",
+  "content": {
+    "suite": "neptune_ontology_v0.1",
+    "cases": [
+      {
+        "id": "NEP-T-001",
+        "name": "Canonical function preserved",
+        "expected": true
+      },
+      {
+        "id": "NEP-T-002",
+        "name": "Sign modifies only",
+        "expected": true
+      },
+      {
+        "id": "NEP-T-003",
+        "name": "House contextualizes only",
+        "expected": true
+      },
+      {
+        "id": "NEP-T-004",
+        "name": "Aspect remains relational",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "NEP-T-005",
+        "name": "Dignity changes condition only",
+        "expected": true
+      },
+      {
+        "id": "NEP-T-006",
+        "name": "Deterministic resolution",
+        "expected": true
+      },
+      {
+        "id": "NEP-T-007",
+        "name": "Imagination function available",
+        "expected": true
+      },
+      {
+        "id": "NEP-T-008",
+        "name": "Symbolic perception output available",
+        "expected": true
+      },
+      {
+        "id": "NEP-T-009",
+        "name": "Empty result preferred",
+        "expected": []
+      }
+    ]
+  }
+}

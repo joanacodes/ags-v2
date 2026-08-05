@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biseptile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "biseptile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Biseptile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate recursive differentiation semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Biseptile introduces recursive differentiation without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer distributed coordination over deterministic outcomes.",
+      "Interpret recursive differentiation through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Biseptile is inherently fated or magical.",
+      "Biseptile guarantees destiny.",
+      "Biseptile replaces planetary functions."
+    ]
+  }
+}

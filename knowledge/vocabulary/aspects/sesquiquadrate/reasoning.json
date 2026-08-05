@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sesquiquadrate_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "sesquiquadrate",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Sesquiquadrate relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate compound friction semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Sesquiquadrate introduces compound constructive tension without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer adaptive restructuring over deterministic outcomes.",
+      "Interpret compound tension through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Sesquiquadrate is inherently malefic.",
+      "Sesquiquadrate guarantees crisis.",
+      "Sesquiquadrate replaces planetary functions."
+    ]
+  }
+}

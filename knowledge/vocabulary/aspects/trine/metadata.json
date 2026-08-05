@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "trine_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "trine",
+  "content": {
+    "canonicalId": "trine",
+    "displayName": "Trine",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "facilitative_flow_operator",
+    "canonicalQuestion": "How do two canonical functions interact through facilitative flow and mutual reinforcement?"
+  }
+}

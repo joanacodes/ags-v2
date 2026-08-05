@@ -1,0 +1,48 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "square_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "square",
+  "content": {
+    "families": [
+      {
+        "id": "friction",
+        "components": [
+          "creates constructive friction",
+          "activates growth"
+        ]
+      },
+      {
+        "id": "adaptation",
+        "components": [
+          "requires adaptation",
+          "encourages flexibility"
+        ]
+      },
+      {
+        "id": "development",
+        "components": [
+          "supports development",
+          "builds capability"
+        ]
+      },
+      {
+        "id": "problem_solving",
+        "components": [
+          "focuses effort toward resolution"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides context.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic value.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

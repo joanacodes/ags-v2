@@ -1,0 +1,9 @@
+{
+  "rules": [
+    "Context modifies expression, not ontology.",
+    "Signs describe style.",
+    "Houses describe domain.",
+    "Elements describe engagement mode.",
+    "Modalities describe orientation."
+  ]
+}

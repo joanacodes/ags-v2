@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "tredecile_family_audit",
+  "moduleType": "family_audit",
+  "parentObject": "tredecile_family",
+  "content": {
+    "family": "adaptive_restructuring_family",
+    "members": [
+      {
+        "id": "tredecile",
+        "angle": "27.692\u00b0",
+        "role": "adaptive_restructuring_operator"
+      }
+    ],
+    "inheritanceRules": [
+      "Family members inherit adaptive restructuring semantics.",
+      "Each aspect retains independent operator identity.",
+      "No family member replaces canonical functions."
+    ],
+    "sharedDomains": [
+      "adaptation",
+      "reorganization",
+      "transformation",
+      "uncommon development",
+      "integration"
+    ],
+    "excludedAssumptions": [
+      "disruption as a requirement",
+      "superiority",
+      "inevitable transformation",
+      "inherent beneficence"
+    ]
+  }
+}

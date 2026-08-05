@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house5_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "context",
+  "parentObject": "house_5",
+  "content": {
+    "contextSlots": [
+      "domain",
+      "setting",
+      "focus",
+      "scope",
+      "salience",
+      "expression_context"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] in the context of creativity",
+      "[target] through self-expression",
+      "[target] within playful engagement",
+      "[target] through personal creation"
+    ],
+    "forbidden": [
+      "House 5 acts.",
+      "House 5 creates talent.",
+      "House 5 replaces the target function."
+    ]
+  }
+}

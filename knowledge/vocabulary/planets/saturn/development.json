@@ -1,0 +1,77 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_development",
+  "name": "Saturn Development",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Developmental continuum.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-017",
+    "LAW-019"
+  ],
+  "dependsOn": [
+    "saturn_identity",
+    "saturn_semantics"
+  ],
+  "priority": 10,
+  "tags": [
+    "saturn",
+    "development"
+  ],
+  "parentObject": "saturn",
+  "moduleType": "development",
+  "content": {
+    "stages": [
+      {
+        "id": "unconscious",
+        "summary": "Structure happens automatically through conditioning.",
+        "internalNarrative": "Acts from inherited rules.",
+        "dominantTheme": "Little awareness of why.",
+        "learningTask": "Recognize patterns."
+      },
+      {
+        "id": "defensive",
+        "summary": "Structure protects against fear.",
+        "internalNarrative": "Control becomes safety.",
+        "dominantTheme": "Rigid compensation.",
+        "learningTask": "Separate fear from responsibility."
+      },
+      {
+        "id": "learning",
+        "summary": "Begins questioning old structures.",
+        "internalNarrative": "Experiments with healthier responsibility.",
+        "dominantTheme": "Inconsistent but conscious.",
+        "learningTask": "Practice flexible discipline."
+      },
+      {
+        "id": "healthy",
+        "summary": "Structure serves meaningful goals.",
+        "internalNarrative": "Uses proportionate boundaries.",
+        "dominantTheme": "Reliable without rigidity.",
+        "learningTask": "Coordinate with other functions."
+      },
+      {
+        "id": "integrated",
+        "summary": "Structure becomes stewardship.",
+        "internalNarrative": "Supports growth in self and others.",
+        "dominantTheme": "Stable and adaptive.",
+        "learningTask": "Mentor and sustain systems."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS development",
+    "sourcePolicy": "AGS",
+    "maintainer": "AGS"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial draft"
+    }
+  ]
+}

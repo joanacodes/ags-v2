@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "bipentile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "bipentile",
+  "content": {
+    "definition": "A Bipentile relates participating canonical functions through amplified creative synthesis and harmonic reciprocity while preserving each function's identity.",
+    "boundaries": [
+      "Amplification does not imply superiority.",
+      "Creativity does not replace canonical functions."
+    ]
+  }
+}

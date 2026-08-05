@@ -1,0 +1,128 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "midheaven_tests",
+  "name": "Midheaven Tests",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines validation, regression, reference-frame integrity, and determinism tests.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "midheaven_reasoning",
+    "ags_validation_engine"
+  ],
+  "priority": 10,
+  "tags": [
+    "midheaven",
+    "tests",
+    "angle",
+    "reference_frame",
+    "public_actualization"
+  ],
+  "parentObject": "midheaven",
+  "moduleType": "tests",
+  "content": {
+    "moduleId": "midheaven",
+    "testCases": [
+      {
+        "id": "MC-T-001",
+        "name": "Primary verb defaults to actualize",
+        "expectedVerb": "actualize"
+      },
+      {
+        "id": "MC-T-002",
+        "name": "Imum Coeli reference required for full axis synthesis",
+        "imumCoeliPresent": false,
+        "expectedFullAxisSynthesis": false
+      },
+      {
+        "id": "MC-T-003",
+        "name": "Reject career reduction",
+        "surfaceText": "The Midheaven is your career.",
+        "expectedValid": false
+      },
+      {
+        "id": "MC-T-004",
+        "name": "Reject success guarantee",
+        "surfaceText": "This Midheaven guarantees professional success.",
+        "expectedValid": false
+      },
+      {
+        "id": "MC-T-005",
+        "name": "Reject fame guarantee",
+        "surfaceText": "This placement makes you famous.",
+        "expectedValid": false
+      },
+      {
+        "id": "MC-T-006",
+        "name": "Sign modifies but does not replace actualization",
+        "expectedAngleFunction": "actualize",
+        "expectedSignRole": "modifier"
+      },
+      {
+        "id": "MC-T-007",
+        "name": "Ruler delegates rather than replaces",
+        "expectedRulerRole": "delegated_planetary_function",
+        "expectedAngleFunction": "actualize"
+      },
+      {
+        "id": "MC-T-008",
+        "name": "Public role remains distinct from identity",
+        "expectedIdentityReduction": false
+      },
+      {
+        "id": "MC-T-009",
+        "name": "Finished Midheaven-sign interpretation rejected",
+        "containsFinishedInterpretation": true,
+        "expectedValid": false
+      },
+      {
+        "id": "MC-T-010",
+        "name": "Deterministic query resolution",
+        "sameInputs": true,
+        "expectedSameVerb": true,
+        "expectedSameDomains": true
+      }
+    ],
+    "regressions": [
+      "Midheaven != career",
+      "Visibility != fame",
+      "Status != contribution",
+      "Public role != total identity",
+      "Angle != planet",
+      "Actualization != guaranteed achievement"
+    ],
+    "prohibitedOutputs": [
+      "Any guaranteed profession",
+      "Any guaranteed fame or recognition",
+      "Any status claim without evidence",
+      "Any public role presented as total identity",
+      "Any finished Midheaven-sign interpretation",
+      "Any angle clause that replaces planetary function"
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. No career prediction, fame guarantee, status guarantee, or finished Midheaven-sign interpretation is permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Midheaven tests module."
+    }
+  ]
+}

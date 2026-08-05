@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sesquiquadrate_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "sesquiquadrate",
+  "content": {
+    "definition": "A Sesquiquadrate relates participating canonical functions through compound constructive tension while preserving each function's identity.",
+    "boundaries": [
+      "Compound tension is not failure.",
+      "Restructuring does not replace canonical functions."
+    ]
+  }
+}

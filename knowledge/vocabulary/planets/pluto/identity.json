@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_identity",
+  "moduleType": "identity",
+  "grammarRole": "canonical_function",
+  "parentObject": "pluto",
+  "content": {
+    "canonicalFunction": "enables transformation, regeneration, elimination of obsolete structures, and empowerment",
+    "coreDomains": [
+      "transformation",
+      "regeneration",
+      "empowerment",
+      "renewal",
+      "depth",
+      "elimination",
+      "psychological_integration",
+      "evolution"
+    ],
+    "notInherent": [
+      "violence",
+      "destruction",
+      "abuse",
+      "death",
+      "catastrophe"
+    ],
+    "constraints": [
+      "Pluto is a canonical function.",
+      "Signs modify Pluto.",
+      "Houses contextualize Pluto.",
+      "Aspects relate Pluto to other canonical functions."
+    ]
+  }
+}

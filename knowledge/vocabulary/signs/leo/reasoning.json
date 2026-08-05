@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "leo_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "modifier",
+  "parentObject": "leo",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm Leo is a modifier",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible modifier components",
+      "Validate target function unchanged"
+    ],
+    "defaultInferenceProfile": {
+      "manner": "expressively",
+      "strategy": "through creative actualization",
+      "priority": "with emphasis on authentic expression",
+      "regulation": "while preserving authenticity"
+    },
+    "heuristics": [
+      "Prefer authentic expression over performance.",
+      "Prefer confidence over arrogance.",
+      "Prefer contribution over attention-seeking.",
+      "Suppress unnecessary visibility when incompatible with the target.",
+      "Return an empty modifier set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "Leo causes fame.",
+      "Leo is arrogant.",
+      "Leo is narcissistic.",
+      "Leo replaces the target function."
+    ]
+  }
+}

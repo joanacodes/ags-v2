@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quindecile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "quindecile",
+  "content": {
+    "families": [
+      {
+        "id": "focus",
+        "components": [
+          "directs attention",
+          "reveals priorities"
+        ]
+      },
+      {
+        "id": "intensification",
+        "components": [
+          "amplifies engagement",
+          "increases emphasis"
+        ]
+      },
+      {
+        "id": "commitment",
+        "components": [
+          "supports sustained involvement",
+          "organizes effort"
+        ]
+      },
+      {
+        "id": "integration",
+        "components": [
+          "channels intensity constructively",
+          "coordinates expression"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

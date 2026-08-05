@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "cancer_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "modifier",
+  "parentObject": "cancer",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm Cancer is a modifier",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible modifier components",
+      "Validate target function unchanged"
+    ],
+    "defaultInferenceProfile": {
+      "manner": "protectively",
+      "strategy": "through nurturance",
+      "priority": "with emphasis on care",
+      "regulation": "while maintaining safety"
+    },
+    "heuristics": [
+      "Prefer protection over control.",
+      "Prefer care over dependency.",
+      "Prefer belonging over enmeshment.",
+      "Suppress sheltering when incompatible with the target.",
+      "Return an empty modifier set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "Cancer causes dependency.",
+      "Cancer is moody.",
+      "Cancer is clingy.",
+      "Cancer replaces the target function."
+    ]
+  }
+}

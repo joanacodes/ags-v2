@@ -1,0 +1,125 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_identity",
+  "name": "Pluto Identity",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Pluto as a regenerative planetary function and distinguishes it from neighboring planetary functions.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ags_planet_blueprint",
+    "ags_verb_classes_blueprint",
+    "ags_semantic_domain_blueprint",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "pluto",
+    "identity",
+    "planet",
+    "function"
+  ],
+  "parentObject": "pluto",
+  "moduleType": "identity",
+  "content": {
+    "ontology": {
+      "class": "planet",
+      "grammarRole": "verb",
+      "semanticClass": "regenerative_function",
+      "verbClass": "transformative_verbs"
+    },
+    "coreFunction": {
+      "primaryVerb": "regenerate",
+      "definition": "Reconstitute a function, structure, identity, or system after hidden, compacted, exhausted, or no-longer-viable material has been exposed and can no longer remain unchanged.",
+      "functionalAim": "Restore viability, depth, integrity, and concentrated agency through exposure, elimination, redistribution, and reorganization of what has become toxic, compulsive, concealed, or structurally unsustainable."
+    },
+    "coreQuestions": [
+      "What can no longer continue in its current form?",
+      "What hidden material is organizing this system?",
+      "What must be exposed before regeneration is possible?",
+      "Which resource, attachment, or power pattern must be redistributed?",
+      "What remains viable after the nonviable material is removed?"
+    ],
+    "functionalContributions": [
+      "regeneration",
+      "exposure",
+      "elimination",
+      "purification",
+      "concentration",
+      "compulsion awareness",
+      "power redistribution",
+      "deep restructuring",
+      "irreversibility",
+      "resource reclamation",
+      "survival adaptation",
+      "integration of concealed material"
+    ],
+    "doesNotInherentlySupply": [
+      "physical death",
+      "trauma",
+      "violence",
+      "abuse",
+      "evil",
+      "revenge",
+      "control",
+      "destruction for its own sake",
+      "sexuality",
+      "psychological pathology",
+      "inevitable crisis",
+      "moral superiority through suffering"
+    ],
+    "planetaryBoundaries": [
+      {
+        "neighbor": "mars",
+        "distinction": "Mars initiates, asserts, cuts, and pursues. Pluto concentrates and regenerates by exposing and reorganizing deeper power, attachment, resource, and survival patterns."
+      },
+      {
+        "neighbor": "saturn",
+        "distinction": "Saturn structures, contains, and stabilizes. Pluto tests whether the structure remains viable and regenerates what cannot be sustained unchanged."
+      },
+      {
+        "neighbor": "uranus",
+        "distinction": "Uranus reconfigures an operating pattern by introducing alternatives. Pluto regenerates through exposure, elimination, concentration, and deep reconstitution."
+      },
+      {
+        "neighbor": "neptune",
+        "distinction": "Neptune permeates and softens boundaries. Pluto exposes hidden content, removes what is no longer viable, and reorganizes concentrated power or material."
+      },
+      {
+        "neighbor": "jupiter",
+        "distinction": "Jupiter expands range, meaning, and possibility. Pluto intensifies, concentrates, and regenerates what has reached a threshold of necessity."
+      }
+    ],
+    "identityConstraints": [
+      "Pluto must remain a function-bearing actor.",
+      "Its default function is regeneration, not destruction.",
+      "Elimination is a mechanism within regeneration, not the complete identity.",
+      "Exposure must be distinguished from punishment.",
+      "Power must be treated as capacity, leverage, concentration, or agency, not moral worth.",
+      "Irreversibility must not be converted into fatalistic prediction.",
+      "The function must remain reusable across all signs, houses, aspects, states, and queries."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Pluto identity module."
+    }
+  ]
+}

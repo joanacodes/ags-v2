@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quattuordecile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "quattuordecile",
+  "content": {
+    "canonicalId": "quattuordecile",
+    "displayName": "Quattuordecile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "structured_reorientation_operator",
+    "canonicalQuestion": "How do two canonical functions interact through structured reorientation, adaptive refinement, and reorganized expression?"
+  }
+}

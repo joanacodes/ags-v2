@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "venus_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "canonical_function",
+  "parentObject": "venus",
+  "content": {
+    "canonicalId": "venus",
+    "displayName": "Venus",
+    "ontologyClass": "planet",
+    "grammarRole": "canonical_function",
+    "semanticClass": "valuation_reciprocity_function",
+    "canonicalQuestion": "What function evaluates value, attraction, preference, reciprocity, and aesthetic judgment?"
+  }
+}

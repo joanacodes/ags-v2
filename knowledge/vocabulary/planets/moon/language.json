@@ -1,0 +1,45 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "moon_language",
+  "moduleType": "language",
+  "grammarRole": "canonical_function",
+  "parentObject": "moon",
+  "content": {
+    "function": [
+      "regulates emotional processing",
+      "organizes attachment",
+      "supports adaptive responsiveness",
+      "maintains felt security"
+    ],
+    "process": [
+      "regulating",
+      "adapting",
+      "remembering",
+      "responding"
+    ],
+    "orientation": [
+      "responsive",
+      "protective",
+      "adaptive",
+      "integrative"
+    ],
+    "goal": [
+      "secure regulation",
+      "adaptive response",
+      "healthy attachment",
+      "emotional integration"
+    ],
+    "output": [
+      "felt security",
+      "adaptive behavior",
+      "emotional continuity",
+      "care"
+    ],
+    "salience": [
+      "responsive",
+      "protective",
+      "adaptive",
+      "cyclical"
+    ]
+  }
+}

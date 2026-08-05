@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "duodecile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "duodecile",
+  "content": {
+    "canonicalId": "duodecile",
+    "displayName": "Duodecile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "harmonic_refinement_operator",
+    "canonicalQuestion": "How do two canonical functions interact through harmonic refinement, subtle division, and integrated expression?"
+  }
+}

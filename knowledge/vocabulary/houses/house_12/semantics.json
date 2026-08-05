@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house12_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_12",
+  "content": {
+    "domains": {
+      "inner_life": "Context of internal experience and contemplation.",
+      "solitude": "Constructive time apart for reflection.",
+      "retreat": "Withdrawal for renewal and integration.",
+      "reflection": "Deliberate inner examination.",
+      "spirituality": "Search for transcendent meaning.",
+      "unconscious": "Processes outside immediate awareness.",
+      "compassion": "Empathic concern for self and others.",
+      "release": "Letting go of completed patterns.",
+      "transcendence": "Moving beyond limiting identification.",
+      "closure": "Completion and integration of cycles."
+    },
+    "boundaries": [
+      "Solitude is not isolation.",
+      "Reflection is not escapism.",
+      "Transcendence is not self-erasure.",
+      "Unconscious processes are not pathology."
+    ]
+  }
+}

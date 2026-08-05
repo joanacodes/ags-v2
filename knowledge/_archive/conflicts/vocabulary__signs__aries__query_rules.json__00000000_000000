@@ -1,0 +1,153 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_query_rules",
+  "name": "Aries Query Rules",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Query selection rules.",
+  "grammarRole": "modifier",
+  "parentObject": "aries",
+  "moduleType": "query_rules",
+  "content": {
+    "principle": "Queries select existing semantic domains and modifiers only.",
+    "queries": {
+      "identity": {
+        "preferredDomains": [
+          "self_direction",
+          "autonomy",
+          "directness"
+        ],
+        "avoidDomains": [
+          "competition"
+        ],
+        "allowedModifierFamilies": [
+          "manner",
+          "strategy",
+          "orientation"
+        ],
+        "forbidden": "No finished interpretation may be stored."
+      },
+      "family": {
+        "preferredDomains": [
+          "assertion",
+          "autonomy"
+        ],
+        "avoidDomains": [
+          "competition"
+        ],
+        "allowedModifierFamilies": [
+          "manner",
+          "strategy",
+          "orientation"
+        ],
+        "forbidden": "No finished interpretation may be stored."
+      },
+      "friendship": {
+        "preferredDomains": [
+          "directness",
+          "initiative"
+        ],
+        "avoidDomains": [
+          "challenge_response"
+        ],
+        "allowedModifierFamilies": [
+          "manner",
+          "strategy",
+          "orientation"
+        ],
+        "forbidden": "No finished interpretation may be stored."
+      },
+      "love": {
+        "preferredDomains": [
+          "assertion",
+          "directness"
+        ],
+        "avoidDomains": [
+          "competition"
+        ],
+        "allowedModifierFamilies": [
+          "manner",
+          "strategy",
+          "orientation"
+        ],
+        "forbidden": "No finished interpretation may be stored."
+      },
+      "work": {
+        "preferredDomains": [
+          "initiative",
+          "decision",
+          "first_movement"
+        ],
+        "avoidDomains": [],
+        "allowedModifierFamilies": [
+          "manner",
+          "strategy",
+          "orientation"
+        ],
+        "forbidden": "No finished interpretation may be stored."
+      },
+      "money": {
+        "preferredDomains": [
+          "initiative",
+          "decision"
+        ],
+        "avoidDomains": [
+          "competition"
+        ],
+        "allowedModifierFamilies": [
+          "manner",
+          "strategy",
+          "orientation"
+        ],
+        "forbidden": "No finished interpretation may be stored."
+      },
+      "health": {
+        "preferredDomains": [
+          "self_direction",
+          "action_testing"
+        ],
+        "avoidDomains": [
+          "competition"
+        ],
+        "allowedModifierFamilies": [
+          "manner",
+          "strategy",
+          "orientation"
+        ],
+        "forbidden": "No finished interpretation may be stored."
+      },
+      "wounds_and_healing": {
+        "preferredDomains": [
+          "courage",
+          "challenge_response"
+        ],
+        "avoidDomains": [
+          "competition"
+        ],
+        "allowedModifierFamilies": [
+          "manner",
+          "strategy",
+          "orientation"
+        ],
+        "forbidden": "No finished interpretation may be stored."
+      },
+      "saturn_return": {
+        "preferredDomains": [
+          "initiative",
+          "courage",
+          "decision"
+        ],
+        "avoidDomains": [
+          "immediacy"
+        ],
+        "allowedModifierFamilies": [
+          "manner",
+          "strategy",
+          "orientation"
+        ],
+        "forbidden": "No finished interpretation may be stored."
+      }
+    }
+  }
+}

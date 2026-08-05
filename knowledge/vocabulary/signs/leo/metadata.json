@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "leo_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "modifier",
+  "parentObject": "leo",
+  "content": {
+    "canonicalId": "leo",
+    "displayName": "Leo",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "expressive_mode",
+    "canonicalQuestion": "How does this express and radiate?"
+  }
+}

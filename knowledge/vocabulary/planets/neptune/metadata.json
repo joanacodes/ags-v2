@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "canonical_function",
+  "parentObject": "neptune",
+  "content": {
+    "canonicalId": "neptune",
+    "displayName": "Neptune",
+    "ontologyClass": "planet",
+    "grammarRole": "canonical_function",
+    "semanticClass": "imagination_transcendence_function",
+    "canonicalQuestion": "What function enables imagination, transcendence, compassion, symbolic perception, and dissolution of unnecessary boundaries?"
+  }
+}

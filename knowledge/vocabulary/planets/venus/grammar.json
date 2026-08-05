@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "venus_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "canonical_function",
+  "parentObject": "venus",
+  "content": {
+    "functionSlots": [
+      "function",
+      "process",
+      "orientation",
+      "goal",
+      "output",
+      "salience"
+    ],
+    "allowedModifiers": [
+      "sign",
+      "house",
+      "degree",
+      "dignity"
+    ],
+    "allowedRelations": [
+      "aspect"
+    ],
+    "patterns": [
+      "Venus evaluates [domain].",
+      "Venus prefers [quality].",
+      "Venus expresses through [house_context].",
+      "Venus is modified by [sign_modifier]."
+    ],
+    "forbidden": [
+      "Venus is merely romance.",
+      "Venus is replaced by its sign.",
+      "Venus inherently indicates beauty."
+    ]
+  }
+}

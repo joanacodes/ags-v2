@@ -1,0 +1,118 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_language",
+  "name": "Aries Language",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines controlled Aries fragments and rejected wording.",
+  "grammarRole": "modifier",
+  "dependsOn": [
+    "aries_identity",
+    "aries_grammar"
+  ],
+  "parentObject": "aries",
+  "moduleType": "language",
+  "content": {
+    "neutralModifierLexicon": {
+      "manner": [
+        "directly",
+        "immediately",
+        "decisively",
+        "without unnecessary delay"
+      ],
+      "strategy": [
+        "through initiation",
+        "through immediate testing",
+        "through self-directed engagement",
+        "through a decisive first move"
+      ],
+      "pace": [
+        "rapidly",
+        "before extended consolidation",
+        "with early momentum"
+      ],
+      "orientation": [
+        "toward autonomous engagement",
+        "toward commencement",
+        "toward direct contact",
+        "toward first-hand testing"
+      ],
+      "priority": [
+        "with emphasis on beginning",
+        "with emphasis on direct response",
+        "with emphasis on immediate agency",
+        "with emphasis on the first actionable step"
+      ],
+      "regulation": [
+        "while preserving momentum",
+        "while limiting unnecessary delay",
+        "while allowing later correction",
+        "while preventing inertia"
+      ]
+    },
+    "developmentalLexicon": {
+      "unconscious": [
+        "automatically",
+        "without preliminary assessment",
+        "through reflexive commencement"
+      ],
+      "defensive": [
+        "reactively",
+        "prematurely",
+        "through forced immediacy"
+      ],
+      "learning": [
+        "experimentally",
+        "through bounded first steps",
+        "with feedback after initiation"
+      ],
+      "healthy": [
+        "directly and responsively",
+        "with decisive but revisable initiation",
+        "with proportionate urgency"
+      ],
+      "integrated": [
+        "with precise timing",
+        "through autonomous yet context-aware initiation",
+        "with immediate engagement and adaptive correction"
+      ]
+    },
+    "rejectedWording": [
+      {
+        "text": "Aries acts.",
+        "reason": "A sign modifies action; it does not supply action."
+      },
+      {
+        "text": "Aries is aggressive.",
+        "reason": "Aggression is not the neutral modifier profile."
+      },
+      {
+        "text": "Aries makes people selfish.",
+        "reason": "This is a deterministic personality claim."
+      },
+      {
+        "text": "Aries always leads.",
+        "reason": "First-move priority does not guarantee leadership."
+      },
+      {
+        "text": "Mars in Aries acts courageously.",
+        "reason": "This is a completed placement interpretation."
+      }
+    ],
+    "selectionRules": [
+      "Prefer `directly` as the default neutral manner modifier.",
+      "Prefer `through initiation` when strategy must be explicit.",
+      "Use `rapidly` only when target compatibility permits speed.",
+      "Use defensive wording only with defensive evidence.",
+      "Never use aggression, selfishness, courage, or leadership as neutral defaults."
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries language module."
+    }
+  ]
+}

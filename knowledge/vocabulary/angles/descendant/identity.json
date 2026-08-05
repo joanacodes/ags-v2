@@ -1,0 +1,32 @@
+{
+  "grammarRole": "reference_frame",
+  "semanticClass": "relational_orientation",
+  "primaryVerb": "relate",
+  "definition": "Establish the primary relational reference frame through which an external counterpart is encountered and engagement becomes reciprocal.",
+  "functionalAim": "Orient attention toward the counterpart and the dynamics that emerge between self and other.",
+  "contributions": [
+    "relational orientation",
+    "counterpart awareness",
+    "reciprocity",
+    "mutual engagement",
+    "partnership frame",
+    "other-perspective"
+  ],
+  "doesNotMean": [
+    "marriage",
+    "dependency",
+    "submission",
+    "loss of self",
+    "automatic harmony"
+  ],
+  "distinctions": {
+    "ascendant": "Ascendant orients the self toward experience; Descendant orients toward the counterpart in relationship.",
+    "venus": "Venus values and attracts; Descendant establishes the relational frame.",
+    "seventh_house": "The Descendant is a reference frame; the seventh house is a contextual domain."
+  },
+  "constraints": [
+    "Must always remain paired with the Ascendant.",
+    "Must not replace planetary functions.",
+    "Relational orientation is not relationship outcome."
+  ]
+}

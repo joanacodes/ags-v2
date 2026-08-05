@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "libra_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "libra",
+  "content": {
+    "defaultModifierSet": [
+      "libra_manner_harmoniously",
+      "libra_strategy_coordination",
+      "libra_priority_fairness"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "balance",
+        "equilibrium"
+      ],
+      "relationships": [
+        "reciprocity",
+        "cooperation"
+      ],
+      "work": [
+        "coordination",
+        "fairness"
+      ],
+      "health": [
+        "balance",
+        "proportion"
+      ],
+      "transits": [
+        "harmonization",
+        "mutual_adjustment"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'harmoniously' as the neutral manner.",
+      "Prefer 'through coordination' as the neutral strategy.",
+      "Suppress unnecessary compromise when incompatible with the target.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

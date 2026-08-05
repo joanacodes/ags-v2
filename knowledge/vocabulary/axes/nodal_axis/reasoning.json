@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "type": "axis_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "direction",
+  "parentObject": "nodal_axis",
+  "id": "nodal_axis_reasoning",
+  "name": "Nodal Axis Reasoning",
+  "content": {
+    "resolutionOrder": [
+      "load both Nodes",
+      "resolve contexts",
+      "identify familiar capacity",
+      "identify emerging capacity",
+      "test overreliance evidence",
+      "generate paired clause",
+      "validate integration"
+    ],
+    "heuristics": [
+      "Never resolve one Node alone.",
+      "Represent South Node resource before overreliance.",
+      "Describe North Node as practice, not destiny.",
+      "Prefer integration over replacement."
+    ]
+  }
+}

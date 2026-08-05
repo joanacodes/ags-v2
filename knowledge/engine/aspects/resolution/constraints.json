@@ -1,0 +1,8 @@
+{
+  "rules": [
+    "Aspect operators are relational, not entities.",
+    "Geometry determines operator selection.",
+    "Context determines expression.",
+    "No aspect has intrinsic positive or negative value."
+  ]
+}

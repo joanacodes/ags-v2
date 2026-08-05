@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house8_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_8",
+  "content": {
+    "domain": [
+      "transformation",
+      "shared resources",
+      "intimacy"
+    ],
+    "focus": [
+      "regeneration",
+      "trust",
+      "depth"
+    ],
+    "scope": [
+      "shared commitments",
+      "psychological processes",
+      "resource exchange"
+    ],
+    "salience": [
+      "deep",
+      "transformative",
+      "mutually engaged"
+    ],
+    "expression_context": [
+      "through transformation",
+      "through shared exchange",
+      "through regenerative development"
+    ]
+  }
+}

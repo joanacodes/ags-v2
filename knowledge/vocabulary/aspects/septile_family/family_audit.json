@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_family_audit",
+  "moduleType": "family_audit",
+  "parentObject": "septile_family",
+  "content": {
+    "family": "recursive_harmonic_family",
+    "members": [
+      {
+        "id": "septile",
+        "angle": "51.428\u00b0",
+        "role": "recursive_pattern_operator"
+      },
+      {
+        "id": "biseptile",
+        "angle": "102.857\u00b0",
+        "role": "dual_recursive_pattern_operator"
+      },
+      {
+        "id": "triseptile",
+        "angle": "154.286\u00b0",
+        "role": "triple_recursive_pattern_operator"
+      }
+    ],
+    "inheritanceRules": [
+      "Family members inherit recursive harmonic semantics.",
+      "Each aspect retains independent operator identity.",
+      "No family member replaces canonical functions."
+    ],
+    "sharedDomains": [
+      "pattern emergence",
+      "recursion",
+      "developmental timing",
+      "integration",
+      "subtle differentiation"
+    ],
+    "excludedAssumptions": [
+      "fated outcomes",
+      "inevitable events",
+      "inherent difficulty",
+      "inherent beneficence"
+    ]
+  }
+}

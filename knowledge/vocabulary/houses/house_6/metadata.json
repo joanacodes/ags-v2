@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house6_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "context",
+  "parentObject": "house_6",
+  "content": {
+    "canonicalId": "house_6",
+    "displayName": "Sixth House",
+    "ontologyClass": "house",
+    "grammarRole": "context",
+    "semanticClass": "service_routine_context",
+    "canonicalQuestion": "Where is this function primarily expressed through service, routines, health, and practical improvement?"
+  }
+}

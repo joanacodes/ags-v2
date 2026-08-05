@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "conjunction_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "conjunction",
+  "content": {
+    "canonicalFunction": "co-activates two or more canonical functions into a unified semantic process",
+    "coreDomains": [
+      "fusion",
+      "coactivation",
+      "integration",
+      "shared_focus",
+      "combined_expression"
+    ],
+    "notInherent": [
+      "benefic",
+      "malefic",
+      "easy",
+      "difficult"
+    ],
+    "constraints": [
+      "Conjunction never replaces planetary functions.",
+      "Meaning emerges from participating functions."
+    ]
+  }
+}

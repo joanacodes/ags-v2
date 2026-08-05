@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "coreRule": "Development changes how adjacent adjustment is expressed, never the relational role of Semisextile.",
+    "stages": {
+      "unconscious": [
+        "latent awareness",
+        "unnoticed adjustment"
+      ],
+      "defensive": [
+        "resistance to adaptation",
+        "fragmented coordination"
+      ],
+      "learning": [
+        "recognizing subtle relationships",
+        "intentional adjustment"
+      ],
+      "healthy": [
+        "adaptive coordination",
+        "constructive refinement"
+      ],
+      "integrated": [
+        "continuous awareness",
+        "stable subtle integration"
+      ]
+    },
+    "constraints": [
+      "Semisextile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

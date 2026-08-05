@@ -1,0 +1,70 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "midheaven_changelog",
+  "name": "Midheaven Changelog",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Midheaven ontology version history and planned refinements.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "midheaven_metadata"
+  ],
+  "priority": 10,
+  "tags": [
+    "midheaven",
+    "changelog",
+    "angle",
+    "reference_frame",
+    "public_actualization"
+  ],
+  "parentObject": "midheaven",
+  "moduleType": "changelog",
+  "content": {
+    "object": "midheaven",
+    "history": [
+      {
+        "version": "0.1.0",
+        "date": "2026-07-17",
+        "changes": [
+          "Established `actualize` as the Midheaven canonical primary verb.",
+          "Defined the Midheaven as the public actualization reference frame.",
+          "Separated public participation from career-only interpretation.",
+          "Separated visibility from fame and status from contribution.",
+          "Required Imum Coeli reference for full axis synthesis.",
+          "Completed query, reasoning, validation, regression, and maintenance modules."
+        ]
+      }
+    ],
+    "nextPlannedModules": [
+      "Imum Coeli full ontology",
+      "Midheaven-Imum Coeli axis integration package",
+      "Localization mappings",
+      "Expanded role and contribution query weights"
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. No career prediction, fame guarantee, status guarantee, or finished Midheaven-sign interpretation is permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Midheaven changelog module."
+    }
+  ]
+}

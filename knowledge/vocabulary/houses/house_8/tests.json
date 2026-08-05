@@ -1,0 +1,52 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house8_tests",
+  "moduleType": "tests",
+  "grammarRole": "context",
+  "parentObject": "house_8",
+  "content": {
+    "suite": "house8_ontology_v0.1",
+    "cases": [
+      {
+        "id": "H8-T-001",
+        "name": "Context role preserved",
+        "expected": true
+      },
+      {
+        "id": "H8-T-002",
+        "name": "Reject House as actor",
+        "expected": false
+      },
+      {
+        "id": "H8-T-003",
+        "name": "Planet function preserved",
+        "expected": true
+      },
+      {
+        "id": "H8-T-004",
+        "name": "Allow transformation context",
+        "expected": true
+      },
+      {
+        "id": "H8-T-005",
+        "name": "House never replaces function",
+        "expected": true
+      },
+      {
+        "id": "H8-T-006",
+        "name": "Aspect remains relational operator",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "H8-T-007",
+        "name": "Deterministic context selection",
+        "expected": true
+      },
+      {
+        "id": "H8-T-008",
+        "name": "Empty context preferred",
+        "expected": []
+      }
+    ]
+  }
+}

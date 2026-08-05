@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "square_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "square",
+  "content": {
+    "verbs": [
+      "activates",
+      "challenges",
+      "stimulates",
+      "requires adaptation"
+    ],
+    "templates": [
+      "{A} challenges {B} toward adaptation.",
+      "{A} and {B} generate constructive friction."
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_changelog",
+  "name": "Uranus Changelog",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "verb",
+  "dependsOn": [
+    "uranus_metadata"
+  ],
+  "content": {
+    "object": "uranus",
+    "history": [
+      {
+        "version": "0.1.0",
+        "date": "2026-07-16",
+        "changes": [
+          "Established reconfigure as the canonical primary verb.",
+          "Separated disruption from neutral identity.",
+          "Defined psychology, development, expression, reasoning, query rules, and validation tests."
+        ]
+      }
+    ],
+    "nextPlannedModules": [
+      "Cross-planet interaction refinements",
+      "Localization mappings",
+      "Expanded query weighting"
+    ]
+  }
+}

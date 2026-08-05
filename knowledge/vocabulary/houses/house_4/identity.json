@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house4_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_4",
+  "content": {
+    "coreDomains": [
+      "home",
+      "family",
+      "roots",
+      "foundations",
+      "belonging",
+      "private_life",
+      "ancestry",
+      "emotional_foundation",
+      "security_base",
+      "heritage"
+    ],
+    "notInherent": [
+      "dependency",
+      "isolation",
+      "childhood_trauma",
+      "domesticity",
+      "nostalgia",
+      "introversion"
+    ],
+    "constraints": [
+      "House 4 is a context.",
+      "House 4 never performs actions.",
+      "House 4 never replaces a planet's canonical function."
+    ]
+  }
+}

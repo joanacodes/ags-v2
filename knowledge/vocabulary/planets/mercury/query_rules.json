@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mercury_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "canonical_function",
+  "parentObject": "mercury",
+  "content": {
+    "defaultFunctionSet": [
+      "mercury_cognition",
+      "mercury_meaning",
+      "mercury_learning",
+      "mercury_communication"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "cognition",
+        "communication"
+      ],
+      "relationships": [
+        "communication",
+        "interpretation"
+      ],
+      "career": [
+        "analysis",
+        "learning"
+      ],
+      "development": [
+        "learning",
+        "symbolic_processing"
+      ],
+      "transits": [
+        "communication",
+        "cognition"
+      ]
+    },
+    "selectionRules": [
+      "Preserve Mercury's canonical function.",
+      "Apply sign modifiers before house context.",
+      "Never substitute modifiers for the function."
+    ]
+  }
+}

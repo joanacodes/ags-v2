@@ -1,0 +1,52 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mars_tests",
+  "moduleType": "tests",
+  "grammarRole": "canonical_function",
+  "parentObject": "mars",
+  "content": {
+    "suite": "mars_ontology_v0.1",
+    "cases": [
+      {
+        "id": "MAR-T-001",
+        "name": "Canonical function preserved",
+        "expected": true
+      },
+      {
+        "id": "MAR-T-002",
+        "name": "Sign modifies only",
+        "expected": true
+      },
+      {
+        "id": "MAR-T-003",
+        "name": "House contextualizes only",
+        "expected": true
+      },
+      {
+        "id": "MAR-T-004",
+        "name": "Aspect remains relational",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "MAR-T-005",
+        "name": "Dignity changes condition only",
+        "expected": true
+      },
+      {
+        "id": "MAR-T-006",
+        "name": "Deterministic resolution",
+        "expected": true
+      },
+      {
+        "id": "MAR-T-007",
+        "name": "Agency function available",
+        "expected": true
+      },
+      {
+        "id": "MAR-T-008",
+        "name": "Empty result preferred",
+        "expected": []
+      }
+    ]
+  }
+}

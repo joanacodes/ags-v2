@@ -1,0 +1,23 @@
+{
+  "id": "pluto_reasoning",
+  "content": {
+    "resolutionOrder": [
+      "query",
+      "semantic_domain",
+      "development_stage",
+      "target_of_change",
+      "verb_selection",
+      "clause_generation"
+    ],
+    "heuristics": [
+      "Prefer the most specific approved verb.",
+      "Development changes expression, not identity.",
+      "Elimination must support regeneration."
+    ],
+    "forbiddenInferences": [
+      "Intensity proves truth.",
+      "Power implies morality.",
+      "Transformation requires catastrophe."
+    ]
+  }
+}

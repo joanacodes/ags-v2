@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "libra_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "modifier",
+  "parentObject": "libra",
+  "content": {
+    "components": [
+      {
+        "id": "libra_manner_harmoniously",
+        "text": "harmoniously",
+        "type": "manner"
+      },
+      {
+        "id": "libra_strategy_coordination",
+        "text": "through coordination",
+        "type": "strategy"
+      },
+      {
+        "id": "libra_pace_balanced",
+        "text": "at a balanced pace",
+        "type": "pace"
+      },
+      {
+        "id": "libra_orientation_equilibrium",
+        "text": "toward equilibrium",
+        "type": "orientation"
+      },
+      {
+        "id": "libra_priority_fairness",
+        "text": "with emphasis on fairness",
+        "type": "priority"
+      },
+      {
+        "id": "libra_regulation_balance",
+        "text": "while maintaining balance",
+        "type": "regulation"
+      },
+      {
+        "id": "libra_development_refinement",
+        "text": "through relational refinement",
+        "type": "developmental"
+      }
+    ]
+  }
+}

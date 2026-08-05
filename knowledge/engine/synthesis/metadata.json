@@ -1,0 +1,6 @@
+{
+  "id": "synthesis_engine",
+  "moduleType": "integrated_reasoning_layer",
+  "version": "0.1.0",
+  "purpose": "Combine AGS analysis layers into a unified relational synthesis."
+}

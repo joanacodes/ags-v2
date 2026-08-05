@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house11_expression",
+  "moduleType": "expression",
+  "grammarRole": "context",
+  "parentObject": "house_11",
+  "content": {
+    "families": [
+      {
+        "id": "community",
+        "components": [
+          "in the context of community",
+          "through collective participation"
+        ]
+      },
+      {
+        "id": "networks",
+        "components": [
+          "within networks",
+          "through social connection"
+        ]
+      },
+      {
+        "id": "collaboration",
+        "components": [
+          "through collaboration",
+          "within shared effort"
+        ]
+      },
+      {
+        "id": "innovation",
+        "components": [
+          "through innovation",
+          "within future-oriented thinking"
+        ]
+      },
+      {
+        "id": "shared_vision",
+        "components": [
+          "through collective aspirations",
+          "within shared vision"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Locate the planetary function within community and collective participation.",
+      "angle": "Contextualize the angle within networks without changing its reference-frame role.",
+      "node": "Place developmental themes within collective goals while preserving nodal polarity.",
+      "chiron": "Contextualize healing themes through collaboration without implying completion."
+    },
+    "constraints": [
+      "Community is not conformity.",
+      "Innovation is not utopianism.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

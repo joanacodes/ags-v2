@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "trine_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "trine",
+  "content": {
+    "definition": "A Trine relates participating canonical functions through facilitative flow and mutual reinforcement while preserving each function's identity.",
+    "boundaries": [
+      "Ease is not inevitability.",
+      "Flow is not passivity."
+    ]
+  }
+}

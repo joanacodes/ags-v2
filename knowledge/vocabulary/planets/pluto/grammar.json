@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "canonical_function",
+  "parentObject": "pluto",
+  "content": {
+    "functionSlots": [
+      "function",
+      "process",
+      "orientation",
+      "goal",
+      "output",
+      "salience"
+    ],
+    "allowedModifiers": [
+      "sign",
+      "house",
+      "degree",
+      "dignity"
+    ],
+    "allowedRelations": [
+      "aspect"
+    ],
+    "patterns": [
+      "Pluto transforms [domain].",
+      "Pluto regenerates [context]."
+    ],
+    "forbidden": [
+      "Pluto is inherently destructive.",
+      "Pluto is replaced by its sign."
+    ]
+  }
+}

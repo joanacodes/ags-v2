@@ -1,0 +1,185 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ascendant_psychology",
+  "name": "Ascendant Psychology",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines orientation-related needs, sensitivities, defensive strategies, regulation needs, blind spots, and integration markers.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ascendant_identity",
+    "ascendant_semantics",
+    "ags_angle_blueprint",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "ascendant",
+    "psychology",
+    "angle",
+    "reference_frame",
+    "orientation"
+  ],
+  "parentObject": "ascendant",
+  "moduleType": "psychology",
+  "content": {
+    "coreNeed": {
+      "id": "coherent_initial_orientation",
+      "definition": "A sufficiently coherent and flexible way to position the self at the beginning of contact with people, situations, and environments."
+    },
+    "coreMotivation": {
+      "id": "establish_workable_entry",
+      "definition": "Create an initial orientation that allows engagement to begin without requiring the first response to define the entire interaction."
+    },
+    "coreSensitivity": [
+      {
+        "id": "entry_sensitivity",
+        "definition": "Heightened awareness of how situations begin and how quickly orientation must be established."
+      },
+      {
+        "id": "presentation_sensitivity",
+        "definition": "Heightened awareness of how posture, pacing, tone, and presence are read at first contact."
+      },
+      {
+        "id": "environmental_fit_sensitivity",
+        "definition": "Heightened awareness of whether the immediate environment supports or disrupts the preferred orientation."
+      },
+      {
+        "id": "self_positioning_sensitivity",
+        "definition": "Heightened awareness of where the self stands relative to others, expectations, and thresholds."
+      }
+    ],
+    "coreFearPatterns": [
+      {
+        "id": "misorientation",
+        "definition": "Fear of entering a situation from an unworkable or misunderstood position."
+      },
+      {
+        "id": "first_impression_overdefinition",
+        "definition": "Fear that the initial presentation will become a fixed judgment of identity."
+      },
+      {
+        "id": "loss_of_agency_at_entry",
+        "definition": "Fear that the environment or another person will define the terms of engagement before self-positioning is established."
+      },
+      {
+        "id": "exposure_before_orientation",
+        "definition": "Fear of being required to engage before enough situational information is available."
+      }
+    ],
+    "protectiveStrategies": [
+      {
+        "id": "presentation_control",
+        "definition": "Manage posture, tone, pacing, or visibility in order to reduce uncertainty at entry."
+      },
+      {
+        "id": "preemptive_orientation",
+        "definition": "Adopt a fixed approach before enough contextual information is available."
+      },
+      {
+        "id": "masking",
+        "definition": "Conceal or alter presentation when the preferred orientation feels unsafe or unacceptable."
+      },
+      {
+        "id": "entry_withdrawal",
+        "definition": "Delay or avoid engagement when a workable self-position cannot be established."
+      },
+      {
+        "id": "identity_attachment_to_presentation",
+        "definition": "Treat the initial orientation as proof of the entire self."
+      }
+    ],
+    "blindSpots": [
+      "Confusing first response with permanent identity",
+      "Confusing presentation with intention",
+      "Confusing orientation with personality",
+      "Overestimating the importance of first impressions",
+      "Underestimating how much orientation changes after contact begins",
+      "Mistaking environmental mismatch for personal inadequacy",
+      "Using one orientation in every context",
+      "Assuming others perceive the intended presentation accurately"
+    ],
+    "regulationNeeds": [
+      {
+        "id": "orientation_flexibility",
+        "definition": "Allow the initial frame to update as new information becomes available."
+      },
+      {
+        "id": "presentation_identity_separation",
+        "definition": "Keep observable presentation distinct from total identity."
+      },
+      {
+        "id": "context_sampling",
+        "definition": "Gather enough environmental information before fixing the orientation."
+      },
+      {
+        "id": "entry_pacing",
+        "definition": "Match the speed of engagement to the available capacity and context."
+      },
+      {
+        "id": "descendant_awareness",
+        "definition": "Include the relational counterpart rather than organizing entry from the self-side alone."
+      }
+    ],
+    "healthyPsychologicalFunctions": [
+      "Establish a coherent initial orientation",
+      "Update orientation after new information",
+      "Approach without overidentifying with presentation",
+      "Position the self without erasing the counterpart",
+      "Enter situations with enough agency and flexibility",
+      "Use embodiment as information rather than proof of identity",
+      "Distinguish immediate salience from final judgment",
+      "Coordinate Ascendant and Descendant reference frames"
+    ],
+    "integrationMarkers": [
+      "Can revise first impressions without identity threat",
+      "Can enter unfamiliar situations without rigid presentation control",
+      "Can distinguish orientation from personality",
+      "Can let posture and presentation vary by context",
+      "Can notice the counterpart while maintaining self-position",
+      "Can remain coherent without masking",
+      "Can tolerate being initially misunderstood",
+      "Can allow engagement to reshape the starting frame"
+    ],
+    "reflectionComponents": [
+      "What orientation am I establishing here?",
+      "What information do I not yet have?",
+      "Is this presentation functional, defensive, or habitual?",
+      "What would allow me to enter with more flexibility?",
+      "Am I treating first contact as the whole relationship?",
+      "How is the counterpart changing the frame?"
+    ],
+    "psychologyConstraints": [
+      "No personality diagnosis may be inferred from the Ascendant.",
+      "No appearance claim may be treated as guaranteed.",
+      "Masking requires explicit defensive evidence.",
+      "The Descendant must remain available as the opposite reference frame.",
+      "Developmental language must reference the global development blueprint."
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. Psychology and development qualify orientation but do not redefine the Ascendant as total personality, appearance, mask, or independent actor.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Ascendant psychology module."
+    }
+  ]
+}

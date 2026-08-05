@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quintile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "quintile",
+  "content": {
+    "defaultOperator": "creative_synthesis_operator",
+    "supportedQueries": {
+      "identity": [
+        "creativity",
+        "organization"
+      ],
+      "relationship": [
+        "synthesis",
+        "innovation"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Quintile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "binovile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "binovile",
+  "content": {
+    "coreRule": "Development changes how dual maturation and recursive integration are expressed, never the relational role of Binovile.",
+    "stages": {
+      "unconscious": [
+        "latent dual processes",
+        "unrecognized integration"
+      ],
+      "defensive": [
+        "premature synthesis",
+        "resistance to maturation"
+      ],
+      "learning": [
+        "recognizing complementary development",
+        "intentional integration"
+      ],
+      "healthy": [
+        "balanced maturation",
+        "transformational coherence"
+      ],
+      "integrated": [
+        "continuous dual synthesis",
+        "stable recursive completion"
+      ]
+    },
+    "constraints": [
+      "Binovile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

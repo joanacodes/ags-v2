@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house8_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "context",
+  "parentObject": "house_8",
+  "content": {
+    "canonicalId": "house_8",
+    "displayName": "Eighth House",
+    "ontologyClass": "house",
+    "grammarRole": "context",
+    "semanticClass": "transformation_shared_resources_context",
+    "canonicalQuestion": "Where is this function primarily expressed through transformation, shared resources, and deep exchange?"
+  }
+}

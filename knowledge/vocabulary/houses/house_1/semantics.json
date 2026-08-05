@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house1_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_1",
+  "content": {
+    "domains": {
+      "identity": "Context of personal identity and self-definition.",
+      "self_expression": "How functions are outwardly expressed.",
+      "embodiment": "Experience through the body and lived presence.",
+      "appearance": "Initial presentation to others.",
+      "initiative": "Beginning action from the self.",
+      "presence": "Immediate impact and visibility.",
+      "temperament": "Characteristic style of engagement.",
+      "orientation": "Default approach to experience.",
+      "self_awareness": "Reflection on personal identity.",
+      "personal_style": "Characteristic mode of presentation."
+    },
+    "boundaries": [
+      "Identity is not egoism.",
+      "Appearance is not superficiality.",
+      "Initiative is not dominance.",
+      "Presence is not confidence."
+    ]
+  }
+}

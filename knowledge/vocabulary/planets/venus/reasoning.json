@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "venus_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "canonical_function",
+  "parentObject": "venus",
+  "content": {
+    "resolutionOrder": [
+      "Load Venus canonical function",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity modifiers",
+      "Apply aspect relations",
+      "Validate Venus function unchanged",
+      "Generate semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "function": "valuation",
+      "process": "preference",
+      "goal": "reciprocity",
+      "output": "aesthetic_judgment",
+      "salience": "relational"
+    },
+    "compositionRules": [
+      "Venus remains the canonical function.",
+      "Signs modify expression only.",
+      "Houses provide context only.",
+      "Aspects create relations only.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer discernment over assumption.",
+      "Prefer reciprocity over dependency.",
+      "Return an empty result rather than invent semantics."
+    ],
+    "forbiddenInferences": [
+      "Venus is replaced by a sign.",
+      "Venus becomes a house.",
+      "Venus inherently indicates romance or vanity."
+    ]
+  }
+}

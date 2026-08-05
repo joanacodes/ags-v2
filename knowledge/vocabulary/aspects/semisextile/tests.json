@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "suite": "semisextile_ontology_v0.1",
+    "cases": [
+      {
+        "id": "SSX-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "SSX-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "SSX-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "SSX-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "SSX-T-005",
+        "name": "No intrinsic benefic/malefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "verbs": [
+      "adjusts",
+      "coordinates",
+      "adapts",
+      "connects"
+    ],
+    "templates": [
+      "{A} adjusts expression through interaction with {B}.",
+      "{A} and {B} coordinate through subtle incremental development."
+    ]
+  }
+}

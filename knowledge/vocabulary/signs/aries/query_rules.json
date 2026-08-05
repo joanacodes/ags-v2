@@ -1,0 +1,157 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_query_rules",
+  "name": "Aries Query Rules",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines query-specific Aries domain priorities and modifier selection rules.",
+  "grammarRole": "modifier",
+  "dependsOn": [
+    "aries_semantics",
+    "aries_modifier_types",
+    "aries_expression",
+    "ags_query_blueprint"
+  ],
+  "parentObject": "aries",
+  "moduleType": "query_rules",
+  "content": {
+    "defaultModifierSet": [
+      "aries_manner_directly",
+      "aries_strategy_initiation",
+      "aries_priority_first_actionable_step"
+    ],
+    "supportedQueries": {
+      "identity": {
+        "priorityDomains": [
+          "directness",
+          "autonomous_engagement",
+          "differentiating_entry"
+        ],
+        "preferredModifierTypes": [
+          "manner",
+          "orientation",
+          "priority"
+        ]
+      },
+      "family": {
+        "priorityDomains": [
+          "directness",
+          "first_move_priority",
+          "momentum_preservation"
+        ],
+        "preferredModifierTypes": [
+          "manner",
+          "priority",
+          "regulation"
+        ]
+      },
+      "friendship": {
+        "priorityDomains": [
+          "directness",
+          "immediate_testing",
+          "autonomous_engagement"
+        ],
+        "preferredModifierTypes": [
+          "manner",
+          "strategy",
+          "orientation"
+        ]
+      },
+      "love": {
+        "priorityDomains": [
+          "directness",
+          "autonomous_engagement",
+          "differentiating_entry"
+        ],
+        "preferredModifierTypes": [
+          "manner",
+          "orientation",
+          "regulation"
+        ]
+      },
+      "work": {
+        "priorityDomains": [
+          "initiation",
+          "first_move_priority",
+          "momentum_preservation"
+        ],
+        "preferredModifierTypes": [
+          "strategy",
+          "priority",
+          "regulation"
+        ]
+      },
+      "money": {
+        "priorityDomains": [
+          "first_move_priority",
+          "immediate_testing",
+          "momentum_preservation"
+        ],
+        "preferredModifierTypes": [
+          "strategy",
+          "priority",
+          "regulation"
+        ]
+      },
+      "health": {
+        "priorityDomains": [
+          "immediacy",
+          "momentum_preservation",
+          "directness"
+        ],
+        "preferredModifierTypes": [
+          "pace",
+          "regulation",
+          "developmental"
+        ]
+      },
+      "wounds_and_healing": {
+        "priorityDomains": [
+          "immediate_testing",
+          "autonomous_engagement",
+          "momentum_preservation"
+        ],
+        "preferredModifierTypes": [
+          "strategy",
+          "orientation",
+          "regulation"
+        ]
+      },
+      "current_transits": {
+        "priorityDomains": [
+          "immediacy",
+          "initiation",
+          "first_move_priority"
+        ],
+        "preferredModifierTypes": [
+          "pace",
+          "strategy",
+          "priority"
+        ]
+      }
+    },
+    "selectionRules": [
+      "Prefer `directly` when a neutral manner modifier is needed.",
+      "Prefer `through initiation` when commencement is the relevant strategy.",
+      "Prefer `with emphasis on the first actionable step` for priority.",
+      "Select `rapidly` only when the target permits accelerated pace.",
+      "Select defensive modifiers only with explicit defensive evidence.",
+      "Never select more than one modifier per slot unless stacking is permitted.",
+      "Never select a modifier that changes the target object's canonical function."
+    ],
+    "queryConstraints": [
+      "Queries may rank Aries components but may not create new Aries semantics.",
+      "No query authorizes aggression, selfishness, courage, or leadership as defaults.",
+      "No query authorizes a finished placement sentence.",
+      "Return an empty modifier set when no compatible component exists."
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries query_rules module."
+    }
+  ]
+}

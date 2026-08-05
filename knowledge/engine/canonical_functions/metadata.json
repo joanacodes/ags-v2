@@ -1,0 +1,6 @@
+{
+  "id": "canonical_function_core",
+  "moduleType": "semantic_operand_engine",
+  "version": "0.1.0",
+  "purpose": "Define canonical functions used as operands in AGS aspect resolution."
+}

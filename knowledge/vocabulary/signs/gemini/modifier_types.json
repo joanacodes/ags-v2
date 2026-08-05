@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "gemini_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "modifier",
+  "parentObject": "gemini",
+  "content": {
+    "components": [
+      {
+        "id": "gemini_manner_adaptively",
+        "text": "adaptively",
+        "type": "manner"
+      },
+      {
+        "id": "gemini_strategy_comparison",
+        "text": "through comparison",
+        "type": "strategy"
+      },
+      {
+        "id": "gemini_pace_responsively",
+        "text": "responsively",
+        "type": "pace"
+      },
+      {
+        "id": "gemini_orientation_connection",
+        "text": "toward connection",
+        "type": "orientation"
+      },
+      {
+        "id": "gemini_priority_learning",
+        "text": "with emphasis on learning",
+        "type": "priority"
+      },
+      {
+        "id": "gemini_regulation_adaptability",
+        "text": "while preserving adaptability",
+        "type": "regulation"
+      },
+      {
+        "id": "gemini_development_iterative",
+        "text": "through iterative refinement",
+        "type": "developmental"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "jupiter_development",
+  "moduleType": "development",
+  "grammarRole": "canonical_function",
+  "parentObject": "jupiter",
+  "content": {
+    "coreRule": "Development changes how Jupiter's canonical function is expressed; the canonical function itself remains unchanged.",
+    "stages": {
+      "unconscious": [
+        "automatic meaning-making",
+        "unexamined beliefs"
+      ],
+      "defensive": [
+        "rigid principles",
+        "growth constrained by certainty"
+      ],
+      "learning": [
+        "developing perspective",
+        "expanding understanding"
+      ],
+      "healthy": [
+        "integrated wisdom",
+        "constructive growth"
+      ],
+      "integrated": [
+        "meaning, growth, and wisdom aligned into coherent guidance"
+      ]
+    },
+    "constraints": [
+      "Development never changes the canonical function.",
+      "Integrated descriptions require supporting evidence."
+    ]
+  }
+}

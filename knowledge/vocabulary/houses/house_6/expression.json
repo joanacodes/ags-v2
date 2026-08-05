@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house6_expression",
+  "moduleType": "expression",
+  "grammarRole": "context",
+  "parentObject": "house_6",
+  "content": {
+    "families": [
+      {
+        "id": "service",
+        "components": [
+          "in the context of service",
+          "through useful contribution"
+        ]
+      },
+      {
+        "id": "routine",
+        "components": [
+          "through daily routines",
+          "within consistent habits"
+        ]
+      },
+      {
+        "id": "health",
+        "components": [
+          "through health maintenance",
+          "within wellbeing practices"
+        ]
+      },
+      {
+        "id": "craft",
+        "components": [
+          "through skill refinement",
+          "within disciplined practice"
+        ]
+      },
+      {
+        "id": "improvement",
+        "components": [
+          "through practical improvement",
+          "within continuous refinement"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Locate the planetary function within service, routines, and practical refinement.",
+      "angle": "Contextualize the angle within service without changing its reference-frame role.",
+      "node": "Place developmental themes within daily practice while preserving nodal polarity.",
+      "chiron": "Contextualize healing themes through practical improvement without implying completion."
+    },
+    "constraints": [
+      "Discipline is not perfectionism.",
+      "Service is not self-neglect.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

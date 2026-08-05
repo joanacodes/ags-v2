@@ -1,0 +1,24 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_validation_blueprint",
+  "fatalRules": [
+    "Reject a sign object containing a finished placement interpretation.",
+    "Reject a sign component that supplies the target object's primary verb.",
+    "Reject a sign whose grammar role is not modifier.",
+    "Reject a modifier lacking compatibility metadata.",
+    "Reject developmental modifiers lacking eligibility metadata."
+  ],
+  "warningRules": [
+    "Warn when components are semantically redundant.",
+    "Warn when a component is compatible with fewer than three target functions.",
+    "Warn when wording is vague and lacks a defined boundary."
+  ],
+  "approvalRequirements": [
+    "All required modifier types present",
+    "No finished sentences",
+    "Compatibility metadata complete",
+    "Developmental eligibility complete",
+    "Rejected wording documented",
+    "All tests pass"
+  ]
+}

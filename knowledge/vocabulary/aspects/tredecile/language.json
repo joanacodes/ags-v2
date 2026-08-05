@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "tredecile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "tredecile",
+  "content": {
+    "verbs": [
+      "restructures",
+      "adapts",
+      "transforms",
+      "integrates"
+    ],
+    "templates": [
+      "{A} restructures expression through interaction with {B}.",
+      "{A} and {B} develop adaptive transformation together."
+    ]
+  }
+}

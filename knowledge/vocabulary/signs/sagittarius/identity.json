@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sagittarius_identity",
+  "moduleType": "identity",
+  "grammarRole": "modifier",
+  "parentObject": "sagittarius",
+  "content": {
+    "coreDomains": [
+      "exploration",
+      "expansion",
+      "learning",
+      "discovery",
+      "meaning",
+      "synthesis",
+      "vision",
+      "possibility",
+      "growth",
+      "perspective"
+    ],
+    "notInherent": [
+      "recklessness",
+      "dogmatism",
+      "carelessness",
+      "restlessness",
+      "superiority",
+      "overconfidence"
+    ],
+    "constraints": [
+      "Sagittarius is a modifier.",
+      "Sagittarius never acts independently.",
+      "Sagittarius never replaces the target canonical function."
+    ]
+  }
+}

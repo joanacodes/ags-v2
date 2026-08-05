@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "trine_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "trine",
+  "content": {
+    "suite": "trine_ontology_v0.1",
+    "cases": [
+      {
+        "id": "TRI-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "TRI-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "TRI-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "TRI-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "TRI-T-005",
+        "name": "No intrinsic benefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

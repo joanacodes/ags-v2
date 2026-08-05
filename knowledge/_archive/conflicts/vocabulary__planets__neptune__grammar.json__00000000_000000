@@ -1,0 +1,166 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_grammar",
+  "name": "Neptune Grammar",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Neptune's verb role, approved verbs, corrective verbs, clause capabilities, and role restrictions.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "neptune_identity",
+    "ags_verb_classes_blueprint",
+    "ags_clause_builder"
+  ],
+  "priority": 10,
+  "tags": [
+    "neptune",
+    "grammar",
+    "planet",
+    "function"
+  ],
+  "parentObject": "neptune",
+  "moduleType": "grammar",
+  "content": {
+    "primaryGrammarRole": "verb",
+    "defaultVerbClass": "responsive_verbs",
+    "subjectBehavior": {
+      "mayActAsSubject": true,
+      "mayActAsSecondaryFunction": true,
+      "mayActAsConnector": false,
+      "mayActAsContext": false,
+      "mayActAsModifier": false
+    },
+    "primaryVerb": {
+      "lemma": "permeate",
+      "inflectionReference": "neptune_permeate"
+    },
+    "approvedSecondaryVerbs": [
+      {
+        "lemma": "attune",
+        "semanticDomain": "attunement",
+        "useWhen": "Sensitivity is being adjusted toward a person, atmosphere, image, rhythm, or field."
+      },
+      {
+        "lemma": "resonate",
+        "semanticDomain": "resonance",
+        "useWhen": "One experience evokes, echoes, or amplifies another without requiring literal equivalence."
+      },
+      {
+        "lemma": "imagine",
+        "semanticDomain": "imagination",
+        "useWhen": "Possibility, image, scenario, or symbolic form is being generated."
+      },
+      {
+        "lemma": "symbolize",
+        "semanticDomain": "symbolic_perception",
+        "useWhen": "Literal content carries additional associative or representational meaning."
+      },
+      {
+        "lemma": "empathize",
+        "semanticDomain": "empathy",
+        "useWhen": "Another person's affective or experiential state becomes partially accessible."
+      },
+      {
+        "lemma": "inspire",
+        "semanticDomain": "inspiration",
+        "useWhen": "An image, feeling, ideal, or possibility activates expression or motivation."
+      },
+      {
+        "lemma": "diffuse",
+        "semanticDomain": "diffusion",
+        "useWhen": "A concentrated boundary, image, affect, or distinction spreads across a wider field."
+      },
+      {
+        "lemma": "surrender",
+        "semanticDomain": "surrender",
+        "useWhen": "Control is intentionally loosened in response to a larger process, limit, or uncertainty."
+      },
+      {
+        "lemma": "idealize",
+        "semanticDomain": "idealization",
+        "useWhen": "An image, person, value, or possibility is organized around an ideal representation."
+      },
+      {
+        "lemma": "absorb",
+        "semanticDomain": "absorption",
+        "useWhen": "Experience, mood, image, or atmosphere enters with reduced filtering."
+      }
+    ],
+    "correctiveVerbs": [
+      {
+        "lemma": "dissolve",
+        "semanticDomain": "dissolution",
+        "useRule": "Use only when a defined boundary, form, distinction, or structure is actively losing coherence.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "obscure",
+        "semanticDomain": "obscuration",
+        "useRule": "Use only when permeability reduces clarity, differentiation, or traceability.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "project",
+        "semanticDomain": "projection",
+        "useRule": "Use only when internal image or meaning is assigned outward without sufficient distinction.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "escape",
+        "semanticDomain": "escapism",
+        "useRule": "Use only when imagination or diffusion is used to avoid direct engagement with reality.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "dissociate",
+        "semanticDomain": "dissociation",
+        "useRule": "Use only with explicit psychological context and never as a diagnosis.",
+        "neverPrimary": true
+      }
+    ],
+    "clauseCapabilities": [
+      "actor_function_clause",
+      "placement_clause",
+      "directed_relationship_clause",
+      "dispositor_reference_clause",
+      "reception_clause",
+      "natal_activation_clause"
+    ],
+    "relationshipDirectionRules": [
+      "When Neptune is the subject, Neptune supplies the primary permeating verb.",
+      "When Neptune is secondary, Neptune still supplies an intact secondary function.",
+      "No aspect may erase Neptune's function by reducing it to confusion or passivity.",
+      "Reversing aspect direction requires a new clause resolution."
+    ],
+    "prohibitedGrammar": [
+      "Neptune as an adjective replacing a sign modifier",
+      "Neptune as a connector replacing an aspect",
+      "Neptune as a context replacing a house",
+      "Dissolve used as the only neutral verb",
+      "Confusion used as a planetary function",
+      "A completed planet-in-sign or planet-in-house interpretation"
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Neptune grammar module."
+    }
+  ]
+}

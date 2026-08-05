@@ -1,0 +1,8 @@
+{
+  "rules": [
+    "Conditions modify expression, not the existence of a function.",
+    "No condition is inherently good or bad.",
+    "Functional availability is context-dependent.",
+    "Developmental state affects expression."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "leo_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "modifier",
+  "parentObject": "leo",
+  "content": {
+    "modifierSlots": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] expressively",
+      "[target] through creative actualization",
+      "[target] confidently",
+      "[target] toward visibility",
+      "[target] with emphasis on authentic expression"
+    ],
+    "forbidden": [
+      "Leo acts.",
+      "Leo causes fame.",
+      "Leo makes people arrogant."
+    ]
+  }
+}

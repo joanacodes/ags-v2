@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "triseptile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "triseptile",
+  "content": {
+    "families": [
+      {
+        "id": "recursive_convergence",
+        "components": [
+          "reveals convergent structures",
+          "supports integration"
+        ]
+      },
+      {
+        "id": "multilevel_coordination",
+        "components": [
+          "coordinates multiple levels",
+          "organizes systemic relationships"
+        ]
+      },
+      {
+        "id": "systemic_integration",
+        "components": [
+          "integrates coherent structures",
+          "supports adaptive organization"
+        ]
+      },
+      {
+        "id": "emergence",
+        "components": [
+          "stabilizes emergent coherence",
+          "encourages refinement"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

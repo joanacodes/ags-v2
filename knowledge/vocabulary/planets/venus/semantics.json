@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "venus_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "canonical_function",
+  "parentObject": "venus",
+  "content": {
+    "domains": {
+      "valuation": "Assessment of value and worth.",
+      "attraction": "Orientation toward affinity.",
+      "preference": "Selection among alternatives.",
+      "reciprocity": "Mutual exchange of value.",
+      "aesthetics": "Evaluation of form and beauty.",
+      "affinity": "Natural compatibility.",
+      "pleasure": "Experience of appreciation.",
+      "harmony": "Balanced relational organization.",
+      "relating": "Modes of interpersonal connection.",
+      "discernment": "Discriminating evaluation."
+    },
+    "boundaries": [
+      "Attraction is not romance.",
+      "Pleasure is not indulgence.",
+      "Harmony is not conflict avoidance.",
+      "Beauty is not vanity."
+    ]
+  }
+}

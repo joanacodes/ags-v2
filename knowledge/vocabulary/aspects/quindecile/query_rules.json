@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quindecile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "quindecile",
+  "content": {
+    "defaultOperator": "focused_intensification_operator",
+    "supportedQueries": {
+      "identity": [
+        "focus",
+        "intensification"
+      ],
+      "relationship": [
+        "commitment",
+        "integration"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Quindecile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

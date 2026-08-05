@@ -1,0 +1,15 @@
+{
+  "inputs": [
+    "natal_structure",
+    "current_positions",
+    "progressions",
+    "cycles",
+    "transits"
+  ],
+  "outputs": [
+    "activated_relationships",
+    "timing_patterns",
+    "developmental_windows",
+    "contextual_changes"
+  ]
+}

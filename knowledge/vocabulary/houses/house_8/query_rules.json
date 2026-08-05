@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house8_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_8",
+  "content": {
+    "defaultContextSet": [
+      "house8_transformation",
+      "house8_shared",
+      "house8_regeneration"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "transformation",
+        "trust"
+      ],
+      "relationships": [
+        "intimacy",
+        "shared_obligations"
+      ],
+      "work": [
+        "shared_resources",
+        "regeneration"
+      ],
+      "health": [
+        "crisis_response",
+        "psychological_depth"
+      ],
+      "transits": [
+        "inheritance",
+        "merging"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of transformation' as the neutral domain.",
+      "Prefer 'through shared resources' as the neutral focus.",
+      "Suppress assumptions about death or catastrophe.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

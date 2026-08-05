@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "novile",
+  "content": {
+    "verbs": [
+      "matures",
+      "integrates",
+      "completes",
+      "transforms"
+    ],
+    "templates": [
+      "{A} and {B} mature through recursive integration.",
+      "{A} completes a transformational process with {B}."
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sextile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "sextile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Sextile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate opportunity semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Sextile facilitates opportunity without replacing operands.",
+      "Orb modifies strength only."
+    ],
+    "heuristics": [
+      "Prefer cooperative activation over deterministic outcomes.",
+      "Interpret opportunity through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Sextile guarantees success.",
+      "Sextile is inherently benefic.",
+      "Sextile replaces planetary functions."
+    ]
+  }
+}

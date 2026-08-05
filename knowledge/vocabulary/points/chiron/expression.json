@@ -1,0 +1,230 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "chiron_expression",
+  "name": "Chiron Expression",
+  "type": "centaur_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines observable Chironian expression components, stage profiles, query priorities, and expression constraints.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "chiron_identity",
+    "chiron_semantics",
+    "chiron_psychology",
+    "chiron_development"
+  ],
+  "priority": 10,
+  "tags": [
+    "chiron",
+    "expression",
+    "centaur",
+    "adaptive_function"
+  ],
+  "parentObject": "chiron",
+  "moduleType": "expression",
+  "content": {
+    "observableExpressionTypes": [
+      {
+        "id": "functional_adaptation",
+        "definition": "Changes method, pace, tool, environment, or expectation to preserve participation."
+      },
+      {
+        "id": "compensatory_skill",
+        "definition": "Develops a secondary capacity that reduces the impact of an uneven or limited function."
+      },
+      {
+        "id": "accommodation_design",
+        "definition": "Creates practical conditions that improve access or reduce unnecessary strain."
+      },
+      {
+        "id": "rehabilitative_practice",
+        "definition": "Builds or restores usable capacity through repeated, adaptive practice."
+      },
+      {
+        "id": "experiential_mentorship",
+        "definition": "Shares methods learned through direct adaptation while acknowledging contextual differences."
+      },
+      {
+        "id": "vulnerability_competence_integration",
+        "definition": "Allows limitation and skill to coexist without reducing identity to either."
+      }
+    ],
+    "stageExpressionProfiles": [
+      {
+        "stage": "unconscious",
+        "externalComponents": [
+          "automatic coping patterns",
+          "avoidance of exposure",
+          "uneven participation",
+          "compensation without explicit acknowledgment",
+          "recurrent strain"
+        ],
+        "internalComponents": [
+          "anticipation of difficulty",
+          "sensitivity to inadequacy",
+          "unclear limits",
+          "identification with the problem"
+        ],
+        "selectionConstraints": [
+          "Do not infer diagnosis.",
+          "Do not infer trauma.",
+          "Do not assume every limitation is permanent."
+        ]
+      },
+      {
+        "stage": "defensive",
+        "externalComponents": [
+          "overperformance",
+          "rigid self-reliance",
+          "refusal of support",
+          "helper-only positioning",
+          "withdrawal before evaluation",
+          "concealment of need"
+        ],
+        "internalComponents": [
+          "fear of exposure",
+          "shame around accommodation",
+          "fear of dependence",
+          "belief that worth requires compensation"
+        ],
+        "selectionConstraints": [
+          "Requires explicit defensive evidence.",
+          "Must not be used as neutral Chiron description."
+        ]
+      },
+      {
+        "stage": "learning",
+        "externalComponents": [
+          "testing tools and accommodations",
+          "directly communicating limits",
+          "skill-building through repetition",
+          "seeking informed support",
+          "sharing personal methods cautiously"
+        ],
+        "internalComponents": [
+          "growing realism about capacity",
+          "reduced shame",
+          "curiosity about alternatives",
+          "willingness to receive help"
+        ],
+        "selectionConstraints": [
+          "Use when practice, feedback, or adjustment is explicit."
+        ]
+      },
+      {
+        "stage": "healthy",
+        "externalComponents": [
+          "effective accommodation",
+          "adaptive competence",
+          "realistic participation",
+          "context-sensitive mentoring",
+          "sustainable compensation",
+          "clear support requests"
+        ],
+        "internalComponents": [
+          "stable dignity",
+          "accurate capacity awareness",
+          "acceptance of recurrence",
+          "separation of limitation from identity"
+        ],
+        "selectionConstraints": [
+          "Neutral mature default when no other stage is specified."
+        ]
+      },
+      {
+        "stage": "integrated",
+        "externalComponents": [
+          "designing inclusive conditions",
+          "mentoring without rescuing",
+          "receiving support reciprocally",
+          "using vulnerability as information without making it identity",
+          "adapting methods as conditions change"
+        ],
+        "internalComponents": [
+          "competence without overcompensation",
+          "vulnerability without self-reduction",
+          "agency with support",
+          "participation without perfection"
+        ],
+        "selectionConstraints": [
+          "Requires explicit integration evidence."
+        ]
+      }
+    ],
+    "queryExpressionPriorities": {
+      "identity": [
+        "vulnerability_competence_integration",
+        "functional_adaptation",
+        "compensatory_skill"
+      ],
+      "work": [
+        "compensatory_skill",
+        "accommodation_design",
+        "experiential_mentorship"
+      ],
+      "money": [
+        "functional_adaptation",
+        "sustainable_compensation",
+        "support_resource_mapping"
+      ],
+      "love": [
+        "vulnerability_competence_integration",
+        "support_reciprocity",
+        "accommodation_design"
+      ],
+      "family": [
+        "functional_adaptation",
+        "support_reciprocity",
+        "experiential_mentorship"
+      ],
+      "friendship": [
+        "support_reciprocity",
+        "experiential_mentorship",
+        "vulnerability_competence_integration"
+      ],
+      "health": [
+        "rehabilitative_practice",
+        "functional_adaptation",
+        "accommodation_design"
+      ],
+      "wounds_and_healing": [
+        "functional_adaptation",
+        "vulnerability_competence_integration",
+        "experiential_mentorship"
+      ],
+      "saturn_return": [
+        "functional_adaptation",
+        "realistic_capacity_mapping",
+        "sustainable_compensation"
+      ]
+    },
+    "expressionConstraints": [
+      "Observable difficulty is not proof of Chiron.",
+      "Accommodation is not proof of incapacity.",
+      "Expertise is not proof of complete healing.",
+      "Mentorship must not imply universal authority.",
+      "No expression profile may become a finished placement interpretation."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only Chiron vocabulary. Psychology and development qualify adaptive expression but do not redefine Chiron as a wound, diagnosis, or cure.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Chiron expression module."
+    }
+  ]
+}

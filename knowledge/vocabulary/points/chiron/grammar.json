@@ -1,0 +1,19 @@
+{
+  "primaryVerb": "adapt",
+  "approvedSecondaryVerbs": [
+    "compensate",
+    "accommodate",
+    "rehabilitate",
+    "learn",
+    "mentor",
+    "refine",
+    "cope"
+  ],
+  "correctiveVerbs": [
+    "suffer",
+    "heal",
+    "endure",
+    "sacrifice"
+  ],
+  "rule": "Default to 'adapt' unless a narrower adaptive verb is justified."
+}

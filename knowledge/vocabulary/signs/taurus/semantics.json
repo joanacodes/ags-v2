@@ -1,0 +1,88 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "taurus_semantics",
+  "name": "Taurus Semantics",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Taurus semantic domains, boundaries, and prohibited derivations.",
+  "grammarRole": "modifier",
+  "parentObject": "taurus",
+  "moduleType": "semantics",
+  "dependsOn": [
+    "taurus_identity",
+    "ags_sign_blueprint"
+  ],
+  "content": {
+    "coreDomains": [
+      {
+        "id": "continuity",
+        "definition": "Maintains an existing functional line across time without unnecessary interruption."
+      },
+      {
+        "id": "stabilization",
+        "definition": "Reduces volatility enough for a target function to remain usable or coherent."
+      },
+      {
+        "id": "consolidation",
+        "definition": "Strengthens what has already been initiated by gathering, integrating, or reinforcing it."
+      },
+      {
+        "id": "retention",
+        "definition": "Keeps useful gains, resources, or structures available."
+      },
+      {
+        "id": "preservation",
+        "definition": "Protects functional value from unnecessary loss or disruption."
+      },
+      {
+        "id": "maintenance",
+        "definition": "Sustains operation through repeated care or reinforcement."
+      },
+      {
+        "id": "durability",
+        "definition": "Supports expression that remains viable across time and pressure."
+      },
+      {
+        "id": "incremental_accumulation",
+        "definition": "Builds capacity through repeated additions rather than abrupt expansion."
+      },
+      {
+        "id": "resource_stewardship",
+        "definition": "Uses, preserves, and replenishes available resources with attention to continuity."
+      },
+      {
+        "id": "steady_pacing",
+        "definition": "Regulates speed to support sustainability and retention."
+      }
+    ],
+    "boundaryRules": [
+      "Continuity is not resistance to change.",
+      "Stability is not stagnation.",
+      "Preservation is not hoarding.",
+      "Durability is not permanence.",
+      "Maintenance is not passivity.",
+      "Steady pacing is not slowness.",
+      "Resource stewardship is not materialism.",
+      "Retention is not possessiveness.",
+      "Consolidation is not refusal to begin.",
+      "Sustainability is not guaranteed success."
+    ],
+    "prohibitedDerivations": [
+      "stubbornness from continuity",
+      "laziness from steady pacing",
+      "materialism from resource stewardship",
+      "possessiveness from retention",
+      "wealth from accumulation",
+      "sensuality from stabilization",
+      "comfort-seeking from maintenance"
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Taurus semantics module."
+    }
+  ]
+}

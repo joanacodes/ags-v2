@@ -1,0 +1,7 @@
+{
+  "rules": [
+    "Avoid deterministic prediction.",
+    "Avoid event guarantees.",
+    "Preserve developmental and contextual interpretation."
+  ]
+}

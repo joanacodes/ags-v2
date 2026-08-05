@@ -1,0 +1,15 @@
+{
+  "id": "ascendant_tests",
+  "cases": [
+    "Primary verb defaults to orient",
+    "Reject personality reduction",
+    "Require Descendant pairing",
+    "Reject finished rising-sign interpretation",
+    "Ruler delegates rather than replaces orientation"
+  ],
+  "regressions": [
+    "Orientation != identity",
+    "Presentation != appearance",
+    "Angle != planet"
+  ]
+}

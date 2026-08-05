@@ -1,0 +1,47 @@
+{
+  "$schemaVersion": "0.1.0",
+  "type": "axis_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "direction",
+  "parentObject": "nodal_axis",
+  "id": "nodal_axis_semantics",
+  "name": "Nodal Axis Semantics",
+  "content": {
+    "domains": [
+      {
+        "id": "familiarity",
+        "definition": "An already practiced and comparatively automatic mode."
+      },
+      {
+        "id": "consolidated_capacity",
+        "definition": "A repeated or established capacity that remains available."
+      },
+      {
+        "id": "overreliance",
+        "definition": "Use of the familiar mode beyond its adaptive range."
+      },
+      {
+        "id": "emerging_capacity",
+        "definition": "A less practiced complementary function."
+      },
+      {
+        "id": "developmental_direction",
+        "definition": "Practice oriented toward the emerging capacity."
+      },
+      {
+        "id": "integration",
+        "definition": "Coordination of both poles without erasing either."
+      },
+      {
+        "id": "range_expansion",
+        "definition": "Increase in available functional responses."
+      }
+    ],
+    "exclusions": [
+      "familiarity equals defect",
+      "emerging capacity equals virtue",
+      "direction equals destiny"
+    ]
+  }
+}

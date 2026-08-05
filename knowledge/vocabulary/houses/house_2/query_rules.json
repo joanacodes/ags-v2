@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house2_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_2",
+  "content": {
+    "defaultContextSet": [
+      "house2_resources",
+      "house2_values",
+      "house2_stewardship"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "values",
+        "self_worth"
+      ],
+      "relationships": [
+        "shared_values",
+        "security"
+      ],
+      "work": [
+        "resources",
+        "material_management"
+      ],
+      "health": [
+        "stability",
+        "sustainability"
+      ],
+      "transits": [
+        "ownership",
+        "stewardship"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of resources' as the neutral domain.",
+      "Prefer 'through value formation' as the neutral focus.",
+      "Suppress assumptions about wealth or poverty.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "duodecile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "duodecile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through harmonic refinement, subtle division, and integrated expression.",
+    "coreDomains": [
+      "refinement",
+      "harmonic structure",
+      "division",
+      "integration",
+      "subtle expression",
+      "coherence"
+    ],
+    "notInherent": [
+      "perfection",
+      "automatic harmony",
+      "destiny",
+      "beneficence"
+    ],
+    "constraints": [
+      "Duodecile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

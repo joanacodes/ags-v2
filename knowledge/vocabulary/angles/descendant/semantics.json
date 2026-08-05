@@ -1,0 +1,29 @@
+{
+  "domains": [
+    {
+      "id": "relating",
+      "definition": "Entering reciprocal engagement with an external counterpart."
+    },
+    {
+      "id": "counterpart",
+      "definition": "Recognition of another center of perspective."
+    },
+    {
+      "id": "reciprocity",
+      "definition": "Mutual influence between self and other."
+    },
+    {
+      "id": "coordination",
+      "definition": "Adjusting orientation through interaction."
+    },
+    {
+      "id": "partnership_frame",
+      "definition": "Reference frame for cooperative engagement."
+    }
+  ],
+  "rules": [
+    "Relating requires a counterpart.",
+    "Reciprocity is not agreement.",
+    "The Descendant complements, but does not replace, the Ascendant."
+  ]
+}

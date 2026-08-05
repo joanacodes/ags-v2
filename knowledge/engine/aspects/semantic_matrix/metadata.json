@@ -1,0 +1,6 @@
+{
+  "id": "aspect_semantic_matrix",
+  "moduleType": "interpretation_engine",
+  "version": "0.1.0",
+  "purpose": "Combine canonical functions and aspect operators into semantic relationship structures."
+}

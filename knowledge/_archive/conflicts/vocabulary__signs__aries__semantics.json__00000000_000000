@@ -1,0 +1,99 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_semantics",
+  "name": "Aries Semantics",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines directness, initiation, immediacy, autonomous engagement, and related boundaries.",
+  "grammarRole": "modifier",
+  "dependsOn": [
+    "aries_identity",
+    "aries_grammar",
+    "aries_language"
+  ],
+  "parentObject": "aries",
+  "moduleType": "semantics",
+  "content": {
+    "coreDomains": [
+      {
+        "id": "directness",
+        "definition": "A low-detour mode that moves toward the relevant object, decision, or action without unnecessary mediation.",
+        "boundaries": [
+          "Does not imply hostility.",
+          "Does not guarantee accuracy.",
+          "May include tact."
+        ]
+      },
+      {
+        "id": "initiation",
+        "definition": "The commencement of a process before extended momentum or structure has accumulated.",
+        "boundaries": [
+          "Initiation is not completion.",
+          "Initiation does not guarantee leadership.",
+          "Requires a process that can begin."
+        ]
+      },
+      {
+        "id": "immediacy",
+        "definition": "Reduced delay between signal, decision, and first engagement.",
+        "boundaries": [
+          "Does not require recklessness.",
+          "May be proportionate or premature.",
+          "The target function may limit acceptable speed."
+        ]
+      },
+      {
+        "id": "autonomous_engagement",
+        "definition": "Beginning from self-positioned agency rather than waiting for external initiation.",
+        "boundaries": [
+          "Autonomy is not isolation.",
+          "Autonomy does not invalidate coordination.",
+          "Agency must remain compatible with consent."
+        ]
+      },
+      {
+        "id": "first_move_priority",
+        "definition": "Prioritizing the first actionable step over extended preparation.",
+        "boundaries": [
+          "The first move may require revision.",
+          "Priority does not imply superiority.",
+          "Not every context benefits from early action."
+        ]
+      },
+      {
+        "id": "immediate_testing",
+        "definition": "Using direct engagement to obtain information unavailable through preparation alone.",
+        "boundaries": [
+          "Testing must remain bounded.",
+          "Testing does not guarantee success.",
+          "Feedback must remain available."
+        ]
+      },
+      {
+        "id": "momentum_preservation",
+        "definition": "Maintaining enough movement to prevent a process from returning to inertia.",
+        "boundaries": [
+          "Momentum is not speed at any cost.",
+          "Momentum may include pauses.",
+          "Continuation must remain compatible with correction."
+        ]
+      }
+    ],
+    "semanticExclusions": [
+      "Do not derive aggression from directness.",
+      "Do not derive selfishness from autonomous engagement.",
+      "Do not derive leadership from first-move priority.",
+      "Do not derive courage from initiation.",
+      "Do not derive success from immediate testing.",
+      "Do not derive recklessness from immediacy."
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries semantics module."
+    }
+  ]
+}

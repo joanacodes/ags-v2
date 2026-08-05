@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "leo_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "leo",
+  "content": {
+    "defaultModifierSet": [
+      "leo_manner_expressively",
+      "leo_strategy_creative_actualization",
+      "leo_priority_authentic_expression"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "expression",
+        "coherence"
+      ],
+      "relationships": [
+        "authentic_expression",
+        "recognition"
+      ],
+      "career": [
+        "creative_actualization",
+        "visibility"
+      ],
+      "work": [
+        "generativity",
+        "contribution"
+      ],
+      "health": [
+        "vitality",
+        "coherence"
+      ],
+      "transits": [
+        "expression",
+        "visibility"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'expressively' as the neutral manner.",
+      "Prefer 'through creative actualization' as the neutral strategy.",
+      "Suppress unnecessary visibility when incompatible with the target.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

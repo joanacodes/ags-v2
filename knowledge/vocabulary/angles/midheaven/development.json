@@ -1,0 +1,209 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "midheaven_development",
+  "name": "Midheaven Development",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Midheaven expression across universal developmental stages without converting actualization into achievement guarantees.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "midheaven_identity",
+    "midheaven_semantics",
+    "midheaven_psychology",
+    "ags_angle_blueprint",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "midheaven",
+    "development",
+    "angle",
+    "reference_frame",
+    "public_actualization"
+  ],
+  "parentObject": "midheaven",
+  "moduleType": "development",
+  "content": {
+    "developmentReference": "ags_development_blueprint",
+    "coreRule": "Development changes the coherence, responsibility, and integration of public actualization; it does not change the Midheaven's identity as a reference frame.",
+    "stageExpressions": [
+      {
+        "stage": "unconscious",
+        "functionalPattern": [
+          "Seeks visible direction through external expectations",
+          "Confuses recognition with successful actualization",
+          "Adopts roles before testing fit",
+          "Uses public feedback as a broad identity verdict"
+        ],
+        "eligibleVerbs": [
+          "perform visibly",
+          "seek recognition",
+          "adopt roles",
+          "actualize reactively"
+        ],
+        "ineligibleClaims": [
+          "integrated authority",
+          "stable public contribution",
+          "balanced MC-IC expression"
+        ],
+        "learningTaskComponents": [
+          "Name the actual contribution",
+          "Separate visibility from value",
+          "Identify the private foundation supporting the role"
+        ]
+      },
+      {
+        "stage": "defensive",
+        "functionalPattern": [
+          "Overidentifies with title or reputation",
+          "Avoids visibility to escape evaluation",
+          "Uses status to compensate for insecurity",
+          "Controls performance rigidly",
+          "Projects authority outward"
+        ],
+        "eligibleVerbs": [
+          "perform status",
+          "avoid visibility",
+          "overcontrol role",
+          "seek legitimacy externally",
+          "identify with reputation"
+        ],
+        "requiredConditions": [
+          "explicit stress condition",
+          "explicit defensive activation",
+          "explicit status, shame, exposure, or authority evidence"
+        ],
+        "learningTaskComponents": [
+          "Restore role-identity separation",
+          "Return to actual contribution",
+          "Reduce unnecessary performance control",
+          "Reconnect with IC foundations"
+        ]
+      },
+      {
+        "stage": "learning",
+        "functionalPattern": [
+          "Tests public roles and responsibilities",
+          "Uses feedback to refine contribution",
+          "Builds visible competence gradually",
+          "Learns to distinguish recognition from function"
+        ],
+        "eligibleVerbs": [
+          "actualize",
+          "contribute",
+          "participate",
+          "undertake",
+          "express publicly"
+        ],
+        "learningTaskComponents": [
+          "Clarify role scope",
+          "Measure real impact",
+          "Practice proportionate authority",
+          "Balance public effort with private restoration"
+        ]
+      },
+      {
+        "stage": "healthy",
+        "functionalPattern": [
+          "Brings capacities into observable and accountable participation",
+          "Assumes fitting roles and responsibilities",
+          "Contributes without requiring prestige",
+          "Uses feedback without collapsing identity into reputation"
+        ],
+        "eligibleVerbs": [
+          "actualize",
+          "contribute",
+          "participate",
+          "undertake",
+          "express"
+        ],
+        "operatingConditions": [
+          "query relevance",
+          "sign modifier remains grammatical",
+          "ruler function remains distinct",
+          "IC reference remains available",
+          "contribution remains observable"
+        ],
+        "learningTaskComponents": [
+          "Sustain contribution without overexposure",
+          "Develop authority through accountability",
+          "Revise roles as context changes"
+        ]
+      },
+      {
+        "stage": "integrated",
+        "functionalPattern": [
+          "Coordinates public role with private foundation",
+          "Uses visibility without status inflation",
+          "Accepts authority proportionate to responsibility",
+          "Allows actualization to evolve without identity collapse"
+        ],
+        "eligibleVerbs": [
+          "actualize with accountability",
+          "contribute without status dependence",
+          "participate visibly without overidentification",
+          "undertake responsibility with clear limits",
+          "coordinate Midheaven and Imum Coeli frames"
+        ],
+        "requiredConditions": [
+          "explicit integration stage",
+          "explicit axis synthesis evidence",
+          "sustained balance between visibility, responsibility, and private grounding"
+        ],
+        "developmentalContribution": [
+          "Makes capacities socially usable without reducing identity to role",
+          "Supports visible responsibility without status inflation",
+          "Coordinates public contribution and private restoration",
+          "Allows recognition to remain secondary to function"
+        ]
+      }
+    ],
+    "crossStageRules": [
+      {
+        "id": "MC-DEV-001",
+        "rule": "The same actualization domain may use different surface verbs at different stages."
+      },
+      {
+        "id": "MC-DEV-002",
+        "rule": "Status-seeking, visibility avoidance, and role overidentification require explicit defensive evidence."
+      },
+      {
+        "id": "MC-DEV-003",
+        "rule": "Integrated Midheaven expression may still include ambition, visibility, and authority."
+      },
+      {
+        "id": "MC-DEV-004",
+        "rule": "Healthy actualization does not guarantee fame, wealth, or recognition."
+      },
+      {
+        "id": "MC-DEV-005",
+        "rule": "No stage may introduce a semantic domain absent from approved Midheaven vocabulary."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. Psychology and development qualify public actualization but do not redefine the Midheaven as career, status, fame, or guaranteed achievement.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Midheaven development module."
+    }
+  ]
+}

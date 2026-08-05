@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house1_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "context",
+  "parentObject": "house_1",
+  "content": {
+    "contextComponents": [
+      {
+        "id": "house1_identity",
+        "text": "in the context of identity",
+        "type": "domain"
+      },
+      {
+        "id": "house1_self_expression",
+        "text": "through personal expression",
+        "type": "focus"
+      },
+      {
+        "id": "house1_embodiment",
+        "text": "through lived embodiment",
+        "type": "expression_context"
+      },
+      {
+        "id": "house1_presence",
+        "text": "as immediate presence",
+        "type": "salience"
+      }
+    ]
+  }
+}

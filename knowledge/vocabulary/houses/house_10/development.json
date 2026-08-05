@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house10_development",
+  "moduleType": "development",
+  "grammarRole": "context",
+  "parentObject": "house_10",
+  "content": {
+    "coreRule": "Development changes how functions are experienced within the House 10 context; House 10 remains a context.",
+    "stages": {
+      "unconscious": [
+        "through external expectations",
+        "within unexamined ambitions"
+      ],
+      "defensive": [
+        "through status seeking",
+        "within rigid responsibility"
+      ],
+      "learning": [
+        "through developing competence",
+        "within intentional contribution"
+      ],
+      "healthy": [
+        "through responsible leadership",
+        "within meaningful achievement"
+      ],
+      "integrated": [
+        "through enduring legacy",
+        "within adaptive public service"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Public role context never implies fame."
+    ]
+  }
+}

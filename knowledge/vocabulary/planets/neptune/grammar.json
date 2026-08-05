@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "canonical_function",
+  "parentObject": "neptune",
+  "content": {
+    "functionSlots": [
+      "function",
+      "process",
+      "orientation",
+      "goal",
+      "output",
+      "salience"
+    ],
+    "allowedModifiers": [
+      "sign",
+      "house",
+      "degree",
+      "dignity"
+    ],
+    "allowedRelations": [
+      "aspect"
+    ],
+    "patterns": [
+      "Neptune inspires [domain].",
+      "Neptune dissolves unnecessary boundaries in [context]."
+    ],
+    "forbidden": [
+      "Neptune is merely illusion.",
+      "Neptune is replaced by its sign."
+    ]
+  }
+}

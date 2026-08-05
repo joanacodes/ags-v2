@@ -1,0 +1,41 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aquarius_language",
+  "moduleType": "language",
+  "grammarRole": "modifier",
+  "parentObject": "aquarius",
+  "content": {
+    "manner": [
+      "innovatively",
+      "objectively",
+      "adaptively"
+    ],
+    "strategy": [
+      "through experimentation",
+      "through systems thinking",
+      "through networked collaboration"
+    ],
+    "pace": [
+      "iteratively",
+      "progressively",
+      "at an adaptive pace"
+    ],
+    "orientation": [
+      "toward collective progress",
+      "toward future possibilities",
+      "toward originality"
+    ],
+    "priority": [
+      "with emphasis on innovation",
+      "with emphasis on objectivity"
+    ],
+    "regulation": [
+      "while maintaining coherence",
+      "while preserving adaptability"
+    ],
+    "developmental": [
+      "through continual innovation",
+      "through evolving perspective"
+    ]
+  }
+}

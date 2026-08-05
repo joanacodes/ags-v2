@@ -1,0 +1,205 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "chiron_development",
+  "name": "Chiron Development",
+  "type": "centaur_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Chironian expression across the universal developmental stages without changing the adaptive function.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "chiron_identity",
+    "chiron_semantics",
+    "chiron_psychology",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "chiron",
+    "development",
+    "centaur",
+    "adaptive_function"
+  ],
+  "parentObject": "chiron",
+  "moduleType": "development",
+  "content": {
+    "developmentReference": "ags_development_blueprint",
+    "coreRule": "Development changes how adaptation operates; it does not change Chiron's identity.",
+    "stageExpressions": [
+      {
+        "stage": "unconscious",
+        "functionalPattern": [
+          "Responds to limitation automatically",
+          "Develops compensatory habits without clearly naming the original constraint",
+          "Avoids situations that expose uneven capacity",
+          "Identifies strongly with recurrence or difficulty"
+        ],
+        "eligibleVerbs": [
+          "cope",
+          "compensate",
+          "avoid",
+          "endure"
+        ],
+        "ineligibleClaims": [
+          "integrated mentorship",
+          "flexible accommodation",
+          "conscious adaptive wisdom"
+        ],
+        "learningTaskComponents": [
+          "Name the limitation",
+          "Identify the existing adaptation",
+          "Observe the cost of compensation"
+        ]
+      },
+      {
+        "stage": "defensive",
+        "functionalPattern": [
+          "Overcompensates to prevent exposure",
+          "Withdraws before support can be negotiated",
+          "Builds identity around being the helper, expert, or survivor",
+          "Treats accommodation as proof of inadequacy"
+        ],
+        "eligibleVerbs": [
+          "overcompensate",
+          "conceal",
+          "withdraw",
+          "endure rigidly",
+          "help compulsively"
+        ],
+        "requiredConditions": [
+          "explicit stress condition",
+          "explicit defensive activation",
+          "explicit exposure, shame, or inadequacy evidence"
+        ],
+        "learningTaskComponents": [
+          "Separate limitation from worth",
+          "Ask for proportionate support",
+          "Reduce unnecessary compensation",
+          "Allow reciprocal care"
+        ]
+      },
+      {
+        "stage": "learning",
+        "functionalPattern": [
+          "Tests accommodations and alternative methods",
+          "Builds skill through repetition and feedback",
+          "Learns to communicate limits",
+          "Begins sharing adaptive knowledge without universalizing it"
+        ],
+        "eligibleVerbs": [
+          "adapt",
+          "accommodate",
+          "rehabilitate",
+          "refine",
+          "learn",
+          "mentor selectively"
+        ],
+        "learningTaskComponents": [
+          "Compare adaptation options",
+          "Measure cost and benefit",
+          "Practice direct communication of needs",
+          "Distinguish personal experience from general law"
+        ]
+      },
+      {
+        "stage": "healthy",
+        "functionalPattern": [
+          "Modifies function realistically around a persistent constraint",
+          "Uses accommodations without shame",
+          "Develops practical competence through experience",
+          "Shares adaptive knowledge while preserving boundaries"
+        ],
+        "eligibleVerbs": [
+          "adapt",
+          "accommodate",
+          "refine",
+          "rehabilitate",
+          "mentor",
+          "compensate consciously"
+        ],
+        "operatingConditions": [
+          "query relevance",
+          "defined limitation or asymmetry",
+          "adaptation remains functional",
+          "costs and supports remain visible"
+        ],
+        "learningTaskComponents": [
+          "Update adaptations as capacity changes",
+          "Prevent expertise from becoming rigid identity",
+          "Receive support as readily as it is offered"
+        ]
+      },
+      {
+        "stage": "integrated",
+        "functionalPattern": [
+          "Uses vulnerability and competence together without role collapse",
+          "Adapts flexibly without demanding cure",
+          "Transforms lived experience into context-sensitive guidance",
+          "Supports participation while respecting real limits"
+        ],
+        "eligibleVerbs": [
+          "adapt without self-reduction",
+          "accommodate with dignity",
+          "mentor without overidentification",
+          "refine through lived feedback",
+          "participate without perfection",
+          "receive support without loss of agency"
+        ],
+        "requiredConditions": [
+          "explicit integration stage",
+          "explicit synthesis evidence",
+          "sustained coordination between limitation, agency, support, and participation"
+        ],
+        "developmentalContribution": [
+          "Makes participation possible without denying limitation",
+          "Turns personal adaptation into transferable but non-universal knowledge",
+          "Allows expertise and vulnerability to coexist",
+          "Builds systems that accommodate variation without reducing dignity"
+        ]
+      }
+    ],
+    "crossStageRules": [
+      {
+        "id": "CHI-DEV-001",
+        "rule": "The same adaptive domain may use different verbs at different stages."
+      },
+      {
+        "id": "CHI-DEV-002",
+        "rule": "Healing language requires explicit evidence and may not replace adaptation."
+      },
+      {
+        "id": "CHI-DEV-003",
+        "rule": "Integrated Chiron may still require ongoing accommodation."
+      },
+      {
+        "id": "CHI-DEV-004",
+        "rule": "Healthy expression does not imply the limitation has disappeared."
+      },
+      {
+        "id": "CHI-DEV-005",
+        "rule": "No stage may introduce a semantic domain absent from Chiron's approved vocabulary."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only Chiron vocabulary. Psychology and development qualify adaptive expression but do not redefine Chiron as a wound, diagnosis, or cure.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Chiron development module."
+    }
+  ]
+}

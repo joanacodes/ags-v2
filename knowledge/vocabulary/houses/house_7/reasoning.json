@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house7_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "context",
+  "parentObject": "house_7",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm House 7 is a context",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible contextual components",
+      "Apply sign, degree, and dignity modifiers",
+      "Validate canonical function unchanged",
+      "Generate contextual semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "domain": "partnership",
+      "focus": "cooperation",
+      "expression_context": "through reciprocal exchange",
+      "salience": "mutual"
+    },
+    "compositionRules": [
+      "House 7 provides context but never performs actions.",
+      "Planets retain canonical functions.",
+      "Signs modify functions before contextual placement.",
+      "Houses provide experiential context only.",
+      "Aspects remain relational operators.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer partnership over dependence.",
+      "Prefer cooperation over submission.",
+      "Prefer reciprocity over codependency.",
+      "Return an empty context set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "House 7 creates relationships.",
+      "House 7 implies marriage.",
+      "House 7 replaces the target function."
+    ]
+  }
+}

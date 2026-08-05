@@ -1,0 +1,8 @@
+{
+  "rules": [
+    "Incomplete input must be flagged.",
+    "Astronomical calculations remain separate from interpretation.",
+    "Calculated positions are inputs, not meanings.",
+    "Aspects are resolved after geometry calculation."
+  ]
+}

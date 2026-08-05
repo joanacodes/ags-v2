@@ -1,0 +1,8 @@
+{
+  "class": "reference_frame",
+  "definition": "An angle establishes a reference frame through which planetary functions are oriented, related, actualized, or rooted.",
+  "grammarRole": "reference_frame",
+  "doesNotAct": true,
+  "doesNotModify": true,
+  "doesNotProvideContext": true
+}

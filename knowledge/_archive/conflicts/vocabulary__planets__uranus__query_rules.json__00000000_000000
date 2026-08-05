@@ -1,0 +1,92 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_query_rules",
+  "name": "Uranus Query Rules",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "verb",
+  "dependsOn": [
+    "uranus_semantics",
+    "ags_query_blueprint"
+  ],
+  "content": {
+    "supportedQueries": {
+      "identity": {
+        "priorityDomains": [
+          "differentiation",
+          "freedom",
+          "reconfiguration"
+        ],
+        "preferredVerbs": [
+          "differentiate",
+          "reconfigure"
+        ]
+      },
+      "career": {
+        "priorityDomains": [
+          "innovation",
+          "reform",
+          "systems_awareness"
+        ],
+        "preferredVerbs": [
+          "innovate",
+          "reform",
+          "update"
+        ]
+      },
+      "relationships": {
+        "priorityDomains": [
+          "autonomy",
+          "difference",
+          "adaptation"
+        ],
+        "preferredVerbs": [
+          "differentiate",
+          "liberate"
+        ]
+      },
+      "family": {
+        "priorityDomains": [
+          "reform",
+          "pattern_change"
+        ],
+        "preferredVerbs": [
+          "reconfigure",
+          "reform"
+        ]
+      },
+      "health": {
+        "priorityDomains": [
+          "adaptation",
+          "experimentation"
+        ],
+        "preferredVerbs": [
+          "experiment",
+          "update"
+        ]
+      },
+      "spirituality": {
+        "priorityDomains": [
+          "detachment",
+          "future_orientation"
+        ],
+        "preferredVerbs": [
+          "differentiate",
+          "reconfigure"
+        ]
+      }
+    },
+    "selectionRules": [
+      "Select reconfigure when no narrower Uranian action is justified.",
+      "Prefer innovate only when a workable new arrangement exists.",
+      "Prefer reform when continuity is intentionally preserved.",
+      "Never infer disruption without contextual evidence.",
+      "Never infer rebellion as Uranus's default expression."
+    ],
+    "queryConstraints": [
+      "Queries may prioritize domains but may not change Uranus's identity.",
+      "No query authorizes deterministic prediction."
+    ]
+  }
+}

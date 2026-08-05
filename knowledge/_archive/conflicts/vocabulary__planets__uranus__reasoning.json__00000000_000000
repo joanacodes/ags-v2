@@ -1,0 +1,48 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_reasoning",
+  "name": "Uranus Reasoning",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "verb",
+  "dependsOn": [
+    "uranus_query_rules",
+    "ags_reasoning_blueprint"
+  ],
+  "content": {
+    "resolutionOrder": [
+      "Resolve query intent",
+      "Resolve semantic domains",
+      "Resolve developmental stage",
+      "Resolve compatible modifiers",
+      "Select primary verb",
+      "Select secondary verb if justified",
+      "Build canonical clause"
+    ],
+    "heuristics": [
+      {
+        "id": "URA-R-001",
+        "rule": "Choose the most specific approved verb compatible with the selected semantic domain."
+      },
+      {
+        "id": "URA-R-002",
+        "rule": "Prefer reconfigure when two verbs are equally supported."
+      },
+      {
+        "id": "URA-R-003",
+        "rule": "Developmental stage constrains expression but not identity."
+      },
+      {
+        "id": "URA-R-004",
+        "rule": "Relationship direction changes grammatical focus without changing Uranus's function."
+      }
+    ],
+    "forbiddenInferences": [
+      "Innovation implies success.",
+      "Difference implies superiority.",
+      "Freedom implies absence of responsibility.",
+      "Disruption implies external events."
+    ]
+  }
+}

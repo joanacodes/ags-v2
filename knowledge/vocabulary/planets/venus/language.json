@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "venus_language",
+  "moduleType": "language",
+  "grammarRole": "canonical_function",
+  "parentObject": "venus",
+  "content": {
+    "function": [
+      "evaluates value",
+      "forms preferences",
+      "supports reciprocity",
+      "expresses aesthetic judgment"
+    ],
+    "process": [
+      "valuing",
+      "choosing",
+      "attracting",
+      "harmonizing",
+      "appreciating"
+    ],
+    "orientation": [
+      "relational",
+      "selective",
+      "harmonizing",
+      "appreciative"
+    ],
+    "goal": [
+      "coherent values",
+      "mutual reciprocity",
+      "aesthetic coherence",
+      "meaningful preference"
+    ],
+    "output": [
+      "preferences",
+      "bonds",
+      "artistic expression",
+      "shared value"
+    ],
+    "salience": [
+      "relational",
+      "evaluative",
+      "harmonizing",
+      "selective"
+    ]
+  }
+}

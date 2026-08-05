@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mars_language",
+  "moduleType": "language",
+  "grammarRole": "canonical_function",
+  "parentObject": "mars",
+  "content": {
+    "function": [
+      "initiates action",
+      "supports assertion",
+      "directs effort",
+      "organizes agency"
+    ],
+    "process": [
+      "initiating",
+      "acting",
+      "asserting",
+      "executing",
+      "persisting"
+    ],
+    "orientation": [
+      "active",
+      "direct",
+      "decisive",
+      "purposeful"
+    ],
+    "goal": [
+      "effective action",
+      "clear boundaries",
+      "purposeful effort",
+      "successful execution"
+    ],
+    "output": [
+      "actions",
+      "initiatives",
+      "assertions",
+      "results"
+    ],
+    "salience": [
+      "active",
+      "agentic",
+      "decisive",
+      "motivated"
+    ]
+  }
+}

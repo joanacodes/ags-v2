@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "venus_identity",
+  "moduleType": "identity",
+  "grammarRole": "canonical_function",
+  "parentObject": "venus",
+  "content": {
+    "canonicalFunction": "evaluates value, attraction, preference, reciprocity, and aesthetic judgment",
+    "coreDomains": [
+      "valuation",
+      "attraction",
+      "preference",
+      "reciprocity",
+      "aesthetics",
+      "affinity",
+      "pleasure",
+      "harmony",
+      "relating",
+      "discernment"
+    ],
+    "notInherent": [
+      "romance",
+      "beauty",
+      "vanity",
+      "passivity",
+      "luxury",
+      "femininity"
+    ],
+    "constraints": [
+      "Venus is a canonical function.",
+      "Signs modify Venus but never replace it.",
+      "Houses contextualize Venus but never perform it.",
+      "Aspects relate Venus to other canonical functions."
+    ]
+  }
+}

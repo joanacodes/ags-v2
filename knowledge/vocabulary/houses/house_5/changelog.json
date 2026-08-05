@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house5_changelog",
+  "moduleType": "changelog",
+  "grammarRole": "context",
+  "parentObject": "house_5",
+  "content": {
+    "currentVersion": "0.1.0",
+    "status": "ontology_complete_candidate",
+    "completedModules": [
+      "metadata.json",
+      "identity.json",
+      "grammar.json",
+      "language.json",
+      "semantics.json",
+      "modifier_types.json",
+      "development.json",
+      "expression.json",
+      "query_rules.json",
+      "reasoning.json",
+      "tests.json",
+      "changelog.json"
+    ],
+    "completion": {
+      "completed": 12,
+      "total": 12,
+      "percentage": 100
+    },
+    "integrationNotes": [
+      "House 5 composes after sign modifiers.",
+      "Outputs contextual semantic structures for downstream NLG."
+    ],
+    "nextPlannedObject": "house_6"
+  }
+}

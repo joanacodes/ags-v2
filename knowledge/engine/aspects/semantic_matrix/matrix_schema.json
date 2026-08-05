@@ -1,0 +1,14 @@
+{
+  "input": [
+    "canonical_function_A",
+    "aspect_operator",
+    "canonical_function_B",
+    "context_modifiers"
+  ],
+  "output": [
+    "relationship_theme",
+    "expression_domains",
+    "developmental_modes",
+    "query_description"
+  ]
+}

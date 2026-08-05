@@ -1,0 +1,16 @@
+{
+  "inputs": [
+    "chart_data",
+    "canonical_function_map",
+    "aspect_relationship_network",
+    "condition_states",
+    "developmental_states"
+  ],
+  "processing": [
+    "Validate input structure",
+    "Assemble relationship network",
+    "Apply interpretation templates",
+    "Generate sections",
+    "Run constraint checks"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sagittarius_development",
+  "moduleType": "development",
+  "grammarRole": "modifier",
+  "parentObject": "sagittarius",
+  "content": {
+    "coreRule": "Development changes how Sagittarius modifiers expand and explore; Sagittarius remains a modifier.",
+    "stages": {
+      "unconscious": [
+        "automatically exploring",
+        "through habitual expansion"
+      ],
+      "defensive": [
+        "over-expansively",
+        "through excessive generalization"
+      ],
+      "learning": [
+        "openly",
+        "through discovery"
+      ],
+      "healthy": [
+        "expansively",
+        "through exploration"
+      ],
+      "integrated": [
+        "context-responsively",
+        "through adaptive synthesis"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Expansion never implies excess."
+    ]
+  }
+}

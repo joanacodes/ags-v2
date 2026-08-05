@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house9_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "context",
+  "parentObject": "house_9",
+  "content": {
+    "contextComponents": [
+      {
+        "id": "house9_learning",
+        "text": "in the context of higher learning",
+        "type": "domain"
+      },
+      {
+        "id": "house9_exploration",
+        "text": "through exploration",
+        "type": "focus"
+      },
+      {
+        "id": "house9_meaning",
+        "text": "through meaning-making",
+        "type": "expression_context"
+      },
+      {
+        "id": "house9_philosophy",
+        "text": "within philosophical inquiry",
+        "type": "salience"
+      }
+    ]
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "chiron_psychology",
+  "name": "Chiron Psychology",
+  "type": "centaur_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Chiron's psychological needs, sensitivities, protective strategies, regulation needs, blind spots, and integration markers.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "chiron_identity",
+    "chiron_semantics",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "chiron",
+    "psychology",
+    "centaur",
+    "adaptive_function"
+  ],
+  "parentObject": "chiron",
+  "moduleType": "psychology",
+  "content": {
+    "coreNeed": {
+      "id": "functional_participation_despite_limitation",
+      "definition": "A workable way to participate, contribute, relate, or develop despite a persistent limitation, asymmetry, vulnerability, or area of reduced ease."
+    },
+    "coreMotivation": {
+      "id": "convert_limitation_into_adaptive_knowledge",
+      "definition": "Develop methods, skills, accommodations, or understanding that preserve function without requiring the original limitation to disappear."
+    },
+    "coreSensitivity": [
+      {
+        "id": "limitation_sensitivity",
+        "definition": "Heightened awareness of where a function is constrained, uneven, painful, underdeveloped, or dependent on accommodation."
+      },
+      {
+        "id": "exclusion_sensitivity",
+        "definition": "Heightened awareness of barriers that reduce participation, access, or belonging."
+      },
+      {
+        "id": "competence_gap_sensitivity",
+        "definition": "Heightened awareness of a mismatch between expected performance and available capacity."
+      },
+      {
+        "id": "recurrence_sensitivity",
+        "definition": "Heightened awareness that a vulnerability, limitation, or compensatory demand can return."
+      }
+    ],
+    "coreFearPatterns": [
+      {
+        "id": "permanent_inadequacy",
+        "definition": "Fear that a persistent limitation proves total incompetence or unworthiness."
+      },
+      {
+        "id": "exposure_without_accommodation",
+        "definition": "Fear that a limitation will become visible without support, adjustment, or understanding."
+      },
+      {
+        "id": "dependence_without_agency",
+        "definition": "Fear that needing assistance will eliminate autonomy or credibility."
+      },
+      {
+        "id": "recurring_failure",
+        "definition": "Fear that the same difficulty will continue regardless of effort or learning."
+      }
+    ],
+    "protectiveStrategies": [
+      {
+        "id": "overcompensation",
+        "definition": "Develop excessive performance, control, or expertise to conceal an area of vulnerability."
+      },
+      {
+        "id": "preemptive_withdrawal",
+        "definition": "Avoid participation before the limitation can be tested or exposed."
+      },
+      {
+        "id": "helper_identity",
+        "definition": "Organize self-worth around helping others with a difficulty that remains hard to receive help for personally."
+      },
+      {
+        "id": "self_minimization",
+        "definition": "Reduce needs or expectations to avoid burdening others or risking disappointment."
+      },
+      {
+        "id": "rigid_compensation",
+        "definition": "Rely on one adaptive strategy even after conditions or capacities have changed."
+      }
+    ],
+    "blindSpots": [
+      "Confusing adaptation with cure",
+      "Confusing expertise with complete resolution",
+      "Confusing support needs with incompetence",
+      "Confusing recurring vulnerability with failure",
+      "Confusing helping others with receiving help",
+      "Overidentifying with the limitation",
+      "Underestimating the cost of compensation",
+      "Assuming every difficulty must become wisdom"
+    ],
+    "regulationNeeds": [
+      {
+        "id": "realistic_capacity_mapping",
+        "definition": "Identify current strengths, limits, costs, supports, and compensatory demands accurately."
+      },
+      {
+        "id": "flexible_accommodation",
+        "definition": "Adjust methods, environments, expectations, or tools as conditions change."
+      },
+      {
+        "id": "support_without_identity_loss",
+        "definition": "Receive assistance without equating support with dependency or diminished worth."
+      },
+      {
+        "id": "compensation_cost_awareness",
+        "definition": "Track the energy, time, strain, or trade-offs required by adaptive strategies."
+      },
+      {
+        "id": "participation_without_perfection",
+        "definition": "Remain engaged without requiring full mastery, cure, or absence of vulnerability."
+      }
+    ],
+    "healthyPsychologicalFunctions": [
+      "Name limitations without totalizing identity",
+      "Develop practical alternatives",
+      "Use support without surrendering agency",
+      "Convert lived difficulty into usable skill",
+      "Adjust expectations without abandoning participation",
+      "Teach from experience without claiming universal authority",
+      "Recognize recurring vulnerability without treating recurrence as failure",
+      "Preserve dignity while accommodating real needs"
+    ],
+    "integrationMarkers": [
+      "Can ask for accommodation directly",
+      "Can distinguish present capacity from permanent identity",
+      "Can help others without reenacting the helper-only role",
+      "Can revise an adaptation when its cost becomes excessive",
+      "Can participate imperfectly",
+      "Can acknowledge pain or difficulty without making it the entire self",
+      "Can allow expertise and vulnerability to coexist",
+      "Can accept that some limitations remain while functioning still improves"
+    ],
+    "reflectionComponents": [
+      "What is the actual limitation here?",
+      "Which adaptation already works?",
+      "What does this adaptation cost?",
+      "Where would accommodation preserve participation?",
+      "Is this expertise, compensation, or avoidance?",
+      "What support could be received without loss of agency?"
+    ],
+    "psychologyConstraints": [
+      "Psychology may qualify Chironian expression but may not diagnose trauma, disability, illness, or pathology.",
+      "No protective strategy may be treated as universally active.",
+      "No limitation may be inferred from Chiron alone.",
+      "A wound is contextual evidence, not Chiron's grammatical identity.",
+      "Developmental language must reference the global development blueprint."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only Chiron vocabulary. Psychology and development qualify adaptive expression but do not redefine Chiron as a wound, diagnosis, or cure.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Chiron psychology module."
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "septile",
+  "content": {
+    "coreRule": "Development changes how recursive pattern emergence is expressed, never the relational role of Septile.",
+    "stages": {
+      "unconscious": [
+        "latent recursive patterns",
+        "unrecognized cycles"
+      ],
+      "defensive": [
+        "rigid repetition",
+        "resistance to reorganization"
+      ],
+      "learning": [
+        "recognizing recurring structures",
+        "adaptive coordination"
+      ],
+      "healthy": [
+        "constructive recursive organization",
+        "nonlinear integration"
+      ],
+      "integrated": [
+        "continuous recursive refinement",
+        "stable emergent organization"
+      ]
+    },
+    "constraints": [
+      "Septile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

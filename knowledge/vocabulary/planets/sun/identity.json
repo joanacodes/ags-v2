@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sun_identity",
+  "moduleType": "identity",
+  "grammarRole": "canonical_function",
+  "parentObject": "sun",
+  "content": {
+    "canonicalFunction": "organizes identity, vitality, purpose, and coherent self-expression",
+    "coreDomains": [
+      "identity",
+      "vitality",
+      "purpose",
+      "self_expression",
+      "coherence",
+      "creative_center",
+      "agency",
+      "recognition",
+      "direction",
+      "integration"
+    ],
+    "notInherent": [
+      "egoism",
+      "narcissism",
+      "dominance",
+      "fame",
+      "confidence",
+      "leadership"
+    ],
+    "constraints": [
+      "The Sun is a canonical function.",
+      "Signs modify the Sun's function but never replace it.",
+      "Houses contextualize the Sun's function but never perform it.",
+      "Aspects relate the Sun to other functions."
+    ]
+  }
+}

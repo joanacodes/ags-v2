@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house8_development",
+  "moduleType": "development",
+  "grammarRole": "context",
+  "parentObject": "house_8",
+  "content": {
+    "coreRule": "Development changes how functions are experienced within the House 8 context; House 8 remains a context.",
+    "stages": {
+      "unconscious": [
+        "through automatic attachment patterns",
+        "within unexamined shared dynamics"
+      ],
+      "defensive": [
+        "through controlling resource exchange",
+        "within fearful vulnerability"
+      ],
+      "learning": [
+        "through developing trust",
+        "within conscious transformation"
+      ],
+      "healthy": [
+        "through regenerative exchange",
+        "within balanced intimacy"
+      ],
+      "integrated": [
+        "through adaptive transformation",
+        "within resilient shared commitments"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Transformation context never implies catastrophe."
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "rules": [
+    "Avoid deterministic conclusions.",
+    "Preserve individual function meanings.",
+    "Interpret patterns through relationship networks."
+  ]
+}

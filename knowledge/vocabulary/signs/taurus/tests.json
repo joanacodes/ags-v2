@@ -1,0 +1,61 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "taurus_tests",
+  "moduleType": "tests",
+  "grammarRole": "modifier",
+  "parentObject": "taurus",
+  "content": {
+    "suite": "taurus_ontology_v0.1",
+    "cases": [
+      {
+        "id": "TAU-T-001",
+        "name": "Modifier role preserved",
+        "expected": true
+      },
+      {
+        "id": "TAU-T-002",
+        "name": "Reject Taurus as actor",
+        "input": "Taurus acts.",
+        "expected": false
+      },
+      {
+        "id": "TAU-T-003",
+        "name": "Reject materialism default",
+        "input": "Taurus is materialistic.",
+        "expected": false
+      },
+      {
+        "id": "TAU-T-004",
+        "name": "Allow 'steadily' modifier",
+        "expected": true
+      },
+      {
+        "id": "TAU-T-005",
+        "name": "Preserve target verb",
+        "expected": true
+      },
+      {
+        "id": "TAU-T-006",
+        "name": "Reject finished interpretation",
+        "input": "Venus in Taurus loves luxury.",
+        "expected": false
+      },
+      {
+        "id": "TAU-T-007",
+        "name": "Suppress gradual pace when incompatible",
+        "expected": true
+      },
+      {
+        "id": "TAU-T-008",
+        "name": "Deterministic selection",
+        "expected": true
+      }
+    ],
+    "requiredAssertions": [
+      "modifier role preserved",
+      "canonical function preserved",
+      "finished interpretations rejected",
+      "deterministic selection"
+    ]
+  }
+}

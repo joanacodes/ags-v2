@@ -1,0 +1,52 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm Capricorn is a modifier",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible modifier components",
+      "Apply degree and condition modifiers",
+      "Validate canonical function unchanged",
+      "Pass semantic structure to sentence generation"
+    ],
+    "defaultInferenceProfile": {
+      "manner": "systematically",
+      "strategy": "through structured planning",
+      "priority": "with emphasis on responsibility",
+      "regulation": "while maintaining structure"
+    },
+    "compositionRules": [
+      "Capricorn modifies but never replaces the canonical function.",
+      "Degree modifiers compose after sign modifiers.",
+      "Houses provide context only.",
+      "Aspects function as relational operators.",
+      "Dignity modifies expression condition, not ontology.",
+      "Generate natural language from composed semantics."
+    ],
+    "heuristics": [
+      "Prefer discipline over rigidity.",
+      "Prefer stewardship over control.",
+      "Prefer endurance over workaholism.",
+      "Return an empty modifier set instead of inventing semantics."
+    ],
+    "tieBreakOrder": [
+      "target compatibility",
+      "query relevance",
+      "developmental evidence",
+      "degree compatibility",
+      "aspect compatibility",
+      "neutral default"
+    ],
+    "forbiddenInferences": [
+      "Capricorn causes coldness.",
+      "Capricorn is authoritarian.",
+      "Capricorn replaces the target function."
+    ]
+  }
+}

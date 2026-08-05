@@ -1,0 +1,109 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "midheaven_reasoning",
+  "name": "Midheaven Reasoning",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines deterministic resolution order, axis integration, inference limits, and fallback behavior.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "midheaven_query_rules",
+    "midheaven_development",
+    "ags_reasoning_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "midheaven",
+    "reasoning",
+    "angle",
+    "reference_frame",
+    "public_actualization"
+  ],
+  "parentObject": "midheaven",
+  "moduleType": "reasoning",
+  "content": {
+    "resolutionOrder": [
+      "Load Midheaven and Imum Coeli",
+      "Resolve Midheaven sign",
+      "Resolve Midheaven ruler and its house",
+      "Resolve Midheaven aspects",
+      "Resolve query priorities",
+      "Select public actualization domains",
+      "Resolve developmental stage",
+      "Select actualization verb",
+      "Build Midheaven reference-frame clause",
+      "Validate public-private balance and non-predictive language"
+    ],
+    "heuristics": [
+      {
+        "id": "MC-R-001",
+        "rule": "Prefer the most specific approved verb compatible with the selected actualization domain."
+      },
+      {
+        "id": "MC-R-002",
+        "rule": "Fall back to `actualize` when multiple verbs are equally supported."
+      },
+      {
+        "id": "MC-R-003",
+        "rule": "Public actualization describes observable participation, not guaranteed recognition."
+      },
+      {
+        "id": "MC-R-004",
+        "rule": "The Imum Coeli must remain represented as the private or foundational opposite reference frame."
+      },
+      {
+        "id": "MC-R-005",
+        "rule": "Developmental stage constrains expression but does not change the Midheaven's reference-frame identity."
+      },
+      {
+        "id": "MC-R-006",
+        "rule": "The sign modifies how actualization occurs; the ruler delegates planetary function; neither replaces the angle."
+      },
+      {
+        "id": "MC-R-007",
+        "rule": "When contribution evidence is absent, describe public orientation without claiming impact."
+      }
+    ],
+    "forbiddenInferences": [
+      "The Midheaven guarantees career success.",
+      "The Midheaven determines fame.",
+      "Visibility proves value.",
+      "Status proves contribution.",
+      "Public role is the entire identity.",
+      "Authority exists without responsibility.",
+      "A Midheaven placement predicts a specific profession."
+    ],
+    "fallbackBehavior": {
+      "missingIC": "Reject axis-complete Midheaven synthesis and return a limited angle report.",
+      "missingRuler": "Render sign-modified actualization without ruler delegation.",
+      "missingDevelopmentalStage": "Use neutral actualization language.",
+      "missingContributionEvidence": "Avoid contribution or impact claims.",
+      "conflictingQueryPriorities": "Select higher query relevance, then stable lexical id."
+    }
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. No career prediction, fame guarantee, status guarantee, or finished Midheaven-sign interpretation is permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Midheaven reasoning module."
+    }
+  ]
+}

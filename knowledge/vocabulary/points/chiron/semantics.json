@@ -1,0 +1,29 @@
+{
+  "domains": [
+    {
+      "id": "adaptation",
+      "definition": "Modify function without removing the underlying limitation."
+    },
+    {
+      "id": "compensation",
+      "definition": "Develop alternative capacities."
+    },
+    {
+      "id": "rehabilitation",
+      "definition": "Recover usable function."
+    },
+    {
+      "id": "mentorship",
+      "definition": "Transmit adaptive knowledge through experience."
+    },
+    {
+      "id": "resilience",
+      "definition": "Sustain effective function despite enduring constraints."
+    }
+  ],
+  "exclusions": [
+    "Do not infer trauma.",
+    "Do not infer permanent suffering.",
+    "Do not infer cure."
+  ]
+}

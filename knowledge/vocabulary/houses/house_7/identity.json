@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house7_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_7",
+  "content": {
+    "coreDomains": [
+      "partnership",
+      "relationships",
+      "cooperation",
+      "contracts",
+      "commitment",
+      "reciprocity",
+      "collaboration",
+      "negotiation",
+      "allies",
+      "balance"
+    ],
+    "notInherent": [
+      "dependence",
+      "people_pleasing",
+      "marriage",
+      "conflict",
+      "codependency",
+      "submission"
+    ],
+    "constraints": [
+      "House 7 is a context.",
+      "House 7 never performs actions.",
+      "House 7 never replaces a planet's canonical function."
+    ]
+  }
+}

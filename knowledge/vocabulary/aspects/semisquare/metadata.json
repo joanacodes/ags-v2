@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisquare_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisquare",
+  "content": {
+    "canonicalId": "semisquare",
+    "displayName": "Semisquare",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "incremental_friction_operator",
+    "canonicalQuestion": "How do two canonical functions interact through localized constructive tension requiring incremental correction?"
+  }
+}

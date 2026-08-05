@@ -1,0 +1,8 @@
+{
+  "rules": [
+    "Expanded functions remain semantic operands.",
+    "Points and planets are interpreted through function, not fixed labels.",
+    "Aspects modify relationships between functions.",
+    "No function guarantees an outcome."
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biquintile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "biquintile",
+  "content": {
+    "coreRule": "Development changes how higher-order creative synthesis is expressed, never the relational role of Biquintile.",
+    "stages": {
+      "unconscious": [
+        "latent complex creativity",
+        "unstructured integration"
+      ],
+      "defensive": [
+        "overcomplication",
+        "forced originality"
+      ],
+      "learning": [
+        "intentional synthesis",
+        "refining craft"
+      ],
+      "healthy": [
+        "systemic creative integration",
+        "advanced innovation"
+      ],
+      "integrated": [
+        "continuous higher-order synthesis",
+        "masterful pattern integration"
+      ]
+    },
+    "constraints": [
+      "Biquintile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

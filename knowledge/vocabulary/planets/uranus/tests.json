@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_tests",
+  "moduleType": "tests",
+  "grammarRole": "canonical_function",
+  "parentObject": "uranus",
+  "content": {
+    "suite": "uranus_ontology_v0.1",
+    "cases": [
+      {
+        "id": "URA-T-001",
+        "name": "Canonical function preserved",
+        "expected": true
+      },
+      {
+        "id": "URA-T-002",
+        "name": "Sign modifies only",
+        "expected": true
+      },
+      {
+        "id": "URA-T-003",
+        "name": "House contextualizes only",
+        "expected": true
+      },
+      {
+        "id": "URA-T-004",
+        "name": "Aspect remains relational",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "URA-T-005",
+        "name": "Dignity changes condition only",
+        "expected": true
+      },
+      {
+        "id": "URA-T-006",
+        "name": "Deterministic resolution",
+        "expected": true
+      },
+      {
+        "id": "URA-T-007",
+        "name": "Innovation function available",
+        "expected": true
+      },
+      {
+        "id": "URA-T-008",
+        "name": "Systemic reform output available",
+        "expected": true
+      },
+      {
+        "id": "URA-T-009",
+        "name": "Empty result preferred",
+        "expected": []
+      }
+    ]
+  }
+}

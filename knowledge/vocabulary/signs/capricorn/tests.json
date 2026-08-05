@@ -1,0 +1,80 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_tests",
+  "moduleType": "tests",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "suite": "capricorn_ontology_v0.1",
+    "cases": [
+      {
+        "id": "CAP-T-001",
+        "name": "Modifier role preserved",
+        "expected": true
+      },
+      {
+        "id": "CAP-T-002",
+        "name": "Reject Capricorn as actor",
+        "expected": false
+      },
+      {
+        "id": "CAP-T-003",
+        "name": "Reject coldness default",
+        "expected": false
+      },
+      {
+        "id": "CAP-T-004",
+        "name": "Allow structural modifier",
+        "expected": true
+      },
+      {
+        "id": "CAP-T-005",
+        "name": "Canonical function preserved",
+        "expected": true
+      },
+      {
+        "id": "CAP-T-006",
+        "name": "Reject finished interpretation",
+        "expected": false
+      },
+      {
+        "id": "CAP-T-007",
+        "name": "House remains context",
+        "expected": "context"
+      },
+      {
+        "id": "CAP-T-008",
+        "name": "Aspect remains relational_operator",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "CAP-T-009",
+        "name": "Degree composes after sign",
+        "expected": true
+      },
+      {
+        "id": "CAP-T-010",
+        "name": "Development evidence required",
+        "expected": false
+      },
+      {
+        "id": "CAP-T-011",
+        "name": "Deterministic selection",
+        "expected": true
+      },
+      {
+        "id": "CAP-T-012",
+        "name": "Empty modifier preferred",
+        "expected": []
+      }
+    ],
+    "requiredAssertions": [
+      "modifier role preserved",
+      "canonical function preserved",
+      "house context preserved",
+      "aspect operator preserved",
+      "degree composition preserved",
+      "deterministic selection"
+    ]
+  }
+}

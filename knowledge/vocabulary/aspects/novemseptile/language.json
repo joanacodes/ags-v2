@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novemseptile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "novemseptile",
+  "content": {
+    "verbs": [
+      "transforms",
+      "renews",
+      "integrates",
+      "matures"
+    ],
+    "templates": [
+      "{A} undergoes deep recursive transformation with {B}.",
+      "{A} and {B} develop through extended maturation cycles."
+    ]
+  }
+}

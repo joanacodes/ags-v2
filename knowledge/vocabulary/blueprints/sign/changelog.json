@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_blueprint_changelog",
+  "history": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "changes": [
+        "Created the modifier ontology class for zodiac signs.",
+        "Defined seven required modifier types.",
+        "Established deterministic composition and compatibility rules.",
+        "Prohibited finished interpretations inside sign objects.",
+        "Added developmental eligibility and validation gates."
+      ]
+    }
+  ],
+  "nextPlannedModules": [
+    "Aries full ontology",
+    "Taurus full ontology",
+    "Gemini full ontology",
+    "Cancer full ontology",
+    "Leo full ontology",
+    "Virgo full ontology",
+    "Libra full ontology",
+    "Scorpio full ontology",
+    "Sagittarius full ontology",
+    "Capricorn full ontology",
+    "Aquarius full ontology",
+    "Pisces full ontology"
+  ]
+}

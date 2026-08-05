@@ -1,0 +1,142 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_identity",
+  "name": "Saturn Identity",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Saturn's ontology, core function, purpose, semantic boundaries, archetypes, and exclusions.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ags_planet_blueprint",
+    "ags_semantic_principles"
+  ],
+  "priority": 10,
+  "tags": [
+    "saturn",
+    "identity",
+    "identity",
+    "function",
+    "structure"
+  ],
+  "parentObject": "saturn",
+  "moduleType": "identity",
+  "content": {
+    "ontology": {
+      "class": "planet",
+      "parentClass": "astrological_actor",
+      "grammarRole": "verb",
+      "semanticClass": "structuring_function"
+    },
+    "coreIdentity": {
+      "primaryFunction": "structure",
+      "primaryVerb": "structure",
+      "primaryVerbPhrase": "to create durable structure",
+      "corePurpose": "Turn potential into a form that can withstand time, consequence, and repeated use.",
+      "neutralDefinition": "Saturn is the planetary function that defines limits, establishes accountability, consolidates effort, and builds durability through time.",
+      "verbalDefinition": "Saturn structures, defines, commits, disciplines, consolidates, stabilizes, formalizes, matures, and preserves."
+    },
+    "functionalBoundaries": {
+      "includes": [
+        "structure",
+        "responsibility",
+        "limits",
+        "boundaries",
+        "time",
+        "consequence",
+        "discipline",
+        "commitment",
+        "maturity",
+        "mastery",
+        "authority",
+        "durability",
+        "consolidation",
+        "maintenance",
+        "legacy"
+      ],
+      "doesNotEqual": [
+        "punishment",
+        "automatic suffering",
+        "failure",
+        "denial",
+        "career alone",
+        "the father alone",
+        "restriction alone",
+        "fear alone",
+        "fate"
+      ],
+      "neighborDistinctions": [
+        {
+          "neighbor": "mars",
+          "distinction": "Mars initiates action; Saturn regulates, sustains, and gives durable form to action."
+        },
+        {
+          "neighbor": "pluto",
+          "distinction": "Pluto transforms through intensity and elimination; Saturn structures through boundaries, time, responsibility, and consolidation."
+        },
+        {
+          "neighbor": "uranus",
+          "distinction": "Uranus reconfigures systems; Saturn stabilizes, formalizes, and preserves what must endure."
+        },
+        {
+          "neighbor": "jupiter",
+          "distinction": "Jupiter expands possibility; Saturn defines limits, obligations, standards, and sustainable form."
+        }
+      ]
+    },
+    "archetypes": {
+      "primary": "The Builder",
+      "secondary": [
+        "The Steward",
+        "The Architect",
+        "The Authority",
+        "The Examiner",
+        "The Elder"
+      ],
+      "usageRule": "Archetypes support presentation but may never replace Saturn's approved verb system."
+    },
+    "semanticPolarity": {
+      "constructiveCore": "Build what can endure.",
+      "shadowRisk": "Use control, rigidity, deprivation, or over-responsibility to defend against fear and uncertainty.",
+      "integratedAim": "Exercise proportionate authority and create structures that remain both durable and responsive."
+    },
+    "identityQuestions": [
+      "What must be made durable?",
+      "What deserves commitment?",
+      "What limit protects a real priority?",
+      "What consequence must be acknowledged?",
+      "What can only be developed through time and practice?"
+    ],
+    "identityExclusions": [
+      "Do not define Saturn through one keyword.",
+      "Do not treat Saturn as inherently negative.",
+      "Do not equate boundaries with punishment.",
+      "Do not assume Saturn always delays or denies.",
+      "Do not infer one concrete event from Saturn alone."
+    ],
+    "approvalCriteria": [
+      "The primary verb remains verbal and distinct from neighboring planets.",
+      "The core function supports natal, aspect, state, timing, and query composition.",
+      "The definition remains neutral and non-fatalistic.",
+      "All exclusions are compatible with AGS semantic principles."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Built from approved AGS specifications and reviewed verb-centered astrological synthesis.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Saturn identity module."
+    }
+  ]
+}

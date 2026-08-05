@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "leo_identity",
+  "moduleType": "identity",
+  "grammarRole": "modifier",
+  "parentObject": "leo",
+  "content": {
+    "coreDomains": [
+      "expression",
+      "visibility",
+      "creative_actualization",
+      "radiance",
+      "coherence",
+      "vitality",
+      "recognition",
+      "self_articulation",
+      "generativity",
+      "confident_presence"
+    ],
+    "notInherent": [
+      "arrogance",
+      "vanity",
+      "narcissism",
+      "attention_seeking",
+      "dominance",
+      "egoism"
+    ],
+    "constraints": [
+      "Leo is a modifier.",
+      "Leo never acts independently.",
+      "Leo never replaces the target canonical function."
+    ]
+  }
+}

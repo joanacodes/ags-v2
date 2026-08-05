@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house8_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "context",
+  "parentObject": "house_8",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm House 8 is a context",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible contextual components",
+      "Apply sign, degree, and dignity modifiers",
+      "Validate canonical function unchanged",
+      "Generate contextual semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "domain": "transformation",
+      "focus": "shared_resources",
+      "expression_context": "through regenerative development",
+      "salience": "deep"
+    },
+    "compositionRules": [
+      "House 8 provides context but never performs actions.",
+      "Planets retain canonical functions.",
+      "Signs modify functions before contextual placement.",
+      "Houses provide experiential context only.",
+      "Aspects remain relational operators.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer transformation over catastrophe.",
+      "Prefer trust over manipulation.",
+      "Prefer regeneration over destruction.",
+      "Return an empty context set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "House 8 causes death.",
+      "House 8 implies obsession.",
+      "House 8 replaces the target function."
+    ]
+  }
+}

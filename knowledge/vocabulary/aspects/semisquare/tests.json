@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisquare_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisquare",
+  "content": {
+    "suite": "semisquare_ontology_v0.1",
+    "cases": [
+      {
+        "id": "SMSQ-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "SMSQ-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "SMSQ-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "SMSQ-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "SMSQ-T-005",
+        "name": "No intrinsic benefic/malefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

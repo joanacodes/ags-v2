@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "canonical_function",
+  "parentObject": "pluto",
+  "content": {
+    "canonicalId": "pluto",
+    "displayName": "Pluto",
+    "ontologyClass": "planet",
+    "grammarRole": "canonical_function",
+    "semanticClass": "transformation_regeneration_function",
+    "canonicalQuestion": "What function enables deep transformation, regeneration, elimination, and empowerment?"
+  }
+}

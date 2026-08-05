@@ -1,0 +1,14 @@
+{
+  "input": {
+    "operandA": "canonical_function",
+    "operandB": "canonical_function",
+    "angle": "degrees",
+    "orb": "degrees"
+  },
+  "output": {
+    "aspectOperator": "resolved_operator",
+    "family": "harmonic_family",
+    "strength": "weighted_value",
+    "semanticRole": "relationship_description"
+  }
+}

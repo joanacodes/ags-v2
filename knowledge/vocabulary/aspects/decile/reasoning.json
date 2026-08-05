@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "decile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "decile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Decile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate creative potential semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Decile introduces creative potential without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer developmental expression over deterministic outcomes.",
+      "Interpret potential through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Decile guarantees talent.",
+      "Decile proves superiority.",
+      "Decile replaces planetary functions."
+    ]
+  }
+}

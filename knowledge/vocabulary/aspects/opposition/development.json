@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "opposition_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "opposition",
+  "content": {
+    "coreRule": "Development changes how polarity is managed, never the relational role of Opposition.",
+    "stages": {
+      "unconscious": [
+        "projected polarity",
+        "unrecognized complementarity"
+      ],
+      "defensive": [
+        "rigid polarization",
+        "externalization of opposing qualities"
+      ],
+      "learning": [
+        "recognizing complementary functions",
+        "developing awareness"
+      ],
+      "healthy": [
+        "dynamic balance",
+        "constructive dialogue between functions"
+      ],
+      "integrated": [
+        "stable polarity with preserved differentiation"
+      ]
+    },
+    "constraints": [
+      "Opposition never becomes a canonical function.",
+      "Participating functions always retain identity."
+    ]
+  }
+}

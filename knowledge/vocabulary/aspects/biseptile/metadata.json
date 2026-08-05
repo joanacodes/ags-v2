@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biseptile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "biseptile",
+  "content": {
+    "canonicalId": "biseptile",
+    "displayName": "Biseptile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "recursive_differentiation_operator",
+    "canonicalQuestion": "How do two canonical functions interact through recursive differentiation, distributed pattern coordination, and higher-order nonlinear emergence?"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house3_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_3",
+  "content": {
+    "defaultContextSet": [
+      "house3_communication",
+      "house3_learning",
+      "house3_information"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "thinking",
+        "curiosity"
+      ],
+      "relationships": [
+        "siblings",
+        "neighbors"
+      ],
+      "work": [
+        "skills",
+        "communication"
+      ],
+      "health": [
+        "adaptation",
+        "learning"
+      ],
+      "transits": [
+        "local_environment",
+        "information_exchange"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of communication' as the neutral domain.",
+      "Prefer 'through learning' as the neutral focus.",
+      "Suppress assumptions about intelligence or verbosity.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

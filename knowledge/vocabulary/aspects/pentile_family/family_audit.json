@@ -1,0 +1,39 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pentile_family_audit",
+  "moduleType": "family_audit",
+  "parentObject": "pentile_family",
+  "content": {
+    "family": "creative_harmonic_family",
+    "members": [
+      {
+        "id": "pentile",
+        "angle": "72\u00b0",
+        "role": "creative_harmonic_operator"
+      },
+      {
+        "id": "bipentile",
+        "angle": "144\u00b0",
+        "role": "dual_creative_harmonic_operator"
+      }
+    ],
+    "inheritanceRules": [
+      "Family members inherit creative harmonic semantics.",
+      "Each aspect retains independent operator identity.",
+      "No family member replaces canonical functions."
+    ],
+    "sharedDomains": [
+      "creativity",
+      "proportion",
+      "expression",
+      "refinement",
+      "synthesis"
+    ],
+    "excludedAssumptions": [
+      "guaranteed talent",
+      "artistic superiority",
+      "automatic ease",
+      "inherent beneficence"
+    ]
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_development",
+  "name": "Pluto Development",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Plutonian expression across the universal developmental stages without changing the core function.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "pluto_identity",
+    "pluto_semantics",
+    "pluto_psychology",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "pluto",
+    "development",
+    "planet",
+    "function"
+  ],
+  "parentObject": "pluto",
+  "moduleType": "development",
+  "content": {
+    "developmentReference": "ags_development_blueprint",
+    "coreRule": "Development changes how regeneration operates; it does not change Pluto's identity.",
+    "stageExpressions": [
+      {
+        "stage": "unconscious",
+        "functionalPattern": [
+          "Registers pressure, threat, concealment, or nonviability before identifying the source",
+          "Concentrates attention around what feels dangerous or irreversible",
+          "Repeats survival strategies automatically",
+          "Attempts to preserve agency through intensity or withdrawal"
+        ],
+        "eligibleVerbs": [
+          "concentrate",
+          "withhold",
+          "compel",
+          "repeat",
+          "expose reactively"
+        ],
+        "ineligibleClaims": [
+          "integrated power",
+          "precision elimination",
+          "accountable regeneration"
+        ],
+        "learningTaskComponents": [
+          "Identify the actual threat or dependency",
+          "Separate intensity from evidence",
+          "Map where agency and resource are held"
+        ]
+      },
+      {
+        "stage": "defensive",
+        "functionalPattern": [
+          "Uses control, secrecy, retaliation, or coercion to prevent powerlessness",
+          "Exposes material punitively",
+          "Treats vulnerability as leverage risk",
+          "May eliminate broadly rather than precisely"
+        ],
+        "eligibleVerbs": [
+          "control",
+          "dominate",
+          "coerce",
+          "retaliate",
+          "withhold",
+          "destroy without regeneration"
+        ],
+        "requiredConditions": [
+          "explicit stress condition",
+          "explicit defensive activation",
+          "explicit loss-of-agency or threat evidence"
+        ],
+        "learningTaskComponents": [
+          "Distinguish protection from domination",
+          "Restore consent",
+          "Name the exact nonviable component",
+          "Reclaim agency without counter-control"
+        ]
+      },
+      {
+        "stage": "learning",
+        "functionalPattern": [
+          "Investigates hidden motives and dependencies",
+          "Experiments with honest exposure",
+          "Learns precise release rather than total elimination",
+          "Begins separating survival responses from current reality"
+        ],
+        "eligibleVerbs": [
+          "expose",
+          "reclaim",
+          "integrate",
+          "reorganize",
+          "eliminate selectively"
+        ],
+        "learningTaskComponents": [
+          "Use evidence before interpretation",
+          "Expose proportionately",
+          "Test whether a resource or bond is still viable",
+          "Redistribute power transparently"
+        ]
+      },
+      {
+        "stage": "healthy",
+        "functionalPattern": [
+          "Faces concealed or nonviable material directly",
+          "Restores agency through accountable restructuring",
+          "Eliminates only what prevents renewal",
+          "Integrates previously excluded material"
+        ],
+        "eligibleVerbs": [
+          "regenerate",
+          "expose",
+          "reclaim",
+          "reorganize",
+          "integrate",
+          "redistribute"
+        ],
+        "operatingConditions": [
+          "query relevance",
+          "defined target of change",
+          "evidence of hidden or nonviable material",
+          "regenerative aim remains explicit"
+        ],
+        "learningTaskComponents": [
+          "Let repaired systems operate without continued crisis",
+          "Share information and leverage",
+          "Allow gradual regeneration where urgency is no longer necessary"
+        ]
+      },
+      {
+        "stage": "integrated",
+        "functionalPattern": [
+          "Uses exposure, elimination, and power redistribution with precision and consent",
+          "Regenerates without idealizing crisis",
+          "Can hold intensity without weaponizing it",
+          "Transforms survival-derived power into accountable capacity"
+        ],
+        "eligibleVerbs": [
+          "regenerate without domination",
+          "expose without humiliation",
+          "eliminate with precision",
+          "reclaim without retaliation",
+          "redistribute power with accountability",
+          "integrate concealed material"
+        ],
+        "requiredConditions": [
+          "explicit integration stage",
+          "explicit synthesis evidence",
+          "sustained coordination between depth, agency, consent, and consequence"
+        ],
+        "developmentalContribution": [
+          "Restores viability without recreating coercion",
+          "Makes power visible and shareable",
+          "Converts survival pressure into resilient structure",
+          "Allows endings and losses to serve renewal without glorifying suffering"
+        ]
+      }
+    ],
+    "crossStageRules": [
+      {
+        "id": "PLU-DEV-001",
+        "rule": "The same semantic domain may use different verbs at different stages."
+      },
+      {
+        "id": "PLU-DEV-002",
+        "rule": "Control, domination, retaliation, and obsession require explicit contextual support."
+      },
+      {
+        "id": "PLU-DEV-003",
+        "rule": "Integrated Pluto may still eliminate or intensify when functionally necessary."
+      },
+      {
+        "id": "PLU-DEV-004",
+        "rule": "Healthy expression does not require visible crisis."
+      },
+      {
+        "id": "PLU-DEV-005",
+        "rule": "No stage may introduce a semantic domain absent from Pluto's approved vocabulary."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. Psychology and development qualify expression but do not redefine Pluto.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Pluto development module."
+    }
+  ]
+}

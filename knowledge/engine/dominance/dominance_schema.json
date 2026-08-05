@@ -1,0 +1,16 @@
+{
+  "inputs": [
+    "canonical_functions",
+    "aspect_network",
+    "pattern_clusters",
+    "weights",
+    "conditions",
+    "context"
+  ],
+  "outputs": [
+    "emphasis_map",
+    "high_activity_functions",
+    "repeated_relationships",
+    "integration_priorities"
+  ]
+}

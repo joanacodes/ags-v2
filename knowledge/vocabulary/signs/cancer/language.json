@@ -1,0 +1,41 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "cancer_language",
+  "moduleType": "language",
+  "grammarRole": "modifier",
+  "parentObject": "cancer",
+  "content": {
+    "manner": [
+      "protectively",
+      "supportively",
+      "responsively"
+    ],
+    "strategy": [
+      "through nurturance",
+      "through sheltering",
+      "through adaptive care"
+    ],
+    "pace": [
+      "gradually",
+      "responsively",
+      "at a supportive pace"
+    ],
+    "orientation": [
+      "toward belonging",
+      "toward protection",
+      "toward continuity of support"
+    ],
+    "priority": [
+      "with emphasis on care",
+      "with emphasis on safeguarding"
+    ],
+    "regulation": [
+      "while maintaining safety",
+      "while preserving continuity"
+    ],
+    "developmental": [
+      "through repeated care",
+      "through adaptive support"
+    ]
+  }
+}

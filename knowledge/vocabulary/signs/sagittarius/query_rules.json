@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sagittarius_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "sagittarius",
+  "content": {
+    "defaultModifierSet": [
+      "sagittarius_manner_expansively",
+      "sagittarius_strategy_exploration",
+      "sagittarius_priority_meaning"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "exploration",
+        "growth"
+      ],
+      "relationships": [
+        "perspective",
+        "meaning"
+      ],
+      "work": [
+        "learning",
+        "vision"
+      ],
+      "health": [
+        "growth",
+        "coherence"
+      ],
+      "transits": [
+        "discovery",
+        "synthesis"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'expansively' as the neutral manner.",
+      "Prefer 'through exploration' as the neutral strategy.",
+      "Suppress unnecessary expansion when incompatible with the target.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

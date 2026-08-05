@@ -1,0 +1,234 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "midheaven_expression",
+  "name": "Midheaven Expression",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines observable public-actualization components, stage profiles, query priorities, and expression constraints.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "midheaven_identity",
+    "midheaven_semantics",
+    "midheaven_psychology",
+    "midheaven_development",
+    "ags_angle_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "midheaven",
+    "expression",
+    "angle",
+    "reference_frame",
+    "public_actualization"
+  ],
+  "parentObject": "midheaven",
+  "moduleType": "expression",
+  "content": {
+    "observableExpressionTypes": [
+      {
+        "id": "public_participation",
+        "definition": "Visible engagement in a wider social, professional, civic, or communal field."
+      },
+      {
+        "id": "role_assumption",
+        "definition": "Taking on an identifiable function, office, responsibility, or social position."
+      },
+      {
+        "id": "contribution",
+        "definition": "Creating value beyond immediate private concerns."
+      },
+      {
+        "id": "visible_responsibility",
+        "definition": "Accepting obligations whose consequences are observable by others."
+      },
+      {
+        "id": "authority_expression",
+        "definition": "Exercising legitimate influence within a defined scope."
+      },
+      {
+        "id": "reputation_feedback",
+        "definition": "Receiving public response that affects how the role is understood."
+      }
+    ],
+    "stageExpressionProfiles": [
+      {
+        "stage": "unconscious",
+        "externalComponents": [
+          "following expected career or role scripts",
+          "seeking recognition without clear contribution",
+          "adopting visible responsibilities prematurely",
+          "reacting strongly to reputation feedback",
+          "unclear separation between role and identity"
+        ],
+        "internalComponents": [
+          "need for direction",
+          "sensitivity to evaluation",
+          "uncertainty about legitimate authority",
+          "dependence on external markers"
+        ],
+        "selectionConstraints": [
+          "Do not infer ambition.",
+          "Do not infer fame.",
+          "Do not infer career outcome."
+        ]
+      },
+      {
+        "stage": "defensive",
+        "externalComponents": [
+          "status performance",
+          "public withdrawal",
+          "overcontrolled professional image",
+          "authority projection",
+          "role rigidity",
+          "reputation management without functional contribution"
+        ],
+        "internalComponents": [
+          "fear of public failure",
+          "shame around visibility",
+          "identity dependence on recognition",
+          "fear of role loss"
+        ],
+        "selectionConstraints": [
+          "Requires explicit defensive evidence.",
+          "Must not be used as neutral Midheaven description."
+        ]
+      },
+      {
+        "stage": "learning",
+        "externalComponents": [
+          "testing roles",
+          "accepting limited responsibility",
+          "seeking feedback",
+          "developing visible competence",
+          "clarifying contribution",
+          "adjusting public direction"
+        ],
+        "internalComponents": [
+          "growing tolerance for evaluation",
+          "reduced status dependence",
+          "greater role clarity",
+          "willingness to revise direction"
+        ],
+        "selectionConstraints": [
+          "Use when experimentation, feedback, or progressive responsibility is explicit."
+        ]
+      },
+      {
+        "stage": "healthy",
+        "externalComponents": [
+          "clear public contribution",
+          "proportionate authority",
+          "visible responsibility",
+          "role flexibility",
+          "accountable participation",
+          "functional reputation"
+        ],
+        "internalComponents": [
+          "stable role-identity separation",
+          "clarity about contribution",
+          "tolerance for imperfect recognition",
+          "balanced access to private restoration"
+        ],
+        "selectionConstraints": [
+          "Neutral mature default when no other stage is specified."
+        ]
+      },
+      {
+        "stage": "integrated",
+        "externalComponents": [
+          "sustained contribution without status inflation",
+          "authority with accountability",
+          "visible participation supported by private grounding",
+          "adaptive public roles",
+          "recognition treated as secondary feedback"
+        ],
+        "internalComponents": [
+          "actualization without overidentification",
+          "responsibility without self-erasure",
+          "visibility without performance dependence",
+          "stable MC-IC coordination"
+        ],
+        "selectionConstraints": [
+          "Requires explicit integration evidence."
+        ]
+      }
+    ],
+    "queryExpressionPriorities": {
+      "identity": [
+        "role_assumption",
+        "public_participation",
+        "reputation_feedback"
+      ],
+      "family": [
+        "public_private_balance",
+        "role_assumption",
+        "visible_responsibility"
+      ],
+      "friendship": [
+        "public_participation",
+        "contribution",
+        "reputation_feedback"
+      ],
+      "love": [
+        "public_private_balance",
+        "role_identity_separation",
+        "visible_responsibility"
+      ],
+      "work": [
+        "role_assumption",
+        "contribution",
+        "authority_expression",
+        "visible_responsibility"
+      ],
+      "money": [
+        "contribution",
+        "public_participation",
+        "role_assumption"
+      ],
+      "health": [
+        "public_private_balance",
+        "visibility_pacing",
+        "responsibility_limits"
+      ],
+      "wounds_and_healing": [
+        "role_identity_separation",
+        "reputation_feedback",
+        "public_private_balance"
+      ]
+    },
+    "expressionConstraints": [
+      "Observable visibility is not proof of fame.",
+      "Public role is not total identity.",
+      "Career is one possible context, not the Midheaven's universal meaning.",
+      "Authority requires a defined scope.",
+      "The sign modifies actualization but does not replace the angle.",
+      "The ruler supplies a planetary function but does not replace the angle.",
+      "No expression profile may become a finished Midheaven-sign interpretation."
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. Psychology and development qualify public actualization but do not redefine the Midheaven as career, status, fame, or guaranteed achievement.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Midheaven expression module."
+    }
+  ]
+}

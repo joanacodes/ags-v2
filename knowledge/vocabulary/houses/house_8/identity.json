@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house8_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_8",
+  "content": {
+    "coreDomains": [
+      "transformation",
+      "shared_resources",
+      "intimacy",
+      "inheritance",
+      "merging",
+      "regeneration",
+      "psychological_depth",
+      "trust",
+      "crisis_response",
+      "shared_obligations"
+    ],
+    "notInherent": [
+      "death",
+      "catastrophe",
+      "manipulation",
+      "obsession",
+      "taboo",
+      "destruction"
+    ],
+    "constraints": [
+      "House 8 is a context.",
+      "House 8 never performs actions.",
+      "House 8 never replaces a planet's canonical function."
+    ]
+  }
+}

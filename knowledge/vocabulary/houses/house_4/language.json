@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house4_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_4",
+  "content": {
+    "domain": [
+      "home",
+      "foundations",
+      "belonging"
+    ],
+    "focus": [
+      "family",
+      "roots",
+      "private life"
+    ],
+    "scope": [
+      "personal foundations",
+      "domestic context",
+      "inner life"
+    ],
+    "salience": [
+      "deeply rooted",
+      "privately experienced",
+      "foundationally important"
+    ],
+    "expression_context": [
+      "through home",
+      "through family foundations",
+      "through rooted belonging"
+    ]
+  }
+}

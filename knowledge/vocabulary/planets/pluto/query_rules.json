@@ -1,0 +1,38 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "canonical_function",
+  "parentObject": "pluto",
+  "content": {
+    "defaultFunctionSet": [
+      "pluto_transformation",
+      "pluto_regeneration",
+      "pluto_empowerment",
+      "pluto_integration"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "transformation",
+        "integration"
+      ],
+      "relationships": [
+        "empowerment"
+      ],
+      "career": [
+        "renewal"
+      ],
+      "development": [
+        "psychological_integration"
+      ],
+      "transits": [
+        "evolution"
+      ]
+    },
+    "selectionRules": [
+      "Preserve Pluto canonical function.",
+      "Apply sign modifiers before house context.",
+      "Never substitute modifiers for the function."
+    ]
+  }
+}

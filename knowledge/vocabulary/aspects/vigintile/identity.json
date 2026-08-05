@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "vigintile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "vigintile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through subtle refinement, precise differentiation, and micro-level integration.",
+    "coreDomains": [
+      "refinement",
+      "precision",
+      "differentiation",
+      "micro-integration",
+      "subtle adjustment",
+      "optimization"
+    ],
+    "notInherent": [
+      "perfection",
+      "guaranteed improvement",
+      "beneficence",
+      "certainty"
+    ],
+    "constraints": [
+      "Vigintile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

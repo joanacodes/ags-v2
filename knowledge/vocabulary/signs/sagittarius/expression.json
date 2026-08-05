@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sagittarius_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "sagittarius",
+  "content": {
+    "families": [
+      {
+        "id": "exploration",
+        "components": [
+          "expansively",
+          "through exploration"
+        ]
+      },
+      {
+        "id": "learning",
+        "components": [
+          "with emphasis on learning",
+          "through discovery"
+        ]
+      },
+      {
+        "id": "meaning",
+        "components": [
+          "with emphasis on meaning",
+          "through synthesis"
+        ]
+      },
+      {
+        "id": "growth",
+        "components": [
+          "toward growth",
+          "through expanding perspective"
+        ]
+      },
+      {
+        "id": "vision",
+        "components": [
+          "toward possibility",
+          "while maintaining coherence"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Modify manner, strategy, pace, and regulation only.",
+      "angle": "Modify orientation without changing the angle's canonical function.",
+      "node": "Support developmental expansion while preserving nodal polarity.",
+      "chiron": "Support growth-oriented healing without implying completion."
+    },
+    "constraints": [
+      "Exploration is not recklessness.",
+      "Vision is not dogmatism.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

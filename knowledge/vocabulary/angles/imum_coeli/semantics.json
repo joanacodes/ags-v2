@@ -1,0 +1,29 @@
+{
+  "domains": [
+    {
+      "id": "rooting",
+      "definition": "Establishing enduring foundations."
+    },
+    {
+      "id": "continuity",
+      "definition": "Maintaining coherence across change."
+    },
+    {
+      "id": "support",
+      "definition": "Providing sustaining structure."
+    },
+    {
+      "id": "belonging",
+      "definition": "Creating a stable basis for connection."
+    },
+    {
+      "id": "regeneration",
+      "definition": "Restoring capacity from foundational resources."
+    }
+  ],
+  "rules": [
+    "Rooting supports actualization.",
+    "Foundations need not be familial.",
+    "Belonging is broader than location."
+  ]
+}

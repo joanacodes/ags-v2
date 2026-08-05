@@ -1,0 +1,38 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house1_development",
+  "moduleType": "development",
+  "grammarRole": "context",
+  "parentObject": "house_1",
+  "content": {
+    "coreRule": "Development changes how functions are experienced within the House 1 context; House 1 remains a context.",
+    "stages": {
+      "unconscious": [
+        "within automatic self-presentation",
+        "through habitual identity patterns"
+      ],
+      "defensive": [
+        "within over-protected self-definition",
+        "through reactive self-presentation"
+      ],
+      "learning": [
+        "through developing self-awareness",
+        "within an emerging personal orientation"
+      ],
+      "healthy": [
+        "through coherent self-expression",
+        "within grounded embodiment"
+      ],
+      "integrated": [
+        "through context-responsive identity",
+        "within an adaptive and coherent sense of self"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Identity context never implies egoism.",
+      "Developmental stage modifies contextual expression, not canonical function."
+    ]
+  }
+}

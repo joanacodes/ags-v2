@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sextile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "sextile",
+  "content": {
+    "families": [
+      {
+        "id": "opportunity",
+        "components": [
+          "reveals opportunity",
+          "invites engagement"
+        ]
+      },
+      {
+        "id": "cooperation",
+        "components": [
+          "supports cooperation",
+          "builds collaboration"
+        ]
+      },
+      {
+        "id": "activation",
+        "components": [
+          "activates potential",
+          "encourages initiative"
+        ]
+      },
+      {
+        "id": "responsiveness",
+        "components": [
+          "responds constructively",
+          "adapts collaboratively"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides context.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic value.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

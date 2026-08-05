@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "families": [
+      {
+        "id": "adjustment",
+        "components": [
+          "supports adaptation",
+          "refines interaction"
+        ]
+      },
+      {
+        "id": "awareness",
+        "components": [
+          "reveals adjacent factors",
+          "increases sensitivity"
+        ]
+      },
+      {
+        "id": "coordination",
+        "components": [
+          "connects separate functions",
+          "organizes response"
+        ]
+      },
+      {
+        "id": "incremental_development",
+        "components": [
+          "supports gradual change",
+          "builds integration"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

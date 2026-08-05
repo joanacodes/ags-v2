@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house6_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_6",
+  "content": {
+    "domains": {
+      "service": "Context of contributing through useful effort.",
+      "routine": "Repeated daily patterns and habits.",
+      "health": "Context of wellbeing and maintenance.",
+      "daily_work": "Ordinary responsibilities and tasks.",
+      "craft": "Skill developed through practice.",
+      "improvement": "Incremental refinement and growth.",
+      "discipline": "Consistent application of effort.",
+      "maintenance": "Ongoing care and upkeep.",
+      "responsibility": "Reliable fulfillment of obligations.",
+      "skill_refinement": "Progressive improvement of competencies."
+    },
+    "boundaries": [
+      "Service is not servitude.",
+      "Discipline is not perfectionism.",
+      "Health is not illness.",
+      "Responsibility is not self-neglect."
+    ]
+  }
+}

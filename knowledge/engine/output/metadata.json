@@ -1,0 +1,6 @@
+{
+  "id": "interpretation_output_format",
+  "moduleType": "human_readable_output_layer",
+  "version": "0.1.0",
+  "purpose": "Convert AGS engine results into structured human-readable interpretations."
+}

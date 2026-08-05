@@ -1,0 +1,255 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ascendant_language",
+  "name": "Ascendant Language",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines controlled orientation vocabulary, technical fragments, lexical rules, and rejected reductions.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ascendant_identity",
+    "ascendant_grammar",
+    "ags_semantic_domain_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "ascendant",
+    "language",
+    "angle",
+    "reference_frame",
+    "orientation"
+  ],
+  "parentObject": "ascendant",
+  "moduleType": "language",
+  "content": {
+    "functionHierarchy": {
+      "primaryVerb": {
+        "lemma": "orient",
+        "priority": 100,
+        "definition": "Establish the primary reference frame through which engagement begins."
+      },
+      "primaryVerbPhrases": [
+        {
+          "text": "establish an initial orientation",
+          "priority": 100,
+          "semanticDomain": "orientation"
+        },
+        {
+          "text": "approach experience through",
+          "priority": 98,
+          "semanticDomain": "initial_approach"
+        },
+        {
+          "text": "begin engagement from",
+          "priority": 96,
+          "semanticDomain": "entry"
+        },
+        {
+          "text": "frame first contact through",
+          "priority": 94,
+          "semanticDomain": "response_framing"
+        },
+        {
+          "text": "position the self toward",
+          "priority": 92,
+          "semanticDomain": "self_positioning"
+        }
+      ],
+      "secondaryVerbs": [
+        {
+          "lemma": "approach",
+          "domain": "initial_approach",
+          "priority": 96
+        },
+        {
+          "lemma": "frame",
+          "domain": "response_framing",
+          "priority": 94
+        },
+        {
+          "lemma": "position",
+          "domain": "self_positioning",
+          "priority": 92
+        },
+        {
+          "lemma": "enter",
+          "domain": "entry",
+          "priority": 88
+        },
+        {
+          "lemma": "present",
+          "domain": "embodied_presentation",
+          "priority": 82
+        }
+      ],
+      "defensiveVerbs": [
+        "mask",
+        "perform",
+        "brace",
+        "withdraw at entry",
+        "overcontrol presentation",
+        "preemptively adapt orientation"
+      ],
+      "integratedVerbs": [
+        "orient responsively",
+        "approach with situational awareness",
+        "position without rigidity",
+        "enter while preserving agency",
+        "present without identity reduction",
+        "coordinate self-side and relational orientation"
+      ]
+    },
+    "nounSystem": {
+      "primaryNoun": "orientation",
+      "secondaryNouns": [
+        "approach",
+        "entry",
+        "position",
+        "frame",
+        "threshold",
+        "presentation",
+        "perspective",
+        "first contact",
+        "salience",
+        "environmental interface"
+      ],
+      "usageRule": "Nouns support indexing and explanation but may not replace the Ascendant's reference-frame function."
+    },
+    "adjectiveSystem": {
+      "neutral": [
+        "orienting",
+        "initial",
+        "embodied",
+        "self-positioning",
+        "threshold-based",
+        "approach-defining",
+        "perspectival"
+      ],
+      "constructive": [
+        "responsive",
+        "situationally aware",
+        "adaptive",
+        "coherent",
+        "grounded",
+        "context-sensitive"
+      ],
+      "defensive": [
+        "masked",
+        "performative",
+        "braced",
+        "rigidly presented",
+        "preemptive",
+        "overcontrolled"
+      ]
+    },
+    "adverbSystem": {
+      "neutral": [
+        "initially",
+        "embodiedly",
+        "directionally",
+        "at entry",
+        "through first contact"
+      ],
+      "constructive": [
+        "responsively",
+        "with situational awareness",
+        "with embodied coherence",
+        "without identity inflation",
+        "with clear self-positioning"
+      ],
+      "defensive": [
+        "defensively",
+        "performatively",
+        "rigidly",
+        "preemptively",
+        "through masking",
+        "with excessive self-monitoring"
+      ]
+    },
+    "technicalFragments": [
+      "The Ascendant supplies the orientation reference frame.",
+      "The Ascendant establishes the initial approach to experience.",
+      "The Ascendant frames first contact between self and environment.",
+      "The Ascendant receives sign modification and ruler delegation.",
+      "The Ascendant does not supply a planetary action."
+    ],
+    "firstPersonFragments": [
+      "I orient",
+      "I approach",
+      "I position myself",
+      "I begin engagement",
+      "I enter"
+    ],
+    "learningFragments": [
+      "I am learning to orient without reducing myself to first impressions",
+      "I am learning to approach experience without overcontrolling presentation",
+      "I am learning to distinguish orientation from identity",
+      "I am learning to coordinate self-positioning with relational awareness"
+    ],
+    "lexicalSelectionRules": [
+      {
+        "id": "ASC-LANG-001",
+        "rule": "Use `orient` when no narrower angle function is justified."
+      },
+      {
+        "id": "ASC-LANG-002",
+        "rule": "Use `approach` when movement toward experience is foregrounded."
+      },
+      {
+        "id": "ASC-LANG-003",
+        "rule": "Use `present` only for observable embodiment or presentation."
+      },
+      {
+        "id": "ASC-LANG-004",
+        "rule": "Use `mask` only with explicit defensive concealment evidence."
+      },
+      {
+        "id": "ASC-LANG-005",
+        "rule": "Never equate orientation with total personality or identity."
+      }
+    ],
+    "rejectedWording": [
+      {
+        "text": "The Ascendant is your personality.",
+        "reason": "The Ascendant establishes orientation; it does not contain the entire personality."
+      },
+      {
+        "text": "The Ascendant is your mask.",
+        "reason": "Masking is one possible defensive presentation, not the neutral function."
+      },
+      {
+        "text": "Your rising sign determines your appearance.",
+        "reason": "Appearance cannot be guaranteed from the Ascendant alone."
+      },
+      {
+        "text": "The Ascendant is the real you.",
+        "reason": "The angle is a reference frame, not total identity."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. The Ascendant may orient other functions but may not become a planet, sign, house, personality label, or finished reading.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Ascendant language module."
+    }
+  ]
+}

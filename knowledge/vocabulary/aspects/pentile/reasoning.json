@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pentile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "pentile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Pentile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate creative harmonic semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Pentile introduces creative harmonic expression without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer creative synthesis over deterministic outcomes.",
+      "Interpret harmonic creativity through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Pentile guarantees talent.",
+      "Pentile implies artistic superiority.",
+      "Pentile replaces planetary functions."
+    ]
+  }
+}

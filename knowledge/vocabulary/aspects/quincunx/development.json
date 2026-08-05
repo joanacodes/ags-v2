@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quincunx_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "quincunx",
+  "content": {
+    "coreRule": "Development changes how adjustment and recalibration are managed, never the relational role of Quincunx.",
+    "stages": {
+      "unconscious": [
+        "unrecognized mismatch",
+        "automatic compensation"
+      ],
+      "defensive": [
+        "resistance to adjustment",
+        "rigid responses"
+      ],
+      "learning": [
+        "recognizing need for recalibration",
+        "intentional adaptation"
+      ],
+      "healthy": [
+        "effective adjustment",
+        "adaptive integration"
+      ],
+      "integrated": [
+        "continuous recalibration with minimal friction"
+      ]
+    },
+    "constraints": [
+      "Quincunx never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

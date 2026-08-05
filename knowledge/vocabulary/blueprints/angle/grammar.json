@@ -1,0 +1,16 @@
+{
+  "allowedRoles": [
+    "reference_frame"
+  ],
+  "rules": [
+    "Angles are not actors.",
+    "Angles never replace planetary verbs.",
+    "Angles qualify orientation before clause generation."
+  ],
+  "angleFunctions": {
+    "ascendant": "orient",
+    "descendant": "relate",
+    "midheaven": "actualize (provisional)",
+    "imum_coeli": "root (provisional)"
+  }
+}

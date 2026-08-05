@@ -1,0 +1,132 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_identity",
+  "name": "Neptune Identity",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Neptune as a permeating planetary function and distinguishes it from neighboring planetary functions.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ags_planet_blueprint",
+    "ags_verb_classes_blueprint",
+    "ags_semantic_domain_blueprint",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "neptune",
+    "identity",
+    "planet",
+    "function"
+  ],
+  "parentObject": "neptune",
+  "moduleType": "identity",
+  "content": {
+    "ontology": {
+      "class": "planet",
+      "grammarRole": "verb",
+      "semanticClass": "permeating_function",
+      "verbClass": "responsive_verbs"
+    },
+    "coreFunction": {
+      "primaryVerb": "permeate",
+      "definition": "Allow feeling, meaning, image, identity, sensation, or experience to pass across a boundary that would otherwise remain more separate.",
+      "functionalAim": "Increase receptivity, symbolic resonance, empathy, imagination, and participation across boundaries without inherently determining whether the result is clarifying, creative, confusing, or dissolving."
+    },
+    "coreQuestions": [
+      "What is passing across this boundary?",
+      "Which separation is becoming more permeable?",
+      "What can be sensed indirectly rather than literally?",
+      "Where does imagination enter perception?",
+      "What remains distinct even while contact deepens?"
+    ],
+    "functionalContributions": [
+      "permeability",
+      "attunement",
+      "resonance",
+      "imagination",
+      "symbolic association",
+      "empathy",
+      "diffusion",
+      "surrender",
+      "inspiration",
+      "nonliteral perception",
+      "boundary softening",
+      "participation in a larger field"
+    ],
+    "doesNotInherentlySupply": [
+      "confusion",
+      "deception",
+      "spiritual truth",
+      "moral goodness",
+      "self-sacrifice",
+      "dissociation",
+      "fantasy",
+      "artistic talent",
+      "psychic accuracy",
+      "loss of identity",
+      "lack of discernment"
+    ],
+    "planetaryBoundaries": [
+      {
+        "neighbor": "moon",
+        "distinction": "The Moon receives, feels, and regulates personal experience. Neptune makes emotional and imaginal boundaries more permeable."
+      },
+      {
+        "neighbor": "mercury",
+        "distinction": "Mercury distinguishes, compares, translates, and communicates. Neptune allows categories and meanings to overlap, resonate, and become nonliteral."
+      },
+      {
+        "neighbor": "venus",
+        "distinction": "Venus values, attracts, and relates. Neptune increases permeability between self, ideal, image, and other without deciding what is valuable."
+      },
+      {
+        "neighbor": "jupiter",
+        "distinction": "Jupiter expands meaning and belief. Neptune permeates boundaries between literal and symbolic meaning, individual and collective experience, or self and ideal."
+      },
+      {
+        "neighbor": "saturn",
+        "distinction": "Saturn defines and stabilizes boundaries. Neptune makes boundaries more permeable. Neither function automatically defeats the other."
+      },
+      {
+        "neighbor": "uranus",
+        "distinction": "Uranus reconfigures systems and operating patterns. Neptune permeates boundaries within or between systems."
+      },
+      {
+        "neighbor": "pluto",
+        "distinction": "Pluto transforms through exposure, elimination, compulsion, and regeneration. Neptune changes boundary conditions without necessarily eliminating or regenerating."
+      }
+    ],
+    "identityConstraints": [
+      "Neptune must remain a function-bearing actor.",
+      "Its default function is permeability, not confusion.",
+      "Dissolution is one possible degree or outcome of permeability, not the whole identity.",
+      "Empathy must be distinguished from self-erasure.",
+      "Imagination must be distinguished from factual accuracy.",
+      "Symbolic perception must be distinguished from literal prediction.",
+      "The function must remain reusable across all signs, houses, aspects, states, and queries."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Neptune identity module."
+    }
+  ]
+}

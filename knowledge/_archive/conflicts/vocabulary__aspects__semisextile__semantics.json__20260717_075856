@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "definition": "A Semisextile relates participating canonical functions through subtle connection and incremental integration while preserving each function's identity.",
+    "boundaries": [
+      "Subtlety is not weakness.",
+      "Incremental integration does not replace canonical functions."
+    ]
+  }
+}

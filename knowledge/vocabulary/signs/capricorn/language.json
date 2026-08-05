@@ -1,0 +1,41 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_language",
+  "moduleType": "language",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "manner": [
+      "systematically",
+      "steadily",
+      "deliberately"
+    ],
+    "strategy": [
+      "through structured planning",
+      "through disciplined effort",
+      "through incremental mastery"
+    ],
+    "pace": [
+      "at a sustainable pace",
+      "consistently",
+      "progressively"
+    ],
+    "orientation": [
+      "toward achievement",
+      "toward long-term development",
+      "toward stability"
+    ],
+    "priority": [
+      "with emphasis on responsibility",
+      "with emphasis on stewardship"
+    ],
+    "regulation": [
+      "while maintaining structure",
+      "while preserving reliability"
+    ],
+    "developmental": [
+      "through disciplined growth",
+      "through cumulative refinement"
+    ]
+  }
+}

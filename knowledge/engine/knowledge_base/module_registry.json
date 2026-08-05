@@ -1,0 +1,14 @@
+{
+  "registeredModules": [
+    "aspect_ontology",
+    "aspect_resolution_engine",
+    "canonical_function_core",
+    "aspect_semantic_matrix",
+    "functional_condition_system",
+    "chart_interpretation_engine",
+    "aspect_conflict_resolution",
+    "developmental_model",
+    "interpretation_output_format",
+    "report_generator"
+  ]
+}

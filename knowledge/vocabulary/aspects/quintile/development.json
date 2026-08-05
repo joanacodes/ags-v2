@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quintile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "quintile",
+  "content": {
+    "coreRule": "Development changes how creative synthesis is expressed, never the relational role of Quintile.",
+    "stages": {
+      "unconscious": [
+        "latent creativity",
+        "unstructured experimentation"
+      ],
+      "defensive": [
+        "forced originality",
+        "rigid patterning"
+      ],
+      "learning": [
+        "intentional experimentation",
+        "developing craft"
+      ],
+      "healthy": [
+        "creative organization",
+        "productive synthesis"
+      ],
+      "integrated": [
+        "masterful pattern integration",
+        "continuous innovation"
+      ]
+    },
+    "constraints": [
+      "Quintile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

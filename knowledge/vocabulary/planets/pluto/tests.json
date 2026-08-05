@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_tests",
+  "moduleType": "tests",
+  "grammarRole": "canonical_function",
+  "parentObject": "pluto",
+  "content": {
+    "suite": "pluto_ontology_v0.1",
+    "cases": [
+      {
+        "id": "PLU-T-001",
+        "name": "Canonical function preserved",
+        "expected": true
+      },
+      {
+        "id": "PLU-T-002",
+        "name": "Sign modifies only",
+        "expected": true
+      },
+      {
+        "id": "PLU-T-003",
+        "name": "House contextualizes only",
+        "expected": true
+      },
+      {
+        "id": "PLU-T-004",
+        "name": "Aspect remains relational",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "PLU-T-005",
+        "name": "Dignity changes condition only",
+        "expected": true
+      },
+      {
+        "id": "PLU-T-006",
+        "name": "Deterministic resolution",
+        "expected": true
+      },
+      {
+        "id": "PLU-T-007",
+        "name": "Transformation function available",
+        "expected": true
+      },
+      {
+        "id": "PLU-T-008",
+        "name": "Regeneration output available",
+        "expected": true
+      },
+      {
+        "id": "PLU-T-009",
+        "name": "Empty result preferred",
+        "expected": []
+      }
+    ]
+  }
+}

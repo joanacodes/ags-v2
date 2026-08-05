@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "virgo_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "modifier",
+  "parentObject": "virgo",
+  "content": {
+    "domains": {
+      "refinement": "Improves quality without replacing identity.",
+      "discernment": "Distinguishes meaningful differences.",
+      "optimization": "Improves effectiveness within constraints.",
+      "calibration": "Adjusts toward appropriate functioning.",
+      "precision": "Increases accuracy.",
+      "maintenance": "Sustains reliable operation.",
+      "analysis": "Examines structure and function.",
+      "incremental_improvement": "Advances through small improvements.",
+      "functional_order": "Organizes for effective operation.",
+      "quality_assurance": "Verifies reliable performance."
+    },
+    "boundaries": [
+      "Precision is not perfectionism.",
+      "Analysis is not criticism.",
+      "Optimization is not obsession.",
+      "Maintenance is not rigidity."
+    ]
+  }
+}

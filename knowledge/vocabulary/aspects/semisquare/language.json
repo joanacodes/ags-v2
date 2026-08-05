@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisquare_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisquare",
+  "content": {
+    "verbs": [
+      "challenges",
+      "adjusts",
+      "refines",
+      "activates"
+    ],
+    "templates": [
+      "{A} incrementally challenges {B}.",
+      "{A} and {B} require localized adjustment."
+    ]
+  }
+}

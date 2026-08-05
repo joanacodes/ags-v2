@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "septile",
+  "content": {
+    "canonicalId": "septile",
+    "displayName": "Septile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "recursive_pattern_emergence_operator",
+    "canonicalQuestion": "How do two canonical functions interact through recursive pattern emergence and nonlinear relational organization?"
+  }
+}

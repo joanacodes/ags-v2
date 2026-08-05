@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "gemini_identity",
+  "moduleType": "identity",
+  "grammarRole": "modifier",
+  "parentObject": "gemini",
+  "content": {
+    "coreDomains": [
+      "differentiation",
+      "comparison",
+      "connection",
+      "exchange",
+      "adaptation",
+      "variation",
+      "curiosity",
+      "information_flow",
+      "multiplicity",
+      "responsive_pacing"
+    ],
+    "notInherent": [
+      "dishonesty",
+      "superficiality",
+      "indecision",
+      "gossip",
+      "duplicity",
+      "distraction"
+    ],
+    "constraints": [
+      "Gemini is a modifier.",
+      "Gemini never acts independently.",
+      "Gemini never replaces the target canonical function."
+    ]
+  }
+}

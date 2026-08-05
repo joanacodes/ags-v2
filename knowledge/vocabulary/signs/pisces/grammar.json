@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pisces_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "modifier",
+  "parentObject": "pisces",
+  "content": {
+    "modifierSlots": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] compassionately",
+      "[target] through integration",
+      "[target] adaptively",
+      "[target] toward interconnected understanding",
+      "[target] with emphasis on empathy"
+    ],
+    "forbidden": [
+      "Pisces acts.",
+      "Pisces causes escapism.",
+      "Pisces makes people deceptive."
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sun_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "canonical_function",
+  "parentObject": "sun",
+  "content": {
+    "domains": {
+      "identity": "The organizing sense of self.",
+      "vitality": "Capacity for sustained aliveness and engagement.",
+      "purpose": "Direction that organizes action and meaning.",
+      "self_expression": "Coherent outward articulation of identity.",
+      "coherence": "Integration of personal motives and direction.",
+      "creative_center": "The central source of generative expression.",
+      "agency": "Capacity to act from an organized center.",
+      "recognition": "Awareness and acknowledgment of identity.",
+      "direction": "Orientation toward meaningful aims.",
+      "integration": "Unifying distinct parts into a coherent whole."
+    },
+    "boundaries": [
+      "Identity is not egoism.",
+      "Vitality is not constant energy.",
+      "Purpose is not social status.",
+      "Recognition is not fame.",
+      "Agency is not domination."
+    ]
+  }
+}

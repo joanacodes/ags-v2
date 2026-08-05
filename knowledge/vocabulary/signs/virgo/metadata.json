@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "virgo_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "modifier",
+  "parentObject": "virgo",
+  "content": {
+    "canonicalId": "virgo",
+    "displayName": "Virgo",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "refining_mode",
+    "canonicalQuestion": "How does this refine and improve?"
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_language",
+  "name": "Pluto Language",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Pluto's controlled verb hierarchy, nouns, adjectives, adverbs, fragments, selection rules, and rejected wording.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "pluto_identity",
+    "pluto_grammar",
+    "ags_semantic_domain_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "pluto",
+    "language",
+    "planet",
+    "function"
+  ],
+  "parentObject": "pluto",
+  "moduleType": "language",
+  "content": {
+    "verbHierarchy": {
+      "primaryVerb": {
+        "lemma": "regenerate",
+        "priority": 100,
+        "definition": "Reconstitute viability after exposure and removal of what can no longer remain unchanged."
+      },
+      "primaryVerbPhrases": [
+        {
+          "text": "restore viability through deep reorganization",
+          "priority": 98,
+          "semanticDomain": "regeneration"
+        },
+        {
+          "text": "expose and reorganize hidden material",
+          "priority": 96,
+          "semanticDomain": "exposure"
+        },
+        {
+          "text": "remove what prevents renewal",
+          "priority": 94,
+          "semanticDomain": "elimination"
+        },
+        {
+          "text": "reclaim concentrated agency",
+          "priority": 92,
+          "semanticDomain": "reclamation"
+        },
+        {
+          "text": "redistribute power and resource",
+          "priority": 90,
+          "semanticDomain": "power_redistribution"
+        }
+      ],
+      "secondaryVerbs": [
+        {
+          "lemma": "expose",
+          "domain": "exposure",
+          "priority": 96
+        },
+        {
+          "lemma": "eliminate",
+          "domain": "elimination",
+          "priority": 94
+        },
+        {
+          "lemma": "reorganize",
+          "domain": "deep_restructuring",
+          "priority": 92
+        },
+        {
+          "lemma": "reclaim",
+          "domain": "reclamation",
+          "priority": 90
+        },
+        {
+          "lemma": "concentrate",
+          "domain": "concentration",
+          "priority": 88
+        },
+        {
+          "lemma": "integrate",
+          "domain": "shadow_integration",
+          "priority": 86
+        },
+        {
+          "lemma": "purify",
+          "domain": "purification",
+          "priority": 84
+        },
+        {
+          "lemma": "intensify",
+          "domain": "intensification",
+          "priority": 80
+        },
+        {
+          "lemma": "compel",
+          "domain": "compulsion",
+          "priority": 72
+        },
+        {
+          "lemma": "transform",
+          "domain": "transformation",
+          "priority": 70
+        }
+      ],
+      "defensiveVerbs": [
+        "control",
+        "dominate",
+        "coerce",
+        "obsess",
+        "retaliate",
+        "withhold",
+        "expose punitively",
+        "destroy without regeneration"
+      ],
+      "integratedVerbs": [
+        "regenerate without domination",
+        "expose without humiliation",
+        "eliminate with precision",
+        "reclaim without retaliation",
+        "concentrate without monopolizing",
+        "integrate concealed material",
+        "redistribute power with accountability"
+      ]
+    },
+    "nounSystem": {
+      "primaryNoun": "regeneration",
+      "secondaryNouns": [
+        "exposure",
+        "elimination",
+        "purification",
+        "concentration",
+        "intensity",
+        "power",
+        "agency",
+        "reclamation",
+        "compulsion",
+        "survival",
+        "irreversibility",
+        "deep restructuring"
+      ],
+      "usageRule": "Nouns support indexing and explanation but may not replace Pluto's verb system."
+    },
+    "adjectiveSystem": {
+      "neutral": [
+        "regenerative",
+        "concentrated",
+        "penetrating",
+        "exposing",
+        "irreversible",
+        "resource-focused",
+        "deeply restructuring"
+      ],
+      "constructive": [
+        "restorative",
+        "integrative",
+        "purifying",
+        "empowering",
+        "accountable",
+        "transformative",
+        "resilient"
+      ],
+      "defensive": [
+        "controlling",
+        "coercive",
+        "obsessive",
+        "retaliatory",
+        "punitive",
+        "withholding",
+        "dominating",
+        "destructive"
+      ]
+    },
+    "adverbSystem": {
+      "neutral": [
+        "deeply",
+        "intensely",
+        "concentratedly",
+        "irreversibly",
+        "penetratingly",
+        "through exposure"
+      ],
+      "constructive": [
+        "precisely",
+        "accountably",
+        "regeneratively",
+        "with full consequence awareness",
+        "without unnecessary destruction",
+        "through conscious integration"
+      ],
+      "defensive": [
+        "coercively",
+        "punitively",
+        "obsessively",
+        "retaliatorily",
+        "without consent",
+        "through domination"
+      ]
+    },
+    "technicalFragments": [
+      "Pluto supplies the regenerative function.",
+      "Pluto exposes material that can no longer remain concealed.",
+      "Pluto removes what prevents renewal.",
+      "Pluto reorganizes concentrated power, attachment, or resource.",
+      "Pluto restores viability through deep restructuring."
+    ],
+    "firstPersonFragments": [
+      "I regenerate",
+      "I expose",
+      "I eliminate",
+      "I reclaim",
+      "I reorganize",
+      "I integrate",
+      "I concentrate"
+    ],
+    "learningFragments": [
+      "I am learning to expose without humiliating",
+      "I am learning to reclaim agency without retaliation",
+      "I am learning to distinguish intensity from truth",
+      "I am learning to remove what is nonviable without destroying what can regenerate",
+      "I am learning to use power without domination"
+    ],
+    "lexicalSelectionRules": [
+      {
+        "id": "PLU-LANG-001",
+        "rule": "Use `regenerate` when no narrower Plutonian function is justified."
+      },
+      {
+        "id": "PLU-LANG-002",
+        "rule": "Use `expose` when concealed material becomes available."
+      },
+      {
+        "id": "PLU-LANG-003",
+        "rule": "Use `eliminate` only when a defined nonviable component is removed."
+      },
+      {
+        "id": "PLU-LANG-004",
+        "rule": "Use `reclaim` when agency or resource is recovered."
+      },
+      {
+        "id": "PLU-LANG-005",
+        "rule": "Use `control`, `dominate`, or `obsess` only under explicit contextual support."
+      },
+      {
+        "id": "PLU-LANG-006",
+        "rule": "Never equate intensity with truth or moral depth."
+      },
+      {
+        "id": "PLU-LANG-007",
+        "rule": "Never use physical death as Pluto's default surface meaning."
+      }
+    ],
+    "rejectedWording": [
+      {
+        "text": "Pluto is death.",
+        "reason": "Death is one possible literal or symbolic context, not the universal function."
+      },
+      {
+        "text": "Pluto destroys everything.",
+        "reason": "Elimination serves regeneration and must name what is being removed."
+      },
+      {
+        "text": "Pluto means trauma.",
+        "reason": "Trauma is a clinical and experiential category, not a planetary identity."
+      },
+      {
+        "text": "Pluto is power.",
+        "reason": "Power is one semantic domain; Pluto reorganizes concentrated agency, leverage, and resource."
+      },
+      {
+        "text": "Pluto is obsession.",
+        "reason": "Obsession is one possible defensive expression and cannot be assumed."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Pluto language module."
+    }
+  ]
+}

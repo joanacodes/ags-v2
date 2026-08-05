@@ -1,0 +1,8 @@
+{
+  "rules": [
+    "Retrieve ontology definitions before interpretation.",
+    "Resolve operands before relationships.",
+    "Apply modifiers after operator resolution.",
+    "Preserve module boundaries."
+  ]
+}

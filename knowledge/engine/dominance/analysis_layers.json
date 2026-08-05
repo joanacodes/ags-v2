@@ -1,0 +1,20 @@
+{
+  "layers": [
+    {
+      "id": "frequency",
+      "description": "Counts repeated participation across relationships."
+    },
+    {
+      "id": "connectivity",
+      "description": "Measures how many relationships involve a function."
+    },
+    {
+      "id": "structural_weight",
+      "description": "Combines context and relationship strength."
+    },
+    {
+      "id": "developmental_emphasis",
+      "description": "Identifies recurring developmental themes."
+    }
+  ]
+}

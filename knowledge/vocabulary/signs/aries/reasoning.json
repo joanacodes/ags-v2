@@ -1,0 +1,136 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_reasoning",
+  "name": "Aries Reasoning",
+  "type": "sign_module",
+  "status": "final_candidate",
+  "language": "en",
+  "description": "Defines deterministic Aries modifier resolution and forbidden inferences.",
+  "grammarRole": "modifier",
+  "parentObject": "aries",
+  "moduleType": "reasoning",
+  "dependsOn": [
+    "aries_identity",
+    "aries_semantics",
+    "aries_modifier_types",
+    "aries_development",
+    "aries_expression",
+    "aries_query_rules"
+  ],
+  "content": {
+    "resolutionOrder": [
+      "Load the target object and canonical function.",
+      "Confirm that Aries is operating as a modifier.",
+      "Resolve query domain.",
+      "Resolve developmental stage.",
+      "Load Aries semantic domains and components.",
+      "Filter by target class.",
+      "Filter by verb class.",
+      "Reject incompatible pace, autonomy, or urgency language.",
+      "Select no more than one component per modifier slot unless stacking is explicitly allowed.",
+      "Apply deterministic tie-break order.",
+      "Return the Aries modifier set to the clause builder.",
+      "Validate that the target function remains unchanged.",
+      "Validate that no finished interpretation was introduced by the Aries layer."
+    ],
+    "defaultInferenceProfile": {
+      "neutralManner": "directly",
+      "neutralStrategy": "through initiation",
+      "neutralPriority": "with emphasis on the first actionable step",
+      "optionalRegulation": "while preserving momentum",
+      "paceRule": "Use accelerated pace only when compatible with the target function.",
+      "autonomyRule": "Render autonomy as self-positioned agency, not isolation.",
+      "developmentRule": "Use healthy wording by default when a developmental stage is required but unspecified."
+    },
+    "heuristics": [
+      {
+        "id": "ARI-REAS-001",
+        "rule": "Prefer directness over aggression."
+      },
+      {
+        "id": "ARI-REAS-002",
+        "rule": "Prefer initiation over leadership."
+      },
+      {
+        "id": "ARI-REAS-003",
+        "rule": "Prefer autonomous engagement over selfishness or isolation."
+      },
+      {
+        "id": "ARI-REAS-004",
+        "rule": "Prefer first-step testing over impulsivity."
+      },
+      {
+        "id": "ARI-REAS-005",
+        "rule": "Prefer proportionate urgency over indiscriminate speed."
+      },
+      {
+        "id": "ARI-REAS-006",
+        "rule": "When the target function requires consolidation, discernment, reciprocity, or consent, suppress incompatible rapid-pacing components."
+      },
+      {
+        "id": "ARI-REAS-007",
+        "rule": "When defensive evidence is absent, suppress reactive, premature, forced, or oppositional modifiers."
+      },
+      {
+        "id": "ARI-REAS-008",
+        "rule": "When integrated evidence is absent, suppress precise-timing and context-aware integration claims."
+      },
+      {
+        "id": "ARI-REAS-009",
+        "rule": "Return an empty Aries modifier slot rather than inventing a semantically adjacent component."
+      }
+    ],
+    "targetClassReasoning": {
+      "planet": [
+        "Preserve the planetary verb.",
+        "Modify only manner, strategy, pace, orientation, priority, regulation, or development.",
+        "Do not infer aggression merely because the planet is Mars.",
+        "Do not infer courage, conflict, leadership, or success."
+      ],
+      "angle": [
+        "Preserve the angle's canonical reference-frame verb.",
+        "Modify how the reference frame establishes entry, relation, actualization, or rooting.",
+        "Retain the opposite-angle axis in reasoning.",
+        "Do not turn the angle into an actor."
+      ],
+      "node": [
+        "Preserve developmental polarity.",
+        "Modify how consolidation or development proceeds.",
+        "Keep the opposite Node represented.",
+        "Do not convert initiation into destiny or inevitability."
+      ],
+      "chiron": [
+        "Preserve adaptation as the target function.",
+        "Use bounded testing rather than reckless exposure.",
+        "Do not equate immediate movement with cure.",
+        "Retain limitation and adaptation context."
+      ]
+    },
+    "forbiddenInferences": [
+      "Aries causes aggression.",
+      "Aries makes a person selfish.",
+      "Aries guarantees leadership.",
+      "Aries guarantees courage.",
+      "Aries causes conflict.",
+      "Aries makes every function fast.",
+      "Aries replaces the target object's canonical function.",
+      "Aries alone determines personality or outcome.",
+      "Aries is inherently healthy, unhealthy, mature, or immature."
+    ],
+    "deterministicTieBreakOrder": [
+      "query relevance descending",
+      "target-class compatibility descending",
+      "verb-class compatibility descending",
+      "developmental eligibility exact match",
+      "modifier priority descending",
+      "stable component ID ascending"
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries reasoning module."
+    }
+  ]
+}

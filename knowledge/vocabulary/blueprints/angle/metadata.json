@@ -1,0 +1,12 @@
+{
+  "id": "ags_angle_blueprint",
+  "version": "0.1.0",
+  "ontologyClass": "reference_frame",
+  "objects": [
+    "ascendant",
+    "descendant",
+    "midheaven",
+    "imum_coeli"
+  ],
+  "status": "draft_for_review"
+}

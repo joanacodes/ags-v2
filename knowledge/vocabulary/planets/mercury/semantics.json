@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mercury_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "canonical_function",
+  "parentObject": "mercury",
+  "content": {
+    "domains": {
+      "cognition": "Processing and organizing information.",
+      "communication": "Exchange of meaning through symbols.",
+      "language": "Symbolic representation of ideas.",
+      "reasoning": "Evaluation and inference.",
+      "learning": "Acquisition and integration of knowledge.",
+      "interpretation": "Construction of meaning.",
+      "symbolic_processing": "Use of symbols to represent concepts.",
+      "curiosity": "Orientation toward exploration.",
+      "analysis": "Differentiation and examination.",
+      "exchange": "Reciprocal sharing of information."
+    },
+    "boundaries": [
+      "Communication is not constant talking.",
+      "Analysis is not overthinking.",
+      "Curiosity is not distraction.",
+      "Reasoning is not certainty."
+    ]
+  }
+}

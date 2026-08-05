@@ -1,0 +1,53 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_tests",
+  "name": "Uranus Tests",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "verb",
+  "dependsOn": [
+    "uranus_reasoning",
+    "ags_validation_engine"
+  ],
+  "content": {
+    "module": "uranus",
+    "cases": [
+      {
+        "id": "URA-T-001",
+        "name": "Primary verb defaults to reconfigure",
+        "expected": "reconfigure"
+      },
+      {
+        "id": "URA-T-002",
+        "name": "Innovate requires explicit innovation domain",
+        "expected": "pass"
+      },
+      {
+        "id": "URA-T-003",
+        "name": "Reject disruption as universal verb",
+        "expected": "invalid"
+      },
+      {
+        "id": "URA-T-004",
+        "name": "Relationship reversal preserves Uranian function",
+        "expected": "pass"
+      },
+      {
+        "id": "URA-T-005",
+        "name": "Healthy stage cannot invent new semantic domains",
+        "expected": "pass"
+      },
+      {
+        "id": "URA-T-006",
+        "name": "Finished placement sentence prohibited",
+        "expected": "invalid"
+      }
+    ],
+    "regressions": [
+      "Do not equate Uranus with chaos.",
+      "Do not equate Uranus with rebellion.",
+      "Do not treat technology as Uranus's universal meaning."
+    ]
+  }
+}

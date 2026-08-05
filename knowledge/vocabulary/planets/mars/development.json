@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mars_development",
+  "moduleType": "development",
+  "grammarRole": "canonical_function",
+  "parentObject": "mars",
+  "content": {
+    "coreRule": "Development changes how Mars's canonical function is expressed; the canonical function itself remains unchanged.",
+    "stages": {
+      "unconscious": [
+        "automatic action",
+        "reactive assertion"
+      ],
+      "defensive": [
+        "protective agency",
+        "effort constrained by insecurity"
+      ],
+      "learning": [
+        "developing purposeful action",
+        "improving self-assertion"
+      ],
+      "healthy": [
+        "directed effort",
+        "clear boundaries"
+      ],
+      "integrated": [
+        "agency, effort, and execution aligned with intentional purpose"
+      ]
+    },
+    "constraints": [
+      "Development never changes the canonical function.",
+      "Integrated descriptions require supporting evidence."
+    ]
+  }
+}

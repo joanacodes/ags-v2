@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quattuordecile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "quattuordecile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Quattuordecile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate structured reorientation semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Quattuordecile introduces structured reorientation without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer adaptive restructuring over deterministic outcomes.",
+      "Interpret reorientation through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Quattuordecile guarantees disruption.",
+      "Quattuordecile implies instability.",
+      "Quattuordecile replaces planetary functions."
+    ]
+  }
+}

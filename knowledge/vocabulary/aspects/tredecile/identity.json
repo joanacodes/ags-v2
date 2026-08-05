@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "tredecile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "tredecile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through adaptive restructuring, uncommon development, and transformative reorganization.",
+    "coreDomains": [
+      "adaptation",
+      "restructuring",
+      "transformation",
+      "uncommon development",
+      "reorganization",
+      "integration"
+    ],
+    "notInherent": [
+      "disruption",
+      "superiority",
+      "destiny",
+      "beneficence"
+    ],
+    "constraints": [
+      "Tredecile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "leo_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "modifier",
+  "parentObject": "leo",
+  "content": {
+    "domains": {
+      "expression": "Makes internal qualities externally manifest.",
+      "visibility": "Allows expression to be seen.",
+      "creative_actualization": "Realizes creative potential.",
+      "radiance": "Projects coherent presence.",
+      "coherence": "Aligns expression with identity.",
+      "vitality": "Supports animated engagement.",
+      "recognition": "Permits acknowledgement without requiring it.",
+      "self_articulation": "Communicates authentic identity.",
+      "generativity": "Creates value through expression.",
+      "confident_presence": "Occupies space authentically."
+    },
+    "boundaries": [
+      "Visibility is not attention-seeking.",
+      "Confidence is not arrogance.",
+      "Recognition is not validation dependence.",
+      "Expression is not egoism."
+    ]
+  }
+}

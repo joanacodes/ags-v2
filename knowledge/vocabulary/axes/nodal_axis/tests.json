@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "type": "axis_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "direction",
+  "parentObject": "nodal_axis",
+  "id": "nodal_axis_tests",
+  "name": "Nodal Axis Tests",
+  "content": {
+    "cases": [
+      {
+        "id": "NODE-T-001",
+        "name": "Both Nodes required",
+        "expected": "invalid if one is missing"
+      },
+      {
+        "id": "NODE-T-002",
+        "name": "South Node preserved as resource",
+        "expected": "pass"
+      },
+      {
+        "id": "NODE-T-003",
+        "name": "North Node remains directional",
+        "expected": "pass"
+      },
+      {
+        "id": "NODE-T-004",
+        "name": "Reject abandonment language",
+        "expected": "invalid"
+      },
+      {
+        "id": "NODE-T-005",
+        "name": "Reject guaranteed destiny",
+        "expected": "invalid"
+      }
+    ],
+    "regressions": [
+      "South Node != defect",
+      "North Node != guaranteed future",
+      "axis != fatalistic destiny"
+    ]
+  }
+}

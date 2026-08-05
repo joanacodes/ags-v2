@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "undecile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "undecile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Undecile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate emergent differentiation semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Undecile introduces emergent differentiation without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer adaptive synthesis over deterministic outcomes.",
+      "Interpret novelty through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Undecile guarantees uniqueness.",
+      "Undecile implies superiority.",
+      "Undecile replaces planetary functions."
+    ]
+  }
+}

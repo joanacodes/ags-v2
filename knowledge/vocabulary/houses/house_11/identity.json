@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house11_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_11",
+  "content": {
+    "coreDomains": [
+      "community",
+      "friendships",
+      "networks",
+      "groups",
+      "collaboration",
+      "collective_goals",
+      "social_participation",
+      "alliances",
+      "innovation",
+      "shared_vision"
+    ],
+    "notInherent": [
+      "popularity",
+      "conformity",
+      "detachment",
+      "utopianism",
+      "social_status",
+      "peer_pressure"
+    ],
+    "constraints": [
+      "House 11 is a context.",
+      "House 11 never performs actions.",
+      "House 11 never replaces a planet's canonical function."
+    ]
+  }
+}

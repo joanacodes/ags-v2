@@ -1,0 +1,80 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_modifier_types",
+  "modifierTypes": [
+    {
+      "id": "manner",
+      "question": "How is the function performed?",
+      "forms": [
+        "adverb",
+        "adverbial_phrase"
+      ]
+    },
+    {
+      "id": "strategy",
+      "question": "By what method does it operate?",
+      "forms": [
+        "prepositional_phrase",
+        "gerund_phrase"
+      ]
+    },
+    {
+      "id": "pace",
+      "question": "At what rate or sequence does it proceed?",
+      "forms": [
+        "adverb",
+        "pace_phrase"
+      ]
+    },
+    {
+      "id": "orientation",
+      "question": "Toward what organizing direction is it aimed?",
+      "forms": [
+        "orientation_phrase"
+      ]
+    },
+    {
+      "id": "priority",
+      "question": "What does it emphasize first?",
+      "forms": [
+        "priority_phrase"
+      ]
+    },
+    {
+      "id": "regulation",
+      "question": "How does it regulate continuity, boundaries, or change?",
+      "forms": [
+        "regulation_phrase",
+        "conditional_modifier"
+      ]
+    },
+    {
+      "id": "developmental",
+      "question": "How does developmental stage qualify expression?",
+      "forms": [
+        "adverb",
+        "adverbial_phrase"
+      ]
+    }
+  ],
+  "requiredPerSign": [
+    "manner",
+    "strategy",
+    "pace",
+    "orientation",
+    "priority",
+    "regulation",
+    "developmental"
+  ],
+  "componentRequiredFields": [
+    "id",
+    "text",
+    "modifierType",
+    "semanticDomains",
+    "compatibleTargetClasses",
+    "compatibleVerbClasses",
+    "developmentalEligibility",
+    "priority",
+    "boundaries"
+  ]
+}

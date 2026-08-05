@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aquarius_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "aquarius",
+  "content": {
+    "families": [
+      {
+        "id": "innovation",
+        "components": [
+          "innovatively",
+          "through experimentation"
+        ]
+      },
+      {
+        "id": "systems",
+        "components": [
+          "through systems thinking",
+          "while preserving adaptability"
+        ]
+      },
+      {
+        "id": "objectivity",
+        "components": [
+          "objectively",
+          "with emphasis on objectivity"
+        ]
+      },
+      {
+        "id": "collective_progress",
+        "components": [
+          "toward collective progress",
+          "through networked collaboration"
+        ]
+      },
+      {
+        "id": "originality",
+        "components": [
+          "toward originality",
+          "through evolving perspective"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Modify manner, strategy, pace, and regulation only.",
+      "angle": "Modify orientation without changing the angle's canonical function.",
+      "node": "Support adaptive development while preserving nodal polarity.",
+      "chiron": "Support innovative healing approaches without implying completion."
+    },
+    "constraints": [
+      "Objectivity is not emotional detachment.",
+      "Originality is not eccentricity.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

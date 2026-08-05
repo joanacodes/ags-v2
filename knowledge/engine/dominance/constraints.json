@@ -1,0 +1,7 @@
+{
+  "rules": [
+    "Avoid ranking functions as better or worse.",
+    "Avoid fixed identity conclusions.",
+    "Preserve relational complexity."
+  ]
+}

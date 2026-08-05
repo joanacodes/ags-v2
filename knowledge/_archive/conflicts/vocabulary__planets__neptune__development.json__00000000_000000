@@ -1,0 +1,206 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_development",
+  "name": "Neptune Development",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Neptunian expression across the universal developmental stages without changing the core function.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "neptune_identity",
+    "neptune_semantics",
+    "neptune_psychology",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "neptune",
+    "development",
+    "planet",
+    "function"
+  ],
+  "parentObject": "neptune",
+  "moduleType": "development",
+  "content": {
+    "developmentReference": "ags_development_blueprint",
+    "coreRule": "Development changes how permeability operates; it does not change Neptune's identity.",
+    "stageExpressions": [
+      {
+        "stage": "unconscious",
+        "functionalPattern": [
+          "Receives mood, image, and atmosphere without clear source distinction",
+          "Moves between literal and symbolic meaning automatically",
+          "Absorbs affect before identifying personal boundaries",
+          "Responds to ideals and images without testing them against reality"
+        ],
+        "eligibleVerbs": [
+          "absorb",
+          "resonate",
+          "diffuse",
+          "imagine"
+        ],
+        "ineligibleClaims": [
+          "integrated compassion",
+          "symbolic precision",
+          "bounded receptivity"
+        ],
+        "learningTaskComponents": [
+          "Identify the source of a feeling or image",
+          "Separate resonance from evidence",
+          "Name where a boundary has become unclear"
+        ]
+      },
+      {
+        "stage": "defensive",
+        "functionalPattern": [
+          "Uses fantasy, idealization, ambiguity, or self-erasure to avoid painful distinction",
+          "Projects internal images outward",
+          "Escapes into atmosphere, image, or longing",
+          "May confuse surrender with lack of agency"
+        ],
+        "eligibleVerbs": [
+          "idealize excessively",
+          "project",
+          "obscure",
+          "escape",
+          "dissolve without containment",
+          "absorb without filtering"
+        ],
+        "requiredConditions": [
+          "explicit stress condition",
+          "explicit defensive activation",
+          "explicit avoidance or boundary-collapse evidence"
+        ],
+        "learningTaskComponents": [
+          "Restore reality contact",
+          "Name what is known and unknown",
+          "Rebuild consent and boundaries",
+          "Distinguish compassion from self-erasure"
+        ]
+      },
+      {
+        "stage": "learning",
+        "functionalPattern": [
+          "Practices selective receptivity",
+          "Tests symbolic perceptions against observable reality",
+          "Learns to maintain empathy and boundaries together",
+          "Experiments with translating imagination into form"
+        ],
+        "eligibleVerbs": [
+          "attune",
+          "symbolize",
+          "imagine",
+          "empathize",
+          "surrender selectively"
+        ],
+        "learningTaskComponents": [
+          "Label literal and symbolic layers",
+          "Pause before assigning meaning",
+          "Translate inspiration into a concrete form",
+          "Return absorbed experience to its source when appropriate"
+        ]
+      },
+      {
+        "stage": "healthy",
+        "functionalPattern": [
+          "Allows symbolic and emotional information to cross boundaries with discernment",
+          "Uses empathy without losing self-definition",
+          "Sustains imagination alongside factual contact",
+          "Softens control where receptivity improves function"
+        ],
+        "eligibleVerbs": [
+          "permeate",
+          "attune",
+          "resonate",
+          "imagine",
+          "symbolize",
+          "empathize",
+          "inspire"
+        ],
+        "operatingConditions": [
+          "query relevance",
+          "source distinction remains available",
+          "boundaries remain consensual and functional",
+          "symbolic meaning is not literalized"
+        ],
+        "learningTaskComponents": [
+          "Let inspiration become practice",
+          "Maintain discernment during deep receptivity",
+          "Accept disillusionment as refinement rather than total loss"
+        ]
+      },
+      {
+        "stage": "integrated",
+        "functionalPattern": [
+          "Moves fluidly between receptivity and distinction",
+          "Allows empathy, symbolism, imagination, and surrender without losing agency",
+          "Uses permeable boundaries selectively and ethically",
+          "Translates subtle perception into forms that remain accountable to reality"
+        ],
+        "eligibleVerbs": [
+          "permeate with discernment",
+          "attune without self-erasure",
+          "imagine without abandoning fact",
+          "empathize with boundaries",
+          "symbolize without literalizing",
+          "surrender without abandoning agency"
+        ],
+        "requiredConditions": [
+          "explicit integration stage",
+          "explicit synthesis evidence",
+          "sustained coordination between receptivity and discernment"
+        ],
+        "developmentalContribution": [
+          "Makes symbolic information usable without claiming certainty",
+          "Allows compassion to coexist with consent and limits",
+          "Creates forms that carry imagination without obscuring reality",
+          "Supports surrender that preserves responsibility"
+        ]
+      }
+    ],
+    "crossStageRules": [
+      {
+        "id": "NEP-DEV-001",
+        "rule": "The same semantic domain may use different verbs at different stages."
+      },
+      {
+        "id": "NEP-DEV-002",
+        "rule": "Dissolution and obscuration require explicit contextual support."
+      },
+      {
+        "id": "NEP-DEV-003",
+        "rule": "Integrated Neptune may still soften or dissolve a boundary when functionally necessary."
+      },
+      {
+        "id": "NEP-DEV-004",
+        "rule": "Healthy expression does not guarantee factual accuracy."
+      },
+      {
+        "id": "NEP-DEV-005",
+        "rule": "No stage may introduce a semantic domain absent from Neptune's approved vocabulary."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. Psychology and development qualify expression but do not redefine Neptune.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Neptune development module."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biseptile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "biseptile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through recursive differentiation and distributed nonlinear coordination.",
+    "coreDomains": [
+      "recursive differentiation",
+      "distributed coordination",
+      "nonlinear emergence",
+      "adaptive recursion",
+      "pattern evolution",
+      "integration"
+    ],
+    "notInherent": [
+      "destiny",
+      "magic",
+      "certainty",
+      "beneficence"
+    ],
+    "constraints": [
+      "Biseptile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

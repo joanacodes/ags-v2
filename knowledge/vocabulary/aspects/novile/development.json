@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "novile",
+  "content": {
+    "coreRule": "Development changes how transformational maturation is expressed, never the relational role of Novile.",
+    "stages": {
+      "unconscious": [
+        "latent maturation",
+        "unrecognized gestation"
+      ],
+      "defensive": [
+        "premature closure",
+        "resistance to completion"
+      ],
+      "learning": [
+        "recognizing maturation cycles",
+        "intentional integration"
+      ],
+      "healthy": [
+        "constructive maturation",
+        "transformational integration"
+      ],
+      "integrated": [
+        "continuous refinement",
+        "stable transformational completion"
+      ]
+    },
+    "constraints": [
+      "Novile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

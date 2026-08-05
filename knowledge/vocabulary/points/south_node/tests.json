@@ -1,0 +1,14 @@
+{
+  "id": "south_node_tests",
+  "cases": [
+    "Primary verb defaults to consolidate",
+    "Reject South Node abandonment language",
+    "Require North Node pairing",
+    "Require evidence before overreliance"
+  ],
+  "regressions": [
+    "South Node != defect",
+    "South Node != bad karma",
+    "South Node != stagnation"
+  ]
+}

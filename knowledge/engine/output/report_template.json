@@ -1,0 +1,8 @@
+{
+  "template": {
+    "relationship": "{functionA} interacts with {functionB} through {aspect}.",
+    "expression": "This may express as {theme}.",
+    "development": "Developmental expression may move through {stages}.",
+    "integration": "Integration involves {pathway}."
+  }
+}

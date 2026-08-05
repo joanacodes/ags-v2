@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "decile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "decile",
+  "content": {
+    "defaultOperator": "creative_potential_operator",
+    "supportedQueries": {
+      "identity": [
+        "creative_potential",
+        "specialized_expression"
+      ],
+      "relationship": [
+        "refinement",
+        "development"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Decile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

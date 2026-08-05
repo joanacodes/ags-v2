@@ -1,0 +1,40 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_blueprint",
+  "name": "Astrological Grammar Standard Sign Blueprint",
+  "type": "ontology_blueprint",
+  "status": "draft_for_review",
+  "language": "en",
+  "ontologyClass": "modifier",
+  "objectFamily": "zodiac_signs",
+  "appliesTo": [
+    "aries",
+    "taurus",
+    "gemini",
+    "cancer",
+    "leo",
+    "virgo",
+    "libra",
+    "scorpio",
+    "sagittarius",
+    "capricorn",
+    "aquarius",
+    "pisces"
+  ],
+  "forbiddenContent": [
+    "planetary action verbs as sign identity",
+    "finished placement interpretations",
+    "house-specific readings",
+    "aspect-specific readings",
+    "personality-type reductions",
+    "deterministic behavior claims",
+    "moral ranking of signs"
+  ],
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial modifier-class blueprint for all zodiac signs."
+    }
+  ]
+}

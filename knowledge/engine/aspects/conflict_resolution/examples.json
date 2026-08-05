@@ -1,0 +1,18 @@
+{
+  "examples": [
+    {
+      "pattern": [
+        "mars_trine_saturn",
+        "mars_square_uranus"
+      ],
+      "result": "Structured action combined with disruptive innovation requires adaptive regulation."
+    },
+    {
+      "pattern": [
+        "mercury_pentile_saturn",
+        "mercury_septile_neptune"
+      ],
+      "result": "Creative structured thinking combined with symbolic pattern sensitivity."
+    }
+  ]
+}

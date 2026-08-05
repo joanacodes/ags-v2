@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house1_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "context",
+  "parentObject": "house_1",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm House 1 is a context",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible contextual components",
+      "Apply degree and condition modifiers",
+      "Validate canonical function unchanged",
+      "Generate contextual semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "domain": "identity",
+      "focus": "self-expression",
+      "expression_context": "through lived embodiment",
+      "salience": "highly visible"
+    },
+    "compositionRules": [
+      "House 1 provides context but never performs actions.",
+      "Planets retain canonical functions.",
+      "Signs modify functions before contextual placement.",
+      "Houses provide experiential context only.",
+      "Aspects remain relational operators.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer identity over egoism.",
+      "Prefer embodiment over appearance judgments.",
+      "Prefer initiative over dominance.",
+      "Return an empty context set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "House 1 causes confidence.",
+      "House 1 creates narcissism.",
+      "House 1 replaces the target function."
+    ]
+  }
+}

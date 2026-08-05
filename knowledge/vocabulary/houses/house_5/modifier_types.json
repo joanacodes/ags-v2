@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house5_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "context",
+  "parentObject": "house_5",
+  "content": {
+    "contextComponents": [
+      {
+        "id": "house5_creativity",
+        "text": "in the context of creativity",
+        "type": "domain"
+      },
+      {
+        "id": "house5_expression",
+        "text": "through self-expression",
+        "type": "focus"
+      },
+      {
+        "id": "house5_creation",
+        "text": "through personal creation",
+        "type": "expression_context"
+      },
+      {
+        "id": "house5_play",
+        "text": "within playful engagement",
+        "type": "salience"
+      }
+    ]
+  }
+}

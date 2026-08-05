@@ -1,0 +1,120 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_identity",
+  "name": "Uranus Identity",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Uranus as a reconfiguring planetary function and distinguishes it from neighboring planetary functions.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ags_planet_blueprint",
+    "ags_verb_classes_blueprint",
+    "ags_semantic_domain_blueprint",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "uranus",
+    "identity",
+    "planet",
+    "function"
+  ],
+  "parentObject": "uranus",
+  "moduleType": "identity",
+  "content": {
+    "ontology": {
+      "class": "planet",
+      "grammarRole": "verb",
+      "semanticClass": "reconfiguring_function",
+      "verbClass": "transformative_verbs"
+    },
+    "coreFunction": {
+      "primaryVerb": "reconfigure",
+      "definition": "Alter the organization, assumptions, or operating pattern of an existing system so that a different possibility can emerge.",
+      "functionalAim": "Increase freedom, adaptability, differentiation, and responsiveness by changing a pattern that has become limiting, obsolete, overdetermined, or closed."
+    },
+    "coreQuestions": [
+      "What else is possible?",
+      "Which assumption can be changed?",
+      "Where has a system become too fixed?",
+      "What new arrangement would create greater freedom or responsiveness?",
+      "Which pattern needs interruption before it can be reconsidered?"
+    ],
+    "functionalContributions": [
+      "reconfiguration",
+      "experimentation",
+      "differentiation",
+      "innovation",
+      "deviation from precedent",
+      "systemic reform",
+      "decentralization",
+      "rapid pattern recognition",
+      "discontinuity",
+      "liberation from obsolete constraints",
+      "future-oriented adaptation"
+    ],
+    "doesNotInherentlySupply": [
+      "destruction",
+      "chaos",
+      "rebellion for its own sake",
+      "superiority",
+      "technical intelligence",
+      "moral progress",
+      "successful innovation",
+      "permanent freedom",
+      "lack of responsibility"
+    ],
+    "planetaryBoundaries": [
+      {
+        "neighbor": "mercury",
+        "distinction": "Mercury understands, compares, translates, and communicates within or between systems. Uranus questions the system's assumptions and changes its configuration."
+      },
+      {
+        "neighbor": "mars",
+        "distinction": "Mars initiates and asserts action. Uranus changes the operating pattern, often by introducing a different option, architecture, or rule."
+      },
+      {
+        "neighbor": "saturn",
+        "distinction": "Saturn structures, stabilizes, and maintains. Uranus reconfigures, differentiates, and updates. Neither function cancels the other."
+      },
+      {
+        "neighbor": "pluto",
+        "distinction": "Pluto transforms through exposure, elimination, compulsion, and regeneration. Uranus transforms through reconfiguration, discontinuity, and alternative design."
+      },
+      {
+        "neighbor": "jupiter",
+        "distinction": "Jupiter expands range, meaning, and possibility. Uranus changes the pattern through which possibilities are organized."
+      }
+    ],
+    "identityConstraints": [
+      "Uranus must remain a function-bearing actor.",
+      "Its default function is reconfiguration, not destruction.",
+      "Disruption is a possible mechanism or observable effect, not the full identity.",
+      "Innovation must be distinguished from novelty.",
+      "Freedom must be distinguished from avoidance of commitment.",
+      "The function must remain reusable across all signs, houses, aspects, and queries."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Uranus identity module."
+    }
+  ]
+}

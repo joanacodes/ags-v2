@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "trine_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "trine",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Trine relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate facilitative semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Trine facilitates interaction without replacement.",
+      "Orb modifies strength only."
+    ],
+    "heuristics": [
+      "Prefer coordination over determinism.",
+      "Interpret facilitation through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Trine guarantees success.",
+      "Trine is inherently benefic.",
+      "Trine replaces planetary functions."
+    ]
+  }
+}

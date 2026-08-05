@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "vigintile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "vigintile",
+  "content": {
+    "coreRule": "Development changes how micro-refinement is expressed, never the relational role of Vigintile.",
+    "stages": {
+      "unconscious": [
+        "latent refinement",
+        "unnoticed subtle adjustments"
+      ],
+      "defensive": [
+        "over-analysis",
+        "rigid optimization"
+      ],
+      "learning": [
+        "recognizing fine distinctions",
+        "intentional adjustment"
+      ],
+      "healthy": [
+        "precise refinement",
+        "constructive optimization"
+      ],
+      "integrated": [
+        "continuous subtle improvement",
+        "mastery of nuance"
+      ]
+    },
+    "constraints": [
+      "Vigintile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

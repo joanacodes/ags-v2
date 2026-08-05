@@ -1,0 +1,16 @@
+{
+  "id": "chiron_tests",
+  "content": {
+    "cases": [
+      "Primary verb defaults to adapt",
+      "Healing cannot replace primary verb",
+      "Finished placement interpretation rejected",
+      "Relationship reversal preserves adaptive function"
+    ],
+    "regressions": [
+      "Chiron != wound",
+      "Chiron != trauma",
+      "Chiron != cure"
+    ]
+  }
+}

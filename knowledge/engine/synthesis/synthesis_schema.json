@@ -1,0 +1,16 @@
+{
+  "inputs": [
+    "dominance_map",
+    "pattern_clusters",
+    "aspect_relationships",
+    "context_layers",
+    "developmental_states",
+    "temporal_activations"
+  ],
+  "outputs": [
+    "integrated_themes",
+    "primary_relationships",
+    "developmental_pathways",
+    "synthesis_summary"
+  ]
+}

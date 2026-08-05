@@ -1,0 +1,10 @@
+{
+  "id": "saturn_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "canonical_function",
+  "parentObject": "saturn",
+  "content": {
+    "canonicalId": "saturn",
+    "semanticClass": "structure_responsibility_function"
+  }
+}

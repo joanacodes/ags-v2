@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house3_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "context",
+  "parentObject": "house_3",
+  "content": {
+    "contextSlots": [
+      "domain",
+      "setting",
+      "focus",
+      "scope",
+      "salience",
+      "expression_context"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] in the context of communication",
+      "[target] through learning",
+      "[target] within the immediate environment",
+      "[target] through information exchange"
+    ],
+    "forbidden": [
+      "House 3 acts.",
+      "House 3 creates intelligence.",
+      "House 3 replaces the target function."
+    ]
+  }
+}

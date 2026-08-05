@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "novile",
+  "content": {
+    "definition": "A Novile relates participating canonical functions through gestational integration and transformational maturation while preserving each function's identity.",
+    "boundaries": [
+      "Maturation does not imply perfection.",
+      "Transformation does not replace canonical functions."
+    ]
+  }
+}

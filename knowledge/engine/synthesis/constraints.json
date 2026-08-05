@@ -1,0 +1,8 @@
+{
+  "rules": [
+    "No deterministic predictions.",
+    "No ranking of human value.",
+    "No single factor overrides the system.",
+    "Maintain relational complexity."
+  ]
+}

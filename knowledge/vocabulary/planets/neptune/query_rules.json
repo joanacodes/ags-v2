@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "canonical_function",
+  "parentObject": "neptune",
+  "content": {
+    "defaultFunctionSet": [
+      "neptune_imagination",
+      "neptune_compassion",
+      "neptune_transcendence",
+      "neptune_symbolism"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "imagination",
+        "symbolic_perception"
+      ],
+      "relationships": [
+        "compassion",
+        "empathy"
+      ],
+      "career": [
+        "inspiration",
+        "creativity"
+      ],
+      "development": [
+        "transcendence",
+        "discernment"
+      ],
+      "transits": [
+        "collective_meaning",
+        "idealization"
+      ]
+    },
+    "selectionRules": [
+      "Preserve Neptune's canonical function.",
+      "Apply sign modifiers before house context.",
+      "Never substitute modifiers for the function."
+    ]
+  }
+}

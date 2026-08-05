@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house12_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_12",
+  "content": {
+    "defaultContextSet": [
+      "house12_inner",
+      "house12_reflection",
+      "house12_transcendence"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "inner_life",
+        "transcendence"
+      ],
+      "relationships": [
+        "compassion",
+        "release"
+      ],
+      "work": [
+        "reflection",
+        "retreat"
+      ],
+      "health": [
+        "unconscious",
+        "closure"
+      ],
+      "transits": [
+        "spirituality",
+        "solitude"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of inner life' as the neutral domain.",
+      "Prefer 'through reflection' as the neutral focus.",
+      "Suppress assumptions about victimhood or escapism.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "duodecile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "duodecile",
+  "content": {
+    "coreRule": "Development changes how harmonic refinement is expressed, never the relational role of Duodecile.",
+    "stages": {
+      "unconscious": [
+        "latent coherence",
+        "unrecognized subtle structures"
+      ],
+      "defensive": [
+        "rigid refinement",
+        "forced harmony"
+      ],
+      "learning": [
+        "recognizing harmonic relationships",
+        "intentional adjustment"
+      ],
+      "healthy": [
+        "constructive refinement",
+        "integrated expression"
+      ],
+      "integrated": [
+        "stable harmonic synthesis",
+        "continuous subtle coherence"
+      ]
+    },
+    "constraints": [
+      "Duodecile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

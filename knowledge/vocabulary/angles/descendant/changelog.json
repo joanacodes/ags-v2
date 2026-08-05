@@ -1,0 +1,9 @@
+{
+  "id": "descendant_changelog",
+  "version": "0.1.0",
+  "changes": [
+    "Canonized Descendant → relate.",
+    "Completed Descendant ontology.",
+    "Completed Ascendant–Descendant reference-frame axis."
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "leo_tests",
+  "moduleType": "tests",
+  "grammarRole": "modifier",
+  "parentObject": "leo",
+  "content": {
+    "suite": "leo_ontology_v0.1",
+    "cases": [
+      {
+        "id": "LEO-T-001",
+        "name": "Modifier role preserved",
+        "expected": true
+      },
+      {
+        "id": "LEO-T-002",
+        "name": "Reject Leo as actor",
+        "input": "Leo acts.",
+        "expected": false
+      },
+      {
+        "id": "LEO-T-003",
+        "name": "Reject arrogance default",
+        "input": "Leo is arrogant.",
+        "expected": false
+      },
+      {
+        "id": "LEO-T-004",
+        "name": "Allow expressive modifier",
+        "expected": true
+      },
+      {
+        "id": "LEO-T-005",
+        "name": "Preserve target verb",
+        "expected": true
+      },
+      {
+        "id": "LEO-T-006",
+        "name": "Reject finished interpretation",
+        "input": "Sun in Leo always seeks attention.",
+        "expected": false
+      },
+      {
+        "id": "LEO-T-007",
+        "name": "Suppress incompatible visibility",
+        "expected": true
+      },
+      {
+        "id": "LEO-T-008",
+        "name": "Deterministic selection",
+        "expected": true
+      }
+    ],
+    "requiredAssertions": [
+      "modifier role preserved",
+      "canonical function preserved",
+      "finished interpretations rejected",
+      "deterministic selection"
+    ]
+  }
+}

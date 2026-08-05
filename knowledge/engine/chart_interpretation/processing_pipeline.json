@@ -1,0 +1,11 @@
+{
+  "steps": [
+    "Load canonical function data",
+    "Resolve functional conditions",
+    "Resolve aspect operators",
+    "Generate semantic relationships",
+    "Apply contextual weighting",
+    "Identify repeating patterns",
+    "Generate integrated interpretation"
+  ]
+}

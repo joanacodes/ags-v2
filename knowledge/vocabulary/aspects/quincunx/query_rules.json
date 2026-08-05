@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quincunx_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "quincunx",
+  "content": {
+    "defaultOperator": "adaptive_recalibration_operator",
+    "supportedQueries": {
+      "identity": [
+        "adjustment",
+        "recalibration"
+      ],
+      "relationship": [
+        "adaptation",
+        "integration"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Quincunx operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

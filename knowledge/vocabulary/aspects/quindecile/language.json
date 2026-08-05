@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quindecile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "quindecile",
+  "content": {
+    "verbs": [
+      "focuses",
+      "intensifies",
+      "concentrates",
+      "directs"
+    ],
+    "templates": [
+      "{A} concentrates expression through interaction with {B}.",
+      "{A} intensifies focused engagement with {B}."
+    ]
+  }
+}

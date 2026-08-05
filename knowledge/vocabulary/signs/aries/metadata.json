@@ -1,0 +1,129 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_metadata",
+  "name": "Aries Metadata",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines the Aries package manifest, lifecycle, completion state, and forbidden-content confirmation.",
+  "grammarRole": "modifier",
+  "compliesWith": [
+    "LAW-002",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ags_sign_blueprint",
+    "ags_semantic_principles"
+  ],
+  "priority": 10,
+  "tags": [
+    "aries",
+    "metadata",
+    "sign",
+    "modifier"
+  ],
+  "parentObject": "aries",
+  "moduleType": "metadata",
+  "content": {
+    "objectId": "aries",
+    "objectName": "Aries",
+    "objectType": "sign",
+    "objectVersion": "0.1.0",
+    "blueprintVersion": "0.1.0",
+    "packageStatus": "draft_for_review",
+    "repositoryPath": "vocabulary/signs/aries/",
+    "manifest": [
+      {
+        "file": "metadata.json",
+        "moduleType": "metadata",
+        "status": "draft_for_review"
+      },
+      {
+        "file": "identity.json",
+        "moduleType": "identity",
+        "status": "draft_for_review"
+      },
+      {
+        "file": "modifiers.json",
+        "moduleType": "modifiers",
+        "status": "draft_for_review"
+      },
+      {
+        "file": "semantics.json",
+        "moduleType": "semantics",
+        "status": "not_started"
+      },
+      {
+        "file": "expression.json",
+        "moduleType": "expression",
+        "status": "not_started"
+      },
+      {
+        "file": "compatibility.json",
+        "moduleType": "compatibility",
+        "status": "not_started"
+      },
+      {
+        "file": "query_rules.json",
+        "moduleType": "query_rules",
+        "status": "not_started"
+      },
+      {
+        "file": "reasoning.json",
+        "moduleType": "reasoning",
+        "status": "not_started"
+      },
+      {
+        "file": "tests.json",
+        "moduleType": "tests",
+        "status": "not_started"
+      },
+      {
+        "file": "changelog.json",
+        "moduleType": "changelog",
+        "status": "not_started"
+      }
+    ],
+    "completion": {
+      "percentage": 30,
+      "completedModules": 3,
+      "totalModules": 10,
+      "passedQualityGates": [],
+      "pendingQualityGates": [
+        "SB-GATE-001",
+        "SB-GATE-002",
+        "SB-GATE-003",
+        "SB-GATE-004"
+      ]
+    },
+    "currentMilestone": "Modifier Gate",
+    "nextRequiredModules": [
+      "semantics.json",
+      "expression.json",
+      "compatibility.json"
+    ],
+    "forbiddenContentConfirmed": [
+      "No finished placement sentences",
+      "No planet-specific interpretations",
+      "No house-specific interpretations",
+      "No aspect-specific interpretations",
+      "No guaranteed personality outcomes"
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only sign vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Aries metadata module."
+    }
+  ]
+}

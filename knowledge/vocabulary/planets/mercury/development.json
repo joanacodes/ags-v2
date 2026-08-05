@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mercury_development",
+  "moduleType": "development",
+  "grammarRole": "canonical_function",
+  "parentObject": "mercury",
+  "content": {
+    "coreRule": "Development changes how Mercury's canonical function is expressed; the canonical function itself remains unchanged.",
+    "stages": {
+      "unconscious": [
+        "automatic interpretation",
+        "reactive communication"
+      ],
+      "defensive": [
+        "rigid reasoning",
+        "communication constrained by defensiveness"
+      ],
+      "learning": [
+        "developing reflective thinking",
+        "improving communication"
+      ],
+      "healthy": [
+        "clear reasoning",
+        "effective communication"
+      ],
+      "integrated": [
+        "flexible cognition integrated with accurate symbolic communication"
+      ]
+    },
+    "constraints": [
+      "Development never changes the canonical function.",
+      "Integrated descriptions require supporting evidence."
+    ]
+  }
+}

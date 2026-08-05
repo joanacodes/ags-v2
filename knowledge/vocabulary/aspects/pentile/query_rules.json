@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pentile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "pentile",
+  "content": {
+    "defaultOperator": "creative_harmonic_operator",
+    "supportedQueries": {
+      "identity": [
+        "creative_potential",
+        "harmonic_expression"
+      ],
+      "relationship": [
+        "refinement",
+        "synthesis"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Pentile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

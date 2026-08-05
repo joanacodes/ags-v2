@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "duodecile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "duodecile",
+  "content": {
+    "definition": "A Duodecile relates participating canonical functions through harmonic refinement and subtle integration while preserving each function's identity.",
+    "boundaries": [
+      "Refinement does not imply perfection.",
+      "Harmony does not replace canonical functions."
+    ]
+  }
+}

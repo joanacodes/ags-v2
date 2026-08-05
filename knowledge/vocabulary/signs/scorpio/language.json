@@ -1,0 +1,41 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "scorpio_language",
+  "moduleType": "language",
+  "grammarRole": "modifier",
+  "parentObject": "scorpio",
+  "content": {
+    "manner": [
+      "deeply",
+      "intensely",
+      "deliberately"
+    ],
+    "strategy": [
+      "through transformation",
+      "through investigation",
+      "through regeneration"
+    ],
+    "pace": [
+      "steadily",
+      "persistently",
+      "at a sustained pace"
+    ],
+    "orientation": [
+      "toward integration",
+      "toward truth",
+      "toward renewal"
+    ],
+    "priority": [
+      "with emphasis on resilience",
+      "with emphasis on regeneration"
+    ],
+    "regulation": [
+      "while preserving integrity",
+      "while maintaining emotional coherence"
+    ],
+    "developmental": [
+      "through progressive transformation",
+      "through adaptive integration"
+    ]
+  }
+}

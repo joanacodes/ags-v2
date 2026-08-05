@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pentile_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "pentile",
+  "content": {
+    "suite": "pentile_ontology_v0.1",
+    "cases": [
+      {
+        "id": "PEN-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "PEN-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "PEN-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "PEN-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "PEN-T-005",
+        "name": "No intrinsic benefic/malefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

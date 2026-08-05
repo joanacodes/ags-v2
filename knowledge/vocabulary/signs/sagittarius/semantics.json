@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sagittarius_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "modifier",
+  "parentObject": "sagittarius",
+  "content": {
+    "domains": {
+      "exploration": "Extends into new domains or experiences.",
+      "expansion": "Broadens functional scope.",
+      "learning": "Acquires and integrates knowledge.",
+      "discovery": "Finds new relationships or opportunities.",
+      "meaning": "Organizes experience into significance.",
+      "synthesis": "Connects diverse ideas into a coherent whole.",
+      "vision": "Maintains long-range orientation.",
+      "possibility": "Recognizes potential pathways.",
+      "growth": "Supports continued development.",
+      "perspective": "Frames events within a wider context."
+    },
+    "boundaries": [
+      "Expansion is not excess.",
+      "Exploration is not recklessness.",
+      "Vision is not dogmatism.",
+      "Optimism is not denial."
+    ]
+  }
+}

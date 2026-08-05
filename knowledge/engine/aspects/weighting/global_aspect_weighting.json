@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "global_aspect_weighting",
+  "moduleType": "semantic_weighting_framework",
+  "parentObject": "ags_aspect_ontology",
+  "content": {
+    "purpose": "Define global weighting rules without assigning intrinsic value to aspects.",
+    "weightLayers": [
+      {
+        "layer": "geometric",
+        "factors": [
+          "exactness",
+          "orb_distance",
+          "angular proximity"
+        ]
+      },
+      {
+        "layer": "contextual",
+        "factors": [
+          "canonical operands",
+          "sign context",
+          "house context",
+          "developmental state"
+        ]
+      },
+      {
+        "layer": "semantic",
+        "factors": [
+          "operator family",
+          "expression mode",
+          "query intent"
+        ]
+      }
+    ],
+    "rules": [
+      "No aspect receives inherent positive or negative value.",
+      "Strength is not equivalent to quality.",
+      "Meaning emerges from operator plus context."
+    ],
+    "status": "weighting_framework_complete"
+  }
+}

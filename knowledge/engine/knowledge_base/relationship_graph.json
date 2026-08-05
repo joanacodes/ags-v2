@@ -1,0 +1,24 @@
+{
+  "connections": [
+    {
+      "source": "canonical_function_core",
+      "target": "aspect_resolution_engine",
+      "relationship": "provides_operands"
+    },
+    {
+      "source": "aspect_resolution_engine",
+      "target": "aspect_semantic_matrix",
+      "relationship": "provides_operators"
+    },
+    {
+      "source": "aspect_semantic_matrix",
+      "target": "chart_interpretation_engine",
+      "relationship": "provides_relationships"
+    },
+    {
+      "source": "chart_interpretation_engine",
+      "target": "report_generator",
+      "relationship": "provides_output_structure"
+    }
+  ]
+}

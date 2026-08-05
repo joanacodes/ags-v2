@@ -1,0 +1,183 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_psychology",
+  "name": "North Node Psychology",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines psychological needs, sensitivities, protective strategies, regulation needs, blind spots, and integration markers for developmental practice.",
+  "grammarRole": "developmental_direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "north_node_identity",
+    "north_node_semantics",
+    "nodal_axis_identity",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "psychology",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "psychology",
+  "content": {
+    "coreNeed": {
+      "id": "permission_to_practice_the_unfamiliar",
+      "definition": "Enough psychological permission, time, and feedback to practice a less familiar complementary capacity without demanding immediate competence."
+    },
+    "coreMotivation": {
+      "id": "expand_operating_range",
+      "definition": "Increase the number of available responses by strengthening capacities that are not yet automatic or consolidated."
+    },
+    "coreSensitivity": [
+      {
+        "id": "unfamiliarity_sensitivity",
+        "definition": "Heightened awareness of discomfort, inefficiency, or uncertainty when using a less practiced mode."
+      },
+      {
+        "id": "performance_gap_sensitivity",
+        "definition": "Heightened awareness of the difference between existing competence and emerging ability."
+      },
+      {
+        "id": "developmental_comparison_sensitivity",
+        "definition": "Heightened awareness of others who appear more fluent in the emerging capacity."
+      },
+      {
+        "id": "overreliance_sensitivity",
+        "definition": "Heightened awareness that the familiar South Node strategy is being used beyond the range where it remains adaptive."
+      }
+    ],
+    "coreFearPatterns": [
+      {
+        "id": "incompetence_in_the_new_mode",
+        "definition": "Fear that temporary awkwardness proves inability or unsuitability."
+      },
+      {
+        "id": "loss_of_established_identity",
+        "definition": "Fear that developing the emerging capacity requires rejecting familiar strengths."
+      },
+      {
+        "id": "failure_without_familiar_fallback",
+        "definition": "Fear that practice will expose weakness while reducing access to the established mode."
+      },
+      {
+        "id": "developmental_exposure",
+        "definition": "Fear of being seen while learning, experimenting, or performing below established standards."
+      }
+    ],
+    "protectiveStrategies": [
+      {
+        "id": "idealizing_the_destination",
+        "definition": "Treat the emerging capacity as a perfected future identity rather than a practice."
+      },
+      {
+        "id": "premature_performance",
+        "definition": "Attempt to display mastery before sufficient repetition and feedback exist."
+      },
+      {
+        "id": "overcorrection",
+        "definition": "Reject or suppress familiar capacities in order to appear aligned with the emerging pole."
+      },
+      {
+        "id": "developmental_avoidance",
+        "definition": "Return exclusively to the established pattern when the new mode feels inefficient or exposing."
+      },
+      {
+        "id": "moralizing_growth",
+        "definition": "Treat unfamiliarity as virtue and familiarity as failure."
+      }
+    ],
+    "blindSpots": [
+      "Confusing unfamiliarity with authenticity",
+      "Confusing difficulty with developmental importance",
+      "Confusing aspiration with integration",
+      "Confusing rejection of the South Node with growth",
+      "Confusing temporary awkwardness with permanent incompetence",
+      "Underestimating the value of established strengths",
+      "Expecting development to feel immediately rewarding",
+      "Treating growth as a moral obligation"
+    ],
+    "regulationNeeds": [
+      {
+        "id": "small_scale_practice",
+        "definition": "Practice the emerging capacity in bounded situations where feedback is available."
+      },
+      {
+        "id": "south_node_resource_access",
+        "definition": "Keep established skills available as support rather than treating them as forbidden."
+      },
+      {
+        "id": "developmental_pacing",
+        "definition": "Match the difficulty and exposure level to the current stage of practice."
+      },
+      {
+        "id": "feedback_without_identity_judgment",
+        "definition": "Evaluate performance without converting it into a verdict about worth or destiny."
+      },
+      {
+        "id": "integration_review",
+        "definition": "Assess whether the emerging capacity is broadening range rather than creating a new rigidity."
+      }
+    ],
+    "healthyPsychologicalFunctions": [
+      "Practice without demanding immediate mastery",
+      "Use familiar strengths as developmental support",
+      "Tolerate temporary inefficiency",
+      "Distinguish direction from destiny",
+      "Receive feedback without identity collapse",
+      "Recognize overreliance without demonizing familiarity",
+      "Build capacity through repetition",
+      "Integrate emerging and established functions"
+    ],
+    "integrationMarkers": [
+      "Can use the emerging capacity without performing an idealized identity",
+      "Can return to the South Node without shame",
+      "Can recognize when unfamiliarity is useful and when it is merely inefficient",
+      "Can practice publicly without demanding immediate competence",
+      "Can let feedback modify the developmental direction",
+      "Can coordinate both poles according to context",
+      "Can stop moralizing growth",
+      "Can treat range expansion as an ongoing process"
+    ],
+    "reflectionComponents": [
+      "Which capacity is actually underdeveloped?",
+      "What would one small practice step look like?",
+      "Which South Node strength could support this practice?",
+      "Is this development or overcorrection?",
+      "What feedback would show that range is expanding?",
+      "Am I treating direction as destiny?"
+    ],
+    "psychologyConstraints": [
+      "No motive may be inferred from the North Node alone.",
+      "No developmental difficulty may be treated as pathology.",
+      "The South Node must remain available as a resource.",
+      "The North Node may not be described as moral superiority.",
+      "Developmental language must reference the global development blueprint."
+    ]
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Developmental-direction vocabulary only. Psychology and development qualify expression but do not convert the North Node into destiny, moral ranking, or guaranteed outcome.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node psychology module."
+    }
+  ]
+}

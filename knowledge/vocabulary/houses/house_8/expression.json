@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house8_expression",
+  "moduleType": "expression",
+  "grammarRole": "context",
+  "parentObject": "house_8",
+  "content": {
+    "families": [
+      {
+        "id": "transformation",
+        "components": [
+          "in the context of transformation",
+          "through regenerative change"
+        ]
+      },
+      {
+        "id": "shared_resources",
+        "components": [
+          "through shared resources",
+          "within mutual stewardship"
+        ]
+      },
+      {
+        "id": "intimacy",
+        "components": [
+          "through intimacy",
+          "within trusted vulnerability"
+        ]
+      },
+      {
+        "id": "trust",
+        "components": [
+          "through trust",
+          "within reciprocal openness"
+        ]
+      },
+      {
+        "id": "depth",
+        "components": [
+          "within psychological depth",
+          "through deep exchange"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Locate the planetary function within transformation and shared resources.",
+      "angle": "Contextualize the angle within deep exchange without changing its reference-frame role.",
+      "node": "Place developmental themes within transformation while preserving nodal polarity.",
+      "chiron": "Contextualize healing themes through trust and regeneration without implying completion."
+    },
+    "constraints": [
+      "Depth is not obsession.",
+      "Intimacy is not manipulation.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novemseptile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "novemseptile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Novemseptile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate deep recursive transformation semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Novemseptile introduces deep recursive transformation without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer transformational maturation over deterministic outcomes.",
+      "Interpret recursive cycles through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Novemseptile is inherently fated.",
+      "Novemseptile guarantees transformation.",
+      "Novemseptile replaces planetary functions."
+    ]
+  }
+}

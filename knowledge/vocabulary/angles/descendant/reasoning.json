@@ -1,0 +1,20 @@
+{
+  "id": "descendant_reasoning",
+  "resolutionOrder": [
+    "Load Ascendant and Descendant",
+    "Resolve Descendant sign",
+    "Resolve ruler, house, and aspects",
+    "Build reciprocal orientation clause",
+    "Validate reference-frame constraints"
+  ],
+  "heuristics": [
+    "Relational orientation complements self-orientation.",
+    "Counterpart awareness does not erase self.",
+    "Prefer reciprocity over deterministic outcomes."
+  ],
+  "forbiddenInferences": [
+    "Descendant guarantees marriage.",
+    "Descendant equals dependency.",
+    "Descendant acts independently of planets."
+  ]
+}

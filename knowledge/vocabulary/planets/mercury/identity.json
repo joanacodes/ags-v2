@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mercury_identity",
+  "moduleType": "identity",
+  "grammarRole": "canonical_function",
+  "parentObject": "mercury",
+  "content": {
+    "canonicalFunction": "processes information, creates meaning, and enables communication",
+    "coreDomains": [
+      "cognition",
+      "communication",
+      "language",
+      "reasoning",
+      "learning",
+      "interpretation",
+      "symbolic_processing",
+      "curiosity",
+      "analysis",
+      "exchange"
+    ],
+    "notInherent": [
+      "intelligence",
+      "verbosity",
+      "dishonesty",
+      "anxiety",
+      "education",
+      "logic_only"
+    ],
+    "constraints": [
+      "Mercury is a canonical function.",
+      "Signs modify Mercury's function but never replace it.",
+      "Houses contextualize Mercury's function but never perform it.",
+      "Aspects relate Mercury to other canonical functions."
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "square_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "square",
+  "content": {
+    "definition": "A Square relates participating canonical functions through constructive friction that can drive adaptation while preserving each function's identity.",
+    "boundaries": [
+      "Friction is not failure.",
+      "Challenge is not punishment."
+    ]
+  }
+}

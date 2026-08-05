@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "tredecile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "tredecile",
+  "content": {
+    "defaultOperator": "adaptive_restructuring_operator",
+    "supportedQueries": {
+      "identity": [
+        "adaptation",
+        "restructuring"
+      ],
+      "relationship": [
+        "transformation",
+        "integration"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Tredecile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

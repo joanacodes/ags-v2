@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "novile",
+  "content": {
+    "defaultOperator": "transformational_maturation_operator",
+    "supportedQueries": {
+      "identity": [
+        "completion",
+        "gestation"
+      ],
+      "relationship": [
+        "maturation",
+        "transformation"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Novile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

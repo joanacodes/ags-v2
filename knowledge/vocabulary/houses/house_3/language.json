@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house3_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_3",
+  "content": {
+    "domain": [
+      "communication",
+      "learning",
+      "information exchange"
+    ],
+    "focus": [
+      "curiosity",
+      "skill development",
+      "thinking"
+    ],
+    "scope": [
+      "daily interactions",
+      "local environment",
+      "practical learning"
+    ],
+    "salience": [
+      "mentally active",
+      "locally relevant",
+      "frequently expressed"
+    ],
+    "expression_context": [
+      "through communication",
+      "through learning",
+      "through practical engagement"
+    ]
+  }
+}

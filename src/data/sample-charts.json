@@ -1,0 +1,359 @@
+{
+  "charts": [
+    {
+      "id": "chart-clara-mercer",
+      "person": {
+        "id": "person-clara-mercer",
+        "firstName": "Clara",
+        "lastName": "Mercer",
+        "gender": "Female"
+      },
+      "birth": {
+        "date": "1994-10-12",
+        "time": "14:35",
+        "timeKnown": true,
+        "place": "London, United Kingdom",
+        "country": "United Kingdom",
+        "timezone": "Europe/London",
+        "utcOffset": "UTC +0:00",
+        "latitude": 51.5074,
+        "longitude": -0.1278,
+        "elevationMeters": 11,
+        "julianDay": 2449637.107
+      },
+      "configuration": {
+        "houseSystem": "Placidus",
+        "zodiac": "Tropical",
+        "ephemeris": "Swiss Ephemeris"
+      },
+      "planets": [
+        { "planet": "Sun", "degree": 19, "minute": 14, "sign": "Libra", "house": 4 },
+        { "planet": "Moon", "degree": 4, "minute": 3, "sign": "Capricorn", "house": 11 },
+        { "planet": "Mercury", "degree": 2, "minute": 41, "sign": "Scorpio", "house": 9 },
+        { "planet": "Venus", "degree": 14, "minute": 22, "sign": "Virgo", "house": 7 },
+        { "planet": "Mars", "degree": 28, "minute": 8, "sign": "Leo", "house": 7 },
+        { "planet": "Jupiter", "degree": 8, "minute": 30, "sign": "Scorpio", "house": 9 },
+        { "planet": "Saturn", "degree": 6, "minute": 55, "sign": "Pisces", "house": 1 },
+        { "planet": "Uranus", "degree": 22, "minute": 10, "sign": "Capricorn", "house": 12, "retrograde": true },
+        { "planet": "Neptune", "degree": 20, "minute": 44, "sign": "Capricorn", "house": 12, "retrograde": true },
+        { "planet": "Pluto", "degree": 26, "minute": 51, "sign": "Scorpio", "house": 9 }
+      ],
+      "houses": [
+        { "number": 1, "degree": 15, "minute": 0, "sign": "Aquarius" },
+        { "number": 2, "degree": 26, "minute": 15, "sign": "Pisces" },
+        { "number": 3, "degree": 14, "minute": 30, "sign": "Taurus" },
+        { "number": 4, "degree": 5, "minute": 10, "sign": "Gemini" },
+        { "number": 5, "degree": 27, "minute": 40, "sign": "Gemini" },
+        { "number": 6, "degree": 19, "minute": 25, "sign": "Cancer" },
+        { "number": 7, "degree": 15, "minute": 0, "sign": "Leo" },
+        { "number": 8, "degree": 26, "minute": 15, "sign": "Virgo" },
+        { "number": 9, "degree": 14, "minute": 30, "sign": "Scorpio" },
+        { "number": 10, "degree": 5, "minute": 10, "sign": "Sagittarius" },
+        { "number": 11, "degree": 27, "minute": 40, "sign": "Sagittarius" },
+        { "number": 12, "degree": 19, "minute": 25, "sign": "Capricorn" }
+      ],
+      "angles": [
+        { "point": "ASC", "degree": 15, "minute": 0, "sign": "Aquarius" },
+        { "point": "IC", "degree": 5, "minute": 10, "sign": "Gemini" },
+        { "point": "DC", "degree": 15, "minute": 0, "sign": "Leo" },
+        { "point": "MC", "degree": 5, "minute": 10, "sign": "Sagittarius" }
+      ],
+      "aspects": [
+        { "id": "asp-venus-pluto", "type": "trine", "from": "Venus", "to": "Pluto", "orb": "2°34'", "applying": false },
+        { "id": "asp-venus-mars", "type": "square", "from": "Venus", "to": "Mars", "orb": "4°12'", "applying": true },
+        { "id": "asp-venus-jupiter", "type": "conjunction", "from": "Venus", "to": "Jupiter", "orb": "6°08'", "applying": false },
+        { "id": "asp-sun-asc", "type": "opposition", "from": "Sun", "to": "ASC", "orb": "4°00'", "applying": false },
+        { "id": "asp-moon-neptune", "type": "conjunction", "from": "Moon", "to": "Neptune", "orb": "3°19'", "applying": true },
+        { "id": "asp-moon-saturn", "type": "sextile", "from": "Moon", "to": "Saturn", "orb": "2°52'", "applying": false },
+        { "id": "asp-mercury-jupiter", "type": "conjunction", "from": "Mercury", "to": "Jupiter", "orb": "5°49'", "applying": true },
+        { "id": "asp-mars-mc", "type": "trine", "from": "Mars", "to": "MC", "orb": "1°02'", "applying": false }
+      ],
+      "summary": {
+        "sun": { "degree": 19, "minute": 14, "sign": "Libra", "house": 4 },
+        "moon": { "degree": 4, "minute": 3, "sign": "Capricorn", "house": 11 },
+        "ascendant": { "degree": 15, "minute": 0, "sign": "Aquarius" },
+        "chartRuler": { "planet": "Saturn", "position": "6° Pisces · 1st House" },
+        "dominantElement": "Air",
+        "dominantModality": "Cardinal",
+        "dominantPlanets": ["Saturn", "Venus", "Sun"],
+        "strongestHouses": [4, 7, 11],
+        "majorThemes": [
+          "Identity formed through relationships and social mirroring",
+          "Tension between emotional security and public ambition",
+          "Strong drive for intellectual freedom and humanitarian ideals"
+        ],
+        "insights": [
+          { "label": "Relationship Focus", "score": 4 },
+          { "label": "Career Ambition", "score": 3 },
+          { "label": "Emotional Depth", "score": 5 },
+          { "label": "Intellectual Drive", "score": 5 }
+        ]
+      },
+      "status": "active",
+      "favourite": true,
+      "confidenceScore": 82,
+      "createdAt": "2026-05-02T10:12:00Z",
+      "lastOpenedAt": "2026-07-18T08:05:00Z",
+      "lastOpenedLabel": "Today"
+    },
+    {
+      "id": "chart-julian-thorne",
+      "person": { "id": "person-julian-thorne", "firstName": "Julian", "lastName": "Thorne", "gender": "Male" },
+      "birth": {
+        "date": "1988-03-03",
+        "time": "06:20",
+        "timeKnown": true,
+        "place": "Berlin, Germany",
+        "country": "Germany",
+        "timezone": "Europe/Berlin",
+        "utcOffset": "UTC +1:00",
+        "latitude": 52.52,
+        "longitude": 13.405
+      },
+      "configuration": { "houseSystem": "Placidus", "zodiac": "Tropical", "ephemeris": "Swiss Ephemeris" },
+      "planets": [
+        { "planet": "Sun", "degree": 12, "minute": 48, "sign": "Pisces", "house": 12 },
+        { "planet": "Moon", "degree": 27, "minute": 5, "sign": "Gemini", "house": 4 },
+        { "planet": "Venus", "degree": 21, "minute": 33, "sign": "Aries", "house": 2 },
+        { "planet": "Mars", "degree": 9, "minute": 16, "sign": "Sagittarius", "house": 9 },
+        { "planet": "Jupiter", "degree": 24, "minute": 2, "sign": "Aries", "house": 2 }
+      ],
+      "houses": [],
+      "angles": [{ "point": "ASC", "degree": 4, "minute": 12, "sign": "Pisces" }],
+      "aspects": [
+        { "id": "jt-1", "type": "square", "from": "Sun", "to": "Moon", "orb": "3°10'", "applying": true },
+        { "id": "jt-2", "type": "conjunction", "from": "Venus", "to": "Jupiter", "orb": "2°29'", "applying": false }
+      ],
+      "summary": {
+        "sun": { "degree": 12, "minute": 48, "sign": "Pisces", "house": 12 },
+        "moon": { "degree": 27, "minute": 5, "sign": "Gemini", "house": 4 },
+        "ascendant": { "degree": 4, "minute": 12, "sign": "Pisces" },
+        "chartRuler": { "planet": "Neptune", "position": "8° Capricorn · 11th House" },
+        "dominantElement": "Water",
+        "dominantModality": "Mutable",
+        "dominantPlanets": ["Neptune", "Jupiter", "Moon"],
+        "strongestHouses": [2, 9, 12],
+        "majorThemes": [
+          "Imagination as the primary instrument of work",
+          "Restlessness between rootedness and exploration"
+        ],
+        "insights": [
+          { "label": "Relationship Focus", "score": 3 },
+          { "label": "Career Ambition", "score": 3 },
+          { "label": "Emotional Depth", "score": 4 },
+          { "label": "Intellectual Drive", "score": 4 }
+        ]
+      },
+      "status": "processing",
+      "favourite": false,
+      "confidenceScore": 61,
+      "createdAt": "2026-06-20T09:00:00Z",
+      "lastOpenedAt": "2026-07-17T16:40:00Z",
+      "lastOpenedLabel": "Yesterday"
+    },
+    {
+      "id": "chart-saffron-hayes",
+      "person": { "id": "person-saffron-hayes", "firstName": "Saffron", "lastName": "Hayes", "gender": "Female" },
+      "birth": {
+        "date": "1991-08-21",
+        "time": "23:05",
+        "timeKnown": true,
+        "place": "Austin, US",
+        "country": "United States",
+        "timezone": "America/Chicago",
+        "utcOffset": "UTC -6:00",
+        "latitude": 30.2672,
+        "longitude": -97.7431
+      },
+      "configuration": { "houseSystem": "Placidus", "zodiac": "Tropical", "ephemeris": "Swiss Ephemeris" },
+      "planets": [
+        { "planet": "Sun", "degree": 28, "minute": 21, "sign": "Leo", "house": 5 },
+        { "planet": "Moon", "degree": 14, "minute": 47, "sign": "Scorpio", "house": 7 },
+        { "planet": "Mercury", "degree": 22, "minute": 3, "sign": "Virgo", "house": 6 },
+        { "planet": "Venus", "degree": 3, "minute": 55, "sign": "Virgo", "house": 5 },
+        { "planet": "Mars", "degree": 16, "minute": 30, "sign": "Virgo", "house": 6 }
+      ],
+      "houses": [],
+      "angles": [{ "point": "ASC", "degree": 21, "minute": 0, "sign": "Aries" }],
+      "aspects": [
+        { "id": "sh-1", "type": "square", "from": "Sun", "to": "Moon", "orb": "1°26'", "applying": false },
+        { "id": "sh-2", "type": "trine", "from": "Sun", "to": "ASC", "orb": "2°39'", "applying": true }
+      ],
+      "summary": {
+        "sun": { "degree": 28, "minute": 21, "sign": "Leo", "house": 5 },
+        "moon": { "degree": 14, "minute": 47, "sign": "Scorpio", "house": 7 },
+        "ascendant": { "degree": 21, "minute": 0, "sign": "Aries" },
+        "chartRuler": { "planet": "Mars", "position": "16° Virgo · 6th House" },
+        "dominantElement": "Fire",
+        "dominantModality": "Fixed",
+        "dominantPlanets": ["Sun", "Mars", "Moon"],
+        "strongestHouses": [5, 6, 7],
+        "majorThemes": [
+          "Creative expression as vocation",
+          "Craft and service refining raw confidence"
+        ],
+        "insights": [
+          { "label": "Relationship Focus", "score": 4 },
+          { "label": "Career Ambition", "score": 5 },
+          { "label": "Emotional Depth", "score": 4 },
+          { "label": "Intellectual Drive", "score": 3 }
+        ]
+      },
+      "status": "active",
+      "favourite": true,
+      "confidenceScore": 94,
+      "createdAt": "2026-04-11T13:30:00Z",
+      "lastOpenedAt": "2026-07-16T11:00:00Z",
+      "lastOpenedLabel": "2 days ago"
+    },
+    {
+      "id": "chart-marcus-chen",
+      "person": { "id": "person-marcus-chen", "firstName": "Marcus", "lastName": "Chen", "gender": "Male" },
+      "birth": {
+        "date": "1985-01-17",
+        "timeKnown": false,
+        "place": "Singapore",
+        "country": "Singapore",
+        "timezone": "Asia/Singapore",
+        "utcOffset": "UTC +8:00",
+        "latitude": 1.3521,
+        "longitude": 103.8198
+      },
+      "configuration": { "houseSystem": "Whole Sign", "zodiac": "Tropical", "ephemeris": "Swiss Ephemeris" },
+      "planets": [
+        { "planet": "Sun", "degree": 27, "minute": 12, "sign": "Capricorn", "house": 1 },
+        { "planet": "Moon", "degree": 9, "minute": 58, "sign": "Taurus", "house": 5 },
+        { "planet": "Mercury", "degree": 13, "minute": 24, "sign": "Aquarius", "house": 2 },
+        { "planet": "Saturn", "degree": 25, "minute": 40, "sign": "Scorpio", "house": 11 }
+      ],
+      "houses": [],
+      "angles": [{ "point": "ASC", "degree": 0, "minute": 0, "sign": "Capricorn" }],
+      "aspects": [
+        { "id": "mc-1", "type": "trine", "from": "Sun", "to": "Moon", "orb": "2°46'", "applying": false }
+      ],
+      "summary": {
+        "sun": { "degree": 27, "minute": 12, "sign": "Capricorn", "house": 1 },
+        "moon": { "degree": 9, "minute": 58, "sign": "Taurus", "house": 5 },
+        "ascendant": { "degree": 0, "minute": 0, "sign": "Capricorn" },
+        "chartRuler": { "planet": "Saturn", "position": "25° Scorpio · 11th House" },
+        "dominantElement": "Earth",
+        "dominantModality": "Cardinal",
+        "dominantPlanets": ["Saturn", "Sun", "Moon"],
+        "strongestHouses": [1, 5, 11],
+        "majorThemes": ["Structure and mastery as an organising drive"],
+        "insights": [
+          { "label": "Relationship Focus", "score": 3 },
+          { "label": "Career Ambition", "score": 5 },
+          { "label": "Emotional Depth", "score": 3 },
+          { "label": "Intellectual Drive", "score": 4 }
+        ]
+      },
+      "status": "archived",
+      "favourite": false,
+      "confidenceScore": 78,
+      "createdAt": "2026-02-08T15:20:00Z",
+      "lastOpenedAt": "2026-07-14T09:10:00Z",
+      "lastOpenedLabel": "4 days ago"
+    },
+    {
+      "id": "chart-elena-rostova",
+      "person": { "id": "person-elena-rostova", "firstName": "Elena", "lastName": "Rostova", "gender": "Female" },
+      "birth": {
+        "date": "1996-11-30",
+        "time": "03:12",
+        "timeKnown": true,
+        "place": "Moscow, Russia",
+        "country": "Russia",
+        "timezone": "Europe/Moscow",
+        "utcOffset": "UTC +3:00",
+        "latitude": 55.7558,
+        "longitude": 37.6173
+      },
+      "configuration": { "houseSystem": "Placidus", "zodiac": "Tropical", "ephemeris": "Swiss Ephemeris" },
+      "planets": [
+        { "planet": "Sun", "degree": 8, "minute": 5, "sign": "Scorpio", "house": 2 },
+        { "planet": "Moon", "degree": 19, "minute": 51, "sign": "Cancer", "house": 10 },
+        { "planet": "Venus", "degree": 25, "minute": 17, "sign": "Libra", "house": 1 },
+        { "planet": "Pluto", "degree": 2, "minute": 44, "sign": "Sagittarius", "house": 3 }
+      ],
+      "houses": [],
+      "angles": [{ "point": "ASC", "degree": 12, "minute": 30, "sign": "Libra" }],
+      "aspects": [
+        { "id": "er-1", "type": "trine", "from": "Sun", "to": "Moon", "orb": "3°14'", "applying": true }
+      ],
+      "summary": {
+        "sun": { "degree": 8, "minute": 5, "sign": "Scorpio", "house": 2 },
+        "moon": { "degree": 19, "minute": 51, "sign": "Cancer", "house": 10 },
+        "ascendant": { "degree": 12, "minute": 30, "sign": "Libra" },
+        "chartRuler": { "planet": "Venus", "position": "25° Libra · 1st House" },
+        "dominantElement": "Water",
+        "dominantModality": "Fixed",
+        "dominantPlanets": ["Pluto", "Venus", "Moon"],
+        "strongestHouses": [1, 2, 10],
+        "majorThemes": ["Depth, loyalty and quiet intensity in all bonds"],
+        "insights": [
+          { "label": "Relationship Focus", "score": 5 },
+          { "label": "Career Ambition", "score": 4 },
+          { "label": "Emotional Depth", "score": 5 },
+          { "label": "Intellectual Drive", "score": 3 }
+        ]
+      },
+      "status": "active",
+      "favourite": true,
+      "confidenceScore": 88,
+      "createdAt": "2026-03-27T12:00:00Z",
+      "lastOpenedAt": "2026-07-11T18:22:00Z",
+      "lastOpenedLabel": "1 week ago"
+    },
+    {
+      "id": "chart-dorian-vance",
+      "person": { "id": "person-dorian-vance", "firstName": "Dorian", "lastName": "Vance", "gender": "Male" },
+      "birth": {
+        "date": "1979-06-08",
+        "time": "17:48",
+        "timeKnown": true,
+        "place": "Lyon, France",
+        "country": "France",
+        "timezone": "Europe/Paris",
+        "utcOffset": "UTC +1:00",
+        "latitude": 45.764,
+        "longitude": 4.8357
+      },
+      "configuration": { "houseSystem": "Placidus", "zodiac": "Tropical", "ephemeris": "Swiss Ephemeris" },
+      "planets": [
+        { "planet": "Sun", "degree": 17, "minute": 26, "sign": "Sagittarius", "house": 9 },
+        { "planet": "Moon", "degree": 1, "minute": 9, "sign": "Aries", "house": 12 },
+        { "planet": "Mercury", "degree": 28, "minute": 50, "sign": "Scorpio", "house": 8 },
+        { "planet": "Jupiter", "degree": 11, "minute": 2, "sign": "Leo", "house": 5 }
+      ],
+      "houses": [],
+      "angles": [{ "point": "ASC", "degree": 8, "minute": 40, "sign": "Aries" }],
+      "aspects": [
+        { "id": "dv-1", "type": "trine", "from": "Sun", "to": "Jupiter", "orb": "6°24'", "applying": false }
+      ],
+      "summary": {
+        "sun": { "degree": 17, "minute": 26, "sign": "Sagittarius", "house": 9 },
+        "moon": { "degree": 1, "minute": 9, "sign": "Aries", "house": 12 },
+        "ascendant": { "degree": 8, "minute": 40, "sign": "Aries" },
+        "chartRuler": { "planet": "Mars", "position": "19° Cancer · 4th House" },
+        "dominantElement": "Fire",
+        "dominantModality": "Mutable",
+        "dominantPlanets": ["Jupiter", "Sun", "Mars"],
+        "strongestHouses": [5, 8, 9],
+        "majorThemes": ["Meaning-seeking as the engine of every decision"],
+        "insights": [
+          { "label": "Relationship Focus", "score": 3 },
+          { "label": "Career Ambition", "score": 3 },
+          { "label": "Emotional Depth", "score": 4 },
+          { "label": "Intellectual Drive", "score": 5 }
+        ]
+      },
+      "status": "processing",
+      "favourite": false,
+      "confidenceScore": 65,
+      "createdAt": "2026-01-15T08:45:00Z",
+      "lastOpenedAt": "2026-07-04T10:30:00Z",
+      "lastOpenedLabel": "2 weeks ago"
+    }
+  ]
+}

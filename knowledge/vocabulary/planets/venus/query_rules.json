@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "venus_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "canonical_function",
+  "parentObject": "venus",
+  "content": {
+    "defaultFunctionSet": [
+      "venus_value",
+      "venus_preference",
+      "venus_reciprocity",
+      "venus_aesthetic"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "valuation",
+        "preference"
+      ],
+      "relationships": [
+        "reciprocity",
+        "attraction"
+      ],
+      "career": [
+        "discernment",
+        "valuation"
+      ],
+      "development": [
+        "harmony",
+        "preference"
+      ],
+      "transits": [
+        "attraction",
+        "values"
+      ]
+    },
+    "selectionRules": [
+      "Preserve Venus's canonical function.",
+      "Apply sign modifiers before house context.",
+      "Never substitute modifiers for the function."
+    ]
+  }
+}

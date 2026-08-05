@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "undecile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "undecile",
+  "content": {
+    "definition": "An Undecile relates participating canonical functions through emergent differentiation and adaptive synthesis while preserving each function's identity.",
+    "boundaries": [
+      "Novel expression does not imply superiority.",
+      "Differentiation does not replace canonical functions."
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mars_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "canonical_function",
+  "parentObject": "mars",
+  "content": {
+    "defaultFunctionSet": [
+      "mars_agency",
+      "mars_assertion",
+      "mars_effort",
+      "mars_execution"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "agency",
+        "assertion"
+      ],
+      "relationships": [
+        "boundaries",
+        "assertion"
+      ],
+      "career": [
+        "effort",
+        "execution"
+      ],
+      "development": [
+        "courage",
+        "agency"
+      ],
+      "transits": [
+        "motivation",
+        "execution"
+      ]
+    },
+    "selectionRules": [
+      "Preserve Mars's canonical function.",
+      "Apply sign modifiers before house context.",
+      "Never substitute modifiers for the function."
+    ]
+  }
+}

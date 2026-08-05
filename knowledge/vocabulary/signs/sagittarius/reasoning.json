@@ -1,0 +1,52 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sagittarius_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "modifier",
+  "parentObject": "sagittarius",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm Sagittarius is a modifier",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible modifier components",
+      "Apply degree and condition modifiers",
+      "Validate canonical function unchanged",
+      "Pass semantic structure to sentence generation"
+    ],
+    "defaultInferenceProfile": {
+      "manner": "expansively",
+      "strategy": "through exploration",
+      "priority": "with emphasis on meaning",
+      "regulation": "while maintaining coherence"
+    },
+    "compositionRules": [
+      "Sagittarius modifies but never replaces the canonical function.",
+      "Degree modifiers compose after sign modifiers.",
+      "Houses provide context only.",
+      "Aspects function as relational operators.",
+      "Dignity modifies expression condition, not ontology.",
+      "Generate natural language from composed semantics."
+    ],
+    "heuristics": [
+      "Prefer exploration over excess.",
+      "Prefer synthesis over dogmatism.",
+      "Prefer growth over overconfidence.",
+      "Return an empty modifier set instead of inventing semantics."
+    ],
+    "tieBreakOrder": [
+      "target compatibility",
+      "query relevance",
+      "developmental evidence",
+      "degree compatibility",
+      "aspect compatibility",
+      "neutral default"
+    ],
+    "forbiddenInferences": [
+      "Sagittarius causes recklessness.",
+      "Sagittarius is dogmatic.",
+      "Sagittarius replaces the target function."
+    ]
+  }
+}

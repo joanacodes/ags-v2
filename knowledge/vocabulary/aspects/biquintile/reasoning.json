@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biquintile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "biquintile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Biquintile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate higher-order creative synthesis semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Biquintile introduces higher-order creative synthesis without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer systemic creative integration over deterministic outcomes.",
+      "Interpret synthesis through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Biquintile is inherently benefic.",
+      "Biquintile guarantees genius or perfection.",
+      "Biquintile replaces planetary functions."
+    ]
+  }
+}

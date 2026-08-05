@@ -1,0 +1,72 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pisces_tests",
+  "moduleType": "tests",
+  "grammarRole": "modifier",
+  "parentObject": "pisces",
+  "content": {
+    "suite": "pisces_ontology_v0.1",
+    "cases": [
+      {
+        "id": "PIS-T-001",
+        "name": "Modifier role preserved",
+        "expected": true
+      },
+      {
+        "id": "PIS-T-002",
+        "name": "Reject Pisces as actor",
+        "expected": false
+      },
+      {
+        "id": "PIS-T-003",
+        "name": "Reject escapism default",
+        "expected": false
+      },
+      {
+        "id": "PIS-T-004",
+        "name": "Allow integration modifier",
+        "expected": true
+      },
+      {
+        "id": "PIS-T-005",
+        "name": "Canonical function preserved",
+        "expected": true
+      },
+      {
+        "id": "PIS-T-006",
+        "name": "Reject finished interpretation",
+        "expected": false
+      },
+      {
+        "id": "PIS-T-007",
+        "name": "House remains context",
+        "expected": "context"
+      },
+      {
+        "id": "PIS-T-008",
+        "name": "Aspect remains relational_operator",
+        "expected": "relational_operator"
+      },
+      {
+        "id": "PIS-T-009",
+        "name": "Degree composes after sign",
+        "expected": true
+      },
+      {
+        "id": "PIS-T-010",
+        "name": "Development evidence required",
+        "expected": false
+      },
+      {
+        "id": "PIS-T-011",
+        "name": "Deterministic selection",
+        "expected": true
+      },
+      {
+        "id": "PIS-T-012",
+        "name": "Empty modifier preferred",
+        "expected": []
+      }
+    ]
+  }
+}

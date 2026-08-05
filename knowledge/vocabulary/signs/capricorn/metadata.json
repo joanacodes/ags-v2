@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "canonicalId": "capricorn",
+    "displayName": "Capricorn",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "structuring_mode",
+    "canonicalQuestion": "How does this structure and accomplish?"
+  }
+}

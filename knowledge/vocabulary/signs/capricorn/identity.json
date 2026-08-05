@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_identity",
+  "moduleType": "identity",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "coreDomains": [
+      "structure",
+      "discipline",
+      "responsibility",
+      "achievement",
+      "endurance",
+      "organization",
+      "planning",
+      "stewardship",
+      "mastery",
+      "long_term_development"
+    ],
+    "notInherent": [
+      "coldness",
+      "pessimism",
+      "ruthlessness",
+      "workaholism",
+      "emotional_detachment",
+      "authoritarianism"
+    ],
+    "constraints": [
+      "Capricorn is a modifier.",
+      "Capricorn never acts independently.",
+      "Capricorn never replaces the target canonical function."
+    ]
+  }
+}

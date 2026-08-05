@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aquarius_identity",
+  "moduleType": "identity",
+  "grammarRole": "modifier",
+  "parentObject": "aquarius",
+  "content": {
+    "coreDomains": [
+      "innovation",
+      "objectivity",
+      "systems_thinking",
+      "individuality",
+      "future_orientation",
+      "experimentation",
+      "networks",
+      "collective_progress",
+      "adaptation",
+      "originality"
+    ],
+    "notInherent": [
+      "detachment",
+      "rebelliousness",
+      "eccentricity",
+      "aloofness",
+      "unpredictability",
+      "nonconformity_for_its_own_sake"
+    ],
+    "constraints": [
+      "Aquarius is a modifier.",
+      "Aquarius never acts independently.",
+      "Aquarius never replaces the target canonical function."
+    ]
+  }
+}

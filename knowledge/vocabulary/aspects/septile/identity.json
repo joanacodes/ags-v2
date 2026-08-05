@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "septile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through recursive pattern emergence and nonlinear relational organization.",
+    "coreDomains": [
+      "recursive emergence",
+      "nonlinear organization",
+      "cyclic development",
+      "pattern recognition",
+      "coordination",
+      "transformation"
+    ],
+    "notInherent": [
+      "fate",
+      "destiny",
+      "magic",
+      "beneficence"
+    ],
+    "constraints": [
+      "Septile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sesquiquadrate_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "sesquiquadrate",
+  "content": {
+    "families": [
+      {
+        "id": "compound_friction",
+        "components": [
+          "reveals compounded tension",
+          "activates restructuring"
+        ]
+      },
+      {
+        "id": "restructuring",
+        "components": [
+          "supports higher-order adaptation",
+          "reorganizes patterns"
+        ]
+      },
+      {
+        "id": "refinement",
+        "components": [
+          "improves systemic coordination",
+          "encourages refinement"
+        ]
+      },
+      {
+        "id": "integration",
+        "components": [
+          "integrates through adaptation",
+          "stabilizes revised structure"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides context.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

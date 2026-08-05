@@ -1,0 +1,14 @@
+{
+  "id": "saturn_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "canonical_function",
+  "parentObject": "saturn",
+  "content": {
+    "allowedModifiers": [
+      "sign",
+      "house",
+      "degree",
+      "dignity"
+    ]
+  }
+}

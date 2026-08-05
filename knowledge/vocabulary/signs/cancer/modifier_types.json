@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "cancer_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "modifier",
+  "parentObject": "cancer",
+  "content": {
+    "components": [
+      {
+        "id": "cancer_manner_protectively",
+        "text": "protectively",
+        "type": "manner"
+      },
+      {
+        "id": "cancer_strategy_nurturance",
+        "text": "through nurturance",
+        "type": "strategy"
+      },
+      {
+        "id": "cancer_pace_responsively",
+        "text": "responsively",
+        "type": "pace"
+      },
+      {
+        "id": "cancer_orientation_belonging",
+        "text": "toward belonging",
+        "type": "orientation"
+      },
+      {
+        "id": "cancer_priority_care",
+        "text": "with emphasis on care",
+        "type": "priority"
+      },
+      {
+        "id": "cancer_regulation_safety",
+        "text": "while maintaining safety",
+        "type": "regulation"
+      },
+      {
+        "id": "cancer_development_support",
+        "text": "through adaptive support",
+        "type": "developmental"
+      }
+    ]
+  }
+}

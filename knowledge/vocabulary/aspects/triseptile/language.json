@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "triseptile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "triseptile",
+  "content": {
+    "verbs": [
+      "converges",
+      "coordinates",
+      "integrates",
+      "stabilizes"
+    ],
+    "templates": [
+      "{A} and {B} converge into coherent recursive organization.",
+      "{A} integrates emergent coordination with {B}."
+    ]
+  }
+}

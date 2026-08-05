@@ -1,0 +1,56 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "jupiter_expression",
+  "moduleType": "expression",
+  "grammarRole": "canonical_function",
+  "parentObject": "jupiter",
+  "content": {
+    "families": [
+      {
+        "id": "expansion",
+        "components": [
+          "expands understanding",
+          "broadens perspective"
+        ]
+      },
+      {
+        "id": "meaning",
+        "components": [
+          "synthesizes meaning",
+          "integrates experience"
+        ]
+      },
+      {
+        "id": "growth",
+        "components": [
+          "supports growth",
+          "encourages development"
+        ]
+      },
+      {
+        "id": "wisdom",
+        "components": [
+          "cultivates wisdom",
+          "applies judgment"
+        ]
+      },
+      {
+        "id": "principles",
+        "components": [
+          "organizes principles",
+          "supports coherent beliefs"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "sign": "Modify style without replacing Jupiter's function.",
+      "house": "Place Jupiter's function into experiential context.",
+      "aspect": "Relate Jupiter to another canonical function.",
+      "dignity": "Adjust condition without changing ontology."
+    },
+    "constraints": [
+      "Jupiter remains the acting canonical function.",
+      "No expression is a complete interpretation."
+    ]
+  }
+}

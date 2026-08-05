@@ -1,0 +1,48 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "trine_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "trine",
+  "content": {
+    "families": [
+      {
+        "id": "flow",
+        "components": [
+          "facilitates flow",
+          "supports continuity"
+        ]
+      },
+      {
+        "id": "reinforcement",
+        "components": [
+          "mutually reinforces",
+          "stabilizes strengths"
+        ]
+      },
+      {
+        "id": "coordination",
+        "components": [
+          "coordinates functions",
+          "aligns processes"
+        ]
+      },
+      {
+        "id": "coherence",
+        "components": [
+          "creates coherent expression"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides context.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic value.",
+      "Meaning depends on participating functions."
+    ]
+  }
+}

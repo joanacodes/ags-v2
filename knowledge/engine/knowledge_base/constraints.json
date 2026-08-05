@@ -1,0 +1,7 @@
+{
+  "rules": [
+    "No module overrides another module's ontology.",
+    "Retrieval does not imply interpretation.",
+    "Context remains required."
+  ]
+}

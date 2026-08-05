@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house8_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_8",
+  "content": {
+    "domains": {
+      "transformation": "Context of significant change and renewal.",
+      "shared_resources": "Resources jointly held or managed.",
+      "intimacy": "Deep mutual openness and trust.",
+      "inheritance": "Transferred assets or legacies.",
+      "merging": "Processes of integration with others.",
+      "regeneration": "Renewal following change.",
+      "psychological_depth": "Deep internal processes.",
+      "trust": "Mutual reliance and vulnerability.",
+      "crisis_response": "Adaptation during major transitions.",
+      "shared_obligations": "Joint responsibilities."
+    },
+    "boundaries": [
+      "Transformation is not destruction.",
+      "Depth is not obsession.",
+      "Shared resources are not loss.",
+      "Intimacy is not manipulation."
+    ]
+  }
+}

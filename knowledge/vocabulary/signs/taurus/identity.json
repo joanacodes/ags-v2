@@ -1,0 +1,68 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "taurus_identity",
+  "name": "Taurus Identity",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Taurus as a stabilizing sign modifier and establishes ontology boundaries.",
+  "grammarRole": "modifier",
+  "parentObject": "taurus",
+  "moduleType": "identity",
+  "dependsOn": [
+    "taurus_metadata",
+    "ags_sign_blueprint"
+  ],
+  "content": {
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "stabilizing_mode",
+    "canonicalQuestion": "How does this become durable?",
+    "coreIdentity": [
+      "continuity",
+      "stabilization",
+      "consolidation",
+      "retention",
+      "preservation",
+      "maintenance",
+      "durability",
+      "incremental_accumulation",
+      "resource_stewardship",
+      "steady_pacing"
+    ],
+    "notInherent": [
+      "laziness",
+      "slowness",
+      "stubbornness",
+      "materialism",
+      "possessiveness",
+      "wealth",
+      "sensuality",
+      "comfort",
+      "passivity",
+      "resistance_to_change"
+    ],
+    "identityConstraints": [
+      "Taurus may not function as an actor.",
+      "Taurus may not replace a planetary or angular verb.",
+      "Taurus may not determine an outcome.",
+      "Taurus may not be reduced to a personality trait.",
+      "Taurus may not imply materialism, stubbornness, or laziness by default.",
+      "Taurus must remain traceable to approved modifier domains."
+    ],
+    "distinctions": {
+      "venus": "Venus is an actor with its own canonical function; Taurus is a modifier.",
+      "earth_element": "Earth is a family-level classification; Taurus is a specific modifier ontology.",
+      "fixed_modality": "Fixed is a modality classification; Taurus adds sign-specific stabilization semantics.",
+      "virgo": "Virgo modifies through discrimination, adjustment, and refinement; Taurus modifies through continuity and consolidation.",
+      "capricorn": "Capricorn modifies through structure, sequencing, and long-range organization; Taurus modifies through preservation and durable maintenance."
+    }
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Taurus identity module."
+    }
+  ]
+}

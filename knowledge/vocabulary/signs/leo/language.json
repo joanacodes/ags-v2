@@ -1,0 +1,41 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "leo_language",
+  "moduleType": "language",
+  "grammarRole": "modifier",
+  "parentObject": "leo",
+  "content": {
+    "manner": [
+      "expressively",
+      "confidently",
+      "openly"
+    ],
+    "strategy": [
+      "through creative actualization",
+      "through authentic expression",
+      "through visible contribution"
+    ],
+    "pace": [
+      "steadily",
+      "confidently",
+      "at a sustainable expressive pace"
+    ],
+    "orientation": [
+      "toward visibility",
+      "toward creative contribution",
+      "toward authentic presence"
+    ],
+    "priority": [
+      "with emphasis on authentic expression",
+      "with emphasis on creative contribution"
+    ],
+    "regulation": [
+      "while maintaining coherence",
+      "while preserving authenticity"
+    ],
+    "developmental": [
+      "through creative refinement",
+      "through increasing self-expression"
+    ]
+  }
+}

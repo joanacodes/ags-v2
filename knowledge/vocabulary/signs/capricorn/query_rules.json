@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "defaultModifierSet": [
+      "capricorn_manner_systematically",
+      "capricorn_strategy_planning",
+      "capricorn_priority_responsibility"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "structure",
+        "discipline"
+      ],
+      "relationships": [
+        "responsibility",
+        "stewardship"
+      ],
+      "work": [
+        "achievement",
+        "mastery"
+      ],
+      "health": [
+        "endurance",
+        "reliability"
+      ],
+      "transits": [
+        "planning",
+        "long_term_development"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'systematically' as the neutral manner.",
+      "Prefer 'through structured planning' as the neutral strategy.",
+      "Suppress unnecessary control when incompatible with the target.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

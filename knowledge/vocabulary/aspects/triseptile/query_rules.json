@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "triseptile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "triseptile",
+  "content": {
+    "defaultOperator": "recursive_convergence_operator",
+    "supportedQueries": {
+      "identity": [
+        "recursive_convergence",
+        "multilevel_coordination"
+      ],
+      "relationship": [
+        "systemic_integration",
+        "emergence"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Triseptile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

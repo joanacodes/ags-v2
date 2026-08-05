@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "tredecile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "tredecile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Tredecile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate adaptive restructuring semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Tredecile introduces adaptive restructuring without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer adaptive transformation over deterministic outcomes.",
+      "Interpret restructuring through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Tredecile guarantees disruption.",
+      "Tredecile implies superiority.",
+      "Tredecile replaces planetary functions."
+    ]
+  }
+}

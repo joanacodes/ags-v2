@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house9_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_9",
+  "content": {
+    "domains": {
+      "higher_learning": "Context of advanced study and understanding.",
+      "philosophy": "Frameworks for meaning and inquiry.",
+      "beliefs": "Guiding systems of understanding.",
+      "exploration": "Broadening experience through discovery.",
+      "travel": "Experiences beyond familiar environments.",
+      "wisdom": "Integrated understanding from learning.",
+      "worldview": "Interpretive perspective on life.",
+      "teaching": "Sharing knowledge and understanding.",
+      "discovery": "Finding new ideas or perspectives.",
+      "truth_seeking": "Ongoing pursuit of understanding."
+    },
+    "boundaries": [
+      "Learning is not superiority.",
+      "Beliefs are not dogmatism.",
+      "Travel is not escapism.",
+      "Truth-seeking is not certainty."
+    ]
+  }
+}

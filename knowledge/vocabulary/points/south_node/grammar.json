@@ -1,0 +1,16 @@
+{
+  "grammarRole": "established_reference",
+  "primaryVerb": "consolidate",
+  "secondaryVerbs": [
+    "stabilize",
+    "accumulate",
+    "reinforce",
+    "draw upon",
+    "retain"
+  ],
+  "usageRules": [
+    "Default to 'consolidate'.",
+    "Never describe the South Node as destiny.",
+    "Never recommend abandoning the South Node."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sun_language",
+  "moduleType": "language",
+  "grammarRole": "canonical_function",
+  "parentObject": "sun",
+  "content": {
+    "function": [
+      "organizes identity",
+      "sustains vitality",
+      "directs purpose",
+      "integrates self-expression"
+    ],
+    "process": [
+      "centering",
+      "integrating",
+      "directing",
+      "radiating",
+      "cohering"
+    ],
+    "orientation": [
+      "self-defining",
+      "purpose-oriented",
+      "creative",
+      "integrative"
+    ],
+    "goal": [
+      "coherent identity",
+      "purposeful expression",
+      "vital engagement",
+      "integrated agency"
+    ],
+    "output": [
+      "self-expression",
+      "direction",
+      "creative presence",
+      "personal coherence"
+    ],
+    "salience": [
+      "central",
+      "vital",
+      "purposeful",
+      "integrative"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "triseptile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "triseptile",
+  "content": {
+    "definition": "A Triseptile relates participating canonical functions through recursive convergence while preserving each function's identity.",
+    "boundaries": [
+      "Recursive convergence is not destiny.",
+      "Integration does not replace canonical functions."
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house7_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_7",
+  "content": {
+    "domains": {
+      "partnership": "Context of one-to-one partnership.",
+      "relationships": "Interpersonal relational context.",
+      "cooperation": "Working constructively with others.",
+      "contracts": "Formal and informal agreements.",
+      "commitment": "Sustained mutual engagement.",
+      "reciprocity": "Balanced exchange between parties.",
+      "collaboration": "Joint effort toward shared aims.",
+      "negotiation": "Context of mutual adjustment.",
+      "allies": "Supportive partnerships.",
+      "balance": "Relational equilibrium."
+    },
+    "boundaries": [
+      "Partnership is not dependence.",
+      "Cooperation is not submission.",
+      "Commitment is not codependency.",
+      "Balance is not people pleasing."
+    ]
+  }
+}

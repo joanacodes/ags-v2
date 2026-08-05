@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quincunx_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "quincunx",
+  "content": {
+    "canonicalId": "quincunx",
+    "displayName": "Quincunx",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "adaptive_recalibration_operator",
+    "canonicalQuestion": "How do two canonical functions interact through adjustment and adaptive recalibration?"
+  }
+}

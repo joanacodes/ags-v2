@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "virgo_identity",
+  "moduleType": "identity",
+  "grammarRole": "modifier",
+  "parentObject": "virgo",
+  "content": {
+    "coreDomains": [
+      "refinement",
+      "discernment",
+      "optimization",
+      "calibration",
+      "precision",
+      "maintenance",
+      "analysis",
+      "incremental_improvement",
+      "functional_order",
+      "quality_assurance"
+    ],
+    "notInherent": [
+      "perfectionism",
+      "criticism",
+      "anxiety",
+      "obsessiveness",
+      "rigidity",
+      "judgmentalism"
+    ],
+    "constraints": [
+      "Virgo is a modifier.",
+      "Virgo never acts independently.",
+      "Virgo never replaces the target canonical function."
+    ]
+  }
+}

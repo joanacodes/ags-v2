@@ -1,0 +1,20 @@
+{
+  "examples": [
+    {
+      "query": "What does Mercury Pentile Saturn mean?",
+      "route": [
+        "canonical_function_core",
+        "aspect_resolution_engine",
+        "aspect_semantic_matrix",
+        "interpretation_output_format"
+      ]
+    },
+    {
+      "query": "How do conflicting Mars aspects combine?",
+      "route": [
+        "aspect_conflict_resolution",
+        "developmental_model"
+      ]
+    }
+  ]
+}

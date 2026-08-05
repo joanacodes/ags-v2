@@ -1,0 +1,45 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "gemini_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "gemini",
+  "content": {
+    "defaultModifierSet": [
+      "gemini_manner_adaptively",
+      "gemini_strategy_comparison",
+      "gemini_orientation_connection"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "differentiation",
+        "connection"
+      ],
+      "relationships": [
+        "exchange",
+        "communication"
+      ],
+      "learning": [
+        "curiosity",
+        "comparison"
+      ],
+      "work": [
+        "adaptation",
+        "information_flow"
+      ],
+      "health": [
+        "responsive_pacing"
+      ],
+      "transits": [
+        "variation",
+        "connection"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'adaptively' as neutral manner.",
+      "Prefer 'through comparison' as neutral strategy.",
+      "Suppress excessive variation when the target requires consistency.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

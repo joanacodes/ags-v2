@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aquarius_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "modifier",
+  "parentObject": "aquarius",
+  "content": {
+    "canonicalId": "aquarius",
+    "displayName": "Aquarius",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "innovation_mode",
+    "canonicalQuestion": "How does this innovate and differentiate?"
+  }
+}

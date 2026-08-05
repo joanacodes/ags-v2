@@ -1,0 +1,15 @@
+{
+  "id": "imum_coeli_tests",
+  "cases": [
+    "Primary verb defaults to root",
+    "Require Midheaven pairing",
+    "Reject home-only interpretation",
+    "Reject finished IC-sign interpretation",
+    "Preserve reference-frame ontology"
+  ],
+  "regressions": [
+    "Rooting != location",
+    "Foundation != family",
+    "Angle != planet"
+  ]
+}

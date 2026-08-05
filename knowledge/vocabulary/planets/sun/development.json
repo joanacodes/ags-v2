@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sun_development",
+  "moduleType": "development",
+  "grammarRole": "canonical_function",
+  "parentObject": "sun",
+  "content": {
+    "coreRule": "Development changes how the Sun's canonical function is expressed; the canonical function itself remains unchanged.",
+    "stages": {
+      "unconscious": [
+        "identity organized by external validation",
+        "purpose expressed reactively"
+      ],
+      "defensive": [
+        "identity defended through over-identification",
+        "purpose narrowed by insecurity"
+      ],
+      "learning": [
+        "identity becoming self-directed",
+        "purpose explored intentionally"
+      ],
+      "healthy": [
+        "coherent identity",
+        "purposeful self-expression"
+      ],
+      "integrated": [
+        "identity integrates experience",
+        "purpose radiates through authentic agency"
+      ]
+    },
+    "constraints": [
+      "Development never changes the canonical function.",
+      "Integrated wording requires explicit evidence."
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "decile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "decile",
+  "content": {
+    "families": [
+      {
+        "id": "creative_potential",
+        "components": [
+          "reveals possibilities",
+          "supports invention"
+        ]
+      },
+      {
+        "id": "specialized_expression",
+        "components": [
+          "develops unique expression",
+          "focuses abilities"
+        ]
+      },
+      {
+        "id": "refinement",
+        "components": [
+          "improves technique",
+          "supports precision"
+        ]
+      },
+      {
+        "id": "development",
+        "components": [
+          "builds capability",
+          "integrates learning"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biquintile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "biquintile",
+  "content": {
+    "verbs": [
+      "integrates",
+      "synthesizes",
+      "innovates",
+      "refines"
+    ],
+    "templates": [
+      "{A} and {B} integrate into a higher-order creative pattern.",
+      "{A} refines creative synthesis with {B}."
+    ]
+  }
+}

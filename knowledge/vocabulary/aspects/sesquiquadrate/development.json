@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sesquiquadrate_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "sesquiquadrate",
+  "content": {
+    "coreRule": "Development changes how compound constructive tension is managed, never the relational role of Sesquiquadrate.",
+    "stages": {
+      "unconscious": [
+        "escalating friction",
+        "unrecognized restructuring needs"
+      ],
+      "defensive": [
+        "resistance to change",
+        "rigid compensation"
+      ],
+      "learning": [
+        "recognizing restructuring patterns",
+        "intentional adaptation"
+      ],
+      "healthy": [
+        "constructive restructuring",
+        "adaptive refinement"
+      ],
+      "integrated": [
+        "continuous higher-order integration"
+      ]
+    },
+    "constraints": [
+      "Sesquiquadrate never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

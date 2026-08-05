@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "decile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "decile",
+  "content": {
+    "coreRule": "Development changes how creative potential is expressed, never the relational role of Decile.",
+    "stages": {
+      "unconscious": [
+        "latent creativity",
+        "unrecognized potential"
+      ],
+      "defensive": [
+        "blocked expression",
+        "rigid specialization"
+      ],
+      "learning": [
+        "discovering abilities",
+        "developing expression"
+      ],
+      "healthy": [
+        "constructive creativity",
+        "refined specialization"
+      ],
+      "integrated": [
+        "mature creative synthesis",
+        "mastery of expression"
+      ]
+    },
+    "constraints": [
+      "Decile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "canonical_function",
+  "parentObject": "uranus",
+  "content": {
+    "domains": {
+      "innovation": "Creation of novel approaches.",
+      "differentiation": "Development of distinct identity or function.",
+      "liberation": "Release from unnecessary constraints.",
+      "change": "Departure from established patterns.",
+      "originality": "Production of non-derivative forms.",
+      "autonomy": "Independent self-direction.",
+      "experimentation": "Testing alternatives through trial.",
+      "breakthrough": "Rapid emergence of a new solution.",
+      "systems": "Networks and structures considered as wholes.",
+      "reform": "Constructive revision of established systems."
+    },
+    "boundaries": [
+      "Innovation is not chaos.",
+      "Autonomy is not isolation.",
+      "Differentiation is not alienation.",
+      "Reform is not destruction."
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "taurus_language",
+  "name": "Taurus Language",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines controlled Taurus modifier vocabulary and normalization rules.",
+  "grammarRole": "modifier",
+  "parentObject": "taurus",
+  "moduleType": "language",
+  "dependsOn": [
+    "taurus_identity",
+    "taurus_grammar"
+  ],
+  "content": {
+    "controlledLexicon": {
+      "manner": [
+        "steadily",
+        "consistently",
+        "deliberately"
+      ],
+      "strategy": [
+        "through consolidation",
+        "through gradual accumulation",
+        "through preservation",
+        "through sustained maintenance"
+      ],
+      "pace": [
+        "gradually",
+        "incrementally",
+        "at a sustainable rate"
+      ],
+      "orientation": [
+        "toward continuity",
+        "toward durability",
+        "toward long-term stability"
+      ],
+      "priority": [
+        "with emphasis on preservation",
+        "with emphasis on sustainability",
+        "with emphasis on continuity"
+      ],
+      "regulation": [
+        "while maintaining stability",
+        "while preserving resources",
+        "while minimizing unnecessary disruption"
+      ],
+      "developmental": [
+        "incrementally",
+        "through repeated reinforcement",
+        "through gradual refinement"
+      ]
+    },
+    "preferredNeutralForms": [
+      "steadily",
+      "through consolidation",
+      "gradually",
+      "toward continuity",
+      "with emphasis on preservation",
+      "while maintaining stability"
+    ],
+    "rejectedWording": [
+      "lazy",
+      "stubborn",
+      "materialistic",
+      "possessive",
+      "slow by nature",
+      "loves luxury",
+      "causes wealth",
+      "refuses change"
+    ],
+    "normalizationRules": [
+      {
+        "replace": "stubbornly",
+        "with": "while preserving continuity",
+        "condition": "Only when persistence rather than defensive resistance is intended."
+      },
+      {
+        "replace": "slowly",
+        "with": "at a sustainable rate",
+        "condition": "Only when pacing is compatible with the target function."
+      },
+      {
+        "replace": "materially",
+        "with": "through resource preservation",
+        "condition": "Only when resources are explicitly relevant."
+      }
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Taurus language module."
+    }
+  ]
+}

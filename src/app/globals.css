@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LIGHT — coffee brown ink, warm linen surfaces, powder-blue accent, gold highlights */
+
+  /* Surfaces — warm paper and linen */
+  --surface-sunken: 38 32% 95%;
+  --surface: 38 36% 97%;
+  --surface-raised: 40 45% 99%;
+  --surface-overlay: 36 28% 91%;
+
+  /* Lines — warm taupe */
+  --line: 34 22% 85%;
+  --line-strong: 32 18% 74%;
+
+  /* Ink — coffee brown */
+  --ink: 24 42% 15%;
+  --ink-secondary: 24 24% 32%;
+  --ink-muted: 25 15% 42%;
+  --ink-faint: 26 12% 52%;
+
+  /* Accent — powder blue, deepened for AA contrast on warm white */
+  --accent: 212 52% 48%;
+  --accent-hover: 213 58% 39%;
+  --accent-soft: 210 62% 91%;
+  --accent-foreground: 0 0% 100%;
+
+  /* Status — gold (warning/stars), olive-green, brick */
+  --success: 150 45% 32%;
+  --success-soft: 150 40% 91%;
+  --warning: 41 80% 31%;
+  --warning-soft: 44 75% 90%;
+  --danger: 8 62% 45%;
+  --danger-soft: 8 65% 93%;
+
+  /* Shadows — warm brown-tinted */
+  --shadow-card: 0 1px 2px 0 hsl(25 40% 20% / 0.08);
+  --shadow-pop: 0 10px 30px hsl(25 40% 20% / 0.16);
+
+  /* Type */
+  --font-sans: "Inter", "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-mono: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, monospace;
+
+  color-scheme: light;
+}
+
+.dark {
+  /* DARK — near-black with a cool violet cast (original theme) */
+  --surface-sunken: 240 15% 4%;
+  --surface: 240 11% 6%;
+  --surface-raised: 240 10% 8%;
+  --surface-overlay: 240 10% 12%;
+
+  --line: 240 9% 14%;
+  --line-strong: 240 8% 22%;
+
+  --ink: 240 20% 96%;
+  --ink-secondary: 240 10% 74%;
+  --ink-muted: 240 7% 56%;
+  --ink-faint: 240 6% 40%;
+
+  --accent: 245 78% 63%;
+  --accent-hover: 245 84% 70%;
+  --accent-soft: 245 55% 16%;
+  --accent-foreground: 0 0% 100%;
+
+  --success: 152 55% 48%;
+  --success-soft: 152 45% 10%;
+  --warning: 38 92% 55%;
+  --warning-soft: 38 60% 10%;
+  --danger: 0 70% 58%;
+  --danger-soft: 0 55% 12%;
+
+  --shadow-card: 0 1px 2px 0 rgb(0 0 0 / 0.35);
+  --shadow-pop: 0 8px 30px rgb(0 0 0 / 0.45);
+
+  color-scheme: dark;
+}
+
+* {
+  border-color: hsl(var(--line));
+}
+
+body {
+  background-color: hsl(var(--surface-sunken));
+  color: hsl(var(--ink));
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: hsl(var(--accent) / 0.35);
+}
+
+/* Slim, quiet scrollbars */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--line-strong));
+  border-radius: 8px;
+  border: 2px solid hsl(var(--surface-sunken));
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--ink-faint));
+}
+
+:focus-visible {
+  outline: 2px solid hsl(var(--accent));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Native select restyle */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888899' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+}
+
+/* Native date/time picker indicators on dark */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+.dark input[type="date"]::-webkit-calendar-picker-indicator,
+.dark input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+}
+
+/* ------------------------------ print ------------------------------- */
+@media print {
+  table,
+  .print-keep {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h1, h2, h3, h4 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  main {
+    padding: 0 !important;
+  }
+}

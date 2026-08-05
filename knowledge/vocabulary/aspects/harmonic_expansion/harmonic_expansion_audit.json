@@ -1,0 +1,64 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "harmonic_expansion_audit",
+  "moduleType": "expansion_audit",
+  "parentObject": "ags_aspect_ontology",
+  "content": {
+    "completedOperators": 28,
+    "completedFamilies": [
+      {
+        "family": "creative_harmonic_family",
+        "members": [
+          "pentile",
+          "bipentile"
+        ]
+      },
+      {
+        "family": "recursive_harmonic_family",
+        "members": [
+          "septile",
+          "biseptile",
+          "triseptile"
+        ]
+      },
+      {
+        "family": "maturation_harmonic_family",
+        "members": [
+          "novile",
+          "binovile"
+        ]
+      },
+      {
+        "family": "emergent_differentiation_family",
+        "members": [
+          "undecile"
+        ]
+      },
+      {
+        "family": "adaptive_restructuring_family",
+        "members": [
+          "tredecile"
+        ]
+      },
+      {
+        "family": "structured_reorientation_family",
+        "members": [
+          "quattuordecile"
+        ]
+      }
+    ],
+    "architecturalRules": [
+      "Angles remain geometric measurements.",
+      "Aspects remain semantic relational operators.",
+      "Canonical functions retain identity.",
+      "Family inheritance does not collapse operator distinctions."
+    ],
+    "remainingReviewAreas": [
+      "additional harmonic derivatives",
+      "family cross-links",
+      "query engine integration",
+      "global aspect weighting"
+    ],
+    "status": "expansion_phase_complete_review_pending"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "canonical_function",
+  "parentObject": "uranus",
+  "content": {
+    "resolutionOrder": [
+      "Load Uranus canonical function",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity modifiers",
+      "Apply aspect relations",
+      "Validate Uranus function unchanged",
+      "Generate semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "function": "innovation",
+      "process": "differentiation",
+      "goal": "liberation",
+      "output": "systemic_reform",
+      "salience": "transformative"
+    },
+    "compositionRules": [
+      "Uranus remains the canonical function.",
+      "Signs modify expression only.",
+      "Houses provide context only.",
+      "Aspects create relations only.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer constructive innovation over disruption for its own sake.",
+      "Prefer autonomy over alienation.",
+      "Prefer systemic reform over indiscriminate rejection.",
+      "Return an empty result rather than invent semantics."
+    ],
+    "forbiddenInferences": [
+      "Uranus is replaced by a sign.",
+      "Uranus becomes a house.",
+      "Uranus inherently indicates chaos, rebellion, or instability."
+    ]
+  }
+}

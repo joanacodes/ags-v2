@@ -1,0 +1,6 @@
+{
+  "id": "aspect_resolution_engine",
+  "moduleType": "engine_core",
+  "version": "0.1.0",
+  "purpose": "Resolve geometric aspect relationships into AGS semantic operators."
+}

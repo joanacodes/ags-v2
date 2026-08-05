@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "triseptile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "triseptile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through recursive convergence and emergent systemic integration.",
+    "coreDomains": [
+      "recursive convergence",
+      "multi-level coordination",
+      "systemic integration",
+      "adaptive convergence",
+      "pattern coherence",
+      "emergence"
+    ],
+    "notInherent": [
+      "destiny",
+      "magic",
+      "certainty",
+      "beneficence"
+    ],
+    "constraints": [
+      "Triseptile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

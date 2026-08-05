@@ -1,0 +1,135 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_expression",
+  "name": "Aries Expression",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Aries modifier families, target profiles, and expression constraints.",
+  "grammarRole": "modifier",
+  "dependsOn": [
+    "aries_identity",
+    "aries_semantics",
+    "aries_modifier_types",
+    "aries_development"
+  ],
+  "parentObject": "aries",
+  "moduleType": "expression",
+  "content": {
+    "observableModifierFamilies": [
+      {
+        "id": "direct_entry",
+        "definition": "Reduces detours at the beginning of engagement.",
+        "components": [
+          "directly",
+          "toward direct contact",
+          "through a decisive first move"
+        ]
+      },
+      {
+        "id": "rapid_commencement",
+        "definition": "Prioritizes beginning before extended preparation.",
+        "components": [
+          "rapidly",
+          "toward commencement",
+          "with emphasis on beginning"
+        ]
+      },
+      {
+        "id": "autonomous_start",
+        "definition": "Begins from self-positioned agency.",
+        "components": [
+          "toward autonomous engagement",
+          "with emphasis on immediate agency",
+          "through self-directed engagement"
+        ]
+      },
+      {
+        "id": "first_step_testing",
+        "definition": "Uses the first action to produce information for refinement.",
+        "components": [
+          "through immediate testing",
+          "with emphasis on the first actionable step",
+          "while allowing later correction"
+        ]
+      },
+      {
+        "id": "momentum_management",
+        "definition": "Maintains enough movement to prevent return to inertia.",
+        "components": [
+          "while preserving momentum",
+          "while preventing inertia",
+          "with early momentum"
+        ]
+      }
+    ],
+    "targetClassProfiles": {
+      "planet": {
+        "preferredSlots": [
+          "manner",
+          "strategy",
+          "pace",
+          "priority",
+          "regulation"
+        ],
+        "constraints": [
+          "Do not replace the planetary verb.",
+          "Do not imply aggression without explicit contextual support.",
+          "Omit rapid pace when the target requires extended consolidation."
+        ]
+      },
+      "angle": {
+        "preferredSlots": [
+          "manner",
+          "orientation",
+          "pace",
+          "priority"
+        ],
+        "constraints": [
+          "Do not convert the angle into an actor.",
+          "Modify only how the reference frame establishes entry or direction."
+        ]
+      },
+      "node": {
+        "preferredSlots": [
+          "strategy",
+          "pace",
+          "priority",
+          "developmental"
+        ],
+        "constraints": [
+          "Do not turn development into destiny.",
+          "Do not turn consolidation into stagnation.",
+          "Keep the opposite Node represented."
+        ]
+      },
+      "chiron": {
+        "preferredSlots": [
+          "strategy",
+          "pace",
+          "regulation",
+          "developmental"
+        ],
+        "constraints": [
+          "Do not equate immediate adaptation with cure.",
+          "Use bounded testing rather than reckless exposure."
+        ]
+      }
+    },
+    "expressionConstraints": [
+      "Observable speed is not proof of Aries.",
+      "Directness is not proof of hostility.",
+      "Autonomy is not proof of isolation.",
+      "First-move behavior is not proof of leadership.",
+      "No component may become a finished placement interpretation.",
+      "The target object's canonical function must remain unchanged."
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries expression module."
+    }
+  ]
+}

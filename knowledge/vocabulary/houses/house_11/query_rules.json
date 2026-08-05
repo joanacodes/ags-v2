@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house11_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_11",
+  "content": {
+    "defaultContextSet": [
+      "house11_community",
+      "house11_collaboration",
+      "house11_sharedvision"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "community",
+        "shared_vision"
+      ],
+      "relationships": [
+        "friendships",
+        "alliances"
+      ],
+      "work": [
+        "networks",
+        "collaboration"
+      ],
+      "health": [
+        "social_participation",
+        "community"
+      ],
+      "transits": [
+        "innovation",
+        "collective_goals"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of community' as the neutral domain.",
+      "Prefer 'through collaboration' as the neutral focus.",
+      "Suppress assumptions about popularity or conformity.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

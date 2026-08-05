@@ -1,0 +1,282 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_glossary",
+  "name": "AGS Glossary",
+  "type": "specification",
+  "status": "draft_for_review",
+  "language": "en",
+  "purpose": "Provide official definitions for all technical terms used throughout the Astrological Grammar Standard.",
+  "terms": [
+    {
+      "id": "actor",
+      "term": "Actor",
+      "definition": "A symbolic entity that performs a primary function in AGS.",
+      "category": "core"
+    },
+    {
+      "id": "activation",
+      "term": "Activation",
+      "definition": "A temporary emphasis of a natal function by a timing system.",
+      "category": "core"
+    },
+    {
+      "id": "angle",
+      "term": "Angle",
+      "definition": "A chart anchor defining orientation (ASC, DSC, MC, IC).",
+      "category": "core"
+    },
+    {
+      "id": "aspect",
+      "term": "Aspect",
+      "definition": "A geometric relationship connecting two functions.",
+      "category": "core"
+    },
+    {
+      "id": "aspect_instance",
+      "term": "Aspect Instance",
+      "definition": "A concrete aspect between two placements.",
+      "category": "core"
+    },
+    {
+      "id": "axiom",
+      "term": "Axiom",
+      "definition": "A foundational assumption accepted by the AGS specification.",
+      "category": "core"
+    },
+    {
+      "id": "chapter",
+      "term": "Chapter",
+      "definition": "A large developmental period represented by a return or similar timing cycle.",
+      "category": "core"
+    },
+    {
+      "id": "chart",
+      "term": "Chart",
+      "definition": "A complete symbolic document containing placements and relationships.",
+      "category": "core"
+    },
+    {
+      "id": "composition",
+      "term": "Composition",
+      "definition": "The deterministic assembly of entities into sentences.",
+      "category": "core"
+    },
+    {
+      "id": "composition_rule",
+      "term": "Composition Rule",
+      "definition": "A rule defining how valid entities combine.",
+      "category": "core"
+    },
+    {
+      "id": "connector",
+      "term": "Connector",
+      "definition": "The grammatical role supplied by an aspect.",
+      "category": "core"
+    },
+    {
+      "id": "context",
+      "term": "Context",
+      "definition": "The life domain supplied by a house.",
+      "category": "core"
+    },
+    {
+      "id": "cusp",
+      "term": "Cusp",
+      "definition": "The threshold through which a house is entered.",
+      "category": "core"
+    },
+    {
+      "id": "degree",
+      "term": "Degree",
+      "definition": "A positional nuance that refines expression.",
+      "category": "core"
+    },
+    {
+      "id": "development",
+      "term": "Development",
+      "definition": "The gradual evolution of a symbolic function.",
+      "category": "core"
+    },
+    {
+      "id": "direction",
+      "term": "Direction",
+      "definition": "The developmental orientation supplied by the lunar nodes.",
+      "category": "core"
+    },
+    {
+      "id": "dispositor",
+      "term": "Dispositor",
+      "definition": "A planet governing the sign occupied by another planet.",
+      "category": "core"
+    },
+    {
+      "id": "evidence_trace",
+      "term": "Evidence Trace",
+      "definition": "A machine-readable explanation showing how a sentence was produced.",
+      "category": "core"
+    },
+    {
+      "id": "function",
+      "term": "Function",
+      "definition": "The symbolic action supplied by an astrological actor.",
+      "category": "core"
+    },
+    {
+      "id": "function_instance",
+      "term": "Function Instance",
+      "definition": "A function expressed as a placement in a chart.",
+      "category": "core"
+    },
+    {
+      "id": "generated_narrative",
+      "term": "Generated Narrative",
+      "definition": "An ordered collection of composed sentences answering a query.",
+      "category": "core"
+    },
+    {
+      "id": "grammar_role",
+      "term": "Grammar Role",
+      "definition": "The grammatical identity assigned to an entity within AGS.",
+      "category": "core"
+    },
+    {
+      "id": "house",
+      "term": "House",
+      "definition": "The context in which a function operates.",
+      "category": "core"
+    },
+    {
+      "id": "house_ruler",
+      "term": "House Ruler",
+      "definition": "The actor responsible for carrying a house's topics.",
+      "category": "core"
+    },
+    {
+      "id": "modifier",
+      "term": "Modifier",
+      "definition": "An entity that changes how a function is expressed without replacing it.",
+      "category": "core"
+    },
+    {
+      "id": "narrative",
+      "term": "Narrative",
+      "definition": "Human-readable output generated from composed meanings.",
+      "category": "extended"
+    },
+    {
+      "id": "natal",
+      "term": "Natal",
+      "definition": "The enduring symbolic structure derived from the birth chart.",
+      "category": "extended"
+    },
+    {
+      "id": "nuance",
+      "term": "Nuance",
+      "definition": "A refinement added without changing the underlying function.",
+      "category": "extended"
+    },
+    {
+      "id": "ontology",
+      "term": "Ontology",
+      "definition": "The formal catalogue of entities existing within AGS.",
+      "category": "extended"
+    },
+    {
+      "id": "placement",
+      "term": "Placement",
+      "definition": "A function located in a sign, degree and optionally a house.",
+      "category": "extended"
+    },
+    {
+      "id": "planet",
+      "term": "Planet",
+      "definition": "An astrological actor supplying the primary verb.",
+      "category": "extended"
+    },
+    {
+      "id": "progression",
+      "term": "Progression",
+      "definition": "An internal timing technique describing gradual development.",
+      "category": "extended"
+    },
+    {
+      "id": "query",
+      "term": "Query",
+      "definition": "A structured request selecting relevant chart entities.",
+      "category": "extended"
+    },
+    {
+      "id": "reflection_question",
+      "term": "Reflection Question",
+      "definition": "A non-deterministic question derived from the composition.",
+      "category": "extended"
+    },
+    {
+      "id": "return",
+      "term": "Return",
+      "definition": "A timing cycle reopening a natal function.",
+      "category": "extended"
+    },
+    {
+      "id": "sentence",
+      "term": "Sentence",
+      "definition": "A deterministic grammatical output.",
+      "category": "extended"
+    },
+    {
+      "id": "sign",
+      "term": "Sign",
+      "definition": "A modifier changing the manner of a function.",
+      "category": "extended"
+    },
+    {
+      "id": "specification",
+      "term": "Specification",
+      "definition": "The authoritative definition of AGS.",
+      "category": "extended"
+    },
+    {
+      "id": "state",
+      "term": "State",
+      "definition": "A condition modifying how a function is expressed.",
+      "category": "extended"
+    },
+    {
+      "id": "subject",
+      "term": "Subject",
+      "definition": "The focused actor supplying the primary verb.",
+      "category": "extended"
+    },
+    {
+      "id": "timing_system",
+      "term": "Timing System",
+      "definition": "A method activating natal grammar.",
+      "category": "extended"
+    },
+    {
+      "id": "transit",
+      "term": "Transit",
+      "definition": "A current planetary position activating natal structure.",
+      "category": "extended"
+    },
+    {
+      "id": "verb",
+      "term": "Verb",
+      "definition": "The primary grammatical role supplied by planets and luminaries.",
+      "category": "extended"
+    }
+  ],
+  "styleRules": [
+    "Definitions describe structure, not interpretation.",
+    "Definitions remain independent of individual planets, signs or houses.",
+    "Every technical document must use glossary terms consistently.",
+    "New terms require a version update."
+  ],
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial AGS glossary with core terminology."
+    }
+  ]
+}

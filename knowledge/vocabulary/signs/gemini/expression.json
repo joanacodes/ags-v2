@@ -1,0 +1,65 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "gemini_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "gemini",
+  "content": {
+    "families": [
+      {
+        "id": "connection",
+        "components": [
+          "toward connection",
+          "through exchange"
+        ]
+      },
+      {
+        "id": "differentiation",
+        "components": [
+          "through comparison",
+          "adaptively"
+        ]
+      },
+      {
+        "id": "information_flow",
+        "components": [
+          "with emphasis on communication",
+          "responsively"
+        ]
+      },
+      {
+        "id": "exploration",
+        "components": [
+          "through continual exploration",
+          "through iterative refinement"
+        ]
+      },
+      {
+        "id": "responsive_pacing",
+        "components": [
+          "at an adaptive rate",
+          "responsively"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": [
+        "modify manner, strategy, pace"
+      ],
+      "angle": [
+        "modify orientation without changing reference-frame function"
+      ],
+      "node": [
+        "support adaptive development while preserving polarity"
+      ],
+      "chiron": [
+        "support adaptive learning without implying cure"
+      ]
+    },
+    "constraints": [
+      "Curiosity is not gossip.",
+      "Multiplicity is not duplicity.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

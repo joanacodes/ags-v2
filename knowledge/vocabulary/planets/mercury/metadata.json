@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mercury_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "canonical_function",
+  "parentObject": "mercury",
+  "content": {
+    "canonicalId": "mercury",
+    "displayName": "Mercury",
+    "ontologyClass": "planet",
+    "grammarRole": "canonical_function",
+    "semanticClass": "cognition_communication_function",
+    "canonicalQuestion": "What function processes information, creates meaning, and enables communication?"
+  }
+}

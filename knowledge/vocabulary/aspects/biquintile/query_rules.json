@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biquintile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "biquintile",
+  "content": {
+    "defaultOperator": "higher_order_creative_synthesis_operator",
+    "supportedQueries": {
+      "identity": [
+        "advanced_creativity",
+        "pattern_integration"
+      ],
+      "relationship": [
+        "systemic_synthesis",
+        "emergence"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Biquintile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

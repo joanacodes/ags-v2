@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "components": [
+      {
+        "id": "capricorn_manner_systematically",
+        "text": "systematically",
+        "type": "manner"
+      },
+      {
+        "id": "capricorn_strategy_planning",
+        "text": "through structured planning",
+        "type": "strategy"
+      },
+      {
+        "id": "capricorn_pace_sustainable",
+        "text": "at a sustainable pace",
+        "type": "pace"
+      },
+      {
+        "id": "capricorn_orientation_achievement",
+        "text": "toward long-term achievement",
+        "type": "orientation"
+      },
+      {
+        "id": "capricorn_priority_responsibility",
+        "text": "with emphasis on responsibility",
+        "type": "priority"
+      },
+      {
+        "id": "capricorn_regulation_structure",
+        "text": "while maintaining structure",
+        "type": "regulation"
+      },
+      {
+        "id": "capricorn_development_growth",
+        "text": "through disciplined growth",
+        "type": "developmental"
+      }
+    ]
+  }
+}

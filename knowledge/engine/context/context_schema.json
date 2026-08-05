@@ -1,0 +1,15 @@
+{
+  "inputs": [
+    "canonical_function",
+    "aspect_operator",
+    "sign_context",
+    "house_context",
+    "element",
+    "modality"
+  ],
+  "outputs": [
+    "expression_style",
+    "environmental_conditions",
+    "manifestation_domains"
+  ]
+}

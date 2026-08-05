@@ -1,0 +1,231 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_expression",
+  "name": "Pluto Expression",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines observable Plutonian expression components, stage profiles, query priorities, and expression constraints.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "pluto_identity",
+    "pluto_semantics",
+    "pluto_psychology",
+    "pluto_development"
+  ],
+  "priority": 10,
+  "tags": [
+    "pluto",
+    "expression",
+    "planet",
+    "function"
+  ],
+  "parentObject": "pluto",
+  "moduleType": "expression",
+  "content": {
+    "observableExpressionTypes": [
+      {
+        "id": "hidden_pattern_exposure",
+        "definition": "Makes concealed motives, dependencies, risks, or resource structures visible."
+      },
+      {
+        "id": "precision_elimination",
+        "definition": "Removes a defined component that prevents viability or renewal."
+      },
+      {
+        "id": "agency_reclamation",
+        "definition": "Recovers choice, resource, voice, or capacity from suppression or dependency."
+      },
+      {
+        "id": "power_redistribution",
+        "definition": "Changes how leverage, risk, information, and decision-making capacity are distributed."
+      },
+      {
+        "id": "deep_restructuring",
+        "definition": "Reorganizes the internal distribution of power, attachment, or resource."
+      },
+      {
+        "id": "shadow_integration",
+        "definition": "Incorporates previously excluded, denied, feared, or concealed material."
+      }
+    ],
+    "stageExpressionProfiles": [
+      {
+        "stage": "unconscious",
+        "externalComponents": [
+          "intense focus on hidden risks",
+          "withholding information or emotion",
+          "automatic testing of trust",
+          "difficulty disengaging from perceived threat",
+          "repetition of survival-based power patterns"
+        ],
+        "internalComponents": [
+          "pressure to regain control",
+          "sensitivity to concealed motives",
+          "fear of irreversible loss",
+          "concentration around vulnerability"
+        ],
+        "selectionConstraints": [
+          "Do not infer abuse or trauma.",
+          "Do not infer malicious intent.",
+          "Do not assume intensity proves Pluto."
+        ]
+      },
+      {
+        "stage": "defensive",
+        "externalComponents": [
+          "coercive control",
+          "retaliation",
+          "punitive exposure",
+          "information monopolization",
+          "dominating resource access",
+          "destructive all-or-nothing responses"
+        ],
+        "internalComponents": [
+          "fear of powerlessness",
+          "fear of humiliation",
+          "identification with leverage",
+          "belief that vulnerability invites annihilation"
+        ],
+        "selectionConstraints": [
+          "Requires explicit defensive evidence.",
+          "Must not be used as neutral Pluto description."
+        ]
+      },
+      {
+        "stage": "learning",
+        "externalComponents": [
+          "direct investigation",
+          "selective disclosure",
+          "clearer power mapping",
+          "recovery of personal agency",
+          "ending nonviable arrangements",
+          "integration after conflict or loss"
+        ],
+        "internalComponents": [
+          "growing tolerance for vulnerability",
+          "willingness to release total control",
+          "increasing precision about what must end",
+          "capacity to distinguish reclamation from revenge"
+        ],
+        "selectionConstraints": [
+          "Use when investigation, repair, or conscious restructuring is explicit."
+        ]
+      },
+      {
+        "stage": "healthy",
+        "externalComponents": [
+          "accountable exposure",
+          "precise elimination",
+          "resource reclamation",
+          "deep restructuring",
+          "transparent power redistribution",
+          "integration of previously excluded material"
+        ],
+        "internalComponents": [
+          "stable agency",
+          "consequence awareness",
+          "capacity to tolerate irreversible change",
+          "reduced dependence on crisis intensity"
+        ],
+        "selectionConstraints": [
+          "Neutral mature default when no other stage is specified."
+        ]
+      },
+      {
+        "stage": "integrated",
+        "externalComponents": [
+          "regeneration without domination",
+          "truth-telling without humiliation",
+          "shared power and accountability",
+          "resilient restructuring after loss",
+          "precise endings that protect what remains viable"
+        ],
+        "internalComponents": [
+          "agency without coercion",
+          "depth without obsession",
+          "power without moral superiority",
+          "capacity to complete transformation and move on"
+        ],
+        "selectionConstraints": [
+          "Requires explicit integration evidence."
+        ]
+      }
+    ],
+    "queryExpressionPriorities": {
+      "identity": [
+        "agency_reclamation",
+        "shadow_integration",
+        "deep_restructuring"
+      ],
+      "work": [
+        "power_redistribution",
+        "deep_restructuring",
+        "agency_reclamation"
+      ],
+      "money": [
+        "resource_reclamation",
+        "precision_elimination",
+        "power_redistribution"
+      ],
+      "love": [
+        "hidden_pattern_exposure",
+        "power_redistribution",
+        "attachment_restructuring"
+      ],
+      "family": [
+        "hidden_pattern_exposure",
+        "power_redistribution",
+        "survival_pattern_integration"
+      ],
+      "friendship": [
+        "trust_exposure",
+        "agency_reclamation",
+        "power_redistribution"
+      ],
+      "health": [
+        "precision_elimination",
+        "regeneration",
+        "survival_adaptation"
+      ],
+      "wounds_and_healing": [
+        "hidden_pattern_exposure",
+        "shadow_integration",
+        "agency_reclamation"
+      ],
+      "saturn_return": [
+        "deep_restructuring",
+        "precision_elimination",
+        "agency_reclamation"
+      ]
+    },
+    "expressionConstraints": [
+      "Observable intensity is not proof of Pluto.",
+      "Privacy is not proof of secrecy or manipulation.",
+      "Power language must identify actors, resources, or leverage.",
+      "Crisis is not required for regeneration.",
+      "No expression profile may become a finished placement interpretation."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. Psychology and development qualify expression but do not redefine Pluto.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Pluto expression module."
+    }
+  ]
+}

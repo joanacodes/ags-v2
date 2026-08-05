@@ -1,0 +1,11 @@
+{
+  "id": "pluto_changelog",
+  "content": {
+    "version": "0.1.0",
+    "changes": [
+      "Established 'regenerate' as Pluto's canonical primary verb.",
+      "Separated regeneration from destruction.",
+      "Completed Pluto ontology architecture."
+    ]
+  }
+}

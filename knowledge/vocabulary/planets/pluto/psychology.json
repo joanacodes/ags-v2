@@ -1,0 +1,180 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_psychology",
+  "name": "Pluto Psychology",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Pluto's psychological needs, sensitivities, protective strategies, regulation needs, blind spots, and integration markers.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "pluto_identity",
+    "pluto_semantics",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "pluto",
+    "psychology",
+    "planet",
+    "function"
+  ],
+  "parentObject": "pluto",
+  "moduleType": "psychology",
+  "content": {
+    "coreNeed": {
+      "id": "viability_through_truth_and_reorganization",
+      "definition": "Sufficient access to hidden motives, attachments, resources, and power patterns to reorganize what has become unsustainable."
+    },
+    "coreMotivation": {
+      "id": "restore_integrity_under_pressure",
+      "definition": "Restore depth, agency, and viability when a system can no longer continue in its current form."
+    },
+    "coreSensitivity": [
+      {
+        "id": "hidden_power_sensitivity",
+        "definition": "Heightened awareness of concealed leverage, motive, dependency, or unequal control."
+      },
+      {
+        "id": "nonviability_sensitivity",
+        "definition": "Heightened awareness that a structure, attachment, or resource pattern has become unsustainable."
+      },
+      {
+        "id": "betrayal_sensitivity",
+        "definition": "Heightened awareness of broken trust, concealed agendas, or compromised integrity."
+      },
+      {
+        "id": "irreversibility_sensitivity",
+        "definition": "Heightened awareness that a threshold has been crossed and the prior arrangement cannot be restored unchanged."
+      }
+    ],
+    "coreFearPatterns": [
+      {
+        "id": "loss_of_agency",
+        "definition": "Fear that another person, system, dependency, or concealed force controls the available choices."
+      },
+      {
+        "id": "exposure_without_protection",
+        "definition": "Fear that vulnerable or concealed material will be revealed without safety, consent, or control."
+      },
+      {
+        "id": "annihilation_of_identity_or_resource",
+        "definition": "Fear that change will remove the self, bond, resource, or structure completely."
+      },
+      {
+        "id": "permanent_powerlessness",
+        "definition": "Fear that a loss of agency or leverage cannot be reversed."
+      }
+    ],
+    "protectiveStrategies": [
+      {
+        "id": "control_before_exposure",
+        "definition": "Attempt to manage people, information, timing, or resources before vulnerable material can be revealed."
+      },
+      {
+        "id": "withholding",
+        "definition": "Retain information, emotion, resource, or access to preserve leverage or safety."
+      },
+      {
+        "id": "compulsive_monitoring",
+        "definition": "Track hidden risks, motives, or shifts in power to reduce uncertainty."
+      },
+      {
+        "id": "retaliatory_reclamation",
+        "definition": "Attempt to recover agency through counterforce, punishment, or reversal of dependency."
+      },
+      {
+        "id": "totalizing_intensity",
+        "definition": "Treat the most intense interpretation as the most accurate or necessary one."
+      }
+    ],
+    "blindSpots": [
+      "Confusing intensity with truth",
+      "Confusing secrecy with depth",
+      "Confusing control with safety",
+      "Confusing exposure with humiliation",
+      "Confusing elimination with regeneration",
+      "Confusing survival adaptation with permanent identity",
+      "Underestimating gradual change",
+      "Assuming every unequal exchange is deliberate domination"
+    ],
+    "regulationNeeds": [
+      {
+        "id": "proportionate_exposure",
+        "definition": "Reveal only the material necessary for understanding, accountability, or change."
+      },
+      {
+        "id": "agency_without_domination",
+        "definition": "Restore choice and leverage without suppressing another actor's agency."
+      },
+      {
+        "id": "precision_in_elimination",
+        "definition": "Remove the nonviable component without destroying what can still regenerate."
+      },
+      {
+        "id": "shared_power_mapping",
+        "definition": "Identify how agency, resource, risk, and dependency are actually distributed."
+      },
+      {
+        "id": "post_crisis_reintegration",
+        "definition": "Return concentrated survival responses to a broader and more flexible operating range."
+      }
+    ],
+    "healthyPsychologicalFunctions": [
+      "Recognize hidden motives without assuming malice",
+      "Face nonviability without dramatizing total destruction",
+      "Reclaim agency without retaliation",
+      "Use intensity to focus rather than overwhelm",
+      "Expose what matters without humiliating",
+      "Integrate concealed material without pathologizing it",
+      "Distinguish survival pressure from permanent necessity",
+      "Redistribute power with accountability"
+    ],
+    "integrationMarkers": [
+      "Can tolerate truth without weaponizing it",
+      "Can name power without moralizing it",
+      "Can release control while retaining agency",
+      "Can eliminate precisely rather than indiscriminately",
+      "Can survive disillusionment without collapsing into retaliation",
+      "Can let a transformation complete without recreating the original crisis",
+      "Can share leverage and information without feeling annihilated",
+      "Can recognize when intensity has finished its useful work"
+    ],
+    "reflectionComponents": [
+      "What is actually nonviable here?",
+      "What hidden dependency or power pattern is organizing this situation?",
+      "What must be exposed, and what does not need to be exposed?",
+      "Which part requires elimination, and which part can regenerate?",
+      "Is this an act of reclamation or retaliation?",
+      "What would agency look like without domination?"
+    ],
+    "psychologyConstraints": [
+      "Psychology may qualify Plutonian expression but may not diagnose trauma, obsession, abuse, or pathology.",
+      "No protective strategy may be treated as universally active.",
+      "No internal motive may be inferred from Pluto alone.",
+      "Power must be described structurally rather than morally.",
+      "Developmental language must reference the global development blueprint."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. Psychology and development qualify expression but do not redefine Pluto.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Pluto psychology module."
+    }
+  ]
+}

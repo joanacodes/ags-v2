@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house3_expression",
+  "moduleType": "expression",
+  "grammarRole": "context",
+  "parentObject": "house_3",
+  "content": {
+    "families": [
+      {
+        "id": "communication",
+        "components": [
+          "in the context of communication",
+          "through clear dialogue"
+        ]
+      },
+      {
+        "id": "learning",
+        "components": [
+          "through learning",
+          "within practical education"
+        ]
+      },
+      {
+        "id": "thinking",
+        "components": [
+          "through everyday thinking",
+          "within active reasoning"
+        ]
+      },
+      {
+        "id": "information",
+        "components": [
+          "through information exchange",
+          "within knowledge sharing"
+        ]
+      },
+      {
+        "id": "environment",
+        "components": [
+          "within the immediate environment",
+          "through local interaction"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Locate the planetary function within communication, learning, and everyday cognition.",
+      "angle": "Contextualize the angle within communication without changing its reference-frame role.",
+      "node": "Place developmental themes within learning while preserving nodal polarity.",
+      "chiron": "Contextualize healing themes through communication and learning without implying completion."
+    },
+    "constraints": [
+      "Learning is not innate intelligence.",
+      "Communication is not gossip.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

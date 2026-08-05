@@ -1,0 +1,56 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "venus_expression",
+  "moduleType": "expression",
+  "grammarRole": "canonical_function",
+  "parentObject": "venus",
+  "content": {
+    "families": [
+      {
+        "id": "valuation",
+        "components": [
+          "evaluates value",
+          "organizes priorities"
+        ]
+      },
+      {
+        "id": "attraction",
+        "components": [
+          "orients attraction",
+          "recognizes affinity"
+        ]
+      },
+      {
+        "id": "preference",
+        "components": [
+          "forms preferences",
+          "supports discernment"
+        ]
+      },
+      {
+        "id": "reciprocity",
+        "components": [
+          "supports reciprocity",
+          "balances exchange"
+        ]
+      },
+      {
+        "id": "aesthetics",
+        "components": [
+          "expresses aesthetic judgment",
+          "appreciates form"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "sign": "Modify style without replacing Venus's function.",
+      "house": "Place Venus's function into experiential context.",
+      "aspect": "Relate Venus to another canonical function.",
+      "dignity": "Adjust condition without changing ontology."
+    },
+    "constraints": [
+      "Venus remains the acting canonical function.",
+      "No expression is a complete interpretation."
+    ]
+  }
+}

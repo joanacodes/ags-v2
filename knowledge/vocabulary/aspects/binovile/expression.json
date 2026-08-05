@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "binovile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "binovile",
+  "content": {
+    "families": [
+      {
+        "id": "dual_maturation",
+        "components": [
+          "supports parallel development",
+          "reveals complementary growth"
+        ]
+      },
+      {
+        "id": "recursive_integration",
+        "components": [
+          "builds integrated patterns",
+          "coordinates repetition and refinement"
+        ]
+      },
+      {
+        "id": "transformational_synthesis",
+        "components": [
+          "combines functions constructively",
+          "supports renewal"
+        ]
+      },
+      {
+        "id": "coherence",
+        "components": [
+          "stabilizes integrated structures",
+          "refines relationships"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

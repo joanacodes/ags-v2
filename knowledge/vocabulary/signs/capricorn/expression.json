@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "families": [
+      {
+        "id": "structure",
+        "components": [
+          "systematically",
+          "through structured planning"
+        ]
+      },
+      {
+        "id": "discipline",
+        "components": [
+          "through disciplined effort",
+          "while maintaining structure"
+        ]
+      },
+      {
+        "id": "achievement",
+        "components": [
+          "toward long-term achievement",
+          "with emphasis on responsibility"
+        ]
+      },
+      {
+        "id": "mastery",
+        "components": [
+          "through incremental mastery",
+          "at a sustainable pace"
+        ]
+      },
+      {
+        "id": "stewardship",
+        "components": [
+          "with emphasis on stewardship",
+          "while preserving reliability"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Modify manner, strategy, pace, and regulation only.",
+      "angle": "Modify orientation without changing the angle's canonical function.",
+      "node": "Support disciplined development while preserving nodal polarity.",
+      "chiron": "Support structured healing without implying completion."
+    },
+    "constraints": [
+      "Discipline is not rigidity.",
+      "Achievement is not workaholism.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

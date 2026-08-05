@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "vigintile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "vigintile",
+  "content": {
+    "definition": "A Vigintile relates participating canonical functions through subtle refinement and precise integration while preserving each function's identity.",
+    "boundaries": [
+      "Refinement does not imply perfection.",
+      "Micro-adjustment does not replace canonical functions."
+    ]
+  }
+}

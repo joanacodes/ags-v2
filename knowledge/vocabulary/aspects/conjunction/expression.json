@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "conjunction_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "conjunction",
+  "content": {
+    "families": [
+      {
+        "id": "fusion",
+        "components": [
+          "co-activates",
+          "integrates"
+        ]
+      },
+      {
+        "id": "coordination",
+        "components": [
+          "coordinates simultaneous functions"
+        ]
+      },
+      {
+        "id": "synergy",
+        "components": [
+          "creates emergent interaction"
+        ]
+      },
+      {
+        "id": "focus",
+        "components": [
+          "concentrates attention"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Changes strength only.",
+      "sign": "Styles the participating functions.",
+      "house": "Provides context.",
+      "applying_separating": "Temporal emphasis."
+    },
+    "constraints": [
+      "Operands retain identity.",
+      "No intrinsic benefic/malefic meaning."
+    ]
+  }
+}

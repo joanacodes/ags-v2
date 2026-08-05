@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aspect_query_integration",
+  "moduleType": "engine_integration",
+  "parentObject": "ags_aspect_ontology",
+  "content": {
+    "resolutionPipeline": [
+      "Identify canonical operands",
+      "Resolve geometric angle",
+      "Map angle to aspect operator",
+      "Apply harmonic family inheritance",
+      "Apply developmental modifiers",
+      "Apply expression rules",
+      "Apply orb and contextual modifiers",
+      "Generate semantic query result"
+    ],
+    "operatorClasses": [
+      "creative_harmonic_operator",
+      "recursive_pattern_operator",
+      "maturation_cycle_operator",
+      "emergent_differentiation_operator",
+      "adaptive_restructuring_operator",
+      "structured_reorientation_operator"
+    ],
+    "constraints": [
+      "Geometry and semantics remain separate layers.",
+      "Aspect operators do not become canonical functions.",
+      "Modifiers refine expression but do not redefine ontology."
+    ],
+    "status": "integration_framework_complete"
+  }
+}

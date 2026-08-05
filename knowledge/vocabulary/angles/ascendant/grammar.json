@@ -1,0 +1,146 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ascendant_grammar",
+  "name": "Ascendant Grammar",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines the Ascendant's reference-frame role, approved functions, sign modification, ruler delegation, and clause capabilities.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ascendant_identity",
+    "ags_angle_blueprint",
+    "ags_clause_builder"
+  ],
+  "priority": 10,
+  "tags": [
+    "ascendant",
+    "grammar",
+    "angle",
+    "reference_frame",
+    "orientation"
+  ],
+  "parentObject": "ascendant",
+  "moduleType": "grammar",
+  "content": {
+    "primaryGrammarRole": "reference_frame",
+    "defaultFunctionClass": "orientation_functions",
+    "subjectBehavior": {
+      "mayActAsSubject": false,
+      "mayActAsPrimaryPlanetaryVerb": false,
+      "mayActAsReferenceFrame": true,
+      "mayReceiveSignModifier": true,
+      "mayReceivePlanetaryRulerReference": true,
+      "mayReceiveAspectConnector": true,
+      "mustRemainAngle": true
+    },
+    "primaryVerb": {
+      "lemma": "orient",
+      "surfacePatterns": [
+        "orient",
+        "approach from",
+        "begin engagement through",
+        "establish an initial orientation toward",
+        "frame first contact through"
+      ]
+    },
+    "approvedSecondaryVerbs": [
+      {
+        "lemma": "approach",
+        "semanticDomain": "initial_approach",
+        "useWhen": "The emphasis is on movement toward experience or environment."
+      },
+      {
+        "lemma": "position",
+        "semanticDomain": "self_positioning",
+        "useWhen": "The emphasis is on how the self is situated at the interaction threshold."
+      },
+      {
+        "lemma": "frame",
+        "semanticDomain": "response_framing",
+        "useWhen": "The emphasis is on the reference structure organizing perception or response."
+      },
+      {
+        "lemma": "enter",
+        "semanticDomain": "entry",
+        "useWhen": "The emphasis is on beginning participation in a context."
+      },
+      {
+        "lemma": "present",
+        "semanticDomain": "embodied_presentation",
+        "useWhen": "The emphasis is on observable embodiment or presentation; never as the complete identity."
+      }
+    ],
+    "correctiveVerbs": [
+      {
+        "lemma": "mask",
+        "semanticDomain": "masking",
+        "useRule": "Use only when explicit concealment, performance, or defensive presentation evidence exists.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "filter",
+        "semanticDomain": "selective_attention",
+        "useRule": "Use only when the reference frame selects or prioritizes incoming information.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "react",
+        "semanticDomain": "immediate_response",
+        "useRule": "Use only when an immediate response is explicitly being described; reaction is not the full angle function.",
+        "neverPrimary": true
+      }
+    ],
+    "modifierIntegrationRules": [
+      "The sign modifies the manner, strategy, pace, or orientation of `orient`.",
+      "No sign may replace the Ascendant reference-frame function.",
+      "Sign modifiers must remain grammatical components rather than completed descriptions."
+    ],
+    "rulerIntegrationRules": [
+      "The Ascendant ruler supplies a planetary function that operates through or organizes the orientation.",
+      "The ruler does not replace the Ascendant.",
+      "The Ascendant does not become the ruler's planetary verb.",
+      "Ruler house position supplies context, not identity."
+    ],
+    "clauseCapabilities": [
+      "angle_orientation_clause",
+      "angle_sign_clause",
+      "angle_ruler_clause",
+      "angle_aspect_clause",
+      "axis_relationship_clause",
+      "timing_activation_clause"
+    ],
+    "prohibitedGrammar": [
+      "Ascendant as a planet",
+      "Ascendant as a personality noun",
+      "Ascendant as a sign modifier",
+      "Ascendant as a house context",
+      "Ascendant without orientation semantics",
+      "A completed rising-sign interpretation inside the angle object"
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. The Ascendant may orient other functions but may not become a planet, sign, house, personality label, or finished reading.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Ascendant grammar module."
+    }
+  ]
+}

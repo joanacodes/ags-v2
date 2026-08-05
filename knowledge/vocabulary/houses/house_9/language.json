@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house9_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_9",
+  "content": {
+    "domain": [
+      "higher learning",
+      "exploration",
+      "philosophy"
+    ],
+    "focus": [
+      "meaning",
+      "wisdom",
+      "discovery"
+    ],
+    "scope": [
+      "education",
+      "cultural exploration",
+      "worldview"
+    ],
+    "salience": [
+      "expansive",
+      "inquisitive",
+      "purpose-oriented"
+    ],
+    "expression_context": [
+      "through higher learning",
+      "through exploration",
+      "through philosophical inquiry"
+    ]
+  }
+}

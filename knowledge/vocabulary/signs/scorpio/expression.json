@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "scorpio_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "scorpio",
+  "content": {
+    "families": [
+      {
+        "id": "transformation",
+        "components": [
+          "deeply",
+          "through transformation"
+        ]
+      },
+      {
+        "id": "integration",
+        "components": [
+          "toward integration",
+          "while preserving integrity"
+        ]
+      },
+      {
+        "id": "regeneration",
+        "components": [
+          "with emphasis on regeneration",
+          "through renewal"
+        ]
+      },
+      {
+        "id": "truth",
+        "components": [
+          "toward truth",
+          "through investigation"
+        ]
+      },
+      {
+        "id": "resilience",
+        "components": [
+          "with emphasis on resilience",
+          "through adaptive recovery"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Modify manner, strategy, pace, and regulation only.",
+      "angle": "Modify orientation without changing the angle's canonical function.",
+      "node": "Support transformational development while preserving nodal polarity.",
+      "chiron": "Support regenerative healing without implying completion."
+    },
+    "constraints": [
+      "Depth is not secrecy.",
+      "Investigation is not manipulation.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

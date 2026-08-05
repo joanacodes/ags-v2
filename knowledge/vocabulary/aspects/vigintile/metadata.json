@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "vigintile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "vigintile",
+  "content": {
+    "canonicalId": "vigintile",
+    "displayName": "Vigintile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "micro_refinement_operator",
+    "canonicalQuestion": "How do two canonical functions interact through subtle refinement, precise differentiation, and micro-level integration?"
+  }
+}

@@ -1,0 +1,411 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_semantics",
+  "name": "Saturn Semantics",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Saturn's distinct semantic domains, conceptual boundaries, domain relationships, and priority rules.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-016",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "saturn_identity",
+    "saturn_grammar",
+    "saturn_language"
+  ],
+  "priority": 10,
+  "tags": [
+    "saturn",
+    "semantics",
+    "semantics",
+    "domains",
+    "boundaries"
+  ],
+  "parentObject": "saturn",
+  "moduleType": "semantics",
+  "content": {
+    "coreSemanticDomains": [
+      {
+        "id": "structure",
+        "name": "Structure",
+        "definition": "The creation and organization of forms capable of carrying function across time.",
+        "primaryVerbs": [
+          "structure",
+          "organize",
+          "formalize",
+          "build"
+        ],
+        "questions": [
+          "What form is needed here?",
+          "What would make this workable and durable?",
+          "Which parts need clearer organization?"
+        ],
+        "boundaries": {
+          "not": [
+            "mere rigidity",
+            "control for its own sake",
+            "unchanging form"
+          ],
+          "neighborDistinction": "Uranus reconfigures form; Saturn establishes and maintains form."
+        }
+      },
+      {
+        "id": "responsibility",
+        "name": "Responsibility",
+        "definition": "The recognition, acceptance, distribution, and fulfillment of obligations and consequences.",
+        "primaryVerbs": [
+          "take responsibility",
+          "assume responsibility",
+          "delegate",
+          "fulfill",
+          "take ownership"
+        ],
+        "questions": [
+          "What is genuinely mine to carry?",
+          "What responsibility am I avoiding?",
+          "What responsibility belongs elsewhere?"
+        ],
+        "boundaries": {
+          "not": [
+            "automatic burden",
+            "self-sacrifice",
+            "carrying everything alone"
+          ],
+          "neighborDistinction": "Mars acts; Saturn remains accountable for consequences."
+        }
+      },
+      {
+        "id": "limits_and_boundaries",
+        "name": "Limits and Boundaries",
+        "definition": "The definition of what is possible, permitted, protected, required, or excluded.",
+        "primaryVerbs": [
+          "define",
+          "limit",
+          "contain",
+          "differentiate",
+          "separate",
+          "protect"
+        ],
+        "questions": [
+          "Which limit protects something important?",
+          "Which limit is based on fear rather than reality?",
+          "Where does responsibility begin and end?"
+        ],
+        "boundaries": {
+          "not": [
+            "punishment",
+            "permanent denial",
+            "emotional withdrawal by default"
+          ],
+          "neighborDistinction": "Venus negotiates relation; Saturn defines durable terms and boundaries."
+        }
+      },
+      {
+        "id": "time_and_pacing",
+        "name": "Time and Pacing",
+        "definition": "The role of duration, sequence, repetition, delay, timing, and maturation in making a function reliable.",
+        "primaryVerbs": [
+          "pace",
+          "wait",
+          "prepare",
+          "repeat",
+          "mature",
+          "endure"
+        ],
+        "questions": [
+          "What cannot be rushed?",
+          "What requires repetition?",
+          "What has accumulated over time?"
+        ],
+        "boundaries": {
+          "not": [
+            "delay as punishment",
+            "passivity",
+            "automatic lateness"
+          ],
+          "neighborDistinction": "Jupiter expands rapidly; Saturn regulates pace and sustainability."
+        }
+      },
+      {
+        "id": "consequence_and_accountability",
+        "name": "Consequence and Accountability",
+        "definition": "The recognition that actions, omissions, structures, and commitments produce results that must be faced.",
+        "primaryVerbs": [
+          "account",
+          "acknowledge",
+          "accept consequences",
+          "evaluate",
+          "correct"
+        ],
+        "questions": [
+          "What consequence must be acknowledged?",
+          "What pattern has accumulated through repetition?",
+          "What correction is now required?"
+        ],
+        "boundaries": {
+          "not": [
+            "cosmic punishment",
+            "moral condemnation",
+            "fatalistic debt"
+          ],
+          "neighborDistinction": "Pluto exposes power and compulsion; Saturn assesses consequence and responsibility."
+        }
+      },
+      {
+        "id": "discipline_and_practice",
+        "name": "Discipline and Practice",
+        "definition": "The repeated, intentional application of effort according to a standard.",
+        "primaryVerbs": [
+          "discipline",
+          "practice",
+          "repeat",
+          "refine",
+          "maintain"
+        ],
+        "questions": [
+          "What practice would build competence?",
+          "Which standard is worth maintaining?",
+          "What must be repeated before it becomes reliable?"
+        ],
+        "boundaries": {
+          "not": [
+            "self-punishment",
+            "relentless productivity",
+            "perfectionism"
+          ],
+          "neighborDistinction": "Mercury learns conceptually; Saturn turns learning into practiced competence."
+        }
+      },
+      {
+        "id": "commitment_and_contract",
+        "name": "Commitment and Contract",
+        "definition": "The conscious acceptance of duration, obligation, terms, and continuity.",
+        "primaryVerbs": [
+          "commit",
+          "formalize",
+          "contract",
+          "maintain",
+          "honor"
+        ],
+        "questions": [
+          "What deserves commitment?",
+          "Which terms must be clear?",
+          "What would make this commitment sustainable?"
+        ],
+        "boundaries": {
+          "not": [
+            "being trapped",
+            "commitment without consent",
+            "staying solely from fear"
+          ],
+          "neighborDistinction": "Venus forms bonds; Saturn defines their durability, terms, and obligations."
+        }
+      },
+      {
+        "id": "authority_and_governance",
+        "name": "Authority and Governance",
+        "definition": "The capacity to establish standards, make binding decisions, distribute responsibility, and remain accountable.",
+        "primaryVerbs": [
+          "authorize",
+          "govern",
+          "lead",
+          "steward",
+          "standardize"
+        ],
+        "questions": [
+          "Where is authority earned?",
+          "How can authority remain accountable?",
+          "What decision requires ownership?"
+        ],
+        "boundaries": {
+          "not": [
+            "domination",
+            "status alone",
+            "unquestioned hierarchy"
+          ],
+          "neighborDistinction": "The Sun leads through central identity; Saturn governs through standards, roles, and accountability."
+        }
+      },
+      {
+        "id": "stability_and_durability",
+        "name": "Stability and Durability",
+        "definition": "The capacity of a form, system, commitment, or skill to withstand pressure and continue functioning.",
+        "primaryVerbs": [
+          "stabilize",
+          "strengthen",
+          "reinforce",
+          "sustain",
+          "preserve"
+        ],
+        "questions": [
+          "What needs reinforcement?",
+          "What would make this sustainable?",
+          "Which structure can survive change?"
+        ],
+        "boundaries": {
+          "not": [
+            "stagnation",
+            "resistance to all change",
+            "emotional numbness"
+          ],
+          "neighborDistinction": "Uranus introduces change; Saturn determines whether change can endure."
+        }
+      },
+      {
+        "id": "consolidation_and_reduction",
+        "name": "Consolidation and Reduction",
+        "definition": "The process of gathering, prioritizing, reducing excess, and preserving what remains viable.",
+        "primaryVerbs": [
+          "consolidate",
+          "prioritize",
+          "prune",
+          "reduce",
+          "complete"
+        ],
+        "questions": [
+          "What is essential?",
+          "What can be reduced without damaging the whole?",
+          "What should be completed before expansion?"
+        ],
+        "boundaries": {
+          "not": [
+            "deprivation for its own sake",
+            "fear-based scarcity",
+            "automatic loss"
+          ],
+          "neighborDistinction": "Jupiter increases range; Saturn consolidates what is viable."
+        }
+      },
+      {
+        "id": "mastery_and_competence",
+        "name": "Mastery and Competence",
+        "definition": "Reliable capability developed through standards, repetition, correction, and time.",
+        "primaryVerbs": [
+          "master",
+          "practice",
+          "refine",
+          "qualify",
+          "complete"
+        ],
+        "questions": [
+          "Which skill deserves long-term practice?",
+          "What standard defines competence?",
+          "What remains to be learned through experience?"
+        ],
+        "boundaries": {
+          "not": [
+            "innate superiority",
+            "perfection",
+            "credential alone"
+          ],
+          "neighborDistinction": "Mercury understands; Saturn proves and maintains competence."
+        }
+      },
+      {
+        "id": "maintenance_and_legacy",
+        "name": "Maintenance and Legacy",
+        "definition": "The preservation, repair, transmission, and long-term continuation of what has been built.",
+        "primaryVerbs": [
+          "maintain",
+          "preserve",
+          "repair",
+          "transmit",
+          "institutionalize"
+        ],
+        "questions": [
+          "What must be maintained after creation?",
+          "What is worth passing forward?",
+          "Which structure has outlived its usefulness?"
+        ],
+        "boundaries": {
+          "not": [
+            "preserving obsolete systems",
+            "tradition without function",
+            "legacy as status alone"
+          ],
+          "neighborDistinction": "The Sun expresses significance; Saturn preserves and transmits durable contribution."
+        }
+      }
+    ],
+    "semanticRelationships": [
+      {
+        "from": "structure",
+        "to": "stability_and_durability",
+        "relationship": "Structure is evaluated by whether it creates durability."
+      },
+      {
+        "from": "responsibility",
+        "to": "consequence_and_accountability",
+        "relationship": "Responsibility includes recognizing and responding to consequence."
+      },
+      {
+        "from": "discipline_and_practice",
+        "to": "mastery_and_competence",
+        "relationship": "Practice develops reliable competence over time."
+      },
+      {
+        "from": "limits_and_boundaries",
+        "to": "commitment_and_contract",
+        "relationship": "Clear limits establish workable terms for commitment."
+      },
+      {
+        "from": "consolidation_and_reduction",
+        "to": "maintenance_and_legacy",
+        "relationship": "Consolidation preserves what remains viable for long-term continuation."
+      }
+    ],
+    "semanticPriorityRules": [
+      {
+        "id": "SAT-SEM-001",
+        "rule": "Use `structure` as the root domain when no narrower domain is selected."
+      },
+      {
+        "id": "SAT-SEM-002",
+        "rule": "Use `responsibility` and `consequence_and_accountability` for returns, authority, duty, and decision queries."
+      },
+      {
+        "id": "SAT-SEM-003",
+        "rule": "Use `limits_and_boundaries` for relationship, health-routine, resource, and containment contexts."
+      },
+      {
+        "id": "SAT-SEM-004",
+        "rule": "Use `time_and_pacing` when applying, separating, developmental, delay, or maturation language is required."
+      },
+      {
+        "id": "SAT-SEM-005",
+        "rule": "Use `stability_and_durability` when Saturn supports Uranus, Mars, Jupiter, Neptune, or mutable conditions."
+      },
+      {
+        "id": "SAT-SEM-006",
+        "rule": "Use `mastery_and_competence` for work, skill, education, craft, and professional authority."
+      }
+    ],
+    "semanticExclusions": [
+      "Do not derive punishment from consequence.",
+      "Do not derive suffering from discipline.",
+      "Do not derive denial from limits.",
+      "Do not derive failure from delay.",
+      "Do not derive authority from domination.",
+      "Do not derive stability from stagnation.",
+      "Do not derive legacy from public status alone."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Built from approved AGS specifications and reviewed verb-centered astrological synthesis.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Saturn semantics module."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biseptile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "biseptile",
+  "content": {
+    "verbs": [
+      "differentiates",
+      "coordinates",
+      "recurses",
+      "integrates"
+    ],
+    "templates": [
+      "{A} and {B} recursively differentiate into coordinated patterns.",
+      "{A} coordinates distributed emergence with {B}."
+    ]
+  }
+}

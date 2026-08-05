@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house11_development",
+  "moduleType": "development",
+  "grammarRole": "context",
+  "parentObject": "house_11",
+  "content": {
+    "coreRule": "Development changes how functions are experienced within the House 11 context; House 11 remains a context.",
+    "stages": {
+      "unconscious": [
+        "through automatic group identification",
+        "within unexamined social patterns"
+      ],
+      "defensive": [
+        "through conformity",
+        "within peer dependence"
+      ],
+      "learning": [
+        "through collaborative participation",
+        "within expanding networks"
+      ],
+      "healthy": [
+        "through authentic contribution",
+        "within mutually supportive communities"
+      ],
+      "integrated": [
+        "through collective stewardship",
+        "within shared long-term vision"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Community context never implies popularity."
+    ]
+  }
+}

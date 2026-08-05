@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "jupiter_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "canonical_function",
+  "parentObject": "jupiter",
+  "content": {
+    "resolutionOrder": [
+      "Load Jupiter canonical function",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity modifiers",
+      "Apply aspect relations",
+      "Validate Jupiter function unchanged",
+      "Generate semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "function": "expansion",
+      "process": "meaning",
+      "goal": "growth",
+      "output": "wisdom",
+      "salience": "integrative"
+    },
+    "compositionRules": [
+      "Jupiter remains the canonical function.",
+      "Signs modify expression only.",
+      "Houses provide context only.",
+      "Aspects create relations only.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer coherent synthesis over isolated facts.",
+      "Prefer growth over certainty.",
+      "Return an empty result rather than invent semantics."
+    ],
+    "forbiddenInferences": [
+      "Jupiter is replaced by a sign.",
+      "Jupiter becomes a house.",
+      "Jupiter inherently guarantees luck or success."
+    ]
+  }
+}

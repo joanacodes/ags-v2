@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house12_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "context",
+  "parentObject": "house_12",
+  "content": {
+    "canonicalId": "house_12",
+    "displayName": "Twelfth House",
+    "ontologyClass": "house",
+    "grammarRole": "context",
+    "semanticClass": "inner_transcendence_context",
+    "canonicalQuestion": "Where is this function primarily expressed through inner life, retreat, and transcendence?"
+  }
+}

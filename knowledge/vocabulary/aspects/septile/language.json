@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "septile",
+  "content": {
+    "verbs": [
+      "recurses",
+      "organizes",
+      "coordinates",
+      "transforms"
+    ],
+    "templates": [
+      "{A} and {B} recursively organize emerging patterns.",
+      "{A} coordinates nonlinear development with {B}."
+    ]
+  }
+}

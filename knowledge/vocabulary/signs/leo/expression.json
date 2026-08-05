@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "leo_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "leo",
+  "content": {
+    "families": [
+      {
+        "id": "expression",
+        "components": [
+          "expressively",
+          "with emphasis on authentic expression"
+        ]
+      },
+      {
+        "id": "creative_actualization",
+        "components": [
+          "through creative actualization",
+          "through creative refinement"
+        ]
+      },
+      {
+        "id": "visibility",
+        "components": [
+          "toward visibility",
+          "while preserving authenticity"
+        ]
+      },
+      {
+        "id": "coherence",
+        "components": [
+          "while maintaining coherence",
+          "confidently"
+        ]
+      },
+      {
+        "id": "generativity",
+        "components": [
+          "through visible contribution",
+          "toward creative contribution"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Modify manner, strategy, and regulation only.",
+      "angle": "Modify orientation without changing the angle's reference-frame function.",
+      "node": "Support authentic developmental expression while preserving nodal polarity.",
+      "chiron": "Support authentic self-expression without implying healing is complete."
+    },
+    "constraints": [
+      "Confidence is not arrogance.",
+      "Recognition is not dependence on validation.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

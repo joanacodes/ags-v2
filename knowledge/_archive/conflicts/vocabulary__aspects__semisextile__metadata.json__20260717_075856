@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "canonicalId": "semisextile",
+    "displayName": "Semisextile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "incremental_integration_operator",
+    "canonicalQuestion": "How do two canonical functions interact through subtle connection and incremental integration?"
+  }
+}

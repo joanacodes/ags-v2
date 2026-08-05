@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "jupiter_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "canonical_function",
+  "parentObject": "jupiter",
+  "content": {
+    "defaultFunctionSet": [
+      "jupiter_expansion",
+      "jupiter_meaning",
+      "jupiter_growth",
+      "jupiter_wisdom"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "meaning",
+        "growth"
+      ],
+      "relationships": [
+        "principles",
+        "wisdom"
+      ],
+      "career": [
+        "growth",
+        "opportunity"
+      ],
+      "development": [
+        "expansion",
+        "wisdom"
+      ],
+      "transits": [
+        "meaning",
+        "beliefs"
+      ]
+    },
+    "selectionRules": [
+      "Preserve Jupiter's canonical function.",
+      "Apply sign modifiers before house context.",
+      "Never substitute modifiers for the function."
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "vigintile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "vigintile",
+  "content": {
+    "defaultOperator": "micro_refinement_operator",
+    "supportedQueries": {
+      "identity": [
+        "refinement",
+        "precision"
+      ],
+      "relationship": [
+        "micro_integration",
+        "optimization"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Vigintile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

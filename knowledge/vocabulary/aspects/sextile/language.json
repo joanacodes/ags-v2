@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sextile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "sextile",
+  "content": {
+    "verbs": [
+      "supports",
+      "cooperates",
+      "activates",
+      "encourages"
+    ],
+    "templates": [
+      "{A} and {B} cooperate through opportunity.",
+      "{A} activates the potential of {B}."
+    ]
+  }
+}

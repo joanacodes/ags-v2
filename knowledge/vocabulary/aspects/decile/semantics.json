@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "decile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "decile",
+  "content": {
+    "definition": "A Decile relates participating canonical functions through creative potential and developmental refinement while preserving each function's identity.",
+    "boundaries": [
+      "Potential does not imply guaranteed ability.",
+      "Expression does not replace canonical functions."
+    ]
+  }
+}

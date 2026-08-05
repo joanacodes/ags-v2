@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "taurus_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "taurus",
+  "content": {
+    "defaultModifierSet": [
+      "taurus_manner_steadily",
+      "taurus_strategy_consolidation",
+      "taurus_priority_preservation"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "continuity",
+        "stabilization"
+      ],
+      "work": [
+        "maintenance",
+        "durability"
+      ],
+      "money": [
+        "resource_stewardship",
+        "preservation"
+      ],
+      "health": [
+        "steady_pacing",
+        "maintenance"
+      ],
+      "relationships": [
+        "continuity",
+        "retention"
+      ],
+      "transits": [
+        "stabilization",
+        "consolidation"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'steadily' as neutral manner.",
+      "Prefer 'through consolidation' as neutral strategy.",
+      "Suppress gradual pace when target requires immediate response.",
+      "Never replace target canonical function."
+    ]
+  }
+}

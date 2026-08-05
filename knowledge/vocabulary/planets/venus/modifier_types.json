@@ -1,0 +1,38 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "venus_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "canonical_function",
+  "parentObject": "venus",
+  "content": {
+    "functionComponents": [
+      {
+        "id": "venus_value",
+        "text": "evaluates value",
+        "type": "function"
+      },
+      {
+        "id": "venus_preference",
+        "text": "forms preferences",
+        "type": "process"
+      },
+      {
+        "id": "venus_reciprocity",
+        "text": "supports reciprocity",
+        "type": "goal"
+      },
+      {
+        "id": "venus_aesthetic",
+        "text": "expresses aesthetic judgment",
+        "type": "output"
+      }
+    ],
+    "modifierPolicy": {
+      "sign": "modifies style",
+      "house": "supplies context",
+      "degree": "adds emphasis",
+      "dignity": "changes condition",
+      "aspect": "creates relational structure"
+    }
+  }
+}

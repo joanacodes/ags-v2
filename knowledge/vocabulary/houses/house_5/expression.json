@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house5_expression",
+  "moduleType": "expression",
+  "grammarRole": "context",
+  "parentObject": "house_5",
+  "content": {
+    "families": [
+      {
+        "id": "creativity",
+        "components": [
+          "in the context of creativity",
+          "through original creation"
+        ]
+      },
+      {
+        "id": "self_expression",
+        "components": [
+          "through self-expression",
+          "within authentic expression"
+        ]
+      },
+      {
+        "id": "play",
+        "components": [
+          "through playful exploration",
+          "within joyful engagement"
+        ]
+      },
+      {
+        "id": "romance",
+        "components": [
+          "through romantic expression",
+          "within heartfelt connection"
+        ]
+      },
+      {
+        "id": "art",
+        "components": [
+          "through artistic creation",
+          "within creative practice"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Locate the planetary function within creativity and self-expression.",
+      "angle": "Contextualize the angle within creative expression without changing its reference-frame role.",
+      "node": "Place developmental themes within creativity while preserving nodal polarity.",
+      "chiron": "Contextualize healing themes through creative expression without implying completion."
+    },
+    "constraints": [
+      "Play is not immaturity.",
+      "Creativity is not attention seeking.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

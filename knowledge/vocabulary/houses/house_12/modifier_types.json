@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house12_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "context",
+  "parentObject": "house_12",
+  "content": {
+    "contextComponents": [
+      {
+        "id": "house12_inner",
+        "text": "in the context of inner life",
+        "type": "domain"
+      },
+      {
+        "id": "house12_reflection",
+        "text": "through reflection",
+        "type": "focus"
+      },
+      {
+        "id": "house12_transcendence",
+        "text": "through transcendence",
+        "type": "expression_context"
+      },
+      {
+        "id": "house12_retreat",
+        "text": "within retreat",
+        "type": "salience"
+      }
+    ]
+  }
+}

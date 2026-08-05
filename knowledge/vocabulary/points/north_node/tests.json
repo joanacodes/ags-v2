@@ -1,0 +1,132 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_tests",
+  "name": "North Node Tests",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines validation, regression, axis-integrity, and determinism tests.",
+  "grammarRole": "developmental_direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "north_node_reasoning",
+    "nodal_axis_tests",
+    "ags_validation_engine"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "tests",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "tests",
+  "content": {
+    "moduleId": "north_node",
+    "testCases": [
+      {
+        "id": "NN-T-001",
+        "name": "Primary verb defaults to develop",
+        "expectedVerb": "develop"
+      },
+      {
+        "id": "NN-T-002",
+        "name": "South Node reference is mandatory",
+        "southNodePresent": false,
+        "expectedValid": false
+      },
+      {
+        "id": "NN-T-003",
+        "name": "Practice requires repetition or feedback evidence",
+        "requestedVerb": "practice",
+        "evidencePresent": false,
+        "expectedValid": false
+      },
+      {
+        "id": "NN-T-004",
+        "name": "Integration preserves both poles",
+        "expectedBothPolesPresent": true
+      },
+      {
+        "id": "NN-T-005",
+        "name": "Reject destiny claim",
+        "surfaceText": "Your North Node is your guaranteed destiny.",
+        "expectedValid": false
+      },
+      {
+        "id": "NN-T-006",
+        "name": "Reject South Node abandonment",
+        "surfaceText": "You must leave the South Node behind.",
+        "expectedValid": false
+      },
+      {
+        "id": "NN-T-007",
+        "name": "Overreliance requires contextual evidence",
+        "overrelianceEvidence": false,
+        "expectedOverrelianceClaim": false
+      },
+      {
+        "id": "NN-T-008",
+        "name": "Developmental stage preserves identity",
+        "stages": [
+          "unconscious",
+          "defensive",
+          "learning",
+          "healthy",
+          "integrated"
+        ],
+        "expectedPrimaryFunction": "develop"
+      },
+      {
+        "id": "NN-T-009",
+        "name": "Finished placement interpretation rejected",
+        "containsFinishedPlacementSentence": true,
+        "expectedValid": false
+      },
+      {
+        "id": "NN-T-010",
+        "name": "Deterministic query resolution",
+        "sameInputs": true,
+        "expectedSameVerb": true,
+        "expectedSameDomains": true
+      }
+    ],
+    "regressions": [
+      "North Node != destiny",
+      "North Node != automatic virtue",
+      "North Node != guaranteed fulfillment",
+      "North Node development != South Node abandonment",
+      "Past-life symbolism != factual claim"
+    ],
+    "prohibitedOutputs": [
+      "Any guaranteed outcome",
+      "Any moral ranking of the Nodes",
+      "Any North Node sentence without South Node reference",
+      "Any overreliance claim without evidence",
+      "Any finished sign- or house-specific interpretation"
+    ]
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Developmental-direction vocabulary only. No destiny, fate, moral ranking, or guaranteed outcome claims are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node tests module."
+    }
+  ]
+}

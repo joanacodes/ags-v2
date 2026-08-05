@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "duodecile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "duodecile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Duodecile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate harmonic refinement semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Duodecile introduces harmonic refinement without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer subtle coherence over deterministic outcomes.",
+      "Interpret harmonic structures through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Duodecile guarantees harmony.",
+      "Duodecile is inherently beneficial.",
+      "Duodecile replaces planetary functions."
+    ]
+  }
+}

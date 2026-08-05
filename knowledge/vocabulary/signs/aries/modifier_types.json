@@ -1,0 +1,311 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_modifier_types",
+  "name": "Aries Modifier Types",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines reusable Aries components across all required modifier categories.",
+  "grammarRole": "modifier",
+  "dependsOn": [
+    "aries_semantics",
+    "ags_sign_modifier_types"
+  ],
+  "parentObject": "aries",
+  "moduleType": "modifier_types",
+  "content": {
+    "components": [
+      {
+        "id": "aries_manner_directly",
+        "text": "directly",
+        "modifierType": "manner",
+        "semanticDomains": [
+          "directness"
+        ],
+        "compatibleTargetClasses": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "compatibleVerbClasses": [
+          "action",
+          "developmental",
+          "orientation",
+          "adaptive",
+          "transformative",
+          "responsive"
+        ],
+        "developmentalEligibility": [
+          "unconscious",
+          "learning",
+          "healthy",
+          "integrated"
+        ],
+        "priority": 100,
+        "boundaries": [
+          "Does not imply hostility or lack of tact."
+        ]
+      },
+      {
+        "id": "aries_strategy_initiation",
+        "text": "through initiation",
+        "modifierType": "strategy",
+        "semanticDomains": [
+          "initiation"
+        ],
+        "compatibleTargetClasses": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "compatibleVerbClasses": [
+          "action",
+          "developmental",
+          "orientation",
+          "adaptive",
+          "transformative"
+        ],
+        "developmentalEligibility": [
+          "unconscious",
+          "learning",
+          "healthy",
+          "integrated"
+        ],
+        "priority": 100,
+        "boundaries": [
+          "Initiation is not completion."
+        ]
+      },
+      {
+        "id": "aries_pace_rapidly",
+        "text": "rapidly",
+        "modifierType": "pace",
+        "semanticDomains": [
+          "immediacy"
+        ],
+        "compatibleTargetClasses": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "compatibleVerbClasses": [
+          "action",
+          "orientation",
+          "developmental",
+          "adaptive"
+        ],
+        "developmentalEligibility": [
+          "unconscious",
+          "learning",
+          "healthy",
+          "integrated"
+        ],
+        "priority": 88,
+        "boundaries": [
+          "Omit when the target function requires slow consolidation or extended discernment."
+        ]
+      },
+      {
+        "id": "aries_orientation_autonomous_engagement",
+        "text": "toward autonomous engagement",
+        "modifierType": "orientation",
+        "semanticDomains": [
+          "autonomous_engagement"
+        ],
+        "compatibleTargetClasses": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "compatibleVerbClasses": [
+          "action",
+          "orientation",
+          "developmental",
+          "adaptive",
+          "relational"
+        ],
+        "developmentalEligibility": [
+          "learning",
+          "healthy",
+          "integrated"
+        ],
+        "priority": 96,
+        "boundaries": [
+          "Autonomy must not be rendered as isolation."
+        ]
+      },
+      {
+        "id": "aries_priority_first_actionable_step",
+        "text": "with emphasis on the first actionable step",
+        "modifierType": "priority",
+        "semanticDomains": [
+          "first_move_priority"
+        ],
+        "compatibleTargetClasses": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "compatibleVerbClasses": [
+          "action",
+          "orientation",
+          "developmental",
+          "adaptive",
+          "cognitive"
+        ],
+        "developmentalEligibility": [
+          "learning",
+          "healthy",
+          "integrated"
+        ],
+        "priority": 100,
+        "boundaries": [
+          "The first step may be provisional."
+        ]
+      },
+      {
+        "id": "aries_regulation_preserve_momentum",
+        "text": "while preserving momentum",
+        "modifierType": "regulation",
+        "semanticDomains": [
+          "momentum_preservation"
+        ],
+        "compatibleTargetClasses": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "compatibleVerbClasses": [
+          "action",
+          "orientation",
+          "developmental",
+          "adaptive",
+          "transformative"
+        ],
+        "developmentalEligibility": [
+          "learning",
+          "healthy",
+          "integrated"
+        ],
+        "priority": 96,
+        "boundaries": [
+          "Momentum must allow correction."
+        ]
+      },
+      {
+        "id": "aries_developmental_reactively",
+        "text": "reactively",
+        "modifierType": "developmental",
+        "semanticDomains": [
+          "immediacy"
+        ],
+        "compatibleTargetClasses": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "compatibleVerbClasses": [
+          "action",
+          "orientation",
+          "developmental",
+          "adaptive"
+        ],
+        "developmentalEligibility": [
+          "defensive"
+        ],
+        "priority": 70,
+        "boundaries": [
+          "Requires explicit defensive evidence."
+        ]
+      },
+      {
+        "id": "aries_developmental_bounded_first_steps",
+        "text": "through bounded first steps",
+        "modifierType": "developmental",
+        "semanticDomains": [
+          "initiation",
+          "immediate_testing"
+        ],
+        "compatibleTargetClasses": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "compatibleVerbClasses": [
+          "action",
+          "orientation",
+          "developmental",
+          "adaptive",
+          "transformative"
+        ],
+        "developmentalEligibility": [
+          "learning"
+        ],
+        "priority": 88,
+        "boundaries": [
+          "The first step must remain observable and revisable."
+        ]
+      },
+      {
+        "id": "aries_developmental_proportionate_urgency",
+        "text": "with proportionate urgency",
+        "modifierType": "developmental",
+        "semanticDomains": [
+          "immediacy",
+          "directness"
+        ],
+        "compatibleTargetClasses": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "compatibleVerbClasses": [
+          "action",
+          "orientation",
+          "developmental",
+          "adaptive",
+          "responsive"
+        ],
+        "developmentalEligibility": [
+          "healthy",
+          "integrated"
+        ],
+        "priority": 96,
+        "boundaries": [
+          "Urgency must match actual conditions."
+        ]
+      }
+    ],
+    "coverage": {
+      "manner": 1,
+      "strategy": 1,
+      "pace": 1,
+      "orientation": 1,
+      "priority": 1,
+      "regulation": 1,
+      "developmental": 3
+    },
+    "validationNotes": [
+      "Every component is a fragment, not a sentence.",
+      "Every component declares target and verb compatibility.",
+      "Defensive language is developmentally gated.",
+      "No component changes the target object's canonical function."
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries modifier_types module."
+    }
+  ]
+}

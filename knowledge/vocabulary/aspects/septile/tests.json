@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "septile_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "septile",
+  "content": {
+    "suite": "septile_ontology_v0.1",
+    "cases": [
+      {
+        "id": "SPT-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "SPT-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "SPT-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "SPT-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "SPT-T-005",
+        "name": "No intrinsic benefic/malefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

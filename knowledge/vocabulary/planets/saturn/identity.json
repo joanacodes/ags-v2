@@ -1,0 +1,9 @@
+{
+  "id": "saturn_identity",
+  "moduleType": "identity",
+  "grammarRole": "canonical_function",
+  "parentObject": "saturn",
+  "content": {
+    "canonicalFunction": "establishes structure, responsibility, boundaries, discipline, and long-term integration"
+  }
+}

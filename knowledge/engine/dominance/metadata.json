@@ -1,0 +1,6 @@
+{
+  "id": "dominance_analysis_engine",
+  "moduleType": "structural_emphasis_analysis_layer",
+  "version": "0.1.0",
+  "purpose": "Analyze structural emphasis without reducing charts to rankings."
+}

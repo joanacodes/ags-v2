@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisquare_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisquare",
+  "content": {
+    "definition": "A Semisquare relates participating canonical functions through localized constructive tension while preserving each function's identity.",
+    "boundaries": [
+      "Constructive tension is not failure.",
+      "Correction does not replace canonical functions."
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sagittarius_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "modifier",
+  "parentObject": "sagittarius",
+  "content": {
+    "modifierSlots": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] expansively",
+      "[target] through exploration",
+      "[target] with broad perspective",
+      "[target] toward growth",
+      "[target] with emphasis on meaning"
+    ],
+    "forbidden": [
+      "Sagittarius acts.",
+      "Sagittarius causes recklessness.",
+      "Sagittarius makes people dogmatic."
+    ]
+  }
+}

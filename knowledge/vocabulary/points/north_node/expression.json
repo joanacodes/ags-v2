@@ -1,0 +1,232 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_expression",
+  "name": "North Node Expression",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines observable developmental-direction components, stage profiles, query priorities, and expression constraints.",
+  "grammarRole": "developmental_direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "north_node_identity",
+    "north_node_semantics",
+    "north_node_psychology",
+    "north_node_development",
+    "nodal_axis_directionality"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "expression",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "expression",
+  "content": {
+    "observableExpressionTypes": [
+      {
+        "id": "emerging_capacity_practice",
+        "definition": "Repeated engagement with a less familiar complementary response."
+      },
+      {
+        "id": "range_expansion",
+        "definition": "Addition of new responses to the existing functional repertoire."
+      },
+      {
+        "id": "developmental_experimentation",
+        "definition": "Testing new methods without assuming they are already integrated."
+      },
+      {
+        "id": "feedback_based_refinement",
+        "definition": "Using results, consequences, and response data to improve the emerging capacity."
+      },
+      {
+        "id": "axis_integration",
+        "definition": "Coordinating the North Node capacity with established South Node resources."
+      },
+      {
+        "id": "contextual_pole_switching",
+        "definition": "Choosing between familiar and emerging modes according to context rather than ideology."
+      }
+    ],
+    "stageExpressionProfiles": [
+      {
+        "stage": "unconscious",
+        "externalComponents": [
+          "intermittent attraction to unfamiliar situations",
+          "copying people who embody the emerging capacity",
+          "rapid retreat to familiar methods under pressure",
+          "aspiration without sustained practice",
+          "uneven developmental experimentation"
+        ],
+        "internalComponents": [
+          "curiosity",
+          "self-consciousness",
+          "performance anxiety",
+          "idealization of the unfamiliar"
+        ],
+        "selectionConstraints": [
+          "Do not infer destiny.",
+          "Do not infer virtue.",
+          "Do not assume attraction equals readiness."
+        ]
+      },
+      {
+        "stage": "defensive",
+        "externalComponents": [
+          "rigid rejection of the South Node",
+          "performing growth",
+          "premature claims of mastery",
+          "moralizing familiar behavior",
+          "overcorrection",
+          "inconsistent follow-through"
+        ],
+        "internalComponents": [
+          "shame about familiar patterns",
+          "fear of developmental inadequacy",
+          "identity investment in aspiration",
+          "difficulty tolerating beginner status"
+        ],
+        "selectionConstraints": [
+          "Requires explicit defensive evidence.",
+          "Must not be used as neutral North Node description."
+        ]
+      },
+      {
+        "stage": "learning",
+        "externalComponents": [
+          "structured practice",
+          "seeking feedback",
+          "testing several forms of the emerging capacity",
+          "using familiar strengths as scaffolding",
+          "accepting temporary inefficiency"
+        ],
+        "internalComponents": [
+          "growing tolerance for uncertainty",
+          "reduced shame about inexperience",
+          "curiosity about feedback",
+          "willingness to revise developmental assumptions"
+        ],
+        "selectionConstraints": [
+          "Use when repetition, experimentation, or feedback is explicit."
+        ]
+      },
+      {
+        "stage": "healthy",
+        "externalComponents": [
+          "increasing fluency",
+          "context-sensitive use of the emerging function",
+          "balanced access to both nodal poles",
+          "range-expanding behavior",
+          "continued deliberate practice"
+        ],
+        "internalComponents": [
+          "developmental patience",
+          "stable access to familiar competence",
+          "reduced moral ranking",
+          "confidence without certainty"
+        ],
+        "selectionConstraints": [
+          "Neutral mature default when no other stage is specified."
+        ]
+      },
+      {
+        "stage": "integrated",
+        "externalComponents": [
+          "fluid use of both poles",
+          "teaching or modeling development without prescribing destiny",
+          "using the emerging capacity under complex conditions",
+          "revising practice as context changes",
+          "preserving range rather than replacing one rigidity with another"
+        ],
+        "internalComponents": [
+          "direction without identity inflation",
+          "familiarity without overreliance",
+          "competence without superiority",
+          "continued openness to development"
+        ],
+        "selectionConstraints": [
+          "Requires explicit integration evidence."
+        ]
+      }
+    ],
+    "queryExpressionPriorities": {
+      "identity": [
+        "emerging_capacity_practice",
+        "range_expansion",
+        "axis_integration"
+      ],
+      "work": [
+        "feedback_based_refinement",
+        "range_expansion",
+        "developmental_experimentation"
+      ],
+      "money": [
+        "developmental_experimentation",
+        "feedback_based_refinement",
+        "axis_integration"
+      ],
+      "love": [
+        "emerging_capacity_practice",
+        "contextual_pole_switching",
+        "axis_integration"
+      ],
+      "family": [
+        "range_expansion",
+        "contextual_pole_switching",
+        "axis_integration"
+      ],
+      "friendship": [
+        "developmental_experimentation",
+        "range_expansion",
+        "axis_integration"
+      ],
+      "health": [
+        "feedback_based_refinement",
+        "emerging_capacity_practice",
+        "contextual_pole_switching"
+      ],
+      "wounds_and_healing": [
+        "emerging_capacity_practice",
+        "axis_integration",
+        "developmental_experimentation"
+      ],
+      "nodal_return": [
+        "range_expansion",
+        "axis_integration",
+        "feedback_based_refinement"
+      ]
+    },
+    "expressionConstraints": [
+      "Observable novelty is not proof of North Node development.",
+      "Difficulty is not proof that the direction is correct.",
+      "Familiar behavior is not proof of failure.",
+      "No expression profile may become a finished placement interpretation.",
+      "All North Node expressions must remain traceable to the opposite Node."
+    ]
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Developmental-direction vocabulary only. Psychology and development qualify expression but do not convert the North Node into destiny, moral ranking, or guaranteed outcome.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node expression module."
+    }
+  ]
+}

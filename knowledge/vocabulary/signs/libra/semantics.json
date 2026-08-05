@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "libra_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "modifier",
+  "parentObject": "libra",
+  "content": {
+    "domains": {
+      "balance": "Maintains functional equilibrium.",
+      "reciprocity": "Supports mutual exchange.",
+      "coordination": "Aligns multiple elements.",
+      "equilibrium": "Stabilizes relationships among components.",
+      "comparison": "Evaluates relative fit.",
+      "fairness": "Seeks proportional treatment.",
+      "cooperation": "Facilitates joint functioning.",
+      "mutual_adjustment": "Allows reciprocal adaptation.",
+      "proportion": "Maintains appropriate ratios.",
+      "harmonization": "Reduces unnecessary conflict through alignment."
+    },
+    "boundaries": [
+      "Balance is not indecision.",
+      "Cooperation is not dependence.",
+      "Fairness is not passivity.",
+      "Harmony is not conflict avoidance."
+    ]
+  }
+}

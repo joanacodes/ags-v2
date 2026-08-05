@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quattuordecile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "quattuordecile",
+  "content": {
+    "coreRule": "Development changes how structured reorientation is expressed, never the relational role of Quattuordecile.",
+    "stages": {
+      "unconscious": [
+        "latent restructuring",
+        "unrecognized shifts"
+      ],
+      "defensive": [
+        "resistance to reorientation",
+        "rigid adaptation"
+      ],
+      "learning": [
+        "recognizing structural patterns",
+        "adaptive adjustment"
+      ],
+      "healthy": [
+        "constructive reorganization",
+        "refined adaptation"
+      ],
+      "integrated": [
+        "stable reorientation",
+        "mature structural synthesis"
+      ]
+    },
+    "constraints": [
+      "Quattuordecile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mars_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "canonical_function",
+  "parentObject": "mars",
+  "content": {
+    "resolutionOrder": [
+      "Load Mars canonical function",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity modifiers",
+      "Apply aspect relations",
+      "Validate Mars function unchanged",
+      "Generate semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "function": "agency",
+      "process": "assertion",
+      "goal": "effort",
+      "output": "execution",
+      "salience": "active"
+    },
+    "compositionRules": [
+      "Mars remains the canonical function.",
+      "Signs modify expression only.",
+      "Houses provide context only.",
+      "Aspects create relations only.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer intentional action over reactivity.",
+      "Prefer assertion over aggression.",
+      "Return an empty result rather than invent semantics."
+    ],
+    "forbiddenInferences": [
+      "Mars is replaced by a sign.",
+      "Mars becomes a house.",
+      "Mars inherently indicates violence or anger."
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "imum_coeli_reasoning",
+  "resolutionOrder": [
+    "Load Midheaven and Imum Coeli",
+    "Resolve Imum Coeli sign",
+    "Resolve ruler, house, and aspects",
+    "Build foundational reference-frame clause",
+    "Validate MC–IC axis constraints"
+  ],
+  "heuristics": [
+    "Rooting supports actualization.",
+    "Foundations are broader than family.",
+    "Prefer continuity without rigidity."
+  ],
+  "forbiddenInferences": [
+    "Imum Coeli guarantees family outcomes.",
+    "Imum Coeli equals childhood.",
+    "Imum Coeli acts independently of planets."
+  ]
+}

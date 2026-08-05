@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house1_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_1",
+  "content": {
+    "defaultContextSet": [
+      "house1_identity",
+      "house1_self_expression",
+      "house1_embodiment"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "identity",
+        "self_expression",
+        "self_awareness"
+      ],
+      "relationships": [
+        "personal_presentation",
+        "immediate_presence"
+      ],
+      "work": [
+        "initiative",
+        "personal_style"
+      ],
+      "health": [
+        "embodiment",
+        "temperament"
+      ],
+      "transits": [
+        "self_definition",
+        "personal_orientation"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of identity' as the neutral domain.",
+      "Prefer 'through personal expression' as the neutral focus.",
+      "Use embodiment language when the target or query is materially or physically relevant.",
+      "Suppress confidence, egoism, dominance, and appearance-based value judgments unless independently evidenced.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

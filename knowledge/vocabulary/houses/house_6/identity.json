@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house6_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_6",
+  "content": {
+    "coreDomains": [
+      "service",
+      "routine",
+      "health",
+      "daily_work",
+      "craft",
+      "improvement",
+      "discipline",
+      "maintenance",
+      "responsibility",
+      "skill_refinement"
+    ],
+    "notInherent": [
+      "servitude",
+      "perfectionism",
+      "workaholism",
+      "illness",
+      "self_neglect",
+      "criticism"
+    ],
+    "constraints": [
+      "House 6 is a context.",
+      "House 6 never performs actions.",
+      "House 6 never replaces a planet's canonical function."
+    ]
+  }
+}

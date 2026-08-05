@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_identity",
+  "moduleType": "identity",
+  "grammarRole": "canonical_function",
+  "parentObject": "neptune",
+  "content": {
+    "canonicalFunction": "enables imagination, transcendence, compassion, symbolic perception, and dissolution of unnecessary boundaries",
+    "coreDomains": [
+      "imagination",
+      "transcendence",
+      "compassion",
+      "symbolic_perception",
+      "inspiration",
+      "collective_meaning",
+      "spiritual_orientation",
+      "ambiguity_tolerance",
+      "idealization",
+      "empathy"
+    ],
+    "notInherent": [
+      "deception",
+      "confusion",
+      "escapism",
+      "addiction",
+      "pathology"
+    ],
+    "constraints": [
+      "Neptune is a canonical function.",
+      "Signs modify Neptune but never replace it.",
+      "Houses contextualize Neptune but never perform it.",
+      "Aspects relate Neptune to other canonical functions."
+    ]
+  }
+}

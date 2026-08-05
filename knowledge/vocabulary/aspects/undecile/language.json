@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "undecile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "undecile",
+  "content": {
+    "verbs": [
+      "differentiates",
+      "emerges",
+      "adapts",
+      "synthesizes"
+    ],
+    "templates": [
+      "{A} reveals emergent differentiation through interaction with {B}.",
+      "{A} and {B} develop adaptive synthesis through unusual patterning."
+    ]
+  }
+}

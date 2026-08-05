@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pentile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "pentile",
+  "content": {
+    "definition": "A Pentile relates participating canonical functions through creative harmonic proportion and generative expression while preserving each function's identity.",
+    "boundaries": [
+      "Creative potential does not imply guaranteed ability.",
+      "Harmony does not replace canonical functions."
+    ]
+  }
+}

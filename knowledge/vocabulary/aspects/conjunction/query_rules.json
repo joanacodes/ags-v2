@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "conjunction_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "conjunction",
+  "content": {
+    "defaultOperator": "coactivation_operator",
+    "supportedQueries": {
+      "identity": [
+        "coactivation",
+        "fusion"
+      ],
+      "relationship": [
+        "interaction"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating functions first.",
+      "Then apply conjunction.",
+      "Then apply modifiers."
+    ]
+  }
+}

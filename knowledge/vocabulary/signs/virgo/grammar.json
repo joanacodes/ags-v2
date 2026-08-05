@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "virgo_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "modifier",
+  "parentObject": "virgo",
+  "content": {
+    "modifierSlots": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] precisely",
+      "[target] through refinement",
+      "[target] systematically",
+      "[target] toward functional improvement",
+      "[target] with emphasis on optimization"
+    ],
+    "forbidden": [
+      "Virgo acts.",
+      "Virgo causes perfectionism.",
+      "Virgo makes people critical."
+    ]
+  }
+}

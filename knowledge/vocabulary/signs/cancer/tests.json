@@ -1,0 +1,61 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "cancer_tests",
+  "moduleType": "tests",
+  "grammarRole": "modifier",
+  "parentObject": "cancer",
+  "content": {
+    "suite": "cancer_ontology_v0.1",
+    "cases": [
+      {
+        "id": "CAN-T-001",
+        "name": "Modifier role preserved",
+        "expected": true
+      },
+      {
+        "id": "CAN-T-002",
+        "name": "Reject Cancer as actor",
+        "input": "Cancer acts.",
+        "expected": false
+      },
+      {
+        "id": "CAN-T-003",
+        "name": "Reject dependency default",
+        "input": "Cancer creates dependency.",
+        "expected": false
+      },
+      {
+        "id": "CAN-T-004",
+        "name": "Allow protective modifier",
+        "expected": true
+      },
+      {
+        "id": "CAN-T-005",
+        "name": "Preserve target verb",
+        "expected": true
+      },
+      {
+        "id": "CAN-T-006",
+        "name": "Reject finished interpretation",
+        "input": "Moon in Cancer is always needy.",
+        "expected": false
+      },
+      {
+        "id": "CAN-T-007",
+        "name": "Suppress incompatible sheltering",
+        "expected": true
+      },
+      {
+        "id": "CAN-T-008",
+        "name": "Deterministic selection",
+        "expected": true
+      }
+    ],
+    "requiredAssertions": [
+      "modifier role preserved",
+      "canonical function preserved",
+      "finished interpretations rejected",
+      "deterministic selection"
+    ]
+  }
+}

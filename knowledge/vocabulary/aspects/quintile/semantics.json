@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quintile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "quintile",
+  "content": {
+    "definition": "A Quintile relates participating canonical functions through creative organization and generative synthesis while preserving each function's identity.",
+    "boundaries": [
+      "Creative potential is not guaranteed mastery.",
+      "Synthesis does not replace canonical functions."
+    ]
+  }
+}

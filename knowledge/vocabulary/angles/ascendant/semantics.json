@@ -1,0 +1,251 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ascendant_semantics",
+  "name": "Ascendant Semantics",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines orientation, approach, self-positioning, response framing, entry, presentation, and threshold domains.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ascendant_identity",
+    "ascendant_grammar",
+    "ascendant_language",
+    "ags_semantic_domain_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "ascendant",
+    "semantics",
+    "angle",
+    "reference_frame",
+    "orientation"
+  ],
+  "parentObject": "ascendant",
+  "moduleType": "semantics",
+  "content": {
+    "coreDomains": [
+      {
+        "id": "orientation",
+        "name": "Orientation",
+        "definition": "The reference direction from which experience is initially approached.",
+        "primaryVerbs": [
+          "orient",
+          "align",
+          "direct"
+        ],
+        "boundaries": [
+          "Orientation is not total identity.",
+          "Orientation may change in expression across contexts.",
+          "Requires sign, ruler, or aspect information for specification."
+        ]
+      },
+      {
+        "id": "initial_approach",
+        "name": "Initial Approach",
+        "definition": "The manner in which contact with a situation, environment, or person begins.",
+        "primaryVerbs": [
+          "approach",
+          "begin",
+          "move toward"
+        ],
+        "boundaries": [
+          "Initial approach is not the entire interaction.",
+          "Does not prove conscious intention.",
+          "May be revised after contact begins."
+        ]
+      },
+      {
+        "id": "self_positioning",
+        "name": "Self-Positioning",
+        "definition": "The way the self is situated relative to an environment, threshold, or counterpart.",
+        "primaryVerbs": [
+          "position",
+          "situate",
+          "place"
+        ],
+        "boundaries": [
+          "Does not imply dominance or submission.",
+          "May be embodied, psychological, or situational.",
+          "Requires a reference environment or counterpart."
+        ]
+      },
+      {
+        "id": "response_framing",
+        "name": "Response Framing",
+        "definition": "The initial structure that makes some cues, options, or responses more salient than others.",
+        "primaryVerbs": [
+          "frame",
+          "prioritize",
+          "organize"
+        ],
+        "boundaries": [
+          "Does not determine the final response.",
+          "Does not replace Mercury's interpretation.",
+          "Must not become a fixed personality claim."
+        ]
+      },
+      {
+        "id": "entry",
+        "name": "Entry",
+        "definition": "The transition from nonparticipation into active contact with a context.",
+        "primaryVerbs": [
+          "enter",
+          "engage",
+          "begin"
+        ],
+        "boundaries": [
+          "Entry is a threshold process.",
+          "Does not guarantee continued participation.",
+          "Must remain distinct from house context."
+        ]
+      },
+      {
+        "id": "embodied_presentation",
+        "name": "Embodied Presentation",
+        "definition": "The observable posture, pacing, manner, or presence through which orientation becomes visible.",
+        "primaryVerbs": [
+          "present",
+          "embody",
+          "display"
+        ],
+        "boundaries": [
+          "Does not determine physical appearance.",
+          "Does not prove internal identity.",
+          "May vary with context and development."
+        ]
+      },
+      {
+        "id": "selective_attention",
+        "name": "Selective Attention",
+        "definition": "The initial prioritization of cues according to the active reference frame.",
+        "primaryVerbs": [
+          "notice",
+          "prioritize",
+          "filter"
+        ],
+        "boundaries": [
+          "Filtering is not the whole Ascendant function.",
+          "Does not prove conscious selection.",
+          "Must remain distinct from Mercury's analysis."
+        ]
+      },
+      {
+        "id": "interaction_threshold",
+        "name": "Interaction Threshold",
+        "definition": "The boundary condition at which self and environment begin to affect one another.",
+        "primaryVerbs": [
+          "cross",
+          "meet",
+          "engage"
+        ],
+        "boundaries": [
+          "The threshold is not a house.",
+          "It requires both self-side and environment-side reference.",
+          "It may be activated by timing without becoming an event guarantee."
+        ]
+      }
+    ],
+    "domainRelationships": [
+      {
+        "from": "orientation",
+        "to": "initial_approach",
+        "relationship": "Orientation shapes how engagement begins."
+      },
+      {
+        "from": "initial_approach",
+        "to": "entry",
+        "relationship": "Approach becomes entry when contact begins."
+      },
+      {
+        "from": "orientation",
+        "to": "response_framing",
+        "relationship": "The reference frame organizes initial salience and response options."
+      },
+      {
+        "from": "self_positioning",
+        "to": "embodied_presentation",
+        "relationship": "Positioning becomes visible through posture, pacing, and presence."
+      },
+      {
+        "from": "interaction_threshold",
+        "to": "descendant_relation",
+        "relationship": "The Ascendant threshold remains paired with the Descendant relational reference frame."
+      }
+    ],
+    "querySelectionHints": {
+      "identity": [
+        "orientation",
+        "self_positioning",
+        "embodied_presentation"
+      ],
+      "family": [
+        "initial_approach",
+        "response_framing",
+        "interaction_threshold"
+      ],
+      "friendship": [
+        "initial_approach",
+        "embodied_presentation",
+        "entry"
+      ],
+      "love": [
+        "self_positioning",
+        "interaction_threshold",
+        "descendant_relation"
+      ],
+      "work": [
+        "orientation",
+        "entry",
+        "embodied_presentation"
+      ],
+      "money": [
+        "response_framing",
+        "initial_approach",
+        "self_positioning"
+      ],
+      "health": [
+        "embodied_presentation",
+        "orientation",
+        "response_framing"
+      ],
+      "wounds_and_healing": [
+        "self_positioning",
+        "interaction_threshold",
+        "orientation"
+      ]
+    },
+    "semanticExclusions": [
+      "Do not derive total personality from orientation.",
+      "Do not derive physical appearance from embodied presentation.",
+      "Do not derive false self from masking.",
+      "Do not derive conscious intent from initial approach.",
+      "Do not derive planetary action from the Ascendant.",
+      "Do not derive complete identity from first contact."
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. The Ascendant may orient other functions but may not become a planet, sign, house, personality label, or finished reading.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Ascendant semantics module."
+    }
+  ]
+}

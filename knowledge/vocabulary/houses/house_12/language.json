@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house12_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_12",
+  "content": {
+    "domain": [
+      "inner life",
+      "retreat",
+      "reflection"
+    ],
+    "focus": [
+      "compassion",
+      "release",
+      "transcendence"
+    ],
+    "scope": [
+      "private experience",
+      "spiritual development",
+      "inner awareness"
+    ],
+    "salience": [
+      "quiet",
+      "contemplative",
+      "integrative"
+    ],
+    "expression_context": [
+      "through reflection",
+      "through retreat",
+      "through transcendence"
+    ]
+  }
+}

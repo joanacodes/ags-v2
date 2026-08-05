@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "binovile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "binovile",
+  "content": {
+    "verbs": [
+      "integrates",
+      "matures",
+      "synthesizes",
+      "coheres"
+    ],
+    "templates": [
+      "{A} and {B} mature through dual recursive integration.",
+      "{A} synthesizes transformational coherence with {B}."
+    ]
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_psychology",
+  "name": "Uranus Psychology",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Uranus's psychological needs, sensitivities, protective strategies, regulation needs, blind spots, and integration markers.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "uranus_identity",
+    "uranus_semantics",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "uranus",
+    "psychology",
+    "planet",
+    "function"
+  ],
+  "parentObject": "uranus",
+  "moduleType": "psychology",
+  "content": {
+    "coreNeed": {
+      "id": "freedom_to_reconfigure",
+      "definition": "Sufficient psychological and practical freedom to question inherited assumptions and test alternative arrangements."
+    },
+    "coreMotivation": {
+      "id": "restore_adaptability",
+      "definition": "Restore movement, responsiveness, or choice where an operating pattern has become overly fixed, obsolete, or closed."
+    },
+    "coreSensitivity": [
+      {
+        "id": "constraint_sensitivity",
+        "definition": "Heightened awareness of rules, expectations, or systems experienced as unnecessarily limiting."
+      },
+      {
+        "id": "stagnation_sensitivity",
+        "definition": "Heightened awareness of repetition that no longer produces learning or adaptation."
+      },
+      {
+        "id": "conformity_pressure_sensitivity",
+        "definition": "Heightened awareness of pressure to suppress difference for group continuity."
+      },
+      {
+        "id": "future_mismatch_sensitivity",
+        "definition": "Heightened awareness that present structures no longer fit emerging conditions."
+      }
+    ],
+    "coreFearPatterns": [
+      {
+        "id": "loss_of_autonomy",
+        "definition": "Fear that commitment, belonging, or structure will eliminate independent choice."
+      },
+      {
+        "id": "absorption_into_the_group",
+        "definition": "Fear that difference will disappear inside collective norms or expectations."
+      },
+      {
+        "id": "permanent_entrapment",
+        "definition": "Fear that a temporary condition will become fixed and inescapable."
+      },
+      {
+        "id": "obsolete_identity",
+        "definition": "Fear of continuing to inhabit a role or system that no longer fits."
+      }
+    ],
+    "protectiveStrategies": [
+      {
+        "id": "premature_detachment",
+        "definition": "Create distance before dependence, influence, or constraint can be felt."
+      },
+      {
+        "id": "reflexive_opposition",
+        "definition": "Reject a norm before assessing whether the norm is actually harmful or obsolete."
+      },
+      {
+        "id": "constant_novelty",
+        "definition": "Keep changing conditions to avoid the vulnerability of sustained participation."
+      },
+      {
+        "id": "intellectualized_distance",
+        "definition": "Move into abstraction or systems analysis to avoid immediate emotional or relational involvement."
+      },
+      {
+        "id": "provocative_interruption",
+        "definition": "Interrupt continuity in order to restore agency, visibility, or psychological space."
+      }
+    ],
+    "blindSpots": [
+      "Confusing difference with accuracy",
+      "Confusing novelty with innovation",
+      "Confusing distance with objectivity",
+      "Confusing freedom with absence of responsibility",
+      "Underestimating the value of continuity",
+      "Changing a system before understanding what still works",
+      "Treating other people's adaptation speed as resistance",
+      "Assuming disruption automatically produces progress"
+    ],
+    "regulationNeeds": [
+      {
+        "id": "choice_without_escape",
+        "definition": "Maintain real options without using departure as the only form of agency."
+      },
+      {
+        "id": "continuity_with_revision",
+        "definition": "Preserve useful continuity while changing what no longer functions."
+      },
+      {
+        "id": "feedback_contact",
+        "definition": "Remain in contact with consequences, users, bodies, relationships, and systems affected by change."
+      },
+      {
+        "id": "paced_experimentation",
+        "definition": "Test changes at a scale that allows observation, correction, and accountability."
+      },
+      {
+        "id": "difference_with_belonging",
+        "definition": "Sustain a distinct position without requiring isolation."
+      }
+    ],
+    "healthyPsychologicalFunctions": [
+      "Question assumptions without rejecting all precedent",
+      "Recognize alternatives without devaluing present reality",
+      "Create distance without emotional disappearance",
+      "Introduce change with feedback and accountability",
+      "Differentiate without superiority",
+      "Protect autonomy while honoring commitments",
+      "Use interruption selectively",
+      "Translate future possibilities into workable experiments"
+    ],
+    "integrationMarkers": [
+      "Can remain in a system long enough to understand it",
+      "Can revise an idea after feedback",
+      "Can preserve useful structure while changing its operating logic",
+      "Can disagree without reflexive opposition",
+      "Can belong without erasing difference",
+      "Can interrupt without making disruption the identity",
+      "Can distinguish urgent change from stimulating novelty",
+      "Can let innovation become routine after it proves useful"
+    ],
+    "reflectionComponents": [
+      "Which constraint is actually obsolete?",
+      "What useful continuity would this change need to preserve?",
+      "Is this difference functional, defensive, or merely novel?",
+      "What feedback would make this experiment accountable?",
+      "Where is distance helping observation, and where is it preventing participation?",
+      "What would freedom look like if responsibility remained present?"
+    ],
+    "psychologyConstraints": [
+      "Psychology may qualify Uranian expression but may not redefine Uranus as trauma, pathology, or diagnosis.",
+      "No protective strategy may be treated as universally active.",
+      "No internal motive may be inferred from Uranus alone.",
+      "Developmental language must reference the global development blueprint."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. Development and psychology qualify expression but do not redefine Uranus.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Uranus psychology module."
+    }
+  ]
+}

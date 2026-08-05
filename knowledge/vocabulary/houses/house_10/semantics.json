@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house10_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_10",
+  "content": {
+    "domains": {
+      "career": "Context of vocational expression.",
+      "public_role": "Contribution in public life.",
+      "achievement": "Long-term accomplishment.",
+      "responsibility": "Duty and accountability.",
+      "authority": "Stewardship and governance.",
+      "reputation": "Public perception over time.",
+      "leadership": "Guiding collective efforts.",
+      "legacy": "Enduring contribution.",
+      "recognition": "Acknowledged accomplishment.",
+      "ambition": "Directed aspiration."
+    },
+    "boundaries": [
+      "Achievement is not status.",
+      "Authority is not domination.",
+      "Recognition is not fame.",
+      "Ambition is not workaholism."
+    ]
+  }
+}

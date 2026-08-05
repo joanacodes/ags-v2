@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quincunx_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "quincunx",
+  "content": {
+    "suite": "quincunx_ontology_v0.1",
+    "cases": [
+      {
+        "id": "QNX-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "QNX-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "QNX-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "QNX-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "QNX-T-005",
+        "name": "No intrinsic benefic/malefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

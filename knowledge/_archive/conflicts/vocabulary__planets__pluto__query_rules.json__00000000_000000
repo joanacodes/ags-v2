@@ -1,0 +1,29 @@
+{
+  "id": "pluto_query_rules",
+  "content": {
+    "primaryVerb": "regenerate",
+    "supportedQueries": {
+      "identity": [
+        "regeneration",
+        "reclamation"
+      ],
+      "career": [
+        "deep_restructuring",
+        "power_redistribution"
+      ],
+      "relationships": [
+        "exposure",
+        "power_redistribution"
+      ],
+      "healing": [
+        "shadow_integration",
+        "regeneration"
+      ]
+    },
+    "selectionRules": [
+      "Default to 'regenerate' unless a more specific approved Plutonian verb is justified.",
+      "Never infer crisis without evidence.",
+      "Never infer death from Pluto."
+    ]
+  }
+}

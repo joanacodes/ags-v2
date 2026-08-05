@@ -1,0 +1,12 @@
+{
+  "id": "saturn_language",
+  "moduleType": "language",
+  "grammarRole": "canonical_function",
+  "parentObject": "saturn",
+  "content": {
+    "function": [
+      "establishes structure",
+      "supports responsibility"
+    ]
+  }
+}

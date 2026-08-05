@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "binovile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "binovile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through dual maturation, recursive integration, and transformational synthesis.",
+    "coreDomains": [
+      "dual maturation",
+      "recursive integration",
+      "synthesis",
+      "completion",
+      "transformation",
+      "coherence"
+    ],
+    "notInherent": [
+      "perfection",
+      "destiny",
+      "automatic awakening",
+      "beneficence"
+    ],
+    "constraints": [
+      "Binovile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

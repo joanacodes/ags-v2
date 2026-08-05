@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house11_modifier_types",
+  "moduleType": "modifier_types",
+  "grammarRole": "context",
+  "parentObject": "house_11",
+  "content": {
+    "contextComponents": [
+      {
+        "id": "house11_community",
+        "text": "in the context of community",
+        "type": "domain"
+      },
+      {
+        "id": "house11_collaboration",
+        "text": "through collaboration",
+        "type": "focus"
+      },
+      {
+        "id": "house11_sharedvision",
+        "text": "through collective aspirations",
+        "type": "expression_context"
+      },
+      {
+        "id": "house11_networks",
+        "text": "within networks",
+        "type": "salience"
+      }
+    ]
+  }
+}

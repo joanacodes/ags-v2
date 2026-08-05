@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house2_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "context",
+  "parentObject": "house_2",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm House 2 is a context",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible contextual components",
+      "Apply sign, degree, and dignity modifiers",
+      "Validate canonical function unchanged",
+      "Generate contextual semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "domain": "resources",
+      "focus": "value formation",
+      "expression_context": "through stewardship",
+      "salience": "personally valued"
+    },
+    "compositionRules": [
+      "House 2 provides context but never performs actions.",
+      "Planets retain canonical functions.",
+      "Signs modify functions before contextual placement.",
+      "Houses provide experiential context only.",
+      "Aspects remain relational operators.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer stewardship over accumulation.",
+      "Prefer values over market price.",
+      "Prefer sustainability over consumption.",
+      "Return an empty context set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "House 2 guarantees wealth.",
+      "House 2 implies greed.",
+      "House 2 replaces the target function."
+    ]
+  }
+}

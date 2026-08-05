@@ -1,0 +1,41 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "virgo_language",
+  "moduleType": "language",
+  "grammarRole": "modifier",
+  "parentObject": "virgo",
+  "content": {
+    "manner": [
+      "precisely",
+      "systematically",
+      "carefully"
+    ],
+    "strategy": [
+      "through refinement",
+      "through calibration",
+      "through incremental improvement"
+    ],
+    "pace": [
+      "incrementally",
+      "methodically",
+      "at a sustainable pace"
+    ],
+    "orientation": [
+      "toward functional improvement",
+      "toward precision",
+      "toward optimization"
+    ],
+    "priority": [
+      "with emphasis on quality",
+      "with emphasis on optimization"
+    ],
+    "regulation": [
+      "while maintaining functional integrity",
+      "while preserving accuracy"
+    ],
+    "developmental": [
+      "through continual refinement",
+      "through iterative calibration"
+    ]
+  }
+}

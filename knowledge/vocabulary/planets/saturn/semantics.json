@@ -1,0 +1,11 @@
+{
+  "id": "saturn_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "canonical_function",
+  "parentObject": "saturn",
+  "content": {
+    "domains": {
+      "structure": "Organizing durable frameworks."
+    }
+  }
+}

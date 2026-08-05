@@ -1,0 +1,24 @@
+{
+  "objectId": "midheaven",
+  "objectType": "angle",
+  "version": "0.1.0",
+  "axisReference": "mc_ic_axis",
+  "oppositeAngle": "imum_coeli",
+  "primaryVerb": "actualize",
+  "modules": [
+    "metadata",
+    "identity",
+    "grammar",
+    "language",
+    "semantics"
+  ],
+  "plannedRemaining": [
+    "psychology",
+    "development",
+    "expression",
+    "query_rules",
+    "reasoning",
+    "tests",
+    "changelog"
+  ]
+}

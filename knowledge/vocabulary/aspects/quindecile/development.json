@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quindecile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "quindecile",
+  "content": {
+    "coreRule": "Development changes how focused intensification is expressed, never the relational role of Quindecile.",
+    "stages": {
+      "unconscious": [
+        "latent focus",
+        "unrecognized intensity"
+      ],
+      "defensive": [
+        "rigid fixation",
+        "over-concentration"
+      ],
+      "learning": [
+        "recognizing directed engagement",
+        "intentional focus"
+      ],
+      "healthy": [
+        "constructive commitment",
+        "purposeful integration"
+      ],
+      "integrated": [
+        "sustained focused synthesis",
+        "mastery of directed attention"
+      ]
+    },
+    "constraints": [
+      "Quindecile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

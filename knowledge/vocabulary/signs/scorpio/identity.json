@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "scorpio_identity",
+  "moduleType": "identity",
+  "grammarRole": "modifier",
+  "parentObject": "scorpio",
+  "content": {
+    "coreDomains": [
+      "transformation",
+      "depth",
+      "penetration",
+      "intensity",
+      "integration",
+      "regeneration",
+      "truth_seeking",
+      "resource_consolidation",
+      "resilience",
+      "psychological_insight"
+    ],
+    "notInherent": [
+      "jealousy",
+      "manipulation",
+      "vengefulness",
+      "secrecy",
+      "obsession",
+      "destructiveness"
+    ],
+    "constraints": [
+      "Scorpio is a modifier.",
+      "Scorpio never acts independently.",
+      "Scorpio never replaces the target canonical function."
+    ]
+  }
+}

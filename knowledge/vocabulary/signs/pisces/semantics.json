@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pisces_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "modifier",
+  "parentObject": "pisces",
+  "content": {
+    "domains": {
+      "integration": "Brings diverse elements into coherent relationship.",
+      "compassion": "Responds with care toward suffering.",
+      "imagination": "Explores symbolic and creative possibilities.",
+      "empathy": "Understands from another's perspective.",
+      "acceptance": "Allows experience without unnecessary resistance.",
+      "transcendence": "Frames experience beyond immediate limitation.",
+      "adaptability": "Adjusts fluidly to changing conditions.",
+      "symbolic_understanding": "Interprets meaning through symbols and metaphor.",
+      "interconnectedness": "Recognizes relationships across systems.",
+      "spiritual_orientation": "Orients toward existential or transcendent meaning."
+    },
+    "boundaries": [
+      "Compassion is not passivity.",
+      "Empathy is not lack of boundaries.",
+      "Imagination is not deception.",
+      "Transcendence is not escapism."
+    ]
+  }
+}

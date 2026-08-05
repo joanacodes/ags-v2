@@ -1,0 +1,40 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_language",
+  "moduleType": "language",
+  "grammarRole": "canonical_function",
+  "parentObject": "neptune",
+  "content": {
+    "function": [
+      "inspires imagination",
+      "supports compassion",
+      "enables transcendence",
+      "deepens symbolic perception"
+    ],
+    "process": [
+      "imagining",
+      "integrating",
+      "empathizing",
+      "inspiring"
+    ],
+    "orientation": [
+      "symbolic",
+      "compassionate",
+      "transcendent"
+    ],
+    "goal": [
+      "expanded meaning",
+      "deep empathy",
+      "creative insight"
+    ],
+    "output": [
+      "vision",
+      "inspiration",
+      "symbolic understanding"
+    ],
+    "salience": [
+      "imaginative",
+      "transpersonal"
+    ]
+  }
+}

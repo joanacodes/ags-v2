@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sextile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "sextile",
+  "content": {
+    "canonicalId": "sextile",
+    "displayName": "Sextile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "opportunity_activation_operator",
+    "canonicalQuestion": "How do two canonical functions cooperate through opportunity and responsive activation?"
+  }
+}

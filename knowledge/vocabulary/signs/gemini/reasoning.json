@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "gemini_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "modifier",
+  "parentObject": "gemini",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm Gemini is a modifier",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible modifier components",
+      "Validate target function unchanged"
+    ],
+    "defaultInferenceProfile": {
+      "manner": "adaptively",
+      "strategy": "through comparison",
+      "orientation": "toward connection",
+      "regulation": "while preserving adaptability"
+    },
+    "heuristics": [
+      "Prefer differentiation over fragmentation.",
+      "Prefer connection over duplication.",
+      "Prefer adaptation over inconsistency.",
+      "Suppress unnecessary variation when incompatible with the target.",
+      "Return an empty modifier set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "Gemini causes intelligence.",
+      "Gemini is dishonest.",
+      "Gemini is superficial.",
+      "Gemini replaces the target function."
+    ]
+  }
+}

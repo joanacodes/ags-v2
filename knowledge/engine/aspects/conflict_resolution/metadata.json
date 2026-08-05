@@ -1,0 +1,6 @@
+{
+  "id": "aspect_conflict_resolution",
+  "moduleType": "multi_relationship_reasoning_engine",
+  "version": "0.1.0",
+  "purpose": "Resolve interactions between multiple simultaneous aspect relationships."
+}

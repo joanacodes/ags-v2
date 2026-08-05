@@ -1,0 +1,7 @@
+{
+  "rules": [
+    "Avoid deterministic conclusions.",
+    "Avoid ranking chart patterns.",
+    "Preserve contextual interpretation."
+  ]
+}

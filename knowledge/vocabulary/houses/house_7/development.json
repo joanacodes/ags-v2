@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house7_development",
+  "moduleType": "development",
+  "grammarRole": "context",
+  "parentObject": "house_7",
+  "content": {
+    "coreRule": "Development changes how functions are experienced within the House 7 context; House 7 remains a context.",
+    "stages": {
+      "unconscious": [
+        "through automatic relational patterns",
+        "within habitual reciprocity"
+      ],
+      "defensive": [
+        "through imbalanced cooperation",
+        "within approval-seeking partnerships"
+      ],
+      "learning": [
+        "through developing mutuality",
+        "within intentional collaboration"
+      ],
+      "healthy": [
+        "through balanced partnership",
+        "within reciprocal commitment"
+      ],
+      "integrated": [
+        "through adaptive collaboration",
+        "within mature mutual exchange"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Partnership context never implies codependency."
+    ]
+  }
+}

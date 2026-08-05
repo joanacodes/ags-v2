@@ -1,0 +1,231 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_expression",
+  "name": "Neptune Expression",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines observable Neptunian expression components, stage profiles, query priorities, and expression constraints.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "neptune_identity",
+    "neptune_semantics",
+    "neptune_psychology",
+    "neptune_development"
+  ],
+  "priority": 10,
+  "tags": [
+    "neptune",
+    "expression",
+    "planet",
+    "function"
+  ],
+  "parentObject": "neptune",
+  "moduleType": "expression",
+  "content": {
+    "observableExpressionTypes": [
+      {
+        "id": "atmospheric_reception",
+        "definition": "Receives tone, mood, rhythm, image, and indirect contextual information."
+      },
+      {
+        "id": "symbolic_association",
+        "definition": "Connects literal material to metaphorical, imaginal, or associative meaning."
+      },
+      {
+        "id": "empathic_contact",
+        "definition": "Allows partial access to another person's affective experience."
+      },
+      {
+        "id": "imaginal_generation",
+        "definition": "Generates images, scenarios, symbols, or possibilities beyond immediate conditions."
+      },
+      {
+        "id": "boundary_softening",
+        "definition": "Reduces separation enough for contact, blending, or exchange."
+      },
+      {
+        "id": "surrendered_participation",
+        "definition": "Loosens control in order to participate in a larger process."
+      }
+    ],
+    "stageExpressionProfiles": [
+      {
+        "stage": "unconscious",
+        "externalComponents": [
+          "absorbing the atmosphere of a room",
+          "responding to implication rather than explicit statement",
+          "moving easily into image or fantasy",
+          "unclear ownership of mood",
+          "indirect or diffuse expression"
+        ],
+        "internalComponents": [
+          "rapid resonance",
+          "porous attention",
+          "difficulty separating image from expectation",
+          "sensitivity to collective feeling"
+        ],
+        "selectionConstraints": [
+          "Do not infer psychic accuracy.",
+          "Do not infer diagnosis.",
+          "Do not assume all sensitivity is Neptunian."
+        ]
+      },
+      {
+        "stage": "defensive",
+        "externalComponents": [
+          "idealizing a person or possibility",
+          "avoiding clear answers",
+          "escaping into image, fantasy, or atmosphere",
+          "self-erasing accommodation",
+          "projecting internal meaning outward",
+          "confusing compassion with unlimited access"
+        ],
+        "internalComponents": [
+          "fear of disillusionment",
+          "difficulty tolerating separation",
+          "wish for total rescue or union",
+          "reduced reality testing under emotional pressure"
+        ],
+        "selectionConstraints": [
+          "Requires explicit defensive evidence.",
+          "Must not be used as neutral Neptune description."
+        ]
+      },
+      {
+        "stage": "learning",
+        "externalComponents": [
+          "checking impressions against evidence",
+          "using art, image, music, or metaphor deliberately",
+          "setting boundaries around empathy",
+          "translating inspiration into practice",
+          "naming uncertainty"
+        ],
+        "internalComponents": [
+          "growing source distinction",
+          "tolerance for partial disillusionment",
+          "willingness to separate symbol from fact",
+          "increasing agency inside surrender"
+        ],
+        "selectionConstraints": [
+          "Use when practice, reflection, or discernment is explicit."
+        ]
+      },
+      {
+        "stage": "healthy",
+        "externalComponents": [
+          "imaginative expression",
+          "symbolic precision",
+          "compassionate responsiveness",
+          "attuned listening",
+          "creative synthesis",
+          "selective surrender",
+          "clear acknowledgment of uncertainty"
+        ],
+        "internalComponents": [
+          "bounded receptivity",
+          "reality contact",
+          "stable self-other distinction",
+          "capacity to remain open without absorbing everything"
+        ],
+        "selectionConstraints": [
+          "Neutral mature default when no other stage is specified."
+        ]
+      },
+      {
+        "stage": "integrated",
+        "externalComponents": [
+          "compassion with strong consent boundaries",
+          "symbolic work that remains factually grounded",
+          "imagination translated into sustainable form",
+          "surrender coordinated with responsibility",
+          "deep attunement without possession or certainty"
+        ],
+        "internalComponents": [
+          "fluid movement between openness and containment",
+          "capacity to survive disillusionment",
+          "clarity about source, symbol, and uncertainty",
+          "receptivity without self-erasure"
+        ],
+        "selectionConstraints": [
+          "Requires explicit integration evidence."
+        ]
+      }
+    ],
+    "queryExpressionPriorities": {
+      "identity": [
+        "imaginal_generation",
+        "symbolic_association",
+        "boundary_softening"
+      ],
+      "work": [
+        "imaginal_generation",
+        "atmospheric_reception",
+        "symbolic_association"
+      ],
+      "money": [
+        "idealization_check",
+        "reality_contact",
+        "imaginal_generation"
+      ],
+      "love": [
+        "empathic_contact",
+        "boundary_softening",
+        "idealization_check"
+      ],
+      "family": [
+        "empathic_contact",
+        "atmospheric_reception",
+        "boundary_softening"
+      ],
+      "friendship": [
+        "empathic_contact",
+        "resonance",
+        "attunement"
+      ],
+      "health": [
+        "selective_absorption",
+        "boundary_softening",
+        "reality_contact"
+      ],
+      "wounds_and_healing": [
+        "empathic_contact",
+        "surrendered_participation",
+        "boundary_softening"
+      ],
+      "saturn_return": [
+        "surrendered_participation",
+        "reality_contact",
+        "idealization_check"
+      ]
+    },
+    "expressionConstraints": [
+      "Observable sensitivity is not proof of Neptune.",
+      "Imagination is not proof of unreliability.",
+      "Spiritual or artistic expression is not required.",
+      "Ambiguity is not automatically depth.",
+      "No expression profile may become a finished placement interpretation."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. Psychology and development qualify expression but do not redefine Neptune.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Neptune expression module."
+    }
+  ]
+}

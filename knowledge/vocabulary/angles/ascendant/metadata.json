@@ -1,0 +1,136 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ascendant_metadata",
+  "name": "Ascendant Metadata",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines the Ascendant package manifest, axis reference, and forbidden-content rules.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ags_angle_blueprint",
+    "ags_grammar_roles",
+    "ags_semantic_domain_blueprint",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "ascendant",
+    "metadata",
+    "angle",
+    "reference_frame",
+    "orientation"
+  ],
+  "parentObject": "ascendant",
+  "moduleType": "metadata",
+  "content": {
+    "objectId": "ascendant",
+    "objectName": "Ascendant",
+    "objectType": "angle",
+    "objectVersion": "0.1.0",
+    "packageStatus": "draft_for_review",
+    "repositoryPath": "vocabulary/angles/ascendant/",
+    "axisReference": "ascendant_descendant_axis",
+    "oppositeAngle": "descendant",
+    "manifest": [
+      {
+        "file": "metadata.json",
+        "moduleType": "metadata",
+        "status": "draft_for_review"
+      },
+      {
+        "file": "identity.json",
+        "moduleType": "identity",
+        "status": "draft_for_review"
+      },
+      {
+        "file": "grammar.json",
+        "moduleType": "grammar",
+        "status": "draft_for_review"
+      },
+      {
+        "file": "language.json",
+        "moduleType": "language",
+        "status": "draft_for_review"
+      },
+      {
+        "file": "semantics.json",
+        "moduleType": "semantics",
+        "status": "draft_for_review"
+      },
+      {
+        "file": "psychology.json",
+        "moduleType": "psychology",
+        "status": "not_started"
+      },
+      {
+        "file": "development.json",
+        "moduleType": "development",
+        "status": "not_started"
+      },
+      {
+        "file": "expression.json",
+        "moduleType": "expression",
+        "status": "not_started"
+      },
+      {
+        "file": "query_rules.json",
+        "moduleType": "query_rules",
+        "status": "not_started"
+      },
+      {
+        "file": "reasoning.json",
+        "moduleType": "reasoning",
+        "status": "not_started"
+      },
+      {
+        "file": "tests.json",
+        "moduleType": "tests",
+        "status": "not_started"
+      },
+      {
+        "file": "changelog.json",
+        "moduleType": "changelog",
+        "status": "not_started"
+      }
+    ],
+    "completion": {
+      "percentage": 42,
+      "completedModules": 5,
+      "totalModules": 12
+    },
+    "forbiddenContentConfirmed": [
+      "No personality-type reduction",
+      "No mask or false-self claim",
+      "No appearance guarantee",
+      "No identity replacement",
+      "No sign-specific finished interpretation",
+      "No house-specific finished interpretation",
+      "No claim that the Ascendant acts independently of planetary functions"
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. The Ascendant may orient other functions but may not become a planet, sign, house, personality label, or finished reading.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Ascendant metadata module."
+    }
+  ]
+}

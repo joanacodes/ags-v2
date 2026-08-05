@@ -1,0 +1,41 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sagittarius_language",
+  "moduleType": "language",
+  "grammarRole": "modifier",
+  "parentObject": "sagittarius",
+  "content": {
+    "manner": [
+      "expansively",
+      "openly",
+      "optimistically"
+    ],
+    "strategy": [
+      "through exploration",
+      "through synthesis",
+      "through discovery"
+    ],
+    "pace": [
+      "adaptively",
+      "progressively",
+      "at an exploratory pace"
+    ],
+    "orientation": [
+      "toward growth",
+      "toward understanding",
+      "toward possibility"
+    ],
+    "priority": [
+      "with emphasis on meaning",
+      "with emphasis on learning"
+    ],
+    "regulation": [
+      "while maintaining coherence",
+      "while preserving context"
+    ],
+    "developmental": [
+      "through continual exploration",
+      "through expanding perspective"
+    ]
+  }
+}

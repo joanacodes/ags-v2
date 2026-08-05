@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quintile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "quintile",
+  "content": {
+    "verbs": [
+      "organizes",
+      "synthesizes",
+      "creates",
+      "innovates"
+    ],
+    "templates": [
+      "{A} and {B} organize into a creative pattern.",
+      "{A} synthesizes constructively with {B}."
+    ]
+  }
+}

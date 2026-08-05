@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house3_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_3",
+  "content": {
+    "domains": {
+      "communication": "Context of exchanging ideas and information.",
+      "learning": "Acquiring knowledge and practical skills.",
+      "thinking": "Everyday cognition and processing.",
+      "siblings": "Relationships with siblings and peers.",
+      "neighbors": "Immediate social environment.",
+      "local_environment": "Daily surroundings and movement.",
+      "curiosity": "Motivation to explore and ask questions.",
+      "skills": "Development of practical competencies.",
+      "information_exchange": "Sharing and receiving information.",
+      "adaptation": "Adjusting through learning and communication."
+    },
+    "boundaries": [
+      "Communication is not gossip.",
+      "Learning is not innate intelligence.",
+      "Curiosity is not restlessness.",
+      "Information exchange is not dishonesty."
+    ]
+  }
+}

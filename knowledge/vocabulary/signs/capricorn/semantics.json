@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "domains": {
+      "structure": "Organizes activity into reliable form.",
+      "discipline": "Maintains consistent execution.",
+      "responsibility": "Supports dependable stewardship.",
+      "achievement": "Advances toward meaningful objectives.",
+      "endurance": "Sustains function over time.",
+      "organization": "Coordinates components efficiently.",
+      "planning": "Prepares for future outcomes.",
+      "mastery": "Builds competence through practice.",
+      "stewardship": "Maintains long-term value.",
+      "long_term_development": "Prioritizes durable progress."
+    },
+    "boundaries": [
+      "Discipline is not rigidity.",
+      "Responsibility is not pessimism.",
+      "Achievement is not workaholism.",
+      "Structure is not emotional detachment."
+    ]
+  }
+}

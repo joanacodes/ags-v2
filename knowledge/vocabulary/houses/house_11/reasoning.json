@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house11_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "context",
+  "parentObject": "house_11",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm House 11 is a context",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible contextual components",
+      "Apply sign, degree, and dignity modifiers",
+      "Validate canonical function unchanged",
+      "Generate contextual semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "domain": "community",
+      "focus": "collaboration",
+      "expression_context": "through collective aspirations",
+      "salience": "collective"
+    },
+    "compositionRules": [
+      "House 11 provides context but never performs actions.",
+      "Planets retain canonical functions.",
+      "Signs modify functions before contextual placement.",
+      "Houses provide experiential context only.",
+      "Aspects remain relational operators.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer community over popularity.",
+      "Prefer collaboration over conformity.",
+      "Prefer shared vision over social status.",
+      "Return an empty context set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "House 11 creates friendships.",
+      "House 11 implies popularity.",
+      "House 11 replaces the target function."
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house11_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_11",
+  "content": {
+    "domain": [
+      "community",
+      "networks",
+      "groups"
+    ],
+    "focus": [
+      "collaboration",
+      "shared vision",
+      "innovation"
+    ],
+    "scope": [
+      "collective participation",
+      "social systems",
+      "alliances"
+    ],
+    "salience": [
+      "collective",
+      "connected",
+      "future-oriented"
+    ],
+    "expression_context": [
+      "through community",
+      "through collaboration",
+      "through collective aspirations"
+    ]
+  }
+}

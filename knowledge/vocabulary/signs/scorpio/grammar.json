@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "scorpio_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "modifier",
+  "parentObject": "scorpio",
+  "content": {
+    "modifierSlots": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] deeply",
+      "[target] through transformation",
+      "[target] with sustained intensity",
+      "[target] toward integration",
+      "[target] with emphasis on regeneration"
+    ],
+    "forbidden": [
+      "Scorpio acts.",
+      "Scorpio causes jealousy.",
+      "Scorpio makes people manipulative."
+    ]
+  }
+}

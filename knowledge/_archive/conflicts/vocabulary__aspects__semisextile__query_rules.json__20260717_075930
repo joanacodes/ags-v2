@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "defaultOperator": "incremental_integration_operator",
+    "supportedQueries": {
+      "identity": [
+        "connection",
+        "integration"
+      ],
+      "relationship": [
+        "coordination",
+        "adaptation"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Semisextile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

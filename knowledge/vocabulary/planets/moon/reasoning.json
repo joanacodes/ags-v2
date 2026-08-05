@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "moon_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "canonical_function",
+  "parentObject": "moon",
+  "content": {
+    "resolutionOrder": [
+      "Load Moon canonical function",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity modifiers",
+      "Apply aspect relations",
+      "Validate Moon function unchanged",
+      "Generate semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "function": "emotional_processing",
+      "process": "attachment",
+      "goal": "adaptive_responsiveness",
+      "output": "felt_security",
+      "salience": "responsive"
+    },
+    "compositionRules": [
+      "The Moon remains the canonical function.",
+      "Signs modify expression only.",
+      "Houses provide context only.",
+      "Aspects create relations only.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer regulation over emotional reactivity.",
+      "Prefer secure attachment over dependency assumptions.",
+      "Return an empty result rather than invent semantics."
+    ],
+    "forbiddenInferences": [
+      "The Moon is replaced by a sign.",
+      "The Moon becomes a house.",
+      "The Moon inherently indicates dependency or instability."
+    ]
+  }
+}

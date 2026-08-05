@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biseptile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "biseptile",
+  "content": {
+    "coreRule": "Development changes how recursive differentiation is expressed, never the relational role of Biseptile.",
+    "stages": {
+      "unconscious": [
+        "latent differentiation",
+        "unrecognized distributed patterns"
+      ],
+      "defensive": [
+        "fragmentation",
+        "rigid recursive habits"
+      ],
+      "learning": [
+        "recognizing distributed coordination",
+        "adaptive differentiation"
+      ],
+      "healthy": [
+        "constructive recursive organization",
+        "coherent distributed integration"
+      ],
+      "integrated": [
+        "continuous recursive refinement",
+        "stable higher-order coordination"
+      ]
+    },
+    "constraints": [
+      "Biseptile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

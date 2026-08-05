@@ -1,0 +1,15 @@
+{
+  "input": [
+    "relationship_set",
+    "aspect_operators",
+    "canonical_functions",
+    "conditions",
+    "weights"
+  ],
+  "output": [
+    "reinforcement_patterns",
+    "tension_patterns",
+    "priority_layers",
+    "integrated_expression"
+  ]
+}

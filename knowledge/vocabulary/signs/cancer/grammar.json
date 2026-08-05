@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "cancer_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "modifier",
+  "parentObject": "cancer",
+  "content": {
+    "modifierSlots": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] protectively",
+      "[target] through nurturance",
+      "[target] responsively",
+      "[target] toward belonging",
+      "[target] with emphasis on care"
+    ],
+    "forbidden": [
+      "Cancer acts.",
+      "Cancer causes dependency.",
+      "Cancer makes people emotional."
+    ]
+  }
+}

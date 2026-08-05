@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sagittarius_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "modifier",
+  "parentObject": "sagittarius",
+  "content": {
+    "canonicalId": "sagittarius",
+    "displayName": "Sagittarius",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "expansive_mode",
+    "canonicalQuestion": "How does this expand and explore?"
+  }
+}

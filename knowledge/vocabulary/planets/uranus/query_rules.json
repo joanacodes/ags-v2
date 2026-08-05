@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "canonical_function",
+  "parentObject": "uranus",
+  "content": {
+    "defaultFunctionSet": [
+      "uranus_innovation",
+      "uranus_differentiation",
+      "uranus_liberation",
+      "uranus_reform"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "differentiation",
+        "autonomy"
+      ],
+      "relationships": [
+        "freedom",
+        "boundaries"
+      ],
+      "career": [
+        "innovation",
+        "systems"
+      ],
+      "development": [
+        "experimentation",
+        "originality"
+      ],
+      "transits": [
+        "change",
+        "reform"
+      ]
+    },
+    "selectionRules": [
+      "Preserve Uranus's canonical function.",
+      "Apply sign modifiers before house context.",
+      "Never substitute modifiers for the function."
+    ]
+  }
+}

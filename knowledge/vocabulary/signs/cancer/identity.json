@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "cancer_identity",
+  "moduleType": "identity",
+  "grammarRole": "modifier",
+  "parentObject": "cancer",
+  "content": {
+    "coreDomains": [
+      "protection",
+      "nurturance",
+      "containment",
+      "belonging",
+      "care",
+      "responsiveness",
+      "continuity_of_support",
+      "emotional_attunement",
+      "sheltering",
+      "adaptive_security"
+    ],
+    "notInherent": [
+      "neediness",
+      "oversensitivity",
+      "clinginess",
+      "dependency",
+      "moodiness",
+      "self-sacrifice"
+    ],
+    "constraints": [
+      "Cancer is a modifier.",
+      "Cancer never acts independently.",
+      "Cancer never replaces the target canonical function."
+    ]
+  }
+}

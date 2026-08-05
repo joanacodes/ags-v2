@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "trine_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "trine",
+  "content": {
+    "defaultOperator": "facilitative_flow_operator",
+    "supportedQueries": {
+      "identity": [
+        "flow",
+        "reinforcement"
+      ],
+      "relationship": [
+        "coordination"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Trine operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

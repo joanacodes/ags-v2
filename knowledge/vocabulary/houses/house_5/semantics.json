@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house5_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_5",
+  "content": {
+    "domains": {
+      "creativity": "Context of creating and expressing.",
+      "self_expression": "Personal outward expression.",
+      "play": "Exploration through enjoyment.",
+      "joy": "Experiences of delight and enthusiasm.",
+      "romance": "Creative and affectionate relating.",
+      "children": "Context involving children or mentoring.",
+      "performance": "Public creative presentation.",
+      "art": "Artistic production and appreciation.",
+      "recreation": "Enjoyable leisure activities.",
+      "personal_creation": "Works personally brought into being."
+    },
+    "boundaries": [
+      "Creativity is not vanity.",
+      "Play is not immaturity.",
+      "Romance is not attention seeking.",
+      "Joy is not hedonism."
+    ]
+  }
+}

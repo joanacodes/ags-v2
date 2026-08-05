@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "moon_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "canonical_function",
+  "parentObject": "moon",
+  "content": {
+    "defaultFunctionSet": [
+      "moon_emotion",
+      "moon_attachment",
+      "moon_needs",
+      "moon_security"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "emotion",
+        "security"
+      ],
+      "relationships": [
+        "attachment",
+        "needs"
+      ],
+      "career": [
+        "adaptation",
+        "regulation"
+      ],
+      "development": [
+        "emotion",
+        "adaptation"
+      ],
+      "transits": [
+        "needs",
+        "responsiveness"
+      ]
+    },
+    "selectionRules": [
+      "Preserve the Moon's canonical function.",
+      "Apply sign modifiers before house context.",
+      "Never substitute modifiers for the function."
+    ]
+  }
+}

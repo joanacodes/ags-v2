@@ -1,0 +1,31 @@
+{
+  "functions": {
+    "uranus": {
+      "coreFunction": "reorganization_innovation",
+      "domains": [
+        "novelty",
+        "systems change",
+        "liberation",
+        "pattern disruption"
+      ]
+    },
+    "neptune": {
+      "coreFunction": "imaginal_integration",
+      "domains": [
+        "symbolism",
+        "perception",
+        "ideals",
+        "dissolution"
+      ]
+    },
+    "pluto": {
+      "coreFunction": "deep_transformation",
+      "domains": [
+        "regeneration",
+        "power dynamics",
+        "elimination",
+        "renewal"
+      ]
+    }
+  }
+}

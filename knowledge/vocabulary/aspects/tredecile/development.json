@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "tredecile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "tredecile",
+  "content": {
+    "coreRule": "Development changes how adaptive restructuring is expressed, never the relational role of Tredecile.",
+    "stages": {
+      "unconscious": [
+        "latent restructuring",
+        "unrecognized adaptation"
+      ],
+      "defensive": [
+        "resistance to change",
+        "fragmented reorganization"
+      ],
+      "learning": [
+        "recognizing transformation patterns",
+        "adaptive exploration"
+      ],
+      "healthy": [
+        "constructive restructuring",
+        "integrated adaptation"
+      ],
+      "integrated": [
+        "stable transformation",
+        "mature adaptive synthesis"
+      ]
+    },
+    "constraints": [
+      "Tredecile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

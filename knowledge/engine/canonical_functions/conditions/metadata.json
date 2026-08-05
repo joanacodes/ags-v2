@@ -1,0 +1,6 @@
+{
+  "id": "functional_condition_system",
+  "moduleType": "canonical_function_modifier_engine",
+  "version": "0.1.0",
+  "purpose": "Define how canonical functions express under varying conditions without assigning intrinsic value."
+}

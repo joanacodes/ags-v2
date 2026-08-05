@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novemseptile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "novemseptile",
+  "content": {
+    "defaultOperator": "deep_recursive_transformation_operator",
+    "supportedQueries": {
+      "identity": [
+        "deep_transformation",
+        "recursive_cycles"
+      ],
+      "relationship": [
+        "emergent_maturation",
+        "integration"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Novemseptile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house12_development",
+  "moduleType": "development",
+  "grammarRole": "context",
+  "parentObject": "house_12",
+  "content": {
+    "coreRule": "Development changes how functions are experienced within the House 12 context; House 12 remains a context.",
+    "stages": {
+      "unconscious": [
+        "through unconscious patterns",
+        "within unexamined inner processes"
+      ],
+      "defensive": [
+        "through avoidance",
+        "within withdrawal from experience"
+      ],
+      "learning": [
+        "through intentional reflection",
+        "within compassionate awareness"
+      ],
+      "healthy": [
+        "through integrated contemplation",
+        "within restorative retreat"
+      ],
+      "integrated": [
+        "through transcendent perspective",
+        "within compassionate service"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Inner-life context never implies pathology."
+    ]
+  }
+}

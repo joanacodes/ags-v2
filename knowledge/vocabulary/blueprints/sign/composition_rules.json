@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_composition_rules",
+  "sequence": [
+    "Resolve target object and canonical function",
+    "Resolve query-relevant domains",
+    "Load sign inventory",
+    "Filter by target class",
+    "Filter by verb class",
+    "Filter by developmental stage",
+    "Remove conflicts and redundancy",
+    "Apply stable ordering",
+    "Return modifier set to clause builder"
+  ],
+  "grammarPatterns": [
+    "[planet_verb] + [sign_manner] + [sign_strategy]",
+    "[angle_function] + [sign_orientation] + [sign_pace]",
+    "[node_function] + [sign_strategy] + [developmental_modifier]",
+    "[adapt] + [sign_manner] + [sign_regulation]"
+  ],
+  "conflictRules": [
+    "Do not select two modifiers for one slot unless stacking is explicitly permitted.",
+    "Do not introduce a planetary verb.",
+    "Do not imply an outcome absent from source objects.",
+    "Return an empty modifier set rather than inventing content."
+  ],
+  "tieBreakOrder": [
+    "query relevance descending",
+    "target compatibility descending",
+    "developmental eligibility exact match",
+    "priority descending",
+    "stable component id ascending"
+  ]
+}

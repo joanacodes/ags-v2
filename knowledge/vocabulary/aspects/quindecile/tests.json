@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quindecile_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "quindecile",
+  "content": {
+    "suite": "quindecile_ontology_v0.1",
+    "cases": [
+      {
+        "id": "QDI-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "QDI-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "QDI-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "QDI-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "QDI-T-005",
+        "name": "No intrinsic benefic/malefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

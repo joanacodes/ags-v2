@@ -1,0 +1,47 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_grammar_blueprint",
+  "primaryGrammarRole": "modifier",
+  "allowedForms": [
+    "adverb",
+    "adverbial_phrase",
+    "prepositional_strategy_phrase",
+    "orientation_phrase",
+    "pace_phrase",
+    "priority_phrase",
+    "regulation_phrase",
+    "conditional_modifier"
+  ],
+  "prohibitedForms": [
+    "standalone_interpretive_sentence",
+    "main_clause_predicate",
+    "planetary_subject_verb_pair",
+    "house_context_clause",
+    "aspect_connector_clause",
+    "diagnostic_statement",
+    "predictive_statement"
+  ],
+  "targetCompatibility": {
+    "planet": "Modify how the planetary verb operates.",
+    "angle": "Modify how the reference-frame function operates.",
+    "node": "Modify how consolidation or development occurs.",
+    "chiron": "Modify how adaptation occurs."
+  },
+  "slotOrder": [
+    "target_function",
+    "manner",
+    "strategy",
+    "pace",
+    "orientation",
+    "priority",
+    "developmental",
+    "context"
+  ],
+  "rules": [
+    "Resolve the target function before selecting sign modifiers.",
+    "A sign may narrow expression but may not change target identity.",
+    "Order modifiers deterministically.",
+    "Collapse redundant modifiers.",
+    "Never store a completed interpretation inside the sign layer."
+  ]
+}

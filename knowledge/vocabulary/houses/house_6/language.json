@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house6_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_6",
+  "content": {
+    "domain": [
+      "service",
+      "routine",
+      "health"
+    ],
+    "focus": [
+      "discipline",
+      "improvement",
+      "craft"
+    ],
+    "scope": [
+      "daily life",
+      "work habits",
+      "practical development"
+    ],
+    "salience": [
+      "consistent",
+      "practical",
+      "refining"
+    ],
+    "expression_context": [
+      "through service",
+      "through daily practice",
+      "through practical refinement"
+    ]
+  }
+}

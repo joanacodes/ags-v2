@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pentile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "pentile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through creative harmonic proportion, generative expression, and constructive synthesis.",
+    "coreDomains": [
+      "creativity",
+      "harmonic proportion",
+      "generative expression",
+      "talent development",
+      "synthesis",
+      "refinement"
+    ],
+    "notInherent": [
+      "guaranteed talent",
+      "artistic superiority",
+      "destiny",
+      "beneficence"
+    ],
+    "constraints": [
+      "Pentile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

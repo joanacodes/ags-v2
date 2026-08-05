@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aquarius_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "modifier",
+  "parentObject": "aquarius",
+  "content": {
+    "modifierSlots": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] innovatively",
+      "[target] through experimentation",
+      "[target] objectively",
+      "[target] toward collective progress",
+      "[target] with emphasis on systems thinking"
+    ],
+    "forbidden": [
+      "Aquarius acts.",
+      "Aquarius causes detachment.",
+      "Aquarius makes people rebellious."
+    ]
+  }
+}

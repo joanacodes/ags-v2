@@ -1,0 +1,114 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_identity",
+  "name": "North Node Identity",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines the North Node as a developmental direction toward emerging complementary capacity.",
+  "grammarRole": "direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "nodal_axis_identity",
+    "nodal_axis_directionality",
+    "ags_point_blueprint",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "identity",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "identity",
+  "content": {
+    "ontology": {
+      "class": "calculated_point",
+      "grammarRole": "developmental_direction",
+      "semanticClass": "emerging_capacity_function",
+      "axisRole": "developmental_pole"
+    },
+    "coreFunction": {
+      "primaryVerb": "develop",
+      "definition": "Build practical capacity in a less familiar but complementary mode of functioning through repeated practice, feedback, and integration.",
+      "functionalAim": "Expand the available operating range by strengthening capacities that are less automatic, less consolidated, or less relied upon than the opposite nodal pole."
+    },
+    "coreQuestions": [
+      "Which complementary capacity requires practice?",
+      "What is less familiar but potentially range-expanding?",
+      "Which new response would reduce overreliance on the established pattern?",
+      "What must be practiced rather than merely understood?",
+      "How can this emerging capacity integrate with existing strengths?"
+    ],
+    "functionalContributions": [
+      "developmental direction",
+      "emerging capacity",
+      "practice",
+      "range expansion",
+      "new response formation",
+      "skill building",
+      "complementary development",
+      "developmental experimentation",
+      "integration pressure"
+    ],
+    "doesNotInherentlySupply": [
+      "destiny",
+      "life purpose certainty",
+      "moral growth",
+      "guaranteed fulfillment",
+      "automatic success",
+      "superiority over the South Node",
+      "complete unfamiliarity",
+      "instant competence"
+    ],
+    "pointBoundaries": [
+      {
+        "neighbor": "south_node",
+        "distinction": "The South Node supplies consolidated familiarity and established capacity. The North Node supplies developmental direction toward a complementary capacity."
+      },
+      {
+        "neighbor": "saturn",
+        "distinction": "Saturn structures and stabilizes. The North Node identifies where practice expands developmental range."
+      },
+      {
+        "neighbor": "jupiter",
+        "distinction": "Jupiter expands meaning and possibility. The North Node directs repeated practice toward an emerging capacity."
+      },
+      {
+        "neighbor": "chiron",
+        "distinction": "Chiron adapts around persistent limitation. The North Node develops a less familiar complementary function."
+      }
+    ],
+    "identityConstraints": [
+      "The North Node must remain paired with the South Node.",
+      "Its function is development, not destiny.",
+      "Direction must be distinguished from outcome.",
+      "Unfamiliarity must not be equated with virtue.",
+      "The point must remain reusable across signs, houses, aspects, and queries."
+    ]
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Directional developmental vocabulary only. No destiny, fate, moral ranking, or guaranteed outcome claims are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node identity module."
+    }
+  ]
+}

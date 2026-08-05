@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "tredecile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "tredecile",
+  "content": {
+    "families": [
+      {
+        "id": "adaptation",
+        "components": [
+          "supports adjustment",
+          "responds to change"
+        ]
+      },
+      {
+        "id": "restructuring",
+        "components": [
+          "reorganizes patterns",
+          "creates new configurations"
+        ]
+      },
+      {
+        "id": "transformation",
+        "components": [
+          "supports renewal",
+          "develops new expression"
+        ]
+      },
+      {
+        "id": "integration",
+        "components": [
+          "coordinates change",
+          "stabilizes outcomes"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

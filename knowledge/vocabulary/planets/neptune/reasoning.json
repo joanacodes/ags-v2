@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "canonical_function",
+  "parentObject": "neptune",
+  "content": {
+    "resolutionOrder": [
+      "Load Neptune canonical function",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity modifiers",
+      "Apply aspect relations",
+      "Validate Neptune function unchanged",
+      "Generate semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "function": "imagination",
+      "process": "compassion",
+      "goal": "transcendence",
+      "output": "symbolic_perception",
+      "salience": "transpersonal"
+    },
+    "compositionRules": [
+      "Neptune remains the canonical function.",
+      "Signs modify expression only.",
+      "Houses provide context only.",
+      "Aspects create relations only.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer discernment with compassion.",
+      "Prefer symbolic integration over literalism.",
+      "Return an empty result rather than invent semantics."
+    ],
+    "forbiddenInferences": [
+      "Neptune is replaced by a sign.",
+      "Neptune becomes a house.",
+      "Neptune inherently indicates deception, addiction, or escapism."
+    ]
+  }
+}

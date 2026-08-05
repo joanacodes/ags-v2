@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house10_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "context",
+  "parentObject": "house_10",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm House 10 is a context",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible contextual components",
+      "Apply sign, degree, and dignity modifiers",
+      "Validate canonical function unchanged",
+      "Generate contextual semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "domain": "public_role",
+      "focus": "responsibility",
+      "expression_context": "through leadership",
+      "salience": "visible"
+    },
+    "compositionRules": [
+      "House 10 provides context but never performs actions.",
+      "Planets retain canonical functions.",
+      "Signs modify functions before contextual placement.",
+      "Houses provide experiential context only.",
+      "Aspects remain relational operators.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer responsibility over status.",
+      "Prefer stewardship over domination.",
+      "Prefer contribution over prestige.",
+      "Return an empty context set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "House 10 creates success.",
+      "House 10 implies fame.",
+      "House 10 replaces the target function."
+    ]
+  }
+}

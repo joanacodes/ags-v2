@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house2_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_2",
+  "content": {
+    "domains": {
+      "resources": "Context of acquiring and managing resources.",
+      "values": "Formation and expression of personal values.",
+      "possessions": "Relationship to owned resources.",
+      "stewardship": "Responsible management of what is held.",
+      "security": "Context of stability and continuity.",
+      "self_worth": "Personal valuation independent of outcomes.",
+      "material_management": "Handling tangible resources.",
+      "sustainability": "Long-term maintenance of resources.",
+      "ownership": "Relationship to possession and responsibility.",
+      "stability": "Support for continuity over time."
+    },
+    "boundaries": [
+      "Resources are not wealth.",
+      "Values are not prices.",
+      "Security is not fear.",
+      "Stewardship is not greed."
+    ]
+  }
+}

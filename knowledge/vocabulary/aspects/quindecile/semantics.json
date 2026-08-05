@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quindecile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "quindecile",
+  "content": {
+    "definition": "A Quindecile relates participating canonical functions through focused intensification while preserving each function's identity.",
+    "boundaries": [
+      "Intensity does not imply compulsion.",
+      "Focus does not replace canonical functions."
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_identity_blueprint",
+  "ontology": {
+    "class": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "mode_of_expression",
+    "actsIndependently": false,
+    "requiresModifiedTarget": true
+  },
+  "definition": "A sign supplies reusable grammatical components that modify the manner, strategy, pace, orientation, emphasis, sequencing, or regulation of another object's function.",
+  "functionalAim": "Specify how an approved function or reference frame is expressed without replacing the identity or grammar role of the modified object.",
+  "doesNotSupply": [
+    "planetary action",
+    "house context",
+    "aspect connection",
+    "angle reference frame",
+    "node direction",
+    "event prediction",
+    "complete personality",
+    "finished interpretation"
+  ],
+  "constraints": [
+    "A sign must remain a modifier.",
+    "A sign may not supply the main planetary verb.",
+    "A sign may not replace house context or aspect connection.",
+    "Every sign component must be reusable across compatible targets."
+  ]
+}

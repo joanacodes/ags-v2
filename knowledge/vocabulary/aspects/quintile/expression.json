@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quintile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "quintile",
+  "content": {
+    "families": [
+      {
+        "id": "creativity",
+        "components": [
+          "reveals creative potential",
+          "encourages experimentation"
+        ]
+      },
+      {
+        "id": "organization",
+        "components": [
+          "structures ideas",
+          "forms coherent patterns"
+        ]
+      },
+      {
+        "id": "synthesis",
+        "components": [
+          "combines functions constructively",
+          "produces integrated outcomes"
+        ]
+      },
+      {
+        "id": "innovation",
+        "components": [
+          "supports novel adaptation",
+          "extends existing patterns"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

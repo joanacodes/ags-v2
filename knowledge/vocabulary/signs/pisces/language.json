@@ -1,0 +1,41 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pisces_language",
+  "moduleType": "language",
+  "grammarRole": "modifier",
+  "parentObject": "pisces",
+  "content": {
+    "manner": [
+      "compassionately",
+      "adaptively",
+      "imaginatively"
+    ],
+    "strategy": [
+      "through integration",
+      "through empathy",
+      "through symbolic understanding"
+    ],
+    "pace": [
+      "fluidly",
+      "responsively",
+      "at an adaptive pace"
+    ],
+    "orientation": [
+      "toward interconnectedness",
+      "toward acceptance",
+      "toward transcendence"
+    ],
+    "priority": [
+      "with emphasis on compassion",
+      "with emphasis on empathy"
+    ],
+    "regulation": [
+      "while maintaining coherence",
+      "while preserving healthy boundaries"
+    ],
+    "developmental": [
+      "through progressive integration",
+      "through expanding awareness"
+    ]
+  }
+}

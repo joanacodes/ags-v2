@@ -1,0 +1,29 @@
+{
+  "id": "chiron_query_rules",
+  "content": {
+    "primaryVerb": "adapt",
+    "supportedQueries": {
+      "identity": [
+        "adaptation",
+        "resilience"
+      ],
+      "career": [
+        "compensation",
+        "skill_development"
+      ],
+      "relationships": [
+        "accommodation",
+        "support"
+      ],
+      "healing": [
+        "rehabilitation",
+        "adaptation"
+      ]
+    },
+    "selectionRules": [
+      "Default to 'adapt' unless a more specific approved adaptive verb is justified.",
+      "Never infer trauma from Chiron.",
+      "Never infer healing without evidence."
+    ]
+  }
+}

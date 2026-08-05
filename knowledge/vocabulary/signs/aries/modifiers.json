@@ -1,0 +1,350 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_modifiers",
+  "name": "Aries Modifiers",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Aries manner, quality, strategy, pace, orientation, developmental, and prohibited modifier components without finished interpretations.",
+  "grammarRole": "modifier",
+  "compliesWith": [
+    "LAW-002",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ags_sign_blueprint",
+    "ags_semantic_principles"
+  ],
+  "priority": 10,
+  "tags": [
+    "aries",
+    "modifiers",
+    "sign",
+    "modifier"
+  ],
+  "parentObject": "aries",
+  "moduleType": "modifiers",
+  "content": {
+    "neutralMannerAdverbs": [
+      {
+        "text": "directly",
+        "semanticDomain": "directness",
+        "priority": 100
+      },
+      {
+        "text": "immediately",
+        "semanticDomain": "immediacy",
+        "priority": 92
+      },
+      {
+        "text": "independently",
+        "semanticDomain": "autonomy",
+        "priority": 90
+      },
+      {
+        "text": "assertively",
+        "semanticDomain": "assertion",
+        "priority": 86
+      },
+      {
+        "text": "proactively",
+        "semanticDomain": "initiative",
+        "priority": 84
+      },
+      {
+        "text": "decisively",
+        "semanticDomain": "decision",
+        "priority": 82
+      },
+      {
+        "text": "competitively",
+        "semanticDomain": "competition",
+        "priority": 68
+      },
+      {
+        "text": "experimentally",
+        "semanticDomain": "action_testing",
+        "priority": 66
+      }
+    ],
+    "neutralQualityAdjectives": [
+      {
+        "text": "direct",
+        "semanticDomain": "directness"
+      },
+      {
+        "text": "initiating",
+        "semanticDomain": "initiative"
+      },
+      {
+        "text": "independent",
+        "semanticDomain": "autonomy"
+      },
+      {
+        "text": "immediate",
+        "semanticDomain": "immediacy"
+      },
+      {
+        "text": "assertive",
+        "semanticDomain": "assertion"
+      },
+      {
+        "text": "decisive",
+        "semanticDomain": "decision"
+      },
+      {
+        "text": "self-directed",
+        "semanticDomain": "self_direction"
+      },
+      {
+        "text": "pioneering",
+        "semanticDomain": "first_movement"
+      }
+    ],
+    "neutralStrategyPhrases": [
+      {
+        "text": "through initiation",
+        "semanticDomain": "initiative",
+        "priority": 100
+      },
+      {
+        "text": "through direct engagement",
+        "semanticDomain": "directness",
+        "priority": 96
+      },
+      {
+        "text": "through immediate action",
+        "semanticDomain": "immediacy",
+        "priority": 90
+      },
+      {
+        "text": "through autonomous decision-making",
+        "semanticDomain": "autonomy",
+        "priority": 86
+      },
+      {
+        "text": "through active experimentation",
+        "semanticDomain": "action_testing",
+        "priority": 78
+      },
+      {
+        "text": "through confrontation with an obstacle",
+        "semanticDomain": "challenge_response",
+        "priority": 70
+      },
+      {
+        "text": "through first-hand experience",
+        "semanticDomain": "experiential_learning",
+        "priority": 68
+      }
+    ],
+    "paceComponents": [
+      {
+        "text": "rapidly",
+        "paceType": "fast",
+        "priority": 100
+      },
+      {
+        "text": "without extended preparation",
+        "paceType": "low_preparation",
+        "priority": 72
+      },
+      {
+        "text": "in short, forceful bursts",
+        "paceType": "burst",
+        "priority": 68
+      },
+      {
+        "text": "with immediate momentum",
+        "paceType": "accelerating",
+        "priority": 80
+      }
+    ],
+    "orientationComponents": [
+      {
+        "text": "toward autonomy",
+        "semanticDomain": "autonomy"
+      },
+      {
+        "text": "toward first action",
+        "semanticDomain": "initiative"
+      },
+      {
+        "text": "toward self-definition",
+        "semanticDomain": "self_direction"
+      },
+      {
+        "text": "toward challenge",
+        "semanticDomain": "challenge_response"
+      },
+      {
+        "text": "toward immediate movement",
+        "semanticDomain": "immediacy"
+      }
+    ],
+    "healthyModifiers": [
+      {
+        "text": "courageously",
+        "semanticDomain": "courage"
+      },
+      {
+        "text": "with clear initiative",
+        "semanticDomain": "initiative"
+      },
+      {
+        "text": "with proportionate assertiveness",
+        "semanticDomain": "assertion"
+      },
+      {
+        "text": "with willingness to begin",
+        "semanticDomain": "first_movement"
+      },
+      {
+        "text": "with direct ownership",
+        "semanticDomain": "self_direction"
+      },
+      {
+        "text": "without unnecessary delay",
+        "semanticDomain": "immediacy"
+      }
+    ],
+    "defensiveModifiers": [
+      {
+        "text": "impulsively",
+        "semanticDomain": "immediacy"
+      },
+      {
+        "text": "reactively",
+        "semanticDomain": "challenge_response"
+      },
+      {
+        "text": "aggressively",
+        "semanticDomain": "assertion"
+      },
+      {
+        "text": "without considering consequences",
+        "semanticDomain": "immediacy"
+      },
+      {
+        "text": "through forced independence",
+        "semanticDomain": "autonomy"
+      },
+      {
+        "text": "through unnecessary confrontation",
+        "semanticDomain": "challenge_response"
+      },
+      {
+        "text": "through premature action",
+        "semanticDomain": "initiative"
+      }
+    ],
+    "integratedModifiers": [
+      {
+        "text": "directly and responsively",
+        "semanticDomains": [
+          "directness",
+          "adaptation"
+        ]
+      },
+      {
+        "text": "with courageous restraint",
+        "semanticDomains": [
+          "courage",
+          "proportion"
+        ]
+      },
+      {
+        "text": "through timely initiative",
+        "semanticDomains": [
+          "initiative",
+          "timing"
+        ]
+      },
+      {
+        "text": "with independent judgment and situational awareness",
+        "semanticDomains": [
+          "autonomy",
+          "context_awareness"
+        ]
+      },
+      {
+        "text": "through action that remains open to correction",
+        "semanticDomains": [
+          "action_testing",
+          "adaptation"
+        ]
+      }
+    ],
+    "prohibitedModifiers": [
+      {
+        "text": "violently",
+        "reason": "Violence is not an inherent Aries modifier."
+      },
+      {
+        "text": "selfishly",
+        "reason": "Self-focus and selfishness are not equivalent."
+      },
+      {
+        "text": "recklessly",
+        "reason": "Recklessness is a possible defensive expression, not a neutral component."
+      },
+      {
+        "text": "angrily",
+        "reason": "Anger may occur but does not define Aries as a modifier."
+      },
+      {
+        "text": "immaturely",
+        "reason": "Developmental judgment must come from expression stage, not sign identity."
+      }
+    ],
+    "selectionRules": [
+      {
+        "id": "ARI-MOD-001",
+        "rule": "Use `directly` as the default manner adverb."
+      },
+      {
+        "id": "ARI-MOD-002",
+        "rule": "Use `through initiation` when the planetary verb can meaningfully begin, launch, assert, or activate."
+      },
+      {
+        "id": "ARI-MOD-003",
+        "rule": "Use `independently` only when autonomy is relevant to the selected query or planetary function."
+      },
+      {
+        "id": "ARI-MOD-004",
+        "rule": "Do not select pace components when the planetary verb already contains speed or immediacy."
+      },
+      {
+        "id": "ARI-MOD-005",
+        "rule": "Defensive modifiers require an explicit developmental or stress condition."
+      },
+      {
+        "id": "ARI-MOD-006",
+        "rule": "Integrated modifiers require an explicit integration stage or synthesis rule."
+      }
+    ],
+    "componentOnlyValidation": [
+      "No entry may contain a grammatical subject plus conjugated planetary verb.",
+      "No entry may mention a specific house.",
+      "No entry may mention a specific aspect.",
+      "No entry may claim a complete life outcome.",
+      "No entry may function as a complete placement reading."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only sign vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Aries modifiers module."
+    }
+  ]
+}

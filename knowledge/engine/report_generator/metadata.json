@@ -1,0 +1,6 @@
+{
+  "id": "report_generator",
+  "moduleType": "integrated_output_engine",
+  "version": "0.1.0",
+  "purpose": "Generate complete AGS reports from resolved chart semantic structures."
+}

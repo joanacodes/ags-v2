@@ -1,0 +1,203 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_semantics",
+  "name": "North Node Semantics",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines development, practice, capacity building, range expansion, experimentation, and integration.",
+  "grammarRole": "direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "north_node_identity",
+    "north_node_grammar",
+    "north_node_language",
+    "nodal_axis_semantics"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "semantics",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "semantics",
+  "content": {
+    "coreDomains": [
+      {
+        "id": "development",
+        "name": "Development",
+        "definition": "The gradual strengthening of a less familiar but complementary capacity.",
+        "primaryVerbs": [
+          "develop",
+          "build",
+          "strengthen"
+        ],
+        "boundaries": [
+          "Development is not destiny.",
+          "Development is not automatic.",
+          "Development does not erase existing capacity."
+        ]
+      },
+      {
+        "id": "practice",
+        "name": "Practice",
+        "definition": "Repeated engagement with a less familiar function under feedback.",
+        "primaryVerbs": [
+          "practice",
+          "repeat",
+          "train"
+        ],
+        "boundaries": [
+          "Practice does not guarantee mastery.",
+          "Practice may initially reduce efficiency.",
+          "Requires a defined function."
+        ]
+      },
+      {
+        "id": "capacity_building",
+        "name": "Capacity Building",
+        "definition": "Increasing usable competence in an emerging function.",
+        "primaryVerbs": [
+          "cultivate",
+          "build",
+          "strengthen"
+        ],
+        "boundaries": [
+          "Capacity may remain partial.",
+          "Does not imply moral growth.",
+          "Must remain context-specific."
+        ]
+      },
+      {
+        "id": "range_expansion",
+        "name": "Range Expansion",
+        "definition": "Adding complementary responses to the available operating repertoire.",
+        "primaryVerbs": [
+          "extend",
+          "expand",
+          "broaden"
+        ],
+        "boundaries": [
+          "Does not require abandoning specialization.",
+          "May create temporary discomfort.",
+          "Must retain South Node reference."
+        ]
+      },
+      {
+        "id": "developmental_experimentation",
+        "name": "Developmental Experimentation",
+        "definition": "Testing less familiar responses without assuming they are already integrated.",
+        "primaryVerbs": [
+          "experiment",
+          "test",
+          "try"
+        ],
+        "boundaries": [
+          "Experimentation is not commitment to outcome.",
+          "Requires feedback.",
+          "May reveal that some forms are not useful."
+        ]
+      },
+      {
+        "id": "integration",
+        "name": "Integration",
+        "definition": "Coordinating emerging capacity with established South Node resources.",
+        "primaryVerbs": [
+          "integrate",
+          "coordinate",
+          "combine"
+        ],
+        "boundaries": [
+          "Both poles must remain visible.",
+          "Integration does not mean equal use at all times.",
+          "Integration is not automatic."
+        ]
+      }
+    ],
+    "domainRelationships": [
+      {
+        "from": "practice",
+        "to": "capacity_building",
+        "relationship": "Repeated practice strengthens emerging capacity."
+      },
+      {
+        "from": "capacity_building",
+        "to": "range_expansion",
+        "relationship": "New capacity broadens the available response range."
+      },
+      {
+        "from": "range_expansion",
+        "to": "integration",
+        "relationship": "Expanded range becomes useful when coordinated with established strengths."
+      },
+      {
+        "from": "developmental_experimentation",
+        "to": "practice",
+        "relationship": "Experimentation identifies which responses deserve continued practice."
+      }
+    ],
+    "querySelectionHints": {
+      "identity": [
+        "development",
+        "capacity_building",
+        "integration"
+      ],
+      "work": [
+        "practice",
+        "capacity_building",
+        "range_expansion"
+      ],
+      "love": [
+        "developmental_experimentation",
+        "integration",
+        "capacity_building"
+      ],
+      "family": [
+        "range_expansion",
+        "practice",
+        "integration"
+      ],
+      "wounds_and_healing": [
+        "development",
+        "integration",
+        "practice"
+      ],
+      "nodal_return": [
+        "development",
+        "range_expansion",
+        "integration"
+      ]
+    },
+    "semanticExclusions": [
+      "Do not derive destiny from development.",
+      "Do not derive virtue from unfamiliarity.",
+      "Do not derive failure from difficulty.",
+      "Do not derive abandonment of the South Node from range expansion.",
+      "Do not derive guaranteed fulfillment from practice."
+    ]
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Directional developmental vocabulary only. No destiny, fate, moral ranking, or guaranteed outcome claims are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node semantics module."
+    }
+  ]
+}

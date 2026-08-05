@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "undecile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "undecile",
+  "content": {
+    "defaultOperator": "emergent_differentiation_operator",
+    "supportedQueries": {
+      "identity": [
+        "differentiation",
+        "pattern_emergence"
+      ],
+      "relationship": [
+        "adaptive_synthesis",
+        "novel_expression"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Undecile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house4_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_4",
+  "content": {
+    "domains": {
+      "home": "Context of home and domestic life.",
+      "family": "Relationships with family and household.",
+      "roots": "Origins and formative influences.",
+      "foundations": "Underlying bases that support development.",
+      "belonging": "Sense of home and rootedness.",
+      "private_life": "Experiences outside the public sphere.",
+      "ancestry": "Inherited familial lineage and history.",
+      "emotional_foundation": "Base of emotional security.",
+      "security_base": "Underlying sense of stability.",
+      "heritage": "Cultural and familial inheritance."
+    },
+    "boundaries": [
+      "Home is not confinement.",
+      "Family is not dependency.",
+      "Roots are not limitation.",
+      "Privacy is not isolation."
+    ]
+  }
+}

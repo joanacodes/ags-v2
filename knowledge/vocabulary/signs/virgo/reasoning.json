@@ -1,0 +1,56 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "virgo_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "modifier",
+  "parentObject": "virgo",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm Virgo is a modifier",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible modifier components",
+      "Apply degree and condition modifiers when available",
+      "Validate target function unchanged",
+      "Pass the resolved semantic structure to sentence generation"
+    ],
+    "defaultInferenceProfile": {
+      "manner": "precisely",
+      "strategy": "through refinement",
+      "priority": "with emphasis on quality",
+      "regulation": "while preserving accuracy"
+    },
+    "compositionRules": [
+      "Virgo may modify a planet, angle, node, or Chiron but may not replace its canonical function.",
+      "Degree information is applied as an additional fine-grained modifier after the sign modifier.",
+      "House information supplies context and does not alter Virgo's grammatical role.",
+      "Aspect information supplies a relational operator and may amplify, constrain, or coordinate the expression.",
+      "Dignity and condition modify availability, strength, consistency, or ease of expression.",
+      "Natural-language output must be derived from the resolved semantic structure rather than from a fixed interpretation."
+    ],
+    "heuristics": [
+      "Prefer refinement over criticism.",
+      "Prefer calibration over perfectionism.",
+      "Prefer functional improvement over compulsive correction.",
+      "Suppress unnecessary analysis when incompatible with the target.",
+      "Return an empty modifier set instead of inventing semantics."
+    ],
+    "tieBreakOrder": [
+      "target compatibility",
+      "query relevance",
+      "developmental evidence",
+      "degree compatibility",
+      "aspect compatibility",
+      "neutral default"
+    ],
+    "forbiddenInferences": [
+      "Virgo causes perfectionism.",
+      "Virgo is critical.",
+      "Virgo is anxious.",
+      "Virgo guarantees competence.",
+      "Virgo replaces the target function.",
+      "Virgo alone determines a complete sentence or interpretation."
+    ]
+  }
+}

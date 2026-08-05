@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sextile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "sextile",
+  "content": {
+    "defaultOperator": "opportunity_activation_operator",
+    "supportedQueries": {
+      "identity": [
+        "opportunity",
+        "cooperation"
+      ],
+      "relationship": [
+        "activation",
+        "responsiveness"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Sextile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

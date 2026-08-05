@@ -1,0 +1,64 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_grammar",
+  "name": "Aries Grammar",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Aries-compatible modifier forms, targets, and restrictions.",
+  "grammarRole": "modifier",
+  "dependsOn": [
+    "aries_identity",
+    "ags_sign_grammar_blueprint"
+  ],
+  "parentObject": "aries",
+  "moduleType": "grammar",
+  "content": {
+    "primaryGrammarRole": "modifier",
+    "allowedForms": [
+      "adverb",
+      "adverbial_phrase",
+      "strategy_phrase",
+      "pace_phrase",
+      "orientation_phrase",
+      "priority_phrase",
+      "regulation_phrase",
+      "developmental_modifier"
+    ],
+    "targetCompatibility": {
+      "planet": "Modify how the planetary verb begins, proceeds, or asserts direction.",
+      "angle": "Modify how the reference-frame function establishes entry or direction.",
+      "node": "Modify how consolidation or development occurs through initiation.",
+      "chiron": "Modify how adaptation begins or tests a new method."
+    },
+    "preferredPatterns": [
+      "[target_function] directly",
+      "[target_function] through initiation",
+      "[target_function] rapidly",
+      "[target_function] toward autonomous engagement",
+      "[target_function] while preserving momentum"
+    ],
+    "rules": [
+      "Resolve the target function before selecting Aries modifiers.",
+      "Use speed only where target compatibility permits it.",
+      "Autonomy must not be rendered as isolation.",
+      "First-move priority does not imply leadership.",
+      "Defensive wording requires explicit evidence."
+    ],
+    "prohibitedGrammar": [
+      "Aries as clause subject",
+      "Aries as planetary verb",
+      "Aries as house context",
+      "Aries as aspect connector",
+      "Aggression as the neutral modifier",
+      "Any completed interpretation sentence"
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries grammar module."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "id": "automated_chart_input",
+  "moduleType": "chart_data_ingestion_layer",
+  "version": "0.1.0",
+  "purpose": "Define how raw chart information enters AGS processing."
+}

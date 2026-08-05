@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house5_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "context",
+  "parentObject": "house_5",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm House 5 is a context",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible contextual components",
+      "Apply sign, degree, and dignity modifiers",
+      "Validate canonical function unchanged",
+      "Generate contextual semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "domain": "creativity",
+      "focus": "self-expression",
+      "expression_context": "through personal creation",
+      "salience": "personally meaningful"
+    },
+    "compositionRules": [
+      "House 5 provides context but never performs actions.",
+      "Planets retain canonical functions.",
+      "Signs modify functions before contextual placement.",
+      "Houses provide experiential context only.",
+      "Aspects remain relational operators.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer creativity over vanity.",
+      "Prefer joyful play over immaturity.",
+      "Prefer authentic expression over drama.",
+      "Return an empty context set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "House 5 creates talent.",
+      "House 5 implies attention seeking.",
+      "House 5 replaces the target function."
+    ]
+  }
+}

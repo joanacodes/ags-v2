@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pentile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "pentile",
+  "content": {
+    "verbs": [
+      "creates",
+      "expresses",
+      "harmonizes",
+      "synthesizes"
+    ],
+    "templates": [
+      "{A} expresses creative potential through interaction with {B}.",
+      "{A} and {B} generate harmonic expression together."
+    ]
+  }
+}

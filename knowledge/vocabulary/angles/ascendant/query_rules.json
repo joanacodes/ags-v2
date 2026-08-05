@@ -1,0 +1,30 @@
+{
+  "id": "ascendant_query_rules",
+  "primaryVerb": "orient",
+  "requiredOppositeAngle": "descendant",
+  "selectionRules": [
+    "Default to 'orient'.",
+    "Resolve Descendant alongside Ascendant.",
+    "Treat signs as modifiers of orientation.",
+    "Treat ruler as delegated planetary function.",
+    "Never reduce orientation to personality."
+  ],
+  "supportedQueries": {
+    "identity": [
+      "orientation",
+      "self_positioning"
+    ],
+    "relationships": [
+      "orientation",
+      "counterpart_awareness"
+    ],
+    "work": [
+      "entry",
+      "presentation"
+    ],
+    "health": [
+      "embodied_presentation",
+      "orientation"
+    ]
+  }
+}

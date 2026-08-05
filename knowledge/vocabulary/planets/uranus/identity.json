@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_identity",
+  "moduleType": "identity",
+  "grammarRole": "canonical_function",
+  "parentObject": "uranus",
+  "content": {
+    "canonicalFunction": "enables innovation, differentiation, liberation, and systemic change",
+    "coreDomains": [
+      "innovation",
+      "differentiation",
+      "liberation",
+      "change",
+      "originality",
+      "autonomy",
+      "experimentation",
+      "breakthrough",
+      "systems",
+      "reform"
+    ],
+    "notInherent": [
+      "chaos",
+      "rebellion",
+      "instability",
+      "eccentricity",
+      "anarchy"
+    ],
+    "constraints": [
+      "Uranus is a canonical function.",
+      "Signs modify Uranus but never replace it.",
+      "Houses contextualize Uranus but never perform it.",
+      "Aspects relate Uranus to other canonical functions."
+    ]
+  }
+}

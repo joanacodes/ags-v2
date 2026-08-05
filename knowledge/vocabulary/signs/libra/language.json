@@ -1,0 +1,41 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "libra_language",
+  "moduleType": "language",
+  "grammarRole": "modifier",
+  "parentObject": "libra",
+  "content": {
+    "manner": [
+      "harmoniously",
+      "cooperatively",
+      "proportionally"
+    ],
+    "strategy": [
+      "through coordination",
+      "through mutual adjustment",
+      "through comparison"
+    ],
+    "pace": [
+      "deliberately",
+      "responsively",
+      "at a balanced pace"
+    ],
+    "orientation": [
+      "toward equilibrium",
+      "toward reciprocity",
+      "toward cooperation"
+    ],
+    "priority": [
+      "with emphasis on fairness",
+      "with emphasis on reciprocity"
+    ],
+    "regulation": [
+      "while maintaining balance",
+      "while preserving proportionality"
+    ],
+    "developmental": [
+      "through iterative balancing",
+      "through relational refinement"
+    ]
+  }
+}

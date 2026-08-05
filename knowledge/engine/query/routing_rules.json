@@ -1,0 +1,8 @@
+{
+  "rules": [
+    "Identify intent before retrieval.",
+    "Retrieve source ontology before interpretation.",
+    "Use relationship engines for relational questions.",
+    "Use report generation only after semantic resolution."
+  ]
+}

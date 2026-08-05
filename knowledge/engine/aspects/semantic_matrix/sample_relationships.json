@@ -1,0 +1,31 @@
+{
+  "examples": [
+    {
+      "input": "mercury_pentile_saturn",
+      "relationshipTheme": "creative_structuring_of_pattern_processing",
+      "domains": [
+        "organized thought",
+        "technical expression",
+        "structured communication"
+      ]
+    },
+    {
+      "input": "venus_bipentile_jupiter",
+      "relationshipTheme": "amplified_harmonic_synthesis_of_values",
+      "domains": [
+        "creative connection",
+        "expanded appreciation",
+        "integrated expression"
+      ]
+    },
+    {
+      "input": "mars_septile_saturn",
+      "relationshipTheme": "recursive_patterning_between_action_and_structure",
+      "domains": [
+        "timing",
+        "developmental adjustment",
+        "adaptive effort"
+      ]
+    }
+  ]
+}

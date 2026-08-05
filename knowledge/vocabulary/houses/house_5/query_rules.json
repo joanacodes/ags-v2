@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house5_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_5",
+  "content": {
+    "defaultContextSet": [
+      "house5_creativity",
+      "house5_expression",
+      "house5_creation"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "self_expression",
+        "joy"
+      ],
+      "relationships": [
+        "romance",
+        "children"
+      ],
+      "work": [
+        "creativity",
+        "performance"
+      ],
+      "health": [
+        "play",
+        "recreation"
+      ],
+      "transits": [
+        "art",
+        "personal_creation"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of creativity' as the neutral domain.",
+      "Prefer 'through self-expression' as the neutral focus.",
+      "Suppress assumptions about vanity or drama.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

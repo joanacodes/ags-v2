@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quintile_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "quintile",
+  "content": {
+    "suite": "quintile_ontology_v0.1",
+    "cases": [
+      {
+        "id": "QNT-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "QNT-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "QNT-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "QNT-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "QNT-T-005",
+        "name": "No intrinsic benefic/malefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

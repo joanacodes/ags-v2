@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "undecile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "undecile",
+  "content": {
+    "coreRule": "Development changes how emergent differentiation is expressed, never the relational role of Undecile.",
+    "stages": {
+      "unconscious": [
+        "latent variation",
+        "unrecognized patterns"
+      ],
+      "defensive": [
+        "fragmented difference",
+        "resistance to adaptation"
+      ],
+      "learning": [
+        "recognizing unusual patterns",
+        "adaptive exploration"
+      ],
+      "healthy": [
+        "constructive differentiation",
+        "integrated variation"
+      ],
+      "integrated": [
+        "creative synthesis",
+        "stable emergent expression"
+      ]
+    },
+    "constraints": [
+      "Undecile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

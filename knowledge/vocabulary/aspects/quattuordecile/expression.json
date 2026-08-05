@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quattuordecile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "quattuordecile",
+  "content": {
+    "families": [
+      {
+        "id": "reorientation",
+        "components": [
+          "changes perspective",
+          "supports adaptation"
+        ]
+      },
+      {
+        "id": "reorganization",
+        "components": [
+          "restructures patterns",
+          "creates new arrangements"
+        ]
+      },
+      {
+        "id": "refinement",
+        "components": [
+          "improves expression",
+          "clarifies function"
+        ]
+      },
+      {
+        "id": "integration",
+        "components": [
+          "coordinates change",
+          "stabilizes synthesis"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

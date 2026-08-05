@@ -1,0 +1,195 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_query_rules",
+  "name": "North Node Query Rules",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines query-specific domain priorities, verb preferences, and directional constraints.",
+  "grammarRole": "developmental_direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "north_node_semantics",
+    "north_node_expression",
+    "nodal_axis_directionality",
+    "ags_query_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "query_rules",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "query_rules",
+  "content": {
+    "primaryVerb": "develop",
+    "axisReference": "nodal_axis",
+    "requiredOppositePoint": "south_node",
+    "supportedQueries": {
+      "identity": {
+        "priorityDomains": [
+          "development",
+          "capacity_building",
+          "integration"
+        ],
+        "preferredVerbs": [
+          "develop",
+          "cultivate",
+          "integrate"
+        ]
+      },
+      "family": {
+        "priorityDomains": [
+          "range_expansion",
+          "practice",
+          "integration"
+        ],
+        "preferredVerbs": [
+          "practice",
+          "develop",
+          "integrate"
+        ]
+      },
+      "friendship": {
+        "priorityDomains": [
+          "developmental_experimentation",
+          "range_expansion",
+          "integration"
+        ],
+        "preferredVerbs": [
+          "experiment",
+          "extend",
+          "integrate"
+        ]
+      },
+      "love": {
+        "priorityDomains": [
+          "capacity_building",
+          "developmental_experimentation",
+          "integration"
+        ],
+        "preferredVerbs": [
+          "develop",
+          "practice",
+          "integrate"
+        ]
+      },
+      "work": {
+        "priorityDomains": [
+          "practice",
+          "capacity_building",
+          "range_expansion"
+        ],
+        "preferredVerbs": [
+          "practice",
+          "cultivate",
+          "extend"
+        ]
+      },
+      "money": {
+        "priorityDomains": [
+          "developmental_experimentation",
+          "feedback_based_refinement",
+          "integration"
+        ],
+        "preferredVerbs": [
+          "experiment",
+          "practice",
+          "integrate"
+        ]
+      },
+      "health": {
+        "priorityDomains": [
+          "practice",
+          "feedback_based_refinement",
+          "contextual_pole_switching"
+        ],
+        "preferredVerbs": [
+          "practice",
+          "refine",
+          "integrate"
+        ]
+      },
+      "wounds_and_healing": {
+        "priorityDomains": [
+          "development",
+          "practice",
+          "integration"
+        ],
+        "preferredVerbs": [
+          "develop",
+          "practice",
+          "integrate"
+        ]
+      },
+      "nodal_return": {
+        "priorityDomains": [
+          "development",
+          "range_expansion",
+          "integration"
+        ],
+        "preferredVerbs": [
+          "develop",
+          "extend",
+          "integrate"
+        ]
+      }
+    },
+    "selectionRules": [
+      {
+        "id": "NN-QUERY-001",
+        "rule": "Default to `develop` when no narrower approved developmental verb is justified."
+      },
+      {
+        "id": "NN-QUERY-002",
+        "rule": "Always load and represent the South Node before generating North Node output."
+      },
+      {
+        "id": "NN-QUERY-003",
+        "rule": "Use `practice` when repetition, training, or feedback is explicit."
+      },
+      {
+        "id": "NN-QUERY-004",
+        "rule": "Use `integrate` only when the South Node resource remains visible."
+      },
+      {
+        "id": "NN-QUERY-005",
+        "rule": "Use overreliance language only when contextual evidence supports it."
+      },
+      {
+        "id": "NN-QUERY-006",
+        "rule": "Never convert developmental direction into predicted outcome, destiny, or moral command."
+      }
+    ],
+    "queryConstraints": [
+      "Queries may prioritize domains but may not redefine the North Node.",
+      "No query authorizes abandonment of the South Node.",
+      "No query authorizes guaranteed fulfillment.",
+      "No query authorizes factual past-life claims."
+    ]
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Developmental-direction vocabulary only. No destiny, fate, moral ranking, or guaranteed outcome claims are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node query_rules module."
+    }
+  ]
+}

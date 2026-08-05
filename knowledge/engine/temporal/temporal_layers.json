@@ -1,0 +1,20 @@
+{
+  "layers": [
+    {
+      "id": "transits",
+      "description": "Current planetary relationships activating existing structures."
+    },
+    {
+      "id": "progressions",
+      "description": "Symbolic developmental timing of internal changes."
+    },
+    {
+      "id": "cycles",
+      "description": "Long-term recurring developmental rhythms."
+    },
+    {
+      "id": "activation_windows",
+      "description": "Periods where existing patterns become more emphasized."
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "grammarRole": "reference_frame",
+  "semanticClass": "foundational_reference",
+  "primaryVerb": "root",
+  "definition": "Establish the foundational reference frame through which continuity, support, belonging, and regeneration become possible.",
+  "functionalAim": "Provide the underlying foundation that sustains public participation without reducing the angle to home or family.",
+  "contributions": [
+    "foundation",
+    "continuity",
+    "support",
+    "belonging",
+    "regeneration"
+  ],
+  "doesNotMean": [
+    "house only",
+    "childhood only",
+    "family only",
+    "private life only"
+  ],
+  "distinctions": {
+    "midheaven": "The Midheaven actualizes publicly; the Imum Coeli roots foundationally.",
+    "moon": "The Moon regulates experience; the IC establishes foundational reference.",
+    "fourth_house": "The IC is a reference frame; the fourth house is a context."
+  },
+  "constraints": [
+    "Always interpreted with the Midheaven.",
+    "Must not replace planetary functions.",
+    "Rooting does not imply permanence."
+  ]
+}

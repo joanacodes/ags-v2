@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pentile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "pentile",
+  "content": {
+    "coreRule": "Development changes how creative harmonic expression is developed, never the relational role of Pentile.",
+    "stages": {
+      "unconscious": [
+        "latent creativity",
+        "unrecognized pattern ability"
+      ],
+      "defensive": [
+        "blocked expression",
+        "rigid creative identity"
+      ],
+      "learning": [
+        "discovering creative capacity",
+        "developing technique"
+      ],
+      "healthy": [
+        "constructive expression",
+        "refined creativity"
+      ],
+      "integrated": [
+        "mature creative synthesis",
+        "harmonic mastery"
+      ]
+    },
+    "constraints": [
+      "Pentile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

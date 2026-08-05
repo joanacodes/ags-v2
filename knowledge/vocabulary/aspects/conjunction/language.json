@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "conjunction_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "conjunction",
+  "content": {
+    "verbs": [
+      "co-activates",
+      "integrates",
+      "fuses",
+      "combines"
+    ],
+    "templates": [
+      "{A} and {B} operate together.",
+      "{A} expresses through {B}."
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house9_expression",
+  "moduleType": "expression",
+  "grammarRole": "context",
+  "parentObject": "house_9",
+  "content": {
+    "families": [
+      {
+        "id": "learning",
+        "components": [
+          "in the context of higher learning",
+          "through advanced study"
+        ]
+      },
+      {
+        "id": "exploration",
+        "components": [
+          "through exploration",
+          "within broad experience"
+        ]
+      },
+      {
+        "id": "philosophy",
+        "components": [
+          "through philosophical inquiry",
+          "within reflective understanding"
+        ]
+      },
+      {
+        "id": "wisdom",
+        "components": [
+          "through integrated wisdom",
+          "within meaning-making"
+        ]
+      },
+      {
+        "id": "teaching",
+        "components": [
+          "through teaching",
+          "within knowledge sharing"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Locate the planetary function within higher learning, exploration, and meaning.",
+      "angle": "Contextualize the angle within philosophical inquiry without changing its reference-frame role.",
+      "node": "Place developmental themes within worldview while preserving nodal polarity.",
+      "chiron": "Contextualize healing themes through learning and wisdom without implying completion."
+    },
+    "constraints": [
+      "Beliefs are not dogmatism.",
+      "Travel is not escapism.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

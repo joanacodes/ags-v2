@@ -1,0 +1,41 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "gemini_language",
+  "moduleType": "language",
+  "grammarRole": "modifier",
+  "parentObject": "gemini",
+  "content": {
+    "manner": [
+      "adaptively",
+      "flexibly",
+      "responsively"
+    ],
+    "strategy": [
+      "through comparison",
+      "through exploration",
+      "through exchange"
+    ],
+    "pace": [
+      "responsively",
+      "iteratively",
+      "at an adaptive rate"
+    ],
+    "orientation": [
+      "toward connection",
+      "toward differentiation",
+      "toward information flow"
+    ],
+    "priority": [
+      "with emphasis on learning",
+      "with emphasis on communication"
+    ],
+    "regulation": [
+      "while preserving adaptability",
+      "while maintaining responsiveness"
+    ],
+    "developmental": [
+      "through iterative refinement",
+      "through continual exploration"
+    ]
+  }
+}

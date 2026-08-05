@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mars_identity",
+  "moduleType": "identity",
+  "grammarRole": "canonical_function",
+  "parentObject": "mars",
+  "content": {
+    "canonicalFunction": "initiates action, assertion, effort, and directed agency",
+    "coreDomains": [
+      "agency",
+      "initiative",
+      "assertion",
+      "effort",
+      "motivation",
+      "courage",
+      "drive",
+      "competition",
+      "boundaries",
+      "execution"
+    ],
+    "notInherent": [
+      "anger",
+      "violence",
+      "aggression",
+      "masculinity",
+      "conflict",
+      "impulsivity"
+    ],
+    "constraints": [
+      "Mars is a canonical function.",
+      "Signs modify Mars but never replace it.",
+      "Houses contextualize Mars but never perform it.",
+      "Aspects relate Mars to other canonical functions."
+    ]
+  }
+}

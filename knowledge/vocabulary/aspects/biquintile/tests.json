@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biquintile_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "biquintile",
+  "content": {
+    "suite": "biquintile_ontology_v0.1",
+    "cases": [
+      {
+        "id": "BQT-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "BQT-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "BQT-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "BQT-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "BQT-T-005",
+        "name": "No intrinsic benefic/malefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

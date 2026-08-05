@@ -1,0 +1,20 @@
+{
+  "layers": [
+    {
+      "id": "structural",
+      "description": "Combines repeated functions and relationship networks."
+    },
+    {
+      "id": "contextual",
+      "description": "Combines signs, houses, and environmental modifiers."
+    },
+    {
+      "id": "developmental",
+      "description": "Combines stages of expression and integration."
+    },
+    {
+      "id": "temporal",
+      "description": "Combines activation cycles and timing emphasis."
+    }
+  ]
+}

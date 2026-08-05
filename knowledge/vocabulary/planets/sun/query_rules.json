@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sun_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "canonical_function",
+  "parentObject": "sun",
+  "content": {
+    "defaultFunctionSet": [
+      "sun_identity",
+      "sun_vitality",
+      "sun_purpose",
+      "sun_expression"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "identity",
+        "agency"
+      ],
+      "career": [
+        "purpose",
+        "direction"
+      ],
+      "relationships": [
+        "self_expression",
+        "coherence"
+      ],
+      "development": [
+        "integration",
+        "vitality"
+      ],
+      "transits": [
+        "purpose",
+        "identity"
+      ]
+    },
+    "selectionRules": [
+      "Preserve the Sun's canonical function.",
+      "Apply sign modifiers before house context.",
+      "Never substitute modifiers for the function."
+    ]
+  }
+}

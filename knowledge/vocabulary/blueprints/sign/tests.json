@@ -1,0 +1,55 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_blueprint_tests",
+  "testCases": [
+    {
+      "id": "SIGN-T-001",
+      "name": "Sign role is modifier",
+      "expectedRole": "modifier"
+    },
+    {
+      "id": "SIGN-T-002",
+      "name": "Reject finished interpretation",
+      "input": "Saturn structures compassionately through surrender.",
+      "expectedValid": false
+    },
+    {
+      "id": "SIGN-T-003",
+      "name": "Reject planetary verb in sign identity",
+      "expectedValid": false
+    },
+    {
+      "id": "SIGN-T-004",
+      "name": "Allow adverbial component",
+      "input": "directly",
+      "expectedValid": true
+    },
+    {
+      "id": "SIGN-T-005",
+      "name": "Require compatibility metadata",
+      "expectedValid": false
+    },
+    {
+      "id": "SIGN-T-006",
+      "name": "Defensive modifier requires evidence",
+      "expectedValid": false
+    },
+    {
+      "id": "SIGN-T-007",
+      "name": "Sign does not replace target verb",
+      "expectedSame": true
+    },
+    {
+      "id": "SIGN-T-008",
+      "name": "Deterministic modifier selection",
+      "expectedSameModifierIds": true
+    }
+  ],
+  "regressions": [
+    "Sign != actor",
+    "Sign != personality sentence",
+    "Sign != house context",
+    "Sign != aspect connector",
+    "Modifier != outcome"
+  ]
+}

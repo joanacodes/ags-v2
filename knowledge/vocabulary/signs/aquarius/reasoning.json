@@ -1,0 +1,52 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aquarius_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "modifier",
+  "parentObject": "aquarius",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm Aquarius is a modifier",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible modifier components",
+      "Apply degree and condition modifiers",
+      "Validate canonical function unchanged",
+      "Pass semantic structure to sentence generation"
+    ],
+    "defaultInferenceProfile": {
+      "manner": "innovatively",
+      "strategy": "through experimentation",
+      "priority": "with emphasis on innovation",
+      "regulation": "while preserving adaptability"
+    },
+    "compositionRules": [
+      "Aquarius modifies but never replaces the canonical function.",
+      "Degree modifiers compose after sign modifiers.",
+      "Houses provide context only.",
+      "Aspects function as relational operators.",
+      "Dignity modifies expression condition, not ontology.",
+      "Generate natural language from composed semantics."
+    ],
+    "heuristics": [
+      "Prefer innovation over disruption.",
+      "Prefer objectivity over detachment.",
+      "Prefer adaptation over unpredictability.",
+      "Return an empty modifier set instead of inventing semantics."
+    ],
+    "tieBreakOrder": [
+      "target compatibility",
+      "query relevance",
+      "developmental evidence",
+      "degree compatibility",
+      "aspect compatibility",
+      "neutral default"
+    ],
+    "forbiddenInferences": [
+      "Aquarius causes rebellion.",
+      "Aquarius is emotionally detached.",
+      "Aquarius replaces the target function."
+    ]
+  }
+}

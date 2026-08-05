@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "canonical_function",
+  "parentObject": "uranus",
+  "content": {
+    "canonicalId": "uranus",
+    "displayName": "Uranus",
+    "ontologyClass": "planet",
+    "grammarRole": "canonical_function",
+    "semanticClass": "innovation_differentiation_function",
+    "canonicalQuestion": "What function enables innovation, differentiation, liberation, and systemic change?"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aquarius_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "modifier",
+  "parentObject": "aquarius",
+  "content": {
+    "domains": {
+      "innovation": "Introduces novel functional approaches.",
+      "objectivity": "Evaluates with reduced personal bias.",
+      "systems_thinking": "Considers relationships across a whole system.",
+      "individuality": "Supports authentic differentiation.",
+      "future_orientation": "Prioritizes long-term possibilities.",
+      "experimentation": "Tests alternatives iteratively.",
+      "networks": "Coordinates distributed relationships.",
+      "collective_progress": "Supports improvements benefiting groups.",
+      "adaptation": "Adjusts to changing conditions.",
+      "originality": "Encourages unique yet functional solutions."
+    },
+    "boundaries": [
+      "Innovation is not rebellion.",
+      "Objectivity is not emotional detachment.",
+      "Originality is not eccentricity.",
+      "Adaptation is not unpredictability."
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house7_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_7",
+  "content": {
+    "domain": [
+      "partnership",
+      "cooperation",
+      "relationships"
+    ],
+    "focus": [
+      "reciprocity",
+      "commitment",
+      "collaboration"
+    ],
+    "scope": [
+      "one-to-one dynamics",
+      "agreements",
+      "shared endeavors"
+    ],
+    "salience": [
+      "relational",
+      "cooperative",
+      "mutual"
+    ],
+    "expression_context": [
+      "through partnership",
+      "through reciprocal exchange",
+      "through collaboration"
+    ]
+  }
+}

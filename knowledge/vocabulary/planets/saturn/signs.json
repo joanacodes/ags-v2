@@ -1,0 +1,175 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_signs",
+  "name": "Saturn Signs",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "How each zodiac sign modifies Saturn's structuring function.",
+  "grammarRole": "modifier_application",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-017",
+    "SP-002"
+  ],
+  "dependsOn": [
+    "saturn_identity",
+    "saturn_language",
+    "saturn_semantics"
+  ],
+  "priority": 10,
+  "tags": [
+    "saturn",
+    "signs"
+  ],
+  "parentObject": "saturn",
+  "moduleType": "signs",
+  "content": {
+    "signModifiers": [
+      {
+        "sign": "aries",
+        "modifierType": "style",
+        "expression": "directly",
+        "channel": "through initiative",
+        "coreSentence": "Saturn structures directly through initiative.",
+        "developmentalPotential": "Build courage with discipline rather than impulse.",
+        "shadowRisk": "Mistaking urgency for responsibility.",
+        "integrationClause": "Create sustainable action.",
+        "sampleReading": "In Aries, Saturn structures directly through initiative, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "taurus",
+        "modifierType": "style",
+        "expression": "steadily",
+        "channel": "through consistency",
+        "coreSentence": "Saturn structures steadily through consistency.",
+        "developmentalPotential": "Build durable value patiently.",
+        "shadowRisk": "Attachment to security.",
+        "integrationClause": "Strengthen without stagnating.",
+        "sampleReading": "In Taurus, Saturn structures steadily through consistency, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "gemini",
+        "modifierType": "style",
+        "expression": "analytically",
+        "channel": "through information",
+        "coreSentence": "Saturn structures analytically through information.",
+        "developmentalPotential": "Structure knowledge and communication.",
+        "shadowRisk": "Scattered rules.",
+        "integrationClause": "Organize thinking.",
+        "sampleReading": "In Gemini, Saturn structures analytically through information, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "cancer",
+        "modifierType": "style",
+        "expression": "protectively",
+        "channel": "through care",
+        "coreSentence": "Saturn structures protectively through care.",
+        "developmentalPotential": "Create emotional security.",
+        "shadowRisk": "Overprotecting or emotional rigidity.",
+        "integrationClause": "Healthy boundaries support care.",
+        "sampleReading": "In Cancer, Saturn structures protectively through care, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "leo",
+        "modifierType": "style",
+        "expression": "authoritatively",
+        "channel": "through visibility",
+        "coreSentence": "Saturn structures authoritatively through visibility.",
+        "developmentalPotential": "Exercise responsible leadership.",
+        "shadowRisk": "Needing control to feel respected.",
+        "integrationClause": "Lead through stewardship.",
+        "sampleReading": "In Leo, Saturn structures authoritatively through visibility, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "virgo",
+        "modifierType": "style",
+        "expression": "precisely",
+        "channel": "through refinement",
+        "coreSentence": "Saturn structures precisely through refinement.",
+        "developmentalPotential": "Improve systems through disciplined practice.",
+        "shadowRisk": "Perfectionism.",
+        "integrationClause": "Refine without obsession.",
+        "sampleReading": "In Virgo, Saturn structures precisely through refinement, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "libra",
+        "modifierType": "style",
+        "expression": "cooperatively",
+        "channel": "through agreements",
+        "coreSentence": "Saturn structures cooperatively through agreements.",
+        "developmentalPotential": "Build fair and lasting partnerships.",
+        "shadowRisk": "Avoiding necessary boundaries.",
+        "integrationClause": "Commit with clarity.",
+        "sampleReading": "In Libra, Saturn structures cooperatively through agreements, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "scorpio",
+        "modifierType": "style",
+        "expression": "intensely",
+        "channel": "through transformation",
+        "coreSentence": "Saturn structures intensely through transformation.",
+        "developmentalPotential": "Create resilient structures under pressure.",
+        "shadowRisk": "Control through fear.",
+        "integrationClause": "Trust earned transformation.",
+        "sampleReading": "In Scorpio, Saturn structures intensely through transformation, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "sagittarius",
+        "modifierType": "style",
+        "expression": "purposefully",
+        "channel": "through vision",
+        "coreSentence": "Saturn structures purposefully through vision.",
+        "developmentalPotential": "Give ideals practical form.",
+        "shadowRisk": "Rigid beliefs.",
+        "integrationClause": "Ground wisdom.",
+        "sampleReading": "In Sagittarius, Saturn structures purposefully through vision, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "capricorn",
+        "modifierType": "style",
+        "expression": "naturally",
+        "channel": "through responsibility",
+        "coreSentence": "Saturn structures naturally through responsibility.",
+        "developmentalPotential": "Master structure, authority and legacy.",
+        "shadowRisk": "Over-identification with duty.",
+        "integrationClause": "Balance achievement with humanity.",
+        "sampleReading": "In Capricorn, Saturn structures naturally through responsibility, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "aquarius",
+        "modifierType": "style",
+        "expression": "systemically",
+        "channel": "through reform",
+        "coreSentence": "Saturn structures systemically through reform.",
+        "developmentalPotential": "Modernize structures responsibly.",
+        "shadowRisk": "Detachment from human impact.",
+        "integrationClause": "Innovate sustainably.",
+        "sampleReading": "In Aquarius, Saturn structures systemically through reform, encouraging durable growth through this style rather than its shadow."
+      },
+      {
+        "sign": "pisces",
+        "modifierType": "style",
+        "expression": "compassionately",
+        "channel": "through surrender",
+        "coreSentence": "Saturn structures compassionately through surrender.",
+        "developmentalPotential": "Give form to compassion and imagination.",
+        "shadowRisk": "Escaping responsibility.",
+        "integrationClause": "Ground inspiration.",
+        "sampleReading": "In Pisces, Saturn structures compassionately through surrender, encouraging durable growth through this style rather than its shadow."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS development",
+    "sourcePolicy": "Verb-first modifier model",
+    "maintainer": "AGS"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial sign modifier model."
+    }
+  ]
+}

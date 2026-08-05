@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biquintile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "biquintile",
+  "content": {
+    "canonicalId": "biquintile",
+    "displayName": "Biquintile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "higher_order_creative_synthesis_operator",
+    "canonicalQuestion": "How do two canonical functions interact through higher-order creative synthesis and complex pattern integration?"
+  }
+}

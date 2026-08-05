@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "opposition_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "opposition",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Opposition relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate polarity-aware semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Opposition establishes polarity, not replacement.",
+      "Orb modifies strength only."
+    ],
+    "heuristics": [
+      "Prefer complementary integration over zero-sum conflict.",
+      "Interpret polarity through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Opposition is inherently malefic.",
+      "Opposition is inherently conflict.",
+      "Opposition replaces planetary functions."
+    ]
+  }
+}

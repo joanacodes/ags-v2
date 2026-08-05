@@ -1,0 +1,6 @@
+{
+  "id": "user_query_engine",
+  "moduleType": "natural_language_interface",
+  "version": "0.1.0",
+  "purpose": "Route user questions through the AGS knowledge architecture."
+}

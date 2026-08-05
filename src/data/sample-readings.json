@@ -1,0 +1,569 @@
+{
+  "readings": [
+    {
+      "id": "reading-personality",
+      "chartId": "chart-clara-mercer",
+      "slug": "personality",
+      "title": "Personality",
+      "shortTitle": "Personality",
+      "icon": "user",
+      "description": "Your Sun in Libra shapes a personality driven by harmony, aesthetic refinement, and the art of balance. The Aquarius Ascendant adds intellectual detachment and a visionary perspective.",
+      "estimatedMinutes": 14,
+      "status": "complete",
+      "progress": 100,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Identity", "Sun", "1st House", "Reading"],
+      "confidence": {
+        "stars": 5,
+        "label": "Very High Confidence",
+        "chartFactorsUsed": 6,
+        "aspectsCorroborating": 5,
+        "evidenceScore": 91
+      },
+      "chartFactors": [
+        {
+          "id": "cf-sun",
+          "glyph": "☉",
+          "name": "Sun",
+          "position": "19° Libra · 4th",
+          "explanation": "Core identity oriented toward balance, fairness, and aesthetic order. The 4th House placement roots selfhood in family and private life."
+        },
+        {
+          "id": "cf-asc",
+          "glyph": "ASC",
+          "name": "Ascendant",
+          "position": "15° Aquarius",
+          "explanation": "The outward persona: observant, original, and intellectually independent. First impressions carry a cool, humanitarian curiosity."
+        },
+        {
+          "id": "cf-saturn",
+          "glyph": "♄",
+          "name": "Saturn",
+          "position": "6° Pisces · 1st",
+          "explanation": "Chart ruler in the 1st House lends gravity and self-discipline to the personality, with a compassionate, reflective undertone."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-sun-asc", "glyphs": "☉ ☍ ASC", "label": "Sun opposition Ascendant", "detail": "Opp · 4°00'" },
+        { "id": "ra-moon-saturn", "glyphs": "☽ ⚹ ♄", "label": "Moon sextile Saturn", "detail": "Sxt · 2°52'" }
+      ],
+      "sections": [
+        {
+          "id": "sec-p1",
+          "heading": "The Equilibrium Instinct",
+          "paragraphs": [
+            "Sun in Libra at 19° in the 4th House, with an Aquarius Ascendant, shapes a personality defined by the elegant tension between relational harmony and intellectual independence. This is a chart that seeks balance as a philosophical imperative, not merely a social preference.",
+            "The Aquarius Rising bestows a quality of calm observation — a natural capacity to perceive patterns in human behaviour without being consumed by them. There is a certain emotional reserve that can be mistaken for detachment, but is better understood as an innate need to process feeling through understanding."
+          ],
+          "pullQuote": "The Libra Sun's drive toward beauty and equilibrium is mediated by the Aquarian Ascendant's broader humanitarian frame."
+        },
+        {
+          "id": "sec-p2",
+          "heading": "Saturn as Chart Ruler",
+          "paragraphs": [
+            "With Aquarius rising, Saturn — placed at 6° Pisces in the 1st House — becomes the ruler of the chart. Its position directly on the self-axis lends the personality a quiet gravity: a sense of responsibility toward one's own becoming, and a tendency to take identity seriously as a lifelong project.",
+            "In Pisces, that seriousness is softened by imagination and empathy. The result is a disciplined idealist — someone who builds careful structures in service of intangible values."
+          ]
+        }
+      ],
+      "suggestedNext": ["family", "communication", "talents"]
+    },
+    {
+      "id": "reading-family",
+      "chartId": "chart-clara-mercer",
+      "slug": "family",
+      "title": "Family",
+      "shortTitle": "Family",
+      "icon": "home",
+      "description": "The 4th House stellium reveals a deeply formative home environment. Saturn's influence on roots creates a complex, structured relationship with family lineage and inherited patterns.",
+      "estimatedMinutes": 11,
+      "status": "complete",
+      "progress": 100,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Roots", "4th House", "Reading"],
+      "confidence": {
+        "stars": 4,
+        "label": "High Confidence",
+        "chartFactorsUsed": 5,
+        "aspectsCorroborating": 3,
+        "evidenceScore": 84
+      },
+      "chartFactors": [
+        {
+          "id": "cf-sun-4",
+          "glyph": "☉",
+          "name": "Sun",
+          "position": "19° Libra · 4th",
+          "explanation": "The natal Sun in the House of Roots makes family dynamics central to identity formation and the sense of belonging."
+        },
+        {
+          "id": "cf-ic",
+          "glyph": "IC",
+          "name": "Imum Coeli",
+          "position": "5° Gemini",
+          "explanation": "A Gemini IC suggests a mentally lively early environment — one where words, siblings, and ideas shaped the emotional foundation."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-moon-sat-f", "glyphs": "☽ ⚹ ♄", "label": "Moon sextile Saturn", "detail": "Sxt · 2°52'" },
+        { "id": "ra-moon-nep", "glyphs": "☽ ☌ ♆", "label": "Moon conjunct Neptune", "detail": "Conj · 3°19'" }
+      ],
+      "sections": [
+        {
+          "id": "sec-f1",
+          "heading": "The House of Roots",
+          "paragraphs": [
+            "The 4th House — House of Roots, Family, and Foundation — contains the natal Sun at 19° Libra, making family dynamics a central feature of this chart's identity formation. The home environment and early conditioning deeply shaped the development of self.",
+            "Saturn's influence via aspect to the Moon in Capricorn introduces themes of discipline, structure, and emotional restraint within the family matrix."
+          ]
+        },
+        {
+          "id": "sec-f2",
+          "heading": "Inherited Patterns",
+          "paragraphs": [
+            "The Moon-Neptune conjunction colours family memory with idealisation: the past is remembered through a soft-focus lens, and part of this chart's maturation involves seeing the family story clearly — with compassion, but without myth.",
+            "What is inherited here is not only pattern but standard: an internalised expectation of composure that the adult self must learn to relax."
+          ]
+        }
+      ],
+      "suggestedNext": ["love-relationships", "pain-healing", "purpose-growth"]
+    },
+    {
+      "id": "reading-love-relationships",
+      "chartId": "chart-clara-mercer",
+      "slug": "love-relationships",
+      "title": "Love & Relationships",
+      "shortTitle": "Love & Relationships",
+      "icon": "heart",
+      "description": "An in-depth interpretation of how Clara Mercer approaches partnership, intimacy, and relationship dynamics — derived from her natal chart's 7th House, Venus placement, and relationship-governing aspects.",
+      "estimatedMinutes": 18,
+      "status": "in-progress",
+      "progress": 62,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Relationships", "Venus", "7th House", "Reading"],
+      "confidence": {
+        "stars": 4,
+        "label": "High Confidence",
+        "chartFactorsUsed": 7,
+        "aspectsCorroborating": 4,
+        "evidenceScore": 82
+      },
+      "chartFactors": [
+        {
+          "id": "cf-venus",
+          "glyph": "♀",
+          "name": "Venus",
+          "position": "14° Virgo · 7th",
+          "explanation": "Ruler of love and values. In Virgo, expression of affection is precise, analytical, and service-oriented. 7th House placement emphasizes partnership as a central life theme."
+        },
+        {
+          "id": "cf-mars",
+          "glyph": "♂",
+          "name": "Mars",
+          "position": "28° Leo · 6th/7th",
+          "explanation": "Desire expressed through warmth, drama, and creative pursuit. Approaching the 7th House cusp, it charges partnership with drive and a need for admiration."
+        },
+        {
+          "id": "cf-7th",
+          "glyph": "VII",
+          "name": "7th House",
+          "position": "Leo",
+          "explanation": "The arena of committed partnership carries Leo's signature: loyalty, generosity, and the wish to be seen and celebrated by the other."
+        },
+        {
+          "id": "cf-dc",
+          "glyph": "DC",
+          "name": "Descendant",
+          "position": "15° Leo",
+          "explanation": "The qualities sought in a partner: warmth, creative confidence, and radiant self-assurance that complements the Aquarian self."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-pluto", "glyphs": "♀ △ ♇", "label": "Venus trine Pluto", "detail": "Trine · 2°34'" },
+        { "id": "ra-square", "glyphs": "♀ □ ♂", "label": "Venus square Mars", "detail": "Square · 4°12'" },
+        { "id": "ra-conj", "glyphs": "♀ ☌ ♃", "label": "Venus conjunct Jupiter", "detail": "Conj · 6°08'" },
+        { "id": "ra-asc", "glyphs": "☉ ☍ ASC", "label": "Sun opposition Ascendant", "detail": "Opp · 4°00'" }
+      ],
+      "sections": [
+        {
+          "id": "sec-l1",
+          "heading": "The Architecture of Attraction",
+          "paragraphs": [
+            "With Venus positioned at 14° Virgo in the 7th House — the House of Partnership — Clara's relationship orientation is defined by a deep need for precision, service, and practical devotion. This is not a chart that approaches love casually. Venus in Virgo seeks to demonstrate affection through usefulness, attentiveness, and the careful calibration of another's needs.",
+            "The 7th House placement makes this Venus doubly significant: it is both the planet and the house associated with committed partnership, creating an individual who is fundamentally relationally-oriented. Relationships are not a peripheral feature of her life — they are a central arena of identity and growth."
+          ],
+          "pullQuote": "Love, for this chart, is an act of service rendered with precision — a careful architecture of attentiveness that elevates the ordinary into the devotional."
+        },
+        {
+          "id": "sec-l2",
+          "heading": "The Descendant in Leo: What is Sought in a Partner",
+          "paragraphs": [
+            "The Descendant — the cusp of the 7th House — sits at 15° Leo, directly opposite the Aquarius Ascendant. This polarity reveals what Clara unconsciously seeks in partnership: warmth, creativity, magnanimity, and a certain radiant self-assurance. Where her Ascendant projects intellectual detachment, the Descendant in Leo calls for a partner who grounds her in the personal, the warm, and the generative.",
+            "Leo on the Descendant often draws one to partners who are expressive, charismatic, or artistically oriented. There is a complementary quality here — the Aquarian self finds wholeness in the Leonine other, and vice versa."
+          ],
+          "keyInsight": {
+            "eyebrow": "KEY INSIGHT · VENUS ☌ JUPITER",
+            "body": "The Venus-Jupiter conjunction in the 9th House creates a rare configuration that expands the heart toward philosophical and cross-cultural dimensions of love. Long-distance connections, partners from different backgrounds, or relationships that broaden one's worldview are particularly favoured by this aspect."
+          }
+        },
+        {
+          "id": "sec-l3",
+          "heading": "Mars in Leo and Desire Dynamics",
+          "paragraphs": [
+            "Mars at 28° Leo — approaching the 7th House cusp — infuses the relationship axis with drive, passion, and a desire for admiration within partnership. There is a magnetic, theatrical quality to how desire is expressed: grand gestures, creative pursuit, and the need to feel seen and celebrated within intimate connection.",
+            "The Mars square to Venus (applying, within 4°) introduces a creative tension between how affection is given (Virgo: precise, understated, service-oriented) and how desire is pursued (Leo: bold, self-expressive, attention-seeking). This internal dynamic can manifest as alternating between self-effacement and assertiveness in love."
+          ]
+        },
+        {
+          "id": "sec-l4",
+          "heading": "Pluto's Shadow: Power, Depth and Transformation",
+          "paragraphs": [
+            "Pluto's trine to Venus from Scorpio introduces an undercurrent of intensity, depth, and transformative potential to all intimate connections. This individual does not simply fall in love — she is alchemised by it. Relationships carry the weight of psychological evolution, and shallow connections rarely hold lasting appeal."
+          ]
+        }
+      ],
+      "suggestedNext": ["career", "family", "purpose-growth"]
+    },
+    {
+      "id": "reading-career",
+      "chartId": "chart-clara-mercer",
+      "slug": "career",
+      "title": "Career",
+      "shortTitle": "Career",
+      "icon": "briefcase",
+      "description": "The Midheaven in Sagittarius and Jupiter in Scorpio define a vocational path built on depth of knowledge, philosophical inquiry, and cross-cultural influence.",
+      "estimatedMinutes": 16,
+      "status": "not-started",
+      "progress": 0,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Vocation", "Midheaven", "10th House", "Reading"],
+      "confidence": {
+        "stars": 4,
+        "label": "High Confidence",
+        "chartFactorsUsed": 5,
+        "aspectsCorroborating": 3,
+        "evidenceScore": 79
+      },
+      "chartFactors": [
+        {
+          "id": "cf-mc",
+          "glyph": "MC",
+          "name": "Midheaven",
+          "position": "5° Sagittarius",
+          "explanation": "Public direction oriented toward teaching, publishing, travel, or any field where meaning is transmitted at scale."
+        },
+        {
+          "id": "cf-jup",
+          "glyph": "♃",
+          "name": "Jupiter",
+          "position": "8° Scorpio · 9th",
+          "explanation": "Growth through research and depth. Vocational expansion favours specialised knowledge over breadth."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-mars-mc", "glyphs": "♂ △ MC", "label": "Mars trine Midheaven", "detail": "Trine · 1°02'" }
+      ],
+      "sections": [
+        {
+          "id": "sec-c1",
+          "heading": "A Vocation of Depth",
+          "paragraphs": [
+            "The Sagittarian Midheaven describes a public life organised around meaning: knowledge gathered deeply and shared generously. Ruled by Jupiter in Scorpio's 9th House, the career path favours mastery of a demanding subject over generalism.",
+            "Mars trine the Midheaven supplies steady vocational energy — ambition expressed through creative initiative rather than raw competition."
+          ]
+        }
+      ],
+      "suggestedNext": ["money-resources", "talents", "purpose-growth"]
+    },
+    {
+      "id": "reading-friends-social",
+      "chartId": "chart-clara-mercer",
+      "slug": "friends-social",
+      "title": "Friends & Social Life",
+      "shortTitle": "Friends & Social",
+      "icon": "users",
+      "description": "Moon in Capricorn in the 11th House speaks to a disciplined approach to friendship — selectivity over breadth, loyalty over ease, and collective ambition.",
+      "estimatedMinutes": 10,
+      "status": "not-started",
+      "progress": 0,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Community", "11th House", "Reading"],
+      "confidence": {
+        "stars": 4,
+        "label": "High Confidence",
+        "chartFactorsUsed": 4,
+        "aspectsCorroborating": 2,
+        "evidenceScore": 76
+      },
+      "chartFactors": [
+        {
+          "id": "cf-moon-11",
+          "glyph": "☽",
+          "name": "Moon",
+          "position": "4° Capricorn · 11th",
+          "explanation": "Emotional needs met through enduring, purposeful friendships. Few bonds, held for decades."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-moon-sat-s", "glyphs": "☽ ⚹ ♄", "label": "Moon sextile Saturn", "detail": "Sxt · 2°52'" }
+      ],
+      "sections": [
+        {
+          "id": "sec-s1",
+          "heading": "Chosen Few",
+          "paragraphs": [
+            "With the Moon in Capricorn in the 11th House, friendship is treated as a serious commitment rather than casual company. Emotional safety is found in reliability — friends who keep their word and share long-term aims."
+          ]
+        }
+      ],
+      "suggestedNext": ["communication", "personality", "purpose-growth"]
+    },
+    {
+      "id": "reading-communication",
+      "chartId": "chart-clara-mercer",
+      "slug": "communication",
+      "title": "Communication",
+      "shortTitle": "Communication",
+      "icon": "message",
+      "description": "Mercury in Scorpio in the 9th House denotes a mind that probes beneath the surface — strategic, research-oriented, and capable of transformative communication.",
+      "estimatedMinutes": 12,
+      "status": "not-started",
+      "progress": 0,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Mind", "Mercury", "9th House", "Reading"],
+      "confidence": {
+        "stars": 5,
+        "label": "Very High Confidence",
+        "chartFactorsUsed": 4,
+        "aspectsCorroborating": 3,
+        "evidenceScore": 87
+      },
+      "chartFactors": [
+        {
+          "id": "cf-mercury",
+          "glyph": "☿",
+          "name": "Mercury",
+          "position": "2° Scorpio · 9th",
+          "explanation": "A penetrating intellect. Communication is deliberate, strategic, and drawn to what is hidden or unresolved."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-merc-jup", "glyphs": "☿ ☌ ♃", "label": "Mercury conjunct Jupiter", "detail": "Conj · 5°49'" }
+      ],
+      "sections": [
+        {
+          "id": "sec-cm1",
+          "heading": "The Investigative Mind",
+          "paragraphs": [
+            "Mercury in Scorpio does not chat — it investigates. Conjunct Jupiter in the 9th House, this mind pairs forensic focus with philosophical range: it wants both the buried detail and the big picture it belongs to."
+          ]
+        }
+      ],
+      "suggestedNext": ["talents", "career", "personality"]
+    },
+    {
+      "id": "reading-money-resources",
+      "chartId": "chart-clara-mercer",
+      "slug": "money-resources",
+      "title": "Money & Resources",
+      "shortTitle": "Money & Resources",
+      "icon": "coins",
+      "description": "The 2nd House ruler and Taurus themes reveal a relationship with material resources built on aesthetic values, earned security, and intangible assets.",
+      "estimatedMinutes": 13,
+      "status": "not-started",
+      "progress": 0,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Resources", "2nd House", "Reading"],
+      "confidence": {
+        "stars": 3,
+        "label": "Moderate Confidence",
+        "chartFactorsUsed": 4,
+        "aspectsCorroborating": 2,
+        "evidenceScore": 68
+      },
+      "chartFactors": [
+        {
+          "id": "cf-2nd",
+          "glyph": "II",
+          "name": "2nd House",
+          "position": "26° Pisces",
+          "explanation": "Resources tied to imagination and compassion; value found in what money cannot fully measure."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-ven-jup-m", "glyphs": "♀ ☌ ♃", "label": "Venus conjunct Jupiter", "detail": "Conj · 6°08'" }
+      ],
+      "sections": [
+        {
+          "id": "sec-m1",
+          "heading": "Value Beyond Price",
+          "paragraphs": [
+            "With Pisces on the 2nd House cusp, security is felt as much as counted. Money serves values — beauty, learning, generosity — rather than accumulating for its own sake."
+          ]
+        }
+      ],
+      "suggestedNext": ["career", "talents", "summary"]
+    },
+    {
+      "id": "reading-pain-healing",
+      "chartId": "chart-clara-mercer",
+      "slug": "pain-healing",
+      "title": "Pain & Healing",
+      "shortTitle": "Pain & Healing",
+      "icon": "sprout",
+      "description": "Chiron's position and Pluto aspects illuminate core wounds around worth, power, and belonging — alongside the regenerative capacity to transform those wounds into wisdom.",
+      "estimatedMinutes": 20,
+      "status": "not-started",
+      "progress": 0,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Shadow", "8th House", "Reading"],
+      "confidence": {
+        "stars": 3,
+        "label": "Moderate Confidence",
+        "chartFactorsUsed": 5,
+        "aspectsCorroborating": 2,
+        "evidenceScore": 71
+      },
+      "chartFactors": [
+        {
+          "id": "cf-pluto-ph",
+          "glyph": "♇",
+          "name": "Pluto",
+          "position": "26° Scorpio · 9th",
+          "explanation": "The engine of regeneration. Crisis, when it comes, is metabolised into belief — a worldview forged rather than inherited."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-ven-pl-ph", "glyphs": "♀ △ ♇", "label": "Venus trine Pluto", "detail": "Trine · 2°34'" }
+      ],
+      "sections": [
+        {
+          "id": "sec-ph1",
+          "heading": "The Regenerative Pattern",
+          "paragraphs": [
+            "This chart heals by transforming, not by forgetting. The Venus-Pluto trine gives intimacy itself a therapeutic quality: what is witnessed deeply can finally be released."
+          ]
+        }
+      ],
+      "suggestedNext": ["family", "purpose-growth", "summary"]
+    },
+    {
+      "id": "reading-talents",
+      "chartId": "chart-clara-mercer",
+      "slug": "talents",
+      "title": "Talents, Strengths & Weaknesses",
+      "shortTitle": "Talents",
+      "icon": "star",
+      "description": "A precise analysis of exceptional natural gifts, latent potentials, and developmental edges identified through the chart's configuration of planets, aspects, and angles.",
+      "estimatedMinutes": 15,
+      "status": "not-started",
+      "progress": 0,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Gifts", "Reading"],
+      "confidence": {
+        "stars": 4,
+        "label": "High Confidence",
+        "chartFactorsUsed": 6,
+        "aspectsCorroborating": 4,
+        "evidenceScore": 80
+      },
+      "chartFactors": [
+        {
+          "id": "cf-venus-t",
+          "glyph": "♀",
+          "name": "Venus",
+          "position": "14° Virgo · 7th",
+          "explanation": "Craftsmanship in aesthetics and relationships alike: an eye for refinement that others experience as care."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-merc-jup-t", "glyphs": "☿ ☌ ♃", "label": "Mercury conjunct Jupiter", "detail": "Conj · 5°49'" }
+      ],
+      "sections": [
+        {
+          "id": "sec-t1",
+          "heading": "Native Gifts",
+          "paragraphs": [
+            "Synthesis is the standout talent: Mercury conjunct Jupiter joins detail to meaning, while Venus in Virgo turns perception into craft. The developmental edge lies in self-permission — trusting the work is finished before it is perfect."
+          ]
+        }
+      ],
+      "suggestedNext": ["career", "communication", "summary"]
+    },
+    {
+      "id": "reading-purpose-growth",
+      "chartId": "chart-clara-mercer",
+      "slug": "purpose-growth",
+      "title": "Purpose & Growth",
+      "shortTitle": "Purpose & Growth",
+      "icon": "compass",
+      "description": "The North Node in Scorpio and its relationship to the natal chart's overall architecture reveals a soul-level direction toward depth, surrender, and transformative contribution.",
+      "estimatedMinutes": 17,
+      "status": "not-started",
+      "progress": 0,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Direction", "North Node", "Reading"],
+      "confidence": {
+        "stars": 4,
+        "label": "High Confidence",
+        "chartFactorsUsed": 5,
+        "aspectsCorroborating": 3,
+        "evidenceScore": 77
+      },
+      "chartFactors": [
+        {
+          "id": "cf-node",
+          "glyph": "☊",
+          "name": "North Node",
+          "position": "17° Scorpio · 9th",
+          "explanation": "Growth points away from comfortable equilibrium toward committed depth — choosing one path fully over keeping all options balanced."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-ven-pl-pg", "glyphs": "♀ △ ♇", "label": "Venus trine Pluto", "detail": "Trine · 2°34'" }
+      ],
+      "sections": [
+        {
+          "id": "sec-pg1",
+          "heading": "The Direction of Growth",
+          "paragraphs": [
+            "The Scorpio North Node asks the Libra Sun to trade pleasing for presence: purpose is found not in keeping every scale level, but in committing wholly to what matters most."
+          ]
+        }
+      ],
+      "suggestedNext": ["summary", "pain-healing", "love-relationships"]
+    },
+    {
+      "id": "reading-summary",
+      "chartId": "chart-clara-mercer",
+      "slug": "summary",
+      "title": "Summary",
+      "shortTitle": "Summary",
+      "icon": "scroll",
+      "description": "A synthesised portrait of the entire natal chart — weaving all domains into a coherent narrative that reveals the core architecture of this individual's cosmic blueprint.",
+      "estimatedMinutes": 25,
+      "status": "not-started",
+      "progress": 0,
+      "breadcrumb": ["Clara Mercer", "Birth Chart", "Synthesis", "Reading"],
+      "confidence": {
+        "stars": 5,
+        "label": "Very High Confidence",
+        "chartFactorsUsed": 12,
+        "aspectsCorroborating": 8,
+        "evidenceScore": 90
+      },
+      "chartFactors": [
+        {
+          "id": "cf-all",
+          "glyph": "☉",
+          "name": "Whole Chart",
+          "position": "All factors",
+          "explanation": "The synthesis draws on every placement, angle, and major aspect weighted by orb and dignity."
+        }
+      ],
+      "relevantAspects": [
+        { "id": "ra-all", "glyphs": "☉ ☽ ASC", "label": "Primary triad synthesis", "detail": "Weighted" }
+      ],
+      "sections": [
+        {
+          "id": "sec-sum1",
+          "heading": "The Core Architecture",
+          "paragraphs": [
+            "Libra Sun, Capricorn Moon, Aquarius Rising: a triad of air and earth that thinks in systems and feels in structures. The chart's story is the reconciliation of harmony with depth — learning that true balance includes intensity."
+          ]
+        }
+      ],
+      "suggestedNext": ["personality", "love-relationships", "purpose-growth"]
+    }
+  ]
+}

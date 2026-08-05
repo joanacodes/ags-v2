@@ -1,0 +1,66 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_identity",
+  "name": "Aries Identity",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Aries as an initiatory modifier centered on directness and immediacy.",
+  "grammarRole": "modifier",
+  "dependsOn": [
+    "ags_sign_blueprint"
+  ],
+  "parentObject": "aries",
+  "moduleType": "identity",
+  "content": {
+    "ontology": {
+      "class": "sign",
+      "grammarRole": "modifier",
+      "semanticClass": "initiatory_mode",
+      "actsIndependently": false,
+      "requiresModifiedTarget": true
+    },
+    "definition": "Modify a compatible function toward direct initiation, rapid engagement, self-propelled movement, immediate differentiation, and action before extended consolidation.",
+    "functionalAim": "Reduce delay between impulse and engagement by prioritizing commencement, directness, autonomy, and immediate testing.",
+    "modifierContributions": [
+      "directness",
+      "initiation",
+      "immediacy",
+      "autonomous engagement",
+      "first-move priority",
+      "immediate testing",
+      "momentum preservation"
+    ],
+    "doesNotInherentlySupply": [
+      "aggression",
+      "anger",
+      "violence",
+      "selfishness",
+      "courage",
+      "leadership",
+      "success",
+      "conflict",
+      "competition"
+    ],
+    "distinctions": {
+      "mars": "Mars supplies action and assertion. Aries modifies how a compatible function operates by making it more direct, initiatory, or immediate.",
+      "cardinal_modality": "Cardinality describes initiation generally. Aries specifies direct, self-propelled, first-move initiation.",
+      "fire_element": "Fire describes activation generally. Aries specifies low-latency engagement and testing.",
+      "libra": "Aries prioritizes self-positioned initiation. Libra prioritizes coordination across positions."
+    },
+    "constraints": [
+      "Aries must remain a modifier.",
+      "Aries may not replace the target object's canonical function.",
+      "Aggression may not be used as the neutral identity.",
+      "All components must remain reusable.",
+      "No completed placement sentence may be stored."
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries identity module."
+    }
+  ]
+}

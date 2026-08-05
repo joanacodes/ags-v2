@@ -1,0 +1,470 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_language",
+  "name": "Saturn Language",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Saturn's controlled vocabulary, verb hierarchy, sentence fragments, lexical selection, synonyms, and rejected wording.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-013",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "saturn_identity",
+    "saturn_grammar",
+    "ags_semantic_principles"
+  ],
+  "priority": 10,
+  "tags": [
+    "saturn",
+    "language",
+    "language",
+    "verbs",
+    "lexicon"
+  ],
+  "parentObject": "saturn",
+  "moduleType": "language",
+  "content": {
+    "verbHierarchy": {
+      "primaryVerb": {
+        "lemma": "structure",
+        "definition": "Create, organize, and maintain a durable form.",
+        "priority": 100
+      },
+      "primaryVerbPhrases": [
+        {
+          "text": "create durable structure",
+          "priority": 98,
+          "useWhen": [
+            "general",
+            "technical",
+            "natal"
+          ]
+        },
+        {
+          "text": "take responsibility",
+          "priority": 95,
+          "useWhen": [
+            "developmental",
+            "return",
+            "accountability"
+          ]
+        },
+        {
+          "text": "build for the long term",
+          "priority": 92,
+          "useWhen": [
+            "career",
+            "legacy",
+            "commitment"
+          ]
+        },
+        {
+          "text": "define necessary limits",
+          "priority": 90,
+          "useWhen": [
+            "boundaries",
+            "containment",
+            "discipline"
+          ]
+        },
+        {
+          "text": "make something sustainable",
+          "priority": 90,
+          "useWhen": [
+            "systems",
+            "work",
+            "resources",
+            "integration"
+          ]
+        }
+      ],
+      "secondaryVerbs": [
+        {
+          "lemma": "define",
+          "domain": "limits",
+          "priority": 90
+        },
+        {
+          "lemma": "commit",
+          "domain": "responsibility",
+          "priority": 90
+        },
+        {
+          "lemma": "stabilize",
+          "domain": "durability",
+          "priority": 89
+        },
+        {
+          "lemma": "consolidate",
+          "domain": "resources",
+          "priority": 88
+        },
+        {
+          "lemma": "discipline",
+          "domain": "practice",
+          "priority": 86
+        },
+        {
+          "lemma": "formalize",
+          "domain": "institution",
+          "priority": 84
+        },
+        {
+          "lemma": "mature",
+          "domain": "development",
+          "priority": 84
+        },
+        {
+          "lemma": "preserve",
+          "domain": "continuity",
+          "priority": 82
+        },
+        {
+          "lemma": "maintain",
+          "domain": "continuity",
+          "priority": 82
+        },
+        {
+          "lemma": "pace",
+          "domain": "time",
+          "priority": 80
+        },
+        {
+          "lemma": "organize",
+          "domain": "systems",
+          "priority": 80
+        },
+        {
+          "lemma": "standardize",
+          "domain": "systems",
+          "priority": 76
+        },
+        {
+          "lemma": "contain",
+          "domain": "boundaries",
+          "priority": 76
+        },
+        {
+          "lemma": "differentiate",
+          "domain": "boundaries",
+          "priority": 74
+        },
+        {
+          "lemma": "master",
+          "domain": "skill",
+          "priority": 74
+        },
+        {
+          "lemma": "endure",
+          "domain": "time",
+          "priority": 72
+        },
+        {
+          "lemma": "authorize",
+          "domain": "authority",
+          "priority": 70
+        },
+        {
+          "lemma": "govern",
+          "domain": "authority",
+          "priority": 70
+        },
+        {
+          "lemma": "steward",
+          "domain": "responsibility",
+          "priority": 70
+        }
+      ],
+      "correctiveVerbs": [
+        {
+          "lemma": "restrict",
+          "useRule": "Use only when Saturn is operating as a corrective, defensive, or externally imposed function.",
+          "neverPrimary": true
+        },
+        {
+          "lemma": "delay",
+          "useRule": "Use only when describing timing, developmental pacing, or postponed action; never as Saturn's full meaning.",
+          "neverPrimary": true
+        },
+        {
+          "lemma": "prune",
+          "useRule": "Use when reducing excess in order to preserve what is viable.",
+          "neverPrimary": true
+        },
+        {
+          "lemma": "test",
+          "useRule": "Use when evaluating durability, competence, readiness, or commitment.",
+          "neverPrimary": true
+        },
+        {
+          "lemma": "separate",
+          "useRule": "Use when boundaries or distinctions are the active issue.",
+          "neverPrimary": true
+        },
+        {
+          "lemma": "restructure",
+          "useRule": "Use when an existing form must be revised rather than abandoned.",
+          "neverPrimary": true
+        }
+      ],
+      "shadowVerbs": [
+        "control",
+        "withhold",
+        "harden",
+        "avoid",
+        "punish",
+        "suppress",
+        "postpone",
+        "overburden",
+        "micromanage",
+        "freeze"
+      ],
+      "integratedVerbs": [
+        "steward",
+        "govern responsibly",
+        "prioritize",
+        "pace",
+        "differentiate",
+        "take ownership",
+        "exercise accountable authority",
+        "honor limits",
+        "build sustainably",
+        "maintain without hardening"
+      ]
+    },
+    "nounSystem": {
+      "primaryNoun": "structure",
+      "secondaryNouns": [
+        "responsibility",
+        "boundary",
+        "limit",
+        "discipline",
+        "commitment",
+        "time",
+        "consequence",
+        "authority",
+        "maturity",
+        "mastery",
+        "stability",
+        "durability",
+        "institution",
+        "standard",
+        "legacy",
+        "maintenance"
+      ],
+      "usageRule": "Nouns support explanation and indexing but may not replace Saturn's verb system."
+    },
+    "adjectiveSystem": {
+      "neutral": [
+        "structured",
+        "defined",
+        "measured",
+        "durable",
+        "consequential",
+        "time-bound",
+        "formal",
+        "contained"
+      ],
+      "constructive": [
+        "responsible",
+        "disciplined",
+        "patient",
+        "reliable",
+        "consistent",
+        "accountable",
+        "realistic",
+        "sustainable",
+        "mature",
+        "strategic"
+      ],
+      "shadow": [
+        "rigid",
+        "fearful",
+        "controlling",
+        "withholding",
+        "punitive",
+        "burdened",
+        "inflexible",
+        "overcontrolled",
+        "scarcity-driven"
+      ]
+    },
+    "adverbSystem": {
+      "neutral": [
+        "deliberately",
+        "carefully",
+        "gradually",
+        "formally",
+        "consistently",
+        "within limits",
+        "over time"
+      ],
+      "constructive": [
+        "responsibly",
+        "patiently",
+        "strategically",
+        "sustainably",
+        "with accountability",
+        "with long-term commitment",
+        "with realistic pacing"
+      ],
+      "shadow": [
+        "fearfully",
+        "rigidly",
+        "defensively",
+        "restrictively",
+        "punitively",
+        "through excessive control"
+      ]
+    },
+    "sentenceFragments": {
+      "infinitive": [
+        "to structure",
+        "to create durable structure",
+        "to take responsibility",
+        "to define necessary limits",
+        "to build for the long term",
+        "to make something sustainable",
+        "to consolidate what has been learned"
+      ],
+      "firstPersonPresent": [
+        "I structure",
+        "I take responsibility",
+        "I define limits",
+        "I commit",
+        "I stabilize",
+        "I build what can endure",
+        "I work within reality"
+      ],
+      "firstPersonLearning": [
+        "I am learning to structure",
+        "I am learning to take responsibility",
+        "I am learning to work within limits",
+        "I am learning to distinguish discipline from fear",
+        "I am learning to build without hardening",
+        "I am learning to pace myself",
+        "I am learning to exercise authority responsibly"
+      ],
+      "firstPersonCalling": [
+        "I am called to take responsibility",
+        "I am asked to create durable structure",
+        "I am required to confront consequences",
+        "I am invited to develop earned authority",
+        "I am asked to build what can withstand time"
+      ],
+      "thirdPersonPresent": [
+        "They structure",
+        "They take responsibility",
+        "They define limits",
+        "They commit",
+        "They stabilize",
+        "They build what can endure"
+      ],
+      "technical": [
+        "Saturn supplies the structuring function.",
+        "Saturn defines limits and establishes accountability.",
+        "Saturn consolidates effort into durable form.",
+        "Saturn introduces time, consequence, and standards."
+      ]
+    },
+    "lexicalSelectionRules": [
+      {
+        "id": "SAT-LANG-001",
+        "rule": "Use `structure` as the default verb when no query-specific domain is active."
+      },
+      {
+        "id": "SAT-LANG-002",
+        "rule": "Use `take responsibility` when accountability, duty, authority, or return themes are primary."
+      },
+      {
+        "id": "SAT-LANG-003",
+        "rule": "Use `stabilize` or `make sustainable` when Saturn is the object of Uranus, Mars, Jupiter, or Neptune."
+      },
+      {
+        "id": "SAT-LANG-004",
+        "rule": "Use `define limits` when boundaries, resources, health routines, or relational commitments are central."
+      },
+      {
+        "id": "SAT-LANG-005",
+        "rule": "Use `consolidate` when Saturn is working with resources, knowledge, power, or accumulated effort."
+      },
+      {
+        "id": "SAT-LANG-006",
+        "rule": "Use `mature` only when development over time is explicitly part of the composition."
+      },
+      {
+        "id": "SAT-LANG-007",
+        "rule": "Never use `punish`, `deny`, or `suffer` as neutral Saturn verbs."
+      }
+    ],
+    "controlledSynonyms": [
+      {
+        "canonical": "structure",
+        "allowedVariants": [
+          "organize",
+          "build",
+          "formalize"
+        ],
+        "distinction": "Use variants only when they add contextual precision."
+      },
+      {
+        "canonical": "take responsibility",
+        "allowedVariants": [
+          "assume responsibility",
+          "accept accountability",
+          "take ownership"
+        ],
+        "distinction": "Use according to tone and query, while preserving accountability."
+      },
+      {
+        "canonical": "define limits",
+        "allowedVariants": [
+          "set boundaries",
+          "establish constraints",
+          "work within limits"
+        ],
+        "distinction": "Choose relational, technical, or practical wording according to context."
+      }
+    ],
+    "rejectedWording": [
+      {
+        "text": "Saturn is punishment.",
+        "reason": "This is fatalistic and collapses the function into a moralized noun."
+      },
+      {
+        "text": "Saturn blocks everything.",
+        "reason": "This treats one possible defensive or corrective expression as universal."
+      },
+      {
+        "text": "Saturn guarantees delay.",
+        "reason": "Timing outcomes are not guaranteed."
+      },
+      {
+        "text": "Saturn means suffering.",
+        "reason": "Suffering is not Saturn's neutral semantic function."
+      },
+      {
+        "text": "Saturn is the father.",
+        "reason": "Parental symbolism is one possible association, not the planetary identity."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Built from approved AGS specifications and reviewed verb-centered astrological synthesis.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Saturn language module."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "scorpio_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "modifier",
+  "parentObject": "scorpio",
+  "content": {
+    "domains": {
+      "transformation": "Changes form while preserving continuity of function.",
+      "depth": "Operates beneath surface appearances.",
+      "penetration": "Seeks underlying mechanisms or causes.",
+      "integration": "Unifies fragmented elements.",
+      "regeneration": "Restores functional capacity after disruption.",
+      "truth_seeking": "Prioritizes underlying reality over appearance.",
+      "resource_consolidation": "Strengthens shared or internal resources.",
+      "resilience": "Supports recovery and endurance.",
+      "psychological_insight": "Improves understanding of inner processes."
+    },
+    "boundaries": [
+      "Intensity is not aggression.",
+      "Depth is not secrecy.",
+      "Transformation is not destruction.",
+      "Investigation is not manipulation."
+    ]
+  }
+}

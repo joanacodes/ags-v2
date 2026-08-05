@@ -1,0 +1,6 @@
+{
+  "id": "pattern_recognition_engine",
+  "moduleType": "chart_pattern_analysis_layer",
+  "version": "0.1.0",
+  "purpose": "Detect repeating structural themes across AGS chart relationships."
+}

@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "undecile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "undecile",
+  "content": {
+    "canonicalId": "undecile",
+    "displayName": "Undecile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "emergent_differentiation_operator",
+    "canonicalQuestion": "How do two canonical functions interact through emergent differentiation, unusual patterning, and adaptive synthesis?"
+  }
+}

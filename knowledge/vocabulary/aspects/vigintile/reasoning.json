@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "vigintile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "vigintile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Vigintile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate micro-refinement semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Vigintile introduces subtle refinement without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer precise refinement over deterministic outcomes.",
+      "Interpret subtle adjustments through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Vigintile guarantees perfection.",
+      "Vigintile is inherently benefic.",
+      "Vigintile replaces planetary functions."
+    ]
+  }
+}

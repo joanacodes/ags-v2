@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_semantics_blueprint",
+  "semanticFamilies": [
+    "manner",
+    "strategy",
+    "pace",
+    "orientation",
+    "priority",
+    "regulation",
+    "contact_style",
+    "continuity_style",
+    "change_style",
+    "resource_style",
+    "attention_style",
+    "decision_style"
+  ],
+  "rules": [
+    "Describe mode or strategy rather than independent action.",
+    "Remain distinct from planetary verb domains.",
+    "Remain reusable across multiple compatible targets.",
+    "Treat defensive expression as a developmental qualifier.",
+    "Never imply moral value, diagnosis, destiny, or guaranteed behavior."
+  ],
+  "requiredDistinctions": [
+    "neutral mode versus defensive distortion",
+    "strategy versus outcome",
+    "pace versus urgency",
+    "orientation versus achieved goal",
+    "priority versus exclusion",
+    "regulation versus suppression"
+  ]
+}

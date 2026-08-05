@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house5_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_5",
+  "content": {
+    "coreDomains": [
+      "creativity",
+      "self_expression",
+      "play",
+      "joy",
+      "romance",
+      "children",
+      "performance",
+      "art",
+      "recreation",
+      "personal_creation"
+    ],
+    "notInherent": [
+      "immaturity",
+      "vanity",
+      "attention_seeking",
+      "hedonism",
+      "selfishness",
+      "drama"
+    ],
+    "constraints": [
+      "House 5 is a context.",
+      "House 5 never performs actions.",
+      "House 5 never replaces a planet's canonical function."
+    ]
+  }
+}

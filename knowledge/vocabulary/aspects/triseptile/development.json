@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "triseptile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "triseptile",
+  "content": {
+    "coreRule": "Development changes how recursive convergence is expressed, never the relational role of Triseptile.",
+    "stages": {
+      "unconscious": [
+        "latent convergence",
+        "unrecognized coordination"
+      ],
+      "defensive": [
+        "forced convergence",
+        "rigid integration"
+      ],
+      "learning": [
+        "recognizing convergent patterns",
+        "adaptive coordination"
+      ],
+      "healthy": [
+        "constructive systemic integration",
+        "coherent convergence"
+      ],
+      "integrated": [
+        "continuous recursive convergence",
+        "stable emergent integration"
+      ]
+    },
+    "constraints": [
+      "Triseptile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

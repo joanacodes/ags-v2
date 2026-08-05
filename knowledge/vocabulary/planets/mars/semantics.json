@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mars_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "canonical_function",
+  "parentObject": "mars",
+  "content": {
+    "domains": {
+      "agency": "Capacity to act intentionally.",
+      "initiative": "Beginning purposeful action.",
+      "assertion": "Direct expression of will.",
+      "effort": "Sustained expenditure toward goals.",
+      "motivation": "Energy directed toward action.",
+      "courage": "Willingness to act despite difficulty.",
+      "drive": "Persistent activation toward objectives.",
+      "competition": "Measured engagement with challenge.",
+      "boundaries": "Protection and assertion of limits.",
+      "execution": "Translation of intention into action."
+    },
+    "boundaries": [
+      "Assertion is not aggression.",
+      "Agency is not domination.",
+      "Competition is not hostility.",
+      "Courage is not recklessness."
+    ]
+  }
+}

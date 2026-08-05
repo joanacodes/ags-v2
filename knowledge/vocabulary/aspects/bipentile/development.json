@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "bipentile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "bipentile",
+  "content": {
+    "coreRule": "Development changes how dual creative harmonic expression is expressed, never the relational role of Bipentile.",
+    "stages": {
+      "unconscious": [
+        "latent creative pairing",
+        "unrecognized synthesis"
+      ],
+      "defensive": [
+        "forced expression",
+        "rigid creative patterns"
+      ],
+      "learning": [
+        "recognizing reciprocal creativity",
+        "developing expression"
+      ],
+      "healthy": [
+        "constructive synthesis",
+        "balanced harmonic creativity"
+      ],
+      "integrated": [
+        "mature creative integration",
+        "reciprocal mastery"
+      ]
+    },
+    "constraints": [
+      "Bipentile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

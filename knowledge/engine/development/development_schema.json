@@ -1,0 +1,13 @@
+{
+  "input": [
+    "canonical_function",
+    "aspect_operator",
+    "condition_state",
+    "relationship_pattern"
+  ],
+  "output": [
+    "developmental_stage",
+    "expression_mode",
+    "integration_path"
+  ]
+}

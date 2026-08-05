@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mars_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "canonical_function",
+  "parentObject": "mars",
+  "content": {
+    "canonicalId": "mars",
+    "displayName": "Mars",
+    "ontologyClass": "planet",
+    "grammarRole": "canonical_function",
+    "semanticClass": "agency_action_function",
+    "canonicalQuestion": "What function initiates action, assertion, effort, and directed agency?"
+  }
+}

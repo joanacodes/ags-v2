@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quincunx_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "quincunx",
+  "content": {
+    "verbs": [
+      "adjusts",
+      "recalibrates",
+      "realigns",
+      "integrates"
+    ],
+    "templates": [
+      "{A} adjusts in response to {B}.",
+      "{A} and {B} require adaptive recalibration."
+    ]
+  }
+}

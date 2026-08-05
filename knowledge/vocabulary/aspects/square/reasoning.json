@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "square_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "square",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Square relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate adaptive semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Square creates constructive friction, not replacement.",
+      "Orb modifies strength only."
+    ],
+    "heuristics": [
+      "Prefer adaptation over fatalism.",
+      "Interpret challenge through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Square is inherently malefic.",
+      "Square is punishment.",
+      "Square replaces planetary functions."
+    ]
+  }
+}

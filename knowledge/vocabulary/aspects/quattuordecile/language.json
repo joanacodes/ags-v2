@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quattuordecile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "quattuordecile",
+  "content": {
+    "verbs": [
+      "reorients",
+      "restructures",
+      "adapts",
+      "integrates"
+    ],
+    "templates": [
+      "{A} reorients expression through interaction with {B}.",
+      "{A} and {B} develop through structured adaptive refinement."
+    ]
+  }
+}

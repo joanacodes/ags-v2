@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "binovile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "binovile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Binovile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate dual maturation integration semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Binovile introduces dual maturation integration without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer recursive integration over deterministic outcomes.",
+      "Interpret synthesis through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Binovile is inherently perfect.",
+      "Binovile guarantees awakening.",
+      "Binovile replaces planetary functions."
+    ]
+  }
+}

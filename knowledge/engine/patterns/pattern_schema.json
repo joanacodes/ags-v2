@@ -1,0 +1,15 @@
+{
+  "inputs": [
+    "canonical_functions",
+    "aspect_network",
+    "conditions",
+    "context_layers",
+    "weights"
+  ],
+  "outputs": [
+    "dominant_functions",
+    "repeated_themes",
+    "pattern_clusters",
+    "integration_targets"
+  ]
+}

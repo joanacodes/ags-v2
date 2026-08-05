@@ -1,0 +1,11 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.angles.vertex.identity",
+  "status": "DRAFT — added by implementation, pending architect validation",
+  "content": {
+    "canonicalFunction": "marks a point of fated-feeling encounters and turning points — meetings and events that redirect the course of a life through other people",
+    "coreDomains": ["significant_encounters", "turning_points", "relational_destiny"],
+    "notInherent": ["guaranteed_events", "specific_persons", "timing_precision"],
+    "constraints": ["a derived point of the horizon system; activated relationally; themes describe openings, not certainties"]
+  }
+}

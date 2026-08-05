@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "libra_identity",
+  "moduleType": "identity",
+  "grammarRole": "modifier",
+  "parentObject": "libra",
+  "content": {
+    "coreDomains": [
+      "balance",
+      "reciprocity",
+      "coordination",
+      "equilibrium",
+      "comparison",
+      "fairness",
+      "cooperation",
+      "mutual_adjustment",
+      "proportion",
+      "harmonization"
+    ],
+    "notInherent": [
+      "indecision",
+      "people_pleasing",
+      "passivity",
+      "conflict_avoidance",
+      "vanity",
+      "dependence"
+    ],
+    "constraints": [
+      "Libra is a modifier.",
+      "Libra never acts independently.",
+      "Libra never replaces the target canonical function."
+    ]
+  }
+}

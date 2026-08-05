@@ -1,0 +1,6 @@
+{
+  "id": "context_engine",
+  "moduleType": "environmental_expression_layer",
+  "version": "0.1.0",
+  "purpose": "Define contextual environments that modify how canonical functions and aspect relationships express."
+}

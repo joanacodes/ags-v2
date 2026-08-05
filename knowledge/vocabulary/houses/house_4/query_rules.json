@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house4_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_4",
+  "content": {
+    "defaultContextSet": [
+      "house4_home",
+      "house4_foundations",
+      "house4_family"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "roots",
+        "belonging"
+      ],
+      "relationships": [
+        "family",
+        "home"
+      ],
+      "work": [
+        "foundations",
+        "security_base"
+      ],
+      "health": [
+        "emotional_foundation",
+        "private_life"
+      ],
+      "transits": [
+        "heritage",
+        "ancestry"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of home' as the neutral domain.",
+      "Prefer 'through foundational belonging' as the neutral focus.",
+      "Suppress assumptions about dependency or trauma.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

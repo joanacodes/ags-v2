@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pisces_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "pisces",
+  "content": {
+    "families": [
+      {
+        "id": "integration",
+        "components": [
+          "compassionately",
+          "through integration"
+        ]
+      },
+      {
+        "id": "empathy",
+        "components": [
+          "with emphasis on empathy",
+          "through compassionate understanding"
+        ]
+      },
+      {
+        "id": "imagination",
+        "components": [
+          "imaginatively",
+          "through symbolic understanding"
+        ]
+      },
+      {
+        "id": "transcendence",
+        "components": [
+          "toward transcendence",
+          "through expanding awareness"
+        ]
+      },
+      {
+        "id": "adaptability",
+        "components": [
+          "adaptively",
+          "while preserving healthy boundaries"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Modify manner, strategy, pace, and regulation only.",
+      "angle": "Modify orientation without changing the angle's canonical function.",
+      "node": "Support integrative development while preserving nodal polarity.",
+      "chiron": "Support compassionate healing without implying completion."
+    },
+    "constraints": [
+      "Empathy is not lack of boundaries.",
+      "Transcendence is not escapism.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

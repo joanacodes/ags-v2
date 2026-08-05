@@ -1,0 +1,65 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "taurus_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "taurus",
+  "content": {
+    "families": [
+      {
+        "id": "continuity",
+        "components": [
+          "steadily",
+          "consistently",
+          "toward continuity"
+        ]
+      },
+      {
+        "id": "consolidation",
+        "components": [
+          "through consolidation",
+          "through repeated reinforcement"
+        ]
+      },
+      {
+        "id": "preservation",
+        "components": [
+          "with emphasis on preservation",
+          "while maintaining stability"
+        ]
+      },
+      {
+        "id": "resource_stewardship",
+        "components": [
+          "while preserving resources"
+        ]
+      },
+      {
+        "id": "sustainable_pacing",
+        "components": [
+          "gradually",
+          "at a sustainable rate"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": [
+        "modify manner, strategy, pace only"
+      ],
+      "angle": [
+        "modify orientation without changing reference-frame function"
+      ],
+      "node": [
+        "support durable development while preserving polarity"
+      ],
+      "chiron": [
+        "support adaptive maintenance without implying cure"
+      ]
+    },
+    "constraints": [
+      "Observable slowness is not proof of Taurus.",
+      "Resource language requires explicit resource context.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

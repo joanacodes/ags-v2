@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "jupiter_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "canonical_function",
+  "parentObject": "jupiter",
+  "content": {
+    "canonicalId": "jupiter",
+    "displayName": "Jupiter",
+    "ontologyClass": "planet",
+    "grammarRole": "canonical_function",
+    "semanticClass": "expansion_meaning_function",
+    "canonicalQuestion": "What function expands understanding, synthesizes meaning, and supports growth and wisdom?"
+  }
+}

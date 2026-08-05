@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mercury_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "canonical_function",
+  "parentObject": "mercury",
+  "content": {
+    "functionSlots": [
+      "function",
+      "process",
+      "orientation",
+      "goal",
+      "output",
+      "salience"
+    ],
+    "allowedModifiers": [
+      "sign",
+      "house",
+      "degree",
+      "dignity"
+    ],
+    "allowedRelations": [
+      "aspect"
+    ],
+    "patterns": [
+      "Mercury processes [domain].",
+      "Mercury interprets [information].",
+      "Mercury communicates through [house_context].",
+      "Mercury is modified by [sign_modifier]."
+    ],
+    "forbidden": [
+      "Mercury is merely intelligence.",
+      "Mercury is replaced by its sign.",
+      "Mercury inherently indicates deceit."
+    ]
+  }
+}

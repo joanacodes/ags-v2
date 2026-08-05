@@ -1,0 +1,52 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pisces_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "modifier",
+  "parentObject": "pisces",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm Pisces is a modifier",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible modifier components",
+      "Apply degree and condition modifiers",
+      "Validate canonical function unchanged",
+      "Pass semantic structure to sentence generation"
+    ],
+    "defaultInferenceProfile": {
+      "manner": "compassionately",
+      "strategy": "through integration",
+      "priority": "with emphasis on compassion",
+      "regulation": "while preserving healthy boundaries"
+    },
+    "compositionRules": [
+      "Pisces modifies but never replaces the canonical function.",
+      "Degree modifiers compose after sign modifiers.",
+      "Houses provide context only.",
+      "Aspects function as relational operators.",
+      "Dignity modifies expression condition, not ontology.",
+      "Generate natural language from composed semantics."
+    ],
+    "heuristics": [
+      "Prefer integration over diffusion.",
+      "Prefer compassion over passivity.",
+      "Prefer transcendence over escapism.",
+      "Return an empty modifier set instead of inventing semantics."
+    ],
+    "tieBreakOrder": [
+      "target compatibility",
+      "query relevance",
+      "developmental evidence",
+      "degree compatibility",
+      "aspect compatibility",
+      "neutral default"
+    ],
+    "forbiddenInferences": [
+      "Pisces causes escapism.",
+      "Pisces lacks boundaries by default.",
+      "Pisces replaces the target function."
+    ]
+  }
+}

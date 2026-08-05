@@ -1,0 +1,128 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ascendant_identity",
+  "name": "Ascendant Identity",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines the Ascendant as the orientation reference frame through which engagement begins.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ags_angle_blueprint",
+    "ags_grammar_roles",
+    "ags_semantic_domain_blueprint",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "ascendant",
+    "identity",
+    "angle",
+    "reference_frame",
+    "orientation"
+  ],
+  "parentObject": "ascendant",
+  "moduleType": "identity",
+  "content": {
+    "ontology": {
+      "class": "angle",
+      "grammarRole": "reference_frame",
+      "semanticClass": "orientation_function",
+      "axisRole": "self_environment_entry_point"
+    },
+    "coreFunction": {
+      "primaryVerb": "orient",
+      "definition": "Establish the primary reference frame through which experience is approached and engagement begins.",
+      "functionalAim": "Provide an initial organizing direction for perception, posture, response, entry, and contact at the boundary between organism and environment."
+    },
+    "coreQuestions": [
+      "From what orientation does engagement begin?",
+      "How is the environment first approached?",
+      "What becomes immediately salient at the point of entry?",
+      "How is the self positioned before deliberate action occurs?",
+      "Which orientation organizes the first response?"
+    ],
+    "functionalContributions": [
+      "orientation",
+      "entry",
+      "initial approach",
+      "self-positioning",
+      "environmental contact",
+      "perspective establishment",
+      "response framing",
+      "embodied presentation",
+      "immediate salience",
+      "interaction threshold"
+    ],
+    "doesNotInherentlySupply": [
+      "entire personality",
+      "true self",
+      "false self",
+      "social mask",
+      "physical appearance",
+      "conscious intention",
+      "planetary action",
+      "stable identity",
+      "moral character",
+      "automatic behavior in every context"
+    ],
+    "angleBoundaries": [
+      {
+        "neighbor": "sun",
+        "distinction": "The Sun centers and expresses identity. The Ascendant establishes the orientation from which experience is initially approached."
+      },
+      {
+        "neighbor": "moon",
+        "distinction": "The Moon receives and regulates personal experience. The Ascendant frames the initial orientation through which contact begins."
+      },
+      {
+        "neighbor": "mercury",
+        "distinction": "Mercury interprets, compares, and communicates. The Ascendant establishes the reference frame from which information is first encountered."
+      },
+      {
+        "neighbor": "mars",
+        "distinction": "Mars initiates action. The Ascendant establishes the orientation from which that action begins."
+      },
+      {
+        "neighbor": "descendant",
+        "distinction": "The Ascendant establishes self-side orientation at entry. The Descendant establishes the relational reference frame through which an external counterpart is encountered."
+      },
+      {
+        "neighbor": "first_house",
+        "distinction": "The Ascendant is a threshold and reference frame. The first house is a context in which self-directed activity and embodiment occur."
+      }
+    ],
+    "identityConstraints": [
+      "The Ascendant must remain a reference-frame function.",
+      "Its default function is orientation, not personality.",
+      "The Ascendant sign modifies how orientation occurs.",
+      "The Ascendant ruler delegates planetary function into the reference frame.",
+      "The Ascendant must remain paired conceptually with the Descendant.",
+      "The object must remain reusable across signs, rulers, aspects, houses, and queries."
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. The Ascendant may orient other functions but may not become a planet, sign, house, personality label, or finished reading.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Ascendant identity module."
+    }
+  ]
+}

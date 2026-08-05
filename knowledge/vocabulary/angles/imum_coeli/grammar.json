@@ -1,0 +1,16 @@
+{
+  "grammarRole": "reference_frame",
+  "primaryVerb": "root",
+  "secondaryVerbs": [
+    "ground",
+    "anchor",
+    "support",
+    "stabilize"
+  ],
+  "rules": [
+    "Default to 'root'.",
+    "Signs modify how rooting occurs.",
+    "Never reduce the IC to home or childhood.",
+    "Never generate finished family interpretations."
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "scorpio_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "scorpio",
+  "content": {
+    "defaultModifierSet": [
+      "scorpio_manner_deeply",
+      "scorpio_strategy_transformation",
+      "scorpio_priority_regeneration"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "transformation",
+        "depth"
+      ],
+      "relationships": [
+        "integration",
+        "truth_seeking"
+      ],
+      "work": [
+        "resilience",
+        "resource_consolidation"
+      ],
+      "health": [
+        "regeneration",
+        "integration"
+      ],
+      "transits": [
+        "psychological_insight",
+        "renewal"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'deeply' as the neutral manner.",
+      "Prefer 'through transformation' as the neutral strategy.",
+      "Suppress unnecessary intensity when incompatible with the target.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

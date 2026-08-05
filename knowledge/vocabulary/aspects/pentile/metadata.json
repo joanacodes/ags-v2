@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pentile_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "relational_operator",
+  "parentObject": "pentile",
+  "content": {
+    "canonicalId": "pentile",
+    "displayName": "Pentile",
+    "ontologyClass": "aspect",
+    "grammarRole": "relational_operator",
+    "semanticClass": "creative_harmonic_operator",
+    "canonicalQuestion": "How do two canonical functions interact through creative potential, harmonic proportion, and generative expression?"
+  }
+}

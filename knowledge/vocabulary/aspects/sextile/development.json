@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sextile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "sextile",
+  "content": {
+    "coreRule": "Development changes how opportunity is recognized and utilized, never the relational role of Sextile.",
+    "stages": {
+      "unconscious": [
+        "unrecognized opportunity",
+        "latent cooperation"
+      ],
+      "defensive": [
+        "missed opportunities",
+        "hesitation to engage"
+      ],
+      "learning": [
+        "recognizing opportunities",
+        "developing collaboration"
+      ],
+      "healthy": [
+        "active cooperation",
+        "responsive activation"
+      ],
+      "integrated": [
+        "consistent realization of cooperative potential"
+      ]
+    },
+    "constraints": [
+      "Sextile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "virgo_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "virgo",
+  "content": {
+    "families": [
+      {
+        "id": "refinement",
+        "components": [
+          "precisely",
+          "through refinement"
+        ]
+      },
+      {
+        "id": "optimization",
+        "components": [
+          "toward functional improvement",
+          "with emphasis on optimization"
+        ]
+      },
+      {
+        "id": "calibration",
+        "components": [
+          "through calibration",
+          "while preserving accuracy"
+        ]
+      },
+      {
+        "id": "maintenance",
+        "components": [
+          "while maintaining functional integrity",
+          "incrementally"
+        ]
+      },
+      {
+        "id": "quality_assurance",
+        "components": [
+          "with emphasis on quality",
+          "through continual refinement"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Modify manner, strategy, pace, and regulation only.",
+      "angle": "Modify orientation without changing the angle's canonical function.",
+      "node": "Support incremental development while preserving nodal polarity.",
+      "chiron": "Support refinement of healing processes without implying completion."
+    },
+    "constraints": [
+      "Analysis is not criticism.",
+      "Optimization is not obsession.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

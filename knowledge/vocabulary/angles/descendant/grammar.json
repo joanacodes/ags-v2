@@ -1,0 +1,16 @@
+{
+  "grammarRole": "reference_frame",
+  "primaryVerb": "relate",
+  "secondaryVerbs": [
+    "meet",
+    "reciprocate",
+    "coordinate",
+    "respond to"
+  ],
+  "rules": [
+    "Default to 'relate'.",
+    "Signs modify how relating occurs.",
+    "Never reduce the Descendant to partnership predictions.",
+    "Never generate finished relationship interpretations."
+  ]
+}

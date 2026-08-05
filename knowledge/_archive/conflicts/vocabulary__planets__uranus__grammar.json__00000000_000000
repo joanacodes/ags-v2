@@ -1,0 +1,159 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_grammar",
+  "name": "Uranus Grammar",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Uranus's verb role, approved verbs, corrective verbs, clause capabilities, and role restrictions.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "uranus_identity",
+    "ags_verb_classes_blueprint",
+    "ags_clause_builder"
+  ],
+  "priority": 10,
+  "tags": [
+    "uranus",
+    "grammar",
+    "planet",
+    "function"
+  ],
+  "parentObject": "uranus",
+  "moduleType": "grammar",
+  "content": {
+    "primaryGrammarRole": "verb",
+    "defaultVerbClass": "transformative_verbs",
+    "subjectBehavior": {
+      "mayActAsSubject": true,
+      "mayActAsSecondaryFunction": true,
+      "mayActAsConnector": false,
+      "mayActAsContext": false,
+      "mayActAsModifier": false
+    },
+    "primaryVerb": {
+      "lemma": "reconfigure",
+      "inflectionReference": "uranus_reconfigure"
+    },
+    "approvedSecondaryVerbs": [
+      {
+        "lemma": "innovate",
+        "semanticDomain": "innovation",
+        "useWhen": "A new method, design, or arrangement is being created rather than merely imagined."
+      },
+      {
+        "lemma": "differentiate",
+        "semanticDomain": "differentiation",
+        "useWhen": "The function separates from inherited, collective, or standardized patterns."
+      },
+      {
+        "lemma": "liberate",
+        "semanticDomain": "liberation",
+        "useWhen": "A limiting or obsolete constraint is explicitly present."
+      },
+      {
+        "lemma": "interrupt",
+        "semanticDomain": "interruption",
+        "useWhen": "Continuity must be broken before a pattern can be perceived or changed."
+      },
+      {
+        "lemma": "decentralize",
+        "semanticDomain": "decentralization",
+        "useWhen": "Authority, information, or agency is being distributed away from a single center."
+      },
+      {
+        "lemma": "experiment",
+        "semanticDomain": "experimentation",
+        "useWhen": "Alternative configurations are being tested through feedback."
+      },
+      {
+        "lemma": "reform",
+        "semanticDomain": "reform",
+        "useWhen": "An existing system is being deliberately revised rather than abandoned."
+      },
+      {
+        "lemma": "detach",
+        "semanticDomain": "detachment",
+        "useWhen": "Distance is required for observation or differentiation; not for emotional avoidance by default."
+      },
+      {
+        "lemma": "update",
+        "semanticDomain": "adaptation",
+        "useWhen": "A system must be brought into alignment with changed conditions."
+      },
+      {
+        "lemma": "network",
+        "semanticDomain": "networking",
+        "useWhen": "Independent nodes are connected without requiring one central authority."
+      }
+    ],
+    "correctiveVerbs": [
+      {
+        "lemma": "disrupt",
+        "semanticDomain": "disruption",
+        "useRule": "Use when interruption or destabilization is the actual operative mechanism. Never use as Uranus's sole neutral definition.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "break",
+        "semanticDomain": "discontinuity",
+        "useRule": "Use only when a defined continuity, rule, bond, or pattern is being broken.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "shock",
+        "semanticDomain": "sudden_awareness",
+        "useRule": "Use only for an abrupt contrast or realization, never as a guaranteed event.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "destabilize",
+        "semanticDomain": "destabilization",
+        "useRule": "Use only when stability is reduced before or during reconfiguration.",
+        "neverPrimary": true
+      }
+    ],
+    "clauseCapabilities": [
+      "actor_function_clause",
+      "placement_clause",
+      "directed_relationship_clause",
+      "dispositor_reference_clause",
+      "reception_clause",
+      "natal_activation_clause"
+    ],
+    "relationshipDirectionRules": [
+      "When Uranus is the subject, Uranus supplies the primary reconfiguring verb.",
+      "When Uranus is secondary, Uranus still supplies an intact secondary function.",
+      "No aspect may turn Uranus into a passive noun or cancel its function.",
+      "Reversing aspect direction requires a new clause resolution."
+    ],
+    "prohibitedGrammar": [
+      "Uranus as an adjective replacing a sign modifier",
+      "Uranus as a connector replacing an aspect",
+      "Uranus as a context replacing a house",
+      "Disruption used as the only neutral verb",
+      "A completed planet-in-sign or planet-in-house interpretation"
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Uranus grammar module."
+    }
+  ]
+}

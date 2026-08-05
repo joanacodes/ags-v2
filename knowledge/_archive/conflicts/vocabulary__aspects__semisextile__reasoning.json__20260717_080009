@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Semisextile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate incremental integration semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Semisextile introduces subtle coordination without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer gradual integration over deterministic outcomes.",
+      "Interpret subtle connections through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Semisextile is inherently weak.",
+      "Semisextile guarantees growth.",
+      "Semisextile replaces planetary functions."
+    ]
+  }
+}

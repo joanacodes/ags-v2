@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house9_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "context",
+  "parentObject": "house_9",
+  "content": {
+    "canonicalId": "house_9",
+    "displayName": "Ninth House",
+    "ontologyClass": "house",
+    "grammarRole": "context",
+    "semanticClass": "higher_learning_context",
+    "canonicalQuestion": "Where is this function primarily expressed through higher learning, meaning, and exploration?"
+  }
+}

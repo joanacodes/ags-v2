@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house2_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_2",
+  "content": {
+    "domain": [
+      "resources",
+      "values",
+      "stewardship"
+    ],
+    "focus": [
+      "resource management",
+      "value development",
+      "security"
+    ],
+    "scope": [
+      "material life",
+      "personal assets",
+      "sustainable use"
+    ],
+    "salience": [
+      "personally valued",
+      "resource-oriented",
+      "practically relevant"
+    ],
+    "expression_context": [
+      "through stewardship",
+      "through value formation",
+      "through sustainable management"
+    ]
+  }
+}

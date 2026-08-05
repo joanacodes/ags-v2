@@ -1,0 +1,40 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ags_sign_development_blueprint",
+  "coreRule": "Development changes how a sign's modifier strategy is expressed; it does not change the sign's identity or permit the sign to become an actor.",
+  "stages": {
+    "unconscious": [
+      "automatic_manner",
+      "habitual_strategy",
+      "unexamined_priority"
+    ],
+    "defensive": [
+      "reactive_manner",
+      "rigid_strategy",
+      "overused_priority",
+      "protective_regulation"
+    ],
+    "learning": [
+      "experimental_manner",
+      "revisable_strategy",
+      "feedback_sensitive_regulation"
+    ],
+    "healthy": [
+      "responsive_manner",
+      "functional_strategy",
+      "context_sensitive_priority"
+    ],
+    "integrated": [
+      "flexible_manner",
+      "adaptive_strategy",
+      "balanced_priority",
+      "integrated_regulation"
+    ]
+  },
+  "rules": [
+    "Defensive wording requires defensive evidence.",
+    "Integrated wording requires integration evidence.",
+    "Healthy is the neutral mature default when a stage is required but unspecified.",
+    "No stage may add unapproved semantic domains."
+  ]
+}

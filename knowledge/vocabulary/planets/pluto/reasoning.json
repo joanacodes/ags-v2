@@ -1,0 +1,45 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "canonical_function",
+  "parentObject": "pluto",
+  "content": {
+    "resolutionOrder": [
+      "Load Pluto canonical function",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity modifiers",
+      "Apply aspect relations",
+      "Validate canonical function unchanged",
+      "Generate semantic output"
+    ],
+    "defaultInferenceProfile": {
+      "function": "transformation",
+      "process": "regeneration",
+      "goal": "empowerment",
+      "output": "integration",
+      "salience": "evolutionary"
+    },
+    "compositionRules": [
+      "Pluto remains the canonical function.",
+      "Signs modify expression only.",
+      "Houses provide context only.",
+      "Aspects create relations only.",
+      "Dignities alter condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer regenerative interpretations over destructive ones.",
+      "Model elimination as removal of obsolete structures.",
+      "Return no inference rather than invent semantics."
+    ],
+    "forbiddenInferences": [
+      "Pluto is inherently destructive.",
+      "Pluto is replaced by a sign.",
+      "Pluto becomes a house.",
+      "Literal death is implied by default."
+    ]
+  }
+}

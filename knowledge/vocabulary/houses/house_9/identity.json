@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house9_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_9",
+  "content": {
+    "coreDomains": [
+      "higher_learning",
+      "philosophy",
+      "beliefs",
+      "exploration",
+      "travel",
+      "wisdom",
+      "worldview",
+      "teaching",
+      "discovery",
+      "truth_seeking"
+    ],
+    "notInherent": [
+      "dogmatism",
+      "religiosity",
+      "superiority",
+      "escapism",
+      "certainty",
+      "proselytizing"
+    ],
+    "constraints": [
+      "House 9 is a context.",
+      "House 9 never performs actions.",
+      "House 9 never replaces a planet's canonical function."
+    ]
+  }
+}

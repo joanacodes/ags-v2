@@ -1,0 +1,81 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_changelog",
+  "name": "Aries Changelog",
+  "type": "sign_module",
+  "status": "final_candidate",
+  "language": "en",
+  "description": "Records Aries ontology completion and canonical status.",
+  "grammarRole": "modifier",
+  "parentObject": "aries",
+  "moduleType": "changelog",
+  "dependsOn": [
+    "aries_reasoning",
+    "aries_tests"
+  ],
+  "content": {
+    "object": "aries",
+    "currentVersion": "0.1.0",
+    "status": "ontology_complete_candidate",
+    "history": [
+      {
+        "version": "0.1.0",
+        "date": "2026-07-17",
+        "changes": [
+          "Defined Aries as an initiatory sign modifier.",
+          "Established directness, initiation, immediacy, autonomous engagement, first-move priority, immediate testing, and momentum preservation as core domains.",
+          "Created reusable modifier components across manner, strategy, pace, orientation, priority, regulation, and development.",
+          "Added developmental profiles from unconscious through integrated expression.",
+          "Added target-class expression constraints for planets, angles, nodes, and Chiron.",
+          "Added query-specific domain priorities and deterministic selection rules.",
+          "Added reasoning rules that preserve target canonical functions.",
+          "Added regression tests rejecting aggression, leadership, courage, and completed placement interpretations as neutral Aries outputs."
+        ]
+      }
+    ],
+    "completedModules": [
+      "metadata.json",
+      "identity.json",
+      "grammar.json",
+      "language.json",
+      "semantics.json",
+      "modifier_types.json",
+      "development.json",
+      "expression.json",
+      "query_rules.json",
+      "reasoning.json",
+      "tests.json",
+      "changelog.json"
+    ],
+    "completion": {
+      "completedModules": 12,
+      "totalModules": 12,
+      "percentage": 100
+    },
+    "canonicalSummary": {
+      "ontologyClass": "modifier",
+      "neutralProfile": [
+        "directness",
+        "initiation",
+        "immediacy",
+        "autonomous engagement",
+        "first-move priority",
+        "immediate testing",
+        "momentum preservation"
+      ],
+      "defaultComponents": [
+        "directly",
+        "through initiation",
+        "with emphasis on the first actionable step"
+      ]
+    },
+    "nextPlannedObject": "taurus"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries changelog module."
+    }
+  ]
+}

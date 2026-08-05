@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mercury_language",
+  "moduleType": "language",
+  "grammarRole": "canonical_function",
+  "parentObject": "mercury",
+  "content": {
+    "function": [
+      "processes information",
+      "creates meaning",
+      "enables communication",
+      "supports learning"
+    ],
+    "process": [
+      "observing",
+      "interpreting",
+      "analyzing",
+      "communicating",
+      "connecting"
+    ],
+    "orientation": [
+      "curious",
+      "adaptive",
+      "analytical",
+      "symbolic"
+    ],
+    "goal": [
+      "clear understanding",
+      "effective communication",
+      "accurate interpretation",
+      "shared meaning"
+    ],
+    "output": [
+      "ideas",
+      "language",
+      "concepts",
+      "connections"
+    ],
+    "salience": [
+      "mental",
+      "communicative",
+      "adaptive",
+      "interpretive"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "binovile_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "binovile",
+  "content": {
+    "defaultOperator": "dual_maturation_integration_operator",
+    "supportedQueries": {
+      "identity": [
+        "dual_maturation",
+        "recursive_integration"
+      ],
+      "relationship": [
+        "transformational_synthesis",
+        "coherence"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Binovile operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

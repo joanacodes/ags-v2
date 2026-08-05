@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisquare_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisquare",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Semisquare relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate incremental friction semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Semisquare introduces localized constructive tension without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer constructive correction over deterministic outcomes.",
+      "Interpret friction through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Semisquare is inherently malefic.",
+      "Semisquare guarantees failure.",
+      "Semisquare replaces planetary functions."
+    ]
+  }
+}

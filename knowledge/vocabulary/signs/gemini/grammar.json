@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "gemini_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "modifier",
+  "parentObject": "gemini",
+  "content": {
+    "modifierSlots": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] adaptively",
+      "[target] through comparison",
+      "[target] responsively",
+      "[target] toward connection",
+      "[target] with emphasis on information exchange"
+    ],
+    "forbidden": [
+      "Gemini acts.",
+      "Gemini causes intelligence.",
+      "Gemini makes people dishonest."
+    ]
+  }
+}

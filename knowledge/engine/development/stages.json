@@ -1,0 +1,24 @@
+{
+  "stages": [
+    {
+      "id": "latent",
+      "description": "Function exists but expression is not consciously organized."
+    },
+    {
+      "id": "reactive",
+      "description": "Expression occurs through automatic or defensive patterns."
+    },
+    {
+      "id": "learning",
+      "description": "Awareness and adaptation begin through experience."
+    },
+    {
+      "id": "integrated",
+      "description": "Function is expressed consciously and constructively."
+    },
+    {
+      "id": "mastery",
+      "description": "Function operates with flexibility, coherence, and synthesis."
+    }
+  ]
+}

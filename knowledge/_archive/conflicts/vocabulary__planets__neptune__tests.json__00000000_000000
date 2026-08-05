@@ -1,0 +1,15 @@
+{
+  "id": "neptune_tests",
+  "content": {
+    "cases": [
+      "Primary verb defaults to permeate",
+      "Dissolve cannot replace primary verb",
+      "Finished placement interpretation rejected",
+      "Relationship reversal preserves function"
+    ],
+    "regressions": [
+      "Neptune != confusion",
+      "Neptune != spirituality"
+    ]
+  }
+}

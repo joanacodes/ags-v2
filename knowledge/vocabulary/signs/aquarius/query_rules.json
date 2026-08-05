@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aquarius_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "modifier",
+  "parentObject": "aquarius",
+  "content": {
+    "defaultModifierSet": [
+      "aquarius_manner_innovatively",
+      "aquarius_strategy_experimentation",
+      "aquarius_priority_innovation"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "innovation",
+        "individuality"
+      ],
+      "relationships": [
+        "networks",
+        "collective_progress"
+      ],
+      "work": [
+        "systems_thinking",
+        "adaptation"
+      ],
+      "health": [
+        "adaptation",
+        "objectivity"
+      ],
+      "transits": [
+        "future_orientation",
+        "experimentation"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'innovatively' as the neutral manner.",
+      "Prefer 'through experimentation' as the neutral strategy.",
+      "Suppress unnecessary disruption when incompatible with the target.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

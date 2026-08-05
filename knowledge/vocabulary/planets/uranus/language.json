@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_language",
+  "moduleType": "language",
+  "grammarRole": "canonical_function",
+  "parentObject": "uranus",
+  "content": {
+    "function": [
+      "enables innovation",
+      "supports differentiation",
+      "facilitates liberation",
+      "drives systemic change"
+    ],
+    "process": [
+      "innovating",
+      "questioning",
+      "reforming",
+      "experimenting",
+      "disrupting"
+    ],
+    "orientation": [
+      "innovative",
+      "independent",
+      "systemic",
+      "future-oriented"
+    ],
+    "goal": [
+      "constructive change",
+      "greater autonomy",
+      "systemic renewal",
+      "original solutions"
+    ],
+    "output": [
+      "innovation",
+      "reform",
+      "breakthrough",
+      "differentiation"
+    ],
+    "salience": [
+      "innovative",
+      "transformative",
+      "independent",
+      "disruptive"
+    ]
+  }
+}

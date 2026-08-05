@@ -1,0 +1,7 @@
+{
+  "rules": [
+    "Avoid deterministic prediction.",
+    "Avoid reducing functions to personality traits.",
+    "Preserve developmental complexity."
+  ]
+}

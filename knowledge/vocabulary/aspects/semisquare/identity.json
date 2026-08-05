@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisquare_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisquare",
+  "content": {
+    "canonicalFunction": "relates canonical functions through localized constructive tension and incremental corrective action",
+    "coreDomains": [
+      "localized tension",
+      "incremental correction",
+      "adaptation",
+      "activation",
+      "refinement",
+      "development"
+    ],
+    "notInherent": [
+      "failure",
+      "punishment",
+      "maleficence",
+      "crisis"
+    ],
+    "constraints": [
+      "Semisquare never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_reasoning",
+  "name": "North Node Reasoning",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines deterministic resolution order, heuristics, forbidden inferences, and fallback behavior.",
+  "grammarRole": "developmental_direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "north_node_query_rules",
+    "north_node_development",
+    "nodal_axis_reasoning",
+    "ags_reasoning_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "reasoning",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "reasoning",
+  "content": {
+    "resolutionOrder": [
+      "Load North Node and South Node",
+      "Resolve sign and house contexts for both poles",
+      "Resolve query priorities",
+      "Identify usable South Node capacity",
+      "Detect overreliance only when supported",
+      "Select North Node emerging domain",
+      "Resolve developmental stage",
+      "Select developmental verb",
+      "Build paired axis clause",
+      "Validate non-fatalistic and integrative language"
+    ],
+    "heuristics": [
+      {
+        "id": "NN-R-001",
+        "rule": "Prefer the most specific approved developmental verb compatible with the selected domain."
+      },
+      {
+        "id": "NN-R-002",
+        "rule": "Fall back to `develop` when multiple verbs are equally supported."
+      },
+      {
+        "id": "NN-R-003",
+        "rule": "Direction describes practice orientation, not result."
+      },
+      {
+        "id": "NN-R-004",
+        "rule": "The South Node must appear as resource, familiarity, or explicit opposite-pole reference."
+      },
+      {
+        "id": "NN-R-005",
+        "rule": "Developmental stage constrains expression but does not change the North Node's identity."
+      },
+      {
+        "id": "NN-R-006",
+        "rule": "Prefer integration language over replacement, rejection, or escape language."
+      },
+      {
+        "id": "NN-R-007",
+        "rule": "When evidence for imbalance is absent, describe emerging capacity without diagnosing overreliance."
+      }
+    ],
+    "forbiddenInferences": [
+      "The North Node is destiny.",
+      "The North Node is automatically beneficial.",
+      "Difficulty proves developmental correctness.",
+      "Unfamiliarity proves authenticity.",
+      "The South Node must be abandoned.",
+      "Practice guarantees success.",
+      "A nodal placement proves a factual past life."
+    ],
+    "fallbackBehavior": {
+      "missingSouthNode": "Reject North Node clause generation.",
+      "missingDevelopmentalDomain": "Return the axis object without a directional clause.",
+      "missingStage": "Use neutral developmental language without defensive or integrated modifiers.",
+      "conflictingQueryPriorities": "Select the higher query relevance, then stable lexical id."
+    }
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Developmental-direction vocabulary only. No destiny, fate, moral ranking, or guaranteed outcome claims are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node reasoning module."
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_tests",
+  "name": "Aries Tests",
+  "type": "sign_module",
+  "status": "final_candidate",
+  "language": "en",
+  "description": "Defines validation and regression tests for the complete Aries ontology.",
+  "grammarRole": "modifier",
+  "parentObject": "aries",
+  "moduleType": "tests",
+  "dependsOn": [
+    "aries_identity",
+    "aries_grammar",
+    "aries_language",
+    "aries_semantics",
+    "aries_modifier_types",
+    "aries_development",
+    "aries_expression",
+    "aries_query_rules",
+    "aries_reasoning"
+  ],
+  "content": {
+    "testSuite": "aries_ontology_v0.1",
+    "testCases": [
+      {
+        "id": "ARI-T-001",
+        "name": "Aries remains a modifier",
+        "input": {
+          "grammarRole": "modifier"
+        },
+        "expected": {
+          "valid": true
+        }
+      },
+      {
+        "id": "ARI-T-002",
+        "name": "Reject Aries as actor",
+        "input": "Aries acts.",
+        "expected": {
+          "valid": false,
+          "reason": "sign_as_actor"
+        }
+      },
+      {
+        "id": "ARI-T-003",
+        "name": "Reject neutral aggression claim",
+        "input": "Aries is aggressive.",
+        "expected": {
+          "valid": false,
+          "reason": "reductive_neutral_identity"
+        }
+      },
+      {
+        "id": "ARI-T-004",
+        "name": "Allow neutral manner component",
+        "input": {
+          "text": "directly",
+          "modifierType": "manner",
+          "targetClass": "planet"
+        },
+        "expected": {
+          "valid": true
+        }
+      },
+      {
+        "id": "ARI-T-005",
+        "name": "Allow neutral strategy component",
+        "input": {
+          "text": "through initiation",
+          "modifierType": "strategy",
+          "targetClass": "angle"
+        },
+        "expected": {
+          "valid": true
+        }
+      },
+      {
+        "id": "ARI-T-006",
+        "name": "Preserve planetary verb",
+        "input": {
+          "targetVerbBefore": "structure",
+          "sign": "aries",
+          "targetVerbAfter": "structure"
+        },
+        "expected": {
+          "sameVerb": true
+        }
+      },
+      {
+        "id": "ARI-T-007",
+        "name": "Reject completed placement interpretation",
+        "input": "Mars in Aries acts courageously.",
+        "expected": {
+          "valid": false,
+          "reason": "finished_interpretation"
+        }
+      },
+      {
+        "id": "ARI-T-008",
+        "name": "Defensive modifier requires evidence",
+        "input": {
+          "modifier": "reactively",
+          "developmentalStage": "defensive",
+          "defensiveEvidence": false
+        },
+        "expected": {
+          "valid": false
+        }
+      },
+      {
+        "id": "ARI-T-009",
+        "name": "Integrated modifier requires evidence",
+        "input": {
+          "modifier": "with precise timing",
+          "developmentalStage": "integrated",
+          "integrationEvidence": false
+        },
+        "expected": {
+          "valid": false
+        }
+      },
+      {
+        "id": "ARI-T-010",
+        "name": "Rapid pace suppressed when incompatible",
+        "input": {
+          "modifier": "rapidly",
+          "targetRequiresExtendedConsolidation": true
+        },
+        "expected": {
+          "selected": false
+        }
+      },
+      {
+        "id": "ARI-T-011",
+        "name": "Autonomy does not imply isolation",
+        "input": {
+          "modifier": "toward autonomous engagement",
+          "derivedMeaning": "isolation"
+        },
+        "expected": {
+          "valid": false
+        }
+      },
+      {
+        "id": "ARI-T-012",
+        "name": "First move does not imply leadership",
+        "input": {
+          "modifier": "with emphasis on the first actionable step",
+          "derivedMeaning": "guaranteed leadership"
+        },
+        "expected": {
+          "valid": false
+        }
+      },
+      {
+        "id": "ARI-T-013",
+        "name": "No duplicate modifier slot by default",
+        "input": {
+          "selected": [
+            {
+              "type": "manner",
+              "id": "aries_manner_directly"
+            },
+            {
+              "type": "manner",
+              "id": "aries_manner_decisively"
+            }
+          ],
+          "stackingAllowed": false
+        },
+        "expected": {
+          "valid": false
+        }
+      },
+      {
+        "id": "ARI-T-014",
+        "name": "Empty set preferred over invention",
+        "input": {
+          "compatibleComponents": [],
+          "inventedFallback": "aggressively"
+        },
+        "expected": {
+          "selectedComponents": [],
+          "inventedFallbackUsed": false
+        }
+      },
+      {
+        "id": "ARI-T-015",
+        "name": "Deterministic selection",
+        "input": {
+          "sameSourceObjects": true,
+          "sameQuery": true,
+          "sameStage": true
+        },
+        "expected": {
+          "sameComponentIds": true
+        }
+      },
+      {
+        "id": "ARI-T-016",
+        "name": "Opposite angle retained",
+        "input": {
+          "targetClass": "angle",
+          "angle": "ascendant",
+          "oppositeAngleLoaded": false
+        },
+        "expected": {
+          "valid": false
+        }
+      },
+      {
+        "id": "ARI-T-017",
+        "name": "Opposite node retained",
+        "input": {
+          "targetClass": "node",
+          "singleNodeReasoning": true
+        },
+        "expected": {
+          "valid": false
+        }
+      },
+      {
+        "id": "ARI-T-018",
+        "name": "Chiron immediacy does not imply cure",
+        "input": {
+          "targetClass": "chiron",
+          "modifier": "through immediate testing",
+          "derivedMeaning": "cure"
+        },
+        "expected": {
+          "valid": false
+        }
+      }
+    ],
+    "regressionAssertions": [
+      "Aries != actor",
+      "Aries != Mars",
+      "Aries != aggression",
+      "Aries != leadership",
+      "Aries != courage",
+      "Aries != conflict",
+      "Aries != personality",
+      "Aries != outcome",
+      "Aries modifier does not replace target verb",
+      "Defensive wording requires evidence",
+      "Integrated wording requires evidence",
+      "Same inputs produce same modifier IDs"
+    ],
+    "approvalCriteria": {
+      "minimumPassRate": 1.0,
+      "fatalFailuresAllowed": 0,
+      "requiredAssertions": [
+        "modifier role preserved",
+        "canonical target function preserved",
+        "finished interpretations rejected",
+        "developmental gating enforced",
+        "deterministic selection confirmed"
+      ]
+    }
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Aries tests module."
+    }
+  ]
+}

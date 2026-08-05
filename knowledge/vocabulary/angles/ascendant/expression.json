@@ -1,0 +1,231 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "ascendant_expression",
+  "name": "Ascendant Expression",
+  "type": "angle_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines observable orientation components, stage profiles, query priorities, and expression constraints.",
+  "grammarRole": "reference_frame",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "ascendant_identity",
+    "ascendant_semantics",
+    "ascendant_psychology",
+    "ascendant_development",
+    "ags_angle_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "ascendant",
+    "expression",
+    "angle",
+    "reference_frame",
+    "orientation"
+  ],
+  "parentObject": "ascendant",
+  "moduleType": "expression",
+  "content": {
+    "observableExpressionTypes": [
+      {
+        "id": "initial_orientation",
+        "definition": "The immediate reference frame used when engagement begins."
+      },
+      {
+        "id": "entry_strategy",
+        "definition": "The practical way participation begins in a context."
+      },
+      {
+        "id": "self_positioning",
+        "definition": "The visible or implicit placement of self relative to environment and counterpart."
+      },
+      {
+        "id": "embodied_presentation",
+        "definition": "The posture, pacing, tone, or presence through which orientation becomes observable."
+      },
+      {
+        "id": "salience_selection",
+        "definition": "The cues or features noticed first under the active frame."
+      },
+      {
+        "id": "orientation_revision",
+        "definition": "The updating of the initial frame after new information enters."
+      }
+    ],
+    "stageExpressionProfiles": [
+      {
+        "stage": "unconscious",
+        "externalComponents": [
+          "habitual entry patterns",
+          "rapid first responses",
+          "strong emphasis on immediately salient cues",
+          "automatic self-positioning",
+          "limited awareness of presentation effects"
+        ],
+        "internalComponents": [
+          "quick orientation",
+          "environmental sensitivity",
+          "unclear distinction between frame and fact",
+          "self-side dominance at entry"
+        ],
+        "selectionConstraints": [
+          "Do not infer personality.",
+          "Do not infer appearance.",
+          "Do not infer conscious intent."
+        ]
+      },
+      {
+        "stage": "defensive",
+        "externalComponents": [
+          "rigid presentation",
+          "masking",
+          "braced posture",
+          "preemptive self-positioning",
+          "withdrawal before engagement",
+          "excessive first-impression management"
+        ],
+        "internalComponents": [
+          "fear of misreading",
+          "fear of exposure",
+          "identity investment in presentation",
+          "reduced openness to contextual revision"
+        ],
+        "selectionConstraints": [
+          "Requires explicit defensive evidence.",
+          "Must not be used as neutral Ascendant description."
+        ]
+      },
+      {
+        "stage": "learning",
+        "externalComponents": [
+          "testing different entry strategies",
+          "asking for feedback",
+          "changing presentation by context",
+          "pausing before fixing the frame",
+          "including the counterpart earlier"
+        ],
+        "internalComponents": [
+          "growing orientation awareness",
+          "reduced first-impression anxiety",
+          "greater tolerance for ambiguity",
+          "willingness to revise the frame"
+        ],
+        "selectionConstraints": [
+          "Use when experimentation, feedback, or adjustment is explicit."
+        ]
+      },
+      {
+        "stage": "healthy",
+        "externalComponents": [
+          "coherent first contact",
+          "context-sensitive presentation",
+          "clear self-positioning",
+          "flexible entry",
+          "responsive orientation revision",
+          "balanced self-other awareness"
+        ],
+        "internalComponents": [
+          "stable orientation",
+          "reduced identity attachment to presentation",
+          "situational awareness",
+          "capacity to update quickly"
+        ],
+        "selectionConstraints": [
+          "Neutral mature default when no other stage is specified."
+        ]
+      },
+      {
+        "stage": "integrated",
+        "externalComponents": [
+          "fluid movement between entry styles",
+          "presentation without masking",
+          "clear self-position with strong counterpart awareness",
+          "orientation adapted to complexity",
+          "first contact used as provisional data"
+        ],
+        "internalComponents": [
+          "orientation without rigidity",
+          "embodiment without identity inflation",
+          "coherence without overcontrol",
+          "stable Ascendant-Descendant coordination"
+        ],
+        "selectionConstraints": [
+          "Requires explicit integration evidence."
+        ]
+      }
+    ],
+    "queryExpressionPriorities": {
+      "identity": [
+        "initial_orientation",
+        "self_positioning",
+        "embodied_presentation"
+      ],
+      "family": [
+        "entry_strategy",
+        "salience_selection",
+        "orientation_revision"
+      ],
+      "friendship": [
+        "entry_strategy",
+        "embodied_presentation",
+        "orientation_revision"
+      ],
+      "love": [
+        "self_positioning",
+        "balanced_self_other_awareness",
+        "orientation_revision"
+      ],
+      "work": [
+        "initial_orientation",
+        "entry_strategy",
+        "embodied_presentation"
+      ],
+      "money": [
+        "salience_selection",
+        "self_positioning",
+        "orientation_revision"
+      ],
+      "health": [
+        "embodied_presentation",
+        "initial_orientation",
+        "entry_pacing"
+      ],
+      "wounds_and_healing": [
+        "self_positioning",
+        "orientation_revision",
+        "presentation_identity_separation"
+      ]
+    },
+    "expressionConstraints": [
+      "Observable presentation is not proof of personality.",
+      "First contact is not the entire interaction.",
+      "Body language is not guaranteed by the Ascendant alone.",
+      "The sign modifies orientation but does not replace the angle.",
+      "The ruler supplies a planetary function but does not replace the angle.",
+      "No expression profile may become a finished rising-sign interpretation."
+    ]
+  },
+  "provenance": {
+    "method": "AGS angle ontology development",
+    "sourcePolicy": "Reference-frame vocabulary only. Psychology and development qualify orientation but do not redefine the Ascendant as total personality, appearance, mask, or independent actor.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Ascendant expression module."
+    }
+  ]
+}

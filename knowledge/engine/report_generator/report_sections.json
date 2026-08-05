@@ -1,0 +1,24 @@
+{
+  "sections": [
+    {
+      "id": "overview",
+      "purpose": "Summarize dominant relational themes."
+    },
+    {
+      "id": "function_network",
+      "purpose": "Describe interacting canonical functions."
+    },
+    {
+      "id": "aspect_patterns",
+      "purpose": "Explain aspect operators and harmonic families."
+    },
+    {
+      "id": "development",
+      "purpose": "Describe possible developmental expressions."
+    },
+    {
+      "id": "integration",
+      "purpose": "Provide synthesis pathways."
+    }
+  ]
+}

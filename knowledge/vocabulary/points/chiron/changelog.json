@@ -1,0 +1,11 @@
+{
+  "id": "chiron_changelog",
+  "content": {
+    "version": "0.1.0",
+    "changes": [
+      "Established 'adapt' as Chiron's canonical primary verb.",
+      "Separated adaptation from healing.",
+      "Completed Chiron ontology architecture."
+    ]
+  }
+}

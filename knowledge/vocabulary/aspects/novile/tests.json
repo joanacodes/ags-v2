@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novile_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "novile",
+  "content": {
+    "suite": "novile_ontology_v0.1",
+    "cases": [
+      {
+        "id": "NOV-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "NOV-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "NOV-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "NOV-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "NOV-T-005",
+        "name": "No intrinsic benefic/malefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

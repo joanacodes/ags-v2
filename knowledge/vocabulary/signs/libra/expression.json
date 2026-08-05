@@ -1,0 +1,57 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "libra_expression",
+  "moduleType": "expression",
+  "grammarRole": "modifier",
+  "parentObject": "libra",
+  "content": {
+    "families": [
+      {
+        "id": "balance",
+        "components": [
+          "harmoniously",
+          "while maintaining balance"
+        ]
+      },
+      {
+        "id": "coordination",
+        "components": [
+          "through coordination",
+          "toward cooperation"
+        ]
+      },
+      {
+        "id": "reciprocity",
+        "components": [
+          "with emphasis on reciprocity",
+          "through mutual adjustment"
+        ]
+      },
+      {
+        "id": "equilibrium",
+        "components": [
+          "toward equilibrium",
+          "while preserving proportionality"
+        ]
+      },
+      {
+        "id": "fairness",
+        "components": [
+          "with emphasis on fairness",
+          "through comparison"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "planet": "Modify manner, strategy, pace, and regulation only.",
+      "angle": "Modify orientation without changing the angle's canonical function.",
+      "node": "Support reciprocal development while preserving nodal polarity.",
+      "chiron": "Support relational balancing without implying resolution."
+    },
+    "constraints": [
+      "Harmony is not conflict avoidance.",
+      "Cooperation is not dependence.",
+      "No expression becomes a finished interpretation."
+    ]
+  }
+}

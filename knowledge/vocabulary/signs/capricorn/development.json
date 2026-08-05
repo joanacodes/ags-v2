@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_development",
+  "moduleType": "development",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "coreRule": "Development changes how Capricorn modifiers structure and accomplish; Capricorn remains a modifier.",
+    "stages": {
+      "unconscious": [
+        "automatically organizing",
+        "through habitual structuring"
+      ],
+      "defensive": [
+        "over-rigidly",
+        "through excessive control"
+      ],
+      "learning": [
+        "deliberately",
+        "through disciplined effort"
+      ],
+      "healthy": [
+        "systematically",
+        "through structured planning"
+      ],
+      "integrated": [
+        "context-responsively",
+        "through adaptive stewardship"
+      ]
+    },
+    "constraints": [
+      "Defensive wording requires explicit evidence.",
+      "Integrated wording requires explicit evidence.",
+      "Structure never implies rigidity."
+    ]
+  }
+}

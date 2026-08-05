@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house6_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_6",
+  "content": {
+    "defaultContextSet": [
+      "house6_service",
+      "house6_routine",
+      "house6_refinement"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "discipline",
+        "improvement"
+      ],
+      "relationships": [
+        "service",
+        "responsibility"
+      ],
+      "work": [
+        "daily_work",
+        "craft"
+      ],
+      "health": [
+        "health",
+        "maintenance"
+      ],
+      "transits": [
+        "skill_refinement",
+        "routine"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of service' as the neutral domain.",
+      "Prefer 'through daily routines' as the neutral focus.",
+      "Suppress assumptions about perfectionism or illness.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "id": "imum_coeli_query_rules",
+  "primaryVerb": "root",
+  "requiredOppositeAngle": "midheaven",
+  "selectionRules": [
+    "Default to 'root'.",
+    "Always resolve the Midheaven alongside the Imum Coeli.",
+    "Treat signs as modifiers of rooting.",
+    "Treat the ruler as delegated planetary function.",
+    "Never reduce the Imum Coeli to home, family, or childhood."
+  ],
+  "supportedQueries": {
+    "identity": [
+      "rooting",
+      "continuity"
+    ],
+    "relationships": [
+      "belonging",
+      "support"
+    ],
+    "work": [
+      "foundation",
+      "renewal"
+    ],
+    "health": [
+      "restoration",
+      "support"
+    ]
+  }
+}

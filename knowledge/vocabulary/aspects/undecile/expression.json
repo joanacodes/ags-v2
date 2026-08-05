@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "undecile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "undecile",
+  "content": {
+    "families": [
+      {
+        "id": "differentiation",
+        "components": [
+          "reveals distinctions",
+          "supports unique expression"
+        ]
+      },
+      {
+        "id": "pattern_emergence",
+        "components": [
+          "identifies new relationships",
+          "organizes novelty"
+        ]
+      },
+      {
+        "id": "adaptive_synthesis",
+        "components": [
+          "combines variations",
+          "supports integration"
+        ]
+      },
+      {
+        "id": "novel_expression",
+        "components": [
+          "encourages innovation",
+          "refines expression"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

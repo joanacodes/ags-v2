@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "canonical_function",
+  "parentObject": "pluto",
+  "content": {
+    "domains": {
+      "transformation": "Fundamental structural change.",
+      "regeneration": "Renewal after release.",
+      "empowerment": "Growth in authentic agency.",
+      "integration": "Assimilation of deep material."
+    },
+    "boundaries": [
+      "Transformation is not destruction.",
+      "Empowerment is not domination."
+    ]
+  }
+}

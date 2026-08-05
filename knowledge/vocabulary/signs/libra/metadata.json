@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "libra_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "modifier",
+  "parentObject": "libra",
+  "content": {
+    "canonicalId": "libra",
+    "displayName": "Libra",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "balancing_mode",
+    "canonicalQuestion": "How does this balance and harmonize?"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sun_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "canonical_function",
+  "parentObject": "sun",
+  "content": {
+    "resolutionOrder": [
+      "Load Sun canonical function",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity modifiers",
+      "Apply aspect relations",
+      "Validate Sun function unchanged",
+      "Generate semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "function": "identity",
+      "process": "vitality",
+      "goal": "purpose",
+      "output": "self_expression",
+      "salience": "central"
+    },
+    "compositionRules": [
+      "The Sun remains the canonical function.",
+      "Signs modify expression only.",
+      "Houses provide context only.",
+      "Aspects create relations only.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer coherent identity over ego assumptions.",
+      "Prefer purpose over status.",
+      "Return an empty result rather than invent semantics."
+    ],
+    "forbiddenInferences": [
+      "The Sun is replaced by a sign.",
+      "The Sun becomes a house.",
+      "The Sun inherently indicates fame or dominance."
+    ]
+  }
+}

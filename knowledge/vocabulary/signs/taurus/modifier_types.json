@@ -1,0 +1,279 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "taurus_modifier_types",
+  "name": "Taurus Modifier Types",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines reusable Taurus modifier components across all approved modifier classes.",
+  "grammarRole": "modifier",
+  "parentObject": "taurus",
+  "moduleType": "modifier_types",
+  "dependsOn": [
+    "taurus_language",
+    "taurus_semantics",
+    "taurus_grammar"
+  ],
+  "content": {
+    "components": [
+      {
+        "id": "taurus_manner_steadily",
+        "text": "steadily",
+        "modifierType": "manner",
+        "semanticDomains": [
+          "continuity",
+          "steady_pacing"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 100
+      },
+      {
+        "id": "taurus_manner_consistently",
+        "text": "consistently",
+        "modifierType": "manner",
+        "semanticDomains": [
+          "continuity",
+          "maintenance"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 90
+      },
+      {
+        "id": "taurus_strategy_consolidation",
+        "text": "through consolidation",
+        "modifierType": "strategy",
+        "semanticDomains": [
+          "consolidation",
+          "stabilization"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 100
+      },
+      {
+        "id": "taurus_strategy_gradual_accumulation",
+        "text": "through gradual accumulation",
+        "modifierType": "strategy",
+        "semanticDomains": [
+          "incremental_accumulation",
+          "retention"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "node",
+          "chiron"
+        ],
+        "priority": 90
+      },
+      {
+        "id": "taurus_strategy_preservation",
+        "text": "through preservation",
+        "modifierType": "strategy",
+        "semanticDomains": [
+          "preservation",
+          "retention"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 85
+      },
+      {
+        "id": "taurus_pace_gradually",
+        "text": "gradually",
+        "modifierType": "pace",
+        "semanticDomains": [
+          "steady_pacing",
+          "incremental_accumulation"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 100,
+        "constraints": [
+          "Suppress when the target function explicitly requires immediate response."
+        ]
+      },
+      {
+        "id": "taurus_pace_sustainable_rate",
+        "text": "at a sustainable rate",
+        "modifierType": "pace",
+        "semanticDomains": [
+          "steady_pacing",
+          "durability"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 95
+      },
+      {
+        "id": "taurus_orientation_continuity",
+        "text": "toward continuity",
+        "modifierType": "orientation",
+        "semanticDomains": [
+          "continuity",
+          "maintenance"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 100
+      },
+      {
+        "id": "taurus_orientation_durability",
+        "text": "toward durability",
+        "modifierType": "orientation",
+        "semanticDomains": [
+          "durability",
+          "stabilization"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 90
+      },
+      {
+        "id": "taurus_priority_preservation",
+        "text": "with emphasis on preservation",
+        "modifierType": "priority",
+        "semanticDomains": [
+          "preservation",
+          "retention"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 100
+      },
+      {
+        "id": "taurus_priority_sustainability",
+        "text": "with emphasis on sustainability",
+        "modifierType": "priority",
+        "semanticDomains": [
+          "durability",
+          "maintenance"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 95
+      },
+      {
+        "id": "taurus_regulation_maintaining_stability",
+        "text": "while maintaining stability",
+        "modifierType": "regulation",
+        "semanticDomains": [
+          "stabilization",
+          "maintenance"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 100
+      },
+      {
+        "id": "taurus_regulation_preserving_resources",
+        "text": "while preserving resources",
+        "modifierType": "regulation",
+        "semanticDomains": [
+          "resource_stewardship",
+          "preservation"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "node",
+          "chiron"
+        ],
+        "priority": 90,
+        "constraints": [
+          "Use only when resource context is explicit."
+        ]
+      },
+      {
+        "id": "taurus_development_repeated_reinforcement",
+        "text": "through repeated reinforcement",
+        "modifierType": "developmental",
+        "semanticDomains": [
+          "maintenance",
+          "durability",
+          "continuity"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "angle",
+          "node",
+          "chiron"
+        ],
+        "priority": 100
+      },
+      {
+        "id": "taurus_development_gradual_refinement",
+        "text": "through gradual refinement",
+        "modifierType": "developmental",
+        "semanticDomains": [
+          "incremental_accumulation",
+          "durability"
+        ],
+        "compatibleTargets": [
+          "planet",
+          "node",
+          "chiron"
+        ],
+        "priority": 90
+      }
+    ],
+    "globalConstraints": [
+      "No modifier may change the target object's canonical function.",
+      "No modifier may imply materialism, laziness, stubbornness, or possessiveness by default.",
+      "Pace modifiers must be compatible with the target function.",
+      "Resource language requires explicit resource context.",
+      "No component may constitute a finished interpretation."
+    ]
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-17",
+      "change": "Initial Taurus modifier_types module."
+    }
+  ]
+}

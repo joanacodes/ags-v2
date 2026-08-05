@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mars_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "canonical_function",
+  "parentObject": "mars",
+  "content": {
+    "functionSlots": [
+      "function",
+      "process",
+      "orientation",
+      "goal",
+      "output",
+      "salience"
+    ],
+    "allowedModifiers": [
+      "sign",
+      "house",
+      "degree",
+      "dignity"
+    ],
+    "allowedRelations": [
+      "aspect"
+    ],
+    "patterns": [
+      "Mars initiates [domain].",
+      "Mars directs [effort].",
+      "Mars expresses through [house_context].",
+      "Mars is modified by [sign_modifier]."
+    ],
+    "forbidden": [
+      "Mars is merely anger.",
+      "Mars is replaced by its sign.",
+      "Mars inherently indicates violence."
+    ]
+  }
+}

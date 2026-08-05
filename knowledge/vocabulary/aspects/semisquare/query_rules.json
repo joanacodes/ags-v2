@@ -1,0 +1,32 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisquare_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisquare",
+  "content": {
+    "defaultOperator": "incremental_friction_operator",
+    "supportedQueries": {
+      "identity": [
+        "friction",
+        "adjustment"
+      ],
+      "relationship": [
+        "development",
+        "activation"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Semisquare operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

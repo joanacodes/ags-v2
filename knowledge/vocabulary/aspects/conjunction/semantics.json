@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "conjunction_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "conjunction",
+  "content": {
+    "definition": "A conjunction binds participating canonical functions into a single active semantic unit while preserving each function's identity.",
+    "boundaries": [
+      "Fusion is not identity loss.",
+      "Interpretation depends on operands."
+    ]
+  }
+}

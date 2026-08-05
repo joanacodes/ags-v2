@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "libra_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "modifier",
+  "parentObject": "libra",
+  "content": {
+    "modifierSlots": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] harmoniously",
+      "[target] through coordination",
+      "[target] proportionally",
+      "[target] toward equilibrium",
+      "[target] with emphasis on reciprocity"
+    ],
+    "forbidden": [
+      "Libra acts.",
+      "Libra causes indecision.",
+      "Libra makes people passive."
+    ]
+  }
+}

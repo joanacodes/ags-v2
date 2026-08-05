@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "trine_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "trine",
+  "content": {
+    "coreRule": "Development changes how facilitative flow is managed, never the relational role of Trine.",
+    "stages": {
+      "unconscious": [
+        "unnoticed support",
+        "taken-for-granted coherence"
+      ],
+      "defensive": [
+        "dependency on ease",
+        "underdeveloped potential"
+      ],
+      "learning": [
+        "recognizing natural strengths",
+        "intentional coordination"
+      ],
+      "healthy": [
+        "effective collaboration",
+        "constructive reinforcement"
+      ],
+      "integrated": [
+        "effortless yet conscious integration of functions"
+      ]
+    },
+    "constraints": [
+      "Trine never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

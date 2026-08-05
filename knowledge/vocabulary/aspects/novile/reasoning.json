@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "novile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Novile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate transformational maturation semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Novile introduces transformational maturation without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer maturation and integration over deterministic outcomes.",
+      "Interpret maturation through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Novile is inherently fated or magical.",
+      "Novile guarantees enlightenment.",
+      "Novile replaces planetary functions."
+    ]
+  }
+}

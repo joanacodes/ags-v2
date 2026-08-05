@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novemseptile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "novemseptile",
+  "content": {
+    "families": [
+      {
+        "id": "deep_transformation",
+        "components": [
+          "reveals deep processes",
+          "supports renewal"
+        ]
+      },
+      {
+        "id": "recursive_cycles",
+        "components": [
+          "integrates repeating patterns",
+          "supports maturation"
+        ]
+      },
+      {
+        "id": "emergent_maturation",
+        "components": [
+          "develops readiness",
+          "stabilizes transformation"
+        ]
+      },
+      {
+        "id": "integration",
+        "components": [
+          "coordinates renewal",
+          "refines coherence"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

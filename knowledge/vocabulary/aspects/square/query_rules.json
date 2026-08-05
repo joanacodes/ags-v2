@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "square_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "relational_operator",
+  "parentObject": "square",
+  "content": {
+    "defaultOperator": "constructive_friction_operator",
+    "supportedQueries": {
+      "identity": [
+        "constructive_friction",
+        "adaptation"
+      ],
+      "relationship": [
+        "development"
+      ],
+      "timing": [
+        "applying",
+        "separating"
+      ],
+      "strength": [
+        "orb"
+      ]
+    },
+    "selectionRules": [
+      "Resolve participating canonical functions first.",
+      "Apply Square operator second.",
+      "Apply modifiers afterward."
+    ]
+  }
+}

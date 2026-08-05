@@ -1,0 +1,54 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "libra_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "modifier",
+  "parentObject": "libra",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm Libra is a modifier",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible modifier components",
+      "Apply degree and condition modifiers when available",
+      "Validate target function unchanged",
+      "Pass resolved semantic structure to sentence generation"
+    ],
+    "defaultInferenceProfile": {
+      "manner": "harmoniously",
+      "strategy": "through coordination",
+      "priority": "with emphasis on fairness",
+      "regulation": "while maintaining balance"
+    },
+    "compositionRules": [
+      "Libra modifies but never replaces the canonical function.",
+      "Degrees apply after sign modifiers.",
+      "Houses provide context only.",
+      "Aspects act as relational operators.",
+      "Dignity modifies expression condition rather than ontology.",
+      "Generate language from composed semantics, not canned interpretations."
+    ],
+    "heuristics": [
+      "Prefer equilibrium over compromise.",
+      "Prefer reciprocity over dependence.",
+      "Prefer proportionality over passivity.",
+      "Suppress unnecessary accommodation when incompatible.",
+      "Return an empty modifier set instead of inventing semantics."
+    ],
+    "tieBreakOrder": [
+      "target compatibility",
+      "query relevance",
+      "developmental evidence",
+      "degree compatibility",
+      "aspect compatibility",
+      "neutral default"
+    ],
+    "forbiddenInferences": [
+      "Libra causes indecision.",
+      "Libra is passive.",
+      "Libra is people pleasing.",
+      "Libra replaces the target function."
+    ]
+  }
+}

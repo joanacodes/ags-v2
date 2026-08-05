@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house7_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "context",
+  "parentObject": "house_7",
+  "content": {
+    "canonicalId": "house_7",
+    "displayName": "Seventh House",
+    "ontologyClass": "house",
+    "grammarRole": "context",
+    "semanticClass": "partnership_context",
+    "canonicalQuestion": "Where is this function primarily expressed through partnership, cooperation, and one-to-one relationships?"
+  }
+}

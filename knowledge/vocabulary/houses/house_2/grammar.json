@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house2_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "context",
+  "parentObject": "house_2",
+  "content": {
+    "contextSlots": [
+      "domain",
+      "setting",
+      "focus",
+      "scope",
+      "salience",
+      "expression_context"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] in the context of resources",
+      "[target] through value formation",
+      "[target] within stewardship",
+      "[target] as resource management"
+    ],
+    "forbidden": [
+      "House 2 acts.",
+      "House 2 creates wealth.",
+      "House 2 replaces the target function."
+    ]
+  }
+}

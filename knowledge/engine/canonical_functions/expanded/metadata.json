@@ -1,0 +1,6 @@
+{
+  "id": "planet_expansion_core",
+  "moduleType": "canonical_function_expansion",
+  "version": "0.1.0",
+  "purpose": "Extend AGS canonical functions beyond the initial planetary core."
+}

@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "taurus_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "modifier",
+  "parentObject": "taurus",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm Taurus is a modifier",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible modifier components",
+      "Validate target function unchanged"
+    ],
+    "defaultInferenceProfile": {
+      "manner": "steadily",
+      "strategy": "through consolidation",
+      "priority": "with emphasis on preservation",
+      "regulation": "while maintaining stability"
+    },
+    "heuristics": [
+      "Prefer continuity over rigidity.",
+      "Prefer preservation over hoarding.",
+      "Prefer sustainability over slowness.",
+      "Suppress gradual pace when incompatible.",
+      "Return an empty modifier set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "Taurus causes wealth.",
+      "Taurus is stubborn.",
+      "Taurus is materialistic.",
+      "Taurus replaces the target function."
+    ]
+  }
+}

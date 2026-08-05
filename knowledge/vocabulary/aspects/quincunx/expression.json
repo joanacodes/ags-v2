@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quincunx_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "quincunx",
+  "content": {
+    "families": [
+      {
+        "id": "adjustment",
+        "components": [
+          "adjusts expectations",
+          "modifies approach"
+        ]
+      },
+      {
+        "id": "recalibration",
+        "components": [
+          "realigns priorities",
+          "rebalances functions"
+        ]
+      },
+      {
+        "id": "adaptation",
+        "components": [
+          "adapts constructively",
+          "responds flexibly"
+        ]
+      },
+      {
+        "id": "integration",
+        "components": [
+          "integrates differences",
+          "supports refinement"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides context.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic malefic or benefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

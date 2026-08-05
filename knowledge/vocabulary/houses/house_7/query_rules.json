@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house7_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_7",
+  "content": {
+    "defaultContextSet": [
+      "house7_partnership",
+      "house7_cooperation",
+      "house7_reciprocity"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "balance",
+        "reciprocity"
+      ],
+      "relationships": [
+        "partnership",
+        "commitment"
+      ],
+      "work": [
+        "collaboration",
+        "contracts"
+      ],
+      "health": [
+        "cooperation",
+        "allies"
+      ],
+      "transits": [
+        "negotiation",
+        "relationships"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of partnership' as the neutral domain.",
+      "Prefer 'through cooperation' as the neutral focus.",
+      "Suppress assumptions about dependence or submission.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

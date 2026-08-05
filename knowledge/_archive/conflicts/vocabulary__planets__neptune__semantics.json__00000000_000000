@@ -1,0 +1,327 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_semantics",
+  "name": "Neptune Semantics",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Neptune's reusable semantic domains, boundaries, relationships, query hints, and exclusions.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "neptune_identity",
+    "neptune_grammar",
+    "neptune_language",
+    "ags_semantic_domain_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "neptune",
+    "semantics",
+    "planet",
+    "function"
+  ],
+  "parentObject": "neptune",
+  "moduleType": "semantics",
+  "content": {
+    "coreDomains": [
+      {
+        "id": "permeability",
+        "name": "Permeability",
+        "definition": "The degree to which information, affect, image, identity, or experience can pass across a boundary.",
+        "primaryVerbs": [
+          "permeate",
+          "open",
+          "allow passage"
+        ],
+        "boundaries": [
+          "Does not inherently erase the boundary.",
+          "Does not determine whether the exchange is accurate or constructive.",
+          "Requires at least two distinguishable domains or states."
+        ]
+      },
+      {
+        "id": "attunement",
+        "name": "Attunement",
+        "definition": "Adjusting sensitivity toward the tone, rhythm, atmosphere, state, or signal of another field.",
+        "primaryVerbs": [
+          "attune",
+          "sense",
+          "receive"
+        ],
+        "boundaries": [
+          "Does not guarantee accurate interpretation.",
+          "Distinct from emotional agreement.",
+          "May be selective or unfiltered."
+        ]
+      },
+      {
+        "id": "resonance",
+        "name": "Resonance",
+        "definition": "A responsive echo in which one image, feeling, pattern, or experience activates another.",
+        "primaryVerbs": [
+          "resonate",
+          "echo",
+          "amplify"
+        ],
+        "boundaries": [
+          "Similarity is associative, not necessarily literal.",
+          "Resonance does not prove causation.",
+          "May intensify both clarity and projection."
+        ]
+      },
+      {
+        "id": "imagination",
+        "name": "Imagination",
+        "definition": "The capacity to generate images, scenarios, symbols, or possibilities not limited to immediate literal conditions.",
+        "primaryVerbs": [
+          "imagine",
+          "envision",
+          "picture"
+        ],
+        "boundaries": [
+          "Does not guarantee feasibility.",
+          "Does not equal deception.",
+          "Must be distinguished from factual report."
+        ]
+      },
+      {
+        "id": "symbolic_perception",
+        "name": "Symbolic Perception",
+        "definition": "Perceiving literal material as carrying associative, metaphorical, imaginal, or representational meaning.",
+        "primaryVerbs": [
+          "symbolize",
+          "associate",
+          "interpret symbolically"
+        ],
+        "boundaries": [
+          "Symbolic meaning is not automatically universal.",
+          "Must not be literalized without evidence.",
+          "May coexist with factual analysis."
+        ]
+      },
+      {
+        "id": "empathy",
+        "name": "Empathy",
+        "definition": "Partial access to another person's affective or experiential state through increased interpersonal permeability.",
+        "primaryVerbs": [
+          "empathize",
+          "feel with",
+          "receive affect"
+        ],
+        "boundaries": [
+          "Does not require agreement.",
+          "Does not justify mind-reading claims.",
+          "Does not require self-erasure."
+        ]
+      },
+      {
+        "id": "inspiration",
+        "name": "Inspiration",
+        "definition": "Activation by an image, ideal, feeling, atmosphere, or possibility that stimulates expression or direction.",
+        "primaryVerbs": [
+          "inspire",
+          "evoke",
+          "animate"
+        ],
+        "boundaries": [
+          "Does not guarantee sustained execution.",
+          "May be vague or specific.",
+          "Must be distinguished from external command."
+        ]
+      },
+      {
+        "id": "diffusion",
+        "name": "Diffusion",
+        "definition": "The spreading of concentration, affect, image, attention, or distinction across a wider field.",
+        "primaryVerbs": [
+          "diffuse",
+          "spread",
+          "disperse"
+        ],
+        "boundaries": [
+          "May reduce intensity or clarity.",
+          "Does not always imply weakness.",
+          "May support atmosphere, blending, or loss of focus."
+        ]
+      },
+      {
+        "id": "boundary_softening",
+        "name": "Boundary Softening",
+        "definition": "Reducing the rigidity of separation while some distinction remains.",
+        "primaryVerbs": [
+          "soften",
+          "open",
+          "relax"
+        ],
+        "boundaries": [
+          "Distinct from dissolution.",
+          "May be temporary.",
+          "Requires discernment to avoid unwanted absorption."
+        ]
+      },
+      {
+        "id": "dissolution",
+        "name": "Dissolution",
+        "definition": "The loss of coherence, distinction, or form in a previously defined boundary or structure.",
+        "primaryVerbs": [
+          "dissolve",
+          "disintegrate",
+          "lose form"
+        ],
+        "boundaries": [
+          "A secondary or corrective domain, not Neptune's primary identity.",
+          "May be constructive, neutral, or destabilizing.",
+          "Requires a defined form that is losing coherence."
+        ]
+      },
+      {
+        "id": "idealization",
+        "name": "Idealization",
+        "definition": "Organizing perception around an ideal image that may exceed, simplify, or selectively filter present reality.",
+        "primaryVerbs": [
+          "idealize",
+          "elevate",
+          "romanticize"
+        ],
+        "boundaries": [
+          "May inspire or distort.",
+          "Does not inherently imply deception.",
+          "Requires comparison with available reality."
+        ]
+      },
+      {
+        "id": "surrender",
+        "name": "Surrender",
+        "definition": "Intentionally loosening control in response to uncertainty, limitation, trust, or a larger process.",
+        "primaryVerbs": [
+          "surrender",
+          "yield",
+          "release control"
+        ],
+        "boundaries": [
+          "Does not inherently mean passivity.",
+          "Does not remove responsibility.",
+          "Must be distinguished from helplessness."
+        ]
+      }
+    ],
+    "domainRelationships": [
+      {
+        "from": "permeability",
+        "to": "attunement",
+        "relationship": "Permeability makes attunement possible by allowing a signal or state to cross a boundary."
+      },
+      {
+        "from": "resonance",
+        "to": "symbolic_perception",
+        "relationship": "Resonance links one image or experience to another through associative meaning."
+      },
+      {
+        "from": "imagination",
+        "to": "inspiration",
+        "relationship": "Imagination supplies forms that may activate inspiration."
+      },
+      {
+        "from": "boundary_softening",
+        "to": "empathy",
+        "relationship": "Softened interpersonal separation may increase access to another person's affect."
+      },
+      {
+        "from": "diffusion",
+        "to": "dissolution",
+        "relationship": "Diffusion may progress into dissolution when coherence can no longer be maintained."
+      },
+      {
+        "from": "idealization",
+        "to": "projection",
+        "relationship": "Idealization may become projection when internal image is assigned outward without sufficient distinction."
+      },
+      {
+        "from": "surrender",
+        "to": "permeability",
+        "relationship": "Loosening control can permit greater contact across a boundary."
+      }
+    ],
+    "querySelectionHints": {
+      "identity": [
+        "permeability",
+        "imagination",
+        "symbolic_perception"
+      ],
+      "work": [
+        "inspiration",
+        "imagination",
+        "attunement",
+        "diffusion"
+      ],
+      "money": [
+        "idealization",
+        "diffusion",
+        "imagination"
+      ],
+      "love": [
+        "empathy",
+        "idealization",
+        "boundary_softening",
+        "resonance"
+      ],
+      "family": [
+        "empathy",
+        "absorption",
+        "boundary_softening"
+      ],
+      "friendship": [
+        "resonance",
+        "empathy",
+        "attunement"
+      ],
+      "health": [
+        "absorption",
+        "diffusion",
+        "boundary_softening"
+      ],
+      "wounds_and_healing": [
+        "empathy",
+        "surrender",
+        "boundary_softening",
+        "dissolution"
+      ],
+      "saturn_return": [
+        "surrender",
+        "boundary_softening",
+        "idealization",
+        "permeability"
+      ]
+    },
+    "semanticExclusions": [
+      "Do not derive confusion from permeability alone.",
+      "Do not derive deception from imagination.",
+      "Do not derive psychic accuracy from attunement.",
+      "Do not derive self-sacrifice from empathy.",
+      "Do not derive spiritual truth from resonance.",
+      "Do not derive helplessness from surrender.",
+      "Do not derive total boundary loss from boundary softening."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Neptune semantics module."
+    }
+  ]
+}

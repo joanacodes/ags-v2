@@ -1,0 +1,27 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house11_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "context",
+  "parentObject": "house_11",
+  "content": {
+    "domains": {
+      "community": "Context of belonging within a collective.",
+      "friendships": "Peer relationships and mutual support.",
+      "networks": "Interconnected social systems.",
+      "groups": "Participation in organized collectives.",
+      "collaboration": "Working toward shared goals.",
+      "collective_goals": "Objectives pursued together.",
+      "social_participation": "Engagement with broader communities.",
+      "alliances": "Cooperative partnerships.",
+      "innovation": "Exploring new collective possibilities.",
+      "shared_vision": "Common long-term aspirations."
+    },
+    "boundaries": [
+      "Community is not conformity.",
+      "Friendship is not popularity.",
+      "Innovation is not utopianism.",
+      "Networks are not social status."
+    ]
+  }
+}

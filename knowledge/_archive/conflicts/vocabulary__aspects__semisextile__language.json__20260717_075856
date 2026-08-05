@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "verbs": [
+      "connects",
+      "integrates",
+      "coordinates",
+      "links"
+    ],
+    "templates": [
+      "{A} and {B} develop a subtle connection.",
+      "{A} incrementally integrates with {B}."
+    ]
+  }
+}

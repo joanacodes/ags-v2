@@ -1,0 +1,180 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_psychology",
+  "name": "Neptune Psychology",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Neptune's psychological needs, sensitivities, protective strategies, regulation needs, blind spots, and integration markers.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "neptune_identity",
+    "neptune_semantics",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "neptune",
+    "psychology",
+    "planet",
+    "function"
+  ],
+  "parentObject": "neptune",
+  "moduleType": "psychology",
+  "content": {
+    "coreNeed": {
+      "id": "receptive_contact_without_loss_of_distinction",
+      "definition": "Sufficient openness to feeling, image, atmosphere, and symbolic meaning without losing the ability to distinguish self, other, fact, image, and interpretation."
+    },
+    "coreMotivation": {
+      "id": "participate_in_larger_fields",
+      "definition": "Enter forms of contact that exceed narrow literal, individual, or controlled experience."
+    },
+    "coreSensitivity": [
+      {
+        "id": "atmospheric_sensitivity",
+        "definition": "Heightened responsiveness to mood, tone, rhythm, image, and unspoken context."
+      },
+      {
+        "id": "suffering_sensitivity",
+        "definition": "Heightened responsiveness to pain, vulnerability, exclusion, or unmet need."
+      },
+      {
+        "id": "symbolic_sensitivity",
+        "definition": "Heightened responsiveness to metaphor, association, dream, image, and nonliteral meaning."
+      },
+      {
+        "id": "boundary_sensitivity",
+        "definition": "Heightened responsiveness to the degree of separation or permeability between self, other, environment, and experience."
+      }
+    ],
+    "coreFearPatterns": [
+      {
+        "id": "separation_from_meaning",
+        "definition": "Fear that literal reality is empty, disconnected, or spiritually barren."
+      },
+      {
+        "id": "loss_of_belonging_to_a_larger_whole",
+        "definition": "Fear of isolation from shared feeling, purpose, imagination, or collective experience."
+      },
+      {
+        "id": "harsh_boundary_exposure",
+        "definition": "Fear that clear separation, limitation, or refusal will be emotionally unbearable."
+      },
+      {
+        "id": "disillusionment",
+        "definition": "Fear that reality will not sustain an ideal, image, hope, or sensed possibility."
+      }
+    ],
+    "protectiveStrategies": [
+      {
+        "id": "idealization",
+        "definition": "Preserve meaning or hope by organizing perception around an ideal image."
+      },
+      {
+        "id": "projection",
+        "definition": "Assign internal image, longing, or fear outward when distinction is insufficient."
+      },
+      {
+        "id": "escapist_absorption",
+        "definition": "Move into image, fantasy, atmosphere, or altered attention to reduce contact with immediate difficulty."
+      },
+      {
+        "id": "self_erasure",
+        "definition": "Reduce personal boundary or preference in order to preserve connection, compassion, or idealized unity."
+      },
+      {
+        "id": "obscuration",
+        "definition": "Keep conditions ambiguous when clearer distinction threatens an image, bond, or hope."
+      }
+    ],
+    "blindSpots": [
+      "Confusing resonance with truth",
+      "Confusing empathy with accurate knowledge of another person",
+      "Confusing surrender with helplessness",
+      "Confusing compassion with unlimited availability",
+      "Confusing imagination with evidence",
+      "Confusing symbolic meaning with literal prediction",
+      "Underestimating the value of boundaries",
+      "Assuming ambiguity is always depth"
+    ],
+    "regulationNeeds": [
+      {
+        "id": "bounded_receptivity",
+        "definition": "Remain open while preserving a clear channel, limit, or threshold."
+      },
+      {
+        "id": "reality_contact",
+        "definition": "Compare image, feeling, intuition, and ideal with observable conditions."
+      },
+      {
+        "id": "selective_absorption",
+        "definition": "Choose what enters attention rather than receiving every signal equally."
+      },
+      {
+        "id": "symbol_literal_distinction",
+        "definition": "Allow symbolic meaning without treating it as factual certainty."
+      },
+      {
+        "id": "compassion_with_agency",
+        "definition": "Remain responsive to suffering without surrendering all personal choice or capacity."
+      }
+    ],
+    "healthyPsychologicalFunctions": [
+      "Receive subtle information without assuming certainty",
+      "Use imagination without abandoning fact",
+      "Experience empathy without self-erasure",
+      "Let symbolic meaning coexist with literal reality",
+      "Surrender control selectively",
+      "Allow inspiration to become concrete expression",
+      "Recognize atmosphere without treating it as proof",
+      "Soften boundaries while preserving consent and agency"
+    ],
+    "integrationMarkers": [
+      "Can tolerate disillusionment without abandoning meaning",
+      "Can maintain compassion and boundaries together",
+      "Can identify whether a perception is literal, symbolic, emotional, or imaginal",
+      "Can remain inspired after an ideal becomes more realistic",
+      "Can receive another person's pain without assuming ownership of it",
+      "Can surrender control without surrendering responsibility",
+      "Can let ambiguity remain open without losing all discernment",
+      "Can move between receptivity and containment"
+    ],
+    "reflectionComponents": [
+      "What is actually crossing this boundary?",
+      "Which part of this perception is literal, symbolic, emotional, or imagined?",
+      "Where would more receptivity help, and where would more distinction help?",
+      "Is this surrender chosen or compelled?",
+      "What observable reality supports this ideal?",
+      "Can compassion remain present without self-erasure?"
+    ],
+    "psychologyConstraints": [
+      "Psychology may qualify Neptunian expression but may not diagnose dissociation, addiction, delusion, or trauma.",
+      "No protective strategy may be treated as universally active.",
+      "No internal motive may be inferred from Neptune alone.",
+      "Empathy must not be equated with mind reading.",
+      "Developmental language must reference the global development blueprint."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. Psychology and development qualify expression but do not redefine Neptune.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Neptune psychology module."
+    }
+  ]
+}

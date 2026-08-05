@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "undecile_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "undecile",
+  "content": {
+    "suite": "undecile_ontology_v0.1",
+    "cases": [
+      {
+        "id": "UND-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "UND-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "UND-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "UND-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "UND-T-005",
+        "name": "No intrinsic benefic/malefic meaning",
+        "expected": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "canonical_function",
+  "parentObject": "saturn",
+  "content": {
+    "defaultFunctionSet": [
+      "saturn_structure",
+      "saturn_responsibility",
+      "saturn_discipline",
+      "saturn_mastery"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "responsibility",
+        "discipline"
+      ],
+      "relationships": [
+        "boundaries",
+        "commitment"
+      ],
+      "career": [
+        "structure",
+        "mastery"
+      ],
+      "development": [
+        "discipline",
+        "endurance"
+      ],
+      "transits": [
+        "stability",
+        "integration"
+      ]
+    },
+    "selectionRules": [
+      "Preserve Saturn's canonical function.",
+      "Apply sign modifiers before house context.",
+      "Never substitute modifiers for the function."
+    ]
+  }
+}

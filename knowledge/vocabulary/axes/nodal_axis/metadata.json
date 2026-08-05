@@ -1,0 +1,31 @@
+{
+  "$schemaVersion": "0.1.0",
+  "type": "axis_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "grammarRole": "direction",
+  "parentObject": "nodal_axis",
+  "id": "nodal_axis_metadata",
+  "name": "Nodal Axis Metadata",
+  "content": {
+    "objectId": "nodal_axis",
+    "objectType": "axis",
+    "version": "0.1.0",
+    "modules": [
+      "metadata",
+      "identity",
+      "grammar",
+      "semantics",
+      "directionality",
+      "reasoning",
+      "tests",
+      "changelog"
+    ],
+    "forbidden": [
+      "fatalistic destiny claims",
+      "South Node abandonment",
+      "North Node guaranteed success",
+      "past-life certainty"
+    ]
+  }
+}

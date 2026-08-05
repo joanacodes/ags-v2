@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quintile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "quintile",
+  "content": {
+    "canonicalFunction": "relates canonical functions through creative organization, pattern formation, and generative synthesis",
+    "coreDomains": [
+      "creativity",
+      "organization",
+      "pattern formation",
+      "synthesis",
+      "innovation",
+      "craft"
+    ],
+    "notInherent": [
+      "genius",
+      "talent",
+      "automatic mastery",
+      "beneficence"
+    ],
+    "constraints": [
+      "Quintile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}

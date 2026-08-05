@@ -1,0 +1,7 @@
+{
+  "rules": [
+    "No interpretation before data validation.",
+    "No deterministic conclusions from raw positions.",
+    "Preserve separation between calculation and semantics."
+  ]
+}

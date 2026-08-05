@@ -1,0 +1,21 @@
+{
+  "id": "south_node_reasoning",
+  "resolutionOrder": [
+    "Load both Nodes",
+    "Resolve contexts",
+    "Identify established capacities",
+    "Check evidence for overreliance",
+    "Select consolidation language",
+    "Generate paired axis clause"
+  ],
+  "heuristics": [
+    "Resource precedes liability.",
+    "Overreliance requires evidence.",
+    "Integration is preferred over replacement."
+  ],
+  "forbiddenInferences": [
+    "South Node is bad.",
+    "South Node proves past-life facts.",
+    "Established capacity must be abandoned."
+  ]
+}

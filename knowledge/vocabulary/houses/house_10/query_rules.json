@@ -1,0 +1,42 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house10_query_rules",
+  "moduleType": "query_rules",
+  "grammarRole": "context",
+  "parentObject": "house_10",
+  "content": {
+    "defaultContextSet": [
+      "house10_public",
+      "house10_resp",
+      "house10_lead"
+    ],
+    "supportedQueries": {
+      "identity": [
+        "public_role",
+        "legacy"
+      ],
+      "relationships": [
+        "responsibility",
+        "reputation"
+      ],
+      "work": [
+        "career",
+        "achievement"
+      ],
+      "health": [
+        "responsibility",
+        "ambition"
+      ],
+      "transits": [
+        "leadership",
+        "recognition"
+      ]
+    },
+    "selectionRules": [
+      "Prefer 'in the context of public role' as the neutral domain.",
+      "Prefer 'through responsibility' as the neutral focus.",
+      "Suppress assumptions about fame or prestige.",
+      "Never replace the target canonical function."
+    ]
+  }
+}

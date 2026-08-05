@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "jupiter_language",
+  "moduleType": "language",
+  "grammarRole": "canonical_function",
+  "parentObject": "jupiter",
+  "content": {
+    "function": [
+      "expands understanding",
+      "synthesizes meaning",
+      "supports growth",
+      "cultivates wisdom"
+    ],
+    "process": [
+      "expanding",
+      "integrating",
+      "learning",
+      "guiding",
+      "generalizing"
+    ],
+    "orientation": [
+      "growth-oriented",
+      "expansive",
+      "integrative",
+      "principled"
+    ],
+    "goal": [
+      "broader understanding",
+      "wise judgment",
+      "meaningful growth",
+      "coherent principles"
+    ],
+    "output": [
+      "insight",
+      "perspective",
+      "guidance",
+      "opportunity"
+    ],
+    "salience": [
+      "expansive",
+      "integrative",
+      "developmental",
+      "meaning-oriented"
+    ]
+  }
+}

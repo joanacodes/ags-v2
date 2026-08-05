@@ -1,0 +1,225 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_expression",
+  "name": "Uranus Expression",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines observable Uranian expression components, stage profiles, query priorities, and expression constraints.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "uranus_identity",
+    "uranus_semantics",
+    "uranus_psychology",
+    "uranus_development"
+  ],
+  "priority": 10,
+  "tags": [
+    "uranus",
+    "expression",
+    "planet",
+    "function"
+  ],
+  "parentObject": "uranus",
+  "moduleType": "expression",
+  "content": {
+    "observableExpressionTypes": [
+      {
+        "id": "system_questioning",
+        "definition": "Makes assumptions, rules, dependencies, or design choices available for reconsideration."
+      },
+      {
+        "id": "alternative_design",
+        "definition": "Proposes or tests a different operating arrangement."
+      },
+      {
+        "id": "pattern_interruption",
+        "definition": "Breaks continuity long enough to expose a hidden pattern or option."
+      },
+      {
+        "id": "differentiated_participation",
+        "definition": "Participates without fully conforming to inherited expectations."
+      },
+      {
+        "id": "networked_coordination",
+        "definition": "Coordinates across multiple nodes rather than one center."
+      },
+      {
+        "id": "future_adaptation",
+        "definition": "Updates present systems in response to emerging conditions."
+      }
+    ],
+    "stageExpressionProfiles": [
+      {
+        "stage": "unconscious",
+        "externalComponents": [
+          "abrupt changes of direction",
+          "unexplained withdrawal from repetition",
+          "automatic resistance to imposed sameness",
+          "inconsistent continuity",
+          "difference expressed before it is articulated"
+        ],
+        "internalComponents": [
+          "pressure for space",
+          "restlessness under repetition",
+          "sensitivity to restriction",
+          "rapid detection of alternatives"
+        ],
+        "selectionConstraints": [
+          "Do not infer intention.",
+          "Do not infer pathology.",
+          "Do not assume every discontinuity is Uranian."
+        ]
+      },
+      {
+        "stage": "defensive",
+        "externalComponents": [
+          "contrarian positioning",
+          "provocation",
+          "premature departure",
+          "unannounced disruption",
+          "refusal of coordination",
+          "change without transition planning"
+        ],
+        "internalComponents": [
+          "fear of being controlled",
+          "fear of absorption",
+          "need to restore agency quickly",
+          "identification with unpredictability"
+        ],
+        "selectionConstraints": [
+          "Requires explicit defensive evidence.",
+          "Must not be used as neutral Uranus description."
+        ]
+      },
+      {
+        "stage": "learning",
+        "externalComponents": [
+          "small-scale experiments",
+          "prototype creation",
+          "revision after feedback",
+          "conscious nonconformity",
+          "selective interruption",
+          "testing decentralized methods"
+        ],
+        "internalComponents": [
+          "curiosity about alternatives",
+          "growing tolerance for continuity",
+          "willingness to remain accountable",
+          "effort to distinguish novelty from function"
+        ],
+        "selectionConstraints": [
+          "Use when practice, testing, or revision is explicit."
+        ]
+      },
+      {
+        "stage": "healthy",
+        "externalComponents": [
+          "workable innovation",
+          "system reform",
+          "clear differentiation",
+          "responsive decentralization",
+          "future-oriented planning",
+          "selective liberation from obsolete rules"
+        ],
+        "internalComponents": [
+          "stable autonomy",
+          "systems awareness",
+          "openness to feedback",
+          "capacity to preserve useful continuity"
+        ],
+        "selectionConstraints": [
+          "Neutral mature default when no other stage is specified."
+        ]
+      },
+      {
+        "stage": "integrated",
+        "externalComponents": [
+          "sustainable reconfiguration",
+          "distributed accountability",
+          "innovation that becomes transferable practice",
+          "change designed around human and systemic consequences",
+          "difference held inside durable collaboration"
+        ],
+        "internalComponents": [
+          "freedom without reflexive escape",
+          "detachment without disconnection",
+          "future orientation grounded in present reality",
+          "capacity to stop changing once a system works"
+        ],
+        "selectionConstraints": [
+          "Requires explicit integration evidence."
+        ]
+      }
+    ],
+    "queryExpressionPriorities": {
+      "identity": [
+        "differentiated_participation",
+        "system_questioning"
+      ],
+      "work": [
+        "alternative_design",
+        "networked_coordination",
+        "future_adaptation"
+      ],
+      "money": [
+        "alternative_design",
+        "networked_coordination"
+      ],
+      "love": [
+        "differentiated_participation",
+        "pattern_interruption"
+      ],
+      "family": [
+        "system_questioning",
+        "differentiated_participation"
+      ],
+      "friendship": [
+        "networked_coordination",
+        "differentiated_participation"
+      ],
+      "health": [
+        "pattern_interruption",
+        "future_adaptation"
+      ],
+      "wounds_and_healing": [
+        "system_questioning",
+        "pattern_interruption",
+        "differentiated_participation"
+      ],
+      "saturn_return": [
+        "alternative_design",
+        "future_adaptation",
+        "sustainable_reconfiguration"
+      ]
+    },
+    "expressionConstraints": [
+      "Observable behavior is not proof of motive.",
+      "Unpredictability is not a required Uranian expression.",
+      "Technology is one possible context, not Uranus's universal meaning.",
+      "Collective or social expression does not erase personal expression.",
+      "No expression profile may become a finished placement interpretation."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. Development and psychology qualify expression but do not redefine Uranus.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Uranus expression module."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "opposition_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "opposition",
+  "content": {
+    "families": [
+      {
+        "id": "polarity",
+        "components": [
+          "balances",
+          "contrasts"
+        ]
+      },
+      {
+        "id": "integration",
+        "components": [
+          "integrates complementary functions"
+        ]
+      },
+      {
+        "id": "awareness",
+        "components": [
+          "reveals complementary perspectives"
+        ]
+      },
+      {
+        "id": "dynamic_balance",
+        "components": [
+          "supports ongoing equilibrium"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides context.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic value.",
+      "Operator meaning depends on operands."
+    ]
+  }
+}

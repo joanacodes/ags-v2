@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisextile_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisextile",
+  "content": {
+    "coreRule": "Development changes how subtle connection and incremental integration are expressed, never the relational role of Semisextile.",
+    "stages": {
+      "unconscious": [
+        "unnoticed connections",
+        "latent continuity"
+      ],
+      "defensive": [
+        "overlooking opportunities for integration",
+        "fragmented awareness"
+      ],
+      "learning": [
+        "recognizing subtle relationships",
+        "developing continuity"
+      ],
+      "healthy": [
+        "steady incremental integration",
+        "constructive coordination"
+      ],
+      "integrated": [
+        "continuous refinement through subtle coordination"
+      ]
+    },
+    "constraints": [
+      "Semisextile never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

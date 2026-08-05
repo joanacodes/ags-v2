@@ -1,0 +1,301 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "uranus_language",
+  "name": "Uranus Language",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Uranus's controlled verb hierarchy, nouns, adjectives, adverbs, fragments, selection rules, and rejected wording.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "uranus_identity",
+    "uranus_grammar",
+    "ags_semantic_domain_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "uranus",
+    "language",
+    "planet",
+    "function"
+  ],
+  "parentObject": "uranus",
+  "moduleType": "language",
+  "content": {
+    "verbHierarchy": {
+      "primaryVerb": {
+        "lemma": "reconfigure",
+        "priority": 100,
+        "definition": "Change the arrangement or operating logic of an existing system."
+      },
+      "primaryVerbPhrases": [
+        {
+          "text": "change the operating pattern",
+          "priority": 98,
+          "semanticDomain": "reconfiguration"
+        },
+        {
+          "text": "create an alternative arrangement",
+          "priority": 95,
+          "semanticDomain": "alternative_design"
+        },
+        {
+          "text": "introduce a different possibility",
+          "priority": 92,
+          "semanticDomain": "possibility"
+        },
+        {
+          "text": "update an existing system",
+          "priority": 90,
+          "semanticDomain": "adaptation"
+        },
+        {
+          "text": "separate from an inherited pattern",
+          "priority": 88,
+          "semanticDomain": "differentiation"
+        }
+      ],
+      "secondaryVerbs": [
+        {
+          "lemma": "innovate",
+          "domain": "innovation",
+          "priority": 94
+        },
+        {
+          "lemma": "differentiate",
+          "domain": "differentiation",
+          "priority": 92
+        },
+        {
+          "lemma": "experiment",
+          "domain": "experimentation",
+          "priority": 90
+        },
+        {
+          "lemma": "reform",
+          "domain": "reform",
+          "priority": 88
+        },
+        {
+          "lemma": "update",
+          "domain": "adaptation",
+          "priority": 86
+        },
+        {
+          "lemma": "liberate",
+          "domain": "liberation",
+          "priority": 84
+        },
+        {
+          "lemma": "decentralize",
+          "domain": "decentralization",
+          "priority": 82
+        },
+        {
+          "lemma": "interrupt",
+          "domain": "interruption",
+          "priority": 78
+        },
+        {
+          "lemma": "detach",
+          "domain": "detachment",
+          "priority": 72
+        },
+        {
+          "lemma": "network",
+          "domain": "networking",
+          "priority": 70
+        }
+      ],
+      "defensiveVerbs": [
+        "reject",
+        "detach excessively",
+        "provoke",
+        "destabilize",
+        "abandon",
+        "contradict reflexively",
+        "fragment",
+        "disrupt without design"
+      ],
+      "integratedVerbs": [
+        "reconfigure responsively",
+        "innovate sustainably",
+        "differentiate without isolation",
+        "reform with systems awareness",
+        "experiment with feedback",
+        "decentralize with accountability",
+        "interrupt only what prevents adaptation"
+      ]
+    },
+    "nounSystem": {
+      "primaryNoun": "reconfiguration",
+      "secondaryNouns": [
+        "innovation",
+        "difference",
+        "alternative",
+        "experimentation",
+        "reform",
+        "freedom",
+        "discontinuity",
+        "network",
+        "system change",
+        "adaptation",
+        "decentralization",
+        "future orientation"
+      ],
+      "usageRule": "Nouns support semantic indexing and explanation but may not replace the verb system."
+    },
+    "adjectiveSystem": {
+      "neutral": [
+        "reconfiguring",
+        "alternative",
+        "experimental",
+        "differentiated",
+        "nonconforming",
+        "decentralized",
+        "future-oriented",
+        "discontinuous"
+      ],
+      "constructive": [
+        "innovative",
+        "adaptive",
+        "inventive",
+        "responsive",
+        "liberating",
+        "reformative",
+        "systems-aware"
+      ],
+      "defensive": [
+        "contrarian",
+        "fragmented",
+        "provocative",
+        "erratic",
+        "detached",
+        "destabilizing",
+        "unaccountable"
+      ]
+    },
+    "adverbSystem": {
+      "neutral": [
+        "differently",
+        "experimentally",
+        "independently",
+        "systemically",
+        "nonlinearly",
+        "discontinuously"
+      ],
+      "constructive": [
+        "responsively",
+        "inventively",
+        "adaptively",
+        "with systems awareness",
+        "with openness to feedback",
+        "without unnecessary conformity"
+      ],
+      "defensive": [
+        "reactively",
+        "contrarily",
+        "provocatively",
+        "erratically",
+        "without continuity",
+        "without accountability"
+      ]
+    },
+    "technicalFragments": [
+      "Uranus supplies the reconfiguring function.",
+      "Uranus changes an operating pattern.",
+      "Uranus introduces an alternative system configuration.",
+      "Uranus differentiates a function from inherited precedent.",
+      "Uranus interrupts continuity when reconfiguration requires it."
+    ],
+    "firstPersonFragments": [
+      "I reconfigure",
+      "I innovate",
+      "I differentiate",
+      "I experiment",
+      "I reform",
+      "I update",
+      "I create an alternative arrangement"
+    ],
+    "learningFragments": [
+      "I am learning to innovate without destabilizing what remains useful",
+      "I am learning to differentiate without isolating myself",
+      "I am learning to question systems before rejecting them",
+      "I am learning to use disruption as a tool rather than an identity",
+      "I am learning to make experimentation accountable to feedback"
+    ],
+    "lexicalSelectionRules": [
+      {
+        "id": "URA-LANG-001",
+        "rule": "Use `reconfigure` when no narrower Uranian function is selected."
+      },
+      {
+        "id": "URA-LANG-002",
+        "rule": "Use `innovate` only when a new workable arrangement is being created."
+      },
+      {
+        "id": "URA-LANG-003",
+        "rule": "Use `differentiate` when separation from precedent or collective expectation is central."
+      },
+      {
+        "id": "URA-LANG-004",
+        "rule": "Use `reform` when the existing system remains the object of revision."
+      },
+      {
+        "id": "URA-LANG-005",
+        "rule": "Use `liberate` only when a defined constraint is present."
+      },
+      {
+        "id": "URA-LANG-006",
+        "rule": "Use `disrupt` only as a mechanism under explicit contextual support."
+      },
+      {
+        "id": "URA-LANG-007",
+        "rule": "Never equate novelty with innovation."
+      }
+    ],
+    "rejectedWording": [
+      {
+        "text": "Uranus is chaos.",
+        "reason": "Chaos is a possible condition or outcome, not the neutral function."
+      },
+      {
+        "text": "Uranus destroys structures.",
+        "reason": "Uranus may interrupt or reconfigure structures; destruction is not universal."
+      },
+      {
+        "text": "Uranus guarantees sudden events.",
+        "reason": "Timing and external events cannot be guaranteed."
+      },
+      {
+        "text": "Uranus is rebellion.",
+        "reason": "Rebellion is one possible social or defensive expression."
+      },
+      {
+        "text": "Uranus is intelligence.",
+        "reason": "Pattern innovation is distinct from general cognition or intelligence."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Uranus language module."
+    }
+  ]
+}

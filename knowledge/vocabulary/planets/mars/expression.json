@@ -1,0 +1,56 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "mars_expression",
+  "moduleType": "expression",
+  "grammarRole": "canonical_function",
+  "parentObject": "mars",
+  "content": {
+    "families": [
+      {
+        "id": "agency",
+        "components": [
+          "initiates action",
+          "supports intentional agency"
+        ]
+      },
+      {
+        "id": "assertion",
+        "components": [
+          "supports assertion",
+          "expresses clear boundaries"
+        ]
+      },
+      {
+        "id": "effort",
+        "components": [
+          "directs effort",
+          "sustains motivation"
+        ]
+      },
+      {
+        "id": "execution",
+        "components": [
+          "organizes execution",
+          "translates intention into action"
+        ]
+      },
+      {
+        "id": "courage",
+        "components": [
+          "supports courageous action",
+          "engages challenge constructively"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "sign": "Modify style without replacing Mars's function.",
+      "house": "Place Mars's function into experiential context.",
+      "aspect": "Relate Mars to another canonical function.",
+      "dignity": "Adjust condition without changing ontology."
+    },
+    "constraints": [
+      "Mars remains the acting canonical function.",
+      "No expression is a complete interpretation."
+    ]
+  }
+}

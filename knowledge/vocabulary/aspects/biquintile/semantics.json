@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biquintile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "biquintile",
+  "content": {
+    "definition": "A Biquintile relates participating canonical functions through higher-order creative synthesis while preserving each function's identity.",
+    "boundaries": [
+      "Creative synthesis does not imply guaranteed mastery.",
+      "Integration does not replace canonical functions."
+    ]
+  }
+}

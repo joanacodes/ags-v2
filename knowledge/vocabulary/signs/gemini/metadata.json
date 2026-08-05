@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "gemini_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "modifier",
+  "parentObject": "gemini",
+  "content": {
+    "canonicalId": "gemini",
+    "displayName": "Gemini",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "differentiating_mode",
+    "canonicalQuestion": "How does this diversify and connect?"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "neptune_query_rules",
+  "content": {
+    "primaryVerb": "permeate",
+    "selectionRules": [
+      "Default to 'permeate' unless a more specific approved Neptunian verb is justified.",
+      "Never infer confusion without context.",
+      "Never literalize symbolic perception."
+    ],
+    "supportedQueries": [
+      "identity",
+      "career",
+      "relationships",
+      "family",
+      "spirituality"
+    ]
+  }
+}

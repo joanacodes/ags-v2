@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "vigintile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "vigintile",
+  "content": {
+    "families": [
+      {
+        "id": "refinement",
+        "components": [
+          "supports subtle improvement",
+          "reveals adjustments"
+        ]
+      },
+      {
+        "id": "precision",
+        "components": [
+          "clarifies distinctions",
+          "improves coordination"
+        ]
+      },
+      {
+        "id": "micro_integration",
+        "components": [
+          "combines small factors",
+          "creates coherence"
+        ]
+      },
+      {
+        "id": "optimization",
+        "components": [
+          "fine tunes expression",
+          "supports efficiency"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

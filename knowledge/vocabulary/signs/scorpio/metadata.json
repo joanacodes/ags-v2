@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "scorpio_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "modifier",
+  "parentObject": "scorpio",
+  "content": {
+    "canonicalId": "scorpio",
+    "displayName": "Scorpio",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "transformational_mode",
+    "canonicalQuestion": "How does this transform and penetrate?"
+  }
+}

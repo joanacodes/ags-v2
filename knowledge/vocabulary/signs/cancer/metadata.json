@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "cancer_metadata",
+  "moduleType": "metadata",
+  "grammarRole": "modifier",
+  "parentObject": "cancer",
+  "content": {
+    "canonicalId": "cancer",
+    "displayName": "Cancer",
+    "ontologyClass": "sign",
+    "grammarRole": "modifier",
+    "semanticClass": "nurturing_mode",
+    "canonicalQuestion": "How does this protect and sustain?"
+  }
+}

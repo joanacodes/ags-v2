@@ -1,0 +1,39 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "novile_family_audit",
+  "moduleType": "family_audit",
+  "parentObject": "novile_family",
+  "content": {
+    "family": "maturation_harmonic_family",
+    "members": [
+      {
+        "id": "novile",
+        "angle": "40\u00b0",
+        "role": "maturation_cycle_operator"
+      },
+      {
+        "id": "binovile",
+        "angle": "80\u00b0",
+        "role": "dual_maturation_cycle_operator"
+      }
+    ],
+    "inheritanceRules": [
+      "Family members inherit maturation harmonic semantics.",
+      "Each aspect retains independent operator identity.",
+      "No family member replaces canonical functions."
+    ],
+    "sharedDomains": [
+      "maturation",
+      "developmental cycles",
+      "integration",
+      "completion",
+      "inner refinement"
+    ],
+    "excludedAssumptions": [
+      "guaranteed completion",
+      "spiritual superiority",
+      "inevitable outcomes",
+      "inherent beneficence"
+    ]
+  }
+}

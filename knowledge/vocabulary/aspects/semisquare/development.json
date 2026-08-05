@@ -1,0 +1,35 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "semisquare_development",
+  "moduleType": "development",
+  "grammarRole": "relational_operator",
+  "parentObject": "semisquare",
+  "content": {
+    "coreRule": "Development changes how localized constructive tension is managed, never the relational role of Semisquare.",
+    "stages": {
+      "unconscious": [
+        "unnoticed friction",
+        "automatic reactions"
+      ],
+      "defensive": [
+        "resistance to correction",
+        "repetitive patterns"
+      ],
+      "learning": [
+        "recognizing corrective signals",
+        "intentional adjustment"
+      ],
+      "healthy": [
+        "constructive refinement",
+        "adaptive response"
+      ],
+      "integrated": [
+        "continuous incremental improvement"
+      ]
+    },
+    "constraints": [
+      "Semisquare never becomes a canonical function.",
+      "Participating functions retain identity."
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sun_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "canonical_function",
+  "parentObject": "sun",
+  "content": {
+    "functionSlots": [
+      "function",
+      "process",
+      "orientation",
+      "goal",
+      "output",
+      "salience"
+    ],
+    "allowedModifiers": [
+      "sign",
+      "house",
+      "degree",
+      "dignity"
+    ],
+    "allowedRelations": [
+      "aspect"
+    ],
+    "patterns": [
+      "The Sun organizes [domain].",
+      "The Sun directs [process] toward [goal].",
+      "The Sun expresses through [house_context].",
+      "The Sun's function is modified by [sign_modifier]."
+    ],
+    "forbidden": [
+      "The Sun is merely personality.",
+      "The Sun is the house context.",
+      "The Sun is replaced by its sign.",
+      "The Sun inherently indicates fame or dominance."
+    ]
+  }
+}

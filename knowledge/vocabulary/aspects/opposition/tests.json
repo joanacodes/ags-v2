@@ -1,0 +1,37 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "opposition_tests",
+  "moduleType": "tests",
+  "grammarRole": "relational_operator",
+  "parentObject": "opposition",
+  "content": {
+    "suite": "opposition_ontology_v0.1",
+    "cases": [
+      {
+        "id": "OPP-T-001",
+        "name": "Operator preserved",
+        "expected": true
+      },
+      {
+        "id": "OPP-T-002",
+        "name": "Operands retain identity",
+        "expected": true
+      },
+      {
+        "id": "OPP-T-003",
+        "name": "Orb modifies strength only",
+        "expected": true
+      },
+      {
+        "id": "OPP-T-004",
+        "name": "Deterministic composition",
+        "expected": true
+      },
+      {
+        "id": "OPP-T-005",
+        "name": "No intrinsic benefic/malefic",
+        "expected": true
+      }
+    ]
+  }
+}

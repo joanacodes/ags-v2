@@ -1,0 +1,16 @@
+{
+  "types": {
+    "reinforcement": {
+      "description": "Multiple relationships support similar functional themes."
+    },
+    "tension": {
+      "description": "Relationships express competing functional directions."
+    },
+    "modulation": {
+      "description": "One relationship alters the expression style of another."
+    },
+    "integration": {
+      "description": "Multiple operators combine into a larger pattern."
+    }
+  }
+}

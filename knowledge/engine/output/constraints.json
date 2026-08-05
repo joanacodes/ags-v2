@@ -1,0 +1,8 @@
+{
+  "rules": [
+    "Avoid fortune-telling.",
+    "Avoid personality reduction.",
+    "Avoid ranking expressions as superior or inferior.",
+    "Preserve relational complexity."
+  ]
+}

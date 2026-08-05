@@ -1,0 +1,11 @@
+{
+  "steps": [
+    "Receive natural language query",
+    "Identify requested domain",
+    "Retrieve relevant ontology modules",
+    "Resolve canonical functions",
+    "Resolve aspect operators",
+    "Apply conditions and context",
+    "Generate structured response"
+  ]
+}

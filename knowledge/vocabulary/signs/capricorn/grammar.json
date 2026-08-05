@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "capricorn_grammar",
+  "moduleType": "grammar",
+  "grammarRole": "modifier",
+  "parentObject": "capricorn",
+  "content": {
+    "modifierSlots": [
+      "manner",
+      "strategy",
+      "pace",
+      "orientation",
+      "priority",
+      "regulation",
+      "developmental"
+    ],
+    "allowedTargets": [
+      "planet",
+      "angle",
+      "node",
+      "chiron"
+    ],
+    "patterns": [
+      "[target] systematically",
+      "[target] through structured planning",
+      "[target] steadily",
+      "[target] toward long-term achievement",
+      "[target] with emphasis on responsibility"
+    ],
+    "forbidden": [
+      "Capricorn acts.",
+      "Capricorn causes coldness.",
+      "Capricorn makes people authoritarian."
+    ]
+  }
+}

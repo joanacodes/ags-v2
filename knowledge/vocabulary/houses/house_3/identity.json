@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house3_identity",
+  "moduleType": "identity",
+  "grammarRole": "context",
+  "parentObject": "house_3",
+  "content": {
+    "coreDomains": [
+      "communication",
+      "learning",
+      "thinking",
+      "siblings",
+      "neighbors",
+      "local_environment",
+      "curiosity",
+      "skills",
+      "information_exchange",
+      "adaptation"
+    ],
+    "notInherent": [
+      "gossip",
+      "superficiality",
+      "intelligence",
+      "restlessness",
+      "dishonesty",
+      "verbosity"
+    ],
+    "constraints": [
+      "House 3 is a context.",
+      "House 3 never performs actions.",
+      "House 3 never replaces a planet's canonical function."
+    ]
+  }
+}

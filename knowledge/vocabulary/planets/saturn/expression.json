@@ -1,0 +1,92 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_expression",
+  "name": "Saturn Expression",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Observable expressions across development.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-017",
+    "LAW-019"
+  ],
+  "dependsOn": [
+    "saturn_identity",
+    "saturn_semantics"
+  ],
+  "priority": 10,
+  "tags": [
+    "saturn",
+    "expression"
+  ],
+  "parentObject": "saturn",
+  "moduleType": "expression",
+  "content": {
+    "operatingModes": [
+      {
+        "stage": "unconscious",
+        "internal": "I simply do what has always been done.",
+        "external": [
+          "Habit-driven",
+          "Follows rules automatically"
+        ],
+        "coach": "What assumptions have you never questioned?"
+      },
+      {
+        "stage": "defensive",
+        "internal": "If I loosen control everything will collapse.",
+        "external": [
+          "Micromanages",
+          "Overworks",
+          "Distrusts delegation",
+          "Rigid boundaries"
+        ],
+        "coach": "Which responsibility actually belongs to you?"
+      },
+      {
+        "stage": "learning",
+        "internal": "I'm trying to build differently.",
+        "external": [
+          "Tests new routines",
+          "Sometimes overcorrects"
+        ],
+        "coach": "Which practice is worth repeating?"
+      },
+      {
+        "stage": "healthy",
+        "internal": "Structure supports life.",
+        "external": [
+          "Reliable",
+          "Patient",
+          "Accountable",
+          "Strategic"
+        ],
+        "coach": "How can your systems become self-sustaining?"
+      },
+      {
+        "stage": "integrated",
+        "internal": "I steward what deserves to endure.",
+        "external": [
+          "Builds resilient organizations",
+          "Develops others",
+          "Balances stability and change"
+        ],
+        "coach": "What legacy can continue without you?"
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS development",
+    "sourcePolicy": "AGS",
+    "maintainer": "AGS"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial draft"
+    }
+  ]
+}

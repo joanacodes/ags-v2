@@ -1,0 +1,13 @@
+{
+  "requiredInputs": [
+    "date",
+    "time",
+    "location"
+  ],
+  "derivedData": [
+    "planetary_positions",
+    "angles",
+    "aspect_relationships",
+    "orb_values"
+  ]
+}

@@ -1,0 +1,415 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_semantics",
+  "name": "Aries Semantics",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Aries semantic domains, distinctions, boundaries, relationships, and query-selection hints without finished interpretations.",
+  "grammarRole": "modifier",
+  "compliesWith": [
+    "LAW-002",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "aries_identity",
+    "aries_modifiers",
+    "ags_sign_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "aries",
+    "semantics",
+    "sign",
+    "modifier"
+  ],
+  "parentObject": "aries",
+  "moduleType": "semantics",
+  "content": {
+    "coreDomains": [
+      {
+        "id": "initiative",
+        "definition": "The movement from inactivity into first action.",
+        "componentTypes": [
+          "semantic_domain",
+          "strategy_phrase",
+          "orientation_phrase"
+        ],
+        "relatedModifiers": [
+          "proactively",
+          "through initiation",
+          "toward first action"
+        ],
+        "boundaries": {
+          "not": [
+            "guaranteed leadership",
+            "recklessness",
+            "completion"
+          ],
+          "distinction": "Initiative begins movement; it does not guarantee persistence or outcome."
+        }
+      },
+      {
+        "id": "directness",
+        "definition": "A low-indirection approach that moves toward the relevant object, issue, or action without unnecessary mediation.",
+        "componentTypes": [
+          "manner_adverb",
+          "quality_adjective",
+          "strategy_phrase"
+        ],
+        "relatedModifiers": [
+          "directly",
+          "direct",
+          "through direct engagement"
+        ],
+        "boundaries": {
+          "not": [
+            "rudeness",
+            "aggression",
+            "lack of reflection"
+          ],
+          "distinction": "Directness concerns route and clarity, not hostility."
+        }
+      },
+      {
+        "id": "immediacy",
+        "definition": "A preference for near-term response, rapid mobilization, and minimal delay.",
+        "componentTypes": [
+          "manner_adverb",
+          "pace_phrase",
+          "orientation_phrase"
+        ],
+        "relatedModifiers": [
+          "immediately",
+          "rapidly",
+          "toward immediate movement"
+        ],
+        "boundaries": {
+          "not": [
+            "carelessness",
+            "automatic impulsiveness",
+            "inability to plan"
+          ],
+          "distinction": "Immediacy concerns timing preference; impulsiveness is a defensive expression."
+        }
+      },
+      {
+        "id": "autonomy",
+        "definition": "A preference for self-directed choice, independent movement, and internally authorized action.",
+        "componentTypes": [
+          "manner_adverb",
+          "orientation_phrase",
+          "strategy_phrase"
+        ],
+        "relatedModifiers": [
+          "independently",
+          "toward autonomy",
+          "through autonomous decision-making"
+        ],
+        "boundaries": {
+          "not": [
+            "isolation",
+            "selfishness",
+            "rejection of cooperation"
+          ],
+          "distinction": "Autonomy concerns authorship of action, not refusal of relationship."
+        }
+      },
+      {
+        "id": "assertion",
+        "definition": "The active expression of position, preference, boundary, or will.",
+        "componentTypes": [
+          "manner_adverb",
+          "quality_adjective",
+          "healthy_modifier",
+          "defensive_modifier"
+        ],
+        "relatedModifiers": [
+          "assertively",
+          "assertive",
+          "with proportionate assertiveness"
+        ],
+        "boundaries": {
+          "not": [
+            "violence",
+            "domination",
+            "coercion"
+          ],
+          "distinction": "Assertion communicates or enacts a position; aggression is one possible defensive distortion."
+        }
+      },
+      {
+        "id": "courage",
+        "definition": "The willingness to move toward challenge, risk, exposure, or uncertainty despite fear.",
+        "componentTypes": [
+          "healthy_modifier",
+          "integrated_modifier"
+        ],
+        "relatedModifiers": [
+          "courageously",
+          "with courageous restraint"
+        ],
+        "boundaries": {
+          "not": [
+            "fearlessness",
+            "recklessness",
+            "invulnerability"
+          ],
+          "distinction": "Courage includes awareness of risk rather than absence of fear."
+        }
+      },
+      {
+        "id": "challenge_response",
+        "definition": "The mobilization of attention and energy when confronted by friction, opposition, or an obstacle.",
+        "componentTypes": [
+          "strategy_phrase",
+          "orientation_phrase",
+          "defensive_modifier"
+        ],
+        "relatedModifiers": [
+          "through confrontation with an obstacle",
+          "toward challenge",
+          "reactively"
+        ],
+        "boundaries": {
+          "not": [
+            "constant conflict",
+            "hostility",
+            "needless escalation"
+          ],
+          "distinction": "Challenge response may be constructive or defensive depending on stage and context."
+        }
+      },
+      {
+        "id": "action_testing",
+        "definition": "The use of action as a way to gather immediate feedback and discover what works.",
+        "componentTypes": [
+          "manner_adverb",
+          "strategy_phrase",
+          "integrated_modifier"
+        ],
+        "relatedModifiers": [
+          "experimentally",
+          "through active experimentation",
+          "through action that remains open to correction"
+        ],
+        "boundaries": {
+          "not": [
+            "random behavior",
+            "careless trial and error",
+            "lack of learning"
+          ],
+          "distinction": "Action testing requires feedback and adjustment."
+        }
+      },
+      {
+        "id": "self_direction",
+        "definition": "The establishment of personal direction through internally chosen action and self-authored priorities.",
+        "componentTypes": [
+          "quality_adjective",
+          "orientation_phrase",
+          "healthy_modifier"
+        ],
+        "relatedModifiers": [
+          "self-directed",
+          "toward self-definition",
+          "with direct ownership"
+        ],
+        "boundaries": {
+          "not": [
+            "self-centeredness",
+            "fixed identity",
+            "refusal of influence"
+          ],
+          "distinction": "Self-direction can incorporate external information while preserving authorship."
+        }
+      },
+      {
+        "id": "first_movement",
+        "definition": "The capacity to create an opening, launch a process, or cross from possibility into action.",
+        "componentTypes": [
+          "quality_adjective",
+          "healthy_modifier",
+          "orientation_phrase"
+        ],
+        "relatedModifiers": [
+          "pioneering",
+          "with willingness to begin",
+          "toward first action"
+        ],
+        "boundaries": {
+          "not": [
+            "completion",
+            "maintenance",
+            "long-term endurance"
+          ],
+          "distinction": "First movement begins a process; other functions may sustain or complete it."
+        }
+      }
+    ],
+    "secondaryDomains": [
+      {
+        "id": "competition",
+        "definition": "The use of comparison, challenge, or contest to mobilize effort.",
+        "status": "context_dependent",
+        "selectionRule": "Select only when the query, planetary function, or observed context explicitly supports competition."
+      },
+      {
+        "id": "experiential_learning",
+        "definition": "Learning through direct participation, action, and immediate feedback.",
+        "status": "supporting",
+        "selectionRule": "Prefer with cognitive, action, developmental, or skill-related planetary functions."
+      },
+      {
+        "id": "decision",
+        "definition": "The movement from alternatives into chosen action.",
+        "status": "supporting",
+        "selectionRule": "Prefer when the planetary function can select, commit, assert, or initiate."
+      }
+    ],
+    "domainRelationships": [
+      {
+        "from": "initiative",
+        "to": "first_movement",
+        "relationship": "Initiative supplies the impulse and first movement supplies the crossing into action."
+      },
+      {
+        "from": "directness",
+        "to": "assertion",
+        "relationship": "Directness reduces indirection while assertion expresses a position or will."
+      },
+      {
+        "from": "immediacy",
+        "to": "action_testing",
+        "relationship": "Immediacy favors rapid action; action testing adds feedback and correction."
+      },
+      {
+        "from": "autonomy",
+        "to": "self_direction",
+        "relationship": "Autonomy protects independent choice while self-direction establishes personally authored movement."
+      },
+      {
+        "from": "challenge_response",
+        "to": "courage",
+        "relationship": "Challenge response mobilizes action; courage determines whether risk is engaged proportionately."
+      }
+    ],
+    "querySelectionHints": {
+      "identity": {
+        "preferredDomains": [
+          "self_direction",
+          "autonomy",
+          "directness"
+        ],
+        "deprioritizedDomains": [
+          "competition"
+        ]
+      },
+      "family": {
+        "preferredDomains": [
+          "assertion",
+          "autonomy",
+          "challenge_response"
+        ],
+        "deprioritizedDomains": [
+          "competition"
+        ]
+      },
+      "friendship": {
+        "preferredDomains": [
+          "directness",
+          "initiative",
+          "autonomy"
+        ],
+        "deprioritizedDomains": [
+          "challenge_response"
+        ]
+      },
+      "love": {
+        "preferredDomains": [
+          "directness",
+          "assertion",
+          "initiative"
+        ],
+        "deprioritizedDomains": [
+          "competition"
+        ]
+      },
+      "work": {
+        "preferredDomains": [
+          "initiative",
+          "decision",
+          "first_movement",
+          "action_testing"
+        ],
+        "deprioritizedDomains": []
+      },
+      "money": {
+        "preferredDomains": [
+          "initiative",
+          "decision",
+          "autonomy"
+        ],
+        "deprioritizedDomains": [
+          "competition"
+        ]
+      },
+      "health": {
+        "preferredDomains": [
+          "immediacy",
+          "action_testing",
+          "self_direction"
+        ],
+        "deprioritizedDomains": [
+          "competition",
+          "challenge_response"
+        ]
+      },
+      "wounds_and_healing": {
+        "preferredDomains": [
+          "courage",
+          "self_direction",
+          "challenge_response"
+        ],
+        "deprioritizedDomains": [
+          "competition"
+        ]
+      },
+      "saturn_return": {
+        "preferredDomains": [
+          "initiative",
+          "self_direction",
+          "courage",
+          "decision"
+        ],
+        "deprioritizedDomains": [
+          "immediacy"
+        ]
+      }
+    },
+    "semanticExclusions": [
+      "Do not derive aggression from assertion.",
+      "Do not derive selfishness from autonomy.",
+      "Do not derive recklessness from immediacy.",
+      "Do not derive leadership from initiative alone.",
+      "Do not derive completion from first movement.",
+      "Do not derive conflict from challenge response without contextual support."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only sign vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Aries semantics module."
+    }
+  ]
+}

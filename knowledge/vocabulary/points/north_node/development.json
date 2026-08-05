@@ -1,0 +1,207 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "north_node_development",
+  "name": "North Node Development",
+  "type": "point_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines North Node expression across universal developmental stages without converting direction into destiny.",
+  "grammarRole": "developmental_direction",
+  "compliesWith": [
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "north_node_identity",
+    "north_node_semantics",
+    "north_node_psychology",
+    "nodal_axis_directionality",
+    "ags_development_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "north_node",
+    "development",
+    "point",
+    "developmental_direction"
+  ],
+  "parentObject": "north_node",
+  "moduleType": "development",
+  "content": {
+    "developmentReference": "ags_development_blueprint",
+    "coreRule": "Development changes how the emerging capacity is approached; it does not convert the North Node into destiny or guarantee integration.",
+    "stageExpressions": [
+      {
+        "stage": "unconscious",
+        "functionalPattern": [
+          "Feels drawn toward unfamiliar experiences without a clear practice structure",
+          "Alternates between curiosity and retreat",
+          "Projects mastery onto others",
+          "Returns automatically to the South Node under pressure"
+        ],
+        "eligibleVerbs": [
+          "approach",
+          "try",
+          "imitate",
+          "retreat",
+          "idealize"
+        ],
+        "ineligibleClaims": [
+          "integrated development",
+          "stable emerging capacity",
+          "completed life direction"
+        ],
+        "learningTaskComponents": [
+          "Name the emerging capacity",
+          "Identify one repeatable practice",
+          "Notice when pressure triggers automatic return to familiarity"
+        ]
+      },
+      {
+        "stage": "defensive",
+        "functionalPattern": [
+          "Performs the emerging capacity rigidly",
+          "Rejects familiar strengths",
+          "Moralizes growth",
+          "Overcorrects away from the South Node",
+          "Uses aspirational identity to avoid actual practice"
+        ],
+        "eligibleVerbs": [
+          "force",
+          "overcorrect",
+          "perform prematurely",
+          "reject familiarity",
+          "idealize the unfamiliar"
+        ],
+        "requiredConditions": [
+          "explicit stress condition",
+          "explicit defensive activation",
+          "explicit shame, comparison, or overcorrection evidence"
+        ],
+        "learningTaskComponents": [
+          "Restore South Node resource access",
+          "Reduce performance pressure",
+          "Separate aspiration from competence",
+          "Return to bounded practice"
+        ]
+      },
+      {
+        "stage": "learning",
+        "functionalPattern": [
+          "Practices the emerging capacity repeatedly",
+          "Experiments with different forms",
+          "Uses feedback to refine development",
+          "Begins coordinating the new capacity with familiar strengths"
+        ],
+        "eligibleVerbs": [
+          "practice",
+          "develop",
+          "experiment",
+          "cultivate",
+          "integrate gradually"
+        ],
+        "learningTaskComponents": [
+          "Repeat under varied conditions",
+          "Measure functional improvement",
+          "Use the South Node selectively",
+          "Adjust pace and difficulty"
+        ]
+      },
+      {
+        "stage": "healthy",
+        "functionalPattern": [
+          "Uses the emerging capacity with increasing competence",
+          "Expands range without rejecting familiarity",
+          "Chooses between both poles according to context",
+          "Treats development as practice rather than identity proof"
+        ],
+        "eligibleVerbs": [
+          "develop",
+          "cultivate",
+          "extend",
+          "integrate",
+          "build capacity for"
+        ],
+        "operatingConditions": [
+          "query relevance",
+          "opposite Node remains represented",
+          "practice evidence exists",
+          "range expansion remains observable"
+        ],
+        "learningTaskComponents": [
+          "Stabilize the capacity without making it rigid",
+          "Use the emerging function under greater complexity",
+          "Keep both poles available"
+        ]
+      },
+      {
+        "stage": "integrated",
+        "functionalPattern": [
+          "Moves between familiar and emerging functions without moral ranking",
+          "Uses the North Node capacity as part of a wider repertoire",
+          "Allows development to continue without identity inflation",
+          "Coordinates both poles with timing, context, and feedback"
+        ],
+        "eligibleVerbs": [
+          "develop without rejecting familiarity",
+          "integrate both poles",
+          "extend range with discernment",
+          "practice without identity inflation",
+          "coordinate established and emerging capacities"
+        ],
+        "requiredConditions": [
+          "explicit integration stage",
+          "explicit axis synthesis evidence",
+          "sustained contextual use of both poles"
+        ],
+        "developmentalContribution": [
+          "Expands response range without invalidating established competence",
+          "Makes developmental asymmetry less rigid",
+          "Converts aspiration into usable capacity",
+          "Supports context-sensitive movement across the axis"
+        ]
+      }
+    ],
+    "crossStageRules": [
+      {
+        "id": "NN-DEV-001",
+        "rule": "The same emerging domain may use different verbs at different stages."
+      },
+      {
+        "id": "NN-DEV-002",
+        "rule": "North Node development may remain incomplete without being invalid."
+      },
+      {
+        "id": "NN-DEV-003",
+        "rule": "Integrated expression still preserves the South Node."
+      },
+      {
+        "id": "NN-DEV-004",
+        "rule": "Healthy development does not imply comfort or social approval."
+      },
+      {
+        "id": "NN-DEV-005",
+        "rule": "No stage may introduce a semantic domain absent from approved North Node vocabulary."
+      }
+    ]
+  },
+  "provenance": {
+    "method": "AGS point ontology development",
+    "sourcePolicy": "Developmental-direction vocabulary only. Psychology and development qualify expression but do not convert the North Node into destiny, moral ranking, or guaranteed outcome.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial North Node development module."
+    }
+  ]
+}

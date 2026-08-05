@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "jupiter_identity",
+  "moduleType": "identity",
+  "grammarRole": "canonical_function",
+  "parentObject": "jupiter",
+  "content": {
+    "canonicalFunction": "expands understanding, synthesizes meaning, and supports growth and wisdom",
+    "coreDomains": [
+      "expansion",
+      "meaning",
+      "wisdom",
+      "growth",
+      "synthesis",
+      "learning",
+      "principles",
+      "beliefs",
+      "opportunity",
+      "generativity"
+    ],
+    "notInherent": [
+      "luck",
+      "wealth",
+      "religion",
+      "optimism",
+      "success",
+      "excess"
+    ],
+    "constraints": [
+      "Jupiter is a canonical function.",
+      "Signs modify Jupiter but never replace it.",
+      "Houses contextualize Jupiter but never perform it.",
+      "Aspects relate Jupiter to other canonical functions."
+    ]
+  }
+}

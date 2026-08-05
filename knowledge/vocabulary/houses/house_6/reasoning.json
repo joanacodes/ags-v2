@@ -1,0 +1,44 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house6_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "context",
+  "parentObject": "house_6",
+  "content": {
+    "resolutionOrder": [
+      "Load target canonical function",
+      "Confirm House 6 is a context",
+      "Resolve query domain",
+      "Resolve developmental stage",
+      "Select compatible contextual components",
+      "Apply sign, degree, and dignity modifiers",
+      "Validate canonical function unchanged",
+      "Generate contextual semantic structure"
+    ],
+    "defaultInferenceProfile": {
+      "domain": "service",
+      "focus": "routine",
+      "expression_context": "through practical refinement",
+      "salience": "consistent"
+    },
+    "compositionRules": [
+      "House 6 provides context but never performs actions.",
+      "Planets retain canonical functions.",
+      "Signs modify functions before contextual placement.",
+      "Houses provide experiential context only.",
+      "Aspects remain relational operators.",
+      "Dignity changes condition, not ontology."
+    ],
+    "heuristics": [
+      "Prefer service over servitude.",
+      "Prefer discipline over perfectionism.",
+      "Prefer health maintenance over illness assumptions.",
+      "Return an empty context set instead of inventing semantics."
+    ],
+    "forbiddenInferences": [
+      "House 6 creates illness.",
+      "House 6 implies workaholism.",
+      "House 6 replaces the target function."
+    ]
+  }
+}

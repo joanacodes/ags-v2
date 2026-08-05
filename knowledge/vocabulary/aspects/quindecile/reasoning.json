@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quindecile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "quindecile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Quindecile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate focused intensification semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Quindecile introduces focused intensification without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer directed engagement over deterministic outcomes.",
+      "Interpret intensity through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Quindecile guarantees obsession.",
+      "Quindecile is inherently malefic.",
+      "Quindecile replaces planetary functions."
+    ]
+  }
+}

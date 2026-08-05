@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "triseptile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "triseptile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Triseptile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate recursive convergence semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Triseptile introduces recursive convergence without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer systemic convergence over deterministic outcomes.",
+      "Interpret convergence through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Triseptile is inherently fated or magical.",
+      "Triseptile guarantees destiny.",
+      "Triseptile replaces planetary functions."
+    ]
+  }
+}

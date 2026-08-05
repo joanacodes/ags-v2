@@ -1,0 +1,260 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "aries_compatibility",
+  "name": "Aries Compatibility",
+  "type": "sign_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines which Aries components are compatible with planetary verb classes and which combinations must be avoided.",
+  "grammarRole": "modifier",
+  "compliesWith": [
+    "LAW-002",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "aries_identity",
+    "aries_modifiers",
+    "ags_sign_blueprint"
+  ],
+  "priority": 10,
+  "tags": [
+    "aries",
+    "compatibility",
+    "sign",
+    "modifier"
+  ],
+  "parentObject": "aries",
+  "moduleType": "compatibility",
+  "content": {
+    "verbClassCompatibility": [
+      {
+        "verbClass": "structuring_verbs",
+        "preferredModifiers": [
+          "directly",
+          "through initiation",
+          "through direct engagement",
+          "toward first action"
+        ],
+        "allowedModifiers": [
+          "independently",
+          "decisively",
+          "with clear initiative",
+          "through autonomous decision-making"
+        ],
+        "avoidModifiers": [
+          "immediately",
+          "without extended preparation",
+          "in short, forceful bursts"
+        ],
+        "fallbackModifier": "directly",
+        "reason": "Structuring verbs benefit from initiative and directness, but excessive speed may conflict with durability and assessment."
+      },
+      {
+        "verbClass": "action_verbs",
+        "preferredModifiers": [
+          "directly",
+          "immediately",
+          "assertively",
+          "through initiation",
+          "through immediate action"
+        ],
+        "allowedModifiers": [
+          "competitively",
+          "experimentally",
+          "toward challenge"
+        ],
+        "avoidModifiers": [
+          "through forced independence",
+          "through unnecessary confrontation"
+        ],
+        "fallbackModifier": "directly",
+        "reason": "Action verbs are highly compatible with Aries pace and initiative."
+      },
+      {
+        "verbClass": "cognitive_verbs",
+        "preferredModifiers": [
+          "directly",
+          "decisively",
+          "through first-hand experience",
+          "through active experimentation"
+        ],
+        "allowedModifiers": [
+          "independently",
+          "proactively"
+        ],
+        "avoidModifiers": [
+          "without extended reflection",
+          "aggressively"
+        ],
+        "fallbackModifier": "directly",
+        "reason": "Cognitive verbs can use Aries for decisiveness and experiential learning, but not at the cost of adequate evaluation."
+      },
+      {
+        "verbClass": "relational_verbs",
+        "preferredModifiers": [
+          "directly",
+          "assertively",
+          "through direct engagement",
+          "with clear initiative"
+        ],
+        "allowedModifiers": [
+          "independently",
+          "toward self-definition"
+        ],
+        "avoidModifiers": [
+          "competitively",
+          "through unnecessary confrontation",
+          "through forced independence"
+        ],
+        "fallbackModifier": "directly",
+        "reason": "Relational verbs can become clearer and more initiating, while excessive competition can distort reciprocity."
+      },
+      {
+        "verbClass": "expansive_verbs",
+        "preferredModifiers": [
+          "proactively",
+          "through initiation",
+          "toward challenge",
+          "through first-hand experience"
+        ],
+        "allowedModifiers": [
+          "rapidly",
+          "independently"
+        ],
+        "avoidModifiers": [
+          "without considering consequences"
+        ],
+        "fallbackModifier": "proactively",
+        "reason": "Expansive verbs gain momentum from Aries but may require other functions to regulate excess."
+      },
+      {
+        "verbClass": "transformative_verbs",
+        "preferredModifiers": [
+          "directly",
+          "courageously",
+          "through confrontation with an obstacle",
+          "toward challenge"
+        ],
+        "allowedModifiers": [
+          "decisively",
+          "with direct ownership"
+        ],
+        "avoidModifiers": [
+          "prematurely",
+          "aggressively",
+          "through unnecessary confrontation"
+        ],
+        "fallbackModifier": "directly",
+        "reason": "Transformative verbs can use courage and direct engagement, while premature force may destabilize the process."
+      },
+      {
+        "verbClass": "responsive_verbs",
+        "preferredModifiers": [
+          "directly",
+          "proactively",
+          "with willingness to begin"
+        ],
+        "allowedModifiers": [
+          "assertively",
+          "toward self-definition"
+        ],
+        "avoidModifiers": [
+          "immediately",
+          "without extended reflection",
+          "reactively"
+        ],
+        "fallbackModifier": "directly",
+        "reason": "Responsive verbs need Aries directness without collapsing response into reaction."
+      },
+      {
+        "verbClass": "expressive_verbs",
+        "preferredModifiers": [
+          "directly",
+          "courageously",
+          "pioneering",
+          "through initiation"
+        ],
+        "allowedModifiers": [
+          "assertively",
+          "independently",
+          "toward self-definition"
+        ],
+        "avoidModifiers": [
+          "aggressively",
+          "competitively"
+        ],
+        "fallbackModifier": "directly",
+        "reason": "Expressive verbs are strengthened by courage, visibility, and first movement."
+      }
+    ],
+    "globalCompatibilityRules": [
+      {
+        "id": "ARI-COMP-001",
+        "rule": "Prefer one manner modifier plus at most one strategy phrase in a basic composition."
+      },
+      {
+        "id": "ARI-COMP-002",
+        "rule": "Do not stack directness, immediacy, and rapid pace unless the query explicitly requires speed."
+      },
+      {
+        "id": "ARI-COMP-003",
+        "rule": "Do not pair defensive modifiers with neutral or healthy stages."
+      },
+      {
+        "id": "ARI-COMP-004",
+        "rule": "When a planetary verb already means initiate, prefer `directly` over `through initiation` to avoid redundancy."
+      },
+      {
+        "id": "ARI-COMP-005",
+        "rule": "When a planetary verb requires deliberation, prefer directness or decisiveness and omit rapid pace."
+      },
+      {
+        "id": "ARI-COMP-006",
+        "rule": "If no approved phrase is available, use the fallback modifier `directly`."
+      }
+    ],
+    "prohibitedPairings": [
+      {
+        "planetaryVerbPattern": "receive|respond|regulate",
+        "modifier": "reactively",
+        "condition": "neutral_or_healthy",
+        "reason": "This would collapse response into defensive reaction."
+      },
+      {
+        "planetaryVerbPattern": "structure|consolidate|stabilize",
+        "modifier": "without extended preparation",
+        "condition": "default",
+        "reason": "This may undermine the semantics of durability and assessment."
+      },
+      {
+        "planetaryVerbPattern": "relate|harmonize|cooperate",
+        "modifier": "competitively",
+        "condition": "default",
+        "reason": "Competition requires explicit query or contextual support."
+      }
+    ],
+    "validationRules": [
+      "Every modifier must reference an Aries semantic domain.",
+      "Every verb class must define a fallback modifier.",
+      "No compatibility entry may contain a complete placement sentence.",
+      "Compatibility rules may select components but may not add new Aries meanings.",
+      "Redundant verb-modifier pairings must be rejected."
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only sign vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Aries compatibility module."
+    }
+  ]
+}

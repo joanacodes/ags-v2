@@ -1,0 +1,56 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "neptune_expression",
+  "moduleType": "expression",
+  "grammarRole": "canonical_function",
+  "parentObject": "neptune",
+  "content": {
+    "families": [
+      {
+        "id": "imagination",
+        "components": [
+          "inspires imagination",
+          "supports creative vision"
+        ]
+      },
+      {
+        "id": "compassion",
+        "components": [
+          "supports compassion",
+          "cultivates empathy"
+        ]
+      },
+      {
+        "id": "transcendence",
+        "components": [
+          "enables transcendence",
+          "moves beyond limiting frames"
+        ]
+      },
+      {
+        "id": "symbolism",
+        "components": [
+          "deepens symbolic perception",
+          "integrates metaphorical meaning"
+        ]
+      },
+      {
+        "id": "inspiration",
+        "components": [
+          "encourages inspiration",
+          "supports intuitive emergence"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "sign": "Modifies style without replacing Neptune's function.",
+      "house": "Places Neptune's function into experiential context.",
+      "aspect": "Relates Neptune to another canonical function.",
+      "dignity": "Adjusts condition without changing ontology."
+    },
+    "constraints": [
+      "Neptune remains the acting canonical function.",
+      "No expression is a complete interpretation."
+    ]
+  }
+}

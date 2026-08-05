@@ -1,0 +1,19 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "decile_language",
+  "moduleType": "language",
+  "grammarRole": "relational_operator",
+  "parentObject": "decile",
+  "content": {
+    "verbs": [
+      "expresses",
+      "develops",
+      "refines",
+      "creates"
+    ],
+    "templates": [
+      "{A} develops specialized expression through interaction with {B}.",
+      "{A} refines creative potential with {B}."
+    ]
+  }
+}

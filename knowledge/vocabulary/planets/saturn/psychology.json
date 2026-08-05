@@ -1,0 +1,83 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "saturn_psychology",
+  "name": "Saturn Psychology",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Internal psychological model.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-017",
+    "LAW-019"
+  ],
+  "dependsOn": [
+    "saturn_identity",
+    "saturn_semantics"
+  ],
+  "priority": 10,
+  "tags": [
+    "saturn",
+    "psychology"
+  ],
+  "parentObject": "saturn",
+  "moduleType": "psychology",
+  "content": {
+    "coreNeed": "Create durable order that can survive time and reality.",
+    "coreMotivation": "Turn potential into dependable structure.",
+    "coreFear": "Chaos, instability, wasted effort, unreliable foundations.",
+    "coreTension": "Balancing necessary structure with excessive control.",
+    "protectiveStrategy": "Increase planning, standards, responsibility and predictability.",
+    "typicalDefenses": [
+      "Over-control",
+      "Perfectionism",
+      "Emotional restraint",
+      "Overwork",
+      "Hyper-responsibility",
+      "Rigid routines",
+      "Avoiding uncertainty"
+    ],
+    "blindSpots": [
+      "Confusing responsibility with self-worth",
+      "Believing control guarantees safety",
+      "Difficulty delegating",
+      "Mistaking flexibility for irresponsibility"
+    ],
+    "growthEdge": "Replace fear-based control with conscious stewardship.",
+    "healthyRegulation": [
+      "Set proportional boundaries",
+      "Delegate appropriately",
+      "Accept gradual progress",
+      "Differentiate real responsibility from assumed responsibility"
+    ],
+    "stressResponse": {
+      "early": "Tighten standards and work harder.",
+      "moderate": "Withdraw emotionally and increase control.",
+      "high": "Become rigid, pessimistic or excessively burdened."
+    },
+    "integrationMarkers": [
+      "Uses authority without domination",
+      "Creates systems that outlive personal effort",
+      "Balances discipline with adaptability",
+      "Allows others to carry responsibility"
+    ],
+    "reflectionQuestions": [
+      "What responsibility is truly mine?",
+      "Which structure supports growth rather than fear?",
+      "Where am I controlling instead of designing?"
+    ]
+  },
+  "provenance": {
+    "method": "AGS development",
+    "sourcePolicy": "AGS",
+    "maintainer": "AGS"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial draft"
+    }
+  ]
+}

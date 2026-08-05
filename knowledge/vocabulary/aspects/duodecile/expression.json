@@ -1,0 +1,49 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "duodecile_expression",
+  "moduleType": "expression",
+  "grammarRole": "relational_operator",
+  "parentObject": "duodecile",
+  "content": {
+    "families": [
+      {
+        "id": "harmonic_refinement",
+        "components": [
+          "clarifies relationships",
+          "supports coherence"
+        ]
+      },
+      {
+        "id": "subtle_division",
+        "components": [
+          "reveals fine distinctions",
+          "organizes nuance"
+        ]
+      },
+      {
+        "id": "integration",
+        "components": [
+          "combines expressions",
+          "supports synthesis"
+        ]
+      },
+      {
+        "id": "coherence",
+        "components": [
+          "stabilizes patterns",
+          "refines interaction"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "orb": "Modifies strength only.",
+      "sign": "Styles participating functions.",
+      "house": "Provides contextual domain.",
+      "applying_separating": "Adds temporal emphasis."
+    },
+    "constraints": [
+      "No intrinsic benefic or malefic meaning.",
+      "Meaning depends on participating canonical functions."
+    ]
+  }
+}

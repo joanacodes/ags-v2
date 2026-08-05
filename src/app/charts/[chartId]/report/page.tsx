@@ -1,0 +1,195 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
+import { Printer, Upload } from "lucide-react";
+import { AppShell } from "@/components/layout/app-shell";
+import { PageHeader } from "@/components/layout/page-header";
+import { ReportCover } from "@/components/report/report-cover";
+import { ReportSectionView } from "@/components/report/report-section-view";
+import { EditableSection } from "@/components/report/editable-section";
+import { TechnicalAppendix } from "@/components/report/technical-appendix";
+import { ExportRail } from "@/components/report/export-rail";
+import { ErrorState } from "@/components/common/states";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useChart } from "@/hooks/use-charts";
+import {
+  useExportReport,
+  useReport,
+  useReportSettings,
+  useUpdateReportSettings,
+} from "@/hooks/use-report";
+import { formatPercent } from "@/lib/format";
+import { cn } from "@/lib/utils";
+import type { ExportFormat } from "@/types";
+
+export default function ReportPreviewPage() {
+  const params = useParams<{ chartId: string }>();
+  const chartId = params.chartId;
+
+  const { data: chart } = useChart(chartId);
+  const { data: report, isLoading, isError, refetch } = useReport(chartId);
+  const { data: settings } = useReportSettings();
+  const updateSettings = useUpdateReportSettings();
+  const exportReport = useExportReport(chartId);
+
+  const [exported, setExported] = useState(false);
+  useEffect(() => {
+    if (!exportReport.isSuccess) return;
+    setExported(true);
+    const timer = setTimeout(() => setExported(false), 2500);
+    return () => clearTimeout(timer);
+  }, [exportReport.isSuccess]);
+
+  const overall = report ? (report.sectionsReady / report.sectionsTotal) * 100 : 0;
+
+  const tocPanel = report && (
+    <section
+      aria-label="Table of contents"
+      className="rounded-card border border-line bg-surface-raised p-4"
+    >
+      <h2 className="pb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-faint">
+        Table of Contents
+      </h2>
+      <ul className="space-y-2 text-xs">
+        <li className="flex items-center gap-2.5 font-medium text-accent-hover">
+          <span aria-hidden="true">★</span> Cover &amp; Overview
+        </li>
+        {report.sections.map((section) => (
+          <li
+            key={section.id}
+            className={cn(
+              "flex items-center gap-2.5",
+              section.status === "complete" && "text-ink-secondary",
+              section.status === "in-progress" && "text-ink-secondary",
+              section.status === "locked" && "text-ink-faint",
+            )}
+          >
+            <span aria-hidden="true" className="w-3 text-center">
+              {section.status === "complete" ? (
+                <span className="text-success">✓</span>
+              ) : (
+                "○"
+              )}
+            </span>
+            {section.title}
+          </li>
+        ))}
+        <li className="flex items-center gap-2.5 text-ink-faint">
+          <span aria-hidden="true" className="w-3 text-center">
+            ▤
+          </span>
+          Appendix
+        </li>
+      </ul>
+      <div className="mt-4 border-t border-line pt-3">
+        <div className="mb-1.5 flex items-center justify-between text-xs">
+          <span className="text-ink-muted">Overall Progress</span>
+          <span className="font-medium text-warning">{formatPercent(overall)}</span>
+        </div>
+        <Progress value={overall} aria-label="Report readiness" />
+        <p className="mt-2 text-[11px] text-ink-muted">
+          {report.sectionsReady} of {report.sectionsTotal} sections ready
+        </p>
+      </div>
+    </section>
+  );
+
+  return (
+    <AppShell sidebarPanel={tocPanel}>
+      <PageHeader
+        crumbs={[
+          {
+            label: chart ? `${chart.person.firstName} ${chart.person.lastName}` : "…",
+            href: `/charts/${chartId}`,
+          },
+          { label: "Birth Chart", href: `/charts/${chartId}` },
+          { label: "Full Report Preview", accent: true },
+        ]}
+        title="Complete Birth Chart Report"
+        actions={
+          <>
+            {report && (
+              <span className="hidden text-xs text-ink-muted md:block">
+                {report.sectionsReady}/{report.sectionsTotal} sections ready
+              </span>
+            )}
+            <Button variant="outline" size="icon" aria-label="Print report">
+              <Printer size={14} />
+            </Button>
+            <Button
+              variant="primary"
+              size="md"
+              onClick={() => exportReport.mutate("pdf")}
+              disabled={exportReport.isPending}
+            >
+              <Upload size={13} />
+              Export Report
+            </Button>
+          </>
+        }
+      />
+
+      <main className="flex-1 px-4 py-5 sm:px-6 sm:py-6">
+        {isError && (
+          <ErrorState
+            title="Report unavailable"
+            description="The report preview couldn't be generated for this chart yet."
+            onRetry={() => refetch()}
+          />
+        )}
+
+        {isLoading && (
+          <div className="grid gap-8 xl:grid-cols-[minmax(0,1fr)_260px]">
+            <div className="mx-auto w-full max-w-2xl space-y-6">
+              <Skeleton className="h-80" />
+              <Skeleton className="h-64" />
+              <Skeleton className="h-64" />
+            </div>
+            <Skeleton className="h-[480px]" />
+          </div>
+        )}
+
+        {report && chart && settings && (
+          <div className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_260px]">
+            <div className="mx-auto w-full max-w-2xl space-y-10">
+              <ReportCover chart={chart} report={report} />
+
+              {report.sections
+                .filter((section) => section.status !== "locked")
+                .map((section) => (
+                  <EditableSection key={section.id} section={section} chartId={chartId} />
+                ))}
+
+              <div className="space-y-3">
+                {report.sections
+                  .filter((section) => section.status === "locked")
+                  .map((section) => (
+                    <ReportSectionView key={section.id} section={section} chartId={chartId} />
+                  ))}
+              </div>
+
+              {settings.technicalAppendix && <TechnicalAppendix appendix={report.appendix} />}
+            </div>
+
+            <div className="print:hidden">
+              <ExportRail
+                report={report}
+                settings={settings}
+                onSettingsChange={(patch) => updateSettings.mutate(patch)}
+                onExport={(format: ExportFormat) => {
+                  if (format === "docx" || format === "link") return; // not yet wired
+                  exportReport.mutate(format);
+                }}
+                exporting={exportReport.isPending}
+                exported={exported}
+              />
+            </div>
+          </div>
+        )}
+      </main>
+    </AppShell>
+  );
+}

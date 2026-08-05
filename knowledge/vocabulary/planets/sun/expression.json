@@ -1,0 +1,56 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "sun_expression",
+  "moduleType": "expression",
+  "grammarRole": "canonical_function",
+  "parentObject": "sun",
+  "content": {
+    "families": [
+      {
+        "id": "identity",
+        "components": [
+          "organizes identity",
+          "supports coherent self-definition"
+        ]
+      },
+      {
+        "id": "vitality",
+        "components": [
+          "sustains vitality",
+          "directs engagement"
+        ]
+      },
+      {
+        "id": "purpose",
+        "components": [
+          "directs purpose",
+          "orients meaningful action"
+        ]
+      },
+      {
+        "id": "self_expression",
+        "components": [
+          "integrates self-expression",
+          "supports authentic presence"
+        ]
+      },
+      {
+        "id": "agency",
+        "components": [
+          "strengthens agency",
+          "centers intentional action"
+        ]
+      }
+    ],
+    "targetProfiles": {
+      "sign": "Modify style without replacing the Sun's function.",
+      "house": "Place the Sun's function into experiential context.",
+      "aspect": "Relate the Sun to another canonical function.",
+      "dignity": "Adjust condition without changing ontology."
+    },
+    "constraints": [
+      "The Sun remains the acting canonical function.",
+      "No expression is a complete interpretation."
+    ]
+  }
+}

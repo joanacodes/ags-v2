@@ -1,0 +1,34 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "house1_language",
+  "moduleType": "language",
+  "grammarRole": "context",
+  "parentObject": "house_1",
+  "content": {
+    "domain": [
+      "identity",
+      "personal experience",
+      "selfhood"
+    ],
+    "focus": [
+      "self-expression",
+      "embodiment",
+      "personal orientation"
+    ],
+    "scope": [
+      "immediate life",
+      "personal presentation",
+      "individual perspective"
+    ],
+    "salience": [
+      "highly visible",
+      "personally salient",
+      "directly experienced"
+    ],
+    "expression_context": [
+      "through identity",
+      "through personal presence",
+      "through lived embodiment"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "grammarRole": "reference_frame",
+  "primaryVerb": "actualize",
+  "secondaryVerbs": [
+    "contribute",
+    "participate",
+    "express",
+    "undertake"
+  ],
+  "rules": [
+    "Default to 'actualize'.",
+    "Signs modify how actualization occurs.",
+    "Never reduce the Midheaven to career prediction.",
+    "Never generate finished vocational interpretations."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "bipentile_reasoning",
+  "moduleType": "reasoning",
+  "grammarRole": "relational_operator",
+  "parentObject": "bipentile",
+  "content": {
+    "resolutionOrder": [
+      "Resolve participating canonical functions",
+      "Apply Bipentile relational operator",
+      "Apply developmental state",
+      "Apply sign modifiers",
+      "Apply house context",
+      "Apply dignity and orb",
+      "Generate dual creative harmonic semantic structure"
+    ],
+    "compositionRules": [
+      "Operands retain identity.",
+      "Bipentile introduces amplified creative synthesis without replacing operands.",
+      "Orb modifies relationship strength only."
+    ],
+    "heuristics": [
+      "Prefer reciprocal creative synthesis over deterministic outcomes.",
+      "Interpret amplification through operand semantics.",
+      "Return no inference rather than unsupported inference."
+    ],
+    "forbiddenInferences": [
+      "Bipentile guarantees creativity.",
+      "Bipentile implies superiority.",
+      "Bipentile replaces planetary functions."
+    ]
+  }
+}

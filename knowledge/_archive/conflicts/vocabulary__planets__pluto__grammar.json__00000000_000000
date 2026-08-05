@@ -1,0 +1,166 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "pluto_grammar",
+  "name": "Pluto Grammar",
+  "type": "planet_module",
+  "status": "draft_for_review",
+  "language": "en",
+  "description": "Defines Pluto's verb role, approved verbs, corrective verbs, clause capabilities, and role restrictions.",
+  "grammarRole": "verb",
+  "compliesWith": [
+    "LAW-001",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-017",
+    "LAW-019",
+    "LAW-020"
+  ],
+  "dependsOn": [
+    "pluto_identity",
+    "ags_verb_classes_blueprint",
+    "ags_clause_builder"
+  ],
+  "priority": 10,
+  "tags": [
+    "pluto",
+    "grammar",
+    "planet",
+    "function"
+  ],
+  "parentObject": "pluto",
+  "moduleType": "grammar",
+  "content": {
+    "primaryGrammarRole": "verb",
+    "defaultVerbClass": "transformative_verbs",
+    "subjectBehavior": {
+      "mayActAsSubject": true,
+      "mayActAsSecondaryFunction": true,
+      "mayActAsConnector": false,
+      "mayActAsContext": false,
+      "mayActAsModifier": false
+    },
+    "primaryVerb": {
+      "lemma": "regenerate",
+      "inflectionReference": "pluto_regenerate"
+    },
+    "approvedSecondaryVerbs": [
+      {
+        "lemma": "expose",
+        "semanticDomain": "exposure",
+        "useWhen": "Hidden, denied, concealed, or structurally buried material becomes visible."
+      },
+      {
+        "lemma": "eliminate",
+        "semanticDomain": "elimination",
+        "useWhen": "A defined nonviable, toxic, exhausted, or obstructive component is removed."
+      },
+      {
+        "lemma": "purify",
+        "semanticDomain": "purification",
+        "useWhen": "Contaminating, mixed, or corrupting material is separated from what remains viable."
+      },
+      {
+        "lemma": "concentrate",
+        "semanticDomain": "concentration",
+        "useWhen": "Energy, attention, resource, power, or motive is gathered into a narrower field."
+      },
+      {
+        "lemma": "intensify",
+        "semanticDomain": "intensification",
+        "useWhen": "A process becomes denser, more urgent, more focused, or harder to ignore."
+      },
+      {
+        "lemma": "reclaim",
+        "semanticDomain": "reclamation",
+        "useWhen": "Agency, resource, voice, or capacity is recovered from suppression, dependency, or loss."
+      },
+      {
+        "lemma": "reorganize",
+        "semanticDomain": "deep_restructuring",
+        "useWhen": "The internal distribution of power, resource, attachment, or function is changed."
+      },
+      {
+        "lemma": "compel",
+        "semanticDomain": "compulsion",
+        "useWhen": "Pressure makes avoidance increasingly difficult; never use as universal or moral language."
+      },
+      {
+        "lemma": "integrate",
+        "semanticDomain": "shadow_integration",
+        "useWhen": "Previously excluded or concealed material is consciously incorporated."
+      },
+      {
+        "lemma": "transform",
+        "semanticDomain": "transformation",
+        "useWhen": "The process is broader than one specific regenerative mechanism."
+      }
+    ],
+    "correctiveVerbs": [
+      {
+        "lemma": "destroy",
+        "semanticDomain": "destruction",
+        "useRule": "Use only when an identifiable form is actually being rendered nonfunctional or irrecoverable. Never use as Pluto's default verb.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "control",
+        "semanticDomain": "control",
+        "useRule": "Use only when power is actively constrained, monopolized, or directed.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "dominate",
+        "semanticDomain": "domination",
+        "useRule": "Use only when one actor suppresses another actor's agency.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "obsess",
+        "semanticDomain": "obsession",
+        "useRule": "Use only under explicit repetitive, intrusive, or compulsive evidence; never as diagnosis.",
+        "neverPrimary": true
+      },
+      {
+        "lemma": "retaliate",
+        "semanticDomain": "retaliation",
+        "useRule": "Use only when a revenge or counterforce pattern is explicitly present.",
+        "neverPrimary": true
+      }
+    ],
+    "clauseCapabilities": [
+      "actor_function_clause",
+      "placement_clause",
+      "directed_relationship_clause",
+      "dispositor_reference_clause",
+      "reception_clause",
+      "natal_activation_clause"
+    ],
+    "relationshipDirectionRules": [
+      "When Pluto is the subject, Pluto supplies the primary regenerative verb.",
+      "When Pluto is secondary, Pluto still supplies an intact secondary function.",
+      "No aspect may reduce Pluto to crisis, destruction, or control.",
+      "Reversing aspect direction requires a new clause resolution."
+    ],
+    "prohibitedGrammar": [
+      "Pluto as an adjective replacing a sign modifier",
+      "Pluto as a connector replacing an aspect",
+      "Pluto as a context replacing a house",
+      "Destroy used as the only neutral verb",
+      "Death used as a universal planetary action",
+      "A completed planet-in-sign or planet-in-house interpretation"
+    ]
+  },
+  "provenance": {
+    "method": "AGS vocabulary development",
+    "sourcePolicy": "Component-only planetary vocabulary. No finished placement interpretations are permitted.",
+    "maintainer": "AGS project"
+  },
+  "versionHistory": [
+    {
+      "version": "0.1.0",
+      "date": "2026-07-16",
+      "change": "Initial Pluto grammar module."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "biseptile_semantics",
+  "moduleType": "semantics",
+  "grammarRole": "relational_operator",
+  "parentObject": "biseptile",
+  "content": {
+    "definition": "A Biseptile relates participating canonical functions through recursive differentiation while preserving each function's identity.",
+    "boundaries": [
+      "Recursive differentiation is not destiny.",
+      "Emergence does not replace canonical functions."
+    ]
+  }
+}

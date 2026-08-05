@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "0.1.0",
+  "id": "quattuordecile_identity",
+  "moduleType": "identity",
+  "grammarRole": "relational_operator",
+  "parentObject": "quattuordecile",
+  "content": {
+    "canonicalFunction": "Relates canonical functions through structured reorientation, adaptive refinement, and reorganized expression.",
+    "coreDomains": [
+      "reorientation",
+      "adaptation",
+      "reorganization",
+      "refinement",
+      "structural change",
+      "integration"
+    ],
+    "notInherent": [
+      "instability",
+      "disruption",
+      "superiority",
+      "beneficence"
+    ],
+    "constraints": [
+      "Quattuordecile never replaces participating canonical functions.",
+      "Meaning emerges from operand interaction."
+    ]
+  }
+}
