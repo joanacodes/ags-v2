@@ -54,7 +54,7 @@ export function ReportSectionView({
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.35, ease: "easeOut" }}
       aria-labelledby={`report-${section.id}`}
-      className="border-b border-line pb-10"
+      className="border-b border-line pb-10 print-page"
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3.5">

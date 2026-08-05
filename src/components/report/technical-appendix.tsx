@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 
 export function TechnicalAppendix({ appendix }: { appendix: AppendixData }) {
   return (
-    <Card className="p-5">
+    <Card className="print-page p-5">
       <h2 className="text-sm font-semibold text-ink">Technical Appendix</h2>
       <p className="mt-0.5 text-xs text-ink-muted">
         Planetary positions, house cusps, and aspect tables

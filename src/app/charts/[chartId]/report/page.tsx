@@ -195,7 +195,7 @@ export default function ReportPreviewPage() {
 
               {/* -------- Glossary -------- */}
               {report.glossary.length > 0 && (
-                <section className="print-keep rounded-card border border-line bg-surface-raised p-6">
+                <section className="print-page rounded-card border border-line bg-surface-raised p-6">
                   <h2 className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-faint">
                     §0 · Glossary — the terms this chart uses
                   </h2>

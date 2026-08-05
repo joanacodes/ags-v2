@@ -151,16 +151,27 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 /* ------------------------------ print ------------------------------- */
 @media print {
+  /* Only small, page-safe units may be unbreakable. Putting break-inside:
+     avoid on blocks taller than one page makes Chrome drop content and
+     emit blank pages — never apply it to large sections. */
   table,
   .print-keep {
     break-inside: avoid;
     page-break-inside: avoid;
   }
-  h1, h2, h3, h4 {
-    break-after: avoid;
-    page-break-after: avoid;
+  .print-page {
+    break-before: page;
+    page-break-before: always;
   }
   main {
     padding: 0 !important;
+  }
+  /* Framer Motion animates sections in on scroll (whileInView). Printing
+     never scrolls, so unseen sections would keep opacity:0 and print as
+     blank pages. Force everything visible and unmoved on paper. */
+  main *,
+  .print-page {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
