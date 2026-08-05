@@ -4,11 +4,11 @@
  * Wraps a report section with an inline editor: the readee's corrections
  * are saved with the chart and survive regeneration of the report view.
  */
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Bold, Check, Highlighter, Italic, PencilLine, X } from "lucide-react";
 import { ReportSectionView } from "@/components/report/report-section-view";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+
 import { useSaveSectionEdit } from "@/hooks/use-report";
 import type { ReportSection } from "@/types";
 
@@ -21,20 +21,15 @@ export function EditableSection({
 }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState("");
-  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+  const editorRef = useRef<HTMLDivElement | null>(null);
 
-  const wrapSelection = (marker: string) => {
-    const area = textareaRef.current;
-    if (area === null) return;
-    const { selectionStart, selectionEnd } = area;
-    const selected = draft.slice(selectionStart, selectionEnd) || "text";
-    const next =
-      draft.slice(0, selectionStart) + marker + selected + marker + draft.slice(selectionEnd);
-    setDraft(next);
-    window.requestAnimationFrame(() => {
-      area.focus();
-      area.setSelectionRange(selectionStart + marker.length, selectionStart + marker.length + selected.length);
-    });
+  const exec = (command: "bold" | "italic" | "highlight") => {
+    editorRef.current?.focus();
+    if (command === "highlight") {
+      document.execCommand("hiliteColor", false, "#f5e6c8");
+    } else {
+      document.execCommand(command, false);
+    }
   };
   const save = useSaveSectionEdit(chartId);
 
@@ -66,27 +61,43 @@ export function EditableSection({
       <div className="flex flex-wrap items-center justify-between gap-2 pb-3">
         <p className="text-xs font-semibold text-ink">Editing — {section.title}</p>
         <div className="flex gap-1.5">
-          <ToolButton label="Bold" onClick={() => wrapSelection("**")}>
+          <ToolButton label="Bold" onClick={() => exec("bold")}>
             <Bold size={12} />
           </ToolButton>
-          <ToolButton label="Italic" onClick={() => wrapSelection("_")}>
+          <ToolButton label="Italic" onClick={() => exec("italic")}>
             <Italic size={12} />
           </ToolButton>
-          <ToolButton label="Highlight" onClick={() => wrapSelection("==")}>
+          <ToolButton label="Highlight" onClick={() => exec("highlight")}>
             <Highlighter size={12} />
           </ToolButton>
         </div>
       </div>
-      <Textarea
-        ref={textareaRef}
-        value={draft}
-        onChange={(event) => setDraft(event.target.value)}
-        rows={Math.min(24, Math.max(8, draft.split("\n").length + 2))}
-        className="font-serif text-sm leading-relaxed"
+      <div
+        ref={editorRef}
+        contentEditable
+        suppressContentEditableWarning
+        role="textbox"
+        aria-multiline="true"
         aria-label={`Edit ${section.title}`}
+        onKeyDown={(event) => {
+          if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "b") {
+            event.preventDefault();
+            exec("bold");
+          }
+          if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "i") {
+            event.preventDefault();
+            exec("italic");
+          }
+          if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "h") {
+            event.preventDefault();
+            exec("highlight");
+          }
+        }}
+        className="min-h-[220px] w-full rounded-lg border border-line bg-surface px-4 py-3 font-serif text-sm leading-relaxed text-ink-secondary outline-none focus:border-accent/50 [&_h4]:pt-2 [&_h4]:text-[11px] [&_h4]:font-semibold [&_h4]:uppercase [&_h4]:tracking-[0.12em] [&_h4]:text-ink-muted [&_mark]:rounded-sm [&_mark]:px-0.5 [&_p]:pb-3"
+        dangerouslySetInnerHTML={{ __html: markersToHtml(draft) }}
       />
       <p className="pt-2 text-[11px] text-ink-faint">
-        Blank line = new paragraph · ## heading · **bold** · _italic_ · ==highlight== (select text, then click a tool).
+        Select text, then Ctrl+B / Ctrl+I / Ctrl+H — or tap a tool above. What you see is what prints.
       </p>
       {save.isError && (
         <p className="pt-2 text-xs text-danger">
@@ -102,10 +113,7 @@ export function EditableSection({
             save.mutate(
               {
                 sectionId: section.id,
-                paragraphs: draft
-                  .split(/\n{2,}/)
-                  .map((p) => p.trim())
-                  .filter((p) => p.length > 0),
+                paragraphs: htmlToMarkers(editorRef.current),
               },
               { onSuccess: () => setEditing(false) },
             )
@@ -144,4 +152,59 @@ function ToolButton({
       {children}
     </button>
   );
+}
+
+
+/* -------- markers <-> HTML (storage stays marker-based) -------- */
+
+function escapeHtml(text: string): string {
+  return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+function markersToHtml(markers: string): string {
+  return markers
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter((paragraph) => paragraph.length > 0)
+    .map((paragraph) => {
+      const isHeading = paragraph.startsWith("## ");
+      const body = escapeHtml(isHeading ? paragraph.slice(3) : paragraph)
+        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+        .replace(/==([^=]+)==/g, "<mark>$1</mark>")
+        .replace(/_([^_]+)_/g, "<em>$1</em>");
+      return isHeading ? `<h4>${body}</h4>` : `<p>${body}</p>`;
+    })
+    .join("");
+}
+
+function inlineToMarkers(node: Node): string {
+  if (node.nodeType === Node.TEXT_NODE) return node.textContent ?? "";
+  if (node.nodeType !== Node.ELEMENT_NODE) return "";
+  const element = node as HTMLElement;
+  const inner = Array.from(element.childNodes).map(inlineToMarkers).join("");
+  const tag = element.tagName.toLowerCase();
+  const style = element.getAttribute("style") ?? "";
+  if (tag === "strong" || tag === "b" || /font-weight:\s*(bold|[6-9]00)/.test(style)) {
+    return `**${inner}**`;
+  }
+  if (tag === "em" || tag === "i" || /font-style:\s*italic/.test(style)) return `_${inner}_`;
+  if (tag === "mark" || /background-color/.test(style)) return `==${inner}==`;
+  if (tag === "br") return "\n\n";
+  return inner;
+}
+
+function htmlToMarkers(root: HTMLElement | null): string[] {
+  if (root === null) return [];
+  const paragraphs: string[] = [];
+  for (const child of Array.from(root.childNodes)) {
+    const tag = child.nodeType === Node.ELEMENT_NODE ? (child as HTMLElement).tagName.toLowerCase() : "";
+    const text = inlineToMarkers(child).trim();
+    if (text.length === 0) continue;
+    for (const piece of text.split(/\n{2,}/)) {
+      const trimmed = piece.trim();
+      if (trimmed.length === 0) continue;
+      paragraphs.push(tag === "h4" || tag === "h3" ? `## ${trimmed}` : trimmed);
+    }
+  }
+  return paragraphs;
 }
