@@ -183,3 +183,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     print-color-adjust: exact;
   }
 }
+
+/* Mobile: browsers auto-zoom onto focused fields whose text is under 16px.
+   Keeping form controls at 16px on small screens prevents the zoom jump
+   without disabling user pinch-zoom (accessibility preserved). */
+@media (max-width: 1023px) {
+  input,
+  select,
+  textarea,
+  [contenteditable="true"] {
+    font-size: 16px;
+  }
+}
