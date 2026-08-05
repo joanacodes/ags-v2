@@ -4,8 +4,8 @@
  * Wraps a report section with an inline editor: the readee's corrections
  * are saved with the chart and survive regeneration of the report view.
  */
-import { useState } from "react";
-import { Check, PencilLine, X } from "lucide-react";
+import { useRef, useState } from "react";
+import { Bold, Check, Highlighter, Italic, PencilLine, X } from "lucide-react";
 import { ReportSectionView } from "@/components/report/report-section-view";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -21,6 +21,21 @@ export function EditableSection({
 }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState("");
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const wrapSelection = (marker: string) => {
+    const area = textareaRef.current;
+    if (area === null) return;
+    const { selectionStart, selectionEnd } = area;
+    const selected = draft.slice(selectionStart, selectionEnd) || "text";
+    const next =
+      draft.slice(0, selectionStart) + marker + selected + marker + draft.slice(selectionEnd);
+    setDraft(next);
+    window.requestAnimationFrame(() => {
+      area.focus();
+      area.setSelectionRange(selectionStart + marker.length, selectionStart + marker.length + selected.length);
+    });
+  };
   const save = useSaveSectionEdit(chartId);
 
   if (section.status !== "complete") {
@@ -48,8 +63,22 @@ export function EditableSection({
 
   return (
     <div className="rounded-card border border-accent/30 bg-surface-raised p-5 shadow-card">
-      <p className="pb-3 text-xs font-semibold text-ink">Editing — {section.title}</p>
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-3">
+        <p className="text-xs font-semibold text-ink">Editing — {section.title}</p>
+        <div className="flex gap-1.5">
+          <ToolButton label="Bold" onClick={() => wrapSelection("**")}>
+            <Bold size={12} />
+          </ToolButton>
+          <ToolButton label="Italic" onClick={() => wrapSelection("_")}>
+            <Italic size={12} />
+          </ToolButton>
+          <ToolButton label="Highlight" onClick={() => wrapSelection("==")}>
+            <Highlighter size={12} />
+          </ToolButton>
+        </div>
+      </div>
       <Textarea
+        ref={textareaRef}
         value={draft}
         onChange={(event) => setDraft(event.target.value)}
         rows={Math.min(24, Math.max(8, draft.split("\n").length + 2))}
@@ -57,7 +86,7 @@ export function EditableSection({
         aria-label={`Edit ${section.title}`}
       />
       <p className="pt-2 text-[11px] text-ink-faint">
-        Blank line = new paragraph. Lines starting with ## stay section headings.
+        Blank line = new paragraph · ## heading · **bold** · _italic_ · ==highlight== (select text, then click a tool).
       </p>
       {save.isError && (
         <p className="pt-2 text-xs text-danger">
@@ -91,5 +120,28 @@ export function EditableSection({
         </Button>
       </div>
     </div>
+  );
+}
+
+
+function ToolButton({
+  label,
+  onClick,
+  children,
+}: {
+  label: string;
+  onClick: () => void;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      title={label}
+      onClick={onClick}
+      className="flex h-7 w-7 items-center justify-center rounded-md border border-line text-ink-muted transition-colors hover:border-line-strong hover:text-ink"
+    >
+      {children}
+    </button>
   );
 }

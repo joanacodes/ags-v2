@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Lock, LockOpen } from "lucide-react";
 import { motion } from "framer-motion";
+import { renderInline } from "@/lib/rich-text";
 import type { ReportSection } from "@/types";
 import { readingIcon } from "@/lib/reading-icons";
 import { Badge, StatusDot } from "@/components/ui/badge";
@@ -92,7 +93,7 @@ export function ReportSectionView({
             </h4>
           ) : (
             <p key={index} className="text-sm leading-relaxed text-ink-secondary">
-              {paragraph}
+              {renderInline(paragraph)}
             </p>
           ),
         )}
