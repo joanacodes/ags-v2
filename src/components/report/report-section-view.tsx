@@ -26,6 +26,7 @@ export function ReportSectionView({
   if (section.status === "locked") {
     return (
       <Link
+        id={section.id}
         href={
           section.readingSlug
             ? `/charts/${chartId}/readings/${section.readingSlug}`
@@ -49,12 +50,13 @@ export function ReportSectionView({
 
   return (
     <motion.section
+      id={section.id}
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      aria-labelledby={`report-${section.id}`}
-      className="border-b border-line pb-10 print-page"
+      aria-labelledby={`report-${section.id}`} 
+      className="border-b border-line pb-10 print-page scroll-mt-6"
     >
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-center gap-3.5">

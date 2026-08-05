@@ -163,29 +163,41 @@ export default function ReportPreviewPage() {
                   Contents
                 </h2>
                 <ol className="mt-3 space-y-1.5 text-sm">
-                  <li className="flex items-baseline justify-between gap-3 text-ink-secondary">
-                    <span>Glossary</span>
-                    <span className="text-xs text-ink-faint">§0</span>
+                  <li>
+                    <a
+                      href="#glossary"
+                      className="flex items-baseline justify-between gap-3 rounded text-ink-secondary transition-colors hover:text-accent-hover"
+                    >
+                      <span>Glossary</span>
+                      <span className="text-xs text-ink-faint">§0</span>
+                    </a>
                   </li>
                   {report.sections.map((section) => (
-                    <li
-                      key={section.id}
-                      className="flex items-baseline justify-between gap-3 text-ink-secondary"
-                    >
-                      <span>
-                        {section.title}
-                        {section.status === "locked" && (
-                          <span className="pl-2 text-xs text-ink-faint">(not generated)</span>
-                        )}
-                      </span>
-                      <span className="text-xs text-ink-faint">
-                        §{String(section.index).padStart(2, "0")}
-                      </span>
+                    <li key={section.id}>
+                      <a
+                        href={`#${section.id}`}
+                        className="flex items-baseline justify-between gap-3 rounded text-ink-secondary transition-colors hover:text-accent-hover"
+                      >
+                        <span>
+                          {section.title}
+                          {section.status === "locked" && (
+                            <span className="pl-2 text-xs text-ink-faint">(not generated)</span>
+                          )}
+                        </span>
+                        <span className="text-xs text-ink-faint">
+                          §{String(section.index).padStart(2, "0")}
+                        </span>
+                      </a>
                     </li>
                   ))}
-                  <li className="flex items-baseline justify-between gap-3 text-ink-secondary">
-                    <span>Technical Appendix</span>
-                    <span className="text-xs text-ink-faint">§{report.sections.length + 1}</span>
+                  <li>
+                    <a
+                      href="#appendix"
+                      className="flex items-baseline justify-between gap-3 rounded text-ink-secondary transition-colors hover:text-accent-hover"
+                    >
+                      <span>Technical Appendix</span>
+                      <span className="text-xs text-ink-faint">§{report.sections.length + 1}</span>
+                    </a>
                   </li>
                 </ol>
                 <p className="pt-3 text-[11px] text-ink-faint print:hidden">
@@ -195,7 +207,7 @@ export default function ReportPreviewPage() {
 
               {/* -------- Glossary -------- */}
               {report.glossary.length > 0 && (
-                <section className="print-page rounded-card border border-line bg-surface-raised p-6">
+                <section id="glossary" className="print-page scroll-mt-6 rounded-card border border-line bg-surface-raised p-6">
                   <h2 className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-faint">
                     §0 · Glossary — the terms this chart uses
                   </h2>

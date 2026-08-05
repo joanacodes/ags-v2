@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* LIGHT — coffee brown ink, warm linen surfaces, powder-blue accent, gold highlights */
 
