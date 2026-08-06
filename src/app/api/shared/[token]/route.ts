@@ -27,7 +27,7 @@ export async function POST(
       { status: 500 },
     );
   }
-  const result = data as { status: string; person?: string; readings?: unknown[] };
+  const result = data as { status: string; person?: string; chart?: unknown; readings?: unknown[] };
   if (result.status === "not_found") {
     return NextResponse.json(
       { error: { code: "LINK_NOT_FOUND", message: "This link does not exist or was revoked." } },
@@ -40,5 +40,5 @@ export async function POST(
       { status: 401 },
     );
   }
-  return NextResponse.json({ person: result.person ?? "", readings: result.readings ?? [] });
+  return NextResponse.json({ person: result.person ?? "", chart: result.chart ?? null, readings: result.readings ?? [] });
 }

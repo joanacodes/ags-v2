@@ -118,7 +118,7 @@ export default function SharedReadingPage() {
           </Card>
         ) : (
           <SafeBlock>
-            {payload.chart !== null && (payload.chart.planets?.length ?? 0) > 0 && (
+            {payload.chart != null && (payload.chart.planets?.length ?? 0) > 0 && (
               <Card className="mt-2 overflow-hidden p-5">
                 <div className="grid items-center gap-5 sm:grid-cols-[220px_1fr]">
                   <div className="mx-auto w-full max-w-[220px]">
@@ -147,7 +147,7 @@ export default function SharedReadingPage() {
             )}
 
             <div className="pb-2 pt-4">
-              {(payload.chart === null || payload.chart.planets.length === 0) && (
+              {(payload.chart == null || (payload.chart.planets?.length ?? 0) === 0) && (
                 <h1 className="font-serif text-2xl text-ink">{payload.person}</h1>
               )}
               <p className="pt-1 text-xs leading-relaxed text-ink-muted">
