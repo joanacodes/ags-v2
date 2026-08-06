@@ -63,6 +63,7 @@ async function post(
   if (apiKey === undefined || apiKey === "") {
     return { ok: false, error: "FREE_ASTRO_API_KEY is not configured." };
   }
+  const body2 = JSON.stringify(body);
   let lastError = "No candidate endpoint responded.";
   for (const path of paths) {
     try {
@@ -71,11 +72,26 @@ async function post(
       const response = await fetch(`${BASE}${path}`, {
         method: "POST",
         headers: { "content-type": "application/json", "x-api-key": apiKey },
-        body: JSON.stringify(body),
+        body: body2,
         signal: controller.signal,
       });
       clearTimeout(timer);
       if (response.ok) return { ok: true, data: await response.json() };
+      if (response.status === 429) {
+        const body = (await response.json().catch(() => null)) as
+          | { retry_after_ms?: number }
+          | null;
+        const wait = Math.min((body?.retry_after_ms ?? 2000) + 500, 35_000);
+        await new Promise((resolve) => setTimeout(resolve, wait));
+        const retry = await fetch(`${BASE}${path}`, {
+          method: "POST",
+          headers: { "content-type": "application/json", "x-api-key": apiKey },
+          body: JSON.stringify(body2),
+        });
+        if (retry.ok) return { ok: true, data: await retry.json() };
+        lastError = `${path} -> ${retry.status} after retry`;
+        continue;
+      }
       const text = (await response.text()).slice(0, 300);
       lastError = `${path} -> ${response.status}: ${text}`;
       // 404 = wrong path, try the next candidate; other statuses are real errors
@@ -106,7 +122,9 @@ export async function fetchSaturnReturn(chart: Chart): Promise<TemporalCallOutco
         location,
       },
     });
-  const [previous, next] = await Promise.all([call("previous"), call("next")]);
+  const previous = await call("previous");
+  await new Promise((resolve) => setTimeout(resolve, 1200));
+  const next = await call("next");
   if (!previous.ok && !next.ok) return next;
   return { ok: true, data: { previous: previous.data ?? null, next: next.data ?? null } };
 }

@@ -15,7 +15,11 @@ import {
 } from "@/server/providers/freeastro-temporal";
 import { createSupabaseServerClient, getServerUserId } from "@/lib/supabase/server";
 
+export const maxDuration = 60; // sequential provider calls at 1 req/s
+
 const SLUG = "_temporal";
+const PACE_MS = 1200;
+const pause = () => new Promise((resolve) => setTimeout(resolve, PACE_MS));
 const TTL_MS = 7 * 24 * 3600 * 1000;
 
 function definitionOf(key: string): string {
@@ -91,11 +95,15 @@ export async function GET(
     const startYear = today.getUTCFullYear();
     const years = Array.from({ length: 6 }, (_, i) => startYear + i);
 
-    const [saturn, progressions, ...solars] = await Promise.all([
-      fetchSaturnReturn(chart),
-      fetchProgressions(chart, isoToday),
-      ...years.map((year) => fetchSolarReturn(chart, year)),
-    ]);
+    // The provider tier allows 1 request/second: strictly sequential pacing.
+    const saturn = await fetchSaturnReturn(chart);
+    await pause();
+    const progressions = await fetchProgressions(chart, isoToday);
+    const solars: Awaited<ReturnType<typeof fetchSolarReturn>>[] = [];
+    for (const year of years) {
+      await pause();
+      solars.push(await fetchSolarReturn(chart, year));
+    }
 
     const payload: TemporalPayload = {
       generatedAt: new Date().toISOString(),
