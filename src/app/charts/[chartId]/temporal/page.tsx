@@ -65,20 +65,37 @@ function factsFrom(data: unknown): { label: string; value: string }[] {
     const value = record[key];
     if (typeof value === "string") facts.push({ label: "Date", value });
   }
-  const planets = record.planets;
-  if (Array.isArray(planets)) {
-    for (const p of planets.slice(0, 12)) {
-      if (typeof p === "object" && p !== null) {
-        const planet = p as Record<string, unknown>;
-        const name = typeof planet.name === "string" ? planet.name : null;
-        const sign = typeof planet.sign === "string" ? planet.sign : null;
-        const pos = typeof planet.pos === "number" ? `${Math.floor(planet.pos)}°` : "";
-        if (name !== null && sign !== null) {
-          facts.push({ label: name, value: `${pos} ${sign}${planet.retrograde === true ? " ℞" : ""}` });
+  // Recursive hunt: the progression/return families nest their planet
+  // arrays at different depths — find any array of {name, sign} objects.
+  const seen = new Set<unknown>();
+  const hunt = (node: unknown, depth: number) => {
+    if (depth > 5 || facts.length > 24) return;
+    if (typeof node !== "object" || node === null || seen.has(node)) return;
+    seen.add(node);
+    if (Array.isArray(node)) {
+      const planetLike = node.filter(
+        (item): item is Record<string, unknown> =>
+          typeof item === "object" &&
+          item !== null &&
+          typeof (item as Record<string, unknown>).name === "string" &&
+          typeof (item as Record<string, unknown>).sign === "string",
+      );
+      if (planetLike.length >= 3) {
+        for (const planet of planetLike.slice(0, 12)) {
+          const pos = typeof planet.pos === "number" ? `${Math.floor(planet.pos % 30)}° ` : "";
+          facts.push({
+            label: String(planet.name),
+            value: `${pos}${String(planet.sign)}${planet.retrograde === true ? " ℞" : ""}`,
+          });
         }
+        return;
       }
+      for (const item of node) hunt(item, depth + 1);
+      return;
     }
-  }
+    for (const value of Object.values(node as Record<string, unknown>)) hunt(value, depth + 1);
+  };
+  hunt(record, 0);
   return facts;
 }
 
@@ -123,7 +140,7 @@ export default function TemporalPage() {
       }
       return (await response.json()) as TemporalPayload;
     },
-    staleTime: 3600 * 1000,
+    staleTime: 24 * 3600 * 1000,
   });
 
   const person = chart ? `${chart.person.firstName} ${chart.person.lastName}` : "";
