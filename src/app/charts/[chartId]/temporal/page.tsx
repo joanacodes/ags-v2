@@ -77,14 +77,22 @@ function factsFrom(data: unknown): { label: string; value: string }[] {
         (item): item is Record<string, unknown> =>
           typeof item === "object" &&
           item !== null &&
-          typeof (item as Record<string, unknown>).name === "string" &&
-          typeof (item as Record<string, unknown>).sign === "string",
+          typeof (item as Record<string, unknown>).sign === "string" &&
+          ["name", "body", "planet"].some(
+            (key) => typeof (item as Record<string, unknown>)[key] === "string",
+          ),
       );
       if (planetLike.length >= 3) {
-        for (const planet of planetLike.slice(0, 12)) {
+        const nameOf = (item: Record<string, unknown>) =>
+          String(item.name ?? item.body ?? item.planet ?? "");
+        const planets = planetLike.filter((item) => !/^\d+$/.test(nameOf(item)));
+        const houses = planetLike.filter((item) => /^\d+$/.test(nameOf(item)));
+        for (const planet of [...planets, ...houses].slice(0, 26)) {
+          const rawName = String(planet.name ?? planet.body ?? planet.planet ?? "");
+          const numeric = /^\d+$/.test(rawName);
           const pos = typeof planet.pos === "number" ? `${Math.floor(planet.pos % 30)}° ` : "";
           facts.push({
-            label: String(planet.name),
+            label: numeric ? `House ${rawName}` : rawName,
             value: `${pos}${String(planet.sign)}${planet.retrograde === true ? " ℞" : ""}`,
           });
         }
@@ -109,7 +117,16 @@ function ResultBlock({ result }: { result: CallResult }) {
   }
   const facts = factsFrom(result.data);
   if (facts.length === 0) {
-    return <p className="text-xs text-ink-muted">Computed — data received.</p>;
+    const keys =
+      typeof result.data === "object" && result.data !== null
+        ? Object.keys(result.data as Record<string, unknown>).slice(0, 10).join(", ")
+        : "";
+    return (
+      <p className="text-xs text-ink-muted">
+        Computed — data received{keys !== "" ? ` (fields: ${keys})` : ""}. Send this
+        field list to the developer to unlock the display.
+      </p>
+    );
   }
   return (
     <dl className="grid grid-cols-2 gap-x-6 gap-y-1.5 sm:grid-cols-3">
@@ -188,8 +205,39 @@ export default function TemporalPage() {
                     {data.grounding.saturnReturn}.
                   </p>
                 )}
-                <div className="pt-3">
-                  <ResultBlock result={data.saturnReturn} />
+                <div className="space-y-4 pt-3">
+                  {(() => {
+                    const raw = data.saturnReturn.data as
+                      | { previous?: unknown; next?: unknown }
+                      | undefined;
+                    if (data.saturnReturn.ok && raw !== undefined && ("previous" in raw || "next" in raw)) {
+                      return (
+                        <>
+                          <div>
+                            <p className="pb-1.5 text-xs font-semibold text-ink">Previous return</p>
+                            {raw.previous != null ? (
+                              <ResultBlock result={{ ok: true, data: raw.previous }} />
+                            ) : (
+                              <p className="text-xs text-ink-faint">
+                                Not returned by the provider for this chart.
+                              </p>
+                            )}
+                          </div>
+                          <div className="border-t border-line/60 pt-3">
+                            <p className="pb-1.5 text-xs font-semibold text-ink">Next return</p>
+                            {raw.next != null ? (
+                              <ResultBlock result={{ ok: true, data: raw.next }} />
+                            ) : (
+                              <p className="text-xs text-ink-faint">
+                                Not returned by the provider for this chart.
+                              </p>
+                            )}
+                          </div>
+                        </>
+                      );
+                    }
+                    return <ResultBlock result={data.saturnReturn} />;
+                  })()}
                 </div>
               </Card>
 
