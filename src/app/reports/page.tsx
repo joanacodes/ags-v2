@@ -9,11 +9,10 @@ import { useCharts } from "@/hooks/use-charts";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { PRIMARY_CHART_ID } from "@/lib/navigation";
 
 export default function ReportsPage() {
   const { data: charts, isLoading } = useCharts();
-  const reportable = charts?.filter((chart) => chart.id === PRIMARY_CHART_ID) ?? [];
+  const reportable = charts?.filter((chart) => chart.planets.length > 0) ?? [];
 
   return (
     <AppShell>

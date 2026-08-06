@@ -74,7 +74,13 @@ async function post(
 /** Saturn return windows (transiting Saturn conjunct natal Saturn). */
 export function fetchSaturnReturn(chart: Chart): Promise<TemporalCallOutcome> {
   return post(
-    ["/api/v1/planetary-return/calculate", "/api/v1/returns/planetary/calculate"],
+    [
+      "/api/v1/planetary-return/calculate",
+      "/api/v1/western/planetary-return/calculate",
+      "/api/v1/western/planetary-return",
+      "/api/v1/planetary-return",
+      "/api/v1/returns/planetary/calculate",
+    ],
     { ...natalBody(chart), planet: "saturn" },
   );
 }
@@ -82,7 +88,13 @@ export function fetchSaturnReturn(chart: Chart): Promise<TemporalCallOutcome> {
 /** Solar return chart for the birthday year starting `year`. */
 export function fetchSolarReturn(chart: Chart, year: number): Promise<TemporalCallOutcome> {
   return post(
-    ["/api/v1/solar-return/calculate", "/api/v1/returns/solar/calculate"],
+    [
+      "/api/v1/solar-return/calculate",
+      "/api/v1/western/solar-return/calculate",
+      "/api/v1/western/solar-return",
+      "/api/v1/solar-return",
+      "/api/v1/returns/solar/calculate",
+    ],
     { ...natalBody(chart), return_year: year, year_of_return: year },
   );
 }
@@ -90,7 +102,13 @@ export function fetchSolarReturn(chart: Chart, year: number): Promise<TemporalCa
 /** Secondary progressions as of `date` (YYYY-MM-DD). */
 export function fetchProgressions(chart: Chart, date: string): Promise<TemporalCallOutcome> {
   return post(
-    ["/api/v1/progressions/calculate", "/api/v1/progressions/secondary/calculate"],
+    [
+      "/api/v1/progressions/calculate",
+      "/api/v1/western/progressions/calculate",
+      "/api/v1/western/progressions",
+      "/api/v1/progressions",
+      "/api/v1/progressions/secondary/calculate",
+    ],
     { ...natalBody(chart), target_date: date, progression_date: date, date },
   );
 }
