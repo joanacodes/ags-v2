@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.synastry.identity",
+  "status": "VALIDATED via external expert review (ChatGPT consensus pass), 2026-08-06",
+  "content": {
+    "canonicalFunction": "Compares two natal charts to describe patterns of interaction, compatibility, challenge, and mutual growth through planetary relationships between individuals.",
+    "coreDomains": [
+      "relationships",
+      "interpersonal_dynamics",
+      "compatibility",
+      "growth",
+      "communication"
+    ],
+    "notInherent": [
+      "soulmate_proof",
+      "relationship_success_guarantee",
+      "marriage_prediction",
+      "good_or_bad_chart",
+      "fixed_destiny"
+    ],
+    "constraints": [
+      "Neither harmonious nor challenging aspects determine relationship success alone.",
+      "Each natal chart remains primary.",
+      "Context, maturity, and free choice matter.",
+      "Should describe interaction patterns rather than outcomes."
+    ]
+  }
+}

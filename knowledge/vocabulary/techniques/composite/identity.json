@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.composite.identity",
+  "status": "VALIDATED via external expert review (ChatGPT consensus pass), 2026-08-06",
+  "content": {
+    "canonicalFunction": "Represents the symbolic chart of a relationship created from the midpoints between two natal charts, describing the character, purpose, and dynamics of the relationship itself.",
+    "coreDomains": [
+      "relationship_identity",
+      "shared_purpose",
+      "partnership",
+      "collective_dynamics",
+      "development"
+    ],
+    "notInherent": [
+      "marriage_guarantee",
+      "relationship_lifespan",
+      "replacement_for_synastry",
+      "inevitable_events",
+      "objective_entity"
+    ],
+    "constraints": [
+      "Should be interpreted together with synastry and natal charts.",
+      "Describes the relationship as a symbolic whole.",
+      "Does not predict duration or success.",
+      "Emphasizes shared dynamics rather than individual psychology."
+    ]
+  }
+}

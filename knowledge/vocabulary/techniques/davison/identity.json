@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.davison.identity",
+  "status": "VALIDATED via external expert review (ChatGPT consensus pass), 2026-08-06",
+  "content": {
+    "canonicalFunction": "Creates a relationship chart from the actual midpoint in time and space between two births, symbolically describing the partnership through an alternative relationship-chart method.",
+    "coreDomains": [
+      "relationship_chart",
+      "shared_experience",
+      "partnership",
+      "symbolic_time",
+      "comparison"
+    ],
+    "notInherent": [
+      "universally_superior_method",
+      "guaranteed_events",
+      "marriage_prediction",
+      "replacement_for_composite",
+      "objective_destiny"
+    ],
+    "constraints": [
+      "Different schools prefer Composite or Davison techniques.",
+      "Interpret within broader relationship analysis.",
+      "Describes symbolic patterns rather than certainties.",
+      "Avoid treating it as inherently more accurate."
+    ]
+  }
+}

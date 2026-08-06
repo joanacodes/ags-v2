@@ -1840,19 +1840,26 @@
    "entity": "vertex",
    "modules": {
     "identity": {
-     "canonicalFunction": "marks a point of fated-feeling encounters and turning points — meetings and events that redirect the course of a life through other people",
+     "canonicalFunction": "Represents a mathematically derived point whose symbolism is commonly associated with significant interpersonal encounters, receptivity, and experiences that feel subjectively meaningful within the broader natal chart, although its importance is not universally accepted across all astrological schools.",
      "coreDomains": [
-      "significant_encounters",
-      "turning_points",
-      "relational_destiny"
+      "relationships",
+      "meaningful_encounters",
+      "receptivity",
+      "life_connections",
+      "chart_sensitivity"
      ],
      "notInherent": [
-      "guaranteed_events",
-      "specific_persons",
-      "timing_precision"
+      "guaranteed_fated_relationships",
+      "predestined_events",
+      "soulmate_proof",
+      "automatic_marriage_indicator",
+      "unavoidable_destiny"
      ],
      "constraints": [
-      "a derived point of the horizon system; activated relationally; themes describe openings, not certainties"
+      "Astrological traditions differ regarding the Vertex's significance; interpretations should acknowledge this variation.",
+      "Meaning arises through its natal sign, house, aspects, and chart context rather than the point alone.",
+      "Should describe symbolic receptivity and meaningful encounters without implying inevitability.",
+      "Must not be treated as an independent predictor of specific life events."
      ]
     }
    }
@@ -12501,20 +12508,26 @@
    "entity": "lilith",
    "modules": {
     "identity": {
-     "canonicalFunction": "marks where instinctive autonomy resists domestication, holding the themes of refusal, raw desire, and reclaimed self-possession",
+     "canonicalFunction": "Represents the symbolic lunar apogee and is commonly interpreted as describing themes of instinctive autonomy, rejected or unintegrated psychological material, authenticity, boundaries, and the relationship to personal power, although interpretive emphasis varies among astrological traditions.",
      "coreDomains": [
+      "shadow_integration",
       "autonomy",
-      "refusal",
-      "raw_desire",
-      "reclamation"
+      "instinct",
+      "psychological_complexes",
+      "personal_boundaries"
      ],
      "notInherent": [
-      "malice",
-      "punishment",
-      "moral_judgement"
+      "evil_or_malevolence",
+      "immorality",
+      "guaranteed_trauma",
+      "sexual_promiscuity",
+      "fixed_psychological_pathology"
      ],
      "constraints": [
-      "describes a calculated point, not a body; expression is thematic, not behavioural prescription"
+      "Interpretive traditions differ substantially; meanings should be presented as symbolic rather than universally agreed.",
+      "Themes must be integrated with the natal chart rather than interpreted in isolation.",
+      "Represents psychological and symbolic patterns rather than objective external forces.",
+      "Should avoid moral judgments or deterministic interpretations."
      ]
     }
    }
@@ -18210,28 +18223,152 @@
     }
    }
   },
+  "techniques/annual_profections": {
+   "id": "techniques/annual_profections",
+   "category": "techniques",
+   "entity": "annual_profections",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Advances the natal Ascendant one house per year to identify the life topics and planetary ruler receiving symbolic emphasis during a given annual cycle.",
+     "coreDomains": [
+      "hellenistic_astrology",
+      "annual_focus",
+      "house_emphasis",
+      "timing",
+      "planetary_ruler"
+     ],
+     "notInherent": [
+      "event_prediction",
+      "replacement_for_other_techniques",
+      "guaranteed_results",
+      "isolated_interpretation",
+      "fixed_destiny"
+     ],
+     "constraints": [
+      "Interpret with the natal chart and the year's time lord.",
+      "Identifies emphasis rather than outcomes.",
+      "Originates in traditional astrology.",
+      "Benefits from corroboration with other timing methods."
+     ]
+    }
+   }
+  },
+  "techniques/composite": {
+   "id": "techniques/composite",
+   "category": "techniques",
+   "entity": "composite",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Represents the symbolic chart of a relationship created from the midpoints between two natal charts, describing the character, purpose, and dynamics of the relationship itself.",
+     "coreDomains": [
+      "relationship_identity",
+      "shared_purpose",
+      "partnership",
+      "collective_dynamics",
+      "development"
+     ],
+     "notInherent": [
+      "marriage_guarantee",
+      "relationship_lifespan",
+      "replacement_for_synastry",
+      "inevitable_events",
+      "objective_entity"
+     ],
+     "constraints": [
+      "Should be interpreted together with synastry and natal charts.",
+      "Describes the relationship as a symbolic whole.",
+      "Does not predict duration or success.",
+      "Emphasizes shared dynamics rather than individual psychology."
+     ]
+    }
+   }
+  },
+  "techniques/davison": {
+   "id": "techniques/davison",
+   "category": "techniques",
+   "entity": "davison",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Creates a relationship chart from the actual midpoint in time and space between two births, symbolically describing the partnership through an alternative relationship-chart method.",
+     "coreDomains": [
+      "relationship_chart",
+      "shared_experience",
+      "partnership",
+      "symbolic_time",
+      "comparison"
+     ],
+     "notInherent": [
+      "universally_superior_method",
+      "guaranteed_events",
+      "marriage_prediction",
+      "replacement_for_composite",
+      "objective_destiny"
+     ],
+     "constraints": [
+      "Different schools prefer Composite or Davison techniques.",
+      "Interpret within broader relationship analysis.",
+      "Describes symbolic patterns rather than certainties.",
+      "Avoid treating it as inherently more accurate."
+     ]
+    }
+   }
+  },
+  "techniques/lunar_return": {
+   "id": "techniques/lunar_return",
+   "category": "techniques",
+   "entity": "lunar_return",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Represents the monthly chart cast for the Moon's return to its natal longitude, symbolically emphasizing emotional focus, habits, and experiential themes for the coming lunar month.",
+     "coreDomains": [
+      "monthly_cycle",
+      "emotions",
+      "habits",
+      "inner_focus",
+      "timing"
+     ],
+     "notInherent": [
+      "monthly_predictions",
+      "guaranteed_events",
+      "replacement_for_transits",
+      "fixed_outcomes",
+      "isolated_reading"
+     ],
+     "constraints": [
+      "Interpret relative to the natal chart.",
+      "Focuses on symbolic monthly emphasis.",
+      "Should not be read as deterministic.",
+      "Integrates with broader timing techniques."
+     ]
+    }
+   }
+  },
   "techniques/saturn_return": {
    "id": "techniques/saturn_return",
    "category": "techniques",
    "entity": "saturn_return",
    "modules": {
     "identity": {
-     "canonicalFunction": "marks the period when transiting Saturn returns to its natal position (around ages 29, 58, and 87), a structural audit of a life: commitments, responsibilities, and foundations are tested, and what is built to last is separated from what was provisional",
+     "canonicalFunction": "Marks the period when transiting Saturn returns to its natal position, emphasizing review, consolidation, accountability, maturation, and the restructuring of life according to the natal Saturn's developmental themes rather than introducing new symbolic meanings.",
      "coreDomains": [
+      "developmental_cycles",
+      "responsibility",
+      "structure",
       "maturation",
-      "structural_audit",
-      "commitment",
-      "consolidation"
+      "life_review"
      ],
      "notInherent": [
-      "punishment",
       "guaranteed_crisis",
-      "specific_events"
+      "automatic_loss_or_success",
+      "inevitable_major_life_events",
+      "punishment_or_bad_luck",
+      "same_experience_for_everyone"
      ],
      "constraints": [
-      "describes a developmental season, not a verdict",
-      "themes are colored by the natal Saturn's sign and house",
-      "duration spans the exact return window, roughly two to three years of approach and integration"
+      "Describes a developmental season rather than a fixed outcome or prediction.",
+      "Interpretation must be anchored in the natal Saturn's sign, house, aspects, and overall chart context.",
+      "Intensity varies between individuals and according to concurrent astrological factors.",
+      "Should describe themes of responsibility and restructuring without implying unavoidable external events."
      ]
     }
    }
@@ -18242,21 +18379,26 @@
    "entity": "secondary_progressions",
    "modules": {
     "identity": {
-     "canonicalFunction": "advances the natal chart one day per year of life (about one degree per year for the Sun), describing the slow inner evolution of the personality — progressed planets changing sign or house mark chapters where a function's style of expression matures into a new register",
+     "canonicalFunction": "Applies the symbolic day-for-a-year progression to the natal chart to describe the gradual internal evolution of personality, perception, emotional development, and life orientation as they unfold over time.",
      "coreDomains": [
-      "inner_evolution",
-      "life_chapters",
-      "gradual_maturation"
+      "inner_development",
+      "psychological_growth",
+      "life_cycles",
+      "symbolic_time",
+      "personal_evolution"
      ],
      "notInherent": [
-      "external_events",
-      "sudden_change",
-      "replacement_of_the_natal_chart"
+      "literal_planetary_motion",
+      "guaranteed_external_events",
+      "replacement_for_transits",
+      "rapid_or_daily_change",
+      "fixed_predictions"
      ],
      "constraints": [
-      "the natal chart never changes; progressions describe development, not identity replacement",
-      "a progressed sign change colors expression for roughly thirty years",
-      "progressed Moon moves fastest (a sign every two and a half years) and marks emotional chapters"
+      "Primarily describes internal developmental processes rather than external circumstances.",
+      "Should be interpreted together with the natal chart and other timing techniques such as transits.",
+      "Progressions unfold gradually and emphasize symbolic maturation rather than sudden change.",
+      "Interpretations should distinguish symbolic progression from astronomical movement."
      ]
     }
    }
@@ -18267,20 +18409,116 @@
    "entity": "solar_return",
    "modules": {
     "identity": {
-     "canonicalFunction": "marks the chart cast for the exact moment the Sun returns to its natal degree each year — a thematic keynote for the twelve months that follow, read through the return chart's emphases",
+     "canonicalFunction": "Represents the annual chart cast for the moment the Sun returns to its exact natal longitude, symbolically describing the principal themes, areas of emphasis, and developmental focus of the coming solar year in relation to the natal chart.",
      "coreDomains": [
-      "annual_theme",
-      "yearly_keynote",
-      "cyclical_renewal"
+      "annual_cycle",
+      "yearly_emphasis",
+      "life_focus",
+      "symbolic_context",
+      "personal_development"
      ],
      "notInherent": [
-      "predictions_of_events",
-      "fixed_outcomes"
+      "guaranteed_events",
+      "exact_predictions",
+      "replacement_for_the_natal_chart",
+      "isolated_interpretation",
+      "fixed_destiny_for_the_year"
      ],
      "constraints": [
-      "describes the tone and emphasis of a year, never guaranteed events",
-      "the return Ascendant and house emphasis set the year's stage",
-      "one technique among several; strongest when read alongside transits and progressions"
+      "Must always be interpreted in relation to the natal chart rather than independently.",
+      "Describes symbolic emphasis and developmental themes, not certain future events.",
+      "Interpretation should integrate planetary placements, angles, and aspects within the return chart.",
+      "The chart indicates qualitative focus for the year rather than measurable outcomes."
+     ]
+    }
+   }
+  },
+  "techniques/synastry": {
+   "id": "techniques/synastry",
+   "category": "techniques",
+   "entity": "synastry",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Compares two natal charts to describe patterns of interaction, compatibility, challenge, and mutual growth through planetary relationships between individuals.",
+     "coreDomains": [
+      "relationships",
+      "interpersonal_dynamics",
+      "compatibility",
+      "growth",
+      "communication"
+     ],
+     "notInherent": [
+      "soulmate_proof",
+      "relationship_success_guarantee",
+      "marriage_prediction",
+      "good_or_bad_chart",
+      "fixed_destiny"
+     ],
+     "constraints": [
+      "Neither harmonious nor challenging aspects determine relationship success alone.",
+      "Each natal chart remains primary.",
+      "Context, maturity, and free choice matter.",
+      "Should describe interaction patterns rather than outcomes."
+     ]
+    }
+   }
+  },
+  "techniques/transits": {
+   "id": "techniques/transits",
+   "category": "techniques",
+   "entity": "transits",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Describes the ongoing relationship between current planetary positions and the natal chart, highlighting periods when existing natal potentials, developmental themes, and psychological processes are symbolically emphasized.",
+     "coreDomains": [
+      "timing",
+      "developmental_cycles",
+      "activation",
+      "life_context",
+      "symbolic_change"
+     ],
+     "notInherent": [
+      "guaranteed_events",
+      "isolated_interpretation",
+      "fixed_fate",
+      "single_cause_explanations",
+      "exact_predictions"
+     ],
+     "constraints": [
+      "Must always be interpreted alongside the natal chart.",
+      "Transits describe symbolic timing rather than inevitable outcomes.",
+      "Multiple simultaneous transits modify interpretation.",
+      "Psychological and developmental themes take precedence over event claims."
+     ]
+    }
+   }
+  },
+  "techniques/zodiacal_releasing": {
+   "id": "techniques/zodiacal_releasing",
+   "category": "techniques",
+   "entity": "zodiacal_releasing",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Uses a sequence of symbolic periods derived from the Lot of Spirit or related lots to organize long-term chapters of development and changing areas of emphasis across life.",
+     "coreDomains": [
+      "hellenistic_astrology",
+      "life_chapters",
+      "timing",
+      "development",
+      "symbolic_periods"
+     ],
+     "notInherent": [
+      "precise_event_prediction",
+      "guaranteed_fame",
+      "fixed_destiny",
+      "isolated_interpretation",
+      "certainty"
+     ],
+     "constraints": [
+      "Interpretation varies across traditional practitioners.",
+      "Should be combined with the natal chart and complementary timing techniques.",
+      "Describes changing emphasis rather than inevitable events.",
+      "Avoid deterministic conclusions."
      ]
     }
    }

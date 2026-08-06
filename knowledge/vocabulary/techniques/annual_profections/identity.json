@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.annual_profections.identity",
+  "status": "VALIDATED via external expert review (ChatGPT consensus pass), 2026-08-06",
+  "content": {
+    "canonicalFunction": "Advances the natal Ascendant one house per year to identify the life topics and planetary ruler receiving symbolic emphasis during a given annual cycle.",
+    "coreDomains": [
+      "hellenistic_astrology",
+      "annual_focus",
+      "house_emphasis",
+      "timing",
+      "planetary_ruler"
+    ],
+    "notInherent": [
+      "event_prediction",
+      "replacement_for_other_techniques",
+      "guaranteed_results",
+      "isolated_interpretation",
+      "fixed_destiny"
+    ],
+    "constraints": [
+      "Interpret with the natal chart and the year's time lord.",
+      "Identifies emphasis rather than outcomes.",
+      "Originates in traditional astrology.",
+      "Benefits from corroboration with other timing methods."
+    ]
+  }
+}

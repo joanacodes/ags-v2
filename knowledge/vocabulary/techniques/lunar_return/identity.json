@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.lunar_return.identity",
+  "status": "VALIDATED via external expert review (ChatGPT consensus pass), 2026-08-06",
+  "content": {
+    "canonicalFunction": "Represents the monthly chart cast for the Moon's return to its natal longitude, symbolically emphasizing emotional focus, habits, and experiential themes for the coming lunar month.",
+    "coreDomains": [
+      "monthly_cycle",
+      "emotions",
+      "habits",
+      "inner_focus",
+      "timing"
+    ],
+    "notInherent": [
+      "monthly_predictions",
+      "guaranteed_events",
+      "replacement_for_transits",
+      "fixed_outcomes",
+      "isolated_reading"
+    ],
+    "constraints": [
+      "Interpret relative to the natal chart.",
+      "Focuses on symbolic monthly emphasis.",
+      "Should not be read as deterministic.",
+      "Integrates with broader timing techniques."
+    ]
+  }
+}

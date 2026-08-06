@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.zodiacal_releasing.identity",
+  "status": "VALIDATED via external expert review (ChatGPT consensus pass), 2026-08-06",
+  "content": {
+    "canonicalFunction": "Uses a sequence of symbolic periods derived from the Lot of Spirit or related lots to organize long-term chapters of development and changing areas of emphasis across life.",
+    "coreDomains": [
+      "hellenistic_astrology",
+      "life_chapters",
+      "timing",
+      "development",
+      "symbolic_periods"
+    ],
+    "notInherent": [
+      "precise_event_prediction",
+      "guaranteed_fame",
+      "fixed_destiny",
+      "isolated_interpretation",
+      "certainty"
+    ],
+    "constraints": [
+      "Interpretation varies across traditional practitioners.",
+      "Should be combined with the natal chart and complementary timing techniques.",
+      "Describes changing emphasis rather than inevitable events.",
+      "Avoid deterministic conclusions."
+    ]
+  }
+}

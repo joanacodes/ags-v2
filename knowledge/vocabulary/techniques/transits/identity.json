@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.transits.identity",
+  "status": "VALIDATED via external expert review (ChatGPT consensus pass), 2026-08-06",
+  "content": {
+    "canonicalFunction": "Describes the ongoing relationship between current planetary positions and the natal chart, highlighting periods when existing natal potentials, developmental themes, and psychological processes are symbolically emphasized.",
+    "coreDomains": [
+      "timing",
+      "developmental_cycles",
+      "activation",
+      "life_context",
+      "symbolic_change"
+    ],
+    "notInherent": [
+      "guaranteed_events",
+      "isolated_interpretation",
+      "fixed_fate",
+      "single_cause_explanations",
+      "exact_predictions"
+    ],
+    "constraints": [
+      "Must always be interpreted alongside the natal chart.",
+      "Transits describe symbolic timing rather than inevitable outcomes.",
+      "Multiple simultaneous transits modify interpretation.",
+      "Psychological and developmental themes take precedence over event claims."
+    ]
+  }
+}

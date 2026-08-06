@@ -1,11 +1,28 @@
 {
   "$schemaVersion": "1.0",
   "id": "vocabulary.angles.vertex.identity",
-  "status": "DRAFT — added by implementation, pending architect validation",
+  "status": "VALIDATED via external expert review (ChatGPT consensus pass), 2026-08-06",
   "content": {
-    "canonicalFunction": "marks a point of fated-feeling encounters and turning points — meetings and events that redirect the course of a life through other people",
-    "coreDomains": ["significant_encounters", "turning_points", "relational_destiny"],
-    "notInherent": ["guaranteed_events", "specific_persons", "timing_precision"],
-    "constraints": ["a derived point of the horizon system; activated relationally; themes describe openings, not certainties"]
+    "canonicalFunction": "Represents a mathematically derived point whose symbolism is commonly associated with significant interpersonal encounters, receptivity, and experiences that feel subjectively meaningful within the broader natal chart, although its importance is not universally accepted across all astrological schools.",
+    "coreDomains": [
+      "relationships",
+      "meaningful_encounters",
+      "receptivity",
+      "life_connections",
+      "chart_sensitivity"
+    ],
+    "notInherent": [
+      "guaranteed_fated_relationships",
+      "predestined_events",
+      "soulmate_proof",
+      "automatic_marriage_indicator",
+      "unavoidable_destiny"
+    ],
+    "constraints": [
+      "Astrological traditions differ regarding the Vertex's significance; interpretations should acknowledge this variation.",
+      "Meaning arises through its natal sign, house, aspects, and chart context rather than the point alone.",
+      "Should describe symbolic receptivity and meaningful encounters without implying inevitability.",
+      "Must not be treated as an independent predictor of specific life events."
+    ]
   }
 }

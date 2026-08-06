@@ -1,11 +1,28 @@
 {
   "$schemaVersion": "1.0",
   "id": "vocabulary.points.lilith.identity",
-  "status": "DRAFT — added by implementation, pending architect validation",
+  "status": "VALIDATED via external expert review (ChatGPT consensus pass), 2026-08-06",
   "content": {
-    "canonicalFunction": "marks where instinctive autonomy resists domestication, holding the themes of refusal, raw desire, and reclaimed self-possession",
-    "coreDomains": ["autonomy", "refusal", "raw_desire", "reclamation"],
-    "notInherent": ["malice", "punishment", "moral_judgement"],
-    "constraints": ["describes a calculated point, not a body; expression is thematic, not behavioural prescription"]
+    "canonicalFunction": "Represents the symbolic lunar apogee and is commonly interpreted as describing themes of instinctive autonomy, rejected or unintegrated psychological material, authenticity, boundaries, and the relationship to personal power, although interpretive emphasis varies among astrological traditions.",
+    "coreDomains": [
+      "shadow_integration",
+      "autonomy",
+      "instinct",
+      "psychological_complexes",
+      "personal_boundaries"
+    ],
+    "notInherent": [
+      "evil_or_malevolence",
+      "immorality",
+      "guaranteed_trauma",
+      "sexual_promiscuity",
+      "fixed_psychological_pathology"
+    ],
+    "constraints": [
+      "Interpretive traditions differ substantially; meanings should be presented as symbolic rather than universally agreed.",
+      "Themes must be integrated with the natal chart rather than interpreted in isolation.",
+      "Represents psychological and symbolic patterns rather than objective external forces.",
+      "Should avoid moral judgments or deterministic interpretations."
+    ]
   }
 }

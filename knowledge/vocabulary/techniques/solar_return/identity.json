@@ -1,15 +1,28 @@
 {
   "$schemaVersion": "1.0",
   "id": "vocabulary.techniques.solar_return.identity",
-  "status": "DRAFT — added by implementation, pending architect validation",
+  "status": "VALIDATED via external expert review (ChatGPT consensus pass), 2026-08-06",
   "content": {
-    "canonicalFunction": "marks the chart cast for the exact moment the Sun returns to its natal degree each year — a thematic keynote for the twelve months that follow, read through the return chart's emphases",
-    "coreDomains": ["annual_theme", "yearly_keynote", "cyclical_renewal"],
-    "notInherent": ["predictions_of_events", "fixed_outcomes"],
+    "canonicalFunction": "Represents the annual chart cast for the moment the Sun returns to its exact natal longitude, symbolically describing the principal themes, areas of emphasis, and developmental focus of the coming solar year in relation to the natal chart.",
+    "coreDomains": [
+      "annual_cycle",
+      "yearly_emphasis",
+      "life_focus",
+      "symbolic_context",
+      "personal_development"
+    ],
+    "notInherent": [
+      "guaranteed_events",
+      "exact_predictions",
+      "replacement_for_the_natal_chart",
+      "isolated_interpretation",
+      "fixed_destiny_for_the_year"
+    ],
     "constraints": [
-      "describes the tone and emphasis of a year, never guaranteed events",
-      "the return Ascendant and house emphasis set the year's stage",
-      "one technique among several; strongest when read alongside transits and progressions"
+      "Must always be interpreted in relation to the natal chart rather than independently.",
+      "Describes symbolic emphasis and developmental themes, not certain future events.",
+      "Interpretation should integrate planetary placements, angles, and aspects within the return chart.",
+      "The chart indicates qualitative focus for the year rather than measurable outcomes."
     ]
   }
 }
