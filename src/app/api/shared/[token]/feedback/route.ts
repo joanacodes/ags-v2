@@ -19,6 +19,7 @@ export async function POST(
     rating?: number;
     comment?: string;
     author?: string;
+    quote?: string;
   };
   if (typeof body.slug !== "string" || body.slug.length === 0) {
     return NextResponse.json(
@@ -37,6 +38,7 @@ export async function POST(
     p_rating: rating,
     p_comment: body.comment ?? "",
     p_author: body.author ?? "",
+    p_quote: typeof body.quote === "string" ? body.quote.slice(0, 500) : "",
   });
   if (error !== null) {
     return NextResponse.json(

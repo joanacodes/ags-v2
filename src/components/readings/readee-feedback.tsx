@@ -11,6 +11,7 @@ interface FeedbackEntry {
   rating: number | null;
   comment: string | null;
   author: string | null;
+  quote: string | null;
   created_at: string;
 }
 
@@ -60,6 +61,11 @@ export function ReadeeFeedback({ chartId, slug }: { chartId: string; slug: strin
                 })}
               </span>
             </div>
+            {entry.quote !== null && (
+              <blockquote className="mt-1.5 border-l-2 border-warning/60 bg-warning-soft/40 px-2.5 py-1.5 text-xs italic leading-relaxed text-ink-muted">
+                “{entry.quote}”
+              </blockquote>
+            )}
             {entry.comment !== null && (
               <p className="pt-1.5 text-sm leading-relaxed text-ink-secondary">
                 {entry.comment}

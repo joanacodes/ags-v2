@@ -51,7 +51,7 @@ create or replace function public.create_share_link(p_chart_id text, p_password 
 returns jsonb
 language plpgsql
 security definer
-set search_path = public
+set search_path = public, extensions
 as $$
 declare
   v_user uuid := auth.uid();
@@ -78,7 +78,7 @@ create or replace function public.get_shared_readings(p_token text, p_password t
 returns jsonb
 language plpgsql
 security definer
-set search_path = public
+set search_path = public, extensions
 as $$
 declare
   l record;
@@ -115,7 +115,7 @@ create or replace function public.submit_reading_feedback(
 returns jsonb
 language plpgsql
 security definer
-set search_path = public
+set search_path = public, extensions
 as $$
 declare
   l record;

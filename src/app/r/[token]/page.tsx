@@ -5,19 +5,22 @@
  * shared readings; the readee rates each one (1-5 stars) and leaves notes
  * that the astrologer sees on the reading pages.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
-import { Loader2, Lock, Send, Sparkles, Star } from "lucide-react";
+import { Loader2, Lock, MessageSquarePlus, Moon, Send, Sparkles, Star, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { ChartWheel } from "@/components/chart/chart-wheel";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { renderInline } from "@/lib/rich-text";
-import type { Reading } from "@/types";
+import type { Chart, Reading } from "@/types";
 
 interface SharedPayload {
   person: string;
+  chart: Chart | null;
   readings: Reading[];
 }
 
@@ -74,6 +77,8 @@ export default function SharedReadingPage() {
         </span>
         <span className="text-sm font-semibold tracking-wide text-ink">AGS</span>
         <span className="text-xs text-ink-faint">· Shared reading</span>
+        <span className="flex-1" />
+        <ThemeButton />
       </header>
 
       <main className="mx-auto max-w-3xl px-5">
@@ -113,8 +118,43 @@ export default function SharedReadingPage() {
           </Card>
         ) : (
           <>
+            {payload.chart !== null && payload.chart.planets.length > 0 && (
+              <Card className="mt-2 overflow-hidden p-5">
+                <div className="grid items-center gap-5 sm:grid-cols-[220px_1fr]">
+                  <div className="mx-auto w-full max-w-[220px]">
+                    <ChartWheel chart={payload.chart} />
+                  </div>
+                  <div>
+                    <h1 className="font-serif text-2xl text-ink">{payload.person}</h1>
+                    <p className="pt-1 text-xs text-ink-muted">
+                      {new Date(payload.chart.birth.date + "T00:00:00").toLocaleDateString("en-GB", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                      {payload.chart.birth.time !== null && ` · ${payload.chart.birth.time}`}
+                      {` · ${payload.chart.birth.place}`}
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                      <span className="rounded-full border border-line px-2.5 py-1 text-ink-secondary">
+                        ☉ {payload.chart.summary.sun.sign}
+                      </span>
+                      <span className="rounded-full border border-line px-2.5 py-1 text-ink-secondary">
+                        ☽ {payload.chart.summary.moon.sign}
+                      </span>
+                      <span className="rounded-full border border-line px-2.5 py-1 text-ink-secondary">
+                        ASC {payload.chart.summary.ascendant.sign}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            )}
+
             <div className="pb-2 pt-4">
-              <h1 className="font-serif text-2xl text-ink">{payload.person}</h1>
+              {(payload.chart === null || payload.chart.planets.length === 0) && (
+                <h1 className="font-serif text-2xl text-ink">{payload.person}</h1>
+              )}
               <p className="pt-1 text-xs leading-relaxed text-ink-muted">
                 These readings were prepared for you. After each one, tell the
                 astrologer what rings true and what doesn&rsquo;t — your notes and
@@ -138,14 +178,13 @@ export default function SharedReadingPage() {
             )}
 
             <div className="mt-4 space-y-4">
-              {payload.readings.map((reading, index) => (
+              {payload.readings.map((reading) => (
                 <SharedReading
                   key={reading.slug}
                   reading={reading}
                   token={token}
                   password={password}
                   author={author}
-                  defaultOpen={index === 0}
                 />
               ))}
             </div>
@@ -161,19 +200,73 @@ function SharedReading({
   token,
   password,
   author,
-  defaultOpen,
 }: {
   reading: Reading;
   token: string;
   password: string;
   author: string;
-  defaultOpen: boolean;
 }) {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // --- Google-Doc-style anchored comments: select text -> comment bubble ---
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const [anchor, setAnchor] = useState<{ quote: string; x: number; y: number } | null>(null);
+  const [bubbleOpen, setBubbleOpen] = useState(false);
+  const [bubbleText, setBubbleText] = useState("");
+  const [bubbleSending, setBubbleSending] = useState(false);
+  const [anchoredSent, setAnchoredSent] = useState<{ quote: string; comment: string }[]>([]);
+
+  const captureSelection = () => {
+    const container = contentRef.current;
+    const selection = window.getSelection();
+    if (container === null || selection === null || selection.isCollapsed) {
+      if (!bubbleOpen) setAnchor(null);
+      return;
+    }
+    const text = selection.toString().trim();
+    if (text.length < 2 || text.length > 500) return;
+    const range = selection.getRangeAt(0);
+    if (!container.contains(range.commonAncestorContainer)) return;
+    const rect = range.getBoundingClientRect();
+    const box = container.getBoundingClientRect();
+    setAnchor({
+      quote: text,
+      x: Math.min(Math.max(rect.left - box.left + rect.width / 2, 60), box.width - 60),
+      y: rect.top - box.top,
+    });
+    setBubbleOpen(false);
+  };
+
+  const sendAnchored = async () => {
+    if (anchor === null || bubbleText.trim() === "") return;
+    setBubbleSending(true);
+    try {
+      const response = await fetch(`/api/shared/${token}/feedback`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          password,
+          slug: reading.slug,
+          comment: bubbleText,
+          quote: anchor.quote,
+          author,
+        }),
+      });
+      if (response.ok) {
+        setAnchoredSent((current) => [...current, { quote: anchor.quote, comment: bubbleText }]);
+        setBubbleText("");
+        setBubbleOpen(false);
+        setAnchor(null);
+        window.getSelection()?.removeAllRanges();
+      }
+    } finally {
+      setBubbleSending(false);
+    }
+  };
 
   const submit = async () => {
     setSending(true);
@@ -204,16 +297,61 @@ function SharedReading({
   };
 
   return (
-    <details
-      open={defaultOpen}
-      className="group rounded-card border border-line bg-surface-raised shadow-card"
-    >
+    <details className="group rounded-card border border-line bg-surface-raised shadow-card">
       <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-4">
         <span className="text-sm font-semibold text-ink">{reading.title}</span>
         <span className="text-xs text-ink-faint transition-transform group-open:rotate-90">›</span>
       </summary>
 
-      <div className="border-t border-line px-5 py-4">
+      <div
+        ref={contentRef}
+        onPointerUp={captureSelection}
+        className="relative border-t border-line px-5 py-4"
+      >
+        {anchor !== null && !bubbleOpen && (
+          <button
+            type="button"
+            onClick={() => setBubbleOpen(true)}
+            className="absolute z-20 flex -translate-x-1/2 -translate-y-full items-center gap-1.5 rounded-full border border-line bg-surface-raised px-3 py-1.5 text-xs font-medium text-ink-secondary shadow-pop transition-colors hover:text-accent-hover"
+            style={{ left: anchor.x, top: Math.max(anchor.y - 6, 8) }}
+          >
+            <MessageSquarePlus size={13} />
+            Comment
+          </button>
+        )}
+        {anchor !== null && bubbleOpen && (
+          <div
+            className="absolute z-20 w-64 -translate-x-1/2 rounded-xl border border-line bg-surface-raised p-3 shadow-pop"
+            style={{ left: anchor.x, top: Math.max(anchor.y + 14, 8) }}
+          >
+            <p className="max-h-16 overflow-hidden border-l-2 border-warning/60 bg-warning-soft/40 px-2 py-1 text-[11px] italic leading-snug text-ink-muted">
+              “{anchor.quote.length > 120 ? `${anchor.quote.slice(0, 120)}…` : anchor.quote}”
+            </p>
+            <Textarea
+              value={bubbleText}
+              onChange={(event) => setBubbleText(event.target.value)}
+              rows={2}
+              placeholder="Your comment on this passage…"
+              className="mt-2 text-xs"
+              autoFocus
+              aria-label="Comment on the selected passage"
+            />
+            <div className="mt-2 flex justify-end gap-2">
+              <Button size="sm" variant="ghost" onClick={() => { setBubbleOpen(false); setAnchor(null); }}>
+                Cancel
+              </Button>
+              <Button
+                size="sm"
+                variant="primary"
+                disabled={bubbleSending || bubbleText.trim() === ""}
+                onClick={() => void sendAnchored()}
+              >
+                {bubbleSending ? <Loader2 size={12} className="animate-spin" /> : "Send"}
+              </Button>
+            </div>
+          </div>
+        )}
+
         {reading.sections.map((section) => (
           <div key={section.id} className="pb-4">
             <h3 className="pb-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-muted">
@@ -232,6 +370,20 @@ function SharedReading({
             )}
           </div>
         ))}
+
+        {anchoredSent.length > 0 && (
+          <div className="mb-3 space-y-2">
+            {anchoredSent.map((entry, index) => (
+              <div key={index} className="rounded-lg border border-line bg-surface px-3 py-2">
+                <p className="border-l-2 border-warning/60 bg-warning-soft/40 px-2 py-0.5 text-[11px] italic text-ink-muted">
+                  “{entry.quote.length > 90 ? `${entry.quote.slice(0, 90)}…` : entry.quote}”
+                </p>
+                <p className="pt-1 text-xs text-ink-secondary">{entry.comment}</p>
+                <p className="pt-0.5 text-[10px] text-success">Sent to the astrologer ✓</p>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* ------------------------- feedback ------------------------- */}
         <div className="rounded-lg border border-line bg-surface p-4">
@@ -292,5 +444,24 @@ function SharedReading({
         </div>
       </div>
     </details>
+  );
+}
+
+
+function ThemeButton() {
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return <span className="h-8 w-8" />;
+  const dark = resolvedTheme === "dark";
+  return (
+    <button
+      type="button"
+      aria-label={dark ? "Switch to light mode" : "Switch to dark mode"}
+      onClick={() => setTheme(dark ? "light" : "dark")}
+      className="flex h-8 w-8 items-center justify-center rounded-lg border border-line text-ink-muted transition-colors hover:border-line-strong hover:text-ink"
+    >
+      {dark ? <Sun size={14} /> : <Moon size={14} />}
+    </button>
   );
 }

@@ -11,7 +11,7 @@ export async function GET(
   const slug = new URL(request.url).searchParams.get("slug");
   let query = supabase
     .from("reading_feedback")
-    .select("id, slug, rating, comment, author, created_at")
+    .select("id, slug, rating, comment, author, quote, created_at")
     .eq("chart_id", params.chartId)
     .order("created_at", { ascending: false });
   if (slug !== null && slug !== "") query = query.eq("slug", slug);
