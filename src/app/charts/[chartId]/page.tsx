@@ -142,6 +142,12 @@ export default function ChartOverviewPage() {
               </>
             )}
             <Link
+              href={`/charts/${chartId}/temporal`}
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-line px-4 text-sm font-medium text-ink-secondary transition-colors hover:border-line-strong hover:text-ink"
+            >
+              Temporal
+            </Link>
+            <Link
               href={`/charts/${chartId}/interpretation`}
               className="inline-flex h-9 items-center gap-2 rounded-lg border border-line bg-surface-overlay px-4 text-sm font-medium text-ink transition-colors hover:bg-line-strong"
             >
@@ -231,29 +237,6 @@ export default function ChartOverviewPage() {
               </div>
             </div>
 
-            {readings && readings.length > 0 && (
-              <section aria-labelledby="chart-readings-heading">
-                <div className="flex items-baseline justify-between gap-4">
-                  <div>
-                    <h2 id="chart-readings-heading" className="text-base font-semibold text-ink">
-                      Chart Readings
-                    </h2>
-                    <p className="mt-0.5 text-xs text-ink-muted">
-                      Select a domain to explore detailed interpretations
-                    </p>
-                  </div>
-                  {progress && (
-                    <span className="text-xs text-ink-muted">
-                      {progress.completed} of {progress.total} completed
-                    </span>
-                  )}
-                </div>
-                <div className="mt-4">
-                  <ReadingDomainGrid chartId={chartId} readings={readings} />
-                </div>
-              </section>
-            )}
-
             {/* Wheel + right rail */}
             <div className="grid gap-4 xl:grid-cols-[1fr_380px]">
               <Card className="p-5">
@@ -293,6 +276,30 @@ export default function ChartOverviewPage() {
             </div>
 
             {/* Reading domains */}
+
+
+            {readings && readings.length > 0 && (
+              <section aria-labelledby="chart-readings-heading">
+                <div className="flex items-baseline justify-between gap-4">
+                  <div>
+                    <h2 id="chart-readings-heading" className="text-base font-semibold text-ink">
+                      Chart Readings
+                    </h2>
+                    <p className="mt-0.5 text-xs text-ink-muted">
+                      Select a domain to explore detailed interpretations
+                    </p>
+                  </div>
+                  {progress && (
+                    <span className="text-xs text-ink-muted">
+                      {progress.completed} of {progress.total} completed
+                    </span>
+                  )}
+                </div>
+                <div className="mt-4">
+                  <ReadingDomainGrid chartId={chartId} readings={readings} />
+                </div>
+              </section>
+            )}
               {!isPending && (
                 <section aria-labelledby="chart-data-heading">
                   <h2

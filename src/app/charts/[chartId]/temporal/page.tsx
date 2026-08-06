@@ -1,0 +1,196 @@
+"use client";
+
+/**
+ * Temporal page (TASK-0011): Saturn return, the next six solar returns,
+ * and current secondary progressions. Provider payload shapes are rendered
+ * defensively; upstream errors are shown verbatim for fast diagnosis.
+ */
+import { useParams } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { CalendarClock, Hourglass, RefreshCw, TrendingUp } from "lucide-react";
+import { AppShell } from "@/components/layout/app-shell";
+import { PageHeader } from "@/components/layout/page-header";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useChart } from "@/hooks/use-charts";
+
+interface CallResult {
+  ok: boolean;
+  data?: unknown;
+  error?: string;
+}
+interface TemporalPayload {
+  generatedAt: string;
+  grounding?: { saturnReturn: string; solarReturn: string; progressions: string };
+  saturnReturn: CallResult;
+  solarReturns: ({ year: number } & CallResult)[];
+  progressions: CallResult;
+}
+
+/** Pulls displayable facts out of an unknown provider payload. */
+function factsFrom(data: unknown): { label: string; value: string }[] {
+  if (typeof data !== "object" || data === null) return [];
+  const record = data as Record<string, unknown>;
+  const facts: { label: string; value: string }[] = [];
+  for (const key of ["return_date", "date", "exact_date", "return_datetime", "next_return"]) {
+    const value = record[key];
+    if (typeof value === "string") facts.push({ label: "Date", value });
+  }
+  const planets = record.planets;
+  if (Array.isArray(planets)) {
+    for (const p of planets.slice(0, 12)) {
+      if (typeof p === "object" && p !== null) {
+        const planet = p as Record<string, unknown>;
+        const name = typeof planet.name === "string" ? planet.name : null;
+        const sign = typeof planet.sign === "string" ? planet.sign : null;
+        const pos = typeof planet.pos === "number" ? `${Math.floor(planet.pos)}°` : "";
+        if (name !== null && sign !== null) {
+          facts.push({ label: name, value: `${pos} ${sign}${planet.retrograde === true ? " ℞" : ""}` });
+        }
+      }
+    }
+  }
+  return facts;
+}
+
+function ResultBlock({ result }: { result: CallResult }) {
+  if (!result.ok) {
+    return (
+      <p className="rounded-lg border border-warning/40 bg-warning-soft/40 px-3.5 py-2.5 text-xs leading-relaxed text-ink-secondary">
+        Provider response: {result.error ?? "unavailable"}
+      </p>
+    );
+  }
+  const facts = factsFrom(result.data);
+  if (facts.length === 0) {
+    return <p className="text-xs text-ink-muted">Computed — data received.</p>;
+  }
+  return (
+    <dl className="grid grid-cols-2 gap-x-6 gap-y-1.5 sm:grid-cols-3">
+      {facts.map((fact, index) => (
+        <div key={index} className="text-xs">
+          <dt className="text-ink-faint">{fact.label}</dt>
+          <dd className="text-ink-secondary">{fact.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
+}
+
+export default function TemporalPage() {
+  const params = useParams<{ chartId: string }>();
+  const chartId = params.chartId;
+  const { data: chart } = useChart(chartId);
+
+  const { data, isLoading, isError, error, refetch, isFetching } = useQuery({
+    queryKey: ["temporal", chartId],
+    queryFn: async (): Promise<TemporalPayload> => {
+      const response = await fetch(`/api/charts/${chartId}/temporal`);
+      if (!response.ok) {
+        const body = (await response.json().catch(() => null)) as
+          | { error?: { message?: string } }
+          | null;
+        throw new Error(body?.error?.message ?? "Temporal data unavailable.");
+      }
+      return (await response.json()) as TemporalPayload;
+    },
+    staleTime: 3600 * 1000,
+  });
+
+  const person = chart ? `${chart.person.firstName} ${chart.person.lastName}` : "";
+
+  return (
+    <AppShell>
+      <PageHeader
+        title="The Years Ahead"
+        crumbs={[
+          { label: "Birth Charts", href: "/charts" },
+          { label: person || "Chart", href: `/charts/${chartId}` },
+          { label: "Temporal" },
+        ]}
+        actions={
+          <Button
+            variant="outline"
+            size="sm"
+            disabled={isFetching}
+            onClick={() =>
+              fetch(`/api/charts/${chartId}/temporal?refresh=1`).then(() => refetch())
+            }
+          >
+            <RefreshCw size={13} className={isFetching ? "animate-spin" : ""} />
+            Recompute
+          </Button>
+        }
+      />
+      <main className="flex-1 px-4 py-5 sm:px-6 sm:py-6">
+        <div className="mx-auto max-w-3xl space-y-5">
+          {isLoading && <Skeleton className="h-64 w-full rounded-card" />}
+          {isError && (
+            <Card className="p-5 text-sm text-ink-secondary">
+              {error instanceof Error ? error.message : "Temporal data unavailable."}
+            </Card>
+          )}
+          {data && (
+            <>
+              <Card className="p-5">
+                <h2 className="flex items-center gap-2 text-sm font-semibold text-ink">
+                  <Hourglass size={15} className="text-accent-hover" />
+                  Saturn Return
+                </h2>
+                {data.grounding?.saturnReturn !== undefined && (
+                  <p className="pt-1.5 text-xs leading-relaxed text-ink-muted">
+                    {data.grounding.saturnReturn}.
+                  </p>
+                )}
+                <div className="pt-3">
+                  <ResultBlock result={data.saturnReturn} />
+                </div>
+              </Card>
+
+              <Card className="p-5">
+                <h2 className="flex items-center gap-2 text-sm font-semibold text-ink">
+                  <CalendarClock size={15} className="text-accent-hover" />
+                  Solar Returns — the next six years
+                </h2>
+                {data.grounding?.solarReturn !== undefined && (
+                  <p className="pt-1.5 text-xs leading-relaxed text-ink-muted">
+                    {data.grounding.solarReturn}.
+                  </p>
+                )}
+                <div className="space-y-4 pt-3">
+                  {data.solarReturns.map((entry) => (
+                    <div key={entry.year} className="border-t border-line/60 pt-3 first:border-0 first:pt-0">
+                      <p className="pb-1.5 text-xs font-semibold text-ink">{entry.year}</p>
+                      <ResultBlock result={entry} />
+                    </div>
+                  ))}
+                </div>
+              </Card>
+
+              <Card className="p-5">
+                <h2 className="flex items-center gap-2 text-sm font-semibold text-ink">
+                  <TrendingUp size={15} className="text-accent-hover" />
+                  Secondary Progressions — where the chart is now
+                </h2>
+                {data.grounding?.progressions !== undefined && (
+                  <p className="pt-1.5 text-xs leading-relaxed text-ink-muted">
+                    {data.grounding.progressions}.
+                  </p>
+                )}
+                <div className="pt-3">
+                  <ResultBlock result={data.progressions} />
+                </div>
+              </Card>
+
+              <p className="text-[11px] text-ink-faint">
+                Computed {new Date(data.generatedAt).toLocaleString("en-GB")} · anchored to
+                the date of generation · cached for 7 days.
+              </p>
+            </>
+          )}
+        </div>
+      </main>
+    </AppShell>
+  );
+}
