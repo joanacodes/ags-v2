@@ -9,6 +9,7 @@ import { PageHeader } from "@/components/layout/page-header";
 import { ProgressPanel } from "@/components/layout/progress-panel";
 import { ReadingCard } from "@/components/readings/reading-card";
 import { ChartSummaryRail } from "@/components/readings/chart-summary-rail";
+import { ShareCard } from "@/components/readings/share-card";
 import { EmptyState, ErrorState } from "@/components/common/states";
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -201,7 +202,10 @@ export default function ReadingHubPage() {
 
           <div className="hidden xl:block">
             {chart ? (
-              <ChartSummaryRail chart={chart} progress={progress} />
+              <div className="space-y-4">
+                <ShareCard chartId={chartId} />
+                <ChartSummaryRail chart={chart} progress={progress} />
+              </div>
             ) : (
               <Skeleton className="h-96" />
             )}
