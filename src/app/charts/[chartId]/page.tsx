@@ -53,7 +53,7 @@ export default function ChartOverviewPage() {
     for (let i = 0; i < pending.length; i += 1) {
       setBulk({ done: i, total: pending.length });
       try {
-        await ReadingService.regenerateReading(chartId, pending[i], "clinical", getReadingLanguage());
+        await ReadingService.regenerateReading(chartId, pending[i], "clinical", chart?.configuration.language ?? getReadingLanguage());
       } catch {
         break; // stop on first failure (missing key, etc.) — page stays usable
       }

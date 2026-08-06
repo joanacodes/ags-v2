@@ -37,6 +37,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { useCreateChart } from "@/hooks/use-charts";
 import { useChartDraft } from "@/hooks/use-chart-draft";
 import { searchPlaces, type GeoMatch } from "@/lib/geo";
+import {
+  LANGUAGE_LABELS,
+  getReadingLanguage,
+  setReadingLanguage,
+  type ReadingLanguage,
+} from "@/lib/reading-prefs";
 
 import { cn } from "@/lib/utils";
 
@@ -138,6 +144,10 @@ export default function NewChartPage() {
       },
       {
         onSuccess: (result) => {
+          const chosen = form.getValues("readingLanguage");
+          if (typeof chosen === "string" && chosen.length > 0) {
+            setReadingLanguage(chosen as ReadingLanguage);
+          }
           clearDraft();
           if (result.persisted) {
             router.push(`/charts/${result.chart.id}`);
@@ -575,6 +585,23 @@ function LocationStep() {
             {...register("timezone")}
           />
           <FieldError message={errors.timezone?.message} />
+        </div>
+        <div className="sm:col-span-2">
+          <Label htmlFor="readingLanguage">Reading language</Label>
+          <Select
+            id="readingLanguage"
+            defaultValue={getReadingLanguage()}
+            {...register("readingLanguage")}
+          >
+            {Object.entries(LANGUAGE_LABELS).map(([code, label]) => (
+              <option key={code} value={code}>
+                {label}
+              </option>
+            ))}
+          </Select>
+          <p className="pt-1 text-xs text-ink-faint">
+            All readings and reports for this chart will be written in this language.
+          </p>
         </div>
       </div>
     </fieldset>

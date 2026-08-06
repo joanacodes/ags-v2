@@ -42,7 +42,7 @@ export default function ReadingHubPage() {
     for (let i = 0; i < pending.length; i += 1) {
       setBulk({ current: pending[i], done: i, total: pending.length });
       try {
-        await ReadingService.regenerateReading(chartId, pending[i], "clinical", getReadingLanguage());
+        await ReadingService.regenerateReading(chartId, pending[i], "clinical", chart?.configuration.language ?? getReadingLanguage());
       } catch (error) {
         setBulkError(error instanceof Error ? error.message : "Generation failed.");
         break;

@@ -22,6 +22,7 @@ export const chartWizardSchema = z
     latitude: z.number().min(-90).max(90).optional(),
     longitude: z.number().min(-180).max(180).optional(),
     utcOffset: z.string().optional(),
+    readingLanguage: z.string().optional(),
 
     houseSystem: z.enum(HOUSE_SYSTEMS),
   })

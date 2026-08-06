@@ -130,6 +130,8 @@ export interface ChartConfiguration {
   houseSystem: HouseSystem;
   zodiac: "Tropical" | "Sidereal";
   ephemeris: string;
+  /** Output language for generated readings ("en", "fr", …). */
+  language?: string;
 }
 
 export type ChartStatus = "active" | "processing" | "failed" | "archived";
@@ -351,6 +353,8 @@ export interface ChartDraft {
   };
   configuration?: {
     houseSystem: HouseSystem;
+    /** Output language for generated readings ("en", "fr", …). */
+    language?: string;
   };
   step: number;
   savedAt: string;

@@ -1,13 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { Calendar, Clock3, MapPin, Star } from "lucide-react";
+import { Calendar, Clock3, Link2, MapPin, Star, Trash2 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Chart } from "@/types";
 import { formatDate } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Avatar } from "@/components/ui/avatar";
 import { MiniWheel } from "@/components/common/mini-wheel";
+import { useRouter } from "next/navigation";
+import { useDeleteChart } from "@/hooks/use-charts";
+import { notify } from "@/components/common/toaster";
 import { StatusBadge } from "./status-badge";
 
 export function ChartCard({
@@ -17,6 +20,10 @@ export function ChartCard({
   chart: Chart;
   onToggleFavourite: (chartId: string) => void;
 }) {
+  const router = useRouter();
+  const deleteChart = useDeleteChart();
+  const isDemo = chart.id.startsWith("chart-") && /^chart-[a-z]+-[a-z]+$/.test(chart.id);
+
   const archived = chart.status === "archived";
 
   return (
@@ -83,7 +90,42 @@ export function ChartCard({
             <Clock3 size={11} aria-hidden="true" />
             {chart.lastOpenedLabel === "Today" ? "Opened today" : chart.lastOpenedLabel}
           </span>
-          <StatusBadge status={chart.status} />
+          <span className="flex items-center gap-1.5">
+            {!isDemo && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Share with the readee"
+                  title="Share with the readee"
+                  onClick={() => router.push(`/charts/${chart.id}/readings`)}
+                  className="rounded-md border border-line p-1.5 text-ink-faint transition-colors hover:border-line-strong hover:text-accent-hover"
+                >
+                  <Link2 size={13} />
+                </button>
+                <button
+                  type="button"
+                  aria-label="Delete chart"
+                  title="Delete chart"
+                  disabled={deleteChart.isPending}
+                  onClick={() => {
+                    if (
+                      window.confirm(
+                        `Delete ${chart.person.firstName}'s chart and all its readings? This cannot be undone.`,
+                      )
+                    ) {
+                      deleteChart.mutate(chart.id, {
+                        onSuccess: () => notify("Chart deleted."),
+                      });
+                    }
+                  }}
+                  className="rounded-md border border-line p-1.5 text-ink-faint transition-colors hover:border-danger/50 hover:text-danger"
+                >
+                  <Trash2 size={13} />
+                </button>
+              </>
+            )}
+            <StatusBadge status={chart.status} />
+          </span>
         </div>
       </div>
     </motion.article>

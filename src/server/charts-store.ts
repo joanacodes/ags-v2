@@ -145,6 +145,7 @@ export const ChartsStore = {
         houseSystem: configuration.houseSystem,
         zodiac: "Tropical",
         ephemeris: "Swiss Ephemeris",
+        language: draft.configuration?.language,
       },
       planets: [],
       houses: [],

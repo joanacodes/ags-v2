@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useParams } from "next/navigation";
 import {
   AlertTriangle,
@@ -18,6 +20,8 @@ import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useChart } from "@/hooks/use-charts";
 import { useAiInterpretation, useInterpretation } from "@/hooks/use-interpretation";
+import { useReadings } from "@/hooks/use-readings";
+import { renderInline } from "@/lib/rich-text";
 import type { ComposedGroup } from "@/interpretation/composer";
 
 export default function InterpretationPage() {
@@ -26,6 +30,7 @@ export default function InterpretationPage() {
 
   const { data: chart } = useChart(chartId);
   const { data, isLoading, isError, error, refetch } = useInterpretation(chartId);
+  const { data: allReadings } = useReadings(chartId);
   const ai = useAiInterpretation(chartId);
 
   const displayedAi = ai.data ?? data?.savedAi ?? null;
@@ -72,6 +77,56 @@ export default function InterpretationPage() {
 
             {data && (
               <>
+                {(allReadings ?? []).some((r) => r.status === "complete") && (
+                  <section className="space-y-3">
+                    <h2 className="text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-faint">
+                      Generated Readings
+                    </h2>
+                    {(allReadings ?? [])
+                      .filter((r) => r.status === "complete" && r.sections.length > 0)
+                      .map((r, index) => (
+                        <details
+                          key={r.slug}
+                          open={index === 0}
+                          className="group rounded-card border border-line bg-surface-raised shadow-card"
+                        >
+                          <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-5 py-3.5">
+                            <span className="text-sm font-semibold text-ink">{r.title}</span>
+                            <span className="flex items-center gap-3">
+                              <Link
+                                href={`/charts/${chartId}/readings/${r.slug}`}
+                                onClick={(event) => event.stopPropagation()}
+                                className="text-xs text-accent-hover hover:underline"
+                              >
+                                Open
+                              </Link>
+                              <span className="text-xs text-ink-faint transition-transform group-open:rotate-90">
+                                ›
+                              </span>
+                            </span>
+                          </summary>
+                          <div className="border-t border-line px-5 py-4">
+                            {r.sections.map((section) => (
+                              <div key={section.id} className="pb-3">
+                                <h3 className="pb-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-muted">
+                                  {section.heading}
+                                </h3>
+                                {section.paragraphs.map((paragraph, pIndex) => (
+                                  <p
+                                    key={pIndex}
+                                    className="pb-2 font-serif text-sm leading-relaxed text-ink-secondary"
+                                  >
+                                    {renderInline(paragraph)}
+                                  </p>
+                                ))}
+                              </div>
+                            ))}
+                          </div>
+                        </details>
+                      ))}
+                  </section>
+                )}
+
                 {data.groups.map((group) => (
                   <GroupCard key={group.structure} group={group} />
                 ))}
