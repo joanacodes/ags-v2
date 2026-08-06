@@ -5,7 +5,7 @@
  * shared readings; the readee rates each one (1-5 stars) and leaves notes
  * that the astrologer sees on the reading pages.
  */
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
 import { Loader2, Lock, MessageSquarePlus, Moon, Send, Sparkles, Star, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -118,33 +118,28 @@ export default function SharedReadingPage() {
           </Card>
         ) : (
           <>
-            {payload.chart !== null && payload.chart.planets.length > 0 && (
+            {payload.chart !== null && (payload.chart.planets?.length ?? 0) > 0 && (
               <Card className="mt-2 overflow-hidden p-5">
                 <div className="grid items-center gap-5 sm:grid-cols-[220px_1fr]">
                   <div className="mx-auto w-full max-w-[220px]">
-                    <ChartWheel chart={payload.chart} />
+                    <SafeBlock>
+                      <ChartWheel chart={payload.chart} />
+                    </SafeBlock>
                   </div>
                   <div>
                     <h1 className="font-serif text-2xl text-ink">{payload.person}</h1>
                     <p className="pt-1 text-xs text-ink-muted">
-                      {new Date(payload.chart.birth.date + "T00:00:00").toLocaleDateString("en-GB", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                      {payload.chart.birth.time !== null && ` · ${payload.chart.birth.time}`}
-                      {` · ${payload.chart.birth.place}`}
+                      {formatBirthLine(payload.chart)}
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2 text-xs">
-                      <span className="rounded-full border border-line px-2.5 py-1 text-ink-secondary">
-                        ☉ {payload.chart.summary.sun.sign}
-                      </span>
-                      <span className="rounded-full border border-line px-2.5 py-1 text-ink-secondary">
-                        ☽ {payload.chart.summary.moon.sign}
-                      </span>
-                      <span className="rounded-full border border-line px-2.5 py-1 text-ink-secondary">
-                        ASC {payload.chart.summary.ascendant.sign}
-                      </span>
+                      {headerBadges(payload.chart).map((badge) => (
+                        <span
+                          key={badge}
+                          className="rounded-full border border-line px-2.5 py-1 text-ink-secondary"
+                        >
+                          {badge}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -352,22 +347,26 @@ function SharedReading({
           </div>
         )}
 
-        {reading.sections.map((section) => (
-          <div key={section.id} className="pb-4">
+        {(reading.sections ?? []).map((section, sectionIndex) => (
+          <div key={section.id ?? sectionIndex} className="pb-4">
             <h3 className="pb-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-muted">
-              {section.heading}
+              {String(section.heading ?? "")}
             </h3>
-            {section.paragraphs.map((paragraph, index) => (
+            {(section.paragraphs ?? []).map((paragraph, index) => (
               <p key={index} className="pb-2.5 font-serif text-sm leading-relaxed text-ink-secondary">
-                {renderInline(paragraph)}
+                {renderInline(String(paragraph ?? ""))}
               </p>
             ))}
-            {section.keyInsight !== undefined && (
-              <p className="mb-2.5 rounded-lg border border-accent/25 bg-accent-soft px-3.5 py-2.5 text-xs leading-relaxed text-ink-secondary">
-                <span className="font-semibold">{section.keyInsight.eyebrow}: </span>
-                {section.keyInsight.body}
-              </p>
-            )}
+            {section.keyInsight !== undefined &&
+              section.keyInsight !== null &&
+              typeof section.keyInsight === "object" && (
+                <p className="mb-2.5 rounded-lg border border-accent/25 bg-accent-soft px-3.5 py-2.5 text-xs leading-relaxed text-ink-secondary">
+                  {typeof section.keyInsight.eyebrow === "string" && (
+                    <span className="font-semibold">{section.keyInsight.eyebrow}: </span>
+                  )}
+                  {typeof section.keyInsight.body === "string" ? section.keyInsight.body : ""}
+                </p>
+              )}
           </div>
         ))}
 
@@ -447,6 +446,48 @@ function SharedReading({
   );
 }
 
+
+function formatBirthLine(chart: Chart): string {
+  const parts: string[] = [];
+  const rawDate = chart.birth?.date;
+  if (typeof rawDate === "string" && rawDate.length >= 8) {
+    const date = new Date(`${rawDate}T00:00:00`);
+    if (!Number.isNaN(date.getTime())) {
+      parts.push(
+        date.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" }),
+      );
+    }
+  }
+  if (typeof chart.birth?.time === "string" && chart.birth.time.length > 0) {
+    parts.push(chart.birth.time);
+  }
+  if (typeof chart.birth?.place === "string" && chart.birth.place.length > 0) {
+    parts.push(chart.birth.place);
+  }
+  return parts.join(" · ");
+}
+
+function headerBadges(chart: Chart): string[] {
+  const badges: string[] = [];
+  const sun = chart.planets?.find((p) => p.planet === "Sun");
+  const moon = chart.planets?.find((p) => p.planet === "Moon");
+  const asc = chart.angles?.find((a) => a.point === "ASC");
+  if (sun !== undefined) badges.push(`☉ ${sun.sign}`);
+  if (moon !== undefined) badges.push(`☽ ${moon.sign}`);
+  if (asc !== undefined) badges.push(`ASC ${asc.sign}`);
+  return badges;
+}
+
+class SafeBlock extends React.Component<{ children: React.ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  render() {
+    if (this.state.failed) return null;
+    return this.props.children;
+  }
+}
 
 function ThemeButton() {
   const { resolvedTheme, setTheme } = useTheme();
