@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Bell, Plus, Search } from "lucide-react";
+import { Plus, Search } from "lucide-react";
+import { NotificationBell } from "@/components/common/notification-bell";
 import { AppShell } from "@/components/layout/app-shell";
 import { ProgressPanel } from "@/components/layout/progress-panel";
 import { StatCards } from "@/components/dashboard/stat-cards";
@@ -71,14 +72,7 @@ export default function DashboardPage() {
                 className="h-9 w-64 pl-9"
               />
             </div>
-            <button
-              type="button"
-              aria-label="Notifications"
-              className="relative rounded-lg p-2 text-ink-muted transition-colors hover:bg-surface-overlay hover:text-ink"
-            >
-              <Bell size={16} />
-              <span className="absolute right-1.5 top-1.5 h-1.5 w-1.5 rounded-full bg-danger" />
-            </button>
+            <NotificationBell />
             {user && (
               <Avatar
                 firstName={user.name.split(" ")[0]}

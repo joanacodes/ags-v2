@@ -7,7 +7,7 @@
  */
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
-import { Loader2, Lock, MessageSquarePlus, Moon, Send, Sparkles, Star, Sun } from "lucide-react";
+import { Bold, Highlighter, Loader2, Lock, MessageSquarePlus, Moon, Send, Sparkles, Star, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { ChartWheel } from "@/components/chart/chart-wheel";
 import { Button } from "@/components/ui/button";
@@ -215,6 +215,52 @@ function SharedReading({
   const [bubbleSending, setBubbleSending] = useState(false);
   const [anchoredSent, setAnchoredSent] = useState<{ quote: string; comment: string }[]>([]);
 
+  // Personal marks (bold / highlight) — stored on this device only, so the
+  // readee can find the passages that struck them.
+  const marksKey = `ags:marks:${token}:${reading.slug}`;
+  const [marks, setMarks] = useState<{ quote: string; kind: "bold" | "highlight" }[]>([]);
+  useEffect(() => {
+    try {
+      const raw = window.localStorage.getItem(marksKey);
+      if (raw !== null) setMarks(JSON.parse(raw) as { quote: string; kind: "bold" | "highlight" }[]);
+    } catch {
+      /* corrupted storage — start clean */
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [marksKey]);
+
+  const addMark = (kind: "bold" | "highlight") => {
+    if (anchor === null) return;
+    const quote = anchor.quote;
+    if (quote.includes("**") || quote.includes("==")) return;
+    const next = [...marks.filter((m) => m.quote !== quote), { quote, kind }];
+    setMarks(next);
+    window.localStorage.setItem(marksKey, JSON.stringify(next));
+    setAnchor(null);
+    window.getSelection()?.removeAllRanges();
+  };
+
+  const clearMarks = () => {
+    setMarks([]);
+    window.localStorage.removeItem(marksKey);
+  };
+
+  const applyMarks = (paragraph: string): string => {
+    let output = paragraph;
+    for (const mark of marks) {
+      const index = output.indexOf(mark.quote);
+      if (index === -1) continue;
+      const wrapper = mark.kind === "bold" ? "**" : "==";
+      output =
+        output.slice(0, index) +
+        wrapper +
+        mark.quote +
+        wrapper +
+        output.slice(index + mark.quote.length);
+    }
+    return output;
+  };
+
   const captureSelection = () => {
     const container = contentRef.current;
     const selection = window.getSelection();
@@ -304,15 +350,35 @@ function SharedReading({
         className="relative border-t border-line px-5 py-4"
       >
         {anchor !== null && !bubbleOpen && (
-          <button
-            type="button"
-            onClick={() => setBubbleOpen(true)}
-            className="absolute z-20 flex -translate-x-1/2 -translate-y-full items-center gap-1.5 rounded-full border border-line bg-surface-raised px-3 py-1.5 text-xs font-medium text-ink-secondary shadow-pop transition-colors hover:text-accent-hover"
+          <div
+            className="absolute z-20 flex -translate-x-1/2 -translate-y-full items-center overflow-hidden rounded-full border border-line bg-surface-raised shadow-pop"
             style={{ left: anchor.x, top: Math.max(anchor.y - 6, 8) }}
           >
-            <MessageSquarePlus size={13} />
-            Comment
-          </button>
+            <button
+              type="button"
+              onClick={() => setBubbleOpen(true)}
+              className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-ink-secondary transition-colors hover:text-accent-hover"
+            >
+              <MessageSquarePlus size={13} />
+              Comment
+            </button>
+            <button
+              type="button"
+              aria-label="Highlight for yourself"
+              onClick={() => addMark("highlight")}
+              className="border-l border-line px-2.5 py-1.5 text-ink-muted transition-colors hover:text-warning"
+            >
+              <Highlighter size={13} />
+            </button>
+            <button
+              type="button"
+              aria-label="Bold for yourself"
+              onClick={() => addMark("bold")}
+              className="border-l border-line px-2.5 py-1.5 text-ink-muted transition-colors hover:text-ink"
+            >
+              <Bold size={13} />
+            </button>
+          </div>
         )}
         {anchor !== null && bubbleOpen && (
           <div
@@ -354,7 +420,7 @@ function SharedReading({
             </h3>
             {(section.paragraphs ?? []).map((paragraph, index) => (
               <p key={index} className="pb-2.5 font-serif text-sm leading-relaxed text-ink-secondary">
-                {renderInline(String(paragraph ?? ""))}
+                {renderInline(applyMarks(String(paragraph ?? "")))}
               </p>
             ))}
             {section.keyInsight !== undefined &&
@@ -369,6 +435,18 @@ function SharedReading({
               )}
           </div>
         ))}
+
+        {marks.length > 0 && (
+          <p className="mb-2 text-right">
+            <button
+              type="button"
+              onClick={clearMarks}
+              className="text-[11px] text-ink-faint underline-offset-2 transition-colors hover:text-ink hover:underline"
+            >
+              Clear my marks ({marks.length})
+            </button>
+          </p>
+        )}
 
         {anchoredSent.length > 0 && (
           <div className="mb-3 space-y-2">

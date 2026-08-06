@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { NotificationBell } from "@/components/common/notification-bell";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 
@@ -62,6 +63,7 @@ export function PageHeader({
           <h1 className="truncate text-lg font-semibold text-ink">{title}</h1>
         </div>
         <div className="flex flex-wrap items-center justify-end gap-2">
+          <NotificationBell />
           <ThemeToggle className="lg:hidden" />
           {actions}
         </div>

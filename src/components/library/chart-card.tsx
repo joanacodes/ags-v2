@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Calendar, Clock3, Link2, MapPin, Star, Trash2 } from "lucide-react";
+import { Calendar, Clock3, Link2, MapPin, MessageSquareText, Star, Trash2 } from "lucide-react";
 import { motion } from "framer-motion";
 import type { Chart } from "@/types";
 import { formatDate } from "@/lib/format";
@@ -16,9 +16,11 @@ import { StatusBadge } from "./status-badge";
 export function ChartCard({
   chart,
   onToggleFavourite,
+  commentCount = 0,
 }: {
   chart: Chart;
   onToggleFavourite: (chartId: string) => void;
+  commentCount?: number;
 }) {
   const router = useRouter();
   const deleteChart = useDeleteChart();
@@ -91,6 +93,15 @@ export function ChartCard({
             {chart.lastOpenedLabel === "Today" ? "Opened today" : chart.lastOpenedLabel}
           </span>
           <span className="flex items-center gap-1.5">
+            {commentCount > 0 && (
+              <span
+                title={`${commentCount} readee comment${commentCount > 1 ? "s" : ""}`}
+                className="inline-flex items-center gap-1 rounded-full border border-line px-2 py-0.5 text-[10px] font-medium text-ink-muted"
+              >
+                <MessageSquareText size={10} className="text-accent-hover" />
+                {commentCount}
+              </span>
+            )}
             {!isDemo && (
               <>
                 <button

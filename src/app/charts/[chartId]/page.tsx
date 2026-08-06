@@ -231,6 +231,29 @@ export default function ChartOverviewPage() {
               </div>
             </div>
 
+            {readings && readings.length > 0 && (
+              <section aria-labelledby="chart-readings-heading">
+                <div className="flex items-baseline justify-between gap-4">
+                  <div>
+                    <h2 id="chart-readings-heading" className="text-base font-semibold text-ink">
+                      Chart Readings
+                    </h2>
+                    <p className="mt-0.5 text-xs text-ink-muted">
+                      Select a domain to explore detailed interpretations
+                    </p>
+                  </div>
+                  {progress && (
+                    <span className="text-xs text-ink-muted">
+                      {progress.completed} of {progress.total} completed
+                    </span>
+                  )}
+                </div>
+                <div className="mt-4">
+                  <ReadingDomainGrid chartId={chartId} readings={readings} />
+                </div>
+              </section>
+            )}
+
             {/* Wheel + right rail */}
             <div className="grid gap-4 xl:grid-cols-[1fr_380px]">
               <Card className="p-5">
@@ -281,29 +304,6 @@ export default function ChartOverviewPage() {
                   <ChartFacts chart={chart} />
                 </section>
               )}
-
-            {readings && readings.length > 0 && (
-              <section aria-labelledby="chart-readings-heading">
-                <div className="flex items-baseline justify-between gap-4">
-                  <div>
-                    <h2 id="chart-readings-heading" className="text-base font-semibold text-ink">
-                      Chart Readings
-                    </h2>
-                    <p className="mt-0.5 text-xs text-ink-muted">
-                      Select a domain to explore detailed interpretations
-                    </p>
-                  </div>
-                  {progress && (
-                    <span className="text-xs text-ink-muted">
-                      {progress.completed} of {progress.total} completed
-                    </span>
-                  )}
-                </div>
-                <div className="mt-4">
-                  <ReadingDomainGrid chartId={chartId} readings={readings} />
-                </div>
-              </section>
-            )}
           </div>
         )}
       </main>

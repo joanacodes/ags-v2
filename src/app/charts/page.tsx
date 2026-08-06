@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Archive, CircleDot, LayoutGrid, List, Plus, Search, SlidersHorizontal, Star, PieChart } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { ChartCard } from "@/components/library/chart-card";
+import { useQuery } from "@tanstack/react-query";
 import { EmptyState, ErrorState } from "@/components/common/states";
 import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
@@ -32,6 +33,16 @@ export default function BirthChartsPage() {
   const toggleFavourite = useToggleFavourite();
 
   const [filter, setFilter] = useState<LibraryFilter>("all");
+  const { data: feedbackCounts } = useQuery({
+    queryKey: ["feedback-summary"],
+    queryFn: async (): Promise<Record<string, number>> => {
+      const response = await fetch("/api/feedback/summary");
+      if (!response.ok) return {};
+      const body = (await response.json()) as { counts: Record<string, number> };
+      return body.counts;
+    },
+  });
+
   const [query, setQuery] = useState("");
   const [view, setView] = useState<"grid" | "list">("grid");
   const [sort, setSort] = useState<LibrarySort>("last-opened");
@@ -223,6 +234,7 @@ export default function BirthChartsPage() {
           >
             {filtered.map((chart) => (
               <ChartCard
+                commentCount={feedbackCounts?.[chart.id] ?? 0}
                 key={chart.id}
                 chart={chart}
                 onToggleFavourite={(chartId) => toggleFavourite.mutate(chartId)}

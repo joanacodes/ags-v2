@@ -181,3 +181,58 @@ export const ReportEditsStore = {
     memoryEdits.set(chartId, next);
   },
 };
+
+/* --------------------- astrologer notes per reading ------------------- */
+export interface AstrologerNote {
+  text: string;
+  createdAt: string;
+}
+
+const memoryNotes = new Map<string, AstrologerNote[]>();
+
+function noteSlug(slug: string): string {
+  return `_note_${slug}`;
+}
+
+export const NotesStore = {
+  async list(chartId: string, slug: string): Promise<AstrologerNote[]> {
+    const supabase = createSupabaseServerClient();
+    if (supabase !== null) {
+      const { data, error } = await supabase
+        .from("readings")
+        .select("reading")
+        .eq("chart_id", chartId)
+        .eq("slug", noteSlug(slug))
+        .maybeSingle();
+      if (error === null && data !== null) {
+        const value = data.reading as { entries?: AstrologerNote[] };
+        return value.entries ?? [];
+      }
+    }
+    return memoryNotes.get(`${chartId}/${slug}`) ?? [];
+  },
+
+  async add(chartId: string, slug: string, text: string): Promise<AstrologerNote[]> {
+    const entry: AstrologerNote = { text, createdAt: new Date().toISOString() };
+    const current = await this.list(chartId, slug);
+    const next = [entry, ...current].slice(0, 100);
+    const supabase = createSupabaseServerClient();
+    const userId = await getServerUserId();
+    if (supabase !== null && userId !== null) {
+      const { error } = await supabase.from("readings").upsert(
+        {
+          chart_id: chartId,
+          user_id: userId,
+          slug: noteSlug(slug),
+          reading: { entries: next },
+          engine_version: "notes-1.0",
+          updated_at: new Date().toISOString(),
+        },
+        { onConflict: "chart_id,slug" },
+      );
+      if (error === null) return next;
+    }
+    memoryNotes.set(`${chartId}/${slug}`, next);
+    return next;
+  },
+};

@@ -9,6 +9,7 @@ import { PageHeader } from "@/components/layout/page-header";
 import { ProgressPanel } from "@/components/layout/progress-panel";
 import { EvidenceCard } from "@/components/readings/evidence-card";
 import { ReadeeFeedback } from "@/components/readings/readee-feedback";
+import { AstrologerNotes } from "@/components/readings/astrologer-notes";
 import { WritingStyleBar } from "@/components/readings/writing-style-bar";
 import { ReadingBody } from "@/components/readings/reading-body";
 import { FactorsRail } from "@/components/readings/factors-rail";
@@ -231,6 +232,8 @@ export default function ReadingPage() {
               )}
 
               <ReadeeFeedback chartId={chartId} slug={slug} />
+
+              <AstrologerNotes chartId={chartId} slug={slug} />
 
               {/* Section progress */}
               {reading.sections.length > 0 && (
