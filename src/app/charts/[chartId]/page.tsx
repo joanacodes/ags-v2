@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { BookOpenText, FilePlus2, Settings2, Upload, LoaderCircle } from "lucide-react";
+import { BookOpenText, FilePlus2, Settings2, Upload, LoaderCircle, Link2 } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { PageHeader } from "@/components/layout/page-header";
 import { ProgressPanel } from "@/components/layout/progress-panel";
@@ -162,6 +162,16 @@ export default function ChartOverviewPage() {
               <Upload size={13} />
               Export
             </Link>
+            {!isDemo && (
+              <Link
+                href={`/charts/${chartId}/readings#share`}
+                title="Create a readee link (password-protected)"
+                className="inline-flex h-9 items-center gap-2 rounded-lg border border-line px-4 text-sm font-medium text-ink-secondary transition-colors hover:border-line-strong hover:text-accent-hover"
+              >
+                <Link2 size={13} />
+                Share
+              </Link>
+            )}
           </>
         }
       />

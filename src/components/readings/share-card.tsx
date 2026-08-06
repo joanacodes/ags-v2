@@ -61,7 +61,7 @@ export function ShareCard({ chartId }: { chartId: string }) {
   };
 
   return (
-    <Card className="p-4">
+    <Card id="share" className="scroll-mt-6 p-4">
       <h2 className="flex items-center gap-2 pb-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-faint">
         <Link2 size={12} className="text-accent-hover" />
         Share with the readee
