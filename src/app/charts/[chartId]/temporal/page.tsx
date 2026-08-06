@@ -33,6 +33,34 @@ function factsFrom(data: unknown): { label: string; value: string }[] {
   if (typeof data !== "object" || data === null) return [];
   const record = data as Record<string, unknown>;
   const facts: { label: string; value: string }[] = [];
+  // Documented meta blocks (solar_return / return_event)
+  const meta = record.meta as Record<string, unknown> | undefined;
+  for (const [blockName, dateLabel] of [
+    ["solar_return", "Exact return"],
+    ["return_event", "Exact return"],
+  ] as const) {
+    const block = meta?.[blockName] as Record<string, unknown> | undefined;
+    if (block === undefined) continue;
+    const moment = block.exact_moment_local ?? block.exact_moment_utc;
+    if (typeof moment === "string") {
+      facts.push({ label: dateLabel, value: new Date(moment).toLocaleString("en-GB", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" }) });
+    }
+    if (typeof block.confidence === "string" && block.confidence !== "exact") {
+      facts.push({ label: "Confidence", value: String(block.confidence) });
+    }
+  }
+  // Saturn: previous / next event pair
+  for (const key of ["previous", "next"] as const) {
+    const sub = record[key];
+    if (typeof sub === "object" && sub !== null) {
+      const subMeta = (sub as Record<string, unknown>).meta as Record<string, unknown> | undefined;
+      const event = subMeta?.return_event as Record<string, unknown> | undefined;
+      const moment = event?.exact_moment_local ?? event?.exact_moment_utc;
+      if (typeof moment === "string") {
+        facts.push({ label: key === "previous" ? "Previous return" : "Next return", value: new Date(moment).toLocaleString("en-GB", { day: "2-digit", month: "short", year: "numeric" }) });
+      }
+    }
+  }
   for (const key of ["return_date", "date", "exact_date", "return_datetime", "next_return"]) {
     const value = record[key];
     if (typeof value === "string") facts.push({ label: "Date", value });

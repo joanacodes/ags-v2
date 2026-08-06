@@ -10,6 +10,22 @@ import type { Chart } from "@/types";
 const BASE = "https://api.freeastroapi.com";
 const TIMEOUT_MS = 25_000;
 
+/** Nested natal block used by the progression/return API family. */
+function nestedNatal(chart: Chart): Record<string, unknown> {
+  const timeKnown = typeof chart.birth.time === "string" && chart.birth.time.length > 0;
+  return {
+    name: `${chart.person.firstName} ${chart.person.lastName}`,
+    datetime: `${chart.birth.date} ${timeKnown ? chart.birth.time : "12:00"}`,
+    time_known: timeKnown,
+    location: {
+      city: chart.birth.place,
+      lat: chart.birth.latitude,
+      lng: chart.birth.longitude,
+      tz_str: chart.birth.timezone || "AUTO",
+    },
+  };
+}
+
 function natalBody(chart: Chart): Record<string, unknown> {
   const [year, month, day] = chart.birth.date.split("-").map(Number);
   const timeKnown = typeof chart.birth.time === "string" && chart.birth.time.length > 0;
@@ -72,43 +88,65 @@ async function post(
 }
 
 /** Saturn return windows (transiting Saturn conjunct natal Saturn). */
-export function fetchSaturnReturn(chart: Chart): Promise<TemporalCallOutcome> {
-  return post(
-    [
-      "/api/v1/planetary-return/calculate",
-      "/api/v1/western/planetary-return/calculate",
-      "/api/v1/western/planetary-return",
-      "/api/v1/planetary-return",
-      "/api/v1/returns/planetary/calculate",
-    ],
-    { ...natalBody(chart), planet: "saturn" },
-  );
+export async function fetchSaturnReturn(chart: Chart): Promise<TemporalCallOutcome> {
+  const location = {
+    city: chart.birth.place,
+    lat: chart.birth.latitude,
+    lng: chart.birth.longitude,
+    timezone: chart.birth.timezone || "AUTO",
+  };
+  const searchStart = `${new Date().toISOString().slice(0, 10)}T00:00:00Z`;
+  const call = (mode: "previous" | "next") =>
+    post(["/api/v1/western/returns/calculate"], {
+      natal: { ...nestedNatal(chart), location },
+      return_target: {
+        body: "saturn",
+        search_start: searchStart,
+        selection_mode: mode,
+        location,
+      },
+    });
+  const [previous, next] = await Promise.all([call("previous"), call("next")]);
+  if (!previous.ok && !next.ok) return next;
+  return { ok: true, data: { previous: previous.data ?? null, next: next.data ?? null } };
 }
 
 /** Solar return chart for the birthday year starting `year`. */
 export function fetchSolarReturn(chart: Chart, year: number): Promise<TemporalCallOutcome> {
-  return post(
-    [
-      "/api/v1/solar-return/calculate",
-      "/api/v1/western/solar-return/calculate",
-      "/api/v1/western/solar-return",
-      "/api/v1/solar-return",
-      "/api/v1/returns/solar/calculate",
-    ],
-    { ...natalBody(chart), return_year: year, year_of_return: year },
-  );
+  const timeKnown = typeof chart.birth.time === "string" && chart.birth.time.length > 0;
+  const location = {
+    city: chart.birth.place,
+    lat: chart.birth.latitude,
+    lng: chart.birth.longitude,
+    timezone: chart.birth.timezone || "AUTO",
+  };
+  return post(["/api/v1/western/solar/calculate"], {
+    natal: { ...nestedNatal(chart), location },
+    solar_return: {
+      year,
+      // v1: return computed for the birth place (current residence later).
+      location,
+      ...(timeKnown ? {} : { calculation_mode: "uncertainty_range" }),
+    },
+  });
 }
 
 /** Secondary progressions as of `date` (YYYY-MM-DD). */
 export function fetchProgressions(chart: Chart, date: string): Promise<TemporalCallOutcome> {
-  return post(
-    [
-      "/api/v1/progressions/calculate",
-      "/api/v1/western/progressions/calculate",
-      "/api/v1/western/progressions",
-      "/api/v1/progressions",
-      "/api/v1/progressions/secondary/calculate",
-    ],
-    { ...natalBody(chart), target_date: date, progression_date: date, date },
-  );
+  return post(["/api/v1/western/progressions/secondary"], {
+    natal: nestedNatal(chart),
+    secondary_progression: { target_date: date },
+  });
+}
+
+/** Progressed sign/house changes inside a window — the "evolution" feed. */
+export function fetchProgressionIngresses(
+  chart: Chart,
+  from: string,
+  to: string,
+): Promise<TemporalCallOutcome> {
+  return post(["/api/v1/western/progressions/secondary/exact-ingresses"], {
+    natal: nestedNatal(chart),
+    secondary_progression: { window: { start: from, end: to }, from, to, start: from, end: to },
+  });
 }
