@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.solar_return.identity",
+  "status": "DRAFT — added by implementation, pending architect validation",
+  "content": {
+    "canonicalFunction": "marks the chart cast for the exact moment the Sun returns to its natal degree each year — a thematic keynote for the twelve months that follow, read through the return chart's emphases",
+    "coreDomains": ["annual_theme", "yearly_keynote", "cyclical_renewal"],
+    "notInherent": ["predictions_of_events", "fixed_outcomes"],
+    "constraints": [
+      "describes the tone and emphasis of a year, never guaranteed events",
+      "the return Ascendant and house emphasis set the year's stage",
+      "one technique among several; strongest when read alongside transits and progressions"
+    ]
+  }
+}

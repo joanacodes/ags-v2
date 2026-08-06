@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.saturn_return.identity",
+  "status": "DRAFT — added by implementation, pending architect validation",
+  "content": {
+    "canonicalFunction": "marks the period when transiting Saturn returns to its natal position (around ages 29, 58, and 87), a structural audit of a life: commitments, responsibilities, and foundations are tested, and what is built to last is separated from what was provisional",
+    "coreDomains": ["maturation", "structural_audit", "commitment", "consolidation"],
+    "notInherent": ["punishment", "guaranteed_crisis", "specific_events"],
+    "constraints": [
+      "describes a developmental season, not a verdict",
+      "themes are colored by the natal Saturn's sign and house",
+      "duration spans the exact return window, roughly two to three years of approach and integration"
+    ]
+  }
+}

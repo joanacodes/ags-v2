@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.secondary_progressions.identity",
+  "status": "DRAFT — added by implementation, pending architect validation",
+  "content": {
+    "canonicalFunction": "advances the natal chart one day per year of life (about one degree per year for the Sun), describing the slow inner evolution of the personality — progressed planets changing sign or house mark chapters where a function's style of expression matures into a new register",
+    "coreDomains": ["inner_evolution", "life_chapters", "gradual_maturation"],
+    "notInherent": ["external_events", "sudden_change", "replacement_of_the_natal_chart"],
+    "constraints": [
+      "the natal chart never changes; progressions describe development, not identity replacement",
+      "a progressed sign change colors expression for roughly thirty years",
+      "progressed Moon moves fastest (a sign every two and a half years) and marks emotional chapters"
+    ]
+  }
+}

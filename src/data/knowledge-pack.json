@@ -18210,6 +18210,81 @@
     }
    }
   },
+  "techniques/saturn_return": {
+   "id": "techniques/saturn_return",
+   "category": "techniques",
+   "entity": "saturn_return",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "marks the period when transiting Saturn returns to its natal position (around ages 29, 58, and 87), a structural audit of a life: commitments, responsibilities, and foundations are tested, and what is built to last is separated from what was provisional",
+     "coreDomains": [
+      "maturation",
+      "structural_audit",
+      "commitment",
+      "consolidation"
+     ],
+     "notInherent": [
+      "punishment",
+      "guaranteed_crisis",
+      "specific_events"
+     ],
+     "constraints": [
+      "describes a developmental season, not a verdict",
+      "themes are colored by the natal Saturn's sign and house",
+      "duration spans the exact return window, roughly two to three years of approach and integration"
+     ]
+    }
+   }
+  },
+  "techniques/secondary_progressions": {
+   "id": "techniques/secondary_progressions",
+   "category": "techniques",
+   "entity": "secondary_progressions",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "advances the natal chart one day per year of life (about one degree per year for the Sun), describing the slow inner evolution of the personality — progressed planets changing sign or house mark chapters where a function's style of expression matures into a new register",
+     "coreDomains": [
+      "inner_evolution",
+      "life_chapters",
+      "gradual_maturation"
+     ],
+     "notInherent": [
+      "external_events",
+      "sudden_change",
+      "replacement_of_the_natal_chart"
+     ],
+     "constraints": [
+      "the natal chart never changes; progressions describe development, not identity replacement",
+      "a progressed sign change colors expression for roughly thirty years",
+      "progressed Moon moves fastest (a sign every two and a half years) and marks emotional chapters"
+     ]
+    }
+   }
+  },
+  "techniques/solar_return": {
+   "id": "techniques/solar_return",
+   "category": "techniques",
+   "entity": "solar_return",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "marks the chart cast for the exact moment the Sun returns to its natal degree each year — a thematic keynote for the twelve months that follow, read through the return chart's emphases",
+     "coreDomains": [
+      "annual_theme",
+      "yearly_keynote",
+      "cyclical_renewal"
+     ],
+     "notInherent": [
+      "predictions_of_events",
+      "fixed_outcomes"
+     ],
+     "constraints": [
+      "describes the tone and emphasis of a year, never guaranteed events",
+      "the return Ascendant and house emphasis set the year's stage",
+      "one technique among several; strongest when read alongside transits and progressions"
+     ]
+    }
+   }
+  },
   "conditions/dignity": {
    "id": "conditions/dignity",
    "category": "conditions",
