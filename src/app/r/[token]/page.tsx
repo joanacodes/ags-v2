@@ -117,13 +117,13 @@ export default function SharedReadingPage() {
             </form>
           </Card>
         ) : (
-          <>
+          <SafeBlock>
             {payload.chart !== null && (payload.chart.planets?.length ?? 0) > 0 && (
               <Card className="mt-2 overflow-hidden p-5">
                 <div className="grid items-center gap-5 sm:grid-cols-[220px_1fr]">
                   <div className="mx-auto w-full max-w-[220px]">
-                    <SafeBlock>
-                      <ChartWheel chart={payload.chart} />
+                    <SafeBlock silent>
+                      <ChartWheel chart={normalizeChart(payload.chart)} />
                     </SafeBlock>
                   </div>
                   <div>
@@ -183,7 +183,7 @@ export default function SharedReadingPage() {
                 />
               ))}
             </div>
-          </>
+          </SafeBlock>
         )}
       </main>
     </div>
@@ -447,6 +447,22 @@ function SharedReading({
 }
 
 
+function normalizeChart(chart: Chart): Chart {
+  return {
+    ...chart,
+    person: {
+      ...chart.person,
+      firstName: chart.person?.firstName ?? "",
+      lastName: chart.person?.lastName ?? "",
+    },
+    planets: chart.planets ?? [],
+    houses: chart.houses ?? [],
+    angles: chart.angles ?? [],
+    aspects: chart.aspects ?? [],
+    points: chart.points ?? [],
+  };
+}
+
 function formatBirthLine(chart: Chart): string {
   const parts: string[] = [];
   const rawDate = chart.birth?.date;
@@ -478,13 +494,25 @@ function headerBadges(chart: Chart): string[] {
   return badges;
 }
 
-class SafeBlock extends React.Component<{ children: React.ReactNode }, { failed: boolean }> {
-  state = { failed: false };
-  static getDerivedStateFromError() {
-    return { failed: true };
+class SafeBlock extends React.Component<
+  { children: React.ReactNode; silent?: boolean },
+  { message: string | null }
+> {
+  state: { message: string | null } = { message: null };
+  static getDerivedStateFromError(error: unknown) {
+    return { message: error instanceof Error ? error.message : String(error) };
   }
   render() {
-    if (this.state.failed) return null;
+    if (this.state.message !== null) {
+      if (this.props.silent === true) return null;
+      return (
+        <div className="rounded-lg border border-danger/40 bg-danger-soft/30 px-4 py-3 text-xs leading-relaxed text-ink-secondary">
+          <p className="font-semibold text-danger">Something went wrong on this page.</p>
+          <p className="pt-1 break-all font-mono text-[10px] text-ink-muted">{this.state.message}</p>
+          <p className="pt-1">Please send this message to the astrologer.</p>
+        </div>
+      );
+    }
     return this.props.children;
   }
 }
