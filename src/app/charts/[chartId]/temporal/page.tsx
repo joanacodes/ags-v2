@@ -14,12 +14,21 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useChart } from "@/hooks/use-charts";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { renderInline } from "@/lib/rich-text";
+import { notify } from "@/components/common/toaster";
 
 interface CallResult {
   ok: boolean;
   data?: unknown;
   error?: string;
 }
+interface TemporalReading {
+  title: string;
+  sections: { heading: string; paragraphs: string[] }[];
+  generatedAt: string;
+}
+
 interface TemporalPayload {
   generatedAt: string;
   grounding?: { saturnReturn: string; solarReturn: string; progressions: string };
@@ -161,6 +170,36 @@ export default function TemporalPage() {
   });
 
   const person = chart ? `${chart.person.firstName} ${chart.person.lastName}` : "";
+  const queryClient = useQueryClient();
+
+  const { data: savedReading } = useQuery({
+    queryKey: ["temporal-reading", chartId],
+    queryFn: async (): Promise<TemporalReading | null> => {
+      const response = await fetch(`/api/charts/${chartId}/temporal/readings`);
+      if (!response.ok) return null;
+      const body = (await response.json()) as { reading: TemporalReading | null };
+      return body.reading;
+    },
+  });
+
+  const generate = useMutation({
+    mutationFn: async (): Promise<TemporalReading> => {
+      const response = await fetch(`/api/charts/${chartId}/temporal/readings`, { method: "POST" });
+      const body = (await response.json()) as
+        | { reading: TemporalReading }
+        | { error?: { message?: string } };
+      if (!response.ok || !("reading" in body)) {
+        throw new Error(
+          "error" in body ? body.error?.message ?? "Generation failed." : "Generation failed.",
+        );
+      }
+      return body.reading;
+    },
+    onSuccess: (reading) => {
+      queryClient.setQueryData(["temporal-reading", chartId], reading);
+      notify("The Years Ahead reading generated.");
+    },
+  });
 
   return (
     <AppShell>
@@ -195,6 +234,69 @@ export default function TemporalPage() {
           )}
           {data && (
             <>
+              <Card className="border-accent/30 p-5">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h2 className="text-sm font-semibold text-ink">
+                    The Years Ahead — generated reading
+                  </h2>
+                  <Button
+                    size="sm"
+                    variant="primary"
+                    disabled={generate.isPending}
+                    onClick={() => generate.mutate()}
+                  >
+                    {generate.isPending ? (
+                      <RefreshCw size={12} className="animate-spin" />
+                    ) : savedReading ? (
+                      "Regenerate"
+                    ) : (
+                      "Generate reading"
+                    )}
+                  </Button>
+                </div>
+                {generate.isError && (
+                  <p className="pt-2 text-xs text-danger">
+                    {generate.error instanceof Error ? generate.error.message : "Generation failed."}
+                  </p>
+                )}
+                {generate.isPending && (
+                  <p className="pt-2 text-xs text-ink-muted">
+                    Writing from the grounded cycle material… (~30-60 s)
+                  </p>
+                )}
+                {savedReading ? (
+                  <div className="pt-4">
+                    {savedReading.sections.map((section, index) => (
+                      <div key={index} className="pb-4">
+                        <h3 className="pb-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-muted">
+                          {section.heading}
+                        </h3>
+                        {section.paragraphs.map((paragraph, pIndex) => (
+                          <p
+                            key={pIndex}
+                            className="pb-2.5 font-serif text-sm leading-relaxed text-ink-secondary"
+                          >
+                            {renderInline(paragraph)}
+                          </p>
+                        ))}
+                      </div>
+                    ))}
+                    <p className="text-[10px] text-ink-faint">
+                      Saved {new Date(savedReading.generatedAt).toLocaleString("en-GB")} — grounded
+                      exclusively in the validated technique and vocabulary entries.
+                    </p>
+                  </div>
+                ) : (
+                  !generate.isPending && (
+                    <p className="pt-2 text-xs leading-relaxed text-ink-muted">
+                      One click writes the full teaching-voice reading of these cycles: your
+                      Saturn return, each of the six solar years, and your inner evolution —
+                      in your chart&rsquo;s language, saved with the chart.
+                    </p>
+                  )
+                )}
+              </Card>
+
               <Card className="p-5">
                 <h2 className="flex items-center gap-2 text-sm font-semibold text-ink">
                   <Hourglass size={15} className="text-accent-hover" />
