@@ -5,6 +5,7 @@
  * and current secondary progressions. Provider payload shapes are rendered
  * defensively; upstream errors are shown verbatim for fast diagnosis.
  */
+import { useState } from "react";
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { CalendarClock, Hourglass, RefreshCw, TrendingUp } from "lucide-react";
@@ -182,19 +183,36 @@ export default function TemporalPage() {
     },
   });
 
+  const [genStep, setGenStep] = useState<string | null>(null);
+
   const generate = useMutation({
     mutationFn: async (): Promise<TemporalReading> => {
-      const response = await fetch(`/api/charts/${chartId}/temporal/readings`, { method: "POST" });
-      const body = (await response.json()) as
-        | { reading: TemporalReading }
-        | { error?: { message?: string } };
-      if (!response.ok || !("reading" in body)) {
-        throw new Error(
-          "error" in body ? body.error?.message ?? "Generation failed." : "Generation failed.",
+      const call = async (part: 1 | 2): Promise<unknown> => {
+        const response = await fetch(
+          `/api/charts/${chartId}/temporal/readings?part=${part}`,
+          { method: "POST" },
         );
-      }
-      return body.reading;
+        const text = await response.text();
+        let body: unknown = null;
+        try {
+          body = JSON.parse(text);
+        } catch {
+          throw new Error(`Server error (part ${part}): ${text.slice(0, 140)}`);
+        }
+        if (!response.ok) {
+          const message = (body as { error?: { message?: string } }).error?.message;
+          throw new Error(message ?? `Generation failed (part ${part}).`);
+        }
+        return body;
+      };
+      setGenStep("Writing the overview, Saturn return and evolution… (1/2)");
+      await call(1);
+      setGenStep("Writing the six solar years… (2/2)");
+      const second = (await call(2)) as { reading: TemporalReading };
+      setGenStep(null);
+      return second.reading;
     },
+    onError: () => setGenStep(null),
     onSuccess: (reading) => {
       queryClient.setQueryData(["temporal-reading", chartId], reading);
       notify("The Years Ahead reading generated.");
@@ -261,7 +279,7 @@ export default function TemporalPage() {
                 )}
                 {generate.isPending && (
                   <p className="pt-2 text-xs text-ink-muted">
-                    Writing from the grounded cycle material… (~30-60 s)
+                    {genStep ?? "Writing from the grounded cycle material…"}
                   </p>
                 )}
                 {savedReading ? (

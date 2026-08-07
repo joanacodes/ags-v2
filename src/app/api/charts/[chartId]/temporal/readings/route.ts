@@ -173,7 +173,7 @@ async function callAi(prompt: string): Promise<
     },
     body: JSON.stringify({
       model: MODEL,
-      max_tokens: 6000,
+      max_tokens: 3000,
       messages: [{ role: "user", content: prompt }],
     }),
   });
@@ -211,10 +211,11 @@ export async function GET(
 }
 
 export async function POST(
-  _request: Request,
+  request: Request,
   { params }: { params: { chartId: string } },
 ) {
   try {
+    const part = new URL(request.url).searchParams.get("part") === "2" ? 2 : 1;
     const chart = await ChartsStore.getChart(params.chartId);
     const temporal = (await readSlug(chart.id, DATA_SLUG)) as {
       saturnReturn?: { ok?: boolean; data?: { previous?: unknown; next?: unknown } };
@@ -272,9 +273,9 @@ export async function POST(
       "",
       "Return STRICT JSON only, no markdown fences, in this shape:",
       '{"sections":[{"heading":"...","paragraphs":["...","..."]}]}',
-      "Sections required, in order: (1) 'At a glance' — 3-4 sentence summary of the years ahead;",
-      "(2) 'Your Saturn Return' ; (3) one section per solar year titled 'Year YYYY' (2-3 paragraphs each);",
-      "(4) 'Your Inner Evolution' about the progressions; (5) 'How to use this' — practical closing.",
+      part === 1
+        ? "Sections required, in this exact order: (1) 'At a glance' — 3-4 sentence summary of the years ahead; (2) 'Your Saturn Return' (2-3 paragraphs); (3) 'Your Inner Evolution' about the progressions (2 paragraphs). Nothing else."
+        : "Sections required, in this exact order: one section per solar year titled exactly 'Year YYYY' (ONE substantial paragraph each), then a final section 'How to use this' (one practical paragraph). Nothing else.",
       "",
       "GROUNDED MATERIAL:",
       ...lines,
@@ -284,9 +285,26 @@ export async function POST(
     if (!ai.ok) {
       return NextResponse.json({ error: { code: "AI_FAILED", message: ai.error } }, { status: 502 });
     }
+
+    if (part === 1) {
+      await writeSlug(chart.id, `${READING_SLUG}_part1`, { sections: ai.sections });
+      return NextResponse.json({ part: 1, ok: true }, { status: 201 });
+    }
+
+    // part 2: merge — glance, saturn, years…, inner evolution, how to use
+    const part1 = ((await readSlug(chart.id, `${READING_SLUG}_part1`)) ?? { sections: [] }) as {
+      sections: TemporalSection[];
+    };
+    const p1 = part1.sections;
+    const glance = p1.filter((section) => /glance/i.test(section.heading));
+    const saturn = p1.filter((section) => /saturn/i.test(section.heading));
+    const evolution = p1.filter((section) => /evolution|progress/i.test(section.heading));
+    const rest1 = p1.filter((section) => !glance.includes(section) && !saturn.includes(section) && !evolution.includes(section));
+    const years = ai.sections.filter((section) => /^year\s+\d{4}/i.test(section.heading));
+    const closing = ai.sections.filter((section) => !years.includes(section));
     const reading = {
       title: "The Years Ahead",
-      sections: ai.sections,
+      sections: [...glance, ...saturn, ...rest1, ...years, ...evolution, ...closing],
       model: MODEL,
       generatedAt: new Date().toISOString(),
     };
