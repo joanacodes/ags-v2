@@ -3,12 +3,39 @@
  * Returns null when Supabase is not configured — callers must degrade
  * gracefully to mock behaviour.
  */
+import { AsyncLocalStorage } from "node:async_hooks";
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
-import type { SupabaseClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { getPublicSupabaseEnvironment } from "./environment";
 
+/**
+ * Background jobs run without a browser session: inside `runAsUser` every
+ * store uses the server's own client on behalf of that user instead of the
+ * request cookies.
+ */
+const actingAs = new AsyncLocalStorage<{ client: SupabaseClient; userId: string }>();
+
+export function runAsUser<T>(client: SupabaseClient, userId: string, task: () => Promise<T>): Promise<T> {
+  return actingAs.run({ client, userId }, task);
+}
+
+/**
+ * Client with the Supabase secret key (bypasses RLS). Server-only, used by
+ * the background job runner; null when SUPABASE_SECRET_KEY is not set.
+ */
+export function createSupabaseServiceClient(): SupabaseClient | null {
+  const environment = getPublicSupabaseEnvironment();
+  const secretKey = process.env.SUPABASE_SECRET_KEY?.trim();
+  if (environment === null || secretKey === undefined || secretKey === "") return null;
+  return createClient(environment.url, secretKey, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}
+
 export function createSupabaseServerClient(): SupabaseClient | null {
+  const scope = actingAs.getStore();
+  if (scope !== undefined) return scope.client;
   const environment = getPublicSupabaseEnvironment();
   if (environment === null) return null;
   const cookieStore = cookies();
@@ -33,6 +60,8 @@ export function createSupabaseServerClient(): SupabaseClient | null {
 
 /** The signed-in user's id, or null (signed out / unconfigured). */
 export async function getServerUserId(): Promise<string | null> {
+  const scope = actingAs.getStore();
+  if (scope !== undefined) return scope.userId;
   const supabase = createSupabaseServerClient();
   if (supabase === null) return null;
   const { data } = await supabase.auth.getUser();

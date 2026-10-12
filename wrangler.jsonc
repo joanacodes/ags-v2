@@ -1,7 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "ags",
-  "main": ".open-next/worker.js",
+  // The OpenNext app plus the every-minute timer for background readings.
+  "main": "cloudflare-worker.mjs",
   "compatibility_date": "2026-04-01",
   // OpenNext 1.0.0 calls process.chdir(""), which the newer native
   // `process` (default from 2025-09-15) rejects: keep the older one.
@@ -9,6 +10,8 @@
   // Keep function names untouched: esbuild's keepNames injects __name()
   // into functions Next serialises to the browser (e.g. the theme script).
   "keep_names": false,
+  // Writes queued readings on the server (see src/server/generation-jobs.ts).
+  "triggers": { "crons": ["* * * * *"] },
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"

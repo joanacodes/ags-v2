@@ -57,11 +57,18 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           FREE_ASTRO_API_KEY: ${{ secrets.FREE_ASTRO_API_KEY }}
+          # Supabase secret key: lets the background timer write readings.
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
         run: |
+          if [ -z "$SUPABASE_SECRET_KEY" ]; then
+            echo "::warning::No SUPABASE_SECRET_KEY secret: readings are generated in the browser only (see DEPLOY.md)."
+          fi
+          # Password between the timer and the job runner, new on every deploy.
+          export CRON_SECRET="$(openssl rand -hex 32)"
           file="$RUNNER_TEMP/worker-secrets.json"
           node -e '
             const out = {};
-            for (const k of ["ANTHROPIC_API_KEY", "FREE_ASTRO_API_KEY"]) if (process.env[k]) out[k] = process.env[k];
+            for (const k of ["ANTHROPIC_API_KEY", "FREE_ASTRO_API_KEY", "SUPABASE_SECRET_KEY", "CRON_SECRET"]) if (process.env[k]) out[k] = process.env[k];
             require("fs").writeFileSync(process.argv[1], JSON.stringify(out));
             console.log("Syncing:", Object.keys(out).join(", ") || "nothing");
           ' "$file"
