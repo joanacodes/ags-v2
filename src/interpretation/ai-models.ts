@@ -78,6 +78,7 @@ export function anthropicHeaders(apiKey: string, allowFallback = false): Record<
 export function modelRequestFields(
   model: AiModelId,
   allowFallback = false,
+  maxTokens = 16000,
 ): {
   model: AiModelId;
   max_tokens: number;
@@ -86,7 +87,7 @@ export function modelRequestFields(
 } {
   return {
     model,
-    max_tokens: 16000,
+    max_tokens: maxTokens,
     output_config: { effort: "medium" },
     ...(allowFallback ? { fallbacks: "default" as const } : {}),
   };

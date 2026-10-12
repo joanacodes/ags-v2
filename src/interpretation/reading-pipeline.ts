@@ -26,13 +26,21 @@ import {
   resolveAiModel,
   type AiModelId,
 } from "./ai-models";
-import { READING_OUTPUT_FORMAT, defaultPrompts, styleKey, type PromptSet } from "./prompts";
+import {
+  READING_OUTPUT_FORMAT,
+  deepPromptKey,
+  defaultPrompts,
+  styleKey,
+  type PromptSet,
+} from "./prompts";
+import { formatOrb, pointContacts, type PointContact } from "./point-contacts";
 
 export const READING_ENGINE_VERSION = "reading-engine-1.0";
 
 const PLANET_GLYPHS: Readonly<Record<string, string>> = {
   Sun: "☉", Moon: "☽", Mercury: "☿", Venus: "♀", Mars: "♂",
   Jupiter: "♃", Saturn: "♄", Uranus: "♅", Neptune: "♆", Pluto: "♇",
+  Chiron: "⚷", Lilith: "⚸",
   ASC: "AC", MC: "MC", DC: "DC", IC: "IC",
 };
 const ASPECT_GLYPHS: Readonly<Record<string, string>> = {
@@ -174,7 +182,23 @@ function buildRelevantAspects(matches: readonly GrammarMatch[]): RelevantAspect[
   return aspects;
 }
 
+function contactAspects(contacts: readonly PointContact[]): RelevantAspect[] {
+  return contacts.map((c) => ({
+    id: `contact-${c.from}-${c.type}-${c.to}`.toLowerCase(),
+    glyphs: `${PLANET_GLYPHS[c.from] ?? c.from} ${ASPECT_GLYPHS[c.type] ?? c.type} ${PLANET_GLYPHS[c.to] ?? c.to}`,
+    label: `${c.from} ${c.type} ${c.to}`,
+    detail: `Orb ${formatOrb(c.orb)}`,
+  }));
+}
+
 /* ----------------------------- AI layer ------------------------------ */
+
+/** What a deep reading receives on top of its own material. */
+export interface DeepMaterial {
+  readonly contacts: readonly PointContact[];
+  /** The rest of the chart, for resources and outcomes. */
+  readonly supporting: readonly ComposedGroup[];
+}
 
 interface AiSection {
   heading: string;
@@ -187,13 +211,14 @@ const LANGUAGE_NAMES: Readonly<Record<string, string>> = {
   en: "English", fr: "French", es: "Spanish", pt: "Portuguese", de: "German", it: "Italian",
 };
 
-function buildUserPrompt(
+export function buildUserPrompt(
   personName: string,
   domain: ReadingDomainDefinition,
   groups: readonly ComposedGroup[],
   style: string,
   language: string,
   prompts: PromptSet,
+  deep: DeepMaterial | null = null,
 ): string {
   const lines: string[] = [];
   lines.push(`Reading domain: ${domain.title}`);
@@ -204,19 +229,40 @@ function buildUserPrompt(
     `OUTPUT LANGUAGE: write every heading, paragraph, example, and pull quote in ${langName}. ` +
     "Keep planet, sign, and house names in their conventional form for that language.",
   );
-  if (domain.promptFocus !== undefined) {
+  const deepKey = deepPromptKey(domain.slug);
+  if (deep !== null && deepKey !== null) {
+    lines.push("", prompts[deepKey], "");
+  } else if (domain.promptFocus !== undefined) {
     lines.push(`Domain guidance: ${domain.promptFocus}`);
   }
-  const labels = groups.flatMap((g) => g.items.map((i) => i.label));
+  const contactLabels = (deep?.contacts ?? []).map((c) => `${c.from} ${c.type} ${c.to}`);
+  const labels = [...groups.flatMap((g) => g.items.map((i) => i.label)), ...contactLabels];
   lines.push("");
   lines.push(
     `COVERAGE CHECKLIST — every one of these ${labels.length} factors must be addressed: ${labels.join("; ")}.`,
   );
   lines.push("");
-  lines.push("Source material (cover every line):");
+  lines.push(deep !== null ? "FOCUS material (cover every line):" : "Source material (cover every line):");
   for (const group of groups) {
     lines.push(`\n## ${group.title}`);
     for (const item of group.items) lines.push(`- ${item.sentence}`);
+  }
+  if (deep !== null && deep.contacts.length > 0) {
+    lines.push("\n## Contacts with Chiron and Lilith (measured from the chart)");
+    for (const c of deep.contacts) {
+      lines.push(`- ${c.from} ${c.type} ${c.to} (orb ${formatOrb(c.orb)})`);
+    }
+  }
+  if (deep !== null && deep.supporting.length > 0) {
+    lines.push("");
+    lines.push(
+      "SUPPORTING material — the rest of the chart. Do not summarise it; use it for what " +
+        "helps this person and for the results of going through it, naming each factor you use:",
+    );
+    for (const group of deep.supporting) {
+      lines.push(`\n## ${group.title}`);
+      for (const item of group.items) lines.push(`- ${item.sentence}`);
+    }
   }
   return lines.join("\n");
 }
@@ -263,14 +309,19 @@ async function callReadingAi(
   model: AiModelId,
   prompts: PromptSet,
   allowFallback: boolean,
+  deep: DeepMaterial | null = null,
 ): Promise<AiResult> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (apiKey === undefined || apiKey.length === 0) return { status: "no_api_key" };
   const request = {
-    ...modelRequestFields(model, allowFallback),
+    // Deep readings are two to three times longer: give them room.
+    ...modelRequestFields(model, allowFallback, deep !== null ? 32000 : 16000),
     system: `${prompts["reading.system"]}\n\n${READING_OUTPUT_FORMAT}`,
     messages: [
-      { role: "user", content: buildUserPrompt(personName, domain, groups, style, language, prompts) },
+      {
+        role: "user",
+        content: buildUserPrompt(personName, domain, groups, style, language, prompts, deep),
+      },
     ],
   };
   // One retry on invalid JSON — structure corruption is rare but cheap to absorb.
@@ -383,6 +434,16 @@ export async function generateDomainReading(
     .map((g) => ({ ...g, items: g.items.filter((i: ComposedSentence) => matchIds.has(i.matchId)) }))
     .filter((g) => g.items.length > 0);
 
+  const deep: DeepMaterial | null =
+    domain.deep === true
+      ? {
+          contacts: pointContacts(chart, domain.contactSources ?? []),
+          supporting: pipeline.groups
+            .map((g) => ({ ...g, items: g.items.filter((i: ComposedSentence) => !matchIds.has(i.matchId)) }))
+            .filter((g) => g.items.length > 0),
+        }
+      : null;
+
   const personName = `${chart.person.firstName} ${chart.person.lastName}`.trim();
   const model = resolveAiModel(chart.configuration.aiModel);
   const ai = await callReadingAi(
@@ -394,11 +455,12 @@ export async function generateDomainReading(
     model,
     options.prompts ?? defaultPrompts(),
     options.allowFallback ?? false,
+    deep,
   );
   if (ai.status !== "ok") return ai;
 
   const factors = buildChartFactors(domainMatches);
-  const aspects = buildRelevantAspects(domainMatches);
+  const aspects = [...buildRelevantAspects(domainMatches), ...contactAspects(deep?.contacts ?? [])];
 
   const reading: Reading = {
     id: `reading-${chart.id}-${slug}`,

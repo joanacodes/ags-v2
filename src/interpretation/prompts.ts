@@ -16,6 +16,8 @@ export const PROMPT_KEYS = [
   "reading.style.poetic",
   "interpretation.system",
   "temporal.instructions",
+  "reading.deep.pain-healing",
+  "reading.deep.love-relationships",
   "bulk.extract",
 ] as const;
 
@@ -115,10 +117,91 @@ const TEMPORAL_INSTRUCTIONS = [
   STORY_RULE,
 ].join("\n");
 
+const DEEP_COMMON = [
+  "DEEP READING — this replaces the 4-to-6-section limit of the main instructions.",
+  "Write 9 to 11 sections, each 3 to 5 paragraphs, and keep the bold real-life story",
+  "in every section except 'At a glance'. Go deep rather than wide: name the",
+  "mechanism, where it comes from, how it feels from the inside, how it shows from",
+  "the outside, and how it changes over a lifetime.",
+  "You receive two kinds of material:",
+  "- the FOCUS material: cover every line, it is the subject of the reading;",
+  "- the SUPPORTING material (the rest of the chart): do not summarise it; draw on",
+  "  it to show what in this person helps them (strengths, easy aspects, resources",
+  "  of the Moon, Venus, Jupiter, the Sun, supportive houses) and name the factor",
+  "  each time ('your Jupiter in Leo, your capacity for generosity, is what…').",
+  "Contacts with Chiron and Lilith are listed as plain facts: interpret them from",
+  "the meaning of both points and of the aspect, as you would any aspect.",
+  "If Chiron, Lilith or the birth time is missing from the material, say so plainly",
+  "in one sentence and work with what is there — never invent a placement.",
+  "Be honest and humane: name the pain without drama, never blame the person, never",
+  "predict events. Outcomes are tendencies that depend on how the person engages.",
+].join("\n");
+
+const DEEP_PAIN = [
+  DEEP_COMMON,
+  "",
+  "PAIN & HEALING — Saturn, Chiron and Lilith are the heart of this reading.",
+  "Sections, in this order (adapt the headings, keep the substance):",
+  "1. At a glance — the core pain, the core gift, in 3-4 sentences.",
+  "2. Saturn: the weight you carry — where life demands maturity early, the fear",
+  "   underneath, the 'not enough' voice, its sign, house and aspects, and how",
+  "   Saturn's lessons ripen with age (the 28-30 return as a turning point, in general terms).",
+  "3. Chiron: the wound that teaches — the original sensitivity, how it was",
+  "   formed, how it is re-touched in adult life, and the healer it creates in you.",
+  "4. Lilith: the exiled part — what was shamed, silenced or judged 'too much',",
+  "   the raw power and anger stored there, and what reclaiming it looks like.",
+  "5. How they talk to each other — the contacts between Saturn, Chiron, Lilith",
+  "   and the rest (Pluto, Neptune, Mars, houses 8 and 12): the loop they create.",
+  "6. How the pain repeats — triggers, defences, the people and situations that",
+  "   re-open it, what it costs in daily life.",
+  "7. What helps you overcome it — from the SUPPORTING material: the specific",
+  "   resources in this chart, each tied to its factor, with concrete practices.",
+  "8. If you go through it — the favourable results: the wisdom, the authority, the",
+  "   compassion, the vocation or way of helping others that can grow from it.",
+  "9. If you avoid it — the less favourable results: what happens when the pain is",
+  "   denied, numbed or over-identified with (armour, bitterness, repetition,",
+  "   self-sabotage). Honest, never fatalistic: show the way back.",
+  "10. Practical guidance — 4 to 6 concrete steps for the coming months.",
+].join("\n");
+
+const DEEP_LOVE = [
+  DEEP_COMMON,
+  "",
+  "LOVE & RELATIONSHIPS — go deep into how this person loves and is loved.",
+  "Sections, in this order (adapt the headings, keep the substance):",
+  "1. At a glance — the love pattern in 3-4 sentences.",
+  "2. Venus: what you value and how you love — taste, attraction, how you show love.",
+  "3. Mars: desire and pursuit — how you want, chase, argue and make up.",
+  "4. The Moon: what you need to feel safe in closeness — emotional needs, attachment.",
+  "5. The partner you meet — the Descendant and 7th house: what you look for,",
+  "   what you project, what partners mirror back.",
+  "6. Intimacy and merging — the 8th house: trust, sex, jealousy, shared life;",
+  "   and the 5th: romance, play, pleasure.",
+  "7. Lilith in love — raw desire, power, what you refuse to tame or hide in love.",
+  "8. Where love hurts — Chiron, Saturn and hard aspects touching Venus, Mars or",
+  "   the Moon: the old wound, the fear, the pattern that repeats from one",
+  "   relationship to the next.",
+  "9. What helps you love well — from the SUPPORTING material: resources in this",
+  "   chart, each tied to its factor, with concrete practices.",
+  "10. Where the paths lead — the favourable results of doing the inner work (the",
+  "   kind of love that becomes possible) and the less favourable results of",
+  "   repeating the pattern. Tendencies, never fate.",
+  "11. Practical guidance — 4 to 6 concrete steps for dating or for a current relationship.",
+  "If the Vertex appears, treat it as marking significant encounters and turning",
+  "points — openings, never guaranteed events.",
+].join("\n");
+
 const BULK_EXTRACT = [
-  "You read birth data for an astrologer from a photo (a screenshot of a message,",
-  "a handwritten note, a form) or from a spreadsheet export.",
-  "List every person whose birth data appears, one entry each.",
+  "You read birth data for an astrologer from photos (screenshots of messages,",
+  "handwritten notes, forms) and spreadsheet exports. Several files arrive together,",
+  "each introduced by its file name.",
+  "List every person whose birth data appears, ONE entry per person:",
+  "- One person's data is often spread over several files (the date in one",
+  "  screenshot, the time or place in the next, a conversation cut in pieces).",
+  "  Combine them into a single entry, matching on the name, the conversation or",
+  "  the context. If you are unsure two files are the same person, keep them",
+  "  separate and say so in notes.",
+  "- In sources, list the file names each entry was read from.",
   "- Names: first name and last name as written; leave a part empty if it is missing.",
   "- Birth date as YYYY-MM-DD. Dates written with slashes or dots are DAY first",
   "  (14/03/1990 = 14 March 1990) unless that is impossible (a first number above 12",
@@ -178,6 +261,20 @@ export const PROMPT_DEFINITIONS: Readonly<Record<PromptKey, PromptDefinition>> =
     placeholders: ["{{person}}", "{{language}}"],
     text: TEMPORAL_INSTRUCTIONS,
   },
+  "reading.deep.pain-healing": {
+    key: "reading.deep.pain-healing",
+    label: "Pain & Healing — deep reading",
+    description: "Structure of the Pain & Healing reading (Saturn, Chiron, Lilith, what helps, results).",
+    placeholders: [],
+    text: DEEP_PAIN,
+  },
+  "reading.deep.love-relationships": {
+    key: "reading.deep.love-relationships",
+    label: "Love & Relationships — deep reading",
+    description: "Structure of the Love & Relationships reading.",
+    placeholders: [],
+    text: DEEP_LOVE,
+  },
   "bulk.extract": {
     key: "bulk.extract",
     label: "Bulk import — reading birth data",
@@ -222,6 +319,12 @@ export function mergePrompts(overrides: Readonly<Record<string, string>>): Promp
 
 export function fillPlaceholders(text: string, values: Readonly<Record<string, string>>): string {
   return text.replace(/\{\{(\w+)\}\}/g, (whole, name: string) => values[name] ?? whole);
+}
+
+/** The editable deep-reading prompt for a domain, if it has one. */
+export function deepPromptKey(slug: string): PromptKey | null {
+  const key = `reading.deep.${slug}`;
+  return isPromptKey(key) ? key : null;
 }
 
 export function styleKey(style: string): PromptKey {
