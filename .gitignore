@@ -4,3 +4,5 @@ out
 *.tsbuildinfo
 .env*
 dist-test
+.open-next
+.wrangler
