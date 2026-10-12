@@ -23,7 +23,15 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useCalculateChart, useChart, useDeleteChart, useSetChartStatus } from "@/hooks/use-charts";
+import {
+  useCalculateChart,
+  useChart,
+  useDeleteChart,
+  useSetChartAiModel,
+  useSetChartStatus,
+} from "@/hooks/use-charts";
+import { AI_MODELS, resolveAiModel, type AiModelId } from "@/interpretation/ai-models";
+import { Select } from "@/components/ui/select";
 import { readingKeys } from "@/hooks/use-readings";
 import { useQueryClient } from "@tanstack/react-query";
 import { ReadingService } from "@/services/reading-service";
@@ -40,6 +48,7 @@ export default function ChartOverviewPage() {
   const router = useRouter();
   const calculate = useCalculateChart(chartId);
   const setStatus = useSetChartStatus(chartId);
+  const setAiModel = useSetChartAiModel(chartId);
   const deleteChart = useDeleteChart();
   const queryClient = useQueryClient();
   const { data: rprogress } = useReadingProgress(chartId);
@@ -216,7 +225,7 @@ export default function ChartOverviewPage() {
         {chart && (
           <div className="space-y-8">
             {/* Person header */}
-            <div className="flex items-center gap-4 border-b border-line pb-6">
+            <div className="flex flex-wrap items-center gap-4 border-b border-line pb-6">
               <Avatar
                 firstName={chart.person.firstName}
                 lastName={chart.person.lastName}
@@ -235,6 +244,30 @@ export default function ChartOverviewPage() {
                   <Badge>{chart.configuration.ephemeris}</Badge>
                 </div>
               </div>
+              {!isDemo && (
+                <div className="w-full sm:ml-auto sm:w-56">
+                  <label htmlFor="chart-ai-model" className="block pb-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-faint">
+                    AI model
+                  </label>
+                  <Select
+                    id="chart-ai-model"
+                    value={resolveAiModel(chart.configuration.aiModel)}
+                    onChange={(event) => setAiModel.mutate(event.target.value as AiModelId)}
+                    disabled={setAiModel.isPending}
+                  >
+                    {AI_MODELS.map((m) => (
+                      <option key={m.id} value={m.id}>
+                        {m.label}
+                      </option>
+                    ))}
+                  </Select>
+                  {setAiModel.isError && (
+                    <p className="pt-1 text-xs text-danger">
+                      {setAiModel.error instanceof Error ? setAiModel.error.message : "Could not save."}
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Wheel + right rail */}

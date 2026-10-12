@@ -45,37 +45,55 @@ export function aiModelLabel(id: string): string {
   return AI_MODELS.find((m) => m.id === id)?.label ?? id;
 }
 
-/** Headers for a Messages API call, including the refusal-fallback beta. */
-export function anthropicHeaders(apiKey: string): Record<string, string> {
-  return {
+/**
+ * Header the browser sends to say the user agreed to a fallback model after
+ * the chosen one declined (see `lib/ai-fetch.ts`).
+ */
+export const ALLOW_FALLBACK_HEADER = "x-ags-allow-fallback";
+
+export function allowFallbackFrom(request: Request): boolean {
+  return request.headers.get(ALLOW_FALLBACK_HEADER) === "1";
+}
+
+/** Headers for a Messages API call (plus the fallback beta when allowed). */
+export function anthropicHeaders(apiKey: string, allowFallback = false): Record<string, string> {
+  const headers: Record<string, string> = {
     "content-type": "application/json",
     "x-api-key": apiKey,
     "anthropic-version": "2023-06-01",
-    "anthropic-beta": "server-side-fallback-2026-07-01",
   };
+  if (allowFallback) headers["anthropic-beta"] = "server-side-fallback-2026-07-01";
+  return headers;
 }
 
 /**
  * Model-specific request fields shared by every AI call.
- * - `fallbacks: "default"`: if the model's safety classifier declines, the
- *   API re-runs the request on Anthropic's recommended fallback model.
  * - `effort: "medium"`: these models always think before answering; medium
  *   keeps latency inside the route timeouts (Opus 5.5 already defaults to it).
  * - `max_tokens` leaves room for thinking on top of the written output.
+ * - `fallbacks: "default"` only once the user has agreed: if the chosen
+ *   model declines again, the API re-runs the request on Anthropic's
+ *   recommended substitute model.
  */
-export function modelRequestFields(model: AiModelId): {
+export function modelRequestFields(
+  model: AiModelId,
+  allowFallback = false,
+): {
   model: AiModelId;
   max_tokens: number;
-  fallbacks: "default";
   output_config: { effort: "medium" };
+  fallbacks?: "default";
 } {
   return {
     model,
     max_tokens: 16000,
-    fallbacks: "default",
     output_config: { effort: "medium" },
+    ...(allowFallback ? { fallbacks: "default" as const } : {}),
   };
 }
+
+export const REFUSAL_MESSAGE =
+  "The selected AI model declined to write this text. Its safety filter sometimes flags harmless astrology content by mistake.";
 
 interface MessagesResponse {
   model?: string;
@@ -83,23 +101,25 @@ interface MessagesResponse {
   content?: ReadonlyArray<{ type: string; text?: string }>;
 }
 
+export type MessagesReadResult =
+  | { ok: true; text: string; model: string }
+  | { ok: false; refused: boolean; message: string };
+
 /**
  * Pull the text and the model that actually answered (which differs from
- * the requested one when a fallback ran). A refusal is an explicit error.
+ * the requested one when a fallback ran). A refusal is reported separately
+ * so the UI can ask the user before trying a fallback model.
  */
-export function readMessagesResponse(
-  data: MessagesResponse,
-  requested: AiModelId,
-): { ok: true; text: string; model: string } | { ok: false; message: string } {
+export function readMessagesResponse(data: MessagesResponse, requested: AiModelId): MessagesReadResult {
   if (data.stop_reason === "refusal") {
-    return { ok: false, message: "The model declined to write this reading. Try again or pick another model." };
+    return { ok: false, refused: true, message: REFUSAL_MESSAGE };
+  }
+  if (data.stop_reason === "max_tokens") {
+    return { ok: false, refused: false, message: "The model ran out of output space before finishing. Try again." };
   }
   const text = (data.content ?? [])
     .map((block) => (block.type === "text" && typeof block.text === "string" ? block.text : ""))
     .filter((t) => t.length > 0)
     .join("\n");
-  if (data.stop_reason === "max_tokens") {
-    return { ok: false, message: "The model ran out of output space before finishing. Try again." };
-  }
   return { ok: true, text, model: typeof data.model === "string" ? data.model : requested };
 }

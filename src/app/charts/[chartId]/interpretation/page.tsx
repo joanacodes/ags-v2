@@ -181,7 +181,7 @@ export default function InterpretationPage() {
                           key={index}
                           className="text-sm leading-relaxed text-ink-secondary"
                         >
-                          {paragraph}
+                          {renderInline(paragraph)}
                         </p>
                       ))}
                       <p className="pt-1 text-[10px] uppercase tracking-wide text-ink-faint">

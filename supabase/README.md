@@ -17,3 +17,9 @@ The secret/service key is NOT used — the app relies on user sessions + RLS.
 Without these variables the app runs in mock mode exactly as before;
 with them, sign-in appears in the sidebar and wizard-created charts are
 saved privately per user.
+
+## Editable AI prompts
+
+Run `migrations/202610120005_prompt_overrides.sql` once (SQL Editor). Until
+it runs, Settings → AI prompts shows the defaults but cannot save edits, and
+every AI call uses the defaults.

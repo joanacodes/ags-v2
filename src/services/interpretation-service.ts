@@ -4,6 +4,7 @@
  * JSON: the pipeline runs server-side (grammar + knowledge + AI).
  */
 import type { InterpretationPipelineResult } from "@/interpretation/pipeline";
+import { aiFetch } from "@/lib/ai-fetch";
 
 export interface SavedAiInterpretation {
   text: string;
@@ -39,7 +40,7 @@ export const InterpretationService = {
 
   /** AI prose grounded in the composed sentences (server-side key). */
   async generateAiInterpretation(chartId: string): Promise<AiInterpretationResponse> {
-    const response = await fetch(`/api/charts/${chartId}/interpretation/ai`, {
+    const response = await aiFetch(`/api/charts/${chartId}/interpretation/ai`, {
       method: "POST",
     });
     if (!response.ok) throw new Error(await readError(response));

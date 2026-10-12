@@ -203,7 +203,7 @@ export default function ReadingHubPage() {
           <div className="hidden xl:block">
             {chart ? (
               <div className="space-y-4">
-                <ShareCard chartId={chartId} />
+                <ShareCard chartId={chartId} birthDate={chart?.birth.date} />
                 <ChartSummaryRail chart={chart} progress={progress} />
               </div>
             ) : (

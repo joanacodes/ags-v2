@@ -1,7 +1,8 @@
 "use client";
 
 /**
- * Astrologer-side share card: set a password, get the readee link, copy it.
+ * Astrologer-side share card: create the readee link and copy it. The link's
+ * password is the readee's birth date (dd/mm/yyyy), so nothing to invent.
  */
 import { useState } from "react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -9,7 +10,6 @@ import { Copy, Link2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { notify } from "@/components/common/toaster";
 
 interface ShareLink {
@@ -17,9 +17,8 @@ interface ShareLink {
   created_at: string;
 }
 
-export function ShareCard({ chartId }: { chartId: string }) {
+export function ShareCard({ chartId, birthDate }: { chartId: string; birthDate?: string }) {
   const queryClient = useQueryClient();
-  const [password, setPassword] = useState("");
   const [creating, setCreating] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -39,15 +38,12 @@ export function ShareCard({ chartId }: { chartId: string }) {
     try {
       const response = await fetch(`/api/charts/${chartId}/share`, {
         method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({ password }),
       });
       const body = (await response.json()) as { error?: { message?: string } };
       if (!response.ok) {
         setError(body.error?.message ?? "Could not create the link.");
         return;
       }
-      setPassword("");
       notify("Readee link created — copy it below.");
       void queryClient.invalidateQueries({ queryKey: ["share-links", chartId] });
     } finally {
@@ -67,8 +63,8 @@ export function ShareCard({ chartId }: { chartId: string }) {
         Share with the readee
       </h2>
       <p className="pb-3 text-xs leading-relaxed text-ink-muted">
-        They open the link with a password (no account), rate each reading, and
-        their notes come back to you on the reading pages.
+        They open the link with their date of birth as the password (no account),
+        rate each reading, and their notes come back to you on the reading pages.
       </p>
 
       {(data ?? []).map((link) => (
@@ -81,22 +77,22 @@ export function ShareCard({ chartId }: { chartId: string }) {
         </div>
       ))}
 
-      <div className="flex items-end gap-2 pt-1">
-        <div className="min-w-0 flex-1">
-          <Label htmlFor="share-password">New link password</Label>
-          <Input
-            id="share-password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            placeholder="Min. 4 characters"
-            className="h-8"
-          />
-        </div>
-        <Button size="sm" variant="primary" onClick={() => void create()} disabled={creating || password.trim().length < 4}>
-          {creating ? <Loader2 size={12} className="animate-spin" /> : "Create"}
+      <div className="flex items-center gap-2 pt-1">
+        <p className="min-w-0 flex-1 text-xs text-ink-muted">
+          Password:{" "}
+          <span className="font-mono font-medium text-ink">{formatPassword(birthDate)}</span>{" "}
+          <span className="text-ink-faint">(dd/mm/yyyy)</span>
+        </p>
+        <Button size="sm" variant="primary" onClick={() => void create()} disabled={creating}>
+          {creating ? <Loader2 size={12} className="animate-spin" /> : "New link"}
         </Button>
       </div>
       {error !== null && <p className="pt-2 text-xs text-danger">{error}</p>}
     </Card>
   );
+}
+
+function formatPassword(birthDate: string | undefined): string {
+  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(birthDate ?? "");
+  return match === null ? "their birth date" : `${match[3]}/${match[2]}/${match[1]}`;
 }

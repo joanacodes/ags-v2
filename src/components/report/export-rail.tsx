@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FileText, Link2, Printer, Upload, FileType2, Check } from "lucide-react";
+import { FileCode2, FileText, Link2, Printer, Upload, FileType2, Check, AlignLeft } from "lucide-react";
 import type { ExportFormat, Report, ReportSettings } from "@/types";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
@@ -10,7 +10,9 @@ import { cn } from "@/lib/utils";
 
 const FORMATS: { id: ExportFormat; label: string; icon: typeof FileText; note?: string }[] = [
   { id: "pdf", label: "PDF", icon: FileType2, note: "Recommended" },
-  { id: "docx", label: "DOCX", icon: FileText },
+  { id: "docx", label: "Word (.docx)", icon: FileText, note: "Editable" },
+  { id: "md", label: "Markdown (.md)", icon: FileCode2 },
+  { id: "txt", label: "Plain text (.txt)", icon: AlignLeft },
   { id: "print", label: "Print", icon: Printer },
   { id: "link", label: "Share Link", icon: Link2 },
 ];
@@ -137,7 +139,15 @@ export function ExportRail({
           disabled={exporting}
         >
           {exported ? <Check size={15} /> : <Upload size={15} />}
-          {exporting ? "Preparing export…" : exported ? "Export ready" : "Export Now"}
+          {exporting
+            ? "Preparing document…"
+            : exported
+              ? "Downloaded"
+              : format === "print"
+                ? "Print"
+                : format === "link"
+                  ? "Go to share link"
+                  : "Download"}
         </Button>
         <p className="mt-2.5 text-center text-[11px] text-ink-muted">
           Partial export — {report.sectionsReady} of {report.sectionsTotal} sections included

@@ -10,7 +10,7 @@ import chartsJson from "@/data/sample-charts.json";
 import workspaceJson from "@/data/workspace.json";
 import { createSupabaseServerClient, getServerUserId } from "@/lib/supabase/server";
 import { calculateChart } from "@/server/providers/freeastroapi";
-import { resolveAiModel } from "@/interpretation/ai-models";
+import { resolveAiModel, type AiModelId } from "@/interpretation/ai-models";
 import type { Chart, ChartDraft, ChartLibraryStats, ChartStatus } from "@/types";
 
 const seededCharts = chartsJson.charts as Chart[];
@@ -225,6 +225,30 @@ export const ChartsStore = {
     if (local === undefined) throw new Error(`Chart not found: ${chartId}`);
     local.status = status;
     return local;
+  },
+
+  /** Change which AI model writes this chart's readings (demo charts refused). */
+  async setAiModel(chartId: string, aiModel: AiModelId): Promise<Chart> {
+    if (seededCharts.some((c) => c.id === chartId)) {
+      throw new Error("Demo charts are fixed sample data.");
+    }
+    const chart = await this.getChart(chartId);
+    const updated: Chart = { ...chart, configuration: { ...chart.configuration, aiModel } };
+    const supabase = createSupabaseServerClient();
+    if (supabase !== null) {
+      const { data, error } = await supabase
+        .from("charts")
+        .update({ chart_payload: updated, updated_at: new Date().toISOString() })
+        .eq("id", chartId)
+        .select("id, chart_payload, favourite, status, created_at, updated_at")
+        .maybeSingle();
+      if (error !== null) throw new Error(`Could not save the AI model: ${error.message}`);
+      if (data !== null) return rowToChart(data as ChartRow);
+    }
+    const index = memoryCharts.findIndex((c) => c.id === chartId);
+    if (index < 0) throw new Error(`Chart not found: ${chartId}`);
+    memoryCharts[index] = updated;
+    return updated;
   },
 
   /** Delete a chart and its readings (demo charts refused). */

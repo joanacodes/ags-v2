@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   AI_MODELS,
+  anthropicHeaders,
   DEFAULT_AI_MODEL,
   isAiModelId,
   modelRequestFields,
@@ -25,10 +26,13 @@ test("charts without a valid stored model fall back to the default", () => {
   assert.equal(isAiModelId(42), false);
 });
 
-test("request fields carry the chosen model and the refusal fallback", () => {
+test("the fallback model is only requested after the user agreed", () => {
   const fields = modelRequestFields("claude-opus-5-5");
   assert.equal(fields.model, "claude-opus-5-5");
-  assert.equal(fields.fallbacks, "default");
+  assert.equal(fields.fallbacks, undefined);
+  assert.equal(anthropicHeaders("k")["anthropic-beta"], undefined);
+  assert.equal(modelRequestFields("claude-opus-5-5", true).fallbacks, "default");
+  assert.equal(anthropicHeaders("k", true)["anthropic-beta"], "server-side-fallback-2026-07-01");
 });
 
 test("response reader keeps text, reports the serving model, and surfaces refusals", () => {
@@ -43,4 +47,5 @@ test("response reader keeps text, reports the serving model, and surfaces refusa
   assert.deepEqual(ok, { ok: true, text: "Hello", model: "claude-opus-4-8" });
   const refused = readMessagesResponse({ stop_reason: "refusal", content: [] }, "claude-sonnet-5-5");
   assert.equal(refused.ok, false);
+  assert.equal(!refused.ok && refused.refused, true);
 });

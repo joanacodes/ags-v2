@@ -45,7 +45,7 @@ import {
 } from "@/lib/reading-prefs";
 
 import { cn } from "@/lib/utils";
-import { AI_MODELS, DEFAULT_AI_MODEL, aiModelLabel } from "@/interpretation/ai-models";
+import { AI_MODELS, DEFAULT_AI_MODEL } from "@/interpretation/ai-models";
 
 const DEFAULT_VALUES: ChartWizardValues = {
   firstName: "",
@@ -680,7 +680,6 @@ function ConfigurationStep() {
           <SummaryRow label="Place" value={values.birthPlace || "—"} />
           <SummaryRow label="Timezone" value={values.timezone || "—"} />
           <SummaryRow label="House system" value={values.houseSystem} />
-          <SummaryRow label="AI model" value={aiModelLabel(values.aiModel)} />
         </dl>
       </div>
     </fieldset>
@@ -738,7 +737,6 @@ function LiveSummaryCard() {
         />
         <SummaryRow label="Location" value={values.birthPlace || "—"} />
         <SummaryRow label="Houses" value={values.houseSystem} />
-        <SummaryRow label="AI model" value={aiModelLabel(values.aiModel)} />
       </dl>
     </Card>
   );

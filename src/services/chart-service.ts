@@ -6,6 +6,7 @@
  * The server merges persisted user charts (Supabase) with the demo library.
  */
 import type { Chart, ChartDraft, ChartLibraryStats } from "@/types";
+import type { AiModelId } from "@/interpretation/ai-models";
 
 async function readError(response: Response): Promise<string> {
   try {
@@ -57,6 +58,16 @@ export const ChartService = {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ action: "set-status", status }),
+    });
+    if (!response.ok) throw new Error(await readError(response));
+    return (await response.json()) as Chart;
+  },
+
+  async setAiModel(chartId: string, aiModel: AiModelId): Promise<Chart> {
+    const response = await fetch(`/api/charts/${chartId}`, {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ action: "set-ai-model", aiModel }),
     });
     if (!response.ok) throw new Error(await readError(response));
     return (await response.json()) as Chart;

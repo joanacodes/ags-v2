@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Globe2, MessageSquareHeart, Palette, UserRound } from "lucide-react";
+import { Globe2, MessageSquareHeart, Palette, ScrollText, UserRound } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { PageHeader } from "@/components/layout/page-header";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { AuthStatus } from "@/components/auth/auth-status";
+import { PromptsEditor } from "@/components/settings/prompts-editor";
 import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Select } from "@/components/ui/select";
@@ -87,6 +88,15 @@ export default function SettingsPage() {
                 </p>
               </div>
             </div>
+          </Card>
+
+          <Card id="prompts" className="scroll-mt-6 p-5">
+            <SectionTitle icon={<ScrollText size={14} />} title="AI prompts" />
+            <p className="pb-3 text-xs leading-relaxed text-ink-muted">
+              Every instruction sent to the AI. Edit any of them; your versions are saved to
+              your account and used for all new readings.
+            </p>
+            <PromptsEditor />
           </Card>
 
           <Card className="p-5">

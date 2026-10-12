@@ -20,7 +20,10 @@
     "src/interpretation/**/*.ts",
     "src/types/**/*.ts",
     "src/data/knowledge-pack.json",
-    "src/server/providers/**/*.ts"
+    "src/server/providers/**/*.ts",
+    "src/sharing/**/*.ts",
+    "src/export/report-document.ts",
+    "src/export/__tests__/*.ts"
   ],
   "exclude": [
     "node_modules"

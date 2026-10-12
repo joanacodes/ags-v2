@@ -18,6 +18,7 @@ import { useChart } from "@/hooks/use-charts";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { renderInline } from "@/lib/rich-text";
 import { notify } from "@/components/common/toaster";
+import { aiFetch } from "@/lib/ai-fetch";
 
 interface CallResult {
   ok: boolean;
@@ -188,7 +189,7 @@ export default function TemporalPage() {
   const generate = useMutation({
     mutationFn: async (): Promise<TemporalReading> => {
       const call = async (part: 1 | 2): Promise<unknown> => {
-        const response = await fetch(
+        const response = await aiFetch(
           `/api/charts/${chartId}/temporal/readings?part=${part}`,
           { method: "POST" },
         );

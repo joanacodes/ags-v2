@@ -286,7 +286,7 @@ export interface Report {
   glossary: { term: string; definition: string }[];
 }
 
-export type ExportFormat = "pdf" | "docx" | "print" | "link";
+export type ExportFormat = "pdf" | "docx" | "md" | "txt" | "print" | "link";
 
 export interface ReportSettings {
   includeChartWheel: boolean;

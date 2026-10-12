@@ -4,6 +4,8 @@
  */
 import { NextResponse } from "next/server";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { canonicalPassword, toReadeeChart, toReadeeReading } from "@/sharing/readee";
+import type { Chart, Reading } from "@/types";
 
 export async function POST(
   request: Request,
@@ -19,7 +21,7 @@ export async function POST(
   const body = (await request.json().catch(() => ({}))) as { password?: string };
   const { data, error } = await supabase.rpc("get_shared_readings", {
     p_token: params.token,
-    p_password: body.password ?? "",
+    p_password: canonicalPassword(body.password ?? ""),
   });
   if (error !== null) {
     return NextResponse.json(
@@ -27,7 +29,7 @@ export async function POST(
       { status: 500 },
     );
   }
-  const result = data as { status: string; person?: string; chart?: unknown; readings?: unknown[] };
+  const result = data as { status: string; person?: string; chart?: Chart | null; readings?: Reading[] };
   if (result.status === "not_found") {
     return NextResponse.json(
       { error: { code: "LINK_NOT_FOUND", message: "This link does not exist or was revoked." } },
@@ -36,9 +38,14 @@ export async function POST(
   }
   if (result.status === "wrong_password") {
     return NextResponse.json(
-      { error: { code: "WRONG_PASSWORD", message: "Incorrect password." } },
+      { error: { code: "WRONG_PASSWORD", message: "That date of birth doesn’t match. Write it day first: dd/mm/yyyy." } },
       { status: 401 },
     );
   }
-  return NextResponse.json({ person: result.person ?? "", chart: result.chart ?? null, readings: result.readings ?? [] });
+  // Only what the readee should see: no model, settings or astrologer notes.
+  return NextResponse.json({
+    person: result.person ?? "",
+    chart: result.chart != null ? toReadeeChart(result.chart) : null,
+    readings: (result.readings ?? []).map(toReadeeReading),
+  });
 }

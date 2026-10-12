@@ -1,6 +1,7 @@
 /** POST /api/shared/:token/feedback — readee submits a rating and/or note. */
 import { NextResponse } from "next/server";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { canonicalPassword } from "@/sharing/readee";
 
 export async function POST(
   request: Request,
@@ -33,7 +34,7 @@ export async function POST(
       : null;
   const { data, error } = await supabase.rpc("submit_reading_feedback", {
     p_token: params.token,
-    p_password: body.password ?? "",
+    p_password: canonicalPassword(body.password ?? ""),
     p_slug: body.slug,
     p_rating: rating,
     p_comment: body.comment ?? "",
