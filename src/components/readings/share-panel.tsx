@@ -2,13 +2,13 @@
 
 /**
  * Readee link controls: create a link, copy it or send it with the phone's
- * share sheet. The link's password is the readee's birth date (dd/mm/yyyy).
+ * share sheet. The link's password is the readee's birth date (MMDDYYYY).
  * Used by the share card (wide screens) and the share dialog (everywhere).
  */
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { Copy, Loader2, Plus, Send, X } from "lucide-react";
+import { Check, Copy, Loader2, Plus, Send, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { notify } from "@/components/common/toaster";
@@ -24,7 +24,7 @@ function linkUrl(token: string): string {
 
 export function formatSharePassword(birthDate: string | undefined): string {
   const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(birthDate ?? "");
-  return match === null ? "their birth date" : `${match[3]}/${match[2]}/${match[1]}`;
+  return match === null ? "their birth date" : `${match[2]}${match[3]}${match[1]}`;
 }
 
 export function SharePanel({
@@ -40,6 +40,7 @@ export function SharePanel({
   const [creating, setCreating] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [canShare, setCanShare] = useState(false);
+  const [copiedToken, setCopiedToken] = useState<string | null>(null);
 
   useEffect(() => setCanShare(typeof navigator !== "undefined" && typeof navigator.share === "function"), []);
 
@@ -72,7 +73,11 @@ export function SharePanel({
 
   const copy = (token: string) => {
     navigator.clipboard.writeText(linkUrl(token)).then(
-      () => notify("Link copied to clipboard."),
+      () => {
+        // The button itself turns into a green "Copied" (a toast would sit on top of it on phones).
+        setCopiedToken(token);
+        window.setTimeout(() => setCopiedToken((current) => (current === token ? null : current)), 2500);
+      },
       () => setError("Couldn't copy automatically — press and hold the link to copy it."),
     );
   };
@@ -82,7 +87,7 @@ export function SharePanel({
     navigator
       .share({
         title: personName ? `${personName} — your birth chart reading` : "Your birth chart reading",
-        text: `Here is your reading. To open it, enter your date of birth as dd/mm/yyyy (${password}).`,
+        text: `Here is your reading. To open it, enter your date of birth as 8 digits, month first (MMDDYYYY): ${password}.`,
         url: linkUrl(token),
       })
       .catch(() => undefined); // closing the share sheet is not an error
@@ -100,7 +105,7 @@ export function SharePanel({
       <p className="rounded-lg border border-line bg-surface px-3 py-2 text-xs text-ink-muted">
         Password:{" "}
         <span className="font-mono font-semibold text-ink">{formatSharePassword(birthDate)}</span>{" "}
-        <span className="text-ink-faint">(dd/mm/yyyy)</span>
+        <span className="text-ink-faint">(MMDDYYYY)</span>
       </p>
 
       {isLoading ? (
@@ -112,13 +117,26 @@ export function SharePanel({
         </Button>
       ) : (
         <>
-          <LinkRow token={latest.token} canShare={canShare} onCopy={copy} onShare={share} />
+          <LinkRow
+            token={latest.token}
+            canShare={canShare}
+            copied={copiedToken === latest.token}
+            onCopy={copy}
+            onShare={share}
+          />
           {older.length > 0 && (
             <details className="text-xs text-ink-muted">
               <summary className="cursor-pointer">Older links ({older.length})</summary>
               <div className="space-y-2 pt-2">
                 {older.map((link) => (
-                  <LinkRow key={link.token} token={link.token} canShare={canShare} onCopy={copy} onShare={share} />
+                  <LinkRow
+                    key={link.token}
+                    token={link.token}
+                    canShare={canShare}
+                    copied={copiedToken === link.token}
+                    onCopy={copy}
+                    onShare={share}
+                  />
                 ))}
               </div>
             </details>
@@ -137,11 +155,13 @@ export function SharePanel({
 function LinkRow({
   token,
   canShare,
+  copied,
   onCopy,
   onShare,
 }: {
   token: string;
   canShare: boolean;
+  copied: boolean;
   onCopy: (token: string) => void;
   onShare: (token: string) => void;
 }) {
@@ -157,9 +177,19 @@ function LinkRow({
         aria-label="Readee link"
       />
       <div className="flex gap-2">
-        <Button size="sm" variant="outline" className="flex-1" onClick={() => onCopy(token)}>
-          <Copy size={12} />
-          Copy link
+        <Button
+          size="sm"
+          variant="outline"
+          className={
+            copied
+              ? "flex-1 border-success/50 bg-success-soft text-success hover:border-success/50 hover:text-success"
+              : "flex-1"
+          }
+          onClick={() => onCopy(token)}
+          aria-live="polite"
+        >
+          {copied ? <Check size={12} /> : <Copy size={12} />}
+          {copied ? "Copied" : "Copy link"}
         </Button>
         {canShare && (
           <Button size="sm" variant="primary" className="flex-1" onClick={() => onShare(token)}>

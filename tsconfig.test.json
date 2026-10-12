@@ -22,6 +22,8 @@
     "src/data/knowledge-pack.json",
     "src/server/providers/**/*.ts",
     "src/sharing/**/*.ts",
+    "src/lib/coordinates.ts",
+    "src/lib/__tests__/*.ts",
     "src/export/report-document.ts",
     "src/export/__tests__/*.ts"
   ],

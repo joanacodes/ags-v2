@@ -1,6 +1,6 @@
 /**
  * POST /api/charts/:chartId/share — create a readee link (password: the
- *                                   readee's birth date, dd/mm/yyyy)
+ *                                   readee's birth date, MMDDYYYY)
  * GET  /api/charts/:chartId/share            — list the owner's links
  * Requires Supabase + a signed-in owner (links must outlive the session).
  */

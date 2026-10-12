@@ -2,34 +2,46 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import {
   birthDatePassword,
-  canonicalPassword,
   parseBirthDateInput,
+  passwordCandidates,
   toReadeeChart,
   toReadeeReading,
 } from "../readee";
 import type { Chart, Reading } from "../../types";
+import type { BirthDateInput } from "../readee";
 
-test("the password is the birth date written dd/mm/yyyy", () => {
-  assert.equal(birthDatePassword("1990-03-14"), "14/03/1990");
+const valueOf = (parsed: BirthDateInput): string | null => (parsed.kind === "invalid" ? null : parsed.value);
+
+test("the password is the birth date as MMDDYYYY", () => {
+  assert.equal(birthDatePassword("1990-03-14"), "03141990");
   assert.equal(birthDatePassword("not a date"), null);
   assert.equal(birthDatePassword("1990-02-30"), null);
 });
 
-test("common ways of typing a day-first date are accepted", () => {
-  for (const typed of ["14/03/1990", "14/3/1990", "14.03.1990", "14-03-1990", " 14 03 1990 ", "14031990"]) {
-    assert.deepEqual(parseBirthDateInput(typed), { kind: "date", value: "14/03/1990" }, typed);
+test("common ways of typing a month-first date are accepted", () => {
+  for (const typed of ["03141990", "03/14/1990", "3/14/1990", "03.14.1990", "3-14-1990", " 03 14 1990 "]) {
+    const parsed = parseBirthDateInput(typed);
+    assert.equal(parsed.kind, "date", typed);
+    assert.equal(valueOf(parsed), "03141990", typed);
   }
 });
 
-test("an unambiguous month-first date is detected and corrected", () => {
-  assert.deepEqual(parseBirthDateInput("03/14/1990"), { kind: "month-first", value: "14/03/1990" });
-  assert.equal(canonicalPassword("03/14/1990"), "14/03/1990");
+test("an unambiguous day-first date is detected and still produces MMDDYYYY", () => {
+  const parsed = parseBirthDateInput("14031990");
+  assert.equal(parsed.kind, "day-first");
+  assert.equal(valueOf(parsed), "03141990");
 });
 
-test("ambiguous dates stay day-first; non-dates pass through unchanged", () => {
-  assert.deepEqual(parseBirthDateInput("03/04/1990"), { kind: "date", value: "03/04/1990" });
-  assert.equal(canonicalPassword("moon-1234"), "moon-1234");
-  assert.equal(canonicalPassword("31/02/1990"), "31/02/1990");
+test("ambiguous dates are read month first", () => {
+  const parsed = parseBirthDateInput("03041990");
+  assert.equal(valueOf(parsed), "03041990"); // March 4
+});
+
+test("passwords to try: new format, then the old dd/mm/yyyy one, then as typed", () => {
+  assert.deepEqual(passwordCandidates("03141990"), ["03141990", "14/03/1990"]);
+  assert.deepEqual(passwordCandidates("03/14/1990"), ["03141990", "14/03/1990", "03/14/1990"]);
+  assert.deepEqual(passwordCandidates("moon-1234"), ["moon-1234"]);
+  assert.deepEqual(passwordCandidates("02301990"), ["02301990"]); // Feb 30: not a date
 });
 
 test("the readee never receives the AI model, configuration or astrologer notes", () => {

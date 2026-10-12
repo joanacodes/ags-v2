@@ -1,7 +1,7 @@
 /** POST /api/shared/:token/feedback — readee submits a rating and/or note. */
 import { NextResponse } from "next/server";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import { canonicalPassword } from "@/sharing/readee";
+import { passwordCandidates } from "@/sharing/readee";
 
 export async function POST(
   request: Request,
@@ -32,22 +32,26 @@ export async function POST(
     typeof body.rating === "number" && body.rating >= 1 && body.rating <= 5
       ? Math.round(body.rating)
       : null;
-  const { data, error } = await supabase.rpc("submit_reading_feedback", {
-    p_token: params.token,
-    p_password: canonicalPassword(body.password ?? ""),
-    p_slug: body.slug,
-    p_rating: rating,
-    p_comment: body.comment ?? "",
-    p_author: body.author ?? "",
-    p_quote: typeof body.quote === "string" ? body.quote.slice(0, 500) : "",
-  });
-  if (error !== null) {
-    return NextResponse.json(
-      { error: { code: "FEEDBACK_FAILED", message: error.message } },
-      { status: 500 },
-    );
+  let result: { status: string } = { status: "wrong_password" };
+  for (const candidate of passwordCandidates(body.password ?? "")) {
+    const { data, error } = await supabase.rpc("submit_reading_feedback", {
+      p_token: params.token,
+      p_password: candidate,
+      p_slug: body.slug,
+      p_rating: rating,
+      p_comment: body.comment ?? "",
+      p_author: body.author ?? "",
+      p_quote: typeof body.quote === "string" ? body.quote.slice(0, 500) : "",
+    });
+    if (error !== null) {
+      return NextResponse.json(
+        { error: { code: "FEEDBACK_FAILED", message: error.message } },
+        { status: 500 },
+      );
+    }
+    result = data as { status: string };
+    if (result.status !== "wrong_password") break;
   }
-  const result = data as { status: string };
   if (result.status === "wrong_password" || result.status === "not_found") {
     return NextResponse.json(
       { error: { code: "UNAUTHORIZED", message: "This link is no longer valid." } },
