@@ -4,7 +4,7 @@
  */
 import { NextResponse } from "next/server";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import { canonicalPassword, toReadeeChart, toReadeeReading } from "@/sharing/readee";
+import { passwordCandidates, toReadeeChart, toReadeeReading } from "@/sharing/readee";
 import type { Chart, Reading } from "@/types";
 
 export async function POST(
@@ -19,17 +19,24 @@ export async function POST(
     );
   }
   const body = (await request.json().catch(() => ({}))) as { password?: string };
-  const { data, error } = await supabase.rpc("get_shared_readings", {
-    p_token: params.token,
-    p_password: canonicalPassword(body.password ?? ""),
-  });
-  if (error !== null) {
-    return NextResponse.json(
-      { error: { code: "SHARED_FAILED", message: error.message } },
-      { status: 500 },
-    );
+  // Birth date as MMDDYYYY, then older password formats (see passwordCandidates).
+  let result: { status: string; person?: string; chart?: Chart | null; readings?: Reading[] } = {
+    status: "wrong_password",
+  };
+  for (const candidate of passwordCandidates(body.password ?? "")) {
+    const { data, error } = await supabase.rpc("get_shared_readings", {
+      p_token: params.token,
+      p_password: candidate,
+    });
+    if (error !== null) {
+      return NextResponse.json(
+        { error: { code: "SHARED_FAILED", message: error.message } },
+        { status: 500 },
+      );
+    }
+    result = data as typeof result;
+    if (result.status !== "wrong_password") break;
   }
-  const result = data as { status: string; person?: string; chart?: Chart | null; readings?: Reading[] };
   if (result.status === "not_found") {
     return NextResponse.json(
       { error: { code: "LINK_NOT_FOUND", message: "This link does not exist or was revoked." } },
@@ -38,7 +45,7 @@ export async function POST(
   }
   if (result.status === "wrong_password") {
     return NextResponse.json(
-      { error: { code: "WRONG_PASSWORD", message: "That date of birth doesn’t match. Write it day first: dd/mm/yyyy." } },
+      { error: { code: "WRONG_PASSWORD", message: "That date of birth doesn’t match. Type it as 8 digits, month first: MMDDYYYY." } },
       { status: 401 },
     );
   }

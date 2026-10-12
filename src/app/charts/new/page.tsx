@@ -36,7 +36,7 @@ import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { useCreateChart } from "@/hooks/use-charts";
 import { useChartDraft } from "@/hooks/use-chart-draft";
-import { searchPlaces, type GeoMatch } from "@/lib/geo";
+import { completeMatch, searchPlaces, type GeoMatch } from "@/lib/geo";
 import {
   LANGUAGE_LABELS,
   getReadingLanguage,
@@ -475,15 +475,22 @@ function LocationStep() {
     return () => window.clearTimeout(timer);
   }, [birthPlace, selected]);
 
-  const choose = (match: GeoMatch) => {
-    setSelected(match);
+  const choose = async (picked: GeoMatch) => {
     setSuggestions([]);
+    let match = picked;
+    if (picked.needsDetails === true) {
+      setSearching(true);
+      match = await completeMatch(picked);
+      setSearching(false);
+    }
+    setSelected(match);
     setValue("birthPlace", match.place, { shouldValidate: true });
     setValue("country", match.country, { shouldValidate: true });
-    setValue("timezone", match.timezone, { shouldValidate: true });
+    // An empty timezone (lookup failed) is left for the astrologer to type.
+    if (match.timezone !== "") setValue("timezone", match.timezone, { shouldValidate: true });
     setValue("latitude", match.latitude);
     setValue("longitude", match.longitude);
-    setValue("utcOffset", match.utcOffset);
+    setValue("utcOffset", match.utcOffset !== "" ? match.utcOffset : undefined);
   };
 
   const located = selected !== null && selected.place === (birthPlace ?? "").trim();
@@ -493,14 +500,14 @@ function LocationStep() {
       <StepHeading
         icon={<MapPin size={16} />}
         title="Birth location"
-        description="Search any city worldwide — coordinates and timezone are filled automatically."
+        description="Search a city or a full address, or paste a Google Plus Code or coordinates. Coordinates and timezone are filled automatically."
       />
       <div>
         <Label htmlFor="birthPlace">Birth place</Label>
         <div className="relative">
           <Input
             id="birthPlace"
-            placeholder="Start typing a city — e.g. Versailles"
+            placeholder="City, address, Plus Code (8J3Q3XM4+PV) or 48.85, 2.35"
             autoComplete="off"
             role="combobox"
             aria-expanded={suggestions.length > 0}
@@ -536,10 +543,15 @@ function LocationStep() {
                 <li key={`${match.latitude}-${match.longitude}`} role="option" aria-selected={false}>
                   <button
                     type="button"
-                    onClick={() => choose(match)}
+                    onClick={() => void choose(match)}
                     className="flex w-full items-center justify-between gap-3 px-3 py-2.5 text-left text-xs text-ink-secondary transition-colors hover:bg-surface-overlay"
                   >
                     <span className="min-w-0 truncate">{match.place}</span>
+                    {match.source !== undefined && match.source !== "city" && (
+                      <span className="shrink-0 rounded-full border border-line px-1.5 py-0.5 text-[9px] uppercase tracking-wide text-ink-faint">
+                        {match.source === "address" ? "Address" : "Coordinates"}
+                      </span>
+                    )}
                     <span className="shrink-0 font-mono text-[10px] text-ink-faint">
                       {Math.abs(match.latitude).toFixed(2)}° / {Math.abs(match.longitude).toFixed(2)}°
                     </span>
@@ -552,7 +564,8 @@ function LocationStep() {
         <FieldError message={errors.birthPlace?.message} />
         {!located && (birthPlace ?? "").trim().length >= 2 && !searching && suggestions.length === 0 && (
           <p className="pt-1 text-xs text-ink-faint">
-            No match yet — keep typing, or fill country and timezone manually below.
+            No match yet. Try a nearby town, the full address, or paste the Plus Code
+            from Google Maps (e.g. 8J3Q3XM4+PV) or coordinates (e.g. 48.8566, 2.3522).
           </p>
         )}
       </div>
@@ -562,7 +575,7 @@ function LocationStep() {
           <GeoCell label="Latitude" value={`${Math.abs(selected.latitude).toFixed(4)}° ${selected.latitude >= 0 ? "N" : "S"}`} />
           <GeoCell label="Longitude" value={`${Math.abs(selected.longitude).toFixed(4)}° ${selected.longitude >= 0 ? "E" : "W"}`} />
           <GeoCell label="Elevation" value={`${selected.elevationMeters} m`} />
-          <GeoCell label="UTC offset" value={selected.utcOffset} />
+          <GeoCell label="UTC offset" value={selected.utcOffset !== "" ? selected.utcOffset : "Enter timezone below"} />
         </div>
       )}
       {!located && latitude !== undefined && longitude !== undefined && (

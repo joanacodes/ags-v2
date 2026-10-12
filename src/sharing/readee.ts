@@ -2,7 +2,7 @@
  * What a readee (the person a chart was made for) may see, and how their
  * share-link password works.
  *
- * - The password is their birth date written dd/mm/yyyy.
+ * - The password is their birth date as 8 digits, month first: MMDDYYYY.
  * - Shared data is stripped of everything technical or private to the
  *   astrologer: AI model, configuration, notes, statuses, scores.
  *
@@ -10,25 +10,25 @@
  */
 import type { Chart, Reading } from "../types";
 
-/** "1990-03-14" (stored ISO date) → "14/03/1990". Null if not a valid date. */
+/** "1990-03-14" (stored ISO date) → "03141990" (MMDDYYYY). Null if not a valid date. */
 export function birthDatePassword(isoDate: string): string | null {
   const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(isoDate);
   if (match === null) return null;
   const [, year, month, day] = match;
   if (!isRealDate(Number(day), Number(month), Number(year))) return null;
-  return `${day}/${month}/${year}`;
+  return `${month}${day}${year}`;
 }
 
 export type BirthDateInput =
-  | { kind: "date"; value: string }
-  | { kind: "month-first"; value: string }
+  | { kind: "date"; value: string; day: number; month: number; year: number }
+  | { kind: "day-first"; value: string; day: number; month: number; year: number }
   | { kind: "invalid" };
 
 /**
- * Read what the readee typed as a day-first date: "14/3/1990", "14.03.1990",
- * "14-03-1990" and "14031990" all become "14/03/1990". When the day can't be
- * right but swapping works ("03/14/1990"), report it as month-first so the
- * page can explain the format.
+ * Read what the readee typed as a month-first date: "03141990",
+ * "03/14/1990", "3-14-1990" and "3 14 1990" all become "03141990". When the
+ * month can't be right but swapping works ("14/03/1990"), report it as
+ * day-first (value still MMDDYYYY) so the page can explain the format.
  */
 export function parseBirthDateInput(input: string): BirthDateInput {
   const trimmed = input.trim();
@@ -39,22 +39,34 @@ export function parseBirthDateInput(input: string): BirthDateInput {
     return { kind: "invalid" };
   }
   const [a, b, year] = parts.map(Number);
-  if (isRealDate(a, b, year)) return { kind: "date", value: format(a, b, year) };
-  if (isRealDate(b, a, year)) return { kind: "month-first", value: format(b, a, year) };
+  if (isRealDate(b, a, year)) return { kind: "date", value: mmddyyyy(b, a, year), day: b, month: a, year };
+  if (isRealDate(a, b, year)) return { kind: "day-first", value: mmddyyyy(a, b, year), day: a, month: b, year };
   return { kind: "invalid" };
 }
 
 /**
- * The password to check: a typed birth date in its stored dd/mm/yyyy form,
- * anything else as typed (links created before birth-date passwords).
+ * The passwords to try, in order, for what the readee typed:
+ * 1. the date as MMDDYYYY (links created from now on),
+ * 2. the same date as dd/mm/yyyy (links created before the switch),
+ * 3. the text as typed (the very first links, with a free-form password).
  */
-export function canonicalPassword(input: string): string {
+export function passwordCandidates(input: string): string[] {
   const parsed = parseBirthDateInput(input);
-  return parsed.kind === "invalid" ? input : parsed.value;
+  const out: string[] = [];
+  if (parsed.kind !== "invalid") {
+    out.push(parsed.value);
+    out.push(`${pad(parsed.day)}/${pad(parsed.month)}/${parsed.year}`);
+  }
+  out.push(input);
+  return [...new Set(out)];
 }
 
-function format(day: number, month: number, year: number): string {
-  return `${String(day).padStart(2, "0")}/${String(month).padStart(2, "0")}/${year}`;
+function pad(n: number): string {
+  return String(n).padStart(2, "0");
+}
+
+function mmddyyyy(day: number, month: number, year: number): string {
+  return `${pad(month)}${pad(day)}${year}`;
 }
 
 function isRealDate(day: number, month: number, year: number): boolean {

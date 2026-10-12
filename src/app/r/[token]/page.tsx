@@ -2,7 +2,7 @@
 
 /**
  * Public readee page (/r/:token): no account needed. Their date of birth
- * (dd/mm/yyyy) — or, for older links, the password they were given — unlocks the
+ * (MMDDYYYY) — or, for older links, the password they were given — unlocks the
  * shared readings; the readee rates each one (1-5 stars) and leaves notes
  * that the astrologer sees on the reading pages.
  */
@@ -18,7 +18,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { renderInline } from "@/lib/rich-text";
 import type { Chart, Reading } from "@/types";
-import { parseBirthDateInput } from "@/sharing/readee";
 
 interface SharedPayload {
   person: string;
@@ -40,12 +39,6 @@ export default function SharedReadingPage() {
   const unlock = async (candidate: string) => {
     setUnlocking(true);
     setGateError(null);
-    const parsed = parseBirthDateInput(candidate);
-    if (parsed.kind === "month-first") {
-      // Unambiguous month-first entry (e.g. 03/14/1990): fix it and say so.
-      candidate = parsed.value;
-      setPassword(parsed.value);
-    }
     try {
       const response = await fetch(`/api/shared/${token}`, {
         method: "POST",
@@ -112,7 +105,9 @@ export default function SharedReadingPage() {
               <Input
                 id="share-password"
                 autoComplete="bday"
-                placeholder="dd/mm/yyyy"
+                inputMode="numeric"
+                maxLength={20}
+                placeholder="MMDDYYYY"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 aria-describedby="date-format-hint"
@@ -122,11 +117,11 @@ export default function SharedReadingPage() {
                 id="date-format-hint"
                 className="mt-2 rounded-lg border border-warning/40 bg-warning-soft px-3 py-2 text-xs leading-relaxed text-ink"
               >
-                <span className="font-semibold">Day first, then month, then year:</span>{" "}
-                <span className="font-mono font-semibold">dd/mm/yyyy</span>
+                <span className="font-semibold">8 digits, month first, no slashes:</span>{" "}
+                <span className="font-mono font-semibold">MMDDYYYY</span>
                 <br />
                 Born on March 14, 1990? Type{" "}
-                <span className="font-mono font-semibold">14/03/1990</span>, not 03/14/1990.
+                <span className="font-mono font-semibold">03141990</span>.
               </p>
               {gateError !== null && (
                 <p className="pt-2 text-xs text-danger">{gateError}</p>
