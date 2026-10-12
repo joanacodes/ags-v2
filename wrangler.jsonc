@@ -3,7 +3,12 @@
   "name": "ags",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-04-01",
-  "compatibility_flags": ["nodejs_compat"],
+  // OpenNext 1.0.0 calls process.chdir(""), which the newer native
+  // `process` (default from 2025-09-15) rejects: keep the older one.
+  "compatibility_flags": ["nodejs_compat", "disable_nodejs_process_v2"],
+  // Keep function names untouched: esbuild's keepNames injects __name()
+  // into functions Next serialises to the browser (e.g. the theme script).
+  "keep_names": false,
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS"
