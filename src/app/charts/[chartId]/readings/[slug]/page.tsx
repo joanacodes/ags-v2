@@ -91,19 +91,14 @@ export default function ReadingPage() {
   return (
     <AppShell sidebarPanel={sidebarPanel}>
       <PageHeader
-        crumbs={
-          reading
-            ? [
-                {
-                  label: reading.breadcrumb[0] ?? "Chart",
-                  href: `/charts/${chartId}`,
-                },
-                { label: "Birth Chart", href: `/charts/${chartId}` },
-                ...reading.breadcrumb.slice(2, -1).map((label) => ({ label })),
-                { label: "Reading", accent: true },
-              ]
-            : [{ label: "Reading" }]
-        }
+        crumbs={[
+          { label: "Birth Charts", href: "/charts" },
+          {
+            label: chart ? `${chart.person.firstName} ${chart.person.lastName}`.trim() : "…",
+            href: `/charts/${chartId}`,
+          },
+          { label: "Reading", accent: true },
+        ]}
         title={reading?.title ?? "Reading"}
         actions={
           <>
