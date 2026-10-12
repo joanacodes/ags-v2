@@ -22,7 +22,7 @@ import type { WritingStyle } from "@/types";
 
 export default function SettingsPage() {
   const [language, setLanguage] = useState<ReadingLanguage>("en");
-  const [style, setStyle] = useState<WritingStyle>("clinical");
+  const [style, setStyle] = useState<WritingStyle>("conversational");
 
   useEffect(() => {
     setLanguage(getReadingLanguage());

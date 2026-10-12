@@ -28,9 +28,9 @@ export function setReadingLanguage(language: ReadingLanguage): void {
 }
 
 export function getDefaultStyle(): WritingStyle {
-  if (typeof window === "undefined") return "clinical";
+  if (typeof window === "undefined") return "conversational";
   const value = window.localStorage.getItem(STYLE_KEY);
-  return value === "poetic" || value === "conversational" ? value : "clinical";
+  return value === "poetic" || value === "clinical" ? value : "conversational";
 }
 
 export function setDefaultStyle(style: WritingStyle): void {

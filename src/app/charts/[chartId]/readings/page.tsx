@@ -20,7 +20,7 @@ import { useChart } from "@/hooks/use-charts";
 import { readingKeys, useReadingProgress, useReadings } from "@/hooks/use-readings";
 import { useQueryClient } from "@tanstack/react-query";
 import { ReadingService } from "@/services/reading-service";
-import { getReadingLanguage } from "@/lib/reading-prefs";
+import { getDefaultStyle, getReadingLanguage } from "@/lib/reading-prefs";
 import { formatDate } from "@/lib/format";
 import { shortDegree } from "@/lib/astro";
 
@@ -44,7 +44,7 @@ export default function ReadingHubPage() {
     for (let i = 0; i < pending.length; i += 1) {
       setBulk({ current: pending[i], done: i, total: pending.length });
       try {
-        await ReadingService.regenerateReading(chartId, pending[i], "clinical", chart?.configuration.language ?? getReadingLanguage());
+        await ReadingService.regenerateReading(chartId, pending[i], getDefaultStyle(), chart?.configuration.language ?? getReadingLanguage());
       } catch (error) {
         setBulkError(error instanceof Error ? error.message : "Generation failed.");
         break;

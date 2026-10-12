@@ -112,7 +112,7 @@ async function searchCities(query: string): Promise<GeoMatch[]> {
           typeof r.longitude === "number",
       )
       .map((r) => {
-        const region = typeof r.admin1 === "string" && r.admin1 !== r.name ? `, ${r.admin1}` : "";
+        const region = typeof r.admin1 === "string" && r.admin1.trim() !== "" && r.admin1 !== r.name ? `, ${r.admin1}` : "";
         const country = typeof r.country === "string" ? r.country : "";
         const timezone = typeof r.timezone === "string" ? r.timezone : "UTC";
         return {

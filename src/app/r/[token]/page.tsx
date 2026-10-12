@@ -2,13 +2,13 @@
 
 /**
  * Public readee page (/r/:token): no account needed. Their date of birth
- * (MMDDYYYY) — or, for older links, the password they were given — unlocks the
+ * (DDMMYYYY) — or, for older links, the password they were given — unlocks the
  * shared readings; the readee rates each one (1-5 stars) and leaves notes
  * that the astrologer sees on the reading pages.
  */
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
-import { Bold, Highlighter, Loader2, Lock, MessageSquarePlus, Moon, Send, Sparkles, Star, Sun } from "lucide-react";
+import { Bold, Download, Highlighter, Loader2, Lock, MessageSquarePlus, Moon, Send, Sparkles, Star, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { ChartWheel } from "@/components/chart/chart-wheel";
 import { Button } from "@/components/ui/button";
@@ -107,7 +107,7 @@ export default function SharedReadingPage() {
                 autoComplete="bday"
                 inputMode="numeric"
                 maxLength={20}
-                placeholder="MMDDYYYY"
+                placeholder="DDMMYYYY"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
                 aria-describedby="date-format-hint"
@@ -117,11 +117,11 @@ export default function SharedReadingPage() {
                 id="date-format-hint"
                 className="mt-2 rounded-lg border border-warning/40 bg-warning-soft px-3 py-2 text-xs leading-relaxed text-ink"
               >
-                <span className="font-semibold">8 digits, month first, no slashes:</span>{" "}
-                <span className="font-mono font-semibold">MMDDYYYY</span>
+                <span className="font-semibold">8 digits, day first, no slashes:</span>{" "}
+                <span className="font-mono font-semibold">DDMMYYYY</span>
                 <br />
-                Born on March 14, 1990? Type{" "}
-                <span className="font-mono font-semibold">03141990</span>.
+                Born on 14 March 1990? Type{" "}
+                <span className="font-mono font-semibold">14031990</span>.
               </p>
               {gateError !== null && (
                 <p className="pt-2 text-xs text-danger">{gateError}</p>
@@ -160,6 +160,8 @@ export default function SharedReadingPage() {
                 </div>
               </Card>
             )}
+
+            {payload.readings.length > 0 && <DownloadReadingButton payload={payload} />}
 
             <div className="pb-2 pt-4">
               {(payload.chart == null || (payload.chart.planets?.length ?? 0) === 0) && (
@@ -201,6 +203,50 @@ export default function SharedReadingPage() {
           </SafeBlock>
         )}
       </main>
+    </div>
+  );
+}
+
+/** The readee saves their own copy: chart wheel + every reading, as a PDF. */
+function DownloadReadingButton({ payload }: { payload: SharedPayload }) {
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const download = async () => {
+    setBusy(true);
+    setError(null);
+    try {
+      const [nameFirst = "", ...rest] = payload.person.split(" ");
+      const chart = payload.chart != null
+        ? normalizeChart(payload.chart)
+        : ({
+            person: { id: "", firstName: nameFirst, lastName: rest.join(" ") },
+            birth: { date: "", place: "" },
+            planets: [],
+            angles: [],
+          } as unknown as Chart);
+      const [{ buildReadingsDocument }, { renderWheelPng }, { downloadDocument }] = await Promise.all([
+        import("@/export/report-document"),
+        import("@/export/wheel-image"),
+        import("@/export/download"),
+      ]);
+      const doc = buildReadingsDocument(chart, payload.readings);
+      doc.wheelImage = (await renderWheelPng(chart)) ?? undefined;
+      await downloadDocument(doc, "pdf");
+    } catch (failure) {
+      setError(failure instanceof Error ? failure.message : "Could not prepare the file.");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  return (
+    <div className="pt-3">
+      <Button variant="primary" className="w-full sm:w-auto" onClick={() => void download()} disabled={busy}>
+        {busy ? <Loader2 size={14} className="animate-spin" /> : <Download size={14} />}
+        {busy ? "Preparing your PDF…" : "Download my birth chart (PDF)"}
+      </Button>
+      {error !== null && <p className="pt-2 text-xs text-danger">{error}</p>}
     </div>
   );
 }
@@ -263,39 +309,58 @@ function SharedReading({
   const applyMarks = (paragraph: string): string => {
     let output = paragraph;
     for (const mark of marks) {
-      const index = output.indexOf(mark.quote);
-      if (index === -1) continue;
-      const wrapper = mark.kind === "bold" ? "**" : "==";
-      output =
-        output.slice(0, index) +
-        wrapper +
-        mark.quote +
-        wrapper +
-        output.slice(index + mark.quote.length);
+      // A selection over several paragraphs is stored as one quote: mark each piece.
+      for (const piece of mark.quote.split(/\n+/).map((q) => q.trim()).filter((q) => q.length > 1)) {
+        output = markPassage(output, piece, mark.kind === "bold" ? "**" : "==");
+      }
     }
     return output;
   };
 
-  const captureSelection = () => {
-    const container = contentRef.current;
-    const selection = window.getSelection();
-    if (container === null || selection === null || selection.isCollapsed) {
-      if (!bubbleOpen) setAnchor(null);
-      return;
-    }
-    const text = selection.toString().trim();
-    if (text.length < 2 || text.length > 500) return;
-    const range = selection.getRangeAt(0);
-    if (!container.contains(range.commonAncestorContainer)) return;
-    const rect = range.getBoundingClientRect();
-    const box = container.getBoundingClientRect();
-    setAnchor({
-      quote: text,
-      x: Math.min(Math.max(rect.left - box.left + rect.width / 2, 60), box.width - 60),
-      y: rect.top - box.top,
-    });
-    setBubbleOpen(false);
+  // Follow the text selection itself (phones select with long-press + handles,
+  // which fires no pointer event on the text), with a short settle delay.
+  const bubbleRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    let timer = 0;
+    const onSelectionChange = () => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        const container = contentRef.current;
+        const selection = window.getSelection();
+        if (container === null || selection === null || selection.rangeCount === 0) return;
+        // A collapsed selection (e.g. while tapping the bubble) keeps the bubble.
+        if (selection.isCollapsed) return;
+        const range = selection.getRangeAt(0);
+        if (!container.contains(range.commonAncestorContainer)) return;
+        if (bubbleRef.current !== null && bubbleRef.current.contains(range.commonAncestorContainer)) return;
+        const text = selection.toString().trim();
+        if (text.length < 2 || text.length > 500) return;
+        const rect = range.getBoundingClientRect();
+        const box = container.getBoundingClientRect();
+        setAnchor({
+          quote: text,
+          x: Math.min(Math.max(rect.left - box.left + rect.width / 2, 60), box.width - 60),
+          // Below the selection: on phones the system menu sits above it.
+          y: rect.bottom - box.top,
+        });
+        setBubbleOpen(false);
+      }, 250);
+    };
+    document.addEventListener("selectionchange", onSelectionChange);
+    return () => {
+      window.clearTimeout(timer);
+      document.removeEventListener("selectionchange", onSelectionChange);
+    };
+  }, []);
+
+  // Tapping elsewhere in the text (not on the bubble) dismisses it.
+  const dismissIfOutside = (event: React.PointerEvent) => {
+    if (bubbleRef.current !== null && bubbleRef.current.contains(event.target as Node)) return;
+    if (!bubbleOpen) setAnchor(null);
   };
+
+  // Keep the selection alive while pressing a bubble button.
+  const keepSelection = (event: React.PointerEvent | React.MouseEvent) => event.preventDefault();
 
   const sendAnchored = async () => {
     if (anchor === null || bubbleText.trim() === "") return;
@@ -361,17 +426,23 @@ function SharedReading({
 
       <div
         ref={contentRef}
-        onPointerUp={captureSelection}
+        onPointerDown={dismissIfOutside}
         className="relative border-t border-line px-5 py-4"
       >
         {anchor !== null && !bubbleOpen && (
           <div
-            className="absolute z-20 flex -translate-x-1/2 -translate-y-full items-center overflow-hidden rounded-full border border-line bg-surface-raised shadow-pop"
-            style={{ left: anchor.x, top: Math.max(anchor.y - 6, 8) }}
+            ref={bubbleRef}
+            onPointerDown={keepSelection}
+            onMouseDown={keepSelection}
+            className="absolute z-20 flex -translate-x-1/2 items-center overflow-hidden rounded-full border border-line bg-surface-raised shadow-pop"
+            style={{ left: anchor.x, top: anchor.y + 10 }}
           >
             <button
               type="button"
-              onClick={() => setBubbleOpen(true)}
+              onClick={() => {
+                setBubbleOpen(true);
+                window.getSelection()?.removeAllRanges();
+              }}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-ink-secondary transition-colors hover:text-accent-hover"
             >
               <MessageSquarePlus size={13} />
@@ -397,8 +468,9 @@ function SharedReading({
         )}
         {anchor !== null && bubbleOpen && (
           <div
+            ref={bubbleRef}
             className="absolute z-20 w-64 -translate-x-1/2 rounded-xl border border-line bg-surface-raised p-3 shadow-pop"
-            style={{ left: anchor.x, top: Math.max(anchor.y + 14, 8) }}
+            style={{ left: anchor.x, top: anchor.y + 10 }}
           >
             <p className="max-h-16 overflow-hidden border-l-2 border-warning/60 bg-warning-soft/40 px-2 py-1 text-[11px] italic leading-snug text-ink-muted">
               “{anchor.quote.length > 120 ? `${anchor.quote.slice(0, 120)}…` : anchor.quote}”
@@ -626,4 +698,40 @@ function ThemeButton() {
       {dark ? <Sun size={14} /> : <Moon size={14} />}
     </button>
   );
+}
+
+/**
+ * Wrap `quote` in `wrapper` (** or ==) inside a paragraph that may already
+ * contain **bold** / ==highlight== markers. Matches against the plain text,
+ * so a selection that crosses formatting still finds its passage; in that
+ * case the paragraph's other markers inside the passage are dropped so the
+ * new mark stays well-formed.
+ */
+function markPassage(paragraph: string, quote: string, wrapper: string): string {
+  const direct = paragraph.indexOf(quote);
+  if (direct !== -1) {
+    return paragraph.slice(0, direct) + wrapper + quote + wrapper + paragraph.slice(direct + quote.length);
+  }
+  // Plain text without markers, plus where each plain character sits in the source.
+  let plain = "";
+  const sourceIndex: number[] = [];
+  for (let i = 0; i < paragraph.length; ) {
+    const two = paragraph.slice(i, i + 2);
+    if (two === "**" || two === "==") {
+      i += 2;
+      continue;
+    }
+    plain += paragraph[i];
+    sourceIndex.push(i);
+    i += 1;
+  }
+  const normalise = (text: string) => text.replace(/\s+/g, " ");
+  const start = normalise(plain).indexOf(normalise(quote));
+  if (start === -1) return paragraph;
+  const end = start + normalise(quote).length;
+  const from = sourceIndex[start];
+  const to = sourceIndex[end - 1] + 1;
+  const strip = (text: string) => text.replace(/\*\*|==/g, "");
+  // Markers on either side of the passage must stay balanced: drop them all.
+  return `${strip(paragraph.slice(0, from))}${wrapper}${strip(paragraph.slice(from, to))}${wrapper}${strip(paragraph.slice(to))}`;
 }

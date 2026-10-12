@@ -7,7 +7,7 @@
  * no AI model, no engine/generator labels, no astrologer notes.
  */
 import { formatBirthMoment } from "../lib/format";
-import type { Chart, Report } from "../types";
+import type { Chart, Reading, Report } from "../types";
 
 export interface Run {
   text: string;
@@ -31,6 +31,8 @@ export interface ExportDocument {
   blocks: Block[];
   /** Safe file name without extension. */
   fileBase: string;
+  /** PNG data URL of the chart wheel, added by the browser before rendering. */
+  wheelImage?: string;
 }
 
 export interface ExportOptions {
@@ -125,6 +127,39 @@ export function buildReportDocument(chart: Chart, report: Report, options: Expor
       .replace(/^-+|-+$/g, "") || "birth-chart-reading";
 
   return { title: name || "Birth chart reading", subtitle, highlights, blocks, fileBase };
+}
+
+/**
+ * The readee's own copy: their chart summary and the readings shared with
+ * them, in the same document layout as the astrologer's report.
+ */
+export function buildReadingsDocument(
+  chart: Pick<Chart, "person" | "birth" | "planets" | "angles">,
+  readings: readonly Pick<Reading, "slug" | "title" | "sections">[],
+): ExportDocument {
+  const report: Report = {
+    chartId: "",
+    generator: "",
+    sectionsReady: readings.length,
+    sectionsTotal: readings.length,
+    estimatedPages: "",
+    format: "",
+    sections: readings.map((reading, index) => ({
+      id: `section-${reading.slug}`,
+      index: index + 1,
+      title: reading.title,
+      icon: "",
+      status: "complete",
+      paragraphs: (reading.sections ?? []).flatMap((section) => [
+        `## ${section.heading}`,
+        ...(section.paragraphs ?? []),
+      ]),
+      pullQuote: (reading.sections ?? []).find((section) => section.pullQuote !== undefined)?.pullQuote,
+    })),
+    appendix: { planetaryPositions: [], houseCusps: [] },
+    glossary: [],
+  };
+  return buildReportDocument(chart as Chart, report, { technicalAppendix: false });
 }
 
 function runsToMarkdown(runs: readonly Run[]): string {

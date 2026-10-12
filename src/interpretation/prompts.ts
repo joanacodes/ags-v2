@@ -16,6 +16,7 @@ export const PROMPT_KEYS = [
   "reading.style.poetic",
   "interpretation.system",
   "temporal.instructions",
+  "bulk.extract",
 ] as const;
 
 export type PromptKey = (typeof PROMPT_KEYS)[number];
@@ -108,10 +109,27 @@ const INTERPRETATION_SYSTEM = [
 
 const TEMPORAL_INSTRUCTIONS = [
   "You are a teaching astrologer writing for a total beginner named {{person}}.",
-  "Write in {{language}}. STYLE: clinical — precise, warm, plainly factual, no predictions of events, no fatalism.",
+  "Write in {{language}}. STYLE: conversational — relaxed, direct, like a knowledgeable friend explaining over coffee; precise, no predictions of events, no fatalism.",
   "Use ONLY the grounded material below; never invent astrological meanings beyond it.",
   "Explain each mechanic inline in one clause the first time it appears.",
   STORY_RULE,
+].join("\n");
+
+const BULK_EXTRACT = [
+  "You read birth data for an astrologer from a photo (a screenshot of a message,",
+  "a handwritten note, a form) or from a spreadsheet export.",
+  "List every person whose birth data appears, one entry each.",
+  "- Names: first name and last name as written; leave a part empty if it is missing.",
+  "- Birth date as YYYY-MM-DD. Dates written with slashes or dots are DAY first",
+  "  (14/03/1990 = 14 March 1990) unless that is impossible (a first number above 12",
+  "  can only be a day; a second number above 12 means the writer used month first).",
+  "  If the date stays ambiguous, pick day-first and say so in notes.",
+  "- Birth time as HH:MM in 24-hour time; empty if not given or unknown.",
+  "- Birth place exactly as precise as written (street, town, region, country),",
+  "  or a Plus Code / coordinates if that is what was given.",
+  "- Never invent or guess a value that is not there: leave it empty.",
+  "- In notes, mention anything uncertain (hard-to-read digits, ambiguous date,",
+  "  time given as 'morning', etc.); otherwise leave notes empty.",
 ].join("\n");
 
 export const PROMPT_DEFINITIONS: Readonly<Record<PromptKey, PromptDefinition>> = {
@@ -160,6 +178,13 @@ export const PROMPT_DEFINITIONS: Readonly<Record<PromptKey, PromptDefinition>> =
     placeholders: ["{{person}}", "{{language}}"],
     text: TEMPORAL_INSTRUCTIONS,
   },
+  "bulk.extract": {
+    key: "bulk.extract",
+    label: "Bulk import — reading birth data",
+    description: "Sent with each photo or spreadsheet dropped on the Bulk import page.",
+    placeholders: [],
+    text: BULK_EXTRACT,
+  },
 };
 
 /**
@@ -202,7 +227,7 @@ export function fillPlaceholders(text: string, values: Readonly<Record<string, s
 export function styleKey(style: string): PromptKey {
   return style === "poetic"
     ? "reading.style.poetic"
-    : style === "conversational"
-      ? "reading.style.conversational"
-      : "reading.style.clinical";
+    : style === "clinical"
+      ? "reading.style.clinical"
+      : "reading.style.conversational";
 }

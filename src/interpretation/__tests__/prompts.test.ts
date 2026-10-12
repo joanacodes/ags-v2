@@ -28,5 +28,5 @@ test("placeholders and style keys", () => {
   assert.equal(fillPlaceholders("Hi {{person}} in {{language}} {{other}}", { person: "Ana", language: "French" }),
     "Hi Ana in French {{other}}");
   assert.equal(styleKey("poetic"), "reading.style.poetic");
-  assert.equal(styleKey("anything"), "reading.style.clinical");
+  assert.equal(styleKey("anything"), "reading.style.conversational");
 });

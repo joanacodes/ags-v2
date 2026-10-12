@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { getDefaultStyle } from "@/lib/reading-prefs";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { ChevronLeft, ChevronRight, Clock3, Upload } from "lucide-react";
@@ -46,7 +47,8 @@ export default function ReadingPage() {
   const regenerate = useRegenerateReading(chartId, slug);
 
   const [mode, setMode] = useState<ViewMode>("reading");
-  const [style, setStyle] = useState<WritingStyle>("clinical");
+  const [style, setStyle] = useState<WritingStyle>("conversational");
+  useEffect(() => setStyle(getDefaultStyle()), []);
 
   const { previous, next } = useMemo(() => {
     if (!readings) return { previous: undefined, next: undefined };

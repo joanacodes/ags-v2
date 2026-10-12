@@ -368,7 +368,7 @@ export interface ReadingGenerationOptions {
 export async function generateDomainReading(
   chart: Chart,
   slug: string,
-  style: string = "clinical",
+  style: string = "conversational",
   language: string = "en",
   options: ReadingGenerationOptions = {},
 ): Promise<GeneratedReadingOutcome> {

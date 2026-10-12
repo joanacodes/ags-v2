@@ -31,7 +31,7 @@ export function MobileNav() {
                 )}
               >
                 <Icon size={18} aria-hidden="true" />
-                <span className="truncate">{item.label === "Birth Charts" ? "Charts" : item.label === "New Chart" ? "New" : item.label}</span>
+                <span className="truncate">{item.label === "Birth Charts" ? "Charts" : item.label === "New Chart" ? "New" : item.label === "Bulk Import" ? "Bulk" : item.label}</span>
               </Link>
             </li>
           );

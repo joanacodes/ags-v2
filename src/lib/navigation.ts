@@ -4,6 +4,7 @@ import {
   Plus,
   FileText,
   Settings,
+  Upload,
   type LucideIcon,
 } from "lucide-react";
 
@@ -26,13 +27,19 @@ export const NAV_ITEMS: NavItem[] = [
     label: "Birth Charts",
     href: "/charts",
     icon: PieChart,
-    match: (p) => p.startsWith("/charts") && !p.startsWith("/charts/new") && !p.includes("/report"),
+    match: (p) => p.startsWith("/charts") && !p.startsWith("/charts/new") && !p.startsWith("/charts/bulk") && !p.includes("/report"),
   },
   {
     label: "New Chart",
     href: "/charts/new",
     icon: Plus,
     match: (p) => p.startsWith("/charts/new"),
+  },
+  {
+    label: "Bulk Import",
+    href: "/charts/bulk",
+    icon: Upload,
+    match: (p) => p.startsWith("/charts/bulk"),
   },
   {
     label: "Reports",

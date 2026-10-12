@@ -18,7 +18,7 @@ export async function POST(
     const body = (await request.json().catch(() => ({}))) as { style?: string; language?: string };
     const style = ["clinical", "poetic", "conversational"].includes(body.style ?? "")
       ? (body.style as string)
-      : "clinical";
+      : "conversational";
     const language = ["en", "fr", "es", "pt", "de", "it"].includes(body.language ?? "")
       ? (body.language as string)
       : "en";

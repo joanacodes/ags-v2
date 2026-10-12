@@ -6,7 +6,10 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {
+/* .theme-light forces the light palette inside a dark page (used to draw the
+   chart wheel for exported documents). */
+:root,
+.theme-light {
   /* LIGHT — coffee brown ink, warm linen surfaces, powder-blue accent, gold highlights */
 
   /* Surfaces — warm paper and linen */
