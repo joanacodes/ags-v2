@@ -1,11 +1,17 @@
-# Deploying AGS (Vercel)
+# Deploying AGS
 
-The app is hosted on Vercel, connected to this GitHub repository:
+The app is deployed to two hosts from the same `main` branch:
 
-- every push to `main` (for example a merged pull request) deploys the live site;
-- every pull request gets its own preview deployment, linked in the PR.
+| Host | How it deploys | URL |
+| --- | --- | --- |
+| **Vercel** (primary) | Vercel's GitHub app, on every push to `main`; previews for every PR | the Vercel production URL / custom domain |
+| **Cloudflare Workers** (backup) | GitHub Actions workflow `.github/workflows/deploy-cloudflare.yml`, on every push to `main` or by hand (Actions → "Deploy to Cloudflare" → Run workflow) | `https://ags.<your-account>.workers.dev` |
 
-## Environment variables (Vercel → Project → Settings → Environment Variables)
+Either one can serve the app on its own if the other is down.
+
+## Vercel
+
+Environment variables (Vercel → Project → Settings → Environment Variables):
 
 | Variable | Notes |
 | --- | --- |
@@ -14,7 +20,25 @@ The app is hosted on Vercel, connected to this GitHub repository:
 | `NEXT_PUBLIC_SUPABASE_URL` | Public by design (RLS protects the data). |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Public by design. |
 
-Locally, put the same values in `.env.local`.
+## Cloudflare
+
+Built with the OpenNext adapter (`@opennextjs/cloudflare`, pinned to 1.0.0,
+the last line supporting Next 14). Config: `wrangler.jsonc`, `open-next.config.ts`.
+
+GitHub → repository → Settings → Secrets and variables → Actions → New repository secret:
+
+| Secret | Where to find it |
+| --- | --- |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare → My Profile → API Tokens → Create Token → template **Edit Cloudflare Workers** |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard → Workers & Pages → Account ID (right-hand side) |
+| `NEXT_PUBLIC_SUPABASE_URL` | Same value as on Vercel |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Same value as on Vercel |
+| `ANTHROPIC_API_KEY` | Same value as on Vercel; copied to the Worker as an encrypted secret |
+| `FREE_ASTRO_API_KEY` | Same value as on Vercel; copied to the Worker as an encrypted secret |
+
+The workflow stops with a clear message if one of the first four is missing.
+
+Local commands: `npm run cf:build`, `npm run cf:preview`, `npm run cf:deploy`.
 
 ## Database changes
 
@@ -23,6 +47,7 @@ Editor, before merging the change that needs them (see `supabase/README.md`).
 
 ## Auth redirects
 
-Supabase → Authentication → URL Configuration:
-- Site URL: the Vercel production URL
-- Additional redirect URLs: `https://<your-domain>/auth/callback`
+Supabase → Authentication → URL Configuration → Additional redirect URLs,
+one entry per host:
+- `https://<your-domain>/auth/callback` (Vercel)
+- `https://ags.<your-account>.workers.dev/auth/callback` (Cloudflare)

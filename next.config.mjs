@@ -15,7 +15,7 @@ const nextConfig = {
   webpack(config, { isServer }) {
     if (isServer) {
       // Document export (PDF fonts, Word) runs only in the browser: keep these
-      // libraries out of the server bundle so serverless functions stay small.
+      // libraries out of the server bundle (Cloudflare Workers have a size limit).
       config.resolve.alias = {
         ...config.resolve.alias,
         "pdfmake/build/pdfmake": false,

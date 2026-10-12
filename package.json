@@ -2,14 +2,17 @@
   "name": "ags",
   "version": "0.1.0",
   "private": true,
-  "description": "AGS — Astrology Grammar System. Deterministic astrology analysis platform.",
+  "description": "AGS \u2014 Astrology Grammar System. Deterministic astrology analysis platform.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test": "tsc -p tsconfig.test.json && node --test \"dist-test/**/*.test.js\""
+    "test": "tsc -p tsconfig.test.json && node --test \"dist-test/**/*.test.js\"",
+    "cf:build": "opennextjs-cloudflare build",
+    "cf:preview": "opennextjs-cloudflare build && wrangler dev",
+    "cf:deploy": "opennextjs-cloudflare build && wrangler deploy"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -31,6 +34,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@opennextjs/cloudflare": "1.0.0",
     "@types/node": "^20",
     "@types/pdfmake": "0.3.3",
     "@types/react": "^18",
@@ -40,6 +44,7 @@
     "eslint-config-next": "^14.2.35",
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.14",
-    "typescript": "^5.6.3"
+    "typescript": "^5.6.3",
+    "wrangler": "4.119.0"
   }
 }
