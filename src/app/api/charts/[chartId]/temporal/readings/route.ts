@@ -9,12 +9,18 @@ import { ChartsStore } from "@/server/charts-store";
 import { createCoreKnowledgeRegistry } from "@/knowledge/pack-loader";
 import type { KnowledgeRegistry } from "@/knowledge/registry";
 import { createSupabaseServerClient, getServerUserId } from "@/lib/supabase/server";
+import {
+  anthropicHeaders,
+  modelRequestFields,
+  readMessagesResponse,
+  resolveAiModel,
+  type AiModelId,
+} from "@/interpretation/ai-models";
 
 export const maxDuration = 60;
 
 const DATA_SLUG = "_temporal";
 const READING_SLUG = "_temporal_reading";
-const MODEL = "claude-sonnet-4-5";
 
 /* ------------------------- storage helpers -------------------------- */
 
@@ -157,8 +163,8 @@ interface TemporalSection {
   paragraphs: string[];
 }
 
-async function callAi(prompt: string): Promise<
-  { ok: true; sections: TemporalSection[] } | { ok: false; error: string }
+async function callAi(prompt: string, model: AiModelId): Promise<
+  { ok: true; sections: TemporalSection[]; model: string } | { ok: false; error: string }
 > {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (apiKey === undefined || apiKey === "") {
@@ -166,29 +172,22 @@ async function callAi(prompt: string): Promise<
   }
   const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
-    },
+    headers: anthropicHeaders(apiKey),
     body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 3000,
+      ...modelRequestFields(model),
       messages: [{ role: "user", content: prompt }],
     }),
   });
   if (!response.ok) {
     return { ok: false, error: `Anthropic API ${response.status}: ${(await response.text()).slice(0, 200)}` };
   }
-  const data = (await response.json()) as { content?: { type: string; text?: string }[] };
-  const text = (data.content ?? [])
-    .map((block) => (block.type === "text" ? block.text ?? "" : ""))
-    .join("");
+  const result = readMessagesResponse(await response.json(), model);
+  if (!result.ok) return { ok: false, error: result.message };
   try {
-    const cleaned = text.replace(/```json|```/g, "").trim();
+    const cleaned = result.text.replace(/```json|```/g, "").trim();
     const parsed = JSON.parse(cleaned) as { sections?: TemporalSection[] };
     if (Array.isArray(parsed.sections) && parsed.sections.length > 0) {
-      return { ok: true, sections: parsed.sections };
+      return { ok: true, sections: parsed.sections, model: result.model };
     }
     return { ok: false, error: "AI returned no sections." };
   } catch {
@@ -281,7 +280,7 @@ export async function POST(
       ...lines,
     ].join("\n");
 
-    const ai = await callAi(prompt);
+    const ai = await callAi(prompt, resolveAiModel(chart.configuration.aiModel));
     if (!ai.ok) {
       return NextResponse.json({ error: { code: "AI_FAILED", message: ai.error } }, { status: 502 });
     }
@@ -305,7 +304,7 @@ export async function POST(
     const reading = {
       title: "The Years Ahead",
       sections: [...glance, ...saturn, ...rest1, ...years, ...evolution, ...closing],
-      model: MODEL,
+      model: ai.model,
       generatedAt: new Date().toISOString(),
     };
     await writeSlug(chart.id, READING_SLUG, reading);

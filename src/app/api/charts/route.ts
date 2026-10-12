@@ -5,6 +5,7 @@
  */
 import { NextResponse } from "next/server";
 import { ChartsStore } from "@/server/charts-store";
+import { isAiModelId } from "@/interpretation/ai-models";
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
@@ -29,6 +30,13 @@ export async function POST(request: Request) {
           { status: 400 },
         );
       }
+    }
+    const aiModel: unknown = draft.configuration.aiModel;
+    if (aiModel !== undefined && !isAiModelId(aiModel)) {
+      return NextResponse.json(
+        { error: { code: "VALIDATION_FAILED", message: `Unknown AI model "${String(aiModel)}".` } },
+        { status: 400 },
+      );
     }
     const result = await ChartsStore.createChart(draft);
     return NextResponse.json(result, { status: 201 });

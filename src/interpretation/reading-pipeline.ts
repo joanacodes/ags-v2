@@ -19,9 +19,15 @@ import type {
 import { runInterpretationPipeline } from "./pipeline";
 import type { ComposedGroup, ComposedSentence } from "./composer";
 import { getDomain, type ReadingDomainDefinition } from "./domains";
+import {
+  anthropicHeaders,
+  modelRequestFields,
+  readMessagesResponse,
+  resolveAiModel,
+  type AiModelId,
+} from "./ai-models";
 
 export const READING_ENGINE_VERSION = "reading-engine-1.0";
-const MODEL = "claude-sonnet-4-6";
 
 const PLANET_GLYPHS: Readonly<Record<string, string>> = {
   Sun: "☉", Moon: "☽", Mercury: "☿", Venus: "♀", Mars: "♂",
@@ -305,12 +311,12 @@ async function callReadingAi(
   groups: readonly ComposedGroup[],
   style: string,
   language: string,
+  model: AiModelId,
 ): Promise<AiResult> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (apiKey === undefined || apiKey.length === 0) return { status: "no_api_key" };
   const request = {
-    model: MODEL,
-    max_tokens: 6000,
+    ...modelRequestFields(model),
     system: TEACHING_SYSTEM_PROMPT,
     messages: [{ role: "user", content: buildUserPrompt(personName, domain, groups, style, language) }],
   };
@@ -319,11 +325,7 @@ async function callReadingAi(
     try {
       const response = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "x-api-key": apiKey,
-          "anthropic-version": "2023-06-01",
-        },
+        headers: anthropicHeaders(apiKey),
         body: JSON.stringify(request),
       });
       if (!response.ok) {
@@ -333,14 +335,10 @@ async function callReadingAi(
           message: `Anthropic API ${response.status}: ${body.slice(0, 300)}`,
         };
       }
-      const data = (await response.json()) as {
-        content?: ReadonlyArray<{ type: string; text?: string }>;
-      };
-      const text = (data.content ?? [])
-        .map((b) => (b.type === "text" && typeof b.text === "string" ? b.text : ""))
-        .join("");
-      const sections = parseSections(text);
-      if (sections !== null) return { status: "ok", sections, model: MODEL };
+      const result = readMessagesResponse(await response.json(), model);
+      if (!result.ok) return { status: "provider_error", message: result.message };
+      const sections = parseSections(result.text);
+      if (sections !== null) return { status: "ok", sections, model: result.model };
     } catch (error) {
       return {
         status: "provider_error",
@@ -423,7 +421,8 @@ export async function generateDomainReading(
     .filter((g) => g.items.length > 0);
 
   const personName = `${chart.person.firstName} ${chart.person.lastName}`.trim();
-  const ai = await callReadingAi(personName, domain, groups, style, language);
+  const model = resolveAiModel(chart.configuration.aiModel);
+  const ai = await callReadingAi(personName, domain, groups, style, language, model);
   if (ai.status !== "ok") return ai;
 
   const factors = buildChartFactors(domainMatches);

@@ -6,6 +6,8 @@
  * tomorrow, an astrology provider after that) — it only knows these shapes.
  */
 
+import type { AiModelId } from "@/interpretation/ai-models";
+
 /* ------------------------------------------------------------------ */
 /* Astronomy / astrology primitives                                    */
 /* ------------------------------------------------------------------ */
@@ -132,6 +134,8 @@ export interface ChartConfiguration {
   ephemeris: string;
   /** Output language for generated readings ("en", "fr", …). */
   language?: string;
+  /** Claude model that writes this chart's readings (default: Sonnet 5.5). */
+  aiModel?: AiModelId;
 }
 
 export type ChartStatus = "active" | "processing" | "failed" | "archived";
@@ -355,6 +359,7 @@ export interface ChartDraft {
     houseSystem: HouseSystem;
     /** Output language for generated readings ("en", "fr", …). */
     language?: string;
+    aiModel?: AiModelId;
   };
   step: number;
   savedAt: string;

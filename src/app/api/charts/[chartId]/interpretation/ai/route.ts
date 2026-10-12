@@ -7,6 +7,7 @@
 import { NextResponse } from "next/server";
 import { ChartsStore } from "@/server/charts-store";
 import { generateAiInterpretation } from "@/interpretation/ai";
+import { resolveAiModel } from "@/interpretation/ai-models";
 import { runInterpretationPipeline } from "@/interpretation/pipeline";
 import { AiInterpretationStore } from "@/server/readings-store";
 
@@ -18,7 +19,11 @@ export async function POST(
     const chart = await ChartsStore.getChart(params.chartId);
     const pipeline = await runInterpretationPipeline(chart);
     const person = `${chart.person.firstName} ${chart.person.lastName}`.trim();
-    const outcome = await generateAiInterpretation(pipeline, person);
+    const outcome = await generateAiInterpretation(
+      pipeline,
+      person,
+      resolveAiModel(chart.configuration.aiModel),
+    );
     if (outcome.status === "ok") {
       const saved = {
         text: outcome.text,

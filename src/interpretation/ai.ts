@@ -8,13 +8,17 @@
  * Requires ANTHROPIC_API_KEY in the server environment (.env.local).
  */
 import type { InterpretationPipelineResult } from "./pipeline";
+import {
+  anthropicHeaders,
+  modelRequestFields,
+  readMessagesResponse,
+  type AiModelId,
+} from "./ai-models";
 
 export type AiInterpretationOutcome =
   | { readonly status: "ok"; readonly text: string; readonly model: string }
   | { readonly status: "no_api_key" }
   | { readonly status: "provider_error"; readonly message: string };
-
-const MODEL = "claude-sonnet-4-6";
 
 function buildPrompt(pipeline: InterpretationPipelineResult, personName: string): string {
   const lines: string[] = [];
@@ -57,6 +61,7 @@ const SYSTEM_PROMPT = [
 export async function generateAiInterpretation(
   pipeline: InterpretationPipelineResult,
   personName: string,
+  model: AiModelId,
 ): Promise<AiInterpretationOutcome> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (apiKey === undefined || apiKey.length === 0) {
@@ -65,14 +70,9 @@ export async function generateAiInterpretation(
   try {
     const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-      },
+      headers: anthropicHeaders(apiKey),
       body: JSON.stringify({
-        model: MODEL,
-        max_tokens: 4000,
+        ...modelRequestFields(model),
         system: SYSTEM_PROMPT,
         messages: [{ role: "user", content: buildPrompt(pipeline, personName) }],
       }),
@@ -84,17 +84,12 @@ export async function generateAiInterpretation(
         message: `Anthropic API ${response.status}: ${body.slice(0, 300)}`,
       };
     }
-    const data = (await response.json()) as {
-      content?: ReadonlyArray<{ type: string; text?: string }>;
-    };
-    const text = (data.content ?? [])
-      .map((block) => (block.type === "text" && typeof block.text === "string" ? block.text : ""))
-      .filter((t) => t.length > 0)
-      .join("\n");
-    if (text.length === 0) {
+    const result = readMessagesResponse(await response.json(), model);
+    if (!result.ok) return { status: "provider_error", message: result.message };
+    if (result.text.length === 0) {
       return { status: "provider_error", message: "Empty model response." };
     }
-    return { status: "ok", text, model: MODEL };
+    return { status: "ok", text: result.text, model: result.model };
   } catch (error) {
     return {
       status: "provider_error",

@@ -10,6 +10,7 @@ import chartsJson from "@/data/sample-charts.json";
 import workspaceJson from "@/data/workspace.json";
 import { createSupabaseServerClient, getServerUserId } from "@/lib/supabase/server";
 import { calculateChart } from "@/server/providers/freeastroapi";
+import { resolveAiModel } from "@/interpretation/ai-models";
 import type { Chart, ChartDraft, ChartLibraryStats, ChartStatus } from "@/types";
 
 const seededCharts = chartsJson.charts as Chart[];
@@ -146,6 +147,7 @@ export const ChartsStore = {
         zodiac: "Tropical",
         ephemeris: "Swiss Ephemeris",
         language: draft.configuration?.language,
+        aiModel: resolveAiModel(configuration.aiModel),
       },
       planets: [],
       houses: [],
