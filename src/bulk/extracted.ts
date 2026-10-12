@@ -16,6 +16,8 @@ export interface ExtractedPerson {
   birthPlace: string;
   /** Anything the astrologer should double-check. */
   notes: string;
+  /** File names the data was read from (one person can span several pictures). */
+  sources: string[];
 }
 
 /** JSON schema for the AI's structured output. */
@@ -29,7 +31,7 @@ export const EXTRACTION_SCHEMA = {
       items: {
         type: "object",
         additionalProperties: false,
-        required: ["firstName", "lastName", "birthDate", "birthTime", "birthPlace", "notes"],
+        required: ["firstName", "lastName", "birthDate", "birthTime", "birthPlace", "notes", "sources"],
         properties: {
           firstName: { type: "string" },
           lastName: { type: "string" },
@@ -37,6 +39,11 @@ export const EXTRACTION_SCHEMA = {
           birthTime: { type: "string", description: "HH:MM in 24-hour time, or empty if unknown" },
           birthPlace: { type: "string", description: "As precise as given: address, town, region, country" },
           notes: { type: "string", description: "Doubts to check, or empty" },
+          sources: {
+            type: "array",
+            items: { type: "string" },
+            description: "File names this person's data was read from",
+          },
         },
       },
     },
@@ -90,6 +97,9 @@ export function normalizePerson(raw: unknown): ExtractedPerson {
     birthTime,
     birthPlace: text(r.birthPlace, 200),
     notes: notes.filter((n) => n.length > 0).join(" "),
+    sources: Array.isArray(r.sources)
+      ? [...new Set(r.sources.map((x) => text(x, 120)).filter((x) => x !== ""))].slice(0, 20)
+      : [],
   };
 }
 

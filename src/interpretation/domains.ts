@@ -27,6 +27,14 @@ export interface ReadingDomainDefinition {
   readonly promptFocus?: string;
   /** True = no filtering, the whole chart is in scope. */
   readonly wholeChart?: boolean;
+  /**
+   * Deep readings: longer, structured by an editable prompt
+   * (`reading.deep.<slug>`), with the rest of the chart passed as supporting
+   * material for what helps and what comes out of it.
+   */
+  readonly deep?: boolean;
+  /** Points whose aspects are measured from the chart's positions. */
+  readonly contactSources?: readonly string[];
 }
 
 export const READING_DOMAINS: readonly ReadingDomainDefinition[] = [
@@ -62,14 +70,14 @@ export const READING_DOMAINS: readonly ReadingDomainDefinition[] = [
     shortTitle: "Love",
     icon: "heart",
     description:
-      "Attraction, partnership, and intimacy — how you bond, what you value, and how you handle closeness.",
-    estimatedMinutes: 18,
+      "Attraction, partnership, and intimacy in depth — how you bond, what you desire, where love hurts, and what helps you love well.",
+    estimatedMinutes: 30,
     planets: ["Venus", "Mars", "Moon"],
     houses: [5, 7, 8],
     angles: ["DC"],
-    points: ["Vertex", "Lilith"],
-    promptFocus:
-      "If the Vertex appears in the material, treat it as marking significant encounters and relational turning points — openings, never guaranteed events.",
+    points: ["Vertex", "Lilith", "Chiron"],
+    deep: true,
+    contactSources: ["Lilith", "Chiron"],
   },
   {
     slug: "career",
@@ -125,14 +133,14 @@ export const READING_DOMAINS: readonly ReadingDomainDefinition[] = [
     shortTitle: "Healing",
     icon: "sprout",
     description:
-      "Where life presses hardest — recurring frictions, endings, and the way you metabolize them into growth.",
-    estimatedMinutes: 20,
+      "Where life presses hardest — Saturn, Chiron and Lilith in depth: the pain, what helps you through it, and what it can make of you.",
+    estimatedMinutes: 35,
     planets: ["Saturn", "Pluto", "Mars", "Neptune"],
     houses: [8, 12],
     angles: [],
     points: ["Chiron", "Lilith"],
-    promptFocus:
-      "If Chiron appears in the material, give it its own moment: the recurring sensitivity it marks and how tending to it becomes a strength.",
+    deep: true,
+    contactSources: ["Chiron", "Lilith"],
   },
   {
     slug: "talents",

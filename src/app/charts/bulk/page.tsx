@@ -45,12 +45,37 @@ interface Row extends ExtractedPerson {
 }
 
 interface FileJob {
+  id: string;
   name: string;
   state: "waiting" | "reading" | "done" | "error";
   message?: string;
 }
 
 const MAX_SIDE = 1568;
+/** Files read together in one AI request (so data spread over pictures is combined). */
+const BATCH_FILES = 20;
+const BATCH_CHARS = 20_000_000;
+
+type FilePayload =
+  | { kind: "text"; fileName: string; text: string }
+  | { kind: "image"; fileName: string; mediaType: "image/jpeg"; data: string };
+
+/** Phones often name every picked photo "image.jpg": make names unique. */
+function uniqueNames(files: readonly File[], taken: readonly string[]): string[] {
+  const used = new Set(taken);
+  return files.map((file) => {
+    let name = file.name || "photo.jpg";
+    if (used.has(name)) {
+      const dot = name.lastIndexOf(".");
+      const [base, ext] = dot > 0 ? [name.slice(0, dot), name.slice(dot)] : [name, ""];
+      let n = 2;
+      while (used.has(`${base} (${n})${ext}`)) n += 1;
+      name = `${base} (${n})${ext}`;
+    }
+    used.add(name);
+    return name;
+  });
+}
 
 let rowCounter = 0;
 function newRow(person: Partial<ExtractedPerson>, source: string): Row {
@@ -63,7 +88,8 @@ function newRow(person: Partial<ExtractedPerson>, source: string): Row {
     birthTime: person.birthTime ?? "",
     birthPlace: person.birthPlace ?? "",
     notes: person.notes ?? "",
-    source,
+    sources: person.sources ?? [],
+    source: person.sources !== undefined && person.sources.length > 0 ? person.sources.join(", ") : source,
     unknownTime: (person.birthTime ?? "") === "" && (person.birthDate ?? "") !== "",
     placeQuery: person.birthPlace ?? "",
     place: null,
@@ -152,34 +178,74 @@ export default function BulkImportPage() {
   const addFiles = async (list: FileList | File[]) => {
     const picked = Array.from(list);
     if (picked.length === 0) return;
-    setFiles((current) => [...current, ...picked.map((f) => ({ name: f.name, state: "waiting" as const }))]);
+    const names = uniqueNames(picked, files.map((f) => f.name));
+    const jobs: FileJob[] = picked.map((_, i) => ({
+      id: `file-${Date.now()}-${i}`,
+      name: names[i],
+      state: "waiting",
+    }));
+    const setJob = (ids: readonly string[], patch: Partial<FileJob>) =>
+      setFiles((current) => current.map((f) => (ids.includes(f.id) ? { ...f, ...patch } : f)));
+    setFiles((current) => [...current, ...jobs]);
     setReading(true);
-    for (const file of picked) {
-      setFiles((current) => current.map((f) => (f.name === file.name && f.state === "waiting" ? { ...f, state: "reading" } : f)));
+
+    // Prepare every file first (downscale photos), then send them together.
+    const prepared: { job: FileJob; payload: FilePayload }[] = [];
+    for (const [i, file] of picked.entries()) {
+      const job = jobs[i];
       try {
-        const body = isTextFile(file)
-          ? { kind: "text", fileName: file.name, text: await file.text() }
-          : { kind: "image", fileName: file.name, mediaType: "image/jpeg", data: await imageToJpegBase64(file) };
+        const payload: FilePayload = isTextFile(file)
+          ? { kind: "text", fileName: job.name, text: await file.text() }
+          : { kind: "image", fileName: job.name, mediaType: "image/jpeg", data: await imageToJpegBase64(file) };
+        prepared.push({ job, payload });
+      } catch (error) {
+        setJob([job.id], { state: "error", message: error instanceof Error ? error.message : "Could not open this file." });
+      }
+    }
+
+    const batches: (typeof prepared)[] = [];
+    let size = 0;
+    for (const item of prepared) {
+      const itemSize = item.payload.kind === "image" ? item.payload.data.length : item.payload.text.length;
+      const last = batches[batches.length - 1];
+      if (last === undefined || last.length >= BATCH_FILES || size + itemSize > BATCH_CHARS) {
+        batches.push([item]);
+        size = itemSize;
+      } else {
+        last.push(item);
+        size += itemSize;
+      }
+    }
+
+    for (const batch of batches) {
+      const ids = batch.map((b) => b.job.id);
+      setJob(ids, { state: "reading" });
+      try {
         const response = await aiFetch("/api/bulk/extract", {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify(body),
+          body: JSON.stringify({ files: batch.map((b) => b.payload) }),
         });
         const data = (await response.json()) as { people?: ExtractedPerson[]; error?: { message?: string } };
         if (!response.ok) throw new Error(data.error?.message ?? `Request failed (${response.status})`);
-        const found = (data.people ?? []).map((person) => newRow(person, file.name));
+        const fallbackSource = batch.length === 1 ? batch[0].job.name : `${batch.length} files`;
+        const found = (data.people ?? []).map((person) => newRow(person, fallbackSource));
         setRows((current) => [...current, ...found]);
-        setFiles((current) =>
-          current.map((f) =>
-            f.name === file.name && f.state === "reading"
-              ? { ...f, state: "done", message: found.length === 0 ? "No birth data found" : `${found.length} person${found.length > 1 ? "s" : ""}` }
-              : f,
-          ),
-        );
+        for (const { job } of batch) {
+          const count = found.filter((row) => row.sources.includes(job.name)).length;
+          setJob([job.id], {
+            state: "done",
+            message:
+              count > 0
+                ? `${count} person${count > 1 ? "s" : ""}`
+                : found.length > 0 && found.every((row) => row.sources.length === 0)
+                  ? "Read"
+                  : "No birth data found",
+          });
+        }
         void autoLocate(found);
       } catch (error) {
-        const message = error instanceof Error ? error.message : "Could not read this file.";
-        setFiles((current) => current.map((f) => (f.name === file.name && f.state === "reading" ? { ...f, state: "error", message } : f)));
+        setJob(ids, { state: "error", message: error instanceof Error ? error.message : "Could not read these files." });
       }
     }
     setReading(false);
@@ -256,8 +322,9 @@ export default function BulkImportPage() {
           <Card className="p-5">
             <h2 className="text-sm font-semibold text-ink">1. Drop photos or spreadsheets</h2>
             <p className="pt-1 text-xs leading-relaxed text-ink-muted">
-              Screenshots of messages, photos of notes or forms, or CSV files. The AI reads the birth
-              data from each one; you check everything before anything is created.
+              Screenshots of messages, photos of notes or forms, or CSV files. Drop them all at
+              once: the AI reads them together, so a person whose details are spread over several
+              screenshots comes back as one entry. You check everything before anything is created.
             </p>
             <div
               onDragOver={(event) => {
@@ -295,8 +362,8 @@ export default function BulkImportPage() {
             </div>
             {files.length > 0 && (
               <ul className="mt-3 space-y-1 text-xs">
-                {files.map((file, index) => (
-                  <li key={`${file.name}-${index}`} className="flex items-center gap-2">
+                {files.map((file) => (
+                  <li key={file.id} className="flex items-center gap-2">
                     {file.state === "reading" || file.state === "waiting" ? (
                       <Loader2 size={12} className={cn("text-ink-faint", file.state === "reading" && "animate-spin")} />
                     ) : file.state === "done" ? (

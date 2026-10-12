@@ -18,7 +18,7 @@ test("the AI answer becomes clean rows, with doubts carried into notes", () => {
   const people = parseExtraction(
     JSON.stringify({
       people: [
-        { firstName: "Joana", lastName: "Mehou", birthDate: "1997-01-02", birthTime: "17:15", birthPlace: "Bourg-la-Reine, France", notes: "" },
+        { firstName: "Joana", lastName: "Mehou", birthDate: "1997-01-02", birthTime: "17:15", birthPlace: "Bourg-la-Reine, France", notes: "", sources: ["IMG_1.jpg", "IMG_2.jpg", "IMG_1.jpg", ""] },
         { firstName: "Sam", lastName: "", birthDate: "1990-13-01", birthTime: "around noon", birthPlace: "Lyon", notes: "Blurry" },
         { firstName: "", lastName: "", birthDate: "", birthTime: "", birthPlace: "", notes: "" },
       ],
@@ -26,6 +26,8 @@ test("the AI answer becomes clean rows, with doubts carried into notes", () => {
   );
   assert.equal(people.length, 2);
   assert.equal(people[0].birthTime, "17:15");
+  assert.deepEqual(people[0].sources, ["IMG_1.jpg", "IMG_2.jpg"]);
+  assert.deepEqual(people[1].sources, []);
   assert.equal(people[1].birthDate, "");
   assert.equal(people[1].birthTime, "");
   assert.match(people[1].notes, /Blurry/);

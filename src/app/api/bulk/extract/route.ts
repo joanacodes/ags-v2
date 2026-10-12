@@ -1,10 +1,11 @@
 /**
- * POST /api/bulk/extract — read birth data from one photo or one
- * spreadsheet/text file with the AI.
- *   { kind: "image", mediaType: "image/jpeg", data: "<base64>" }
- *   { kind: "text", fileName: "clients.csv", text: "…" }
+ * POST /api/bulk/extract — read birth data from several photos and
+ * spreadsheet/text files at once, so a person whose data is spread over
+ * several screenshots comes back as one entry.
+ *   { files: [
+ *       { kind: "image", fileName: "IMG_1.jpg", mediaType: "image/jpeg", data: "<base64>" },
+ *       { kind: "text", fileName: "clients.csv", text: "…" } ] }
  * → { people: ExtractedPerson[] }
- * One file per request: the page sends them one after another.
  */
 import { NextResponse } from "next/server";
 import {
@@ -16,13 +17,15 @@ import {
 import { EXTRACTION_SCHEMA, parseExtraction } from "@/bulk/extracted";
 import { PromptsStore } from "@/server/prompts-store";
 
-export const maxDuration = 60;
+export const maxDuration = 120;
 
 const IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 const MAX_IMAGE_BASE64 = 7_000_000; // ~5 MB image
+const MAX_TOTAL_BASE64 = 24_000_000; // stays under the API's 32 MB request limit
 const MAX_TEXT = 200_000;
+const MAX_FILES = 20;
 
-type Body =
+type FileBody =
   | { kind: "image"; mediaType?: string; data?: string; fileName?: string }
   | { kind: "text"; text?: string; fileName?: string };
 
@@ -38,29 +41,44 @@ export async function POST(request: Request) {
       { status: 503 },
     );
   }
-  const body = (await request.json().catch(() => null)) as Body | null;
+  const body = (await request.json().catch(() => null)) as { files?: FileBody[] } | FileBody | null;
   if (body === null) return badRequest("Invalid request.");
+  const files: FileBody[] = "files" in body && Array.isArray(body.files) ? body.files : [body as FileBody];
+  if (files.length === 0) return badRequest("No files.");
+  if (files.length > MAX_FILES) return badRequest(`At most ${MAX_FILES} files at once.`);
 
-  let content: unknown[];
-  if (body.kind === "image") {
-    if (typeof body.data !== "string" || body.data.length === 0) return badRequest("Missing image.");
-    if (body.data.length > MAX_IMAGE_BASE64) return badRequest("Image too large (max ~5 MB).");
-    const mediaType = IMAGE_TYPES.includes(body.mediaType ?? "") ? body.mediaType : "image/jpeg";
-    content = [
-      { type: "image", source: { type: "base64", media_type: mediaType, data: body.data } },
-      { type: "text", text: `File: ${body.fileName ?? "photo"}. Extract the birth data.` },
-    ];
-  } else if (body.kind === "text") {
-    if (typeof body.text !== "string" || body.text.trim().length === 0) return badRequest("Empty file.");
-    content = [
-      {
+  const content: unknown[] = [];
+  let totalImage = 0;
+  for (const [index, file] of files.entries()) {
+    const name = (file.fileName ?? "").trim() || `file-${index + 1}`;
+    if (file.kind === "image") {
+      if (typeof file.data !== "string" || file.data.length === 0) return badRequest(`${name}: missing image.`);
+      if (file.data.length > MAX_IMAGE_BASE64) return badRequest(`${name}: image too large (max ~5 MB).`);
+      totalImage += file.data.length;
+      const mediaType = IMAGE_TYPES.includes(file.mediaType ?? "") ? file.mediaType : "image/jpeg";
+      content.push(
+        { type: "text", text: `File: ${name}` },
+        { type: "image", source: { type: "base64", media_type: mediaType, data: file.data } },
+      );
+    } else if (file.kind === "text") {
+      if (typeof file.text !== "string" || file.text.trim().length === 0) continue;
+      content.push({
         type: "text",
-        text: `File: ${body.fileName ?? "data.txt"}\n\n<file>\n${body.text.slice(0, MAX_TEXT)}\n</file>\n\nExtract the birth data.`,
-      },
-    ];
-  } else {
-    return badRequest("Unknown kind.");
+        text: `File: ${name}\n<file>\n${file.text.slice(0, MAX_TEXT)}\n</file>`,
+      });
+    } else {
+      return badRequest(`${name}: unknown kind.`);
+    }
   }
+  if (totalImage > MAX_TOTAL_BASE64) return badRequest("Too many large images at once: send fewer.");
+  if (content.length === 0) return badRequest("The files are empty.");
+  content.push({
+    type: "text",
+    text:
+      files.length > 1
+        ? `These ${files.length} files arrived together. Extract the birth data, one entry per person, combining a person's data across files.`
+        : "Extract the birth data.",
+  });
 
   const allowFallback = allowFallbackFrom(request);
   const prompts = await PromptsStore.getPrompts();
@@ -70,9 +88,9 @@ export async function POST(request: Request) {
       headers: anthropicHeaders(apiKey, allowFallback),
       body: JSON.stringify({
         model: DEFAULT_AI_MODEL,
-        max_tokens: 8000,
+        max_tokens: 12000,
         system: prompts["bulk.extract"],
-        output_config: { effort: "low", format: { type: "json_schema", schema: EXTRACTION_SCHEMA } },
+        output_config: { effort: "medium", format: { type: "json_schema", schema: EXTRACTION_SCHEMA } },
         ...(allowFallback ? { fallbacks: "default" } : {}),
         messages: [{ role: "user", content }],
       }),
