@@ -12,7 +12,8 @@ NEXT_PUBLIC_SUPABASE_URL=https://<project>.supabase.co
 NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=<publishable key>
 ```
 
-The secret/service key is NOT used — the app relies on user sessions + RLS.
+The app relies on user sessions + RLS. The secret key is only used by the
+background reading timer on Cloudflare (`SUPABASE_SECRET_KEY`, see DEPLOY.md).
 
 Without these variables the app runs in mock mode exactly as before;
 with them, sign-in appears in the sidebar and wizard-created charts are
@@ -23,3 +24,9 @@ saved privately per user.
 Run `migrations/202610120005_prompt_overrides.sql` once (SQL Editor). Until
 it runs, Settings → AI prompts shows the defaults but cannot save edits, and
 every AI call uses the defaults.
+
+## Background readings
+
+Run `migrations/202610130006_generation_jobs.sql` once (SQL Editor), and add
+the `SUPABASE_SECRET_KEY` GitHub secret (DEPLOY.md). Until both are done,
+"Generate all categories" writes the readings from the browser page.
