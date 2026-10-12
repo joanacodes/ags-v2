@@ -19,7 +19,7 @@ export async function POST(
     );
   }
   const body = (await request.json().catch(() => ({}))) as { password?: string };
-  // Birth date as MMDDYYYY, then older password formats (see passwordCandidates).
+  // Birth date as DDMMYYYY, then older password formats (see passwordCandidates).
   let result: { status: string; person?: string; chart?: Chart | null; readings?: Reading[] } = {
     status: "wrong_password",
   };
@@ -45,7 +45,7 @@ export async function POST(
   }
   if (result.status === "wrong_password") {
     return NextResponse.json(
-      { error: { code: "WRONG_PASSWORD", message: "That date of birth doesn’t match. Type it as 8 digits, month first: MMDDYYYY." } },
+      { error: { code: "WRONG_PASSWORD", message: "That date of birth doesn’t match. Type it as 8 digits, day first: DDMMYYYY." } },
       { status: 401 },
     );
   }

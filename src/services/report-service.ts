@@ -49,6 +49,10 @@ export const ReportService = {
       window.print();
     } else if (format === "pdf" || format === "docx" || format === "md" || format === "txt") {
       const doc = buildReportDocument(chart, report, { technicalAppendix: settings.technicalAppendix });
+      if (settings.includeChartWheel && (format === "pdf" || format === "docx")) {
+        const { renderWheelPng } = await import("@/export/wheel-image");
+        doc.wheelImage = (await renderWheelPng(chart)) ?? undefined;
+      }
       await downloadDocument(doc, format);
     }
     return { ok: true };

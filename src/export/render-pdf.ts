@@ -25,7 +25,11 @@ function rule(width: number, color: string): Content {
 
 export function toPdfDefinition(doc: ExportDocument): TDocumentDefinitions {
   const content: Content[] = [
-    { text: "BIRTH CHART READING", style: "eyebrow", margin: [0, 170, 0, 14] },
+    {
+      text: "BIRTH CHART READING",
+      style: "eyebrow",
+      margin: [0, doc.wheelImage !== undefined ? 40 : 170, 0, 14],
+    },
     { text: clean(doc.title), style: "title" },
     { stack: [rule(80, GOLD)], alignment: "center", margin: [0, 16, 0, 16] },
     ...doc.subtitle.map((line): Content => ({ text: clean(line), style: "subtitle" })),
@@ -40,6 +44,9 @@ export function toPdfDefinition(doc: ExportDocument): TDocumentDefinitions {
         ],
       })),
     });
+  }
+  if (doc.wheelImage !== undefined) {
+    content.push({ image: doc.wheelImage, width: 300, alignment: "center", margin: [0, 28, 0, 0] });
   }
 
   for (const block of doc.blocks) {
@@ -126,9 +133,9 @@ export function toPdfDefinition(doc: ExportDocument): TDocumentDefinitions {
   };
 }
 
-export async function downloadPdf(doc: ExportDocument): Promise<void> {
+export async function buildPdf(doc: ExportDocument): Promise<Blob> {
   const pdfMake = (await import("pdfmake/build/pdfmake")).default;
   const vfs = (await import("pdfmake/build/vfs_fonts")).default;
   pdfMake.addVirtualFileSystem(vfs);
-  await pdfMake.createPdf(toPdfDefinition(doc)).download(`${doc.fileBase}.pdf`);
+  return pdfMake.createPdf(toPdfDefinition(doc)).getBlob();
 }

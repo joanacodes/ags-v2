@@ -17,6 +17,7 @@ export async function buildDocx(doc: ExportDocument): Promise<Blob> {
     Document,
     Footer,
     HeadingLevel,
+    ImageRun,
     Packer,
     PageNumber,
     Paragraph,
@@ -33,7 +34,7 @@ export async function buildDocx(doc: ExportDocument): Promise<Blob> {
   const children: (InstanceType<typeof Paragraph> | InstanceType<typeof Table>)[] = [
     new Paragraph({
       alignment: AlignmentType.CENTER,
-      spacing: { before: 3200, after: 240 },
+      spacing: { before: doc.wheelImage !== undefined ? 600 : 3200, after: 240 },
       children: [new TextRun({ text: "BIRTH CHART READING", bold: true, color: ACCENT, size: 18, characterSpacing: 60 })],
     }),
     new Paragraph({
@@ -59,6 +60,17 @@ export async function buildDocx(doc: ExportDocument): Promise<Blob> {
           new TextRun({ text: `${h.label} `, color: MUTED, size: 20 }),
           new TextRun({ text: h.value, bold: true, size: 24 }),
         ]),
+      }),
+    );
+  }
+  if (doc.wheelImage !== undefined) {
+    const base64 = doc.wheelImage.slice(doc.wheelImage.indexOf(",") + 1);
+    const bytes = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+    children.push(
+      new Paragraph({
+        alignment: AlignmentType.CENTER,
+        spacing: { before: 400 },
+        children: [new ImageRun({ type: "png", data: bytes, transformation: { width: 380, height: 380 } })],
       }),
     );
   }

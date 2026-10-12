@@ -18,6 +18,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
+import Link from "next/link";
 import { PageHeader } from "@/components/layout/page-header";
 import { ProgressPanel } from "@/components/layout/progress-panel";
 import { WizardStepper } from "@/components/wizard/wizard-stepper";
@@ -195,10 +196,18 @@ export default function NewChartPage() {
         ]}
         title="Create Birth Chart"
         actions={
-          <Button variant="secondary" size="sm" onClick={handleSaveDraft}>
-            {draftFlash ? <Check size={14} className="text-success" /> : <Save size={14} />}
-            {draftFlash ? "Draft saved" : "Save as Draft"}
-          </Button>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/charts/bulk"
+              className="hidden rounded-md px-2 py-1.5 text-xs font-medium text-ink-muted transition-colors hover:text-ink sm:inline"
+            >
+              Several people? Bulk import
+            </Link>
+            <Button variant="secondary" size="sm" onClick={handleSaveDraft}>
+              {draftFlash ? <Check size={14} className="text-success" /> : <Save size={14} />}
+              {draftFlash ? "Draft saved" : "Save as Draft"}
+            </Button>
+          </div>
         }
       />
 

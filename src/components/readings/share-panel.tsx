@@ -2,7 +2,7 @@
 
 /**
  * Readee link controls: create a link, copy it or send it with the phone's
- * share sheet. The link's password is the readee's birth date (MMDDYYYY).
+ * share sheet. The link's password is the readee's birth date (DDMMYYYY).
  * Used by the share card (wide screens) and the share dialog (everywhere).
  */
 import { useEffect, useState } from "react";
@@ -24,7 +24,7 @@ function linkUrl(token: string): string {
 
 export function formatSharePassword(birthDate: string | undefined): string {
   const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(birthDate ?? "");
-  return match === null ? "their birth date" : `${match[2]}${match[3]}${match[1]}`;
+  return match === null ? "their birth date" : `${match[3]}${match[2]}${match[1]}`;
 }
 
 export function SharePanel({
@@ -87,7 +87,7 @@ export function SharePanel({
     navigator
       .share({
         title: personName ? `${personName} — your birth chart reading` : "Your birth chart reading",
-        text: `Here is your reading. To open it, enter your date of birth as 8 digits, month first (MMDDYYYY): ${password}.`,
+        text: `Here is your reading. To open it, enter your date of birth as 8 digits, day first (DDMMYYYY): ${password}.`,
         url: linkUrl(token),
       })
       .catch(() => undefined); // closing the share sheet is not an error
@@ -105,7 +105,7 @@ export function SharePanel({
       <p className="rounded-lg border border-line bg-surface px-3 py-2 text-xs text-ink-muted">
         Password:{" "}
         <span className="font-mono font-semibold text-ink">{formatSharePassword(birthDate)}</span>{" "}
-        <span className="text-ink-faint">(MMDDYYYY)</span>
+        <span className="text-ink-faint">(DDMMYYYY)</span>
       </p>
 
       {isLoading ? (
