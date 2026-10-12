@@ -3,6 +3,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ChartService } from "@/services/chart-service";
 import { notify } from "@/components/common/toaster";
+import type { AiModelId } from "@/interpretation/ai-models";
 
 export const chartKeys = {
   all: ["charts"] as const,
@@ -71,6 +72,17 @@ export function useSetChartStatus(chartId: string) {
     onSuccess: (chart) => {
       queryClient.setQueryData(chartKeys.detail(chartId), chart);
       void queryClient.invalidateQueries({ queryKey: chartKeys.all });
+    },
+  });
+}
+
+export function useSetChartAiModel(chartId: string) {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (aiModel: AiModelId) => ChartService.setAiModel(chartId, aiModel),
+    onSuccess: (chart) => {
+      queryClient.setQueryData(chartKeys.detail(chartId), chart);
+      notify("AI model saved. New readings for this chart will use it.");
     },
   });
 }

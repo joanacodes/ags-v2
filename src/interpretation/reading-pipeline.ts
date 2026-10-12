@@ -19,9 +19,16 @@ import type {
 import { runInterpretationPipeline } from "./pipeline";
 import type { ComposedGroup, ComposedSentence } from "./composer";
 import { getDomain, type ReadingDomainDefinition } from "./domains";
+import {
+  anthropicHeaders,
+  modelRequestFields,
+  readMessagesResponse,
+  resolveAiModel,
+  type AiModelId,
+} from "./ai-models";
+import { READING_OUTPUT_FORMAT, defaultPrompts, styleKey, type PromptSet } from "./prompts";
 
 export const READING_ENGINE_VERSION = "reading-engine-1.0";
-const MODEL = "claude-sonnet-4-6";
 
 const PLANET_GLYPHS: Readonly<Record<string, string>> = {
   Sun: "☉", Moon: "☽", Mercury: "☿", Venus: "♀", Mars: "♂",
@@ -176,60 +183,6 @@ interface AiSection {
   pullQuote?: string;
 }
 
-const TEACHING_SYSTEM_PROMPT = [
-  "You are the reading writer of AGS (Astrology Grammar System), writing for a",
-  "TOTAL BEGINNER who knows nothing about astrology. You receive composed",
-  "sentences produced deterministically from a person's birth chart and a",
-  "curated knowledge base. Your job is to turn them into a reading that",
-  "TEACHES while it interprets.",
-  "",
-  "Hard rules:",
-  "1. GROUNDING — every claim must trace to a provided sentence. Never mention",
-  "   a planet, sign, house, or aspect that is not in the material. Never",
-  "   contradict the material.",
-  "2. COVERAGE — address EVERY factor listed in the material at least once.",
-  "   Do not skip any. If two factors say similar things, connect them",
-  "   explicitly rather than dropping one.",
-  "3. TEACH THE MECHANICS — when you first use a factor, briefly explain how",
-  "   it works in plain words: a planet is a function (what part of the",
-  "   person acts), a sign is a style (how it acts), a house is a life area",
-  "   (where it acts), an aspect is a relationship between two functions,",
-  "   retrograde means the function runs inward-first. One short clause is",
-  "   enough — teach as you go, never lecture separately.",
-  "4. BE CONCRETE — for each major point, give a precise everyday situation",
-  "   the reader can recognize: a conversation at work, a text left on read,",
-  "   a family dinner, a budgeting decision. Write 'this can look like…'",
-  "   moments, not abstractions.",
-  "5. EXPLAIN WHY — always connect the interpretation back to its factor:",
-  "   'because Mercury (how you think) sits in… it tends to…'.",
-  "6. VOICE — warm, direct, second person ('you'). No mystical filler, no",
-  "   hedging every sentence, no robotic lists of traits. Vary sentence",
-  "   length. It should read like a sharp, kind teacher talking.",
-  "7. NO advice on medical, legal, or financial decisions; no predictions of",
-  "   specific events; describe tendencies and patterns, never fate.",
-  "",
-  "OUTPUT — respond with ONLY a JSON object, no markdown fences, no preamble:",
-  '{ "sections": [ { "heading": string, "paragraphs": string[],',
-  '   "example"?: string, "pullQuote"?: string } ] }',
-  "The FIRST section is mandatory: heading 'At a glance' — one paragraph of",
-  "3-4 sentences summarizing the whole reading, the headline picture a reader",
-  "gets in twenty seconds. Then write 4 to 6 sections in this arc: (1) what",
-  "shapes this area and how the",
-  "pieces fit, (2) how it plays out day to day, (3) strengths to lean on,",
-  "(4) frictions and growth edges, (5) practical guidance. 2-4 paragraphs",
-  "per section. Put the single most relatable everyday scenario of a section",
-  "in its 'example' field. Use at most one pullQuote in the whole reading.",
-].join("\n");
-
-const STYLE_INSTRUCTIONS: Readonly<Record<string, string>> = {
-  clinical:
-    "STYLE: clinical — precise, measured, plainly factual. Neutral vocabulary, no lyricism, no rhetorical questions. Still warm enough to read humanely.",
-  poetic:
-    "STYLE: poetic — imagery and rhythm are welcome, but every image must stay anchored to a factor; never let the language drift from the material.",
-  conversational:
-    "STYLE: conversational — relaxed, direct, like a knowledgeable friend explaining over coffee. Contractions welcome; precision still mandatory.",
-};
-
 const LANGUAGE_NAMES: Readonly<Record<string, string>> = {
   en: "English", fr: "French", es: "Spanish", pt: "Portuguese", de: "German", it: "Italian",
 };
@@ -240,11 +193,12 @@ function buildUserPrompt(
   groups: readonly ComposedGroup[],
   style: string,
   language: string,
+  prompts: PromptSet,
 ): string {
   const lines: string[] = [];
   lines.push(`Reading domain: ${domain.title}`);
   lines.push(`Subject: ${personName}`);
-  lines.push(STYLE_INSTRUCTIONS[style] ?? STYLE_INSTRUCTIONS.clinical);
+  lines.push(prompts[styleKey(style)]);
   const langName = LANGUAGE_NAMES[language] ?? "English";
   lines.push(
     `OUTPUT LANGUAGE: write every heading, paragraph, example, and pull quote in ${langName}. ` +
@@ -270,6 +224,7 @@ function buildUserPrompt(
 type AiResult =
   | { status: "ok"; sections: AiSection[]; model: string }
   | { status: "no_api_key" }
+  | { status: "refused"; message: string }
   | { status: "provider_error"; message: string };
 
 function parseSections(raw: string): AiSection[] | null {
@@ -305,25 +260,25 @@ async function callReadingAi(
   groups: readonly ComposedGroup[],
   style: string,
   language: string,
+  model: AiModelId,
+  prompts: PromptSet,
+  allowFallback: boolean,
 ): Promise<AiResult> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (apiKey === undefined || apiKey.length === 0) return { status: "no_api_key" };
   const request = {
-    model: MODEL,
-    max_tokens: 6000,
-    system: TEACHING_SYSTEM_PROMPT,
-    messages: [{ role: "user", content: buildUserPrompt(personName, domain, groups, style, language) }],
+    ...modelRequestFields(model, allowFallback),
+    system: `${prompts["reading.system"]}\n\n${READING_OUTPUT_FORMAT}`,
+    messages: [
+      { role: "user", content: buildUserPrompt(personName, domain, groups, style, language, prompts) },
+    ],
   };
   // One retry on invalid JSON — structure corruption is rare but cheap to absorb.
   for (let attempt = 0; attempt < 2; attempt += 1) {
     try {
       const response = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
-        headers: {
-          "content-type": "application/json",
-          "x-api-key": apiKey,
-          "anthropic-version": "2023-06-01",
-        },
+        headers: anthropicHeaders(apiKey, allowFallback),
         body: JSON.stringify(request),
       });
       if (!response.ok) {
@@ -333,14 +288,12 @@ async function callReadingAi(
           message: `Anthropic API ${response.status}: ${body.slice(0, 300)}`,
         };
       }
-      const data = (await response.json()) as {
-        content?: ReadonlyArray<{ type: string; text?: string }>;
-      };
-      const text = (data.content ?? [])
-        .map((b) => (b.type === "text" && typeof b.text === "string" ? b.text : ""))
-        .join("");
-      const sections = parseSections(text);
-      if (sections !== null) return { status: "ok", sections, model: MODEL };
+      const result = readMessagesResponse(await response.json(), model);
+      if (!result.ok) {
+        return { status: result.refused ? "refused" : "provider_error", message: result.message };
+      }
+      const sections = parseSections(result.text);
+      if (sections !== null) return { status: "ok", sections, model: result.model };
     } catch (error) {
       return {
         status: "provider_error",
@@ -402,7 +355,14 @@ export type GeneratedReadingOutcome =
   | { status: "ok"; reading: Reading }
   | { status: "no_api_key" }
   | { status: "no_placements" }
+  | { status: "refused"; message: string }
   | { status: "provider_error"; message: string };
+
+export interface ReadingGenerationOptions {
+  /** The user's prompts (defaults when omitted). */
+  readonly prompts?: PromptSet;
+  readonly allowFallback?: boolean;
+}
 
 /** Generate the full, teaching-voice reading for one domain of one chart. */
 export async function generateDomainReading(
@@ -410,6 +370,7 @@ export async function generateDomainReading(
   slug: string,
   style: string = "clinical",
   language: string = "en",
+  options: ReadingGenerationOptions = {},
 ): Promise<GeneratedReadingOutcome> {
   const domain = getDomain(slug);
   if (domain === undefined) return { status: "provider_error", message: `Unknown domain "${slug}".` };
@@ -423,7 +384,17 @@ export async function generateDomainReading(
     .filter((g) => g.items.length > 0);
 
   const personName = `${chart.person.firstName} ${chart.person.lastName}`.trim();
-  const ai = await callReadingAi(personName, domain, groups, style, language);
+  const model = resolveAiModel(chart.configuration.aiModel);
+  const ai = await callReadingAi(
+    personName,
+    domain,
+    groups,
+    style,
+    language,
+    model,
+    options.prompts ?? defaultPrompts(),
+    options.allowFallback ?? false,
+  );
   if (ai.status !== "ok") return ai;
 
   const factors = buildChartFactors(domainMatches);

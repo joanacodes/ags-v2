@@ -9,12 +9,21 @@ import { ChartsStore } from "@/server/charts-store";
 import { createCoreKnowledgeRegistry } from "@/knowledge/pack-loader";
 import type { KnowledgeRegistry } from "@/knowledge/registry";
 import { createSupabaseServerClient, getServerUserId } from "@/lib/supabase/server";
+import {
+  allowFallbackFrom,
+  anthropicHeaders,
+  modelRequestFields,
+  readMessagesResponse,
+  resolveAiModel,
+  type AiModelId,
+} from "@/interpretation/ai-models";
+import { TEMPORAL_OUTPUT_FORMAT, fillPlaceholders } from "@/interpretation/prompts";
+import { PromptsStore } from "@/server/prompts-store";
 
 export const maxDuration = 60;
 
 const DATA_SLUG = "_temporal";
 const READING_SLUG = "_temporal_reading";
-const MODEL = "claude-sonnet-4-5";
 
 /* ------------------------- storage helpers -------------------------- */
 
@@ -157,42 +166,36 @@ interface TemporalSection {
   paragraphs: string[];
 }
 
-async function callAi(prompt: string): Promise<
-  { ok: true; sections: TemporalSection[] } | { ok: false; error: string }
+async function callAi(prompt: string, model: AiModelId, allowFallback: boolean): Promise<
+  | { ok: true; sections: TemporalSection[]; model: string }
+  | { ok: false; refused: boolean; error: string }
 > {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (apiKey === undefined || apiKey === "") {
-    return { ok: false, error: "ANTHROPIC_API_KEY is not configured." };
+    return { ok: false, refused: false, error: "ANTHROPIC_API_KEY is not configured." };
   }
   const response = await fetch("https://api.anthropic.com/v1/messages", {
     method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
-    },
+    headers: anthropicHeaders(apiKey, allowFallback),
     body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 3000,
+      ...modelRequestFields(model, allowFallback),
       messages: [{ role: "user", content: prompt }],
     }),
   });
   if (!response.ok) {
-    return { ok: false, error: `Anthropic API ${response.status}: ${(await response.text()).slice(0, 200)}` };
+    return { ok: false, refused: false, error: `Anthropic API ${response.status}: ${(await response.text()).slice(0, 200)}` };
   }
-  const data = (await response.json()) as { content?: { type: string; text?: string }[] };
-  const text = (data.content ?? [])
-    .map((block) => (block.type === "text" ? block.text ?? "" : ""))
-    .join("");
+  const result = readMessagesResponse(await response.json(), model);
+  if (!result.ok) return { ok: false, refused: result.refused, error: result.message };
   try {
-    const cleaned = text.replace(/```json|```/g, "").trim();
+    const cleaned = result.text.replace(/```json|```/g, "").trim();
     const parsed = JSON.parse(cleaned) as { sections?: TemporalSection[] };
     if (Array.isArray(parsed.sections) && parsed.sections.length > 0) {
-      return { ok: true, sections: parsed.sections };
+      return { ok: true, sections: parsed.sections, model: result.model };
     }
-    return { ok: false, error: "AI returned no sections." };
+    return { ok: false, refused: false, error: "AI returned no sections." };
   } catch {
-    return { ok: false, error: "AI response was not valid JSON." };
+    return { ok: false, refused: false, error: "AI response was not valid JSON." };
   }
 }
 
@@ -264,15 +267,11 @@ export async function POST(
 
     const language = LANGUAGE_NAMES[chart.configuration.language ?? "en"] ?? "English";
     const person = `${chart.person.firstName} ${chart.person.lastName}`;
+    const prompts = await PromptsStore.getPrompts();
     const prompt = [
-      `You are a teaching astrologer writing for a total beginner named ${person}.`,
-      `Write in ${language}. STYLE: clinical — precise, warm, plainly factual, no predictions of events, no fatalism.`,
-      "Use ONLY the grounded material below; never invent astrological meanings beyond it.",
-      "Explain each mechanic inline in one clause the first time it appears.",
-      "Every technique paragraph must include one concrete everyday example introduced naturally.",
+      fillPlaceholders(prompts["temporal.instructions"], { person, language }),
       "",
-      "Return STRICT JSON only, no markdown fences, in this shape:",
-      '{"sections":[{"heading":"...","paragraphs":["...","..."]}]}',
+      TEMPORAL_OUTPUT_FORMAT,
       part === 1
         ? "Sections required, in this exact order: (1) 'At a glance' — 3-4 sentence summary of the years ahead; (2) 'Your Saturn Return' (2-3 paragraphs); (3) 'Your Inner Evolution' about the progressions (2 paragraphs). Nothing else."
         : "Sections required, in this exact order: one section per solar year titled exactly 'Year YYYY' (ONE substantial paragraph each), then a final section 'How to use this' (one practical paragraph). Nothing else.",
@@ -281,9 +280,11 @@ export async function POST(
       ...lines,
     ].join("\n");
 
-    const ai = await callAi(prompt);
+    const ai = await callAi(prompt, resolveAiModel(chart.configuration.aiModel), allowFallbackFrom(request));
     if (!ai.ok) {
-      return NextResponse.json({ error: { code: "AI_FAILED", message: ai.error } }, { status: 502 });
+      return ai.refused
+        ? NextResponse.json({ error: { code: "AI_REFUSED", message: ai.error } }, { status: 422 })
+        : NextResponse.json({ error: { code: "AI_FAILED", message: ai.error } }, { status: 502 });
     }
 
     if (part === 1) {
@@ -305,7 +306,7 @@ export async function POST(
     const reading = {
       title: "The Years Ahead",
       sections: [...glance, ...saturn, ...rest1, ...years, ...evolution, ...closing],
-      model: MODEL,
+      model: ai.model,
       generatedAt: new Date().toISOString(),
     };
     await writeSlug(chart.id, READING_SLUG, reading);

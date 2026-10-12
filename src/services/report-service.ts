@@ -1,10 +1,12 @@
 /**
  * ReportService — sole owner of report data access.
  * Reports are assembled live server-side from the chart and its generated
- * readings. PDF export goes through the browser's print dialog (real,
- * dependable, zero server rendering stack).
+ * readings. Exports are real documents (PDF, Word, Markdown, text)
+ * generated in the browser from the report — see `src/export`.
  */
-import type { ExportFormat, Report } from "@/types";
+import type { Chart, ExportFormat, Report, ReportSettings } from "@/types";
+import { buildReportDocument } from "@/export/report-document";
+import { downloadDocument } from "@/export/download";
 
 async function readError(response: Response): Promise<string> {
   try {
@@ -36,10 +38,18 @@ export const ReportService = {
     return (await response.json()) as Report;
   },
 
-  /** Print-based export: the browser produces the PDF. */
-  async exportReport(_chartId: string, format: ExportFormat): Promise<{ ok: true }> {
-    if (format === "pdf" || format === "print") {
+  /** Download the report as a document, or open the print dialog. */
+  async exportReport(
+    chart: Chart,
+    report: Report,
+    settings: ReportSettings,
+    format: ExportFormat,
+  ): Promise<{ ok: true }> {
+    if (format === "print") {
       window.print();
+    } else if (format === "pdf" || format === "docx" || format === "md" || format === "txt") {
+      const doc = buildReportDocument(chart, report, { technicalAppendix: settings.technicalAppendix });
+      await downloadDocument(doc, format);
     }
     return { ok: true };
   },

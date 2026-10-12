@@ -45,6 +45,7 @@ import {
 } from "@/lib/reading-prefs";
 
 import { cn } from "@/lib/utils";
+import { AI_MODELS, DEFAULT_AI_MODEL } from "@/interpretation/ai-models";
 
 const DEFAULT_VALUES: ChartWizardValues = {
   firstName: "",
@@ -58,6 +59,7 @@ const DEFAULT_VALUES: ChartWizardValues = {
   country: "",
   timezone: "",
   houseSystem: "Placidus",
+  aiModel: DEFAULT_AI_MODEL,
 };
 
 export default function NewChartPage() {
@@ -112,7 +114,7 @@ export default function NewChartPage() {
         longitude: v.longitude,
         utcOffset: v.utcOffset,
       },
-      configuration: { houseSystem: v.houseSystem },
+      configuration: { houseSystem: v.houseSystem, aiModel: v.aiModel },
       step,
     };
   };
@@ -646,6 +648,21 @@ function ConfigurationStep() {
         </Select>
         <p className="pt-2 text-xs text-ink-muted">
           {HOUSE_SYSTEM_NOTES[values.houseSystem] ?? ""}
+        </p>
+      </div>
+
+      <div className="mt-6 max-w-sm">
+        <Label htmlFor="aiModel">AI model</Label>
+        <Select id="aiModel" {...register("aiModel")}>
+          {AI_MODELS.map((m) => (
+            <option key={m.id} value={m.id}>
+              {m.label}
+            </option>
+          ))}
+        </Select>
+        <p className="pt-2 text-xs text-ink-muted">
+          {AI_MODELS.find((m) => m.id === values.aiModel)?.note ?? ""} Writes every
+          reading and interpretation for this chart.
         </p>
       </div>
 

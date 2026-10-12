@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { AI_MODEL_IDS } from "@/interpretation/ai-models";
 
 export const HOUSE_SYSTEMS = ["Placidus", "Whole Sign", "Koch", "Equal"] as const;
 
@@ -25,6 +26,7 @@ export const chartWizardSchema = z
     readingLanguage: z.string().optional(),
 
     houseSystem: z.enum(HOUSE_SYSTEMS),
+    aiModel: z.enum(AI_MODEL_IDS),
   })
   .superRefine((values, ctx) => {
     if (!values.unknownTime && !values.birthTime) {
@@ -42,7 +44,7 @@ export const WIZARD_STEPS = [
   { id: "personal", label: "Personal", fields: ["firstName", "lastName", "gender", "notes"] },
   { id: "date-time", label: "Date & Time", fields: ["birthDate", "birthTime", "unknownTime"] },
   { id: "location", label: "Location", fields: ["birthPlace", "country", "timezone"] },
-  { id: "configuration", label: "Configuration", fields: ["houseSystem"] },
+  { id: "configuration", label: "Configuration", fields: ["houseSystem", "aiModel"] },
 ] as const;
 
 export type WizardStepId = (typeof WIZARD_STEPS)[number]["id"];

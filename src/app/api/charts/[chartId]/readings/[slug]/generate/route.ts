@@ -7,6 +7,8 @@ import { NextResponse } from "next/server";
 import { ChartsStore } from "@/server/charts-store";
 import { ReadingsStore } from "@/server/readings-store";
 import { generateDomainReading } from "@/interpretation/reading-pipeline";
+import { allowFallbackFrom } from "@/interpretation/ai-models";
+import { PromptsStore } from "@/server/prompts-store";
 
 export async function POST(
   request: Request,
@@ -21,7 +23,10 @@ export async function POST(
       ? (body.language as string)
       : "en";
     const chart = await ChartsStore.getChart(params.chartId);
-    const outcome = await generateDomainReading(chart, params.slug, style, language);
+    const outcome = await generateDomainReading(chart, params.slug, style, language, {
+      prompts: await PromptsStore.getPrompts(),
+      allowFallback: allowFallbackFrom(request),
+    });
     if (outcome.status === "ok") {
       await ReadingsStore.saveReading(chart, outcome.reading);
       return NextResponse.json(outcome.reading);
@@ -35,6 +40,12 @@ export async function POST(
           },
         },
         { status: 409 },
+      );
+    }
+    if (outcome.status === "refused") {
+      return NextResponse.json(
+        { error: { code: "AI_REFUSED", message: outcome.message } },
+        { status: 422 },
       );
     }
     if (outcome.status === "no_api_key") {

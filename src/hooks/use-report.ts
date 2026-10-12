@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ReportService } from "@/services/report-service";
 import { notify } from "@/components/common/toaster";
 import { SettingsService } from "@/services/settings-service";
-import type { ExportFormat, ReportSettings } from "@/types";
+import type { Chart, ExportFormat, Report, ReportSettings } from "@/types";
 
 export const reportKeys = {
   detail: (chartId: string) => ["report", chartId] as const,
@@ -37,9 +37,13 @@ export function useUpdateReportSettings() {
   });
 }
 
-export function useExportReport(chartId: string) {
+export function useExportReport() {
   return useMutation({
-    mutationFn: (format: ExportFormat) => ReportService.exportReport(chartId, format),
+    mutationFn: (args: { chart: Chart; report: Report; settings: ReportSettings; format: ExportFormat }) =>
+      ReportService.exportReport(args.chart, args.report, args.settings, args.format),
+    onError: (error) => {
+      notify(error instanceof Error ? `Export failed: ${error.message}` : "Export failed.", "info");
+    },
   });
 }
 

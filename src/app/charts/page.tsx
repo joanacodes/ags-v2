@@ -99,15 +99,15 @@ export default function BirthChartsPage() {
   return (
     <AppShell sidebarPanel={libraryPanel}>
       <header className="sticky top-0 z-20 border-b border-line bg-surface-sunken/90 backdrop-blur">
-        <div className="flex flex-wrap items-center justify-between gap-3 px-6 py-3">
+        <div className="flex flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6">
           <div>
             <h1 className="text-lg font-semibold text-ink">Birth Charts</h1>
             <p className="text-xs text-ink-muted">
               {stats ? `${stats.total} charts · ${stats.favourited} favourited` : "Loading library…"}
             </p>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="relative">
+          <div className="flex w-full flex-wrap items-center gap-2 sm:w-auto">
+            <div className="relative w-full sm:w-auto">
               <Search
                 size={14}
                 className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-ink-faint"
@@ -118,7 +118,7 @@ export default function BirthChartsPage() {
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder="Search charts…"
                 aria-label="Search charts"
-                className="h-9 w-40 pl-9 sm:w-56"
+                className="h-9 w-full pl-9 sm:w-56"
               />
             </div>
             <Select

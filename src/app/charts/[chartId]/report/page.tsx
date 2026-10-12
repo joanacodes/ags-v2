@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { Printer, Upload } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { PageHeader } from "@/components/layout/page-header";
@@ -33,7 +33,16 @@ export default function ReportPreviewPage() {
   const { data: report, isLoading, isError, refetch } = useReport(chartId);
   const { data: settings } = useReportSettings();
   const updateSettings = useUpdateReportSettings();
-  const exportReport = useExportReport(chartId);
+  const exportReport = useExportReport();
+  const router = useRouter();
+  const runExport = (format: ExportFormat) => {
+    if (format === "link") {
+      router.push(`/charts/${chartId}/readings#share`);
+      return;
+    }
+    if (!chart || !report || !settings) return;
+    exportReport.mutate({ chart, report, settings, format });
+  };
 
   const [exported, setExported] = useState(false);
   useEffect(() => {
@@ -116,17 +125,17 @@ export default function ReportPreviewPage() {
                 {report.sectionsReady}/{report.sectionsTotal} sections ready
               </span>
             )}
-            <Button variant="outline" size="icon" aria-label="Print report">
+            <Button variant="outline" size="icon" aria-label="Print report" onClick={() => runExport("print")}>
               <Printer size={14} />
             </Button>
             <Button
               variant="primary"
               size="md"
-              onClick={() => exportReport.mutate("pdf")}
-              disabled={exportReport.isPending}
+              onClick={() => runExport("pdf")}
+              disabled={exportReport.isPending || !report || !chart || !settings}
             >
               <Upload size={13} />
-              Export Report
+              Download PDF
             </Button>
           </>
         }
@@ -240,10 +249,7 @@ export default function ReportPreviewPage() {
                 report={report}
                 settings={settings}
                 onSettingsChange={(patch) => updateSettings.mutate(patch)}
-                onExport={(format: ExportFormat) => {
-                  if (format === "docx" || format === "link") return; // not yet wired
-                  exportReport.mutate(format);
-                }}
+                onExport={runExport}
                 exporting={exportReport.isPending}
                 exported={exported}
               />

@@ -7,18 +7,24 @@
 import { NextResponse } from "next/server";
 import { ChartsStore } from "@/server/charts-store";
 import { generateAiInterpretation } from "@/interpretation/ai";
+import { allowFallbackFrom, resolveAiModel } from "@/interpretation/ai-models";
+import { PromptsStore } from "@/server/prompts-store";
 import { runInterpretationPipeline } from "@/interpretation/pipeline";
 import { AiInterpretationStore } from "@/server/readings-store";
 
 export async function POST(
-  _request: Request,
+  request: Request,
   { params }: { params: { chartId: string } },
 ) {
   try {
     const chart = await ChartsStore.getChart(params.chartId);
     const pipeline = await runInterpretationPipeline(chart);
     const person = `${chart.person.firstName} ${chart.person.lastName}`.trim();
-    const outcome = await generateAiInterpretation(pipeline, person);
+    const outcome = await generateAiInterpretation(pipeline, person, {
+      model: resolveAiModel(chart.configuration.aiModel),
+      systemPrompt: (await PromptsStore.getPrompts())["interpretation.system"],
+      allowFallback: allowFallbackFrom(request),
+    });
     if (outcome.status === "ok") {
       const saved = {
         text: outcome.text,
@@ -27,6 +33,12 @@ export async function POST(
       };
       await AiInterpretationStore.save(chart.id, saved);
       return NextResponse.json(saved);
+    }
+    if (outcome.status === "refused") {
+      return NextResponse.json(
+        { error: { code: "AI_REFUSED", message: outcome.message } },
+        { status: 422 },
+      );
     }
     if (outcome.status === "no_api_key") {
       return NextResponse.json(

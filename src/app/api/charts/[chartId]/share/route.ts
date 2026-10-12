@@ -1,13 +1,16 @@
 /**
- * POST /api/charts/:chartId/share {password} — create a readee link
+ * POST /api/charts/:chartId/share — create a readee link (password: the
+ *                                   readee's birth date, dd/mm/yyyy)
  * GET  /api/charts/:chartId/share            — list the owner's links
  * Requires Supabase + a signed-in owner (links must outlive the session).
  */
 import { NextResponse } from "next/server";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { ChartsStore } from "@/server/charts-store";
+import { birthDatePassword } from "@/sharing/readee";
 
 export async function POST(
-  request: Request,
+  _request: Request,
   { params }: { params: { chartId: string } },
 ) {
   const supabase = createSupabaseServerClient();
@@ -17,11 +20,19 @@ export async function POST(
       { status: 503 },
     );
   }
-  const body = (await request.json().catch(() => ({}))) as { password?: string };
-  const password = (body.password ?? "").trim();
-  if (password.length < 4) {
+  let password: string | null = null;
+  try {
+    const chart = await ChartsStore.getChart(params.chartId);
+    password = birthDatePassword(chart.birth.date);
+  } catch {
     return NextResponse.json(
-      { error: { code: "WEAK_PASSWORD", message: "Password needs at least 4 characters." } },
+      { error: { code: "CHART_NOT_FOUND", message: "Chart not found." } },
+      { status: 404 },
+    );
+  }
+  if (password === null) {
+    return NextResponse.json(
+      { error: { code: "NO_BIRTH_DATE", message: "This chart has no valid birth date to use as the password." } },
       { status: 400 },
     );
   }

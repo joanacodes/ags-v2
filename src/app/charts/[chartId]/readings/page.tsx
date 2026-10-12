@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useParams } from "next/navigation";
-import { FilePlus2, Upload } from "lucide-react";
+import { FilePlus2, Link2, Upload } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { PageHeader } from "@/components/layout/page-header";
 import { ProgressPanel } from "@/components/layout/progress-panel";
 import { ReadingCard } from "@/components/readings/reading-card";
 import { ChartSummaryRail } from "@/components/readings/chart-summary-rail";
 import { ShareCard } from "@/components/readings/share-card";
+import { ShareDialog } from "@/components/readings/share-panel";
 import { EmptyState, ErrorState } from "@/components/common/states";
 import { Avatar } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -28,6 +29,7 @@ export default function ReadingHubPage() {
   const chartId = params.chartId;
 
   const { data: chart } = useChart(chartId);
+  const [shareOpen, setShareOpen] = useState(false);
   const { data: readings, isLoading, isError, refetch } = useReadings(chartId);
   const { data: progress } = useReadingProgress(chartId);
   const queryClient = useQueryClient();
@@ -96,6 +98,10 @@ export default function ReadingHubPage() {
               : "Generate all readings"}
           </Button>
           <>
+            <Button variant="outline" size="md" onClick={() => setShareOpen(true)} disabled={!chart}>
+              <Link2 size={13} />
+              Share
+            </Button>
             <Button variant="outline" size="md">
               <Upload size={13} />
               Export
@@ -203,7 +209,11 @@ export default function ReadingHubPage() {
           <div className="hidden xl:block">
             {chart ? (
               <div className="space-y-4">
-                <ShareCard chartId={chartId} />
+                <ShareCard
+                  chartId={chartId}
+                  birthDate={chart.birth.date}
+                  personName={`${chart.person.firstName} ${chart.person.lastName}`}
+                />
                 <ChartSummaryRail chart={chart} progress={progress} />
               </div>
             ) : (
@@ -212,6 +222,15 @@ export default function ReadingHubPage() {
           </div>
         </div>
       </main>
+      {chart && (
+        <ShareDialog
+          open={shareOpen}
+          onClose={() => setShareOpen(false)}
+          chartId={chartId}
+          birthDate={chart.birth.date}
+          personName={`${chart.person.firstName} ${chart.person.lastName}`}
+        />
+      )}
     </AppShell>
   );
 }

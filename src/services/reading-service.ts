@@ -4,6 +4,7 @@
  * chart, generated readings (grammar + teaching AI) for real charts.
  */
 import type { Reading, ReadingProgressSummary, WritingStyle } from "@/types";
+import { aiFetch } from "@/lib/ai-fetch";
 
 async function readError(response: Response): Promise<string> {
   try {
@@ -40,7 +41,7 @@ export const ReadingService = {
     style: WritingStyle,
     language: string = "en",
   ): Promise<Reading> {
-    const response = await fetch(`/api/charts/${chartId}/readings/${slug}/generate`, {
+    const response = await aiFetch(`/api/charts/${chartId}/readings/${slug}/generate`, {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ style, language }),

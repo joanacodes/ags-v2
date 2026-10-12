@@ -3,6 +3,7 @@
 import { Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
 import type { ReadingSection } from "@/types";
+import { renderInline } from "@/lib/rich-text";
 
 /** The long-form reading content: sections, pull quotes, key insights. */
 export function ReadingBody({ sections }: { sections: ReadingSection[] }) {
@@ -23,7 +24,7 @@ export function ReadingBody({ sections }: { sections: ReadingSection[] }) {
           <div className="mt-3.5 space-y-4">
             {section.paragraphs.map((paragraph, pIndex) => (
               <p key={pIndex} className="text-[15px] leading-[1.85] text-ink-secondary">
-                {paragraph}
+                {renderInline(paragraph)}
               </p>
             ))}
           </div>
