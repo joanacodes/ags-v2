@@ -32,6 +32,7 @@ import {
 } from "@/hooks/use-charts";
 import { AI_MODELS, resolveAiModel, type AiModelId } from "@/interpretation/ai-models";
 import { Select } from "@/components/ui/select";
+import { ShareDialog } from "@/components/readings/share-panel";
 import { readingKeys } from "@/hooks/use-readings";
 import { useQueryClient } from "@tanstack/react-query";
 import { ReadingService } from "@/services/reading-service";
@@ -49,6 +50,7 @@ export default function ChartOverviewPage() {
   const calculate = useCalculateChart(chartId);
   const setStatus = useSetChartStatus(chartId);
   const setAiModel = useSetChartAiModel(chartId);
+  const [shareOpen, setShareOpen] = useState(false);
   const deleteChart = useDeleteChart();
   const queryClient = useQueryClient();
   const { data: rprogress } = useReadingProgress(chartId);
@@ -178,14 +180,16 @@ export default function ChartOverviewPage() {
               Export
             </Link>
             {!isDemo && (
-              <Link
-                href={`/charts/${chartId}/readings#share`}
-                title="Create a readee link (password-protected)"
+              <button
+                type="button"
+                onClick={() => setShareOpen(true)}
+                disabled={!chart}
+                title="Create a readee link (password: their birth date)"
                 className="inline-flex h-9 items-center gap-2 rounded-lg border border-line px-4 text-sm font-medium text-ink-secondary transition-colors hover:border-line-strong hover:text-accent-hover"
               >
                 <Link2 size={13} />
                 Share
-              </Link>
+              </button>
             )}
           </>
         }
@@ -347,6 +351,15 @@ export default function ChartOverviewPage() {
           </div>
         )}
       </main>
+      {chart && !isDemo && (
+        <ShareDialog
+          open={shareOpen}
+          onClose={() => setShareOpen(false)}
+          chartId={chartId}
+          birthDate={chart.birth.date}
+          personName={`${chart.person.firstName} ${chart.person.lastName}`}
+        />
+      )}
     </AppShell>
   );
 }

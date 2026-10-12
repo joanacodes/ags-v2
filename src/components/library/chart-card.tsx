@@ -8,10 +8,11 @@ import { formatDate } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Avatar } from "@/components/ui/avatar";
 import { MiniWheel } from "@/components/common/mini-wheel";
-import { useRouter } from "next/navigation";
 import { useDeleteChart } from "@/hooks/use-charts";
 import { notify } from "@/components/common/toaster";
 import { StatusBadge } from "./status-badge";
+import { ShareDialog } from "@/components/readings/share-panel";
+import { useState } from "react";
 
 export function ChartCard({
   chart,
@@ -22,8 +23,8 @@ export function ChartCard({
   onToggleFavourite: (chartId: string) => void;
   commentCount?: number;
 }) {
-  const router = useRouter();
   const deleteChart = useDeleteChart();
+  const [shareOpen, setShareOpen] = useState(false);
   const isDemo = chart.id.startsWith("chart-") && /^chart-[a-z]+-[a-z]+$/.test(chart.id);
 
   const archived = chart.status === "archived";
@@ -108,7 +109,11 @@ export function ChartCard({
                   type="button"
                   aria-label="Share with the readee"
                   title="Share with the readee"
-                  onClick={() => router.push(`/charts/${chart.id}/readings`)}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    setShareOpen(true);
+                  }}
                   className="rounded-md border border-line p-1.5 text-ink-faint transition-colors hover:border-line-strong hover:text-accent-hover"
                 >
                   <Link2 size={13} />
@@ -139,6 +144,15 @@ export function ChartCard({
           </span>
         </div>
       </div>
+      {!isDemo && (
+        <ShareDialog
+          open={shareOpen}
+          onClose={() => setShareOpen(false)}
+          chartId={chart.id}
+          birthDate={chart.birth.date}
+          personName={`${chart.person.firstName} ${chart.person.lastName}`}
+        />
+      )}
     </motion.article>
   );
 }
