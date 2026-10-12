@@ -17,10 +17,8 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useChart } from "@/hooks/use-charts";
-import { readingKeys, useReadingProgress, useReadings } from "@/hooks/use-readings";
-import { useQueryClient } from "@tanstack/react-query";
-import { ReadingService } from "@/services/reading-service";
-import { getDefaultStyle, getReadingLanguage } from "@/lib/reading-prefs";
+import { useReadingProgress, useReadings } from "@/hooks/use-readings";
+import { GenerateAllCard } from "@/components/readings/generate-all-button";
 import { formatDate } from "@/lib/format";
 import { shortDegree } from "@/lib/astro";
 
@@ -32,29 +30,6 @@ export default function ReadingHubPage() {
   const [shareOpen, setShareOpen] = useState(false);
   const { data: readings, isLoading, isError, refetch } = useReadings(chartId);
   const { data: progress } = useReadingProgress(chartId);
-  const queryClient = useQueryClient();
-  const [bulk, setBulk] = useState<{ current: string; done: number; total: number } | null>(null);
-  const [bulkError, setBulkError] = useState<string | null>(null);
-
-  const generateAll = async () => {
-    if (!readings) return;
-    const pending = readings.filter((r) => r.status !== "complete").map((r) => r.slug);
-    if (pending.length === 0) return;
-    setBulkError(null);
-    for (let i = 0; i < pending.length; i += 1) {
-      setBulk({ current: pending[i], done: i, total: pending.length });
-      try {
-        await ReadingService.regenerateReading(chartId, pending[i], getDefaultStyle(), chart?.configuration.language ?? getReadingLanguage());
-      } catch (error) {
-        setBulkError(error instanceof Error ? error.message : "Generation failed.");
-        break;
-      }
-    }
-    setBulk(null);
-    void queryClient.invalidateQueries({ queryKey: readingKeys.list(chartId) });
-    void queryClient.invalidateQueries({ queryKey: readingKeys.progress(chartId) });
-  };
-
 
   const sidebarPanel =
     readings && progress ? (
@@ -87,16 +62,6 @@ export default function ReadingHubPage() {
         title="Reading Hub"
         actions={
           <>
-          <Button
-            variant="primary"
-            size="sm"
-            onClick={() => void generateAll()}
-            disabled={bulk !== null}
-          >
-            {bulk !== null
-              ? `Generating ${bulk.done + 1}/${bulk.total} — ${bulk.current}…`
-              : "Generate all readings"}
-          </Button>
           <>
             <Button variant="outline" size="md" onClick={() => setShareOpen(true)} disabled={!chart}>
               <Link2 size={13} />
@@ -118,11 +83,6 @@ export default function ReadingHubPage() {
         }
       />
 
-      {bulkError !== null && (
-        <div className="mx-6 mt-4 rounded-lg border border-warning/40 bg-warning-soft px-4 py-3 text-xs text-ink-secondary">
-          Bulk generation stopped: {bulkError}
-        </div>
-      )}
 
       {/* Person strip */}
       {chart && (
@@ -170,6 +130,15 @@ export default function ReadingHubPage() {
       <main className="flex-1 px-4 py-5 sm:px-6 sm:py-6">
         <div className="grid gap-8 xl:grid-cols-[1fr_240px]">
           <div>
+            {chart && chart.planets.length > 0 && readings && (
+              <GenerateAllCard
+                chartId={chartId}
+                language={chart.configuration.language}
+                missing={readings.filter((r) => r.status !== "complete").length}
+                total={readings.length}
+                className="mb-6"
+              />
+            )}
             {isError && (
               <ErrorState
                 description="The readings for this chart couldn't be loaded."

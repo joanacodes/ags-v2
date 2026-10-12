@@ -3,7 +3,8 @@
 /**
  * Bulk import: drop photos or spreadsheets of birth data, let the AI read
  * them, check and correct every row, then create the charts and write all
- * their readings — one person at a time, one reading at a time.
+ * the charts one person at a time. Readings are written afterwards from each
+ * chart's page ("Generate all categories").
  */
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -22,9 +23,9 @@ import { AI_MODELS, DEFAULT_AI_MODEL, type AiModelId } from "@/interpretation/ai
 import type { ExtractedPerson } from "@/bulk/extracted";
 import { aiFetch } from "@/lib/ai-fetch";
 import { completeMatch, searchPlaces, type GeoMatch } from "@/lib/geo";
-import { getDefaultStyle, getReadingLanguage } from "@/lib/reading-prefs";
+import { getReadingLanguage } from "@/lib/reading-prefs";
+import { requestWakeLock } from "@/hooks/use-generate-all";
 import { ChartService } from "@/services/chart-service";
-import { ReadingService } from "@/services/reading-service";
 import { chartKeys } from "@/hooks/use-charts";
 import { cn } from "@/lib/utils";
 import type { HouseSystem } from "@/types";
@@ -256,16 +257,16 @@ export default function BulkImportPage() {
 
   const runAll = async () => {
     const ok = await confirmDialog({
-      title: `Create ${ready.length} chart${ready.length > 1 ? "s" : ""} and their readings?`,
+      title: `Create ${ready.length} chart${ready.length > 1 ? "s" : ""}?`,
       message:
-        "They are processed one person at a time, one reading at a time. This can take a while: keep this page open until every row says Done." +
+        "Only the birth charts are calculated now (a few seconds each). Then open each chart and tap \"Generate all categories\" to write its readings." +
         (blocked.length > 0 ? `\n\n${blocked.length} row${blocked.length > 1 ? "s" : ""} with missing data will be skipped.` : ""),
       confirmLabel: "Start",
       cancelLabel: "Not yet",
     });
     if (!ok) return;
     setRunning(true);
-    const style = getDefaultStyle();
+    const wakeLock = await requestWakeLock();
     const language = getReadingLanguage();
     for (const row of ready) {
       const place = row.place as GeoMatch;
@@ -289,12 +290,6 @@ export default function BulkImportPage() {
         if (created.chart.planets.length === 0) {
           throw new Error("The chart could not be calculated (astrology service). Open it to retry.");
         }
-        const readings = await ReadingService.listReadings(chartId);
-        const pending = readings.filter((r) => r.status !== "complete");
-        for (let i = 0; i < pending.length; i += 1) {
-          updateRow(row.id, { status: { kind: "working", step: `Reading ${i + 1}/${pending.length}: ${pending[i].shortTitle}` } });
-          await ReadingService.regenerateReading(chartId, pending[i].slug, style, language);
-        }
         updateRow(row.id, {
           status: { kind: "done", chartId, warning: created.persisted ? undefined : created.storageError },
         });
@@ -304,6 +299,7 @@ export default function BulkImportPage() {
         });
       }
     }
+    void wakeLock?.release().catch(() => undefined);
     setRunning(false);
     void queryClient.invalidateQueries({ queryKey: chartKeys.all });
   };
@@ -418,7 +414,7 @@ export default function BulkImportPage() {
           {/* 3. Run */}
           {rows.length > 0 && (
             <Card className="p-5">
-              <h2 className="text-sm font-semibold text-ink">3. Create the charts and readings</h2>
+              <h2 className="text-sm font-semibold text-ink">3. Create the charts</h2>
               <div className="mt-3 grid gap-3 sm:grid-cols-2">
                 <div>
                   <Label htmlFor="bulk-model">AI model</Label>
@@ -447,8 +443,9 @@ export default function BulkImportPage() {
                 </div>
               </div>
               <p className="pt-3 text-xs leading-relaxed text-ink-muted">
-                One person at a time, one reading at a time, in your default style and language
-                (Settings). Keep this page open while it runs.
+                Only the birth charts are calculated here, a few seconds each. The AI model is saved
+                with each chart for later. Then open each chart and tap “Generate all categories” to
+                write its readings.
               </p>
               <Button
                 variant="primary"
@@ -458,7 +455,7 @@ export default function BulkImportPage() {
               >
                 {running ? <Loader2 size={14} className="animate-spin" /> : <Check size={14} />}
                 {running
-                  ? "Working… keep this page open"
+                  ? "Creating the charts…"
                   : `Validate and create ${ready.length} chart${ready.length === 1 ? "" : "s"}`}
               </Button>
             </Card>

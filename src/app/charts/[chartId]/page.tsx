@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
@@ -33,10 +33,7 @@ import {
 import { AI_MODELS, resolveAiModel, type AiModelId } from "@/interpretation/ai-models";
 import { Select } from "@/components/ui/select";
 import { ShareDialog } from "@/components/readings/share-panel";
-import { readingKeys } from "@/hooks/use-readings";
-import { useQueryClient } from "@tanstack/react-query";
-import { ReadingService } from "@/services/reading-service";
-import { getDefaultStyle, getReadingLanguage } from "@/lib/reading-prefs";
+import { GenerateAllCard } from "@/components/readings/generate-all-button";
 import { PRIMARY_CHART_ID } from "@/lib/navigation";
 import { useReadingProgress, useReadings } from "@/hooks/use-readings";
 import { formatBirthMoment } from "@/lib/format";
@@ -52,38 +49,9 @@ export default function ChartOverviewPage() {
   const setAiModel = useSetChartAiModel(chartId);
   const [shareOpen, setShareOpen] = useState(false);
   const deleteChart = useDeleteChart();
-  const queryClient = useQueryClient();
-  const { data: rprogress } = useReadingProgress(chartId);
-  const [bulk, setBulk] = useState<{ done: number; total: number } | null>(null);
   const isDemo = chartId === PRIMARY_CHART_ID || chartId.startsWith("chart-clara") ||
     ["chart-julian-thorne","chart-saffron-hayes","chart-marcus-chen","chart-elena-rostova","chart-dorian-vance"].includes(chartId);
 
-  const generateAllReadings = async () => {
-    const list = await ReadingService.listReadings(chartId);
-    const pending = list.filter((r) => r.status !== "complete").map((r) => r.slug);
-    for (let i = 0; i < pending.length; i += 1) {
-      setBulk({ done: i, total: pending.length });
-      try {
-        await ReadingService.regenerateReading(chartId, pending[i], getDefaultStyle(), chart?.configuration.language ?? getReadingLanguage());
-      } catch {
-        break; // stop on first failure (missing key, etc.) — page stays usable
-      }
-    }
-    setBulk(null);
-    void queryClient.invalidateQueries({ queryKey: readingKeys.all });
-  };
-
-  // Auto-load every category once per chart, right after calculation.
-  useEffect(() => {
-    if (!chart || isDemo || bulk !== null) return;
-    if (chart.planets.length === 0) return;
-    if (rprogress === undefined || rprogress.completed > 0) return;
-    const guard = `ags:autogen:${chartId}`;
-    if (window.sessionStorage.getItem(guard) === "1") return;
-    window.sessionStorage.setItem(guard, "1");
-    void generateAllReadings();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [chart, rprogress, isDemo]);
   const isPending = chart !== undefined && chart.planets.length === 0;
   const { data: readings } = useReadings(chartId);
   const { data: progress } = useReadingProgress(chartId);
@@ -195,11 +163,6 @@ export default function ChartOverviewPage() {
         }
       />
 
-      {bulk !== null && (
-        <div className="mx-4 mt-3 rounded-lg border border-accent/30 bg-accent-soft px-4 py-2.5 text-xs text-ink-secondary sm:mx-6">
-          Loading all reading categories… {bulk.done + 1}/{bulk.total}
-        </div>
-      )}
       <main className="flex-1 px-4 py-5 sm:px-6 sm:py-6">
         {isError && (
           <ErrorState
@@ -228,6 +191,14 @@ export default function ChartOverviewPage() {
 
         {chart && (
           <div className="space-y-8">
+            {!isDemo && !isPending && (
+              <GenerateAllCard
+                chartId={chartId}
+                language={chart.configuration.language}
+                missing={readings?.filter((r) => r.status !== "complete").length}
+                total={readings?.length}
+              />
+            )}
             {/* Person header */}
             <div className="flex flex-wrap items-center gap-4 border-b border-line pb-6">
               <Avatar
