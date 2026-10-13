@@ -36,6 +36,7 @@ const config: Config = {
           DEFAULT: "hsl(var(--warning))",
           soft: "hsl(var(--warning-soft))",
         },
+        highlight: "hsl(var(--highlight))",
         danger: {
           DEFAULT: "hsl(var(--danger))",
           soft: "hsl(var(--danger-soft))",
