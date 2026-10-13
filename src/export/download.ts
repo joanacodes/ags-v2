@@ -31,8 +31,12 @@ function browserDownload(blob: Blob, fileName: string): void {
   window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
 }
 
-/** Save a file the way the device supports best. */
-export async function saveFile(blob: Blob, fileName: string, title: string): Promise<void> {
+/**
+ * Save a file the way the device supports best. The share sheet gets the
+ * file alone: iOS saves any title or text shared with it as a second file
+ * ("text.txt") next to it in Files.
+ */
+export async function saveFile(blob: Blob, fileName: string): Promise<void> {
   const file = new File([blob], fileName, { type: blob.type });
   const canShareFile =
     isIOS(navigator.userAgent, navigator.maxTouchPoints) &&
@@ -43,7 +47,7 @@ export async function saveFile(blob: Blob, fileName: string, title: string): Pro
     return;
   }
   try {
-    await navigator.share({ files: [file], title });
+    await navigator.share({ files: [file] });
   } catch (error) {
     if (error instanceof DOMException && error.name === "AbortError") return; // closed the sheet
     // Building the file took too long for the browser to treat the share as
@@ -56,7 +60,7 @@ export async function saveFile(blob: Blob, fileName: string, title: string): Pro
     });
     if (!ok) return;
     try {
-      await navigator.share({ files: [file], title });
+      await navigator.share({ files: [file] });
     } catch (second) {
       if (second instanceof DOMException && second.name === "AbortError") return;
       browserDownload(blob, fileName);
@@ -86,5 +90,5 @@ export async function downloadDocument(doc: ExportDocument, format: DocumentForm
       break;
   }
   const typed = blob.type === "" ? new Blob([blob], { type: MIME[format] }) : blob;
-  await saveFile(typed, fileName, doc.title);
+  await saveFile(typed, fileName);
 }

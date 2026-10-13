@@ -4,7 +4,7 @@
  * have not been generated yet appear as locked sections — generating the
  * reading unlocks them.
  */
-import { READING_DOMAINS } from "@/interpretation/domains";
+import { READING_DOMAINS, reportOrder } from "@/interpretation/domains";
 import { createCoreKnowledgeRegistry } from "@/knowledge/pack-loader";
 import type { KnowledgeRegistry } from "@/knowledge/registry";
 import type { Chart, Reading, Report, ReportSection, TechnicalAppendix } from "@/types";
@@ -137,10 +137,7 @@ export function buildReport(
 ): Report {
   const bySlug = new Map(readings.map((r) => [r.slug, r]));
   // Summary opens the report; the other domains follow in canonical order.
-  const ordered = [
-    ...READING_DOMAINS.filter((d) => d.slug === "summary"),
-    ...READING_DOMAINS.filter((d) => d.slug !== "summary"),
-  ];
+  const ordered = [...READING_DOMAINS].sort((a, b) => reportOrder(a.slug) - reportOrder(b.slug));
   const sections = ordered.map((domain, index) =>
     sectionFromReading(index + 1, domain.title, domain.icon, domain.slug, bySlug.get(domain.slug)),
   );

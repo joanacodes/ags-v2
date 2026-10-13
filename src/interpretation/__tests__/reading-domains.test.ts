@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { READING_DOMAINS, getDomain } from "../domains";
+import { READING_DOMAINS, getDomain, reportOrder } from "../domains";
 import { matchBelongsToDomain, scaffoldReading } from "../reading-pipeline";
 import type { GrammarMatch } from "../../grammar/types";
 import type { Chart } from "../../types";
@@ -42,4 +42,13 @@ test("summary domain takes everything; scaffolds are inert and complete-shaped",
   assert.equal(scaffold.status, "not-started");
   assert.equal(scaffold.sections.length, 0);
   assert.equal(scaffold.slug, "summary");
+});
+
+test("shared readings and reports open with the summary, then the usual order", () => {
+  // The database returns shared readings sorted by name: career, communication, …
+  const alphabetical = READING_DOMAINS.map((d) => d.slug).sort();
+  const ordered = [...alphabetical].sort((a, b) => reportOrder(a) - reportOrder(b));
+  assert.deepEqual(ordered, ["summary", ...READING_DOMAINS.map((d) => d.slug).filter((slug) => slug !== "summary")]);
+  assert.equal(ordered[1], "personality");
+  assert.ok(reportOrder("_synastry-x") > reportOrder("purpose-growth"));
 });
