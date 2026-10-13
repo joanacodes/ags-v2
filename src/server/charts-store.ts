@@ -7,11 +7,10 @@
  * the app keeps its historical mock behaviour.
  */
 import chartsJson from "@/data/sample-charts.json";
-import workspaceJson from "@/data/workspace.json";
 import { createSupabaseServerClient, getServerUserId } from "@/lib/supabase/server";
 import { calculateChart } from "@/server/providers/freeastroapi";
 import { resolveAiModel, type AiModelId } from "@/interpretation/ai-models";
-import type { Chart, ChartDraft, ChartLibraryStats, ChartStatus } from "@/types";
+import type { Chart, ChartDraft, ChartStatus } from "@/types";
 
 const seededCharts = chartsJson.charts as Chart[];
 /** Fallback for unconfigured/signed-out mode (per server instance). */
@@ -32,6 +31,8 @@ function rowToChart(row: ChartRow): Chart {
     id: row.id,
     favourite: row.favourite,
     status: row.status as ChartStatus,
+    // The row's updated_at moves when the chart is opened (see markOpened).
+    lastOpenedAt: row.updated_at,
   };
 }
 
@@ -73,16 +74,25 @@ export const ChartsStore = {
     throw new Error(`Chart not found: ${chartId}`);
   },
 
-  async getLibraryStats(): Promise<ChartLibraryStats> {
-    const base = workspaceJson.library;
-    const dbCharts = await listDbCharts();
-    const extra = [...dbCharts, ...memoryCharts];
-    return {
-      total: base.total + extra.length,
-      favourited: base.favourited + extra.filter((c) => c.favourite).length,
-      active: base.active + extra.filter((c) => c.status === "active").length,
-      archived: base.archived + extra.filter((c) => c.status === "archived").length,
-    };
+  /** The person's own charts (saved, then this session's), without the samples. */
+  async listOwnCharts(): Promise<Chart[]> {
+    return [...(await listDbCharts()), ...memoryCharts];
+  },
+
+  /** Remember that the chart was just opened ("Last opened" in the library). */
+  async markOpened(chartId: string): Promise<void> {
+    const now = new Date().toISOString();
+    const local = memoryCharts.find((c) => c.id === chartId);
+    if (local !== undefined) {
+      local.lastOpenedAt = now;
+      return;
+    }
+    if (seededCharts.some((c) => c.id === chartId)) return; // samples keep their dates
+    const supabase = createSupabaseServerClient();
+    if (supabase === null) return;
+    // Only the timestamp column: the chart itself is never rewritten here.
+    const { error } = await supabase.from("charts").update({ updated_at: now }).eq("id", chartId);
+    if (error !== null) throw new Error(`Could not record the visit: ${error.message}`);
   },
 
   async toggleFavourite(chartId: string): Promise<Chart> {
@@ -97,7 +107,7 @@ export const ChartsStore = {
         const row = data as ChartRow;
         const { data: updated, error } = await supabase
           .from("charts")
-          .update({ favourite: !row.favourite, updated_at: new Date().toISOString() })
+          .update({ favourite: !row.favourite })
           .eq("id", chartId)
           .select("id, chart_payload, favourite, status, created_at, updated_at")
           .single();
@@ -220,7 +230,7 @@ export const ChartsStore = {
     if (supabase !== null) {
       const { data } = await supabase
         .from("charts")
-        .update({ status, updated_at: new Date().toISOString() })
+        .update({ status })
         .eq("id", chartId)
         .select("id, chart_payload, favourite, status, created_at, updated_at")
         .maybeSingle();

@@ -8,24 +8,21 @@ import { ProgressPanel } from "@/components/layout/progress-panel";
 import { StatCards } from "@/components/dashboard/stat-cards";
 import { LiveSky } from "@/components/dashboard/live-sky";
 import { QuickActions, UpsellCard } from "@/components/dashboard/quick-panels";
-import {
-  EngineStatusBar,
-  RecentChartsTable,
-} from "@/components/dashboard/recent-charts-table";
+import { RecentChartsTable } from "@/components/dashboard/recent-charts-table";
 import { ErrorState } from "@/components/common/states";
 import { Input } from "@/components/ui/input";
 import { Avatar } from "@/components/ui/avatar";
-import { useCharts } from "@/hooks/use-charts";
-import { useDashboardStats, useTransitDensity, useWorkspaceUser } from "@/hooks/use-workspace";
+import { useChartLibraryStats, useCharts } from "@/hooks/use-charts";
+import { useWorkspaceUser } from "@/hooks/use-workspace";
 import { useReadings } from "@/hooks/use-readings";
-import { PRIMARY_CHART_ID } from "@/lib/navigation";
 
 export default function DashboardPage() {
-  const { data: stats, isError, refetch } = useDashboardStats();
-  const { data: density } = useTransitDensity();
+  const { data: stats, isError, refetch } = useChartLibraryStats();
   const { data: charts } = useCharts();
   const { data: user } = useWorkspaceUser();
-  const { data: readings } = useReadings(PRIMARY_CHART_ID);
+  // The chart opened last: the list comes most recently opened first, own charts before the samples.
+  const latest = charts?.[0];
+  const { data: readings } = useReadings(latest?.id ?? "");
 
   const progressItems = readings
     ?.filter((r) =>
@@ -44,14 +41,19 @@ export default function DashboardPage() {
     }));
 
   const overall = readings
-    ? readings.reduce((sum, r) => sum + r.progress, 0) / Math.max(readings.length, 1)
+    ? readings.reduce((sum, r) => sum + (r.status === "complete" ? 100 : (r.progress ?? 0)), 0) /
+      Math.max(readings.length, 1)
     : 0;
 
   return (
     <AppShell
       sidebarPanel={
         progressItems && (
-          <ProgressPanel title="Reading Progress" items={progressItems} overall={overall} />
+          <ProgressPanel
+            title={latest ? `${latest.person.firstName}'s readings` : "Reading Progress"}
+            items={progressItems}
+            overall={overall}
+          />
         )
       }
     >
@@ -92,14 +94,6 @@ export default function DashboardPage() {
           />
         ) : (
           <>
-            {stats && (
-              <EngineStatusBar
-                engineVersion={stats.engineVersion}
-                syncLatency={stats.syncLatency}
-                lastCalculationLabel={stats.lastCalculationLabel}
-              />
-            )}
-
             <StatCards stats={stats} />
 
             <div className="grid gap-4 xl:grid-cols-[1fr_320px]">

@@ -326,23 +326,20 @@ export interface WorkspaceUser {
   avatarUrl?: string;
 }
 
+/** The person's own charts (the sample charts aren't counted). */
 export interface ChartLibraryStats {
   total: number;
   favourited: number;
   active: number;
   archived: number;
-}
-
-export interface DashboardStats {
-  totalCharts: number;
-  totalChartsDelta: string;
-  recentReports: number;
-  pendingExports: number;
-  favourites: number;
-  lastReadingLabel: string;
-  engineVersion: string;
-  syncLatency: string;
-  lastCalculationLabel: string;
+  /** Charts added in the last 7 days. */
+  addedThisWeek: number;
+  /** Topic readings written, all charts together. */
+  readingsWritten: number;
+  /** Charts with every category written. */
+  chartsComplete: number;
+  /** When the latest reading was written (ISO), or null. */
+  lastReadingAt: string | null;
 }
 
 export interface TransitDensityPoint {

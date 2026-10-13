@@ -27,6 +27,7 @@ import {
   useCalculateChart,
   useChart,
   useDeleteChart,
+  useRecordChartVisit,
   useSetChartAiModel,
   useSetChartStatus,
 } from "@/hooks/use-charts";
@@ -43,6 +44,7 @@ export default function ChartOverviewPage() {
   const chartId = params.chartId;
 
   const { data: chart, isLoading, isError, refetch, error } = useChart(chartId);
+  useRecordChartVisit(chartId);
   const router = useRouter();
   const calculate = useCalculateChart(chartId);
   const setStatus = useSetChartStatus(chartId);

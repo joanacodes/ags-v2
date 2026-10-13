@@ -1,11 +1,13 @@
 "use client";
 
-import { BarChart3, Clock3, FileText, Star, TrendingUp } from "lucide-react";
-import type { DashboardStats } from "@/types";
+import { BarChart3, BookOpenText, Clock3, Star, TrendingUp } from "lucide-react";
+import type { ChartLibraryStats } from "@/types";
+import { formatAgo } from "@/lib/format";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 
-export function StatCards({ stats }: { stats?: DashboardStats }) {
+/** The dashboard's four numbers, from the person's own charts and readings. */
+export function StatCards({ stats }: { stats?: ChartLibraryStats }) {
   if (!stats) {
     return (
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
@@ -19,31 +21,38 @@ export function StatCards({ stats }: { stats?: DashboardStats }) {
   const cards = [
     {
       icon: BarChart3,
-      value: String(stats.totalCharts),
+      value: String(stats.total),
       label: "Total Charts",
+      footer:
+        stats.addedThisWeek > 0 ? (
+          <span className="flex items-center gap-1 text-success">
+            <TrendingUp size={12} /> +{stats.addedThisWeek} this week
+          </span>
+        ) : (
+          <span>None added this week</span>
+        ),
+    },
+    {
+      icon: BookOpenText,
+      value: String(stats.readingsWritten),
+      label: "Readings Written",
       footer: (
-        <span className="flex items-center gap-1 text-success">
-          <TrendingUp size={12} /> {stats.totalChartsDelta}
+        <span>
+          {stats.chartsComplete} chart{stats.chartsComplete === 1 ? "" : "s"} complete
         </span>
       ),
     },
     {
-      icon: FileText,
-      value: String(stats.recentReports),
-      label: "Recent Reports",
-      footer: <span>{stats.pendingExports} pending export</span>,
-    },
-    {
       icon: Star,
-      value: String(stats.favourites),
+      value: String(stats.favourited),
       label: "Favorites",
       footer: <span>Starred profiles</span>,
     },
     {
       icon: Clock3,
-      value: stats.lastReadingLabel,
+      value: stats.lastReadingAt === null ? "—" : formatAgo(stats.lastReadingAt),
       label: "Last Reading",
-      footer: <span>Via Ephemeris Engine</span>,
+      footer: <span>{stats.lastReadingAt === null ? "No readings yet" : "Latest one written"}</span>,
     },
   ];
 
