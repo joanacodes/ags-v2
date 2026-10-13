@@ -5,6 +5,7 @@
  * The Anthropic API key never leaves the server.
  */
 import { NextResponse } from "next/server";
+import { requireSignedIn } from "@/lib/supabase/server";
 import { ChartsStore } from "@/server/charts-store";
 import { generateAiInterpretation } from "@/interpretation/ai";
 import { allowFallbackFrom, resolveAiModel } from "@/interpretation/ai-models";
@@ -16,6 +17,8 @@ export async function POST(
   request: Request,
   { params }: { params: { chartId: string } },
 ) {
+  const denied = await requireSignedIn();
+  if (denied !== null) return denied;
   try {
     const chart = await ChartsStore.getChart(params.chartId);
     const pipeline = await runInterpretationPipeline(chart);

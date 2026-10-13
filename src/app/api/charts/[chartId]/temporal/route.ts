@@ -13,7 +13,7 @@ import {
   fetchSaturnReturn,
   fetchSolarReturn,
 } from "@/server/providers/freeastro-temporal";
-import { createSupabaseServerClient, getServerUserId } from "@/lib/supabase/server";
+import { createSupabaseServerClient, getServerUserId, requireSignedIn } from "@/lib/supabase/server";
 
 export const maxDuration = 60; // sequential provider calls at 1 req/s
 
@@ -71,6 +71,8 @@ export async function GET(
   request: Request,
   { params }: { params: { chartId: string } },
 ) {
+  const denied = await requireSignedIn();
+  if (denied !== null) return denied;
   try {
     const chart = await ChartsStore.getChart(params.chartId);
     if (chart.planets.length === 0) {

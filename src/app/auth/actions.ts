@@ -5,6 +5,7 @@
  * error handling). Redirect-based flows; messages are shown by the pages.
  */
 import { redirect } from "next/navigation";
+import { afterSignInPath } from "@/lib/auth-paths";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 function field(formData: FormData, name: string): string {
@@ -13,7 +14,7 @@ function field(formData: FormData, name: string): string {
 }
 
 function withMessage(path: string, message: string): never {
-  redirect(`${path}?message=${encodeURIComponent(message)}`);
+  redirect(`${path}${path.includes("?") ? "&" : "?"}message=${encodeURIComponent(message)}`);
 }
 
 function errorCode(error: unknown): string | undefined {
@@ -26,53 +27,36 @@ const NOT_CONFIGURED =
   "Persistence is not configured. Add the Supabase variables to .env.local first.";
 
 export async function signIn(formData: FormData): Promise<void> {
+  // Back to the page that asked for a sign-in, if any.
+  const next = afterSignInPath(field(formData, "next"));
+  const here = next === "/dashboard" ? "/auth/sign-in" : `/auth/sign-in?next=${encodeURIComponent(next)}`;
   const supabase = createSupabaseServerClient();
-  if (supabase === null) withMessage("/auth/sign-in", NOT_CONFIGURED);
+  if (supabase === null) withMessage(here, NOT_CONFIGURED);
   const email = field(formData, "email");
   const password = field(formData, "password");
   if (email === "" || password === "") {
-    withMessage("/auth/sign-in", "Enter your email and password.");
+    withMessage(here, "Enter your email and password.");
   }
   const { error } = await supabase.auth.signInWithPassword({ email, password });
   if (error !== null) {
     const code = errorCode(error);
     if (code === "email_not_confirmed") {
-      withMessage("/auth/sign-in", "Confirm your email before signing in.");
+      withMessage(here, "Confirm your email before signing in.");
     }
     if (code === "invalid_credentials") {
-      withMessage("/auth/sign-in", "The email or password is incorrect.");
+      withMessage(here, "The email or password is incorrect.");
     }
-    withMessage("/auth/sign-in", "Sign-in could not be completed. Please try again.");
+    withMessage(here, "Sign-in could not be completed. Please try again.");
   }
-  redirect("/dashboard");
+  redirect(next);
 }
 
-export async function signUp(formData: FormData): Promise<void> {
-  const supabase = createSupabaseServerClient();
-  if (supabase === null) withMessage("/auth/sign-up", NOT_CONFIGURED);
-  const email = field(formData, "email");
-  const password = field(formData, "password");
-  if (email === "" || password.length < 8) {
-    withMessage("/auth/sign-up", "Enter an email and a password of at least 8 characters.");
-  }
-  const { error } = await supabase.auth.signUp({ email, password });
-  if (error !== null) {
-    const code = errorCode(error);
-    if (code === "user_already_exists" || code === "email_exists") {
-      withMessage(
-        "/auth/sign-up",
-        "An account already exists for this email. Try signing in instead.",
-      );
-    }
-    withMessage("/auth/sign-up", "Sign-up could not be completed. Please try again.");
-  }
-  withMessage("/auth/sign-in", "Account created. Check your inbox to confirm your email.");
-}
+// No sign-up while AGS is in private beta: accounts are added from the Supabase dashboard.
 
 export async function signOut(): Promise<void> {
   const supabase = createSupabaseServerClient();
   if (supabase !== null) await supabase.auth.signOut();
-  redirect("/dashboard");
+  redirect("/");
 }
 
 export async function requestPasswordReset(formData: FormData): Promise<void> {

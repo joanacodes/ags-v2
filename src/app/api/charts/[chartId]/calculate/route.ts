@@ -3,12 +3,15 @@
  * (Re)runs the FreeAstroAPI calculation for a pending or failed chart.
  */
 import { NextResponse } from "next/server";
+import { requireSignedIn } from "@/lib/supabase/server";
 import { ChartsStore } from "@/server/charts-store";
 
 export async function POST(
   _request: Request,
   { params }: { params: { chartId: string } },
 ) {
+  const denied = await requireSignedIn();
+  if (denied !== null) return denied;
   try {
     const outcome = await ChartsStore.recalculateChart(params.chartId);
     if (outcome.status === "ok") return NextResponse.json(outcome.chart);

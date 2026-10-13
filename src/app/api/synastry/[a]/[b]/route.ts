@@ -8,6 +8,7 @@
  *   DELETE → remove the synastry
  */
 import { NextResponse } from "next/server";
+import { requireSignedIn } from "@/lib/supabase/server";
 import { ChartsStore } from "@/server/charts-store";
 import { PromptsStore } from "@/server/prompts-store";
 import { SynastryStore, synastryPair } from "@/server/synastry-store";
@@ -91,6 +92,8 @@ export async function GET(_request: Request, { params }: Params) {
 }
 
 export async function POST(request: Request, { params }: Params) {
+  const denied = await requireSignedIn();
+  if (denied !== null) return denied;
   const loaded = await loadPair(params);
   if ("error" in loaded) return loaded.error;
   const { pair, owner, partner } = loaded;

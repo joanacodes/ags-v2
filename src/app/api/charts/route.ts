@@ -4,6 +4,7 @@
  * GET  /api/charts?stats=1 — library stats
  */
 import { NextResponse } from "next/server";
+import { requireSignedIn } from "@/lib/supabase/server";
 import { ChartsStore } from "@/server/charts-store";
 import { isAiModelId } from "@/interpretation/ai-models";
 
@@ -21,6 +22,8 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  const denied = await requireSignedIn();
+  if (denied !== null) return denied;
   try {
     const draft = await request.json();
     for (const key of ["personal", "dateTime", "location", "configuration"]) {
