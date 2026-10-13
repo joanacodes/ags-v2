@@ -477,7 +477,10 @@ function SharedReading({
             </p>
             <Textarea
               value={bubbleText}
-              onChange={(event) => setBubbleText(event.target.value)}
+              onChange={(event) => {
+                setBubbleText(event.target.value);
+                growToFit(event.target, 180);
+              }}
               rows={2}
               placeholder="Your comment on this passage…"
               className="mt-2 text-xs"
@@ -580,7 +583,10 @@ function SharedReading({
               </div>
               <Textarea
                 value={comment}
-                onChange={(event) => setComment(event.target.value)}
+                onChange={(event) => {
+                  setComment(event.target.value);
+                  growToFit(event.target, 260);
+                }}
                 rows={3}
                 placeholder="What rings true? What feels off? Any detail helps."
                 className="mt-3"
@@ -646,6 +652,13 @@ function formatBirthLine(chart: Chart): string {
     parts.push(chart.birth.place);
   }
   return parts.join(" · ");
+}
+
+/** Let a comment box grow with its text, so long notes stay readable on a phone. */
+function growToFit(element: HTMLTextAreaElement, maxHeight: number) {
+  element.style.height = "auto";
+  const borders = element.offsetHeight - element.clientHeight;
+  element.style.height = `${Math.min(element.scrollHeight + borders, maxHeight)}px`;
 }
 
 function headerBadges(chart: Chart): string[] {
