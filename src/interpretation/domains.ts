@@ -184,6 +184,13 @@ export const READING_DOMAINS: readonly ReadingDomainDefinition[] = [
   },
 ];
 
+/** Place of a reading in reports and shared links: the summary first, then the usual order. */
+export function reportOrder(slug: string): number {
+  if (slug === "summary") return 0;
+  const index = READING_DOMAINS.findIndex((d) => d.slug === slug);
+  return index === -1 ? READING_DOMAINS.length + 1 : index + 1;
+}
+
 export function getDomain(slug: string): ReadingDomainDefinition | undefined {
   return READING_DOMAINS.find((d) => d.slug === slug);
 }
