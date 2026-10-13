@@ -8,7 +8,7 @@
  */
 import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "next/navigation";
-import { Bold, Download, Highlighter, Loader2, Lock, MessageSquarePlus, Moon, Send, Sparkles, Star, Sun } from "lucide-react";
+import { Bold, Download, ExternalLink, Highlighter, Loader2, Lock, MessageSquarePlus, Moon, Send, Sparkles, Star, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { ChartWheel } from "@/components/chart/chart-wheel";
 import { Button } from "@/components/ui/button";
@@ -16,6 +16,7 @@ import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { androidIntentUrl, inAppBrowserName, isAndroid } from "@/lib/browser-env";
 import { renderInline } from "@/lib/rich-text";
 import type { Chart, Reading } from "@/types";
 
@@ -211,8 +212,30 @@ export default function SharedReadingPage() {
 function DownloadReadingButton({ payload }: { payload: SharedPayload }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Apps like Instagram open links in their own browser, which can't save
+  // files: there, the button explains how to open the page in a real browser.
+  const [inApp, setInApp] = useState<{ name: string; android: boolean; url: string } | null>(null);
+  const [showHelp, setShowHelp] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const name = inAppBrowserName(navigator.userAgent);
+    if (name !== null) {
+      setInApp({ name, android: isAndroid(navigator.userAgent), url: window.location.href });
+    }
+  }, []);
+
+  const copyLink = async () => {
+    if (inApp === null) return;
+    if (await copyText(inApp.url)) setCopied(true);
+    else window.prompt("Copy this link:", inApp.url);
+  };
 
   const download = async () => {
+    if (inApp !== null) {
+      setShowHelp(true);
+      return;
+    }
     setBusy(true);
     setError(null);
     try {
@@ -247,6 +270,31 @@ function DownloadReadingButton({ payload }: { payload: SharedPayload }) {
         {busy ? "Preparing your PDF…" : "Download my birth chart (PDF)"}
       </Button>
       {error !== null && <p className="pt-2 text-xs text-danger">{error}</p>}
+      {showHelp && inApp !== null && (
+        <div className="mt-3 rounded-lg border border-warning/40 bg-warning-soft px-4 py-3 text-xs leading-relaxed text-ink">
+          <p className="font-semibold">Open this page in your browser to download</p>
+          <p className="pt-1">
+            {inApp.name === "this app" ? "This app's" : `${inApp.name}'s`} built-in browser can&apos;t save files.{" "}
+            {inApp.android
+              ? "Tap “Open in browser” below (or ⋮ at the top right, then “Open in Chrome”), type your date of birth again, then tap Download."
+              : "Tap ⋯ at the top right, then “Open in external browser” (or “Open in Safari”), type your date of birth again, then tap Download."}
+          </p>
+          <div className="mt-2.5 flex flex-wrap gap-2">
+            {inApp.android && (
+              <a
+                href={androidIntentUrl(inApp.url)}
+                className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-accent px-3 text-xs font-medium text-accent-foreground hover:bg-accent-hover"
+              >
+                <ExternalLink size={13} />
+                Open in browser
+              </a>
+            )}
+            <Button size="sm" variant="outline" onClick={() => void copyLink()}>
+              {copied ? "Link copied" : "Copy the link"}
+            </Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -652,6 +700,30 @@ function formatBirthLine(chart: Chart): string {
     parts.push(chart.birth.place);
   }
   return parts.join(" · ");
+}
+
+/** Copy text, with the older copy command as a fallback for app browsers. */
+async function copyText(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    // Clipboard API refused (common in app browsers): try the older way.
+  }
+  try {
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.appendChild(area);
+    area.select();
+    const ok = document.execCommand("copy");
+    area.remove();
+    return ok;
+  } catch {
+    return false;
+  }
 }
 
 /** Let a comment box grow with its text, so long notes stay readable on a phone. */
