@@ -5,6 +5,7 @@
  */
 import { AsyncLocalStorage } from "node:async_hooks";
 import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { getPublicSupabaseEnvironment } from "./environment";
@@ -56,6 +57,21 @@ export function createSupabaseServerClient(): SupabaseClient | null {
       },
     },
   });
+}
+
+/**
+ * Routes that spend money (AI, astrology service) call this first: a 401
+ * when the app is connected to Supabase and nobody is signed in. Local
+ * demo mode (no Supabase) and background jobs are let through.
+ */
+export async function requireSignedIn(): Promise<NextResponse | null> {
+  if (actingAs.getStore() !== undefined) return null;
+  if (getPublicSupabaseEnvironment() === null) return null;
+  if ((await getServerUserId()) !== null) return null;
+  return NextResponse.json(
+    { error: { code: "SIGN_IN_REQUIRED", message: "Sign in to use this." } },
+    { status: 401 },
+  );
 }
 
 /** The signed-in user's id, or null (signed out / unconfigured). */

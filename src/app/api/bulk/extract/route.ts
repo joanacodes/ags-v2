@@ -8,6 +8,7 @@
  * → { people: ExtractedPerson[] }
  */
 import { NextResponse } from "next/server";
+import { requireSignedIn } from "@/lib/supabase/server";
 import {
   DEFAULT_AI_MODEL,
   allowFallbackFrom,
@@ -34,6 +35,8 @@ function badRequest(message: string) {
 }
 
 export async function POST(request: Request) {
+  const denied = await requireSignedIn();
+  if (denied !== null) return denied;
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (apiKey === undefined || apiKey === "") {
     return NextResponse.json(

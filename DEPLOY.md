@@ -62,3 +62,15 @@ Supabase → Authentication → URL Configuration → Additional redirect URLs,
 one entry per host:
 - `https://<your-domain>/auth/callback` (Vercel)
 - `https://ags.<your-account>.workers.dev/auth/callback` (Cloudflare)
+
+## Private beta
+
+The site has no sign-up: the landing page and the sign-in page collect
+"keep me posted" emails through FormSubmit (sent to hello@maisontarot.com),
+and every app page needs a signed-in session (readees' `/r/…` links stay
+public).
+- Supabase → Authentication → Sign In / Providers: turn off "Allow new users
+  to sign up", so accounts can't be created by calling Supabase directly.
+  Add testers from Authentication → Users → Add user.
+- FormSubmit sends an "Activate Form" email after the first submission from
+  the live site; until its link is clicked, submissions are not delivered.

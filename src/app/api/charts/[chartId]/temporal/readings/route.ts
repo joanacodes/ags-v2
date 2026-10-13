@@ -8,7 +8,7 @@ import { NextResponse } from "next/server";
 import { ChartsStore } from "@/server/charts-store";
 import { createCoreKnowledgeRegistry } from "@/knowledge/pack-loader";
 import type { KnowledgeRegistry } from "@/knowledge/registry";
-import { createSupabaseServerClient, getServerUserId } from "@/lib/supabase/server";
+import { createSupabaseServerClient, getServerUserId, requireSignedIn } from "@/lib/supabase/server";
 import {
   allowFallbackFrom,
   anthropicHeaders,
@@ -217,6 +217,8 @@ export async function POST(
   request: Request,
   { params }: { params: { chartId: string } },
 ) {
+  const denied = await requireSignedIn();
+  if (denied !== null) return denied;
   try {
     const part = new URL(request.url).searchParams.get("part") === "2" ? 2 : 1;
     const chart = await ChartsStore.getChart(params.chartId);

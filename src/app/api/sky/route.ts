@@ -1,8 +1,11 @@
 /** GET /api/sky — cached snapshot of the current planetary positions. */
 import { NextResponse } from "next/server";
+import { requireSignedIn } from "@/lib/supabase/server";
 import { getCurrentSky } from "@/server/sky-store";
 
 export async function GET() {
+  const denied = await requireSignedIn();
+  if (denied !== null) return denied;
   const outcome = await getCurrentSky();
   if (outcome.status === "ok") return NextResponse.json(outcome.snapshot);
   if (outcome.status === "not_configured") {

@@ -4,6 +4,7 @@
  * persists the reading, returns it. Demo chart readings are fixed samples.
  */
 import { NextResponse } from "next/server";
+import { requireSignedIn } from "@/lib/supabase/server";
 import { ChartsStore } from "@/server/charts-store";
 import { ReadingsStore } from "@/server/readings-store";
 import { generateDomainReading } from "@/interpretation/reading-pipeline";
@@ -14,6 +15,8 @@ export async function POST(
   request: Request,
   { params }: { params: { chartId: string; slug: string } },
 ) {
+  const denied = await requireSignedIn();
+  if (denied !== null) return denied;
   try {
     const body = (await request.json().catch(() => ({}))) as { style?: string; language?: string };
     const style = ["clinical", "poetic", "conversational"].includes(body.style ?? "")
