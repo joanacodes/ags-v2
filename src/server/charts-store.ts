@@ -53,6 +53,11 @@ export const ChartsStore = {
     return [...dbCharts, ...memoryCharts, ...seededCharts];
   },
 
+  /** A sample chart shipped with the app (not stored in the database). */
+  isSample(chartId: string): boolean {
+    return seededCharts.some((c) => c.id === chartId);
+  },
+
   async getChart(chartId: string): Promise<Chart> {
     const local = [...memoryCharts, ...seededCharts].find((c) => c.id === chartId);
     if (local !== undefined) return local;

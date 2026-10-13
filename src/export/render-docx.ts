@@ -35,7 +35,15 @@ export async function buildDocx(doc: ExportDocument): Promise<Blob> {
     new Paragraph({
       alignment: AlignmentType.CENTER,
       spacing: { before: doc.wheelImage !== undefined ? 600 : 3200, after: 240 },
-      children: [new TextRun({ text: "BIRTH CHART READING", bold: true, color: ACCENT, size: 18, characterSpacing: 60 })],
+      children: [
+        new TextRun({
+          text: (doc.kindLabel ?? "Birth chart reading").toUpperCase(),
+          bold: true,
+          color: ACCENT,
+          size: 18,
+          characterSpacing: 60,
+        }),
+      ],
     }),
     new Paragraph({
       heading: HeadingLevel.TITLE,
@@ -133,7 +141,7 @@ export async function buildDocx(doc: ExportDocument): Promise<Blob> {
   }
 
   const document = new Document({
-    title: `${doc.title} — Birth chart reading`,
+    title: `${doc.title} — ${doc.kindLabel ?? "Birth chart reading"}`,
     styles: {
       default: {
         document: { run: { font: "Georgia", size: 22, color: INK } },

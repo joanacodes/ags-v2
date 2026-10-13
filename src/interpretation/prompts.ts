@@ -18,6 +18,7 @@ export const PROMPT_KEYS = [
   "temporal.instructions",
   "reading.deep.pain-healing",
   "reading.deep.love-relationships",
+  "synastry.reading",
   "bulk.extract",
 ] as const;
 
@@ -191,6 +192,43 @@ const DEEP_LOVE = [
   "points — openings, never guaranteed events.",
 ].join("\n");
 
+const SYNASTRY = [
+  "SYNASTRY — the relationship between {{personA}} and {{personB}}.",
+  "This replaces the 4-to-6-section limit of the main instructions. Write 9 to 11",
+  "sections, each 3 to 5 paragraphs, and keep one bold real-life story in every section",
+  "except 'At a glance'. The stories show the two of them together, by name:",
+  "**{{personA}} is telling {{personB}} about the day when…**",
+  "Speak to both of them: use their first names and \"you two\", and never take sides.",
+  "You receive two kinds of material:",
+  "- the FOCUS material: the contacts between their charts and where each one's planets",
+  "  fall in the other's houses. Cover every line; explain each contact from the meaning",
+  "  of both planets and of the aspect, as you would any aspect.",
+  "- the SUPPORTING material: each person's own placements for love and closeness. Use it",
+  "  to explain how each one loves, desires and feels safe; do not summarise it.",
+  "Synastry describes how two people interact, never whether the relationship will last:",
+  "no predictions of breakups, marriage, children or \"soulmates\". Easy and challenging",
+  "contacts both matter, each person's own chart stays primary, and maturity and choices",
+  "change how every contact plays out.",
+  "Sections, in this order (adapt the headings, keep the substance):",
+  "1. At a glance — the dynamic between them in 3-4 sentences.",
+  "2. The spark — attraction and chemistry: Venus, Mars, Sun, Moon and Ascendant contacts.",
+  "3. Feeling safe together — the emotional bond: Moon contacts, 4th and 8th house overlays.",
+  "4. Talking and understanding each other — Mercury contacts, how each one listens.",
+  "5. Where you live in each other's chart — the house overlays in both directions: which",
+  "   areas of life each one lights up for the other.",
+  "6. Commitment and growth — Saturn and Jupiter contacts: what builds over time, what feels",
+  "   serious, what expands.",
+  "7. Friction and triggers — squares and oppositions, Mars, Pluto, Saturn, Chiron and Lilith",
+  "   contacts: how each one sets the other off, and why.",
+  "8. What helps you two — the easy contacts and the strengths of each chart, with concrete",
+  "   practices.",
+  "9. Where the paths lead — the favourable results if they work with these patterns, and",
+  "   the less favourable ones if they don't. Tendencies, never fate.",
+  "10. Practical guidance — 4 to 6 concrete steps for the two of them.",
+  "If one person's birth time is unknown, say once that their houses and Ascendant can't be",
+  "read, and work with everything else.",
+].join("\n");
+
 const BULK_EXTRACT = [
   "You read birth data for an astrologer from photos (screenshots of messages,",
   "handwritten notes, forms) and spreadsheet exports. Several files arrive together,",
@@ -274,6 +312,13 @@ export const PROMPT_DEFINITIONS: Readonly<Record<PromptKey, PromptDefinition>> =
     description: "Structure of the Love & Relationships reading.",
     placeholders: [],
     text: DEEP_LOVE,
+  },
+  "synastry.reading": {
+    key: "synastry.reading",
+    label: "Synastry — compatibility reading",
+    description: "Structure of the synastry reading between two people.",
+    placeholders: ["{{personA}}", "{{personB}}"],
+    text: SYNASTRY,
   },
   "bulk.extract": {
     key: "bulk.extract",

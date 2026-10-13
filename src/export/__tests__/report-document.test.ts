@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { buildReportDocument, parseRuns, toMarkdown, toPlainText } from "../report-document";
+import { buildReportDocument, parseRuns, toMarkdown, toPlainText, buildSynastryDocument } from "../report-document";
 import type { Chart, Report } from "../../types";
 
 const chart = {
@@ -74,4 +74,31 @@ test("plain text has no markup; the appendix appears when enabled", () => {
   assert.match(txt, /You are in a meeting when your idea lands\./);
   assert.match(txt, /CHART DATA/);
   assert.match(txt, /23°04' Pisces/);
+});
+
+test("a synastry becomes a document with both people and the reading", () => {
+  const doc = buildSynastryDocument(
+    [
+      { name: "Clara Mercer", birthLine: "12 October 1994 · London", sun: "Libra", moon: "Capricorn", asc: "Aquarius" },
+      { name: "Marc Élie", birthLine: "3 May 1992 · Lyon", sun: "Taurus" },
+    ],
+    {
+      sections: [
+        { id: "s1", heading: "At a glance", paragraphs: ["You two **build slowly**."] },
+        { id: "s2", heading: "The spark", paragraphs: ["Venus meets Mars.", "  "] },
+      ],
+    },
+  );
+  assert.equal(doc.title, "Clara Mercer & Marc Élie");
+  assert.equal(doc.fileBase, "clara-mercer-marc-elie-synastry");
+  assert.equal(doc.kindLabel, "Synastry");
+  assert.deepEqual(doc.highlights, [
+    { label: "Clara Mercer", value: "Sun Libra · Moon Capricorn · Rising Aquarius" },
+    { label: "Marc Élie", value: "Sun Taurus" },
+  ]);
+  assert.deepEqual(
+    doc.blocks.map((b) => b.type),
+    ["heading", "paragraph", "heading", "paragraph"],
+  );
+  assert.deepEqual((doc.blocks[1] as { runs: unknown[] }).runs, [{ text: "You two " }, { text: "build slowly", bold: true }, { text: "." }]);
 });

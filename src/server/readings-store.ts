@@ -55,6 +55,43 @@ export const ReadingsStore = {
     };
   },
 
+  /** A stored reading by its exact slug (synastry and other non-topic readings). */
+  async getStored(chartId: string, slug: string): Promise<Reading | null> {
+    const supabase = createSupabaseServerClient();
+    if (supabase !== null) {
+      const { data, error } = await supabase
+        .from("readings")
+        .select("reading")
+        .eq("chart_id", chartId)
+        .eq("slug", slug)
+        .maybeSingle();
+      if (error === null && data !== null) return data.reading as Reading;
+    }
+    return memory.get(chartId)?.get(slug) ?? null;
+  },
+
+  /** Every stored reading whose slug starts with `prefix` (the signed-in user's). */
+  async listStoredByPrefix(prefix: string): Promise<Reading[]> {
+    const found: Reading[] = [];
+    const supabase = createSupabaseServerClient();
+    if (supabase !== null) {
+      // "_" and "%" are LIKE wildcards: match the prefix literally.
+      const literal = prefix.replace(/[\\%_]/g, (c) => `\\${c}`);
+      const { data, error } = await supabase.from("readings").select("reading").like("slug", `${literal}%`);
+      if (error === null && data !== null) found.push(...data.map((row) => row.reading as Reading));
+    }
+    for (const byChart of memory.values()) {
+      for (const [slug, reading] of byChart) if (slug.startsWith(prefix)) found.push(reading);
+    }
+    return found;
+  },
+
+  async deleteStored(chartId: string, slug: string): Promise<void> {
+    const supabase = createSupabaseServerClient();
+    if (supabase !== null) await supabase.from("readings").delete().eq("chart_id", chartId).eq("slug", slug);
+    memory.get(chartId)?.delete(slug);
+  },
+
   /** Persist a generated reading (upsert on chart+slug). */
   async saveReading(chart: Chart, reading: Reading): Promise<{ persisted: boolean }> {
     const supabase = createSupabaseServerClient();

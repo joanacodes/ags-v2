@@ -241,6 +241,15 @@ export interface Reading {
   suggestedNext: string[];
 }
 
+/** A compatibility reading between two charts, stored under the pair's first chart. */
+export interface SynastryReading extends Reading {
+  kind: "synastry";
+  ownerChartId: string;
+  partnerChartId: string;
+  ownerName: string;
+  partnerName: string;
+}
+
 export interface ReadingProgressSummary {
   completed: number;
   total: number;

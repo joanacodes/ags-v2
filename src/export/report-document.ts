@@ -33,6 +33,8 @@ export interface ExportDocument {
   fileBase: string;
   /** PNG data URL of the chart wheel, added by the browser before rendering. */
   wheelImage?: string;
+  /** What the document is, shown on the cover; "Birth chart reading" when absent. */
+  kindLabel?: string;
 }
 
 export interface ExportOptions {
@@ -118,15 +120,58 @@ export function buildReportDocument(chart: Chart, report: Report, options: Expor
     });
   }
 
-  const fileBase =
-    `${name || "birth-chart"}-reading`
-      .normalize("NFD")
-      .replace(/[̀-ͯ]/g, "")
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "") || "birth-chart-reading";
+  const fileBase = fileSlug(`${name || "birth-chart"}-reading`, "birth-chart-reading");
 
   return { title: name || "Birth chart reading", subtitle, highlights, blocks, fileBase };
+}
+
+/** "Clara & Marc's reading" -> "clara-marc-s-reading" (safe file name). */
+function fileSlug(text: string, fallback: string): string {
+  return (
+    text
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || fallback
+  );
+}
+
+export interface SynastryPersonSummary {
+  name: string;
+  birthLine: string;
+  sun?: string;
+  moon?: string;
+  asc?: string;
+}
+
+/** A synastry reading as a document: both people, then the reading. */
+export function buildSynastryDocument(
+  people: readonly [SynastryPersonSummary, SynastryPersonSummary],
+  reading: Pick<Reading, "sections">,
+): ExportDocument {
+  const [a, b] = people;
+  const placements = (p: SynastryPersonSummary) =>
+    [p.sun && `Sun ${p.sun}`, p.moon && `Moon ${p.moon}`, p.asc && `Rising ${p.asc}`].filter(Boolean).join(" · ");
+  const blocks: Block[] = [];
+  for (const section of reading.sections ?? []) {
+    blocks.push({ type: "heading", level: 2, text: String(section.heading ?? "") });
+    for (const paragraph of section.paragraphs ?? []) {
+      const text = String(paragraph ?? "").trim();
+      if (text.length > 0) blocks.push({ type: "paragraph", runs: parseRuns(text) });
+    }
+    if (section.pullQuote !== undefined && section.pullQuote.trim().length > 0) {
+      blocks.push({ type: "quote", runs: parseRuns(section.pullQuote.trim()) });
+    }
+  }
+  return {
+    title: `${a.name} & ${b.name}`,
+    subtitle: ["Synastry: compatibility reading", ...people.map((p) => `${p.name}: ${p.birthLine}`)],
+    highlights: people.map((p) => ({ label: p.name, value: placements(p) || p.birthLine })),
+    blocks,
+    fileBase: fileSlug(`${a.name}-${b.name}-synastry`, "synastry"),
+    kindLabel: "Synastry",
+  };
 }
 
 /**
