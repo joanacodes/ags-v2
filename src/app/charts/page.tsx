@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Select } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { useCharts, useChartLibraryStats, useToggleFavourite } from "@/hooks/use-charts";
+import { useCharts, useChartLibraryStats, useChartsReadingProgress, useToggleFavourite } from "@/hooks/use-charts";
 import { cn } from "@/lib/utils";
 
 type LibraryFilter = "all" | "favourites" | "active" | "archived" | "recent";
@@ -30,6 +30,7 @@ const RECENT_LABELS = ["Today", "Yesterday", "2 days ago", "4 days ago", "1 week
 export default function BirthChartsPage() {
   const { data: charts, isLoading, isError, refetch } = useCharts();
   const { data: stats } = useChartLibraryStats();
+  const { data: readingProgress } = useChartsReadingProgress();
   const toggleFavourite = useToggleFavourite();
 
   const [filter, setFilter] = useState<LibraryFilter>("all");
@@ -237,6 +238,8 @@ export default function BirthChartsPage() {
                 commentCount={feedbackCounts?.[chart.id] ?? 0}
                 key={chart.id}
                 chart={chart}
+                readings={readingProgress?.charts[chart.id]}
+                readingsTotal={readingProgress?.total}
                 onToggleFavourite={(chartId) => toggleFavourite.mutate(chartId)}
               />
             ))}

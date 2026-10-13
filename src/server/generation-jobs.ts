@@ -49,6 +49,13 @@ export interface ChartJobsSummary {
   failed: { slug: string; title: string; error: string }[];
 }
 
+export interface ChartJobsCount {
+  queued: number;
+  /** Title of the reading being written now. */
+  running: string | null;
+  failed: number;
+}
+
 export class BackgroundUnavailableError extends Error {}
 
 const MAX_ATTEMPTS = 2;
@@ -220,15 +227,16 @@ export const GenerationJobs = {
   },
 
   /**
-   * Work through the queue until it is empty or `budgetMs` is used up
-   * (a started reading always finishes). Called by the Cloudflare timer.
+   * Work through the queue: at most `maxJobs` readings, and none started
+   * after `budgetMs` (a started reading always finishes). Called by the
+   * Cloudflare timer, which comes back every minute for the rest.
    */
-  async runQueue(budgetMs: number): Promise<{ processed: number }> {
+  async runQueue(budgetMs: number, maxJobs: number): Promise<{ processed: number }> {
     const service = createSupabaseServiceClient();
     if (service === null) return { processed: 0 };
     const startedAt = Date.now();
     let processed = 0;
-    while (Date.now() - startedAt < budgetMs) {
+    while (processed < maxJobs && Date.now() - startedAt < budgetMs) {
       const { data, error } = await service.rpc("claim_generation_job");
       if (error !== null) {
         console.error(`[jobs] claim failed: ${error.message}`);
@@ -248,7 +256,7 @@ export const GenerationJobs = {
       }
 
       const retry = failure !== null && !failure.final && job.attempts < MAX_ATTEMPTS;
-      await service
+      const { error: updateError } = await service
         .from("generation_jobs")
         .update({
           status: failure === null ? "done" : retry ? "queued" : "failed",
@@ -256,7 +264,33 @@ export const GenerationJobs = {
           finished_at: retry ? null : new Date().toISOString(),
         })
         .eq("id", job.id);
+      if (updateError !== null) {
+        // The job stays "running" until the claim function frees it (15 min).
+        console.error(`[jobs] could not record ${job.slug}: ${updateError.message}`);
+        break;
+      }
     }
     return { processed };
+  },
+
+  /** Queued, running and failed readings per chart, for the library cards. */
+  async summaryByChart(): Promise<Record<string, ChartJobsCount>> {
+    if (!backgroundConfigured()) return {};
+    const supabase = createSupabaseServerClient();
+    if (supabase === null) return {};
+    const { data, error } = await supabase
+      .from("generation_jobs")
+      .select("chart_id, slug, status")
+      .in("status", ["queued", "running", "failed"]);
+    if (error !== null) return {}; // table missing: migration not run yet
+    const byChart: Record<string, ChartJobsCount> = {};
+    for (const row of (data ?? []) as Pick<JobRow, "chart_id" | "slug" | "status">[]) {
+      if (isSynastrySlug(row.slug)) continue;
+      const counts = (byChart[row.chart_id] ??= { queued: 0, running: null, failed: 0 });
+      if (row.status === "queued") counts.queued += 1;
+      else if (row.status === "running") counts.running = titleOf(row.slug);
+      else counts.failed += 1;
+    }
+    return byChart;
   },
 };

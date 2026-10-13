@@ -10,6 +10,7 @@ export const chartKeys = {
   list: () => [...chartKeys.all, "list"] as const,
   detail: (chartId: string) => [...chartKeys.all, "detail", chartId] as const,
   stats: () => [...chartKeys.all, "stats"] as const,
+  progress: () => [...chartKeys.all, "progress"] as const,
 };
 
 export function useCharts() {
@@ -21,6 +22,19 @@ export function useChart(chartId: string) {
     queryKey: chartKeys.detail(chartId),
     queryFn: () => ChartService.getChart(chartId),
     enabled: Boolean(chartId),
+  });
+}
+
+/** Readings written per chart; refreshed every few seconds while the server is writing. */
+export function useChartsReadingProgress() {
+  return useQuery({
+    queryKey: chartKeys.progress(),
+    queryFn: ChartService.getReadingProgress,
+    refetchInterval: (query) => {
+      const charts = Object.values(query.state.data?.charts ?? {});
+      return charts.some((c) => c.queued > 0 || c.running !== null) ? 8000 : false;
+    },
+    refetchIntervalInBackground: false,
   });
 }
 
