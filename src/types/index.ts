@@ -250,6 +250,16 @@ export interface SynastryReading extends Reading {
   partnerName: string;
 }
 
+/** Per chart: topic readings written, and the server's queue for it. */
+export interface ChartsReadingProgress {
+  /** Number of topic readings per chart. */
+  total: number;
+  charts: Record<
+    string,
+    { complete: number; queued: number; running: string | null; failed: number }
+  >;
+}
+
 export interface ReadingProgressSummary {
   completed: number;
   total: number;

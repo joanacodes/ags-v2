@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Calendar, Clock3, Download, Link2, Loader2, MapPin, MessageSquareText, Star, Trash2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useQueryClient } from "@tanstack/react-query";
-import type { Chart } from "@/types";
+import type { Chart, ChartsReadingProgress } from "@/types";
 import { formatDate } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Avatar } from "@/components/ui/avatar";
@@ -15,6 +15,7 @@ import { ReportService } from "@/services/report-service";
 import { SettingsService } from "@/services/settings-service";
 import { notify } from "@/components/common/toaster";
 import { StatusBadge } from "./status-badge";
+import { ReadingsStatus } from "./readings-status";
 import { ShareDialog } from "@/components/readings/share-panel";
 import { useState } from "react";
 
@@ -22,10 +23,16 @@ export function ChartCard({
   chart,
   onToggleFavourite,
   commentCount = 0,
+  readings,
+  readingsTotal,
 }: {
   chart: Chart;
   onToggleFavourite: (chartId: string) => void;
   commentCount?: number;
+  /** Readings written and being written for this chart. */
+  readings?: ChartsReadingProgress["charts"][string];
+  /** Categories per chart (undefined while loading). */
+  readingsTotal?: number;
 }) {
   const deleteChart = useDeleteChart();
   const queryClient = useQueryClient();
@@ -124,6 +131,13 @@ export function ChartCard({
             <dd>{chart.birth.place}</dd>
           </div>
         </dl>
+        <ReadingsStatus
+          chart={chart}
+          progress={readings}
+          total={readingsTotal}
+          canGenerate={!isDemo && chart.planets.length > 0}
+          className="mt-3"
+        />
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-line pt-3">
           <span className="flex items-center gap-1.5 text-[11px] text-ink-muted">
             <Clock3 size={11} aria-hidden="true" />

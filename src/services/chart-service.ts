@@ -5,7 +5,7 @@
  * routes without any component or hook changing: same methods, same types.
  * The server merges persisted user charts (Supabase) with the demo library.
  */
-import type { Chart, ChartDraft, ChartLibraryStats } from "@/types";
+import type { Chart, ChartDraft, ChartLibraryStats, ChartsReadingProgress } from "@/types";
 import type { AiModelId } from "@/interpretation/ai-models";
 
 async function readError(response: Response): Promise<string> {
@@ -34,6 +34,28 @@ export const ChartService = {
     const response = await fetch("/api/charts?stats=1");
     if (!response.ok) throw new Error(await readError(response));
     return (await response.json()) as ChartLibraryStats;
+  },
+
+  /** Readings written (and being written) for every chart, in one call. */
+  async getReadingProgress(): Promise<ChartsReadingProgress> {
+    const response = await fetch("/api/charts?progress=1", { cache: "no-store" });
+    if (!response.ok) throw new Error(await readError(response));
+    return (await response.json()) as ChartsReadingProgress;
+  },
+
+  /**
+   * Write every missing reading of a chart on the server (the phone can be
+   * locked). False when the server isn't set up for it.
+   */
+  async generateAll(chartId: string, style: string, language: string): Promise<boolean> {
+    const response = await fetch(`/api/charts/${chartId}/jobs`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ style, language }),
+    });
+    if (response.status === 503) return false;
+    if (!response.ok) throw new Error(await readError(response));
+    return true;
   },
 
   async toggleFavourite(chartId: string): Promise<Chart> {

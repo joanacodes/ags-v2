@@ -45,6 +45,41 @@ export const ReadingsStore = {
     return all.find((r) => r.slug === slug);
   },
 
+  /**
+   * How many topic readings each of the signed-in user's charts has written,
+   * for the library cards: only the status is read, never the readings.
+   */
+  async completedByChart(): Promise<Record<string, number>> {
+    const topics = new Set(READING_DOMAINS.map((domain) => domain.slug));
+    const counts: Record<string, number> = {};
+    const count = (chartId: string, slug: string, status: unknown) => {
+      if (topics.has(slug) && status === "complete") counts[chartId] = (counts[chartId] ?? 0) + 1;
+    };
+    const supabase = createSupabaseServerClient();
+    if (supabase !== null) {
+      const PAGE = 1000; // the database's row cap per request
+      for (let from = 0; ; from += PAGE) {
+        const { data, error } = await supabase
+          .from("readings")
+          .select("chart_id, slug, status:reading->>status")
+          .order("chart_id")
+          .order("slug")
+          .range(from, from + PAGE - 1);
+        if (error !== null || data === null) break;
+        for (const row of data as { chart_id: string; slug: string; status: unknown }[]) {
+          count(row.chart_id, row.slug, row.status);
+        }
+        if (data.length < PAGE) break;
+      }
+    }
+    for (const [chartId, bySlug] of memory) {
+      if (counts[chartId] !== undefined) continue; // already counted from the database
+      for (const reading of bySlug.values()) count(chartId, reading.slug, reading.status);
+    }
+    for (const reading of demoReadings) count(DEMO_CHART_ID, reading.slug, reading.status);
+    return counts;
+  },
+
   async getProgress(chart: Chart): Promise<ReadingProgressSummary> {
     const all = await this.listReadings(chart);
     const completed = all.filter((r) => r.status === "complete").length;
