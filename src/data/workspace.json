@@ -5,17 +5,6 @@
     "workspace": "AGS",
     "plan": "Pro Workspace"
   },
-  "dashboard": {
-    "totalCharts": 42,
-    "totalChartsDelta": "+12% this week",
-    "recentReports": 8,
-    "pendingExports": 3,
-    "favourites": 12,
-    "lastReadingLabel": "2h ago",
-    "engineVersion": "Ephemeris Engine V2.4",
-    "syncLatency": "0.04ms",
-    "lastCalculationLabel": "2 hours ago"
-  },
   "transitDensity": [
     {
       "hour": 0,
@@ -113,11 +102,5 @@
       "hour": 23,
       "density": 26
     }
-  ],
-  "library": {
-    "total": 42,
-    "favourited": 12,
-    "active": 28,
-    "archived": 6
-  }
+  ]
 }

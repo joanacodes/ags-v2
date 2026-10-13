@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { ChartService } from "@/services/chart-service";
 import { notify } from "@/components/common/toaster";
@@ -36,6 +37,17 @@ export function useChartsReadingProgress() {
     },
     refetchIntervalInBackground: false,
   });
+}
+
+/** Record a visit when a chart page opens, so the library's "Last opened" is real. */
+export function useRecordChartVisit(chartId: string) {
+  const queryClient = useQueryClient();
+  useEffect(() => {
+    if (!chartId) return;
+    ChartService.markOpened(chartId)
+      .then(() => queryClient.invalidateQueries({ queryKey: chartKeys.list() }))
+      .catch(() => undefined); // not worth bothering anyone about
+  }, [chartId, queryClient]);
 }
 
 export function useChartLibraryStats() {

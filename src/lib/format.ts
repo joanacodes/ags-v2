@@ -44,3 +44,23 @@ export function ordinal(n: number): string {
   if (rem10 === 3 && rem100 !== 13) return `${n}rd`;
   return `${n}th`;
 }
+
+/**
+ * How long ago, in words: "Just now", "5 min ago", "3h ago", "Yesterday",
+ * "4 days ago", "2 weeks ago", then the date. Measured in elapsed time, so
+ * it reads the same in every time zone.
+ */
+export function formatAgo(iso: string, now: Date = new Date()): string {
+  const then = Date.parse(iso);
+  if (Number.isNaN(then)) return "";
+  const minutes = Math.max(0, Math.floor((now.getTime() - then) / 60_000));
+  if (minutes < 1) return "Just now";
+  if (minutes < 60) return `${minutes} min ago`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  if (days === 1) return "Yesterday";
+  if (days < 7) return `${days} days ago`;
+  if (days < 35) return `${Math.floor(days / 7)} week${days < 14 ? "" : "s"} ago`;
+  return DATE_FORMAT.format(new Date(then));
+}

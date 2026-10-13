@@ -1,10 +1,9 @@
 /**
- * SettingsService — workspace user, dashboard stats and report settings.
+ * SettingsService — workspace user and report settings.
  */
 import workspaceJson from "@/data/workspace.json";
 import { delay } from "@/lib/utils";
 import type {
-  DashboardStats,
   ReportSettings,
   TransitDensityPoint,
   WorkspaceUser,
@@ -12,7 +11,6 @@ import type {
 
 const workspace = workspaceJson as {
   user: WorkspaceUser;
-  dashboard: DashboardStats;
   transitDensity: TransitDensityPoint[];
 };
 
@@ -27,11 +25,6 @@ export const SettingsService = {
   async getUser(): Promise<WorkspaceUser> {
     await delay(100);
     return workspace.user;
-  },
-
-  async getDashboardStats(): Promise<DashboardStats> {
-    await delay();
-    return workspace.dashboard;
   },
 
   async getTransitDensity(): Promise<TransitDensityPoint[]> {

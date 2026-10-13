@@ -11,9 +11,31 @@ import { ReadingsStore } from "@/server/readings-store";
 import { GenerationJobs } from "@/server/generation-jobs";
 import { READING_DOMAINS } from "@/interpretation/domains";
 import { isAiModelId } from "@/interpretation/ai-models";
-import type { ChartsReadingProgress } from "@/types";
+import type { ChartLibraryStats, ChartsReadingProgress } from "@/types";
 
 export const dynamic = "force-dynamic";
+
+const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+
+/** Counts from the person's own charts and readings (the samples aren't counted). */
+async function libraryStats(): Promise<ChartLibraryStats> {
+  const [own, completed, lastReadingAt] = await Promise.all([
+    ChartsStore.listOwnCharts(),
+    ReadingsStore.completedByChart(),
+    ReadingsStore.lastWrittenAt(),
+  ]);
+  const weekAgo = Date.now() - WEEK_MS;
+  return {
+    total: own.length,
+    favourited: own.filter((c) => c.favourite).length,
+    active: own.filter((c) => c.status === "active").length,
+    archived: own.filter((c) => c.status === "archived").length,
+    addedThisWeek: own.filter((c) => Date.parse(c.createdAt) >= weekAgo).length,
+    readingsWritten: own.reduce((sum, c) => sum + (completed[c.id] ?? 0), 0),
+    chartsComplete: own.filter((c) => (completed[c.id] ?? 0) >= READING_DOMAINS.length).length,
+    lastReadingAt,
+  };
+}
 
 async function readingProgress(): Promise<ChartsReadingProgress> {
   const [completed, jobs] = await Promise.all([ReadingsStore.completedByChart(), GenerationJobs.summaryByChart()]);
@@ -33,7 +55,7 @@ export async function GET(request: Request) {
   const url = new URL(request.url);
   try {
     if (url.searchParams.get("stats") === "1") {
-      return NextResponse.json(await ChartsStore.getLibraryStats());
+      return NextResponse.json(await libraryStats());
     }
     if (url.searchParams.get("progress") === "1") {
       return NextResponse.json(await readingProgress());

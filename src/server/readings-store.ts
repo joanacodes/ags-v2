@@ -80,6 +80,19 @@ export const ReadingsStore = {
     return counts;
   },
 
+  /** When the signed-in user's latest reading was written, or null. */
+  async lastWrittenAt(): Promise<string | null> {
+    const supabase = createSupabaseServerClient();
+    if (supabase === null) return null;
+    const { data, error } = await supabase
+      .from("readings")
+      .select("updated_at")
+      .order("updated_at", { ascending: false })
+      .limit(1);
+    if (error !== null || data === null || data.length === 0) return null;
+    return (data[0] as { updated_at?: string }).updated_at ?? null;
+  },
+
   async getProgress(chart: Chart): Promise<ReadingProgressSummary> {
     const all = await this.listReadings(chart);
     const completed = all.filter((r) => r.status === "complete").length;

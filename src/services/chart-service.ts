@@ -58,6 +58,16 @@ export const ChartService = {
     return true;
   },
 
+  /** Record that the chart was opened (for "Last opened" in the library). */
+  async markOpened(chartId: string): Promise<void> {
+    const response = await fetch(`/api/charts/${chartId}`, {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ action: "opened" }),
+    });
+    if (!response.ok) throw new Error(await readError(response));
+  },
+
   async toggleFavourite(chartId: string): Promise<Chart> {
     const response = await fetch(`/api/charts/${chartId}`, {
       method: "PATCH",

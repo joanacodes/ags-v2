@@ -3,16 +3,22 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import type { Chart } from "@/types";
-import { formatDate } from "@/lib/format";
+import { formatAgo, formatDate } from "@/lib/format";
 import { Avatar } from "@/components/ui/avatar";
-import { Badge, StatusDot } from "@/components/ui/badge";
 import { StarRating } from "@/components/ui/star-rating";
 import { Skeleton } from "@/components/ui/skeleton";
 import { StatusBadge } from "@/components/library/status-badge";
 
 const COLUMNS = ["Name", "Birth Date", "Birth Place", "Confidence", "Last Viewed", "Status", ""];
 
+const SHOWN = 6;
+
+/** The charts opened most recently. */
 export function RecentChartsTable({ charts }: { charts?: Chart[] }) {
+  const recent = charts
+    ?.slice()
+    .sort((a, b) => b.lastOpenedAt.localeCompare(a.lastOpenedAt))
+    .slice(0, SHOWN);
   return (
     <div className="overflow-x-auto rounded-card border border-line bg-surface-raised shadow-card">
       <table className="w-full min-w-[760px] text-left text-sm">
@@ -34,7 +40,7 @@ export function RecentChartsTable({ charts }: { charts?: Chart[] }) {
                 </td>
               </tr>
             ))}
-          {charts?.map((chart) => (
+          {recent?.map((chart) => (
             <tr
               key={chart.id}
               className="border-b border-line transition-colors last:border-0 hover:bg-surface-overlay/40"
@@ -69,7 +75,7 @@ export function RecentChartsTable({ charts }: { charts?: Chart[] }) {
                   <span className="text-xs text-ink-muted">{chart.confidenceScore}/100</span>
                 </div>
               </td>
-              <td className="px-5 py-3.5 text-xs text-ink-secondary">{chart.lastOpenedLabel}</td>
+              <td className="px-5 py-3.5 text-xs text-ink-secondary">{formatAgo(chart.lastOpenedAt)}</td>
               <td className="px-5 py-3.5">
                 <StatusBadge status={chart.status} />
               </td>
@@ -86,32 +92,6 @@ export function RecentChartsTable({ charts }: { charts?: Chart[] }) {
           ))}
         </tbody>
       </table>
-    </div>
-  );
-}
-
-export function EngineStatusBar({
-  engineVersion,
-  syncLatency,
-  lastCalculationLabel,
-}: {
-  engineVersion: string;
-  syncLatency: string;
-  lastCalculationLabel: string;
-}) {
-  return (
-    <div className="flex flex-wrap items-center gap-x-5 gap-y-1.5 text-xs text-ink-muted">
-      <span className="flex items-center gap-2 text-accent-hover">
-        <span aria-hidden="true">⌁</span> {engineVersion}
-      </span>
-      <span className="hidden h-3 w-px bg-line-strong sm:block" aria-hidden="true" />
-      <Badge tone="success" className="border-0 bg-transparent px-0">
-        <StatusDot /> Live sync · <span className="text-ink-secondary">{syncLatency}</span>
-      </Badge>
-      <span className="hidden h-3 w-px bg-line-strong sm:block" aria-hidden="true" />
-      <span>
-        Last calc: <span className="text-ink-secondary">{lastCalculationLabel}</span>
-      </span>
     </div>
   );
 }

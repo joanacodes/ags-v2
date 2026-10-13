@@ -1,6 +1,7 @@
 /**
  * GET   /api/charts/:chartId — one chart (db, session, or demo)
- * PATCH /api/charts/:chartId — toggle favourite, set status, set AI model
+ * PATCH /api/charts/:chartId — toggle favourite, set status, set AI model,
+ *                              or "opened" (record a visit for "Last opened")
  */
 import { NextResponse } from "next/server";
 import { ChartsStore } from "@/server/charts-store";
@@ -39,6 +40,10 @@ export async function PATCH(
         );
       }
       return NextResponse.json(await ChartsStore.setAiModel(params.chartId, body.aiModel));
+    }
+    if (body.action === "opened") {
+      await ChartsStore.markOpened(params.chartId);
+      return NextResponse.json({ ok: true });
     }
     if (body.action === "set-status") {
       const status = body.status === "archived" ? "archived" : "active";

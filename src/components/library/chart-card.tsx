@@ -5,7 +5,7 @@ import { Calendar, Clock3, Download, Link2, Loader2, MapPin, MessageSquareText, 
 import { motion } from "framer-motion";
 import { useQueryClient } from "@tanstack/react-query";
 import type { Chart, ChartsReadingProgress } from "@/types";
-import { formatDate } from "@/lib/format";
+import { formatAgo, formatDate } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Avatar } from "@/components/ui/avatar";
 import { MiniWheel } from "@/components/common/mini-wheel";
@@ -141,7 +141,7 @@ export function ChartCard({
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-line pt-3">
           <span className="flex items-center gap-1.5 text-[11px] text-ink-muted">
             <Clock3 size={11} aria-hidden="true" />
-            {chart.lastOpenedLabel === "Today" ? "Opened today" : chart.lastOpenedLabel}
+            {formatAgo(chart.lastOpenedAt)}
           </span>
           {/* On narrow cards the buttons drop below the date, still on the right. */}
           <span className="ml-auto flex items-center gap-1.5">

@@ -25,7 +25,7 @@ const FILTERS: { id: LibraryFilter; label: string }[] = [
   { id: "recent", label: "Recent (7d)" },
 ];
 
-const RECENT_LABELS = ["Today", "Yesterday", "2 days ago", "4 days ago", "1 week ago"];
+const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
 export default function BirthChartsPage() {
   const { data: charts, isLoading, isError, refetch } = useCharts();
@@ -61,7 +61,7 @@ export default function BirthChartsPage() {
         case "archived":
           return chart.status === "archived";
         case "recent":
-          return RECENT_LABELS.includes(chart.lastOpenedLabel);
+          return Date.now() - Date.parse(chart.lastOpenedAt) < WEEK_MS;
         default:
           return true;
       }
