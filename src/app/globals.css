@@ -39,6 +39,8 @@ html {
   --success-soft: 150 40% 91%;
   --warning: 41 80% 31%;
   --warning-soft: 44 75% 90%;
+  /* Highlighter pen for the readee's own marks (==text==). */
+  --highlight: 52 100% 74%;
   --danger: 8 62% 45%;
   --danger-soft: 8 65% 93%;
 
@@ -78,6 +80,7 @@ html {
   --success-soft: 152 45% 10%;
   --warning: 38 92% 55%;
   --warning-soft: 38 60% 10%;
+  --highlight: 45 85% 30%;
   --danger: 0 70% 58%;
   --danger-soft: 0 55% 12%;
 

@@ -14,7 +14,7 @@ export function renderInline(text: string): React.ReactNode[] {
     }
     if (part.startsWith("==") && part.endsWith("==")) {
       return (
-        <mark key={index} className="rounded-sm bg-warning-soft px-0.5 text-ink">
+        <mark key={index} className="rounded-sm bg-highlight px-0.5 text-ink">
           {part.slice(2, -2)}
         </mark>
       );
