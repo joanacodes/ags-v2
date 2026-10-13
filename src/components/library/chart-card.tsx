@@ -1,14 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { Calendar, Clock3, Link2, MapPin, MessageSquareText, Star, Trash2 } from "lucide-react";
+import { Calendar, Clock3, Download, Link2, Loader2, MapPin, MessageSquareText, Star, Trash2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { useQueryClient } from "@tanstack/react-query";
 import type { Chart } from "@/types";
 import { formatDate } from "@/lib/format";
 import { cn } from "@/lib/utils";
 import { Avatar } from "@/components/ui/avatar";
 import { MiniWheel } from "@/components/common/mini-wheel";
 import { useDeleteChart } from "@/hooks/use-charts";
+import { reportKeys, useExportReport } from "@/hooks/use-report";
+import { ReportService } from "@/services/report-service";
+import { SettingsService } from "@/services/settings-service";
 import { notify } from "@/components/common/toaster";
 import { StatusBadge } from "./status-badge";
 import { ShareDialog } from "@/components/readings/share-panel";
@@ -24,10 +28,42 @@ export function ChartCard({
   commentCount?: number;
 }) {
   const deleteChart = useDeleteChart();
+  const queryClient = useQueryClient();
+  const exportReport = useExportReport();
+  const [preparing, setPreparing] = useState(false);
+  const downloading = preparing || exportReport.isPending;
   const [shareOpen, setShareOpen] = useState(false);
   const isDemo = chart.id.startsWith("chart-") && /^chart-[a-z]+-[a-z]+$/.test(chart.id);
 
   const archived = chart.status === "archived";
+
+  /** The same PDF as the report page's export, without opening the chart. */
+  async function downloadPdf() {
+    setPreparing(true);
+    try {
+      const [report, settings] = await Promise.all([
+        // Always fresh: readings may have been written since the last look.
+        queryClient.fetchQuery({
+          queryKey: reportKeys.detail(chart.id),
+          queryFn: () => ReportService.getReport(chart.id),
+          staleTime: 0,
+        }),
+        queryClient.fetchQuery({ queryKey: reportKeys.settings(), queryFn: SettingsService.getReportSettings }),
+      ]);
+      const hasReadings = report.sections.some(
+        (section) => section.status !== "locked" && (section.paragraphs?.length ?? 0) > 0,
+      );
+      if (!hasReadings) {
+        notify(`No readings for ${chart.person.firstName} yet: generate them first.`, "info");
+        return;
+      }
+      exportReport.mutate({ chart, report, settings, format: "pdf" });
+    } catch (error) {
+      notify(error instanceof Error ? `Download failed: ${error.message}` : "Download failed.", "info");
+    } finally {
+      setPreparing(false);
+    }
+  }
 
   return (
     <motion.article
@@ -88,12 +124,13 @@ export function ChartCard({
             <dd>{chart.birth.place}</dd>
           </div>
         </dl>
-        <div className="mt-4 flex items-center justify-between border-t border-line pt-3">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-line pt-3">
           <span className="flex items-center gap-1.5 text-[11px] text-ink-muted">
             <Clock3 size={11} aria-hidden="true" />
             {chart.lastOpenedLabel === "Today" ? "Opened today" : chart.lastOpenedLabel}
           </span>
-          <span className="flex items-center gap-1.5">
+          {/* On narrow cards the buttons drop below the date, still on the right. */}
+          <span className="ml-auto flex items-center gap-1.5">
             {commentCount > 0 && (
               <span
                 title={`${commentCount} readee comment${commentCount > 1 ? "s" : ""}`}
@@ -103,6 +140,16 @@ export function ChartCard({
                 {commentCount}
               </span>
             )}
+            <button
+              type="button"
+              aria-label={`Download ${chart.person.firstName}'s readings (PDF)`}
+              title="Download PDF"
+              disabled={downloading}
+              onClick={() => void downloadPdf()}
+              className="rounded-md border border-line p-1.5 text-ink-faint transition-colors hover:border-line-strong hover:text-accent-hover disabled:text-accent-hover"
+            >
+              {downloading ? <Loader2 size={13} className="animate-spin" /> : <Download size={13} />}
+            </button>
             {!isDemo && (
               <>
                 <button
