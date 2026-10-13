@@ -1,11 +1,14 @@
 /**
  * Save the report as PDF, Word, Markdown or plain text (browser only).
  *
- * On phones and tablets the file goes through the system share sheet
- * ("Save to Files", AirDrop, Mail…): iOS ignores normal downloads, and a
- * home-screen app can't download at all. Elsewhere it is a normal download.
+ * On iPhone and iPad the file goes through the system share sheet ("Save to
+ * Files", AirDrop, Mail…): iOS ignores normal downloads, and a home-screen
+ * app can't download at all. Everywhere else, Android included, it is a
+ * normal download that lands in Downloads (Android's share sheet has no
+ * "save" option, only apps).
  */
 import { confirmDialog } from "@/components/common/confirm-dialog";
+import { isIOS } from "@/lib/browser-env";
 import { toMarkdown, toPlainText, type ExportDocument } from "./report-document";
 
 export type DocumentFormat = "pdf" | "docx" | "md" | "txt";
@@ -28,15 +31,13 @@ function browserDownload(blob: Blob, fileName: string): void {
   window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
 }
 
-function isTouchDevice(): boolean {
-  return typeof window.matchMedia === "function" && window.matchMedia("(pointer: coarse)").matches;
-}
-
 /** Save a file the way the device supports best. */
 export async function saveFile(blob: Blob, fileName: string, title: string): Promise<void> {
   const file = new File([blob], fileName, { type: blob.type });
   const canShareFile =
-    isTouchDevice() && typeof navigator.canShare === "function" && navigator.canShare({ files: [file] });
+    isIOS(navigator.userAgent, navigator.maxTouchPoints) &&
+    typeof navigator.canShare === "function" &&
+    navigator.canShare({ files: [file] });
   if (!canShareFile) {
     browserDownload(blob, fileName);
     return;
