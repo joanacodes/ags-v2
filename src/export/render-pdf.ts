@@ -26,7 +26,7 @@ function rule(width: number, color: string): Content {
 export function toPdfDefinition(doc: ExportDocument): TDocumentDefinitions {
   const content: Content[] = [
     {
-      text: "BIRTH CHART READING",
+      text: (doc.kindLabel ?? "Birth chart reading").toUpperCase(),
       style: "eyebrow",
       margin: [0, doc.wheelImage !== undefined ? 40 : 170, 0, 14],
     },
@@ -99,7 +99,7 @@ export function toPdfDefinition(doc: ExportDocument): TDocumentDefinitions {
   }
 
   return {
-    info: { title: `${doc.title} — Birth chart reading` },
+    info: { title: `${doc.title} — ${doc.kindLabel ?? "Birth chart reading"}` },
     pageSize: "A4",
     pageMargins: [64, 64, 64, 72],
     content,

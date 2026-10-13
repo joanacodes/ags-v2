@@ -5,6 +5,7 @@
 import { NextResponse } from "next/server";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { passwordCandidates, toReadeeChart, toReadeeReading } from "@/sharing/readee";
+import { isSynastrySlug } from "@/interpretation/synastry";
 import type { Chart, Reading } from "@/types";
 
 export async function POST(
@@ -53,6 +54,8 @@ export async function POST(
   return NextResponse.json({
     person: result.person ?? "",
     chart: result.chart != null ? toReadeeChart(result.chart) : null,
-    readings: (result.readings ?? []).map(toReadeeReading),
+    // Synastry readings involve someone else's chart: never shown to a readee
+    // (the database already leaves out private "_" records; this is a backstop).
+    readings: (result.readings ?? []).filter((r) => !isSynastrySlug(r.slug)).map(toReadeeReading),
   });
 }

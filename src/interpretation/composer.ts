@@ -104,7 +104,7 @@ function tidy(text: string): string {
 }
 
 /** A record's functional description, across the pack's schema variants. */
-function describeFunction(record: KnowledgeRecord): string | undefined {
+export function describeFunction(record: KnowledgeRecord): string | undefined {
   const identity = moduleOf(record, "identity");
   const canonical = stringField(identity, "canonicalFunction");
   if (canonical !== undefined) return tidy(canonical);
@@ -121,7 +121,7 @@ function describeFunction(record: KnowledgeRecord): string | undefined {
 }
 
 /** Sign/house records -> their core domains phrase. */
-function describeDomains(record: KnowledgeRecord, max: number): string | undefined {
+export function describeDomains(record: KnowledgeRecord, max: number): string | undefined {
   const identity = moduleOf(record, "identity");
   const domains = stringList(identity, "coreDomains", max);
   return domains.length > 0 ? joinList(domains) : undefined;

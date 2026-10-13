@@ -37,13 +37,13 @@ import { formatOrb, pointContacts, type PointContact } from "./point-contacts";
 
 export const READING_ENGINE_VERSION = "reading-engine-1.0";
 
-const PLANET_GLYPHS: Readonly<Record<string, string>> = {
+export const PLANET_GLYPHS: Readonly<Record<string, string>> = {
   Sun: "☉", Moon: "☽", Mercury: "☿", Venus: "♀", Mars: "♂",
   Jupiter: "♃", Saturn: "♄", Uranus: "♅", Neptune: "♆", Pluto: "♇",
   Chiron: "⚷", Lilith: "⚸",
   ASC: "AC", MC: "MC", DC: "DC", IC: "IC",
 };
-const ASPECT_GLYPHS: Readonly<Record<string, string>> = {
+export const ASPECT_GLYPHS: Readonly<Record<string, string>> = {
   conjunction: "☌", sextile: "⚹", square: "□", trine: "△", opposition: "☍",
 };
 
@@ -200,14 +200,14 @@ export interface DeepMaterial {
   readonly supporting: readonly ComposedGroup[];
 }
 
-interface AiSection {
+export interface AiSection {
   heading: string;
   paragraphs: string[];
   example?: string;
   pullQuote?: string;
 }
 
-const LANGUAGE_NAMES: Readonly<Record<string, string>> = {
+export const LANGUAGE_NAMES: Readonly<Record<string, string>> = {
   en: "English", fr: "French", es: "Spanish", pt: "Portuguese", de: "German", it: "Italian",
 };
 
@@ -267,7 +267,7 @@ export function buildUserPrompt(
   return lines.join("\n");
 }
 
-type AiResult =
+export type AiResult =
   | { status: "ok"; sections: AiSection[]; model: string }
   | { status: "no_api_key" }
   | { status: "refused"; message: string }
@@ -300,29 +300,23 @@ function parseSections(raw: string): AiSection[] | null {
   }
 }
 
-async function callReadingAi(
-  personName: string,
-  domain: ReadingDomainDefinition,
-  groups: readonly ComposedGroup[],
-  style: string,
-  language: string,
+/**
+ * One AI call that returns reading sections (JSON), shared by the topic
+ * readings and the synastry reading. Retries once on unparseable JSON.
+ */
+export async function requestSections(
+  system: string,
+  user: string,
   model: AiModelId,
-  prompts: PromptSet,
   allowFallback: boolean,
-  deep: DeepMaterial | null = null,
+  maxTokens: number,
 ): Promise<AiResult> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (apiKey === undefined || apiKey.length === 0) return { status: "no_api_key" };
   const request = {
-    // Deep readings are two to three times longer: give them room.
-    ...modelRequestFields(model, allowFallback, deep !== null ? 32000 : 16000),
-    system: `${prompts["reading.system"]}\n\n${READING_OUTPUT_FORMAT}`,
-    messages: [
-      {
-        role: "user",
-        content: buildUserPrompt(personName, domain, groups, style, language, prompts, deep),
-      },
-    ],
+    ...modelRequestFields(model, allowFallback, maxTokens),
+    system,
+    messages: [{ role: "user", content: user }],
   };
   // One retry on invalid JSON — structure corruption is rare but cheap to absorb.
   for (let attempt = 0; attempt < 2; attempt += 1) {
@@ -355,9 +349,30 @@ async function callReadingAi(
   return { status: "provider_error", message: "Model returned unparseable reading JSON twice." };
 }
 
+async function callReadingAi(
+  personName: string,
+  domain: ReadingDomainDefinition,
+  groups: readonly ComposedGroup[],
+  style: string,
+  language: string,
+  model: AiModelId,
+  prompts: PromptSet,
+  allowFallback: boolean,
+  deep: DeepMaterial | null = null,
+): Promise<AiResult> {
+  return requestSections(
+    `${prompts["reading.system"]}\n\n${READING_OUTPUT_FORMAT}`,
+    buildUserPrompt(personName, domain, groups, style, language, prompts, deep),
+    model,
+    allowFallback,
+    // Deep readings are two to three times longer: give them room.
+    deep !== null ? 32000 : 16000,
+  );
+}
+
 /* --------------------------- reading build --------------------------- */
 
-function confidenceFromEvidence(factorCount: number, aspectCount: number) {
+export function confidenceFromEvidence(factorCount: number, aspectCount: number) {
   const evidence = factorCount + aspectCount;
   const stars = evidence >= 9 ? 5 : evidence >= 7 ? 4 : evidence >= 4 ? 3 : evidence >= 2 ? 2 : 1;
   const label =
@@ -374,7 +389,7 @@ function confidenceFromEvidence(factorCount: number, aspectCount: number) {
   };
 }
 
-function toReadingSections(sections: readonly AiSection[]): ReadingSection[] {
+export function toReadingSections(sections: readonly AiSection[]): ReadingSection[] {
   return sections.map((s, index) => ({
     id: `section-${index + 1}`,
     heading: s.heading,

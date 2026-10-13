@@ -1,23 +1,26 @@
 "use client";
 
 import Link from "next/link";
-import { FileOutput, LineChart, UserPlus, Wand2 } from "lucide-react";
+import { FileOutput, HeartHandshake, LineChart, UserPlus } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
+/** Entry point to synastry (two-person compatibility). */
 export function UpsellCard() {
   return (
     <Card className="relative overflow-hidden border-accent/30 bg-gradient-to-br from-accent-soft/60 via-surface-raised to-surface-raised p-5">
       <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-white">
-        <Wand2 size={16} />
+        <HeartHandshake size={16} />
       </span>
-      <h2 className="mt-4 text-sm font-semibold text-ink">Advanced Synastry Modules</h2>
+      <h2 className="mt-4 text-sm font-semibold text-ink">Synastry</h2>
       <p className="mt-1 text-xs leading-relaxed text-ink-secondary">
-        Unlock multi-layered relationship compatibility and transit overlays.
+        Compare two charts: attraction, the emotional bond, friction, and what helps the relationship.
       </p>
-      <Button variant="primary" size="sm" className="mt-4">
-        Upgrade Workspace
-      </Button>
+      <Link
+        href="/synastry"
+        className="mt-4 inline-flex h-8 items-center gap-1.5 rounded-lg bg-accent px-3 text-xs font-medium text-accent-foreground transition-colors hover:bg-accent-hover"
+      >
+        Start a synastry
+      </Link>
     </Card>
   );
 }
@@ -33,7 +36,7 @@ const QUICK_ACTIONS = [
     icon: LineChart,
     title: "Run Synastry Report",
     description: "Compare two charts",
-    href: "/reports",
+    href: "/synastry",
   },
   {
     icon: FileOutput,
