@@ -173,6 +173,8 @@ export interface Chart {
   summary: ChartSummary;
   status: ChartStatus;
   favourite: boolean;
+  /** "study": made by someone taking the Astro Study test (TASK-0013); absent for the library's own. */
+  origin?: "study";
   confidenceScore: number;
   createdAt: string;
   lastOpenedAt: string;

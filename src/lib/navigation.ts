@@ -1,4 +1,5 @@
 import {
+  FlaskConical,
   Gauge,
   PieChart,
   Plus,
@@ -40,6 +41,12 @@ export const NAV_ITEMS: NavItem[] = [
     href: "/charts/bulk",
     icon: Upload,
     match: (p) => p.startsWith("/charts/bulk"),
+  },
+  {
+    label: "Study",
+    href: "/study",
+    icon: FlaskConical,
+    match: (p) => p.startsWith("/study"),
   },
   {
     label: "Reports",

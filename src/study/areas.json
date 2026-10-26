@@ -1,0 +1,56 @@
+{
+  "$comment": "The Astro Study test (TASK-0013): which part of the chart each area's questions are written from, in order of preference, and the question shown above its three statements. Anchors: a planet or point as named in the chart data, an angle (ASC, MC), or a house (H1 to H12). Angles and houses need a birth time; a quiz never uses the same anchor twice. Selection configuration only: the meaning comes from the knowledge base, through the reading pipeline.",
+  "lengths": { "short": 5, "medium": 10, "long": 20 },
+  "areas": [
+    {
+      "slug": "personality",
+      "anchors": ["ASC", "Sun", "Moon"],
+      "question": { "en": "How you come across, and what drives you", "fr": "Ce que vous dégagez, et ce qui vous anime" }
+    },
+    {
+      "slug": "family",
+      "anchors": ["Moon", "Saturn", "H4"],
+      "question": { "en": "You and your family", "fr": "Vous et votre famille" }
+    },
+    {
+      "slug": "love-relationships",
+      "anchors": ["Venus", "Mars", "H7"],
+      "question": { "en": "How you love", "fr": "Votre façon d’aimer" }
+    },
+    {
+      "slug": "career",
+      "anchors": ["MC", "Saturn", "Sun"],
+      "question": { "en": "You at work", "fr": "Vous au travail" }
+    },
+    {
+      "slug": "friends-social",
+      "anchors": ["H11", "Uranus", "Venus"],
+      "question": { "en": "You with friends and in groups", "fr": "Vous avec vos amis et en groupe" }
+    },
+    {
+      "slug": "communication",
+      "anchors": ["Mercury", "H3", "H9"],
+      "question": { "en": "How you think and talk", "fr": "Votre façon de penser et de parler" }
+    },
+    {
+      "slug": "money-resources",
+      "anchors": ["H2", "Jupiter", "Venus"],
+      "question": { "en": "You and money", "fr": "Vous et l’argent" }
+    },
+    {
+      "slug": "pain-healing",
+      "anchors": ["Chiron", "Lilith", "Saturn"],
+      "question": { "en": "What hurts you, and how you heal", "fr": "Ce qui vous blesse, et comment vous guérissez" }
+    },
+    {
+      "slug": "talents",
+      "anchors": ["H5", "Jupiter", "Sun"],
+      "question": { "en": "What comes easily to you", "fr": "Ce qui vous vient facilement" }
+    },
+    {
+      "slug": "purpose-growth",
+      "anchors": ["North Node", "Jupiter", "H9"],
+      "question": { "en": "What gives your life direction", "fr": "Ce qui donne une direction à votre vie" }
+    }
+  ]
+}

@@ -19,6 +19,8 @@ Environment variables (Vercel → Project → Settings → Environment Variables
 | `FREE_ASTRO_API_KEY` | Server-side only. Chart calculation. |
 | `NEXT_PUBLIC_SUPABASE_URL` | Public by design (RLS protects the data). |
 | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | Public by design. |
+| `SUPABASE_SECRET_KEY` | Server-side only. Needed by the Astro Study test (participants have no account). |
+| `STUDY_OWNER_USER_ID` | Your Supabase user id (Supabase → Authentication → Users). The Astro Study test puts participants' charts and results in this account. |
 
 ## Cloudflare
 
@@ -36,6 +38,7 @@ GitHub → repository → Settings → Secrets and variables → Actions → New
 | `ANTHROPIC_API_KEY` | Same value as on Vercel; copied to the Worker as an encrypted secret |
 | `FREE_ASTRO_API_KEY` | Same value as on Vercel; copied to the Worker as an encrypted secret |
 | `SUPABASE_SECRET_KEY` | Supabase → Project Settings → API Keys → **Secret keys** (`sb_secret_…`, or the legacy `service_role` key). Lets the background timer write readings while the phone is locked. Never put it anywhere else. |
+| `STUDY_OWNER_USER_ID` | Same value as on Vercel: your Supabase user id, for the Astro Study test. |
 
 The workflow stops with a clear message if one of the first four is missing.
 
@@ -74,3 +77,18 @@ public).
   Add testers from Authentication → Users → Add user.
 - FormSubmit sends an "Activate Form" email after the first submission from
   the live site; until its link is clicked, submissions are not delivered.
+
+## The Astro Study test (TASK-0013)
+
+`/test` is open to everyone: a participant's chart goes into the library of the account named by
+`STUDY_OWNER_USER_ID`, and their results appear on `/study` (signed in as that account). It needs:
+
+1. the `202610260007_study.sql` migration (Supabase SQL Editor, see `supabase/README.md`);
+2. `SUPABASE_SECRET_KEY` and `STUDY_OWNER_USER_ID` on both hosts (tables above), plus
+   `ANTHROPIC_API_KEY` and `FREE_ASTRO_API_KEY` as for readings;
+3. the fake charts: on `/study`, "Prepare fake charts" (keep the page open a few minutes). Until at
+   least one is ready the test answers "not open yet".
+
+The full readings each participant gets are written by the background timer (Cloudflare), like
+"Generate all categories". Optional: `NEXT_PUBLIC_STUDY_PRIVACY_URL_EN` / `_FR` point the test's
+privacy link elsewhere than astrostudy.co.uk.

@@ -47,6 +47,70 @@ async function listDbCharts(): Promise<Chart[]> {
   return (data as ChartRow[]).map(rowToChart);
 }
 
+/** What the Create Chart wizard hands over. */
+export interface ChartDraftParts {
+  personal: NonNullable<ChartDraft["personal"]>;
+  dateTime: NonNullable<ChartDraft["dateTime"]>;
+  location: NonNullable<ChartDraft["location"]>;
+  configuration: NonNullable<ChartDraft["configuration"]>;
+}
+
+/** The wizard's draft as an uncalculated chart (status "processing"); nothing is saved. */
+export function newChartFromDraft(draft: ChartDraftParts, id: string, origin?: "study"): Chart {
+  const { personal, dateTime, location, configuration } = draft;
+  return {
+    id,
+    person: {
+      id: `person-${id}`,
+      firstName: personal.firstName,
+      lastName: personal.lastName,
+      gender: personal.gender,
+      notes: personal.notes,
+    },
+    birth: {
+      date: dateTime.birthDate,
+      time: dateTime.unknownTime ? undefined : dateTime.birthTime,
+      timeKnown: !dateTime.unknownTime,
+      place: location.birthPlace,
+      country: location.country,
+      timezone: location.timezone,
+      utcOffset: location.utcOffset ?? "UTC +0:00",
+      latitude: location.latitude ?? 0,
+      longitude: location.longitude ?? 0,
+    },
+    configuration: {
+      houseSystem: configuration.houseSystem,
+      zodiac: "Tropical",
+      ephemeris: "Swiss Ephemeris",
+      language: configuration.language,
+      aiModel: resolveAiModel(configuration.aiModel),
+    },
+    planets: [],
+    houses: [],
+    angles: [],
+    aspects: [],
+    summary: {
+      sun: { degree: 0, minute: 0, sign: "Aries", house: 1 },
+      moon: { degree: 0, minute: 0, sign: "Aries", house: 1 },
+      ascendant: { degree: 0, minute: 0, sign: "Aries" },
+      chartRuler: { planet: "Mars", position: "Pending calculation" },
+      dominantElement: "Fire",
+      dominantModality: "Cardinal",
+      dominantPlanets: [],
+      strongestHouses: [],
+      majorThemes: [],
+      insights: [],
+    },
+    status: "processing" as ChartStatus,
+    favourite: false,
+    ...(origin !== undefined ? { origin } : {}),
+    confidenceScore: 0,
+    createdAt: new Date().toISOString(),
+    lastOpenedAt: new Date().toISOString(),
+    lastOpenedLabel: "Just now",
+  };
+}
+
 export const ChartsStore = {
   /** User charts (newest first), then in-memory session charts, then demos. */
   async listCharts(): Promise<Chart[]> {
@@ -126,67 +190,15 @@ export const ChartsStore = {
    * is signed in; otherwise falls back to the in-memory session list.
    * Returns the chart plus where it was stored.
    */
-  async createChart(draft: {
-    personal: NonNullable<ChartDraft["personal"]>;
-    dateTime: NonNullable<ChartDraft["dateTime"]>;
-    location: NonNullable<ChartDraft["location"]>;
-    configuration: NonNullable<ChartDraft["configuration"]>;
-  }): Promise<{ chart: Chart; persisted: boolean; storageError?: string }> {
-    const { personal, dateTime, location, configuration } = draft;
+  async createChart(
+    draft: ChartDraftParts & { origin?: "study" },
+  ): Promise<{ chart: Chart; persisted: boolean; storageError?: string }> {
+    const { personal } = draft;
     const id = `chart-${personal.firstName}-${personal.lastName}-${Date.now()}`
       .toLowerCase()
       .replace(/\s+/g, "-");
 
-    const chart: Chart = {
-      id,
-      person: {
-        id: `person-${id}`,
-        firstName: personal.firstName,
-        lastName: personal.lastName,
-        gender: personal.gender,
-        notes: personal.notes,
-      },
-      birth: {
-        date: dateTime.birthDate,
-        time: dateTime.unknownTime ? undefined : dateTime.birthTime,
-        timeKnown: !dateTime.unknownTime,
-        place: location.birthPlace,
-        country: location.country,
-        timezone: location.timezone,
-        utcOffset: location.utcOffset ?? "UTC +0:00",
-        latitude: location.latitude ?? 0,
-        longitude: location.longitude ?? 0,
-      },
-      configuration: {
-        houseSystem: configuration.houseSystem,
-        zodiac: "Tropical",
-        ephemeris: "Swiss Ephemeris",
-        language: draft.configuration?.language,
-        aiModel: resolveAiModel(configuration.aiModel),
-      },
-      planets: [],
-      houses: [],
-      angles: [],
-      aspects: [],
-      summary: {
-        sun: { degree: 0, minute: 0, sign: "Aries", house: 1 },
-        moon: { degree: 0, minute: 0, sign: "Aries", house: 1 },
-        ascendant: { degree: 0, minute: 0, sign: "Aries" },
-        chartRuler: { planet: "Mars", position: "Pending calculation" },
-        dominantElement: "Fire",
-        dominantModality: "Cardinal",
-        dominantPlanets: [],
-        strongestHouses: [],
-        majorThemes: [],
-        insights: [],
-      },
-      status: "processing" as ChartStatus,
-      favourite: false,
-      confidenceScore: 0,
-      createdAt: new Date().toISOString(),
-      lastOpenedAt: new Date().toISOString(),
-      lastOpenedLabel: "Just now",
-    };
+    const chart = newChartFromDraft(draft, id, draft.origin);
 
     // Real calculation via FreeAstroAPI (stays "processing" when the
     // provider is not configured; "failed" on provider errors, so the UI

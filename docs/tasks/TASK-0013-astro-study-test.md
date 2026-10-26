@@ -1,8 +1,8 @@
 # TASK-0013: The Astro Study test (blind self-recognition quiz)
 
 ## Status
-Proposed 2026-10-26, waiting for the architect's OK. Phase 1 (solo test) first, phase 2 (group game)
-after it.
+Authorized by the architect, 2026-10-26. Phase 1 (solo test) implemented 2026-10-26; phase 2 (group
+game) to follow. Before first use: the migration, two variables and the fake charts (DEPLOY.md).
 
 ## Purpose
 Measure, at scale, whether people recognise their own chart when they don't know which description is
@@ -24,13 +24,18 @@ Every test adds to a dataset the architect owns, keeps and publishes from.
   readee page already shows them and offers the PDF.
 - At most 50 new tests per day (Paris day).
 - Solo test first, group game second.
+- The test runs in AGS, at `/test`. The Astro Study site links to it ("Take the test"); later,
+  `astrostudy.co.uk/test` may be routed to it by Cloudflare, a setting rather than code.
+- News: an unticked box, "Send me news from The Astro Study", stored with its date. An opt-out box is
+  not valid consent under the GDPR, and the existing-customer exception doesn't cover a free test.
+  Every news email carries an unsubscribe link.
 
 ## Phase 1 — the solo test
 
 ### Flow
 1. `/test` (public, no account, EN/FR): name or nickname, email, birth date, birth time or "unknown",
    birthplace (existing geocoder), test length; 18 or over (checked from the birth date on the day);
-   consent to take part in the study (required).
+   consent to take part in the study (required); news from The Astro Study (optional, unticked).
 2. `POST /api/study/start`: daily limit → chart created in the architect's library (owner:
    `STUDY_OWNER_USER_ID`), calculated by the existing FreeAstroAPI provider, marked as a study chart →
    quiz built (below) → session returned.
@@ -63,9 +68,13 @@ Every test adds to a dataset the architect owns, keeps and publishes from.
   1950–2007, any time, places from a list of world cities), calculated with FreeAstroAPI, then written
   with the same prompt and model as real tests, for every area, in English and French.
 - Fake charts are stored apart from the library and never appear in it.
-- The pool is 30 fake charts, the architect's number: one statement per area each, so 300 statements
-  per language. Within one quiz no decoy appears twice; when no decoy meets the length rule, the
-  closest in length is used rather than none.
+- The pool is 30 fake charts, the architect's number. Each gets a statement for every area and anchor
+  it has material for (about 30), so about 900 per language: a question's wrong answers then come from
+  statements about the same part of the chart as the right one, and two of them about different
+  placements where possible. Within one quiz no decoy appears twice; when no decoy meets the length
+  rule, the closest in length is used rather than none.
+- Preparing is one step per request (a fake chart, or one language of its statements): the Study page
+  repeats the step until the pool is ready, a few minutes, with the page open.
 
 ### Data (new migration)
 - `study_sessions`: owner, chart, readee link token, name, email, language, length, birth time known,
@@ -86,8 +95,11 @@ Every test adds to a dataset the architect owns, keeps and publishes from.
 - The library shows study charts with their mark, so they can be filtered.
 
 ### Limits and safety
-- 50 new tests per Paris day; past that, "Today's tests are full, come back tomorrow."
-- One test per email per day; a hidden honeypot field; Cloudflare Turnstile once keys exist.
+- 50 new tests per Paris day; past that, "Today's tests are full, come back tomorrow." A test takes its
+  place (status `building`) before anything is spent and the day is counted after, so starts arriving
+  together can't slip past the limit; a refused or failed test gives its place back.
+- One test per email per day (a build the server stopped half-way stops counting after five minutes); a
+  hidden honeypot field; Cloudflare Turnstile once keys exist.
 - Under 18 on the day: stopped with a message, nothing stored.
 - Deletion on request removes the chart, its readings, sessions and link.
 
@@ -95,21 +107,33 @@ Every test adds to a dataset the architect owns, keeps and publishes from.
 - New: `STUDY_OWNER_USER_ID` (the architect's Supabase user id), on Vercel and Cloudflare.
 - Existing: `ANTHROPIC_API_KEY`, `FREE_ASTRO_API_KEY`, `SUPABASE_SECRET_KEY`, the background timer.
 
-### Files (planned)
-- New: `supabase/migrations/202610260007_study.sql`; `src/study/` (pure logic: quiz assembly, decoy
-  choice, statement checks, scoring, daily limit, age) with tests; `src/server/study-store.ts`;
-  `src/app/test/page.tsx`, `src/app/test/[session]/page.tsx`; `src/app/study/page.tsx` (owner);
-  `src/app/api/study/start/route.ts`, `src/app/api/study/[session]/route.ts`,
-  `src/app/api/study/[session]/answer/route.ts`, `src/app/api/study/decoys/route.ts`,
-  `src/app/api/study/export/route.ts`.
-- Modified: `src/lib/auth-paths.ts` (public `/test`), `src/interpretation/prompts.ts` (statement
-  prompt), `src/server/generation-jobs.ts` (queue a study chart's readings without a session), the
-  sidebar (Study), `DEPLOY.md` and `supabase/README.md` (new variable, new migration).
+### Files
+- New: `supabase/migrations/202610260007_study.sql`; `src/study/quiz.ts` (pure logic: plan, anchors,
+  statement checks, wrong answers, options, score, the Paris day, age, fake birth details),
+  `src/study/areas.json`, `src/study/banned-terms.json`, `src/study/cities.json`, `src/study/copy.ts`
+  (interface words, EN/FR), `src/study/__tests__/quiz.test.ts`; `src/interpretation/study-statements.ts`
+  (material per anchor, the AI call) with its test; `src/server/study-store.ts` (tables),
+  `src/server/study-flow.ts` (start, answer, close, fake charts, overview, CSV, deletion);
+  `src/app/test/page.tsx`, `src/app/test/[session]/page.tsx`, `src/app/study/page.tsx`; routes under
+  `src/app/api/study/`: `start`, `[session]` (GET, owner DELETE), `[session]/answer`, `overview`,
+  `decoys`, `export`.
+- Modified: `src/lib/auth-paths.ts` and its test (public `/test`), `src/lib/navigation.ts` (Study),
+  `src/interpretation/prompts.ts` (`study.statements`), `src/types/index.ts` (`Chart.origin`),
+  `src/server/charts-store.ts` (`newChartFromDraft` shared with the fake charts; `createChart` takes
+  an origin), `tsconfig.test.json` (the study tests), `.github/workflows/deploy-cloudflare.yml`
+  (`STUDY_OWNER_USER_ID`), `DEPLOY.md`, `supabase/README.md`.
+- Deviation from the plan: the readings are queued by the study store directly rather than through
+  `GenerationJobs.enqueue`, which needs a signed-in user and the cron secret on the host the request
+  reaches; the jobs themselves are the same rows, written by the same Cloudflare timer.
 
-### Validation (planned)
-Unit tests: the same seed builds the same quiz; decoys never share the participant's key match; lengths
-within range; banned terms caught in EN and FR; scoring; daily limit; age on the day. Then typecheck,
-lint, build, and one live test with real keys.
+### Validation
+`npm test`: 98 passing, 21 of them new (quiz plan per length and without a birth time, no repeated
+anchor, same seed same quiz, anchor keys, banned terms in EN and FR without catching ordinary French
+words, wrong answers never sharing the participant's placement or repeating, closest-length fallback,
+options, score, the Paris day across the October clock change, age on the day, fake birth details,
+material per anchor, reading the model's answer, the prompt). `tsc --noEmit`, `next lint` and
+`next build` clean. Not run here: a live test against Supabase, FreeAstroAPI and Claude (no keys in
+this environment).
 
 ## Phase 2 — the group game (outline)
 - A host opens a room (code and QR); players join on their own phones with the same intake; the host
@@ -122,6 +146,4 @@ lint, build, and one live test with real keys.
 - Each player gets their own readee link; results join the study, marked as group.
 
 ## Open questions
-1. The address people take the test at: the AGS address (`/test`) for now, or a subdomain such as
-   `test.astrostudy.co.uk`.
-2. An optional newsletter box on the test form.
+None at authorization. The two raised in the proposal are answered under Decisions.
