@@ -55,6 +55,9 @@ interface Overview {
   }[];
 }
 
+/** The test is taken on the Astro Study site; AGS is its back end. */
+const TEST_ADDRESS = "https://astrostudy.co.uk/test/";
+
 const AREA_NAMES: Readonly<Record<string, string>> = {
   personality: "Personality",
   family: "Family",
@@ -132,7 +135,7 @@ export default function StudyPage() {
         actions={
           <div className="flex gap-2">
             <a
-              href="/test"
+              href={TEST_ADDRESS}
               target="_blank"
               rel="noopener"
               className="inline-flex h-8 items-center gap-2 rounded-lg border border-line-strong px-3 text-xs font-medium text-ink-secondary transition-colors hover:border-ink-faint hover:text-ink"

@@ -1,10 +1,11 @@
 /**
- * POST /api/study/start — someone starts the Astro Study test (TASK-0013). Public: no account.
- * Builds their chart in the owner's library and their quiz, and returns the test's id.
+ * POST /api/study/start — someone starts the Astro Study test (TASK-0013). Public: no account; called
+ * by the test page on the Astro Study site (corsHeaders). Builds their chart in the owner's library
+ * and their quiz, and returns the test's id.
  */
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { problemResponse, startTest } from "@/server/study-flow";
+import { corsHeaders, problemResponse, startTest } from "@/server/study-flow";
 
 export const maxDuration = 120;
 
@@ -16,7 +17,8 @@ const Body = z.object({
   place: z.object({
     label: z.string().trim().min(1).max(160),
     country: z.string().trim().max(80),
-    timezone: z.string().trim().min(1).max(64),
+    // The site's place search has coordinates only: AGS then finds the timezone.
+    timezone: z.string().trim().min(1).max(64).nullable().optional(),
     latitude: z.number().min(-90).max(90),
     longitude: z.number().min(-180).max(180),
   }),
@@ -29,12 +31,17 @@ const Body = z.object({
   website: z.string().max(0).optional(),
 });
 
+export function OPTIONS(request: Request) {
+  return new Response(null, { status: 204, headers: corsHeaders(request) });
+}
+
 export async function POST(request: Request) {
+  const headers = corsHeaders(request);
   const parsed = Body.safeParse(await request.json().catch(() => null));
   if (!parsed.success) {
     return NextResponse.json(
       { error: { code: "INVALID_INPUT", message: "Some details are missing or not valid." } },
-      { status: 400 },
+      { status: 400, headers },
     );
   }
   const input = parsed.data;
@@ -43,7 +50,7 @@ export async function POST(request: Request) {
     email: input.email,
     birthDate: input.birthDate,
     birthTime: input.birthTime,
-    place: input.place,
+    place: { ...input.place, timezone: input.place.timezone ?? null },
     length: input.length,
     language: input.language,
     news: input.news,
@@ -51,7 +58,7 @@ export async function POST(request: Request) {
   });
   if (!outcome.ok) {
     const { status, body } = problemResponse(outcome.problem, outcome.detail);
-    return NextResponse.json(body, { status });
+    return NextResponse.json(body, { status, headers });
   }
-  return NextResponse.json({ sessionId: outcome.value.sessionId });
+  return NextResponse.json({ sessionId: outcome.value.sessionId }, { headers });
 }

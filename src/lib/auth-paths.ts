@@ -6,16 +6,13 @@
 
 /**
  * Open to everyone: the landing page, the auth pages, the readings shared
- * with readees (/r/…), the Astro Study test (/test), Next.js internals and
- * static files. Everything else
+ * with readees (/r/…), Next.js internals and static files. Everything else
  * needs a signed-in session.
  */
 export function isPublicPath(pathname: string): boolean {
   if (pathname === "/") return true;
   if (pathname === "/auth" || pathname.startsWith("/auth/")) return true;
   if (pathname.startsWith("/r/")) return true;
-  // The Astro Study test (TASK-0013): taken without an account.
-  if (pathname === "/test" || pathname.startsWith("/test/")) return true;
   // App folders starting with "_" never route, so this is only Next.js itself.
   if (pathname.startsWith("/_")) return true;
   return /\/[^/]+\.[a-z0-9]+$/i.test(pathname);

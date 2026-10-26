@@ -24,8 +24,9 @@ Every test adds to a dataset the architect owns, keeps and publishes from.
   readee page already shows them and offers the PDF.
 - At most 50 new tests per day (Paris day).
 - Solo test first, group game second.
-- The test runs in AGS, at `/test`. The Astro Study site links to it ("Take the test"); later,
-  `astrostudy.co.uk/test` may be routed to it by Cloudflare, a setting rather than code.
+- The test is taken on the Astro Study site (`astrostudy.co.uk/test/`, `/fr/test/`), linked from its
+  menu as "Take the test"; AGS is its back end. The site's page calls AGS's public study routes, which
+  answer only pages from the site and its preview (CORS). AGS has no test pages of its own.
 - News: an unticked box, "Send me news from The Astro Study", stored with its date. An opt-out box is
   not valid consent under the GDPR, and the existing-customer exception doesn't cover a free test.
   Every news email carries an unsubscribe link.
@@ -33,14 +34,16 @@ Every test adds to a dataset the architect owns, keeps and publishes from.
 ## Phase 1 — the solo test
 
 ### Flow
-1. `/test` (public, no account, EN/FR): name or nickname, email, birth date, birth time or "unknown",
-   birthplace (existing geocoder), test length; 18 or over (checked from the birth date on the day);
-   consent to take part in the study (required); news from The Astro Study (optional, unticked).
+1. The test page on the Astro Study site (public, no account, EN/FR): name or nickname, email, birth
+   date, birth time or "unknown", birthplace (the site's own place search; AGS finds the timezone from
+   the coordinates, as the chart wizard does), test length; 18 or over (checked from the birth date on
+   the day); consent to take part in the study (required); news from The Astro Study (optional,
+   unticked).
 2. `POST /api/study/start`: daily limit → chart created in the architect's library (owner:
    `STUDY_OWNER_USER_ID`), calculated by the existing FreeAstroAPI provider, marked as a study chart →
    quiz built (below) → session returned.
-3. `/test/[session]`: one question at a time, A/B/C in random order; each answer saved as it's given, so
-   a reload resumes where it stopped.
+3. The same page, with the test's id in its address (`?s=`): one question at a time, A/B/C in random
+   order; each answer saved as it's given, so a reload resumes where it stopped.
 4. Result: "You recognised yourself in 7 of 10 (70%). Chance alone: 33%.", the areas recognised, the
    private link and its password rule, and a line saying the full reading is being written there, with
    its PDF.
@@ -104,20 +107,24 @@ Every test adds to a dataset the architect owns, keeps and publishes from.
 - Deletion on request removes the chart, its readings, sessions and link.
 
 ### Environment
-- New: `STUDY_OWNER_USER_ID` (the architect's Supabase user id), on Vercel and Cloudflare.
+- New: `STUDY_OWNER_USER_ID` (the architect's Supabase user id), on Vercel and Cloudflare. Optional:
+  `STUDY_SITE_ORIGINS`, the pages allowed to call the test routes, when the default list (the site,
+  its www address, its GitHub Pages preview) isn't right.
 - Existing: `ANTHROPIC_API_KEY`, `FREE_ASTRO_API_KEY`, `SUPABASE_SECRET_KEY`, the background timer.
 
 ### Files
 - New: `supabase/migrations/202610260007_study.sql`; `src/study/quiz.ts` (pure logic: plan, anchors,
   statement checks, wrong answers, options, score, the Paris day, age, fake birth details),
-  `src/study/areas.json`, `src/study/banned-terms.json`, `src/study/cities.json`, `src/study/copy.ts`
-  (interface words, EN/FR), `src/study/__tests__/quiz.test.ts`; `src/interpretation/study-statements.ts`
+  `src/study/areas.json`, `src/study/banned-terms.json`, `src/study/cities.json`,
+  `src/study/__tests__/quiz.test.ts`; `src/interpretation/study-statements.ts`
   (material per anchor, the AI call) with its test; `src/server/study-store.ts` (tables),
   `src/server/study-flow.ts` (start, answer, close, fake charts, overview, CSV, deletion);
-  `src/app/test/page.tsx`, `src/app/test/[session]/page.tsx`, `src/app/study/page.tsx`; routes under
+  `src/app/study/page.tsx`; routes under
   `src/app/api/study/`: `start`, `[session]` (GET, owner DELETE), `[session]/answer`, `overview`,
   `decoys`, `export`.
-- Modified: `src/lib/auth-paths.ts` and its test (public `/test`), `src/lib/navigation.ts` (Study),
+- In the Astro Study site's repository: the test page (`content/{en,fr}/test.md`, its layout and
+  partial, `assets/js/study.js`), the menu entry, the privacy section, `[params.study] api`.
+- Modified: `src/lib/navigation.ts` (Study),
   `src/interpretation/prompts.ts` (`study.statements`), `src/types/index.ts` (`Chart.origin`),
   `src/server/charts-store.ts` (`newChartFromDraft` shared with the fake charts; `createChart` takes
   an origin), `tsconfig.test.json` (the study tests), `.github/workflows/deploy-cloudflare.yml`
@@ -132,7 +139,7 @@ anchor, same seed same quiz, anchor keys, banned terms in EN and FR without catc
 words, wrong answers never sharing the participant's placement or repeating, closest-length fallback,
 options, score, the Paris day across the October clock change, age on the day, fake birth details,
 material per anchor, reading the model's answer, the prompt). `tsc --noEmit`, `next lint` and
-`next build` clean. Not run here: a live test against Supabase, FreeAstroAPI and Claude (no keys in
+`next build` clean. The routes answer the site's pages (CORS) and refuse others' cookies. Not run here: a live test against Supabase, FreeAstroAPI and Claude (no keys in
 this environment).
 
 ## Phase 2 — the group game (outline)

@@ -2,11 +2,11 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import { afterSignInPath, isPublicPath, safeNextPath } from "../auth-paths";
 
-test("only the landing page, auth pages, readee links, the study test and files are public", () => {
-  for (const path of ["/", "/auth/sign-in", "/auth/sign-up", "/auth/callback", "/r/abc123", "/test", "/test/2f1c0b7e-0000-4000-8000-000000000000", "/sky/stars.json", "/robots.txt", "/_next/webpack-hmr"]) {
+test("only the landing page, auth pages, readee links and files are public", () => {
+  for (const path of ["/", "/auth/sign-in", "/auth/sign-up", "/auth/callback", "/r/abc123", "/sky/stars.json", "/robots.txt", "/_next/webpack-hmr"]) {
     assert.equal(isPublicPath(path), true, path);
   }
-  for (const path of ["/dashboard", "/charts", "/charts/new", "/charts/chart-clara-mercer/readings/love", "/synastry", "/settings", "/reports", "/r", "/authors", "/study", "/testing"]) {
+  for (const path of ["/dashboard", "/charts", "/charts/new", "/charts/chart-clara-mercer/readings/love", "/synastry", "/settings", "/reports", "/r", "/authors"]) {
     assert.equal(isPublicPath(path), false, path);
   }
 });

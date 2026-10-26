@@ -80,15 +80,20 @@ public).
 
 ## The Astro Study test (TASK-0013)
 
-`/test` is open to everyone: a participant's chart goes into the library of the account named by
-`STUDY_OWNER_USER_ID`, and their results appear on `/study` (signed in as that account). It needs:
+The test is taken on the Astro Study site (astrostudy.co.uk/test/); AGS is its back end. The site's
+page calls the public routes `/api/study/start`, `/api/study/<id>` and `/api/study/<id>/answer`, which
+answer pages from astrostudy.co.uk, www.astrostudy.co.uk and the GitHub Pages preview
+(joanacodes.github.io). Optional: `STUDY_SITE_ORIGINS`, comma-separated, replaces that list (for
+example to add the site's workers.dev address). A participant's chart goes into the library of the
+account named by `STUDY_OWNER_USER_ID`, and their results appear on `/study` (signed in as that
+account). It needs:
 
 1. the `202610260007_study.sql` migration (Supabase SQL Editor, see `supabase/README.md`);
 2. `SUPABASE_SECRET_KEY` and `STUDY_OWNER_USER_ID` on both hosts (tables above), plus
    `ANTHROPIC_API_KEY` and `FREE_ASTRO_API_KEY` as for readings;
 3. the fake charts: on `/study`, "Prepare fake charts" (keep the page open a few minutes). Until at
-   least one is ready the test answers "not open yet".
+   least one is ready the test answers "not open yet";
+4. this app's address in the Astro Study site's `hugo.toml` (`[params.study] api`).
 
 The full readings each participant gets are written by the background timer (Cloudflare), like
-"Generate all categories". Optional: `NEXT_PUBLIC_STUDY_PRIVACY_URL_EN` / `_FR` point the test's
-privacy link elsewhere than astrostudy.co.uk.
+"Generate all categories".

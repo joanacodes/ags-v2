@@ -1,6 +1,7 @@
 /**
  * The Astro Study test (TASK-0013): what happens when someone starts a test, answers a question,
- * finishes; and how the owner prepares the fake charts. Server-side only.
+ * finishes; and how the owner prepares the fake charts. Server-side only. The test itself is taken
+ * on the Astro Study site, whose page calls the public routes here: AGS is its back end.
  *
  * Everything runs on the owner's behalf (runAsUser with the secret key), so the participant's chart
  * lands in the owner's library through the same ChartsStore as any other, and its readings are written
@@ -8,7 +9,7 @@
  */
 import { randomUUID } from "node:crypto";
 import { runAsUser } from "@/lib/supabase/server";
-import { utcOffsetLabel } from "@/lib/geo";
+import { completeMatch, utcOffsetLabel } from "@/lib/geo";
 import { ChartsStore, newChartFromDraft } from "@/server/charts-store";
 import { PromptsStore } from "@/server/prompts-store";
 import { calculateChart } from "@/server/providers/freeastroapi";
@@ -60,6 +61,7 @@ export type StudyProblem =
   | "full_today"
   | "already_today"
   | "under_18"
+  | "place_failed"
   | "chart_failed"
   | "not_ready"
   | "ai_failed"
@@ -87,7 +89,8 @@ export interface StartInput {
   readonly place: {
     readonly label: string;
     readonly country: string;
-    readonly timezone: string;
+    /** Null when the page knew only the coordinates (the Astro Study site's place search). */
+    readonly timezone: string | null;
     readonly latitude: number;
     readonly longitude: number;
   };
@@ -97,10 +100,31 @@ export interface StartInput {
   readonly source: string | null;
 }
 
-export async function startTest(input: StartInput, now: Date = new Date()): Promise<StudyOutcome<{ sessionId: string }>> {
+/** A start whose birthplace has its timezone. */
+type LocatedInput = StartInput & { readonly place: { readonly timezone: string } };
+
+/** The timezone at a birthplace, from its coordinates (Open-Meteo, as the chart wizard does). "" if unknown. */
+async function timezoneAt(latitude: number, longitude: number): Promise<string> {
+  const found = await completeMatch({
+    place: "",
+    country: "",
+    timezone: "",
+    utcOffset: "",
+    latitude,
+    longitude,
+    elevationMeters: 0,
+    needsDetails: true,
+  });
+  return found.timezone;
+}
+
+export async function startTest(started: StartInput, now: Date = new Date()): Promise<StudyOutcome<{ sessionId: string }>> {
   const ctx = studyContext();
   if (ctx === null) return problem("not_configured");
-  if (!isAdultOn(input.birthDate, dayIn(now, STUDY_TIME_ZONE))) return problem("under_18");
+  if (!isAdultOn(started.birthDate, dayIn(now, STUDY_TIME_ZONE))) return problem("under_18");
+  const timezone = started.place.timezone ?? (await timezoneAt(started.place.latitude, started.place.longitude));
+  if (timezone === "") return problem("place_failed");
+  const input: LocatedInput = { ...started, place: { ...started.place, timezone } };
   try {
     return await runAsUser(ctx.client, ctx.ownerId, async () => {
       const setup = await statementSetup();
@@ -145,7 +169,7 @@ export async function startTest(input: StartInput, now: Date = new Date()): Prom
 
 async function buildTest(
   ctx: StudyContext,
-  input: StartInput,
+  input: LocatedInput,
   setup: { system: string; version: string; model: AiModelId },
   seed: string,
   sessionId: string,
@@ -670,6 +694,7 @@ export function problemResponse(p: StudyProblem, detail?: string): { status: num
     full_today: [429, `Today's ${DAILY_LIMIT} tests are taken. Come back tomorrow.`],
     already_today: [429, "This email has already taken today's test."],
     under_18: [403, "The test is for adults, 18 and over."],
+    place_failed: [422, "That birthplace couldn't be found on the map. Pick it again from the suggestions."],
     chart_failed: [502, "The chart couldn't be calculated. Check the birth details and try again."],
     not_ready: [503, "The test isn't ready yet. Please try again later."],
     ai_failed: [502, "The questions couldn't be written just now. Please try again in a minute."],
@@ -679,6 +704,37 @@ export function problemResponse(p: StudyProblem, detail?: string): { status: num
   const [status, message] = table[p];
   if (detail !== undefined && status >= 500) console.error(`[study] ${p}: ${detail}`);
   return { status, body: { error: { code: p, message } } };
+}
+
+/**
+ * The pages allowed to run the test in a visitor's browser: the Astro Study site and its preview on
+ * GitHub Pages. STUDY_SITE_ORIGINS (comma-separated) replaces the list, e.g. to add the site's
+ * workers.dev address before its domain is set up.
+ */
+const SITE_ORIGINS = ["https://astrostudy.co.uk", "https://www.astrostudy.co.uk", "https://joanacodes.github.io"];
+
+function siteOrigins(): readonly string[] {
+  const set = (process.env.STUDY_SITE_ORIGINS ?? "")
+    .split(",")
+    .map((origin) => origin.trim().replace(/\/+$/, ""))
+    .filter((origin) => origin !== "");
+  return set.length > 0 ? set : SITE_ORIGINS;
+}
+
+/**
+ * Headers for the test's public routes: a page on one of those sites may read the answer. Nothing
+ * else crosses over: no cookies are allowed through, so the owner's routes stay out of reach.
+ */
+export function corsHeaders(request: Request): Record<string, string> {
+  const origin = request.headers.get("origin");
+  if (origin === null || !siteOrigins().includes(origin)) return { vary: "Origin" };
+  return {
+    vary: "Origin",
+    "access-control-allow-origin": origin,
+    "access-control-allow-methods": "GET, POST, OPTIONS",
+    "access-control-allow-headers": "content-type",
+    "access-control-max-age": "86400",
+  };
 }
 
 /** The view as sent to the browser, with the readee link as a full address on the host it was asked on. */
