@@ -16,7 +16,7 @@ Every test adds to a dataset the architect owns, keeps and publishes from.
 - Statements describe dynamics (what combinations do), never placements: no sign, planet, house, aspect,
   angle or point is ever named, so knowing one's chart gives no advantage.
 - One option per question comes from the participant's chart. The two others come from fake charts made
-  in advance, never from real participants.
+  in advance, never from real participants: 30 of them, no more.
 - The score is plain: questions recognised out of questions answered, beside chance (one in three).
 - Participants' charts go into the architect's library. Each participant sees only their own, through
   the existing readee link (`/r/[token]`, password: birth date as DDMMYYYY). The architect sees everything.
@@ -63,7 +63,9 @@ Every test adds to a dataset the architect owns, keeps and publishes from.
   1950–2007, any time, places from a list of world cities), calculated with FreeAstroAPI, then written
   with the same prompt and model as real tests, for every area, in English and French.
 - Fake charts are stored apart from the library and never appear in it.
-- First pool: 200 fake charts (4,000 statements per language). It can be topped up.
+- The pool is 30 fake charts, the architect's number: one statement per area each, so 300 statements
+  per language. Within one quiz no decoy appears twice; when no decoy meets the length rule, the
+  closest in length is used rather than none.
 
 ### Data (new migration)
 - `study_sessions`: owner, chart, readee link token, name, email, language, length, birth time known,
