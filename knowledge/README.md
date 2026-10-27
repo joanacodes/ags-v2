@@ -23,6 +23,8 @@ knowledge/
 │   ├── canonical_functions/  aspects/{weighting,resolution,semantic_matrix,…}
 │   ├── synthesis/  dominance/  patterns/  chart_interpretation/
 │   ├── query/  development/  temporal/  report_generator/  output/  …
+├── conventions/         # reference tables, not meanings: sign rulerships by
+│                        # tradition, station thresholds (read by grammar rules)
 ├── glossary/glossary.json
 └── _archive/conflicts/  # losing variants of 58 duplicated files (audit trail)
 ```
@@ -34,6 +36,12 @@ Each vocabulary entity has up to 12 module files. `manifest.json` splits them:
   expression, query_rules`
 - **processModules** — bookkeeping, never sent to the AI:
   `metadata, changelog, tests, reasoning`
+
+`conventions/` is the one folder that is not vocabulary: `rulerships.json`
+(which planet rules which sign, per named tradition) and `stations.json`
+(degrees per day under which a body is stationary) become `conventions/*`
+records with a `reference` module. The house-ruler and station grammar rules
+read them at setup time; they are never sent to the AI.
 
 ## How the engine uses this
 

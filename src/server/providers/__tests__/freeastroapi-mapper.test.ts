@@ -104,3 +104,16 @@ test("extra bodies map into points, not planets; vertex included", () => {
   // Chiron must NOT leak into the planets array.
   assert.ok(!chart.planets.some((p) => String(p.planet) === "Chiron"));
 });
+
+test("daily motion is kept when the provider sends it and dropped otherwise", () => {
+  const chart = mapResponseToChart(BASE, {
+    planets: [
+      { name: "Mercury", sign: "Sco", sign_id: "scorpio", pos: 15.8, house: 6, retrograde: true, speed: -0.005 },
+      { name: "Sun", sign: "Lib", sign_id: "libra", pos: 25.5, house: 5, retrograde: false },
+      { name: "Chiron", sign: "Sag", sign_id: "sagittarius", pos: 14.35, house: 6, retrograde: false, speed: 0.03 },
+    ],
+  });
+  assert.equal(chart.planets.find((p) => p.planet === "Mercury")?.speed, -0.005);
+  assert.equal("speed" in (chart.planets.find((p) => p.planet === "Sun") ?? {}), false);
+  assert.equal(chart.points?.find((p) => p.point === "Chiron")?.speed, 0.03);
+});

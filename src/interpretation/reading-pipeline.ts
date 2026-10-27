@@ -96,6 +96,17 @@ export function matchBelongsToDomain(
         angles.includes(to)
       );
     }
+    case "house_ruler_in_house": {
+      // A ruler link belongs to a domain through either house it connects;
+      // the ruler's own placement is already covered by planet_in_house.
+      const house = Number(valueOf(match, "house"));
+      const rulerHouse = Number(valueOf(match, "rulerHouse"));
+      return houses.includes(house) || houses.includes(rulerHouse);
+    }
+    case "planet_stationary": {
+      const point = String(valueOf(match, "point"));
+      return planets.includes(point) || (domain.points ?? []).includes(point);
+    }
     default:
       return false;
   }
@@ -158,6 +169,29 @@ function buildChartFactors(matches: readonly GrammarMatch[]): ChartFactorUsed[] 
         name: `House ${house} cusp in ${sign}`,
         position: sign,
         explanation: "The sign on this cusp colors how the whole house is approached.",
+      });
+    }
+    if (match.structure === "house_ruler_in_house") {
+      const house = String(valueOf(match, "house"));
+      const ruler = String(valueOf(match, "ruler"));
+      const rulerHouse = String(valueOf(match, "rulerHouse"));
+      factors.push({
+        id: match.id,
+        glyph: PLANET_GLYPHS[ruler] ?? ruler,
+        name: `House ${house} ruler ${ruler} in House ${rulerHouse}`,
+        position: `House ${rulerHouse}`,
+        explanation: "Where the function governing this house actually operates.",
+      });
+    }
+    if (match.structure === "planet_stationary") {
+      const point = String(valueOf(match, "point"));
+      const direction = String(valueOf(match, "direction"));
+      factors.push({
+        id: match.id,
+        glyph: "S",
+        name: `${point} stationary`,
+        position: direction === "retrograde" ? "Stationary retrograde" : "Stationary direct",
+        explanation: "Standing still at birth: this function is intensified and turns inward.",
       });
     }
   }
@@ -248,7 +282,8 @@ export function buildUserPrompt(
     for (const item of group.items) lines.push(`- ${item.sentence}`);
   }
   if (deep !== null && deep.contacts.length > 0) {
-    lines.push("\n## Contacts with Chiron and Lilith (measured from the chart)");
+    const sources = (domain.contactSources ?? ["Chiron", "Lilith"]).join(" and ");
+    lines.push(`\n## Contacts with ${sources} (measured from the chart)`);
     for (const c of deep.contacts) {
       lines.push(`- ${c.from} ${c.type} ${c.to} (orb ${formatOrb(c.orb)})`);
     }
@@ -406,7 +441,7 @@ function suggestedNextFor(slug: string): string[] {
   const order = [
     "personality", "communication", "love-relationships", "career",
     "family", "friends-social", "money-resources", "talents",
-    "pain-healing", "purpose-growth", "summary",
+    "pain-healing", "blockages-patterns", "purpose-growth", "summary",
   ];
   const index = order.indexOf(slug);
   const next: string[] = [];

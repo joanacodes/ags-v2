@@ -64,6 +64,8 @@ export interface PlanetPosition extends Placement {
   planet: PlanetName;
   house: number;
   retrograde?: boolean;
+  /** Daily motion in degrees per day, signed; absent on charts calculated before it was kept. */
+  speed?: number;
 }
 
 export interface House extends Placement {
@@ -83,6 +85,8 @@ export interface PointPosition extends Placement {
   /** 0 = no house placement (untimed charts). */
   house: number;
   retrograde?: boolean;
+  /** Daily motion in degrees per day, signed; absent on charts calculated before it was kept. */
+  speed?: number;
 }
 
 export interface AnglePosition extends Placement {

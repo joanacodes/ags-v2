@@ -1,0 +1,36 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "conventions/rulerships",
+  "description": "Sign rulership tables, keyed by tradition. Reference data for the house_ruler_in_house grammar rule: which planet governs which sign is a convention with a name, not a meaning, so it lives here and never in TypeScript (ADR-0002, ADR-0004). The rule reads one table per execution; `default` names the table used when the chart does not ask for another.",
+  "default": "modern",
+  "tables": {
+    "modern": {
+      "Aries": "Mars",
+      "Taurus": "Venus",
+      "Gemini": "Mercury",
+      "Cancer": "Moon",
+      "Leo": "Sun",
+      "Virgo": "Mercury",
+      "Libra": "Venus",
+      "Scorpio": "Pluto",
+      "Sagittarius": "Jupiter",
+      "Capricorn": "Saturn",
+      "Aquarius": "Uranus",
+      "Pisces": "Neptune"
+    },
+    "traditional": {
+      "Aries": "Mars",
+      "Taurus": "Venus",
+      "Gemini": "Mercury",
+      "Cancer": "Moon",
+      "Leo": "Sun",
+      "Virgo": "Mercury",
+      "Libra": "Venus",
+      "Scorpio": "Mars",
+      "Sagittarius": "Jupiter",
+      "Capricorn": "Saturn",
+      "Aquarius": "Saturn",
+      "Pisces": "Jupiter"
+    }
+  }
+}

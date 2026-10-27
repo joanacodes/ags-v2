@@ -15,6 +15,7 @@ const DOMAIN_SUBTITLES: Record<string, string> = {
   communication: "Mind & language",
   "money-resources": "Resources & value",
   "pain-healing": "Shadow & growth",
+  "blockages-patterns": "Delays & what repeats",
   talents: "Gifts & strengths",
   "purpose-growth": "Soul direction",
   summary: "Full synthesis",
@@ -24,6 +25,7 @@ const DOMAIN_SHORT_TITLES: Record<string, string> = {
   "love-relationships": "Love",
   "friends-social": "Friends",
   "money-resources": "Money",
+  "blockages-patterns": "Blockages",
   talents: "Talents",
 };
 
