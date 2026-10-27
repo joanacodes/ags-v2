@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { BookOpenText, FilePlus2, HeartHandshake, Settings2, Upload, LoaderCircle, Link2 } from "lucide-react";
+import { BookOpenText, FilePlus2, HeartHandshake, Settings2, Upload, LoaderCircle, Link2, RefreshCw } from "lucide-react";
 import { AppShell } from "@/components/layout/app-shell";
 import { PageHeader } from "@/components/layout/page-header";
 import { ProgressPanel } from "@/components/layout/progress-panel";
@@ -38,6 +38,7 @@ import { GenerateAllCard } from "@/components/readings/generate-all-button";
 import { PRIMARY_CHART_ID } from "@/lib/navigation";
 import { useReadingProgress, useReadings } from "@/hooks/use-readings";
 import { formatBirthMoment } from "@/lib/format";
+import { notify } from "@/components/common/toaster";
 
 export default function ChartOverviewPage() {
   const params = useParams<{ chartId: string }>();
@@ -227,6 +228,37 @@ export default function ChartOverviewPage() {
                   <Badge>{chart.configuration.zodiac} Zodiac</Badge>
                   <Badge>{chart.configuration.ephemeris}</Badge>
                 </div>
+                {/* Pending charts have "Calculate now" in the wheel card. Archived charts
+                    are hidden here because a recalculation sets the status back to active. */}
+                {!isDemo && !isPending && chart.status !== "archived" && (
+                  <div className="mt-3">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      disabled={calculate.isPending}
+                      onClick={() => {
+                        if (
+                          !window.confirm(
+                            "Recalculate this chart from its birth data? Positions are refreshed; saved readings stay as they are until you regenerate them.",
+                          )
+                        ) {
+                          return;
+                        }
+                        calculate.mutate(undefined, {
+                          onSuccess: () => notify("Chart recalculated."),
+                          onError: (err) =>
+                            notify(
+                              err instanceof Error ? `Recalculation failed: ${err.message}` : "Recalculation failed.",
+                              "info",
+                            ),
+                        });
+                      }}
+                    >
+                      <RefreshCw size={13} className={calculate.isPending ? "animate-spin" : undefined} />
+                      {calculate.isPending ? "Recalculating…" : "Recalculate"}
+                    </Button>
+                  </div>
+                )}
               </div>
               {!isDemo && (
                 <div className="w-full sm:ml-auto sm:w-56">

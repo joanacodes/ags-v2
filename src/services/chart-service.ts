@@ -78,7 +78,7 @@ export const ChartService = {
     return (await response.json()) as Chart;
   },
 
-  /** (Re)run the real ephemeris calculation for a pending/failed chart. */
+  /** (Re)run the real ephemeris calculation: pending, failed, or to refresh a calculated chart. */
   async calculateChart(chartId: string): Promise<Chart> {
     const response = await fetch(`/api/charts/${chartId}/calculate`, { method: "POST" });
     if (!response.ok) throw new Error(await readError(response));
