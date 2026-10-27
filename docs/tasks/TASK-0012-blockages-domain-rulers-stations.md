@@ -55,6 +55,16 @@ base (house 12 "notInherent", South Node "doesNotMean", nodal axis
    pairs are skipped.
 9. **UI**: lock icon, grid subtitle and short title.
 
+## Addendum (2026-10-27): recap first
+The reading opens with five short sections before the detail: Recap, Your
+strengths, Your challenges, How to use your strengths, Solutions to your
+challenges. Strengths and their uses, challenges and their solutions are
+paired by the same bold label and order. The block (`RECAP_FIRST` in
+`prompts.ts`) overrides the base rules for those sections only: no story,
+no mechanics lesson, no pull quote, and it replaces 'At a glance'. It is a
+prompt change, so it shows on the reading page, the shared link and the
+exports alike; existing readings need regenerating.
+
 ## Decisions recorded
 - Rulership is reference data with a tradition label, never a table in the
   engine's TypeScript (ADR-0002, ADR-0004). The provider keeps its own modern
