@@ -18523,6 +18523,66 @@
     }
    }
   },
+  "conventions/rulerships": {
+   "id": "conventions/rulerships",
+   "category": "conventions",
+   "entity": "rulerships",
+   "modules": {
+    "reference": {
+     "default": "modern",
+     "tables": {
+      "modern": {
+       "Aries": "Mars",
+       "Taurus": "Venus",
+       "Gemini": "Mercury",
+       "Cancer": "Moon",
+       "Leo": "Sun",
+       "Virgo": "Mercury",
+       "Libra": "Venus",
+       "Scorpio": "Pluto",
+       "Sagittarius": "Jupiter",
+       "Capricorn": "Saturn",
+       "Aquarius": "Uranus",
+       "Pisces": "Neptune"
+      },
+      "traditional": {
+       "Aries": "Mars",
+       "Taurus": "Venus",
+       "Gemini": "Mercury",
+       "Cancer": "Moon",
+       "Leo": "Sun",
+       "Virgo": "Mercury",
+       "Libra": "Venus",
+       "Scorpio": "Mars",
+       "Sagittarius": "Jupiter",
+       "Capricorn": "Saturn",
+       "Aquarius": "Saturn",
+       "Pisces": "Jupiter"
+      }
+     }
+    }
+   }
+  },
+  "conventions/stations": {
+   "id": "conventions/stations",
+   "category": "conventions",
+   "entity": "stations",
+   "modules": {
+    "reference": {
+     "thresholds": {
+      "Mercury": 0.14,
+      "Venus": 0.12,
+      "Mars": 0.05,
+      "Jupiter": 0.008,
+      "Saturn": 0.003,
+      "Uranus": 0.0012,
+      "Neptune": 0.0006,
+      "Pluto": 0.0004,
+      "Chiron": 0.002
+     }
+    }
+   }
+  },
   "conditions/dignity": {
    "id": "conditions/dignity",
    "category": "conditions",

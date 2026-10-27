@@ -53,6 +53,8 @@ const GROUP_TITLES: Readonly<Record<string, string>> = {
   point_in_sign: "Points in Signs",
   point_in_house: "Points in Houses",
   planet_retrograde: "Retrograde Motion",
+  planet_stationary: "Stationary Motion",
+  house_ruler_in_house: "House Rulers",
   planet_aspect_planet: "Aspects",
   angle_in_sign: "Angles",
   house_cusp_in_sign: "House Cusps",
@@ -64,8 +66,10 @@ const GROUP_ORDER: readonly string[] = [
   "point_in_sign",
   "point_in_house",
   "planet_retrograde",
+  "planet_stationary",
   "angle_in_sign",
   "house_cusp_in_sign",
+  "house_ruler_in_house",
   "planet_aspect_planet",
 ];
 
@@ -255,6 +259,40 @@ function composeOne(
       if (fn !== undefined) text += ` — ${point} ${fn}`;
       text += `; in retrograde motion it ${cond}`;
       return sentence(`${point} retrograde`, `${text}.`);
+    }
+    case "house_ruler_in_house": {
+      const house = valueStr(match, "house");
+      const ruler = valueStr(match, "ruler");
+      const rulerHouse = valueStr(match, "rulerHouse");
+      const rulerSign = valueStr(match, "rulerSign");
+      const tradition = valueStr(match, "tradition");
+      // Both houses are referenced; the prefix lookup would return only the first.
+      const houseRec = byId.get(`houses/house_${house}`);
+      const rulerHouseRec = byId.get(`houses/house_${rulerHouse}`);
+      const planetRec = record("planets/");
+      const ctx = houseRec ? describeDomains(houseRec, 3) : undefined;
+      const fn = planetRec ? describeFunction(planetRec) : undefined;
+      const where = rulerHouseRec ? describeDomains(rulerHouseRec, 3) : undefined;
+      if (ctx === undefined && fn === undefined && where === undefined) return incomplete();
+      let text = `${ruler} rules House ${house} (${tradition} rulership) and sits in House ${rulerHouse} in ${rulerSign}`;
+      if (ctx !== undefined) text += ` — matters of ${ctx} are carried by ${ruler}`;
+      if (fn !== undefined) text += `, which ${fn}`;
+      if (house === rulerHouse) text += `; it operates in its own house`;
+      else if (where !== undefined) text += `; they play out in the context of ${where}`;
+      return sentence(`House ${house} ruler ${ruler} in House ${rulerHouse}`, `${text}.`);
+    }
+    case "planet_stationary": {
+      const point = valueStr(match, "point");
+      const direction = valueStr(match, "direction");
+      const bodyRec = record("planets/") ?? record("points/");
+      const conditionRec = record("conditions/");
+      const fn = bodyRec ? describeFunction(bodyRec) : undefined;
+      const cond = conditionRec ? describeFunction(conditionRec) : undefined;
+      if (cond === undefined) return incomplete();
+      let text = `${point} stationary at birth, ${direction}`;
+      if (fn !== undefined) text += ` — ${point} ${fn}`;
+      text += `; standing still it ${cond}`;
+      return sentence(`${point} stationary`, `${text}.`);
     }
     default:
       diagnostics.push({

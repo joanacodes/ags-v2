@@ -35,6 +35,8 @@ interface FaPlanet {
   pos?: number;
   house?: number;
   retrograde?: boolean;
+  /** Degrees per day, signed (include_speed). */
+  speed?: number;
 }
 interface FaHouse {
   house?: number;
@@ -175,6 +177,8 @@ export function mapResponseToChart(base: Chart, response: FaResponse): Chart {
       // 0 = no house placement (untimed charts omit houses per the API docs).
       house: typeof p.house === "number" && p.house >= 1 && p.house <= 12 ? p.house : 0,
       retrograde: p.retrograde === true,
+      // Kept only when numeric: the station rule must never guess a speed.
+      ...(typeof p.speed === "number" ? { speed: p.speed } : {}),
     });
   }
 
@@ -241,6 +245,8 @@ export function mapResponseToChart(base: Chart, response: FaResponse): Chart {
       minute,
       house: typeof p.house === "number" && p.house >= 1 && p.house <= 12 ? p.house : 0,
       retrograde: p.retrograde === true,
+      // Kept only when numeric: the station rule must never guess a speed.
+      ...(typeof p.speed === "number" ? { speed: p.speed } : {}),
     });
   }
   const vertexDetails = response.angles_details?.vertex;

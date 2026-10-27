@@ -51,6 +51,13 @@ npm start          # serve the production build
    them. Requires `ANTHROPIC_API_KEY` in `.env.local` (server-side only);
    without it the UI shows a clear "not configured" notice.
 
+The natal rules detect planet-in-sign, planet-in-house, aspects, angles,
+cusps, extra points and retrograde motion, plus two structures that read
+their tables from the pack instead of code: **house rulers**
+(`conventions/rulerships`, modern by default, traditional shipped) and
+**stationary planets** (`conventions/stations`, one tenth of mean daily
+motion). A pack without those records makes the rules report a diagnostic.
+
 Regenerate the pack after editing `knowledge/`:
 
 ```bash

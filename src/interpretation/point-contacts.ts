@@ -1,10 +1,11 @@
 /**
- * Aspects to Chiron and Lilith, computed from the chart's own positions.
+ * Aspects to Chiron, Lilith and the nodes, computed from the chart's own
+ * positions.
  *
  * The astrology provider only returns aspects between planets and angles,
  * so the contacts that matter most for the deep readings (Chiron square
- * Moon, Lilith conjunct Venus…) are measured here from ecliptic longitudes.
- * Deterministic and pure — unit-tested.
+ * Moon, Lilith conjunct Venus, Saturn conjunct the South Node…) are measured
+ * here from ecliptic longitudes. Deterministic and pure — unit-tested.
  */
 import type { AspectType, Chart, Placement } from "../types";
 
@@ -50,10 +51,12 @@ export function pointContacts(
     ...chart.angles
       .filter((a) => a.point === "ASC" || a.point === "MC")
       .map((a) => ({ name: a.point as string, at: longitude(a) })),
+    // Chiron and Lilith are always targets; a node is only in play when asked for.
     ...(chart.points ?? [])
-      .filter((p) => p.point === "Chiron" || p.point === "Lilith")
+      .filter((p) => p.point === "Chiron" || p.point === "Lilith" || sources.includes(p.point))
       .map((p) => ({ name: p.point as string, at: longitude(p) })),
   ];
+  const isNode = (name: string): boolean => name === "North Node" || name === "South Node";
   const contacts: PointContact[] = [];
   const seen = new Set<string>();
   for (const source of sources) {
@@ -61,6 +64,8 @@ export function pointContacts(
     if (from === undefined) continue;
     for (const target of bodies) {
       if (target.name === from.name) continue;
+      // The nodes always oppose each other; that is the axis, not a contact.
+      if (isNode(from.name) && isNode(target.name)) continue;
       const pair = [from.name, target.name].sort().join("|");
       if (seen.has(pair)) continue;
       let distance = Math.abs(from.at - target.at) % 360;

@@ -53,3 +53,13 @@ test("facts carry JSON-compatible normalized values", () => {
     point: "Venus", sign: "Virgo", house: 7, degree: 14, minute: 22, retrograde: false,
   });
 });
+
+test("daily motion is carried only when the chart has it", () => {
+  const withSpeed = {
+    ...CHART,
+    planets: [{ ...CHART.planets[0], speed: -0.005 }, CHART.planets[1]],
+  } as Chart;
+  const input = normalizeChart(withSpeed);
+  assert.equal(input.facts[0].values.speed, -0.005);
+  assert.equal("speed" in input.facts[1].values, false);
+});
