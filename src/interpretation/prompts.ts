@@ -19,6 +19,7 @@ export const PROMPT_KEYS = [
   "reading.deep.pain-healing",
   "reading.deep.love-relationships",
   "reading.deep.blockages-patterns",
+  "reading.recap",
   "synastry.reading",
   "bulk.extract",
 ] as const;
@@ -193,30 +194,6 @@ const DEEP_LOVE = [
   "points — openings, never guaranteed events.",
 ].join("\n");
 
-/**
- * A recap block for long deep readings: the whole picture in five short
- * sections before the detail, so a reader on a phone gets the answer first.
- * It overrides the base rules that would otherwise apply to every section
- * (the 'At a glance' heading, a story in each section, the section count).
- */
-const RECAP_FIRST = [
-  "RECAP FIRST — the reader wants the whole picture before the detail. Open with these",
-  "five short sections, in this order, with these headings (translated into the output",
-  "language). The first one replaces 'At a glance'.",
-  "R1. 'Recap' — 3-4 plain sentences: the main pattern, why it happens, and the way through.",
-  "R2. 'Your strengths' — 3 to 5 paragraphs, one strength each, one sentence, opening with",
-  "    a short bold label and naming its factor: '**Quiet discipline.** Saturn in Taurus…'.",
-  "R3. 'Your challenges' — 3 to 5 paragraphs in the same form, one challenge each.",
-  "R4. 'How to use your strengths' — one paragraph per strength, in the same order and",
-  "    with the same bold label: one concrete thing to do in the coming weeks.",
-  "R5. 'Solutions to your challenges' — one paragraph per challenge, in the same order",
-  "    and with the same bold label: one concrete fix.",
-  "The five recap sections have NO story, NO mechanics lesson and NO pull quote: one or",
-  "two sentences per paragraph, nothing else. They use only factors present in the",
-  "material. The detailed sections after them expand on the recap; do not repeat its",
-  "wording. The section count becomes the five recap sections plus the detailed ones.",
-].join("\n");
-
 const DEEP_BLOCKAGES = [
   DEEP_COMMON,
   "",
@@ -229,10 +206,10 @@ const DEEP_BLOCKAGES = [
   "to this person. Every pattern is a structure they were born into or a habit they can",
   "observe, name and change. If the person uses that vocabulary, translate it into",
   "attention, timing and exposure.",
-  "",
-  RECAP_FIRST,
-  "",
-  "Then the detailed sections, in this order (adapt the headings, keep the substance):",
+  "NO 'At a glance' and no summary section in this reading: a recap is written separately,",
+  "once the reading is finished, from what you write here. This replaces the base rule that",
+  "the first section is 'At a glance'. Start directly with section 1.",
+  "Sections, in this order (adapt the headings, keep the substance):",
   "1. What was there before you — the inherited structure: Saturn's sign, house and aspects,",
   "   the 4th house and IC, the 8th house, the South Node (familiar, over-practised ground)",
   "   with the North Node (the direction out), and the rulers of those houses where they",
@@ -262,6 +239,33 @@ const DEEP_BLOCKAGES = [
   "House rulers and stationary planets are listed as plain structural facts: interpret a ruler",
   "from the meaning of both houses and of the planet, and a station as that function standing",
   "still and intensified at birth.",
+].join("\n");
+
+/**
+ * The recap pass: a second call, made after the reading is written, that
+ * reads the finished text and writes the five sections placed at its top.
+ * Writing it last means it summarises what the reading actually says, not
+ * what the writer meant to say.
+ */
+const RECAP = [
+  "You write the recap that opens a long astrology reading. The reading is already",
+  "finished; you receive all of it. Write exactly five sections, in this order, with these",
+  "headings translated into the output language:",
+  "1. 'Recap' — 3-4 plain sentences: the main pattern, why it happens, and the way through.",
+  "2. 'Your strengths' — 3 to 5 paragraphs, one strength each, one sentence, opening with a",
+  "   short bold label and naming the chart factor the reading ties it to:",
+  "   '**Quiet discipline.** Saturn in Taurus lets you…'.",
+  "3. 'Your challenges' — 3 to 5 paragraphs in the same form, one challenge each.",
+  "4. 'How to use your strengths' — one paragraph per strength, in the same order and with",
+  "   the same bold label: one concrete thing to do in the coming weeks.",
+  "5. 'Solutions to your challenges' — one paragraph per challenge, in the same order and",
+  "   with the same bold label: one concrete fix.",
+  "Rules:",
+  "- Use only what the reading says: no placement, meaning, claim or advice that is not in",
+  "  it. Every factor you name appears in the reading.",
+  "- No stories, no mechanics lessons, no pull quotes: one or two sentences per paragraph.",
+  "- Second person, warm and direct, plain words.",
+  "- Keep the reading's limits: a word or idea the reading avoids, you avoid too.",
 ].join("\n");
 
 const SYNASTRY = [
@@ -391,6 +395,14 @@ export const PROMPT_DEFINITIONS: Readonly<Record<PromptKey, PromptDefinition>> =
     description: "Structure of the Blockages & Repeating Patterns reading.",
     placeholders: [],
     text: DEEP_BLOCKAGES,
+  },
+  "reading.recap": {
+    key: "reading.recap",
+    label: "Recap — written after the reading",
+    description:
+      "Second pass on readings that have a recap (Blockages & Repeating Patterns): reads the finished reading and writes the recap, strengths, challenges, how to use the strengths and solutions placed at its top. Runs on Claude Fable 5.1 at extra-high effort.",
+    placeholders: [],
+    text: RECAP,
   },
   "synastry.reading": {
     key: "synastry.reading",

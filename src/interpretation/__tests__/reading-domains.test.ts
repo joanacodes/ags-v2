@@ -26,6 +26,8 @@ test("blockages domain takes rulers linked to houses 3/4/8/12 and stationary pla
   assert.ok(blockages);
   assert.equal(blockages.deep, true);
   assert.deepEqual(blockages.contactSources, ["Chiron", "Lilith", "South Node"]);
+  assert.equal(blockages.recap, true);
+  assert.deepEqual(READING_DOMAINS.filter((d) => d.recap === true).map((d) => d.slug), ["blockages-patterns"]);
   assert.equal(matchBelongsToDomain(match("house_ruler_in_house", { house: 3, ruler: "Sun", rulerHouse: 5 }), blockages), true);
   assert.equal(matchBelongsToDomain(match("house_ruler_in_house", { house: 7, ruler: "Jupiter", rulerHouse: 12 }), blockages), true);
   assert.equal(matchBelongsToDomain(match("house_ruler_in_house", { house: 5, ruler: "Venus", rulerHouse: 6 }), blockages), false);

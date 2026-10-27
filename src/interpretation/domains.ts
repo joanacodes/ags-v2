@@ -35,6 +35,11 @@ export interface ReadingDomainDefinition {
   readonly deep?: boolean;
   /** Points whose aspects are measured from the chart's positions. */
   readonly contactSources?: readonly string[];
+  /**
+   * Recap written after the reading, by a second call that reads the finished
+   * text (prompt `reading.recap`), and placed at its top.
+   */
+  readonly recap?: boolean;
 }
 
 export const READING_DOMAINS: readonly ReadingDomainDefinition[] = [
@@ -157,6 +162,7 @@ export const READING_DOMAINS: readonly ReadingDomainDefinition[] = [
     deep: true,
     // The South Node stands for the axis: a contact to it is the opposition to the North Node.
     contactSources: ["Chiron", "Lilith", "South Node"],
+    recap: true,
   },
   {
     slug: "talents",

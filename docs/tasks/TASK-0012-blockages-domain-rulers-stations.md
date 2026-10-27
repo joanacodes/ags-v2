@@ -55,15 +55,21 @@ base (house 12 "notInherent", South Node "doesNotMean", nodal axis
    pairs are skipped.
 9. **UI**: lock icon, grid subtitle and short title.
 
-## Addendum (2026-10-27): recap first
-The reading opens with five short sections before the detail: Recap, Your
-strengths, Your challenges, How to use your strengths, Solutions to your
-challenges. Strengths and their uses, challenges and their solutions are
-paired by the same bold label and order. The block (`RECAP_FIRST` in
-`prompts.ts`) overrides the base rules for those sections only: no story,
-no mechanics lesson, no pull quote, and it replaces 'At a glance'. It is a
-prompt change, so it shows on the reading page, the shared link and the
-exports alike; existing readings need regenerating.
+## Addendum (2026-10-27): recap written after the reading
+Readings flagged `recap` in `domains.ts` (Blockages & Repeating Patterns)
+are written in two calls. The first writes the reading with the chart's
+model, without an 'At a glance' section. The second, once the reading
+exists, sends the finished text to Claude Fable 5.1 at `effort: "xhigh"`
+(`RECAP_MODEL`, `RECAP_EFFORT` in `reading-pipeline.ts`) with the prompt
+`reading.recap` (editable in Settings), and its five sections are placed
+on top: Recap, Your strengths, Your challenges, How to use your strengths,
+Solutions to your challenges. Uses and solutions repeat the bold label of
+the strength or challenge they answer. `modelRequestFields` takes the
+effort as a parameter (default unchanged, "medium").
+If the recap call fails or returns other than five sections, the reading is
+still saved and its top section says the recap could not be written and
+why; regenerating tries again. Generation takes longer by the length of the
+recap call; the background job route allows 800 s.
 
 ## Decisions recorded
 - Rulership is reference data with a tradition label, never a table in the

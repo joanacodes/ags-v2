@@ -24,6 +24,7 @@ import {
   modelRequestFields,
   readMessagesResponse,
   resolveAiModel,
+  type AiEffort,
   type AiModelId,
 } from "./ai-models";
 import {
@@ -345,11 +346,12 @@ export async function requestSections(
   model: AiModelId,
   allowFallback: boolean,
   maxTokens: number,
+  effort: AiEffort = "medium",
 ): Promise<AiResult> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (apiKey === undefined || apiKey.length === 0) return { status: "no_api_key" };
   const request = {
-    ...modelRequestFields(model, allowFallback, maxTokens),
+    ...modelRequestFields(model, allowFallback, maxTokens, effort),
     system,
     messages: [{ role: "user", content: user }],
   };
@@ -402,6 +404,86 @@ async function callReadingAi(
     allowFallback,
     // Deep readings are two to three times longer: give them room.
     deep !== null ? 32000 : 16000,
+  );
+}
+
+/* ---------------------------- recap pass ----------------------------- */
+
+/**
+ * The recap is always written by Claude Fable 5.1 at extra-high effort,
+ * whatever model the chart uses for its readings: it is short, it sits at
+ * the top where every reader starts, and it has to condense the whole
+ * reading faithfully.
+ */
+export const RECAP_MODEL: AiModelId = "claude-fable-5-1";
+export const RECAP_EFFORT: AiEffort = "xhigh";
+const RECAP_SECTION_COUNT = 5;
+
+/** The finished reading, as the recap writer reads it. */
+export function buildRecapUserPrompt(
+  personName: string,
+  domainTitle: string,
+  language: string,
+  sections: readonly AiSection[],
+): string {
+  const langName = LANGUAGE_NAMES[language] ?? "English";
+  const lines: string[] = [
+    `Reading: ${domainTitle}`,
+    `Subject: ${personName}`,
+    `OUTPUT LANGUAGE: write every heading and paragraph in ${langName}.`,
+    "",
+    "THE FINISHED READING:",
+  ];
+  for (const section of sections) {
+    lines.push("", `## ${section.heading}`);
+    for (const paragraph of section.paragraphs) lines.push(paragraph);
+    if (section.pullQuote !== undefined) lines.push(`> ${section.pullQuote}`);
+  }
+  return lines.join("\n");
+}
+
+/**
+ * The reading with its recap on top. A failed recap never costs the reading:
+ * the reading is kept and the top section says the recap is missing and why,
+ * so the gap is visible instead of silent.
+ */
+export function withRecap(reading: readonly AiSection[], recap: AiResult): AiSection[] {
+  if (recap.status === "ok" && recap.sections.length === RECAP_SECTION_COUNT) {
+    return [...recap.sections, ...reading];
+  }
+  const reason =
+    recap.status === "ok"
+      ? `expected ${RECAP_SECTION_COUNT} recap sections, got ${recap.sections.length}`
+      : recap.status === "no_api_key"
+        ? "no API key configured"
+        : recap.message;
+  return [
+    {
+      heading: "Recap",
+      paragraphs: [
+        `The recap could not be written this time (${reason}). The full reading follows; regenerate it to try the recap again.`,
+      ],
+    },
+    ...reading,
+  ];
+}
+
+async function callRecapAi(
+  personName: string,
+  domain: ReadingDomainDefinition,
+  language: string,
+  sections: readonly AiSection[],
+  prompts: PromptSet,
+  allowFallback: boolean,
+): Promise<AiResult> {
+  return requestSections(
+    `${prompts["reading.recap"]}\n\n${READING_OUTPUT_FORMAT}`,
+    buildRecapUserPrompt(personName, domain.title, language, sections),
+    RECAP_MODEL,
+    allowFallback,
+    // The recap is short; the room is for extra-high-effort thinking.
+    32000,
+    RECAP_EFFORT,
   );
 }
 
@@ -496,6 +578,8 @@ export async function generateDomainReading(
 
   const personName = `${chart.person.firstName} ${chart.person.lastName}`.trim();
   const model = resolveAiModel(chart.configuration.aiModel);
+  const prompts = options.prompts ?? defaultPrompts();
+  const allowFallback = options.allowFallback ?? false;
   const ai = await callReadingAi(
     personName,
     domain,
@@ -503,11 +587,20 @@ export async function generateDomainReading(
     style,
     language,
     model,
-    options.prompts ?? defaultPrompts(),
-    options.allowFallback ?? false,
+    prompts,
+    allowFallback,
     deep,
   );
   if (ai.status !== "ok") return ai;
+
+  // Second pass, only once the whole reading exists: the recap reads it.
+  const sections =
+    domain.recap === true
+      ? withRecap(
+          ai.sections,
+          await callRecapAi(personName, domain, language, ai.sections, prompts, allowFallback),
+        )
+      : ai.sections;
 
   const factors = buildChartFactors(domainMatches);
   const aspects = [...buildRelevantAspects(domainMatches), ...contactAspects(deep?.contacts ?? [])];
@@ -527,7 +620,7 @@ export async function generateDomainReading(
     confidence: confidenceFromEvidence(factors.length, aspects.length),
     chartFactors: factors,
     relevantAspects: aspects,
-    sections: toReadingSections(ai.sections),
+    sections: toReadingSections(sections),
     suggestedNext: suggestedNextFor(slug),
   };
   return { status: "ok", reading };
