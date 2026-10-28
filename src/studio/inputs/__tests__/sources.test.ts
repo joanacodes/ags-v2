@@ -21,10 +21,12 @@ test("front matter is read; drafts, legal pages and the order flow are skipped",
     "content/en/privacy.md": '---\ntitle: "Privacy"\n---\n',
     "content/fr/astrology/chiron.md": '---\ntitle: "Chiron"\nslug: "chiron"\n---\n',
   };
+  const asked: string[] = [];
   const fake = (async (input: string | URL | Request) => {
     const url = String(input);
+    asked.push(url);
     if (url.includes("/git/trees/")) return Response.json({ tree: Object.keys(files).map((path) => ({ path, type: "blob" })) });
-    const path = decodeURIComponent(url.split("/contents/")[1] ?? "");
+    const path = decodeURIComponent(url.split("/HEAD/")[1] ?? "");
     return files[path] ? new Response(files[path]) : new Response("", { status: 404 });
   }) as typeof fetch;
   const rows = await readSite(site, null, fake);
@@ -32,4 +34,7 @@ test("front matter is read; drafts, legal pages and the order flow are skipped",
     ["en", "https://astrostudy.co.uk/astrology/chiron/", "Chiron", "The wounded healer", "astrology"],
     ["fr", "https://astrostudy.co.uk/fr/astrology/chiron/", "Chiron", null, "astrology"],
   ]);
+  // One API call lists the files; every page comes from raw.githubusercontent.com, outside the API's limit.
+  assert.equal(asked.filter((u) => u.startsWith("https://api.github.com/")).length, 1);
+  assert.ok(asked.filter((u) => !u.includes("/git/trees/")).every((u) => u.startsWith("https://raw.githubusercontent.com/joanacodes/astrostudy/HEAD/")));
 });

@@ -42,6 +42,9 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       FREE_ASTRO_API_KEY: ${{ secrets.FREE_ASTRO_API_KEY }}
       STUDY_OWNER_USER_ID: ${{ secrets.STUDY_OWNER_USER_ID }}
+      # The workflow's own token, made by GitHub for each run: the site job lists the public site
+      # repositories with it (a higher rate limit than none); nothing to set.
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       # Off (dry run) until the owner sets this Actions variable to true, as well as STUDIO_LIVE on Vercel.
       STUDIO_LIVE: ${{ vars.STUDIO_LIVE }}
       # Inputs reach the shell through the environment, never pasted into the script.

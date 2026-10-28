@@ -1,8 +1,12 @@
 /**
  * The sites as idea material: every published page of The Astro Study (and Maison Tarot, off by
- * default) read from its repository through GitHub's API, its title and description kept with its
- * address. The strategist reads the week's new encyclopaedia entries from here; nothing is copied
- * into a post, and only The Astro Study's own pages are ever linked.
+ * default) read from its repository, its title and description kept with its address. The strategist
+ * reads the week's new encyclopaedia entries from here; nothing is copied into a post, and only The
+ * Astro Study's own pages are ever linked.
+ *
+ * Both repositories are public, so no token of the owner's is needed: one call to GitHub's API lists
+ * the files (with the workflow's own GITHUB_TOKEN when there is one, for its higher rate limit), and
+ * each page comes from raw.githubusercontent.com, which the API's hourly limit doesn't count.
  */
 import { parse as parseYaml } from "yaml";
 import type { AgentContext } from "../agents/context";
@@ -62,13 +66,13 @@ export async function readSite(site: SiteConfig, token: string | null, fetchImpl
   const headers: Record<string, string> = { Accept: "application/vnd.github+json", "User-Agent": "the-astro-study-studio", "X-GitHub-Api-Version": "2022-11-28" };
   if (token) headers["Authorization"] = `Bearer ${token}`;
   const tree = await fetchImpl(`https://api.github.com/repos/${site.repo}/git/trees/HEAD?recursive=1`, { headers });
-  if (!tree.ok) throw new Error(`GitHub answered ${tree.status} for ${site.repo}${tree.status === 404 ? " (a private repository needs STUDIO_SOURCES_TOKEN)" : ""}`);
+  if (!tree.ok) throw new Error(`GitHub answered ${tree.status} for ${site.repo}${tree.status === 404 ? " (a private repository needs STUDIO_SOURCES_TOKEN with Contents: read)" : ""}`);
   const list = ((await tree.json()) as { tree?: { path: string; type: string }[] }).tree ?? [];
   const out: NewSource[] = [];
   for (const language of ["en", "fr"] as const) {
     const dir = `${site.dirs[language]}/`;
     for (const file of list.filter((f) => f.type === "blob" && f.path.startsWith(dir) && f.path.endsWith(".md") && !SKIP.test(f.path))) {
-      const res = await fetchImpl(`https://api.github.com/repos/${site.repo}/contents/${file.path.split("/").map(encodeURIComponent).join("/")}`, { headers: { ...headers, Accept: "application/vnd.github.raw+json" } });
+      const res = await fetchImpl(`https://raw.githubusercontent.com/${site.repo}/HEAD/${file.path.split("/").map(encodeURIComponent).join("/")}`, { headers: token ? { Authorization: `Bearer ${token}` } : {} });
       if (!res.ok) continue;
       const fm = frontMatter(await res.text());
       if (!fm || fm.draft === true || !fm.title) continue;
@@ -92,7 +96,9 @@ export async function runSources(ctx: AgentContext, opts: { fetchImpl?: typeof f
   return withRun(store, { agent: "sources", trigger: ctx.trigger }, async (log) => {
     const wanted = Object.entries(settings.get("input-site").sites).filter(([, on]) => on).map(([key]) => key);
     if (wanted.length === 0) throw new SkipRun("skipped", "no site is turned on in Settings");
-    const token = (process.env.STUDIO_SOURCES_TOKEN ?? "").trim() || null;
+    // Optional: a private repository needs a token of its own; a public one reads fine with the
+    // workflow's GITHUB_TOKEN or with none.
+    const token = (process.env.STUDIO_SOURCES_TOKEN ?? "").trim() || (process.env.GITHUB_TOKEN ?? "").trim() || null;
     let total = 0;
     for (const key of wanted) {
       const site = SITES[key];
