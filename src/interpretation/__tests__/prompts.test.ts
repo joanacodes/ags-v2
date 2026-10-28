@@ -30,3 +30,21 @@ test("placeholders and style keys", () => {
   assert.equal(styleKey("poetic"), "reading.style.poetic");
   assert.equal(styleKey("anything"), "reading.style.conversational");
 });
+
+test("the recap prompt asks for five sections in order, grounded in the finished reading", () => {
+  const text = defaultPrompts()["reading.recap"];
+  const order = ["'Recap'", "'Your strengths'", "'Your challenges'", "'How to use your strengths'", "'Solutions to your challenges'"]
+    .map((heading) => text.indexOf(heading));
+  assert.ok(order.every((index) => index >= 0), "all five recap headings are asked for");
+  assert.deepEqual([...order].sort((a, b) => a - b), order, "in this order");
+  assert.match(text, /already\s+finished/);
+  assert.match(text, /only what the reading says/);
+  assert.match(text, /No stories/);
+});
+
+test("the blockages reading leaves the summary to the recap pass", () => {
+  const text = defaultPrompts()["reading.deep.blockages-patterns"];
+  assert.match(text, /NO 'At a glance'/);
+  assert.doesNotMatch(text, /'Your strengths'/);
+  assert.ok(text.indexOf("1. What was there before you") > 0);
+});

@@ -18,6 +18,8 @@ export const PROMPT_KEYS = [
   "temporal.instructions",
   "reading.deep.pain-healing",
   "reading.deep.love-relationships",
+  "reading.deep.blockages-patterns",
+  "reading.recap",
   "synastry.reading",
   "bulk.extract",
   "study.statements",
@@ -193,6 +195,80 @@ const DEEP_LOVE = [
   "points — openings, never guaranteed events.",
 ].join("\n");
 
+const DEEP_BLOCKAGES = [
+  DEEP_COMMON,
+  "",
+  "BLOCKAGES & REPEATING PATTERNS — what slows this person down, what comes back, and",
+  "what stays out of sight. Saturn, the lunar nodes, Chiron, Lilith, Pluto, Neptune and",
+  "houses 3, 4, 8 and 12 are the heart of this reading; Mercury and the house rulers carry",
+  "the speech and the inheritance threads.",
+  "ABSOLUTE RULES for this reading: never use the words curse, karma, past life, evil eye,",
+  "black magic, fate or destiny, and never say or imply that another person did something",
+  "to this person. Every pattern is a structure they were born into or a habit they can",
+  "observe, name and change. If the person uses that vocabulary, translate it into",
+  "attention, timing and exposure.",
+  "NO 'At a glance' and no summary section in this reading: a recap is written separately,",
+  "once the reading is finished, from what you write here. This replaces the base rule that",
+  "the first section is 'At a glance'. Start directly with section 1.",
+  "Sections, in this order (adapt the headings, keep the substance):",
+  "1. What was there before you — the inherited structure: Saturn's sign, house and aspects,",
+  "   the 4th house and IC, the 8th house, the South Node (familiar, over-practised ground)",
+  "   with the North Node (the direction out), and the rulers of those houses where they",
+  "   appear in the material. Describe rules the person acts from without knowing why.",
+  "2. Where it slows down — the delay mechanism: Saturn's contacts to the personal planets,",
+  "   stationary or retrograde planets (functions that turn inward or stand still), and the",
+  "   house rulers that sit in the 6th, 8th or 12th. Timing, not verdict: 'later' is not 'never'.",
+  "3. Speaking too soon — the cost of exposure: Mercury's condition and aspects, the 3rd house",
+  "   and its ruler, Pluto's need to control before exposing, Neptune's blur. Explain why plans",
+  "   said aloud before they are ready tend to dissolve for this chart, and what to do instead",
+  "   (share results, not intentions).",
+  "4. What stays out of sight — the 12th house and its ruler, Neptune's and Pluto's contacts,",
+  "   the feeling of being stuck with something that has no name, and how to give it one.",
+  "5. What repeats — the loop between these factors: triggers, defences, the situations and",
+  "   people that re-open it, and the family-shaped roles it keeps recreating.",
+  "6. What helps — from the SUPPORTING material: the resources in this chart, each tied to its",
+  "   factor, with concrete practices.",
+  "7. The check that is not astrology — ask the person to keep a one-month log: what they",
+  "   announced and what happened, and the good things they did not announce. Say plainly that",
+  "   if the two lists look alike, the pattern is attention, not causation. Add one sentence",
+  "   that a stuck or low feeling most days deserves a doctor or therapist alongside any reading.",
+  "8. If you work with it and if you avoid it — the favourable results (chosen structure, timing",
+  "   that serves, words that land) and the less favourable ones (hiding, over-control,",
+  "   repetition). Tendencies, never fate; always show the way back.",
+  "9. Practical guidance — 4 to 6 concrete steps for the coming months, including when to",
+  "   speak and when to keep working in private.",
+  "House rulers and stationary planets are listed as plain structural facts: interpret a ruler",
+  "from the meaning of both houses and of the planet, and a station as that function standing",
+  "still and intensified at birth.",
+].join("\n");
+
+/**
+ * The recap pass: a second call, made after the reading is written, that
+ * reads the finished text and writes the five sections placed at its top.
+ * Writing it last means it summarises what the reading actually says, not
+ * what the writer meant to say.
+ */
+const RECAP = [
+  "You write the recap that opens a long astrology reading. The reading is already",
+  "finished; you receive all of it. Write exactly five sections, in this order, with these",
+  "headings translated into the output language:",
+  "1. 'Recap' — 3-4 plain sentences: the main pattern, why it happens, and the way through.",
+  "2. 'Your strengths' — 3 to 5 paragraphs, one strength each, one sentence, opening with a",
+  "   short bold label and naming the chart factor the reading ties it to:",
+  "   '**Quiet discipline.** Saturn in Taurus lets you…'.",
+  "3. 'Your challenges' — 3 to 5 paragraphs in the same form, one challenge each.",
+  "4. 'How to use your strengths' — one paragraph per strength, in the same order and with",
+  "   the same bold label: one concrete thing to do in the coming weeks.",
+  "5. 'Solutions to your challenges' — one paragraph per challenge, in the same order and",
+  "   with the same bold label: one concrete fix.",
+  "Rules:",
+  "- Use only what the reading says: no placement, meaning, claim or advice that is not in",
+  "  it. Every factor you name appears in the reading.",
+  "- No stories, no mechanics lessons, no pull quotes: one or two sentences per paragraph.",
+  "- Second person, warm and direct, plain words.",
+  "- Keep the reading's limits: a word or idea the reading avoids, you avoid too.",
+].join("\n");
+
 const SYNASTRY = [
   "SYNASTRY — the relationship between {{personA}} and {{personB}}.",
   "This replaces the 4-to-6-section limit of the main instructions. Write 9 to 11",
@@ -328,6 +404,21 @@ export const PROMPT_DEFINITIONS: Readonly<Record<PromptKey, PromptDefinition>> =
     description: "Structure of the Love & Relationships reading.",
     placeholders: [],
     text: DEEP_LOVE,
+  },
+  "reading.deep.blockages-patterns": {
+    key: "reading.deep.blockages-patterns",
+    label: "Deep reading — Blockages & Repeating Patterns",
+    description: "Structure of the Blockages & Repeating Patterns reading.",
+    placeholders: [],
+    text: DEEP_BLOCKAGES,
+  },
+  "reading.recap": {
+    key: "reading.recap",
+    label: "Recap — written after the reading",
+    description:
+      "Second pass on readings that have a recap (Blockages & Repeating Patterns): reads the finished reading and writes the recap, strengths, challenges, how to use the strengths and solutions placed at its top. Runs on Claude Fable 5.1 at extra-high effort.",
+    placeholders: [],
+    text: RECAP,
   },
   "synastry.reading": {
     key: "synastry.reading",

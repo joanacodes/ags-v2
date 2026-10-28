@@ -3,3 +3,11 @@ export type { KnowledgeRecord, KnowledgePack, KnowledgeResolution, KnowledgeErro
 export { KnowledgeError, InvalidPackError, DuplicateRecordError } from "./types";
 export { KnowledgeRegistry } from "./registry";
 export { coreKnowledgePack, createCoreKnowledgeRegistry } from "./pack-loader";
+export {
+  loadRulershipTable,
+  loadStationThresholds,
+  RULERSHIPS_KEY,
+  STATIONS_KEY,
+  type RulershipTable,
+  type StationThresholds,
+} from "./conventions";

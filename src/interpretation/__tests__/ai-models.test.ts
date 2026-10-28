@@ -49,3 +49,10 @@ test("response reader keeps text, reports the serving model, and surfaces refusa
   assert.equal(refused.ok, false);
   assert.equal(!refused.ok && refused.refused, true);
 });
+
+test("effort defaults to medium and can be raised per call", () => {
+  assert.deepEqual(modelRequestFields("claude-sonnet-5-5").output_config, { effort: "medium" });
+  const recap = modelRequestFields("claude-fable-5-1", false, 32000, "xhigh");
+  assert.deepEqual(recap.output_config, { effort: "xhigh" });
+  assert.equal(recap.max_tokens, 32000);
+});

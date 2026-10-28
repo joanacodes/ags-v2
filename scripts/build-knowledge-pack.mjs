@@ -58,6 +58,26 @@ for (const category of readdirSync(VOCAB).sort()) {
   }
 }
 
+// Reference conventions (sign rulerships, station thresholds) become
+// "conventions/<name>" records with a single `reference` module. They are
+// tables the grammar rules read at setup time, never prompt material.
+try {
+  const convDir = join(ROOT, "knowledge", "conventions");
+  for (const file of readdirSync(convDir).sort()) {
+    if (!file.endsWith(".json")) continue;
+    const parsed = JSON.parse(readFileSync(join(convDir, file), "utf8"));
+    const name = file.replace(/\.json$/, "");
+    const key = `conventions/${name}`;
+    if (parsed?.id !== key) throw new Error(`${file}: id must be "${key}"`);
+    const { $schemaVersion, id, description, ...reference } = parsed;
+    void $schemaVersion; void id; void description;
+    records[key] = { id: key, category: "conventions", entity: name, modules: { reference } };
+  }
+} catch (error) {
+  // The folder is optional (older checkouts); a broken file is not.
+  if (error?.code !== "ENOENT") throw error;
+}
+
 // Engine condition semantics (retrograde, station, …) become grounding
 // records under "conditions/<name>".
 try {

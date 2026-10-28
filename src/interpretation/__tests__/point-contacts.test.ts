@@ -53,3 +53,25 @@ test("pain and love are deep readings with their own editable prompt", () => {
   assert.match(defaultPrompts()["reading.deep.pain-healing"], /Saturn[\s\S]*Chiron[\s\S]*Lilith/);
   assert.match(defaultPrompts()["reading.deep.pain-healing"], /less favourable/);
 });
+
+test("a node can be a source when asked for; node-to-node is never a contact", () => {
+  const nodes = {
+    planets: [{ planet: "Saturn", sign: "Capricorn", degree: 21, minute: 0, house: 8 }],
+    angles: [],
+    points: [
+      { point: "North Node", sign: "Cancer", degree: 19, minute: 38, house: 2 },
+      { point: "South Node", sign: "Capricorn", degree: 19, minute: 38, house: 8 },
+      { point: "Lilith", sign: "Capricorn", degree: 24, minute: 47, house: 8 },
+    ],
+  } as unknown as Pick<Chart, "planets" | "angles" | "points">;
+  const both = pointContacts(nodes, ["South Node", "North Node"]).map((c) => `${c.from} ${c.type} ${c.to}`);
+  assert.deepEqual(both.sort(), [
+    "North Node opposition Lilith",
+    "North Node opposition Saturn",
+    "South Node conjunction Lilith",
+    "South Node conjunction Saturn",
+  ]);
+  // A node that is not a source is not a target either.
+  const lilithOnly = pointContacts(nodes, ["Lilith"]).map((c) => `${c.from} ${c.type} ${c.to}`);
+  assert.deepEqual(lilithOnly, ["Lilith conjunction Saturn"]);
+});

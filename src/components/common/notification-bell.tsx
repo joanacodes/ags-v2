@@ -5,7 +5,7 @@
  * activity (ratings and comments). "Read" state is the last time the
  * panel was opened, remembered per browser.
  */
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { Bell, MessageSquareText, Star } from "lucide-react";
@@ -22,11 +22,35 @@ interface NotificationItem {
 }
 
 const SEEN_KEY = "ags:notifications:lastSeen";
+const PANEL_WIDTH = 320;
+/** Space kept between the panel and the screen edge. */
+const GUTTER = 12;
+
+/**
+ * Where the panel goes, relative to the bell. Right-aligned to the bell
+ * when there is room; otherwise slid back inside the screen. On a phone
+ * the header actions wrap and the bell can sit mid-row, so a fixed
+ * right-0 anchor pushed the panel off the left edge.
+ */
+function panelPlacement(anchor: DOMRect, viewportWidth: number): { left: number; width: number } {
+  const width = Math.min(PANEL_WIDTH, viewportWidth - GUTTER * 2);
+  const preferred = anchor.right - width;
+  const left = Math.min(Math.max(preferred, GUTTER), viewportWidth - GUTTER - width);
+  return { left: left - anchor.left, width };
+}
 
 export function NotificationBell() {
   const [open, setOpen] = useState(false);
   const [lastSeen, setLastSeen] = useState<number>(0);
+  const [placement, setPlacement] = useState<{ left: number; width: number } | null>(null);
   const panelRef = useRef<HTMLDivElement | null>(null);
+
+  const place = useCallback(() => {
+    if (panelRef.current === null) return;
+    setPlacement(
+      panelPlacement(panelRef.current.getBoundingClientRect(), document.documentElement.clientWidth),
+    );
+  }, []);
 
   useEffect(() => {
     setLastSeen(Number(window.localStorage.getItem(SEEN_KEY) ?? 0));
@@ -54,11 +78,17 @@ export function NotificationBell() {
       }
     };
     window.addEventListener("pointerdown", close);
-    return () => window.removeEventListener("pointerdown", close);
-  }, [open]);
+    // Rotating the phone or resizing the window moves the bell.
+    window.addEventListener("resize", place);
+    return () => {
+      window.removeEventListener("pointerdown", close);
+      window.removeEventListener("resize", place);
+    };
+  }, [open, place]);
 
   const openPanel = () => {
     const next = !open;
+    if (next) place();
     setOpen(next);
     if (next) {
       const now = Date.now();
@@ -84,7 +114,10 @@ export function NotificationBell() {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-11 z-50 w-80 max-w-[calc(100vw-2rem)] rounded-xl border border-line bg-surface-raised shadow-pop">
+        <div
+          className="absolute top-11 z-50 rounded-xl border border-line bg-surface-raised shadow-pop"
+          style={placement ?? { right: 0, width: PANEL_WIDTH }}
+        >
           <p className="border-b border-line px-4 py-2.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-faint">
             Readee activity
           </p>

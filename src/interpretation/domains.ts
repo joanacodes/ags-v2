@@ -35,6 +35,11 @@ export interface ReadingDomainDefinition {
   readonly deep?: boolean;
   /** Points whose aspects are measured from the chart's positions. */
   readonly contactSources?: readonly string[];
+  /**
+   * Recap written after the reading, by a second call that reads the finished
+   * text (prompt `reading.recap`), and placed at its top.
+   */
+  readonly recap?: boolean;
 }
 
 export const READING_DOMAINS: readonly ReadingDomainDefinition[] = [
@@ -141,6 +146,23 @@ export const READING_DOMAINS: readonly ReadingDomainDefinition[] = [
     points: ["Chiron", "Lilith"],
     deep: true,
     contactSources: ["Chiron", "Lilith"],
+  },
+  {
+    slug: "blockages-patterns",
+    title: "Blockages & Repeating Patterns",
+    shortTitle: "Blockages",
+    icon: "lock",
+    description:
+      "What slows you down and comes back — inherited structure, the cost of speaking too soon, and what stays out of sight: Saturn, the nodes and houses 4, 8 and 12, read as patterns, never as fate.",
+    estimatedMinutes: 35,
+    planets: ["Saturn", "Mercury", "Pluto", "Neptune", "Moon"],
+    houses: [3, 4, 8, 12],
+    angles: ["IC"],
+    points: ["North Node", "South Node", "Chiron", "Lilith"],
+    deep: true,
+    // The South Node stands for the axis: a contact to it is the opposition to the North Node.
+    contactSources: ["Chiron", "Lilith", "South Node"],
+    recap: true,
   },
   {
     slug: "talents",

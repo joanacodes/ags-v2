@@ -66,10 +66,15 @@ export function anthropicHeaders(apiKey: string, allowFallback = false): Record<
   return headers;
 }
 
+/** Thinking depth accepted by `output_config.effort` on the current models. */
+export type AiEffort = "low" | "medium" | "high" | "xhigh" | "max";
+
 /**
  * Model-specific request fields shared by every AI call.
- * - `effort: "medium"`: these models always think before answering; medium
- *   keeps latency inside the route timeouts (Opus 5.5 already defaults to it).
+ * - `effort` defaults to "medium": these models always think before
+ *   answering, and medium keeps latency inside the route timeouts (Opus 5.5
+ *   already defaults to it). A caller raises it only where depth is worth
+ *   the wait, e.g. the recap pass at "xhigh".
  * - `max_tokens` leaves room for thinking on top of the written output.
  * - `fallbacks: "default"` only once the user has agreed: if the chosen
  *   model declines again, the API re-runs the request on Anthropic's
@@ -79,16 +84,17 @@ export function modelRequestFields(
   model: AiModelId,
   allowFallback = false,
   maxTokens = 16000,
+  effort: AiEffort = "medium",
 ): {
   model: AiModelId;
   max_tokens: number;
-  output_config: { effort: "medium" };
+  output_config: { effort: AiEffort };
   fallbacks?: "default";
 } {
   return {
     model,
     max_tokens: maxTokens,
-    output_config: { effort: "medium" },
+    output_config: { effort },
     ...(allowFallback ? { fallbacks: "default" as const } : {}),
   };
 }

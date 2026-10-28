@@ -4,6 +4,7 @@ import {
   Compass,
   Heart,
   Home,
+  Lock,
   MessageCircle,
   ScrollText,
   Sprout,
@@ -16,6 +17,7 @@ import {
 const ICONS: Record<string, LucideIcon> = {
   user: User,
   home: Home,
+  lock: Lock,
   heart: Heart,
   briefcase: Briefcase,
   users: Users,

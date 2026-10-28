@@ -27,6 +27,8 @@ export function normalizeChart(chart: Chart): NormalizedGrammarInput {
         degree: planet.degree,
         minute: planet.minute,
         retrograde: planet.retrograde === true,
+        // Omitted rather than null when unknown, so older charts normalize unchanged.
+        ...(typeof planet.speed === "number" ? { speed: planet.speed } : {}),
       },
     });
   }
@@ -42,6 +44,7 @@ export function normalizeChart(chart: Chart): NormalizedGrammarInput {
         degree: point.degree,
         minute: point.minute,
         retrograde: point.retrograde === true,
+        ...(typeof point.speed === "number" ? { speed: point.speed } : {}),
       },
     });
   }
