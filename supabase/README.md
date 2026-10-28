@@ -30,3 +30,10 @@ every AI call uses the defaults.
 Run `migrations/202610130006_generation_jobs.sql` once (SQL Editor), and add
 the `SUPABASE_SECRET_KEY` GitHub secret (DEPLOY.md). Until both are done,
 "Generate all categories" writes the readings from the browser page.
+
+## The Astro Study test
+
+Run `migrations/202610260007_study.sql` once (SQL Editor). It adds the test's tables (sessions,
+questions, fake charts and their statements, all readable by their owner only, written by the server),
+a service-only function that makes a participant's readee link, and lets a chart's last name be empty
+(a nickname is one word). DEPLOY.md lists the variables the test needs.

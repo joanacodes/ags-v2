@@ -1,0 +1,58 @@
+# The render worker: pictures and videos for approved pieces, nightly from the tick and on demand from
+# the Video studio. It needs Chromium (the templates) and ffmpeg (the compositing), so it is apart.
+name: studio-render
+run-name: "studio · render (${{ inputs.trigger }})"
+
+on:
+  workflow_dispatch:
+    inputs:
+      worker:
+        description: Always render
+        required: false
+        default: render
+      post_ids:
+        description: Pieces, comma-separated (empty = every approved piece without media)
+        required: false
+        default: ""
+      trigger:
+        description: Who asked (tick, dispatch)
+        required: false
+        default: dispatch
+
+permissions:
+  contents: read
+
+concurrency:
+  group: studio-render
+  cancel-in-progress: false
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    # AGS's own secrets; the voice key and the rest come from Supabase Vault (Settings → Keys).
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      STUDY_OWNER_USER_ID: ${{ secrets.STUDY_OWNER_USER_ID }}
+      POSTS: ${{ inputs.post_ids }}
+      STUDIO_TRIGGER: ${{ inputs.trigger }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Chromium (cached by Playwright's version)
+        id: pw
+        run: echo "version=$(node -p "require('playwright/package.json').version")" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ steps.pw.outputs.version }}
+      - run: npx playwright install --with-deps chromium
+      - name: Render
+        run: npm run studio:worker -- render --posts "$POSTS"

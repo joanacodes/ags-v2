@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>sky-this-week</title>
+<link rel="stylesheet" href="./studio.css">
+<style>
+  .panel{left:70px;top:470px;width:940px;height:780px}
+  .panel__in{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:30px;padding:60px 64px}
+  .when{font:500 28px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink)}
+  .panel .title{font-size:86px}
+  .house{font:400 40px/1.35 var(--sans);color:var(--ink-2)}
+  .panel .wm{font-size:76px;justify-content:center}
+  .panel .frame-line{font:500 32px/1.35 var(--sans);letter-spacing:.06em;color:var(--ink-2);text-align:center}
+</style>
+</head>
+<body>
+<video class="meadow" src="../media/meadow-loop-tall.mp4" poster="../media/meadow-poster-tall.jpg" autoplay muted loop playsinline></video>
+<div class="brand"><span class="brand__glyph">☽&#xFE0E;</span><span class="brand__name">The Astro Study</span></div>
+<div class="glass panel"><div class="panel__in" id="panel-in"></div></div>
+<div class="captions"><div class="captions__bar" id="caption"></div></div>
+<script src="./engine.js"></script>
+<script>
+defineTemplate({
+  glass() {
+    return [{ x: 70, y: 470, w: 940, h: 780, r: 44 }];
+  },
+  build() {},
+  show(state, spec, timeline, h) {
+    const scene = timeline.scenes[state.scene] || { kind: "line", text: "" };
+    const sky = spec.sky || { when: "", event: "", house: "" };
+    const inner = document.getElementById("panel-in");
+    if (scene.kind === "disclosure") {
+      inner.innerHTML = '<div class="wm"><span class="wm__dot"></span><span>The Astro <em>Study</em></span></div><p class="frame-line">' + h.esc(spec.disclosure_text || "") + "</p>";
+    } else if (scene.kind === "hook") {
+      inner.innerHTML = '<p class="when">' + h.esc(sky.when) + '</p><p class="title" data-fit="46">' + h.plain(h.esc(sky.event || scene.text)) + "</p>" +
+        (sky.house ? '<p class="house" data-fit="26">' + h.esc(sky.house) + "</p>" : "");
+    } else {
+      inner.innerHTML = '<p class="when">' + h.esc(sky.when) + '</p><p class="title" data-fit="44">' + h.plain(h.esc(scene.text)) + "</p>";
+    }
+    h.fit(inner);
+    const cap = timeline.captions[state.caption];
+    document.getElementById("caption").textContent = scene.kind === "disclosure" || !cap ? "" : cap.text;
+  },
+});
+</script>
+</body>
+</html>

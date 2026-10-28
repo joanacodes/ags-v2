@@ -26,9 +26,14 @@
     "src/bulk/**/*.ts",
     "src/lib/__tests__/*.ts",
     "src/export/report-document.ts",
-    "src/export/__tests__/*.ts"
+    "src/export/__tests__/*.ts",
+    "src/study/**/*.ts",
+    "src/study/*.json",
+    "src/studio/**/*.ts",
+    "src/studio/**/*.json"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/studio/workers/run.ts"
   ]
 }

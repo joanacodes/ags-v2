@@ -22,6 +22,7 @@ export const PROMPT_KEYS = [
   "reading.recap",
   "synastry.reading",
   "bulk.extract",
+  "study.statements",
 ] as const;
 
 export type PromptKey = (typeof PROMPT_KEYS)[number];
@@ -329,6 +330,21 @@ const BULK_EXTRACT = [
   "  time given as 'morning', etc.); otherwise leave notes empty.",
 ].join("\n");
 
+// The Astro Study test (TASK-0013). One statement per item, for a blind test: three statements per
+// question, one from the participant's chart, two from fake charts written the same way.
+const STUDY_STATEMENTS = [
+  "You write statements for a blind self-recognition test. A person reads three statements about one area of their life and chooses the one that sounds most like them. One is written from their birth chart; the two others are written from other charts in exactly the same way. Every statement must stand on its own.",
+  "",
+  "For each item you receive an area of life and source material: sentences from the astrologer's knowledge base about one part of a chart and what it combines with. Write ONE statement per item:",
+  "- Second person, present tense, 18 to 28 words, one or two sentences.",
+  "- Describe what the combination does in everyday life: a behaviour, a reaction, a need, a pattern that the person or those close to them would notice. Concrete and specific, so that it fits some people and clearly not others.",
+  "- Use only what the material says. Never add a meaning that isn't in it.",
+  "- Never name or hint at astrology: no planets, signs, houses, aspects, angles, points, elements, charts, stars or energies.",
+  "- No predictions and no events. Nothing about health, death, pregnancy, legal matters or money advice.",
+  "- Neither flattering nor harsh: describe the person as a fair friend would.",
+  "- Avoid lines that fit almost anyone, such as being hard on yourself or needing your space.",
+].join("\n");
+
 export const PROMPT_DEFINITIONS: Readonly<Record<PromptKey, PromptDefinition>> = {
   "reading.system": {
     key: "reading.system",
@@ -417,6 +433,14 @@ export const PROMPT_DEFINITIONS: Readonly<Record<PromptKey, PromptDefinition>> =
     description: "Sent with each photo or spreadsheet dropped on the Bulk import page.",
     placeholders: [],
     text: BULK_EXTRACT,
+  },
+  "study.statements": {
+    key: "study.statements",
+    label: "The Astro Study test — statements",
+    description:
+      "Writes the test's statements, for participants and fake charts alike. Editing it retires the fake charts' statements: write them again from the Study page.",
+    placeholders: [],
+    text: STUDY_STATEMENTS,
   },
 };
 

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>test-three-cards</title>
+<link rel="stylesheet" href="./studio.css">
+<style>
+  .panel{left:60px;top:300px;width:960px;height:1020px}
+  .panel__in{position:absolute;inset:0;display:flex;flex-direction:column;gap:26px;padding:54px 54px 50px}
+  .panel .title{font-size:66px}
+  .choices{display:flex;flex-direction:column;gap:22px;flex:1;min-height:0}
+  .choice{display:flex;gap:26px;align-items:flex-start;padding:26px 28px 28px;border-radius:28px;background:rgba(255,255,255,.5);border:1.5px solid rgba(255,255,255,.8);
+    box-shadow:0 14px 34px -20px rgba(20,40,20,.35)}
+  .choice.is-on{background:rgba(255,255,255,.66)}
+  .choice b{font:italic 300 96px/.85 var(--serif);color:var(--accent);letter-spacing:-.03em;min-width:70px}
+  .choice p{font:400 42px/1.34 var(--sans);color:var(--ink);text-wrap:pretty}
+  /* Before its turn, a card shows blank lines, as the site's challenge picture does. */
+  .bars{display:flex;flex-direction:column;gap:16px;flex:1;padding-top:14px}
+  .bars i{display:block;height:14px;border-radius:99px;background:rgba(28,33,27,.13)}
+  .bars i:nth-child(2){width:88%}.bars i:nth-child(3){width:64%}
+  .ask{font:italic 300 60px/1.1 var(--serif);color:var(--ink);text-align:center}
+  .chance{font:500 24px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);text-align:center}
+  .captions{top:1370px}
+  .panel .wm{font-size:76px;justify-content:center;margin:auto 0}
+  .panel .frame-line{font:500 32px/1.35 var(--sans);letter-spacing:.06em;color:var(--ink-2);text-align:center}
+</style>
+</head>
+<body>
+<video class="meadow" src="../media/meadow-loop-tall.mp4" poster="../media/meadow-poster-tall.jpg" autoplay muted loop playsinline></video>
+<div class="brand"><span class="brand__glyph">☽&#xFE0E;</span><span class="brand__name">The Astro Study</span></div>
+<div class="glass panel"><div class="panel__in" id="panel-in"></div></div>
+<div class="captions"><div class="captions__bar" id="caption"></div></div>
+<script src="./engine.js"></script>
+<script>
+const WORDS = {
+  en: { ask: "Which one <em>is you?</em>", chance: "Luck finds yours one time in three" },
+  fr: { ask: "Laquelle <em>est la vôtre ?</em>", chance: "Le hasard trouve la vôtre une fois sur trois" },
+};
+let reveals = [0, 0, 0];
+defineTemplate({
+  glass() {
+    return [{ x: 60, y: 300, w: 960, h: 1020, r: 44 }];
+  },
+  build() {},
+  // The three cards are there from the first frame (blank, as on the site); each one's words appear
+  // as the voice reaches it: on the three line scenes after the hook when the lines are the cards,
+  // otherwise from the third second, at even steps to just past the middle.
+  states(spec, timeline, base) {
+    const scenes = timeline.scenes;
+    const hookEnd = (scenes.find((s) => s.kind === "hook") || { end: 0 }).end;
+    const lines = scenes.filter((s) => s.kind === "line");
+    const end = (scenes.find((s) => s.kind === "disclosure") || { start: timeline.duration }).start;
+    const first = Math.min(3.2, hookEnd || 3.2);
+    const last = Math.max(first + 4, end * 0.55);
+    reveals = lines.length >= 4 ? [lines[0].start, lines[1].start, lines[2].start] : [first, (first + last) / 2, last];
+    const out = [];
+    for (const s of base) {
+      const cutsIn = reveals.filter((r) => r > s.start && r < s.end);
+      let start = s.start;
+      for (const c of [...cutsIn, s.end]) {
+        out.push({ ...s, start, end: c });
+        start = c;
+      }
+    }
+    return out;
+  },
+  show(state, spec, timeline, h) {
+    const w = WORDS[spec.language] || WORDS.en;
+    const scene = timeline.scenes[state.scene] || { kind: "line", text: "" };
+    const inner = document.getElementById("panel-in");
+    if (scene.kind === "disclosure") {
+      inner.innerHTML = '<div class="wm"><span class="wm__dot"></span><span>The Astro <em>Study</em></span></div><p class="frame-line">' + h.esc(spec.disclosure_text || "") + "</p>";
+      document.getElementById("caption").textContent = "";
+      return;
+    }
+    const t = (state.start + state.end) / 2;
+    const statements = (spec.statements || []).slice(0, 3);
+    const hook = (timeline.scenes.find((s) => s.kind === "hook") || { text: "" }).text;
+    const allShown = t >= reveals[2] + 0.5;
+    inner.innerHTML =
+      '<p class="title" data-fit="40">' + h.plain(h.esc(hook)) + "</p>" +
+      '<div class="choices">' +
+      statements.map((s, k) => '<div class="choice' + (t >= reveals[k] ? " is-on" : "") + '"><b>' + "ABC"[k] + "</b>" + (t >= reveals[k] ? '<p data-fit="26">' + h.esc(s) + "</p>" : '<span class="bars"><i></i><i></i><i></i></span>') + "</div>").join("") +
+      "</div>" +
+      (allShown ? '<p class="ask">' + w.ask + '</p><p class="chance">' + h.esc(w.chance) + "</p>" : "");
+    h.fit(inner);
+    const cap = timeline.captions[state.caption];
+    document.getElementById("caption").textContent = cap ? cap.text : "";
+  },
+});
+</script>
+</body>
+</html>
