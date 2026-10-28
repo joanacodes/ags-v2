@@ -498,6 +498,21 @@ export class SupabaseStudioStore implements StudioStore {
     const { error } = await this.client.rpc("studio_secret_delete", { p_name: name });
     if (error) fail("vault", error);
   }
+  async tickSecret() {
+    const { data, error } = await this.client.rpc("studio_tick_secret");
+    if (error) fail("vault", error);
+    return typeof data === "string" && data ? data : null;
+  }
+  async startTick(url: string, secret: string) {
+    const { data, error } = await this.client.rpc("studio_tick_setup", { p_url: url, p_secret: secret });
+    if (error) fail("the clock", error);
+    return String(data ?? "the tick runs every 15 minutes");
+  }
+  async stopTick() {
+    const { data, error } = await this.client.rpc("studio_tick_stop");
+    if (error) fail("the clock", error);
+    return String(data ?? "the tick is stopped");
+  }
   async studioKeys() {
     const { data, error } = await this.client.rpc("studio_keys");
     if (error) fail("vault", error);

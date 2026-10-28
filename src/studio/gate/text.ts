@@ -7,7 +7,8 @@
  * without a source) is checked on every field. AGS's list of astrology words applies to test statements
  * only: a placements post names Saturn by design, but a statement in the blind test never may.
  */
-import termsJson from "./banned-terms.json";
+// The blind test's own list (src/study), read where it lives so the two can never drift apart.
+import termsJson from "../../study/banned-terms.json";
 import type { Kit } from "../kit/schema";
 import type { Figure, Format, Language, Platform, Slide } from "../types";
 import type { GateResult } from "../store/rows";

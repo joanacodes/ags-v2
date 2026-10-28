@@ -554,6 +554,21 @@ export class MemoryStore implements StudioStore {
     this.secrets.delete(name);
     this.secretTimes.delete(name);
   }
+  tick: { url: string; secret: string } | null = null;
+  async tickSecret() {
+    return this.tick?.secret ?? null;
+  }
+  async startTick(url: string, secret: string) {
+    // The same refusals as studio_tick_setup, so a local run says what the database would.
+    if (!/^https:\/\/[^\s/]+(\/[^\s]*)?\/api\/studio\/cron\/tick$/.test(url)) throw new Error("the tick address must be https://…/api/studio/cron/tick");
+    if (secret.length < 32) throw new Error("the secret must be at least 32 characters");
+    this.tick = { url, secret };
+    return "the tick runs every 15 minutes";
+  }
+  async stopTick() {
+    this.tick = null;
+    return "the tick is stopped";
+  }
   async studioKeys() {
     return [...this.secrets.entries()].filter(([name]) => name.startsWith("key-")).map(([name, value]) => ({ name, value, updated_at: this.secretTimes.get(name) ?? nowIso() }));
   }

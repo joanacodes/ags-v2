@@ -219,6 +219,13 @@ export interface StudioStore {
   /** Every key pasted in Settings → Keys (Vault names `key-…`), values included: server-side only. */
   studioKeys(): Promise<{ name: string; value: string; updated_at: string }[]>;
 
+  // The clock (pg_cron → the tick route): its secret lives in Vault only
+  /** The bearer the tick route expects, or null while the clock was never started. */
+  tickSecret(): Promise<string | null>;
+  /** Schedule the tick every 15 minutes to this address with this secret (both kept in Vault). */
+  startTick(url: string, secret: string): Promise<string>;
+  stopTick(): Promise<string>;
+
   // Presets, scorecards, the owner's Friday inputs
   templates(): Promise<TemplateRow[]>;
   saveTemplate(row: Omit<TemplateRow, "id" | "created_at"> & { id?: string }): Promise<TemplateRow>;

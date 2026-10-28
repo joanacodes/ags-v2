@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { api, ApiError, useApi } from "@/components/studio/api";
 import { SettingsForm } from "@/components/studio/settings-form";
-import { CopyButton, Empty, ErrorNote, Loading, paris, Status, Toggle, useAction } from "@/components/studio/ui";
+import { ago, CopyButton, Empty, ErrorNote, Loading, paris, Status, Toggle, useAction } from "@/components/studio/ui";
 import type { EventRow, RunRow } from "@/studio/store/rows";
 
 function useNode(id: string) {
@@ -33,6 +33,7 @@ function NodeForm({ id, hide, title, note }: { id: string; hide?: string[]; titl
 
 interface Schedules {
   paused: boolean;
+  lastTick: string | null;
   schedules: { node: string; field: string; label: string; cron: string; enabled: boolean; reading: string; next: string | null }[];
   platforms: { id: string; label: string; enabled: boolean; mode: string; slots: string[] | null; maxPerDay: number | null; kitSlots: string[] }[];
 }
@@ -58,6 +59,20 @@ export function SchedulesSection() {
       <div>
         <h2 className="text-2xl">Schedules and slots</h2>
         <p className="mt-1 text-sm text-ink-2">Every schedule is in Paris time and read by the tick every 15 minutes, so a change here is obeyed at the next tick. To stop everything at once, use the <Link href="/studio/settings?section=kill" className="text-accent hover:underline">kill switch</Link>{data.paused ? " (it is on now)" : ""}.</p>
+      </div>
+      <div className="panel p-4">
+        <p className="font-serif text-lg">The clock</p>
+        <p className="mt-1 text-sm text-ink-2">
+          Supabase calls the Studio every 15 minutes, and each call runs what is due. {data.lastTick ? `The last call was ${ago(data.lastTick)}.` : "It hasn't called yet."} Start it from the Studio&rsquo;s own address, not a preview: the clock calls the address it was started from, with a secret only it and Vault know.
+        </p>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <button className="btn btn-primary btn-sm" disabled={!!busy} onClick={() => run("clock", () => api<{ url: string }>("/api/studio/control", { body: { action: "clock-start" } }).then(async (r) => (await reload(), r)), (r) => `The clock calls ${r.url} every 15 minutes`)}>
+            {data.lastTick ? "Restart the clock" : "Start the clock"}
+          </button>
+          <button className="btn btn-sm" disabled={!!busy} onClick={() => confirm("Stop the clock? Nothing runs by itself until it is started again.") && run("clock", () => api("/api/studio/control", { body: { action: "clock-stop" } }).then(reload), "The clock is stopped")}>
+            Stop the clock
+          </button>
+        </div>
       </div>
       <NodeForm id="global" title="The Studio" note="Confirm mode keeps a second tap on Today before each slot (weeks 1–2); direct posts what was approved on Sunday. The warm-up keeps one video a day and no replies pulled before its date." hide={["paused", "paused_reason", "owner_email"]} />
       <div className="overflow-x-auto rounded-2xl border border-line bg-card">

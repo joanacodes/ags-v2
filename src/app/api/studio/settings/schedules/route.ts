@@ -18,8 +18,10 @@ export const GET = route(async ({ ctx }) => {
     { node: "input-site", field: "sky_schedule", label: "Sky table", cron: s.get("input-site").sky_schedule, enabled: s.get("input-site").enabled },
     { node: "maintenance", field: "schedule", label: "Maintenance", cron: s.get("maintenance").schedule, enabled: true },
   ];
+  const ticks = await ctx.store.runs({ agent: "tick", limit: 1 });
   return {
     paused: s.get("global").paused,
+    lastTick: ticks[0]?.started_at ?? null,
     schedules: rows.map((r) => {
       let next: string | null = null;
       try {

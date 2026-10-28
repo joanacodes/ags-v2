@@ -8,6 +8,7 @@ import { transportFromEnv } from "../claude/sdk-transport";
 import { pricesFrom } from "../views/control";
 import { setPriceOverrides } from "../models";
 import { MemoryStore } from "../store/memory";
+import type { MediaStorage, StudioStore } from "../store/store";
 import type { RunTrigger } from "../types";
 import { LocalMediaStorage } from "./local-storage";
 import { seedDemo } from "./demo";
@@ -17,11 +18,12 @@ import { serviceClientFromEnv, SupabaseMediaStorage, SupabaseStudioStore } from 
 
 export class ContextError extends Error {}
 
-export async function contextFromEnv(trigger: RunTrigger, now: Date = new Date()): Promise<AgentContext> {
+/** The store and Storage alone, without the kit or the settings: enough for the tick to check who calls. */
+export async function storesFromEnv(now: Date = new Date()): Promise<{ store: StudioStore; storage: MediaStorage }> {
   const { client, missing } = serviceClientFromEnv();
   const localDir = (process.env.STUDIO_LOCAL_DIR ?? "").trim();
-  let store;
-  let storage;
+  let store: StudioStore;
+  let storage: MediaStorage;
   if (client) {
     store = new SupabaseStudioStore(client);
     storage = new SupabaseMediaStorage(client);
@@ -40,6 +42,11 @@ export async function contextFromEnv(trigger: RunTrigger, now: Date = new Date()
       await local.seeded;
     }
   } else throw new ContextError(`${missing}: set it, or STUDIO_LOCAL_DIR for a local dry run`);
+  return { store, storage };
+}
+
+export async function contextFromEnv(trigger: RunTrigger, now: Date = new Date()): Promise<AgentContext> {
+  const { store, storage } = await storesFromEnv(now);
   // The keys pasted in Settings → Keys, into this process's environment before anything reads it.
   await hydrateKeys(store);
   const { kit, version } = await loadKit(store);
