@@ -3,6 +3,10 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { api, ApiError, useApi } from "@/components/studio/api";
 import { ErrorNote, Loading, money, paris, Status, Toggle, useAction, useToast } from "@/components/studio/ui";
+import { PostlyPanel } from "./postly-panel";
+
+/** The networks Postly can post to for the Studio (the server's list is in outbox/postly.ts). */
+const POSTLY_NETWORKS: ReadonlySet<string> = new Set(["instagram", "facebook", "threads", "tiktok", "youtube", "pinterest", "bluesky", "x"]);
 
 interface KitProblem { path: string; message: string; level: "error" | "warning" }
 interface KitData { yaml: string; version: number; inUse: number; versions: { version: number; note: string | null; createdAt: string | null; createdBy: string }[]; problems: KitProblem[] }
@@ -155,7 +159,10 @@ export function ConnectionsSection() {
     <div>
       <h2 className="text-2xl">Connections</h2>
       <p className="mt-1 text-sm text-ink-2">Tokens are kept in Supabase Vault and never shown. Test in dry run builds a real post and logs the exact request it would send, without sending it.</p>
-      <ul className="mt-4 grid gap-3 lg:grid-cols-2">
+      <div className="mt-4">
+        <PostlyPanel onChange={reload} />
+      </div>
+      <ul className="mt-3 grid gap-3 lg:grid-cols-2">
         {data.connections.map((c) => (
           <li key={c.key} className="panel p-4">
             <div className="flex items-start justify-between gap-2">
@@ -167,7 +174,12 @@ export function ConnectionsSection() {
             </div>
             {c.expiresAt && <p className="mt-1 text-xs text-ink-3">Reconnect by {paris(c.expiresAt, "date")}</p>}
             {c.scopes.length > 0 && <p className="mt-1 text-xs text-ink-3">{c.scopes.join(", ")}</p>}
-            {c.missingEnv.length > 0 && <p className="mt-2 rounded-xl bg-gold-soft p-2 text-xs">Paste {c.missingEnv.join(" and ")} in <a className="underline" href="/studio/settings?section=keys">Keys</a> first.</p>}
+            {c.missingEnv.length > 0 &&
+              (c.platforms.some((p) => p.mode === "api" || p.mode === "inbox") ? (
+                <p className="mt-2 rounded-xl bg-gold-soft p-2 text-xs">Paste {c.missingEnv.join(" and ")} in <a className="underline" href="/studio/settings?section=keys">Keys</a> first.</p>
+              ) : (
+                <p className="mt-2 text-xs text-ink-3">Not needed to post while {c.platforms.map((p) => p.label).join(" and ")} {c.platforms.length > 1 ? "post" : "posts"} through Postly or by hand; connecting it adds comments and numbers.</p>
+              ))}
             <div className="mt-3 flex flex-wrap gap-2">
               {c.kind === "oauth" && (c.missingEnv.length ? <button className="btn btn-primary btn-sm" disabled>{c.status === "disconnected" ? "Connect" : "Reconnect"}</button> : <a className="btn btn-primary btn-sm" href={`/api/studio/oauth/${c.key}/start`}>{c.status === "disconnected" ? "Connect" : "Reconnect"}</a>)}
               {c.status !== "disconnected" && <button className="btn btn-danger btn-sm" disabled={!!busy} onClick={() => confirm(`Disconnect ${c.label}? Its token is deleted.`) && run("disc", () => api(`/api/studio/connections/${c.key}`, { body: { action: "disconnect" } }).then(reload), "Disconnected")}>Disconnect</button>}
@@ -179,12 +191,13 @@ export function ConnectionsSection() {
                 <li key={p.id} className="flex flex-wrap items-center gap-2 text-sm">
                   <span className="w-24 font-medium">{p.label}</span>
                   <Toggle label="" checked={p.enabled} onChange={(v) => enabled(p.id, v)} disabled={!!busy} />
-                  <select className="field w-40" value={p.mode} onChange={(e) => mode(p.id, e.target.value)} aria-label={`${p.label}: how it posts`}>
+                  <select className="field w-44" value={p.mode} onChange={(e) => mode(p.id, e.target.value)} aria-label={`${p.label}: how it posts`}>
                     <option value="api">Through its API</option>
+                    {POSTLY_NETWORKS.has(p.id) && <option value="postly">Through Postly</option>}
                     <option value="by_hand">By hand on Today</option>
                     {p.id === "tiktok" && <option value="inbox">To the TikTok inbox</option>}
                   </select>
-                  {c.status !== "disconnected" && <button className="btn btn-sm" disabled={!!busy} onClick={() => run("test", () => api<{ ok: boolean; message: string }>(`/api/studio/connections/${c.key}`, { body: { action: "test", platform: p.id } }).then((r) => { if (!r.ok) throw new Error(r.message); return r; }), (r) => r.message)}>Test in dry run</button>}
+                  {c.status !== "disconnected" && p.mode !== "postly" && <button className="btn btn-sm" disabled={!!busy} onClick={() => run("test", () => api<{ ok: boolean; message: string }>(`/api/studio/connections/${c.key}`, { body: { action: "test", platform: p.id } }).then((r) => { if (!r.ok) throw new Error(r.message); return r; }), (r) => r.message)}>Test in dry run</button>}
                 </li>
               ))}
             </ul>

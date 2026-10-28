@@ -9,6 +9,7 @@ import type { AgentContext } from "../agents/context";
 import { checkoutSessions } from "../clients/stripe";
 import { emailRates } from "../clients/mailerlite";
 import { PlatformError, type Fetch } from "../outbox/http";
+import { isPostlyId } from "../outbox/postly";
 import { isDryRunId } from "../outbox/publish";
 import { clientFor } from "../outbox/registry";
 import { SkipRun, withRun } from "../run";
@@ -32,7 +33,7 @@ export async function runMetrics(ctx: AgentContext, opts: MetricsOptions = {}) {
 
     const since = new Date(now.getTime() - conf.days_back * 86400_000).toISOString();
     const posted = (await store.posts({ statuses: ["posted", "queued"], postedFrom: since })).filter(
-      (p) => (p.platform_post_id && !isDryRunId(p.platform_post_id)) || (p.platform === "tiktok" && p.platform_url),
+      (p) => (p.platform_post_id && !isDryRunId(p.platform_post_id) && !isPostlyId(p.platform_post_id)) || (p.platform === "tiktok" && p.platform_url),
     );
     const replies = await store.replies({ since: new Date(now.getTime() - (conf.days_back + 30) * 86400_000).toISOString() });
     const keywordByPost = new Map<string, number>();

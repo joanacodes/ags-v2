@@ -151,11 +151,18 @@ export const SETTINGS_SCHEMAS = {
   }),
   platform: z.object({
     enabled: z.boolean().default(true),
-    // How pieces leave: through the platform's API, by hand on Today, or (TikTok) to the app's inbox
-    // for the owner to finish. Null means the platform's own default, below.
-    mode: z.enum(["api", "by_hand", "inbox"]).nullable().default(null),
+    // How pieces leave: through the platform's API, through Postly (one key, public posts where the
+    // owner's own app would be held private), by hand on Today, or (TikTok) to the app's inbox for the
+    // owner to finish. Null means the platform's own default, below.
+    mode: z.enum(["api", "postly", "by_hand", "inbox"]).nullable().default(null),
     slots: z.array(hhmm).nullable().default(null),
     max_per_day: z.number().int().min(0).max(50).nullable().default(null),
+  }),
+  // Postly: the workspace the Studio posts into and, per network, the channel (Settings → Connections).
+  postly: z.object({
+    workspace_id: z.string().nullable().default(null),
+    workspace_name: z.string().nullable().default(null),
+    channels: z.record(z.string(), z.object({ id: z.string(), name: z.string() })).default({}),
   }),
   library: z.object({
     media_days: z.number().int().min(7).max(3650).default(180),
@@ -215,7 +222,10 @@ export function resolveSettings<N extends SettingsNode>(node: N, stored: Record<
   return resolveWith(SETTINGS_SCHEMAS[node] as unknown as z.ZodObject, stored ?? {}) as Resolved<NodeSettings<N>>;
 }
 
-export type PostingMode = "api" | "by_hand" | "inbox";
+export type PostingMode = "api" | "postly" | "by_hand" | "inbox";
+
+/** The networks Postly can post to for the Studio (outbox/postly.ts holds the client). */
+const POSTLY_READY: ReadonlySet<Platform> = new Set<Platform>(["instagram", "facebook", "threads", "tiktok", "youtube", "pinterest", "bluesky", "x"]);
 
 /**
  * Where a platform starts before the owner changes anything: X off until there is a plan for its paid
@@ -239,6 +249,7 @@ export class StudioSettings {
   postingMode(platform: Platform): PostingMode {
     if (platform === "substack" || platform === "medium" || platform === "site") return "by_hand";
     const mode = this.platform(platform).mode;
+    if (mode === "postly" && POSTLY_READY.has(platform)) return "postly";
     if (platform === "tiktok") return mode === "api" || mode === "inbox" ? mode : "by_hand";
     return mode === "by_hand" ? "by_hand" : "api";
   }

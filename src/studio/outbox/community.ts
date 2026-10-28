@@ -9,6 +9,7 @@ import type { CommentPull } from "../agents/community";
 import type { ReplyRow } from "../store/rows";
 import { isPlatform } from "../types";
 import { DryRunStop, redactUrl, type Fetch } from "./http";
+import { isPostlyId } from "./postly";
 import { DRY_RUN_PREFIX, isDryRunId } from "./publish";
 import { clientFor } from "./registry";
 
@@ -19,7 +20,8 @@ export function commentPull(ctx: AgentContext, fetchImpl?: Fetch): CommentPull {
     if ("error" in made) throw new Error(made.error);
     if (!made.client.comments) return [];
     const posted = await ctx.store.posts({ platforms: [platform], statuses: ["posted"], postedFrom: new Date(ctx.now.getTime() - 30 * 86400_000).toISOString() });
-    const pieces = new Map(posted.filter((p) => p.platform_post_id && !isDryRunId(p.platform_post_id)).map((p) => [p.platform_post_id as string, p.id]));
+    // A piece Postly posted carries Postly's id, not the network's: its comments can't be matched to it.
+    const pieces = new Map(posted.filter((p) => p.platform_post_id && !isDryRunId(p.platform_post_id) && !isPostlyId(p.platform_post_id)).map((p) => [p.platform_post_id as string, p.id]));
     const mentionsToo = platform === "bluesky" || platform === "mastodon" || platform === "x";
     if (pieces.size === 0 && !mentionsToo) return [];
     return made.client.comments(since, pieces);

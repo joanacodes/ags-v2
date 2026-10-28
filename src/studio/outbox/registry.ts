@@ -12,6 +12,7 @@ import { Http, type Fetch } from "./http";
 import { mastodonClient } from "./mastodon";
 import { facebookClient, instagramClient } from "./meta";
 import { pinterestClient } from "./pinterest";
+import { POSTLY_PLATFORMS, postlyClient } from "./postly";
 import { threadsClient } from "./threads";
 import { tiktokClient } from "./tiktok";
 import { loadToken, saveToken } from "./tokens";
@@ -70,4 +71,21 @@ export async function clientFor(store: StudioStore, platform: Platform, env: Cli
   const client = buildClient(platform, deps, env);
   if (!client) return { error: `${platform} has no client` };
   return { client, http };
+}
+
+/**
+ * The client a piece is posted with: Postly's when the owner chose it for this network, else the
+ * network's own. Comments and numbers always use `clientFor`, the network's own app, when connected.
+ */
+export async function publishClientFor(store: StudioStore, platform: Platform, env: ClientEnv & { live: boolean; now: Date; fetchImpl?: Fetch; wait?: (ms: number) => Promise<void> }): Promise<ClientResult> {
+  if (env.settings.postingMode(platform) !== "postly") return clientFor(store, platform, env);
+  if (!POSTLY_PLATFORMS.has(platform)) return { error: `Postly doesn't post to ${platform}` };
+  const apiKey = (process.env.POSTLY_API_KEY ?? "").trim();
+  if (!apiKey) return { error: "Postly is chosen but its key isn't set: paste it in Settings → Keys" };
+  const p = env.settings.get("postly");
+  if (!p.workspace_id) return { error: "Postly is chosen but no workspace is picked: Settings → Connections → Postly" };
+  const channel = p.channels[platform];
+  if (!channel) return { error: `Postly has no ${platform} channel picked: Settings → Connections → Postly` };
+  const http = new Http(env.live, env.fetchImpl);
+  return { client: postlyClient(platform, http, { apiKey, workspaceId: p.workspace_id, channelId: channel.id }, env.wait), http };
 }

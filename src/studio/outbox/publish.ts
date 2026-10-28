@@ -18,8 +18,9 @@ import { SkipRun, withRun, type RunLog } from "../run";
 import type { CardRow, PostRow } from "../store/rows";
 import { describeParis, parisTime } from "../time";
 import { PLATFORM_LABELS, FORMAT_LABELS, type Platform } from "../types";
-import { DryRunStop, PlatformError, redactUrl, type Fetch, type RecordedRequest } from "./http";
-import { clientFor, mayWrite } from "./registry";
+import { DryRunStop, Http, PlatformError, redactUrl, type Fetch, type RecordedRequest } from "./http";
+import { isPostlyId, postlyDeliveries } from "./postly";
+import { mayWrite, publishClientFor } from "./registry";
 import type { PublishInput } from "./types";
 
 /** A slot missed by more than this is not posted late: the owner reschedules it. */
@@ -38,6 +39,8 @@ export interface PublishOptions {
   readonly fetchImpl?: Fetch;
   /** Overrides STUDIO_LIVE (tests); the guard still demands the owner's approval. */
   readonly live?: boolean;
+  /** Tests skip Postly's waits between upload checks. */
+  readonly wait?: (ms: number) => Promise<void>;
 }
 
 export type PieceOutcome = "posted" | "dry_run" | "failed" | "by_hand" | "waiting" | "postponed" | "skipped";
@@ -77,6 +80,7 @@ export async function runPublish(ctx: AgentContext, opts: PublishOptions = {}) {
 
     const now = ctx.now;
     await settleStale(ctx, log);
+    await confirmPostly(ctx, log, opts.fetchImpl);
 
     const handEnd = new Date(now.getTime() + (BY_HAND_LEAD_MINUTES + outbox.window_minutes) * 60_000).toISOString();
     const due = opts.postIds?.length
@@ -92,7 +96,7 @@ export async function runPublish(ctx: AgentContext, opts: PublishOptions = {}) {
     // One at a time and in slot order: the video gap is checked against what this run just posted.
     for (const post of [...due].sort((a, b) => (a.scheduled_at ?? "").localeCompare(b.scheduled_at ?? ""))) {
       const card = cards.get(post.card_id);
-      const outcome = card ? await publishOne(ctx, post, card, { live, explicit: !!opts.postIds?.length, fetchImpl: opts.fetchImpl }, log) : "skipped";
+      const outcome = card ? await publishOne(ctx, post, card, { live, explicit: !!opts.postIds?.length, fetchImpl: opts.fetchImpl, wait: opts.wait }, log) : "skipped";
       tally[outcome] += 1;
     }
     log.count("studio_posts", tally.posted + tally.dry_run + tally.failed + tally.by_hand + tally.postponed);
@@ -103,7 +107,7 @@ export async function runPublish(ctx: AgentContext, opts: PublishOptions = {}) {
 }
 
 /** One piece through every check, then through its client. */
-export async function publishOne(ctx: AgentContext, post: PostRow, card: CardRow, o: { live: boolean; explicit: boolean; fetchImpl?: Fetch }, log: RunLog): Promise<PieceOutcome> {
+export async function publishOne(ctx: AgentContext, post: PostRow, card: CardRow, o: { live: boolean; explicit: boolean; fetchImpl?: Fetch; wait?: (ms: number) => Promise<void> }, log: RunLog): Promise<PieceOutcome> {
   const { store, settings, now } = ctx;
   const outbox = settings.get("outbox");
   const label = `${PLATFORM_LABELS[post.platform]} ${FORMAT_LABELS[post.format].toLowerCase()}`;
@@ -151,7 +155,7 @@ export async function publishOne(ctx: AgentContext, post: PostRow, card: CardRow
   }
 
   const writes = mayWrite(post, ctx.ownerId, o.live);
-  const made = await clientFor(store, post.platform, { kit: ctx.kit, settings, live: writes, now, fetchImpl: o.fetchImpl });
+  const made = await publishClientFor(store, post.platform, { kit: ctx.kit, settings, live: writes, now, fetchImpl: o.fetchImpl, wait: o.wait });
   if ("error" in made) {
     await fail(ctx, post, made.error);
     log.note(`${label}: ${made.error}`);
@@ -177,8 +181,8 @@ export async function publishOne(ctx: AgentContext, post: PostRow, card: CardRow
       return "by_hand";
     }
     await store.updatePosts([post.id], { status: "posted", platform_post_id: done.id, platform_url: done.url, posted_at: now.toISOString(), error: null, platform_state: { ...(done.state ?? {}), stage: "posted", requests: requests.length } }, "publish");
-    await store.logEvent({ table: "outbox", rowId: post.id, actor: "publish", note: `posted ${done.url ?? done.id}: ${excerpt(requests)}` });
-    log.note(`${label}: posted ${done.url ?? done.id}`);
+    await store.logEvent({ table: "outbox", rowId: post.id, actor: "publish", note: `${mode === "postly" ? "handed to Postly" : "posted"} ${done.url ?? done.id}: ${excerpt(requests)}` });
+    log.note(`${label}: ${mode === "postly" ? "handed to Postly" : "posted"} ${done.url ?? done.id}`);
     return "posted";
   } catch (err) {
     if (err instanceof DryRunStop) {
@@ -242,6 +246,46 @@ async function byHandReminder(ctx: AgentContext, post: PostRow, label: string, h
   });
 }
 
+/** How long Postly may keep a piece queued before the owner is asked to look. */
+const POSTLY_PATIENCE_HOURS = 12;
+
+/**
+ * Postly answers "enqueued", not "posted". Each run reads its activity for the pieces handed to it in
+ * the last two days: a delivered one gets its address, a failed one becomes a failed piece with
+ * Postly's reason, and one still waiting after twelve hours is set aside for the owner, so nothing
+ * stays marked posted that never went out.
+ */
+export async function confirmPostly(ctx: AgentContext, log: RunLog, fetchImpl?: Fetch): Promise<void> {
+  const apiKey = (process.env.POSTLY_API_KEY ?? "").trim();
+  if (!apiKey) return;
+  const since = new Date(ctx.now.getTime() - 48 * 3600_000);
+  const open = (await ctx.store.posts({ statuses: ["posted"], postedFrom: since.toISOString(), limit: 500 })).filter((p) => isPostlyId(p.platform_post_id) && stateOf(p)["postly_confirmed"] !== true);
+  if (!open.length) return;
+  let deliveries;
+  try {
+    deliveries = await postlyDeliveries(new Http(false, fetchImpl), apiKey, since, new Date(ctx.now.getTime() + 60_000));
+  } catch (err) {
+    log.note(`Postly's activity could not be read: ${err instanceof Error ? err.message : String(err)}`);
+    return;
+  }
+  const byId = new Map(deliveries.map((d) => [d.postId, d]));
+  for (const p of open) {
+    const d = byId.get(String(stateOf(p)["postly_post_id"] ?? ""));
+    const label = `${PLATFORM_LABELS[p.platform]} ${FORMAT_LABELS[p.format].toLowerCase()}`;
+    if (d?.state === "published") {
+      await ctx.store.updatePosts([p.id], { platform_url: d.url ?? p.platform_url, platform_state: { ...stateOf(p), postly_confirmed: true } }, "publish");
+      log.note(`${label}: Postly delivered it${d.url ? ` (${d.url})` : ""}`);
+    } else if (d?.state === "failed") {
+      await fail(ctx, p, `Postly: ${d.reason ?? "the delivery failed"}`, { final: true });
+      await ctx.store.logEvent({ table: "outbox", rowId: p.id, actor: "publish", note: `Postly reports the delivery failed: ${d.reason ?? "no reason given"}` });
+      log.note(`${label}: Postly's delivery failed`);
+    } else if (p.posted_at && ctx.now.getTime() - Date.parse(p.posted_at) > POSTLY_PATIENCE_HOURS * 3600_000) {
+      await fail(ctx, p, `Postly hasn't delivered it after ${POSTLY_PATIENCE_HOURS} hours: check Postly's publishing queue, then decide here`, { final: true });
+      log.note(`${label}: still waiting at Postly after ${POSTLY_PATIENCE_HOURS} hours`);
+    }
+  }
+}
+
 /**
  * A piece left `queued` for an hour by a run that stopped mid-call may or may not be on the platform:
  * it is failed with no automatic retry, so it can't go out twice; the owner checks and decides.
@@ -260,7 +304,7 @@ export async function settleStale(ctx: AgentContext, log: RunLog): Promise<numbe
 /** Settings → Connections → Test in dry run: a real piece (or a sample) through the client, stopped at the first write. */
 export async function testConnection(ctx: AgentContext, platform: Platform, fetchImpl?: Fetch): Promise<{ ok: boolean; requests: readonly RecordedRequest[]; message: string }> {
   const { store } = ctx;
-  const made = await clientFor(store, platform, { kit: ctx.kit, settings: ctx.settings, live: false, now: ctx.now, fetchImpl });
+  const made = await publishClientFor(store, platform, { kit: ctx.kit, settings: ctx.settings, live: false, now: ctx.now, fetchImpl });
   if ("error" in made) return { ok: false, requests: [], message: made.error };
   const sample = (await store.posts({ platforms: [platform], statuses: ["rendered", "approved", "posted"], limit: 1 }))[0];
   const post: PostRow = sample ?? samplePost(platform, ctx.now);

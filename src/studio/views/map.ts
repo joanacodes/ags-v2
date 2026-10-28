@@ -173,15 +173,18 @@ export async function mapView(ctx: AgentContext): Promise<MapView> {
         const stats = [
           { label: "queued", value: String(queuedAll.filter((p) => p.platform === platform).length) },
           { label: "posted this week", value: String(mine("posted")) },
-          { label: mode === "api" ? "token" : "how", value: mode === "api" ? (conn ? (expiry ? `until ${expiry.slice(0, 10)}` : conn.status) : "not connected") : mode === "inbox" ? "TikTok inbox" : "by hand" },
+          { label: mode === "api" ? "token" : "how", value: mode === "api" ? (conn ? (expiry ? `until ${expiry.slice(0, 10)}` : conn.status) : "not connected") : mode === "postly" ? "through Postly" : mode === "inbox" ? "TikTok inbox" : "by hand" },
         ];
         if (!enabled) return { ...off, stats };
         const failed = postsWeek.some((p) => p.platform === platform && p.status === "failed");
-        const status: NodeStatus = (mode === "api" && (!conn || conn.status === "expired" || conn.status === "disconnected")) || expiring || failed ? "failed" : queuedAll.some((p) => p.platform === platform) && mode !== "api" ? "waiting" : "ok";
+        // Through Postly, the network's own token doesn't matter; Postly's key and channel do.
+        const postlyMissing = mode === "postly" && (!(process.env.POSTLY_API_KEY ?? "").trim() || !settings.get("postly").channels[platform]);
+        const tokenMissing = mode === "api" && (!conn || conn.status === "expired" || conn.status === "disconnected");
+        const status: NodeStatus = tokenMissing || postlyMissing || (mode === "api" && expiring) || failed ? "failed" : queuedAll.some((p) => p.platform === platform) && (mode === "by_hand" || mode === "inbox") ? "waiting" : "ok";
         return {
           enabled,
           status,
-          statusNote: status === "failed" ? (mode === "api" && !conn ? "not connected" : expiring ? `the token ends ${expiry?.slice(0, 10)}` : "a post failed this week") : null,
+          statusNote: status === "failed" ? (postlyMissing ? "Postly isn't set up for it: Settings → Connections" : tokenMissing && !conn ? "not connected" : mode === "api" && expiring ? `the token ends ${expiry?.slice(0, 10)}` : tokenMissing ? "not connected" : "a post failed this week") : null,
           stats,
           lastRun: null,
           nextRun: null,
