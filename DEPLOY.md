@@ -97,3 +97,51 @@ account). It needs:
 
 The full readings each participant gets are written by the background timer (Cloudflare), like
 "Generate all categories".
+
+## The Studio (TASK-0014)
+
+The Astro Study's content studio is at `/studio` (Today, Map, Library, Video studio, Settings), for the
+account named by `STUDY_OWNER_USER_ID` only. It shares AGS's Supabase project, sign-in, Anthropic and
+FreeAstroAPI keys and owner id, so nothing new is set on Vercel or Cloudflare until going live. Every post
+is a dry run until step 7.
+
+1. **Database** (SQL Editor, after `202610260007_study.sql`): run `202610280008_studio.sql`, then
+   `202610280009_studio_tick.sql` (it turns on `pg_cron` and `pg_net`). Then make the owner:
+
+   ```sql
+   insert into public.studio_owner (user_id) values ('<the STUDY_OWNER_USER_ID value>') on conflict do nothing;
+   ```
+
+2. **Merge to `main`.** Vercel deploys `/studio`, and GitHub only dispatches workflows present on the
+   default branch. The workers (`studio-run`, `studio-render`) use the Actions secrets the Cloudflare
+   deploy already needs: `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `ANTHROPIC_API_KEY`,
+   `FREE_ASTRO_API_KEY`, `STUDY_OWNER_USER_ID` (add them if that deploy was never set up).
+3. **The clock.** Sign in, open `/studio` at AGS's production address, Settings → Schedules → The clock →
+   **Start the clock**. It makes its own secret and keeps it in Vault; the Map's health strip shows the
+   last call.
+4. **Settings → Keys**, each pasted once (kept in Vault, never shown again; "Check it works" where offered):
+   - the GitHub token: github.com → Settings → Developer settings → Fine-grained tokens, repository
+     `joanacodes/ags-v2`, *Actions: read and write* (it starts the workers; the kill switch disables them);
+   - Postly's API key (app.postly.ai → Automations → API), ElevenLabs, Resend (sending access) and the
+     sender address, Stripe (restricted key, *Checkout Sessions: read*), MailerLite;
+   - the id and secret of each network app you connect directly (below).
+5. **Settings → Connections.** Postly: pick the workspace, then each network's channel, and set "Through
+   Postly" on the networks it should post to. Direct networks: *Connect*. Bluesky: handle and app password.
+   Mastodon: server and token.
+6. **The voice.** ElevenLabs → Voices → Add a voice → Instant (two to three minutes, the consent sentence
+   first) → its voice id in Map → Video → Settings → `voice_id`.
+7. **Going live,** after a week of dry runs: `STUDIO_LIVE=true` on Vercel **and** as an Actions variable
+   (Settings → Secrets and variables → Actions → Variables), then redeploy. Only pieces approved by the
+   owner are posted; Settings → Kill switch stops everything at once.
+
+Network apps, only for networks posted or read directly. The redirect address is
+`https://<AGS's address>/api/studio/oauth/<connection>/callback`.
+
+| Connection | Where | Permissions | What it allows a one-person tool |
+| --- | --- | --- | --- |
+| `meta` (Instagram, Facebook) | developers.facebook.com → a Business app with Facebook Login for Business and Instagram | `pages_show_list`, `pages_read_engagement`, `pages_manage_posts`, `pages_manage_engagement`, `pages_read_user_content`, `instagram_basic`, `instagram_content_publish`, `instagram_manage_comments`, `instagram_manage_insights`, `business_management` | Your own accounts need no App Review. Instagram must be a professional account linked to the Page. Optional keys: `META_LOGIN_CONFIG_ID`, `META_PAGE_ID`. |
+| `threads` | the same Meta app → the Threads use case (its own id and secret) | `threads_basic`, `threads_content_publish`, `threads_manage_replies`, `threads_read_replies`, `threads_manage_insights` | Add yourself as a Threads tester; no review. |
+| `youtube` | console.cloud.google.com → YouTube Data API v3, OAuth consent screen (External, *In production*), a Web client | `youtube.upload`, `youtube.force-ssl` | Until Google audits the project, uploads are Private (publish each in YouTube Studio), or post through Postly. |
+| `pinterest` | developers.pinterest.com → My apps | `boards:read`, `boards:write`, `pins:read`, `pins:write`, `user_accounts:read` | Trial pins are seen only by you until Standard access (a screen recording of the sign-in, then Pinterest's approval), or post through Postly. |
+| `x` | developer.x.com → OAuth 2.0, Web app | `tweet.read`, `tweet.write`, `users.read`, `media.write`, `offline.access` | Paid per post. Off until turned on in Connections. |
+| `tiktok` | developers.tiktok.com | `user.info.basic`, `user.info.profile`, `video.upload`, `video.publish`, `video.list` | TikTok refuses audits for tools posting to their maker's own accounts: post through Postly, or by hand from Today. |

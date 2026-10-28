@@ -35,6 +35,7 @@ npm start          # serve the production build
 | `/charts/[chartId]/readings/[slug]` | Reading page (evidence, styles, factors rail, chart-facts mode) |
 | `/charts/[chartId]/report` | Full Report Preview (sections, locked content, export rail) |
 | `/reports`, `/settings` | Index / placeholder screens |
+| `/studio` | The Studio, the Astro Study's content studio, for the owner only: Today, Map, Library, Video studio, Settings (TASK-0014; setup in DEPLOY.md) |
 
 ## Interpretation engine (new)
 
