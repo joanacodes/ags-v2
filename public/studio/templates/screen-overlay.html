@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>screen-overlay</title>
+<link rel="stylesheet" href="./studio.css">
+<style>
+  /* Over a screen recording: the captions and the closing frame (the page shows its own name). */
+  .end{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(243,241,234,.92)}
+  .end .wm{font-size:84px}
+  .end p{position:absolute;top:1080px;width:100%;text-align:center;font:500 32px/1.35 var(--sans);letter-spacing:.06em;color:var(--ink-2)}
+</style>
+</head>
+<body>
+<div class="captions"><div class="captions__bar" id="caption"></div></div>
+<div class="end hidden" id="end"><div class="wm"><span class="wm__dot"></span><span>The Astro <em>Study</em></span></div><p id="end-line"></p></div>
+<script src="./engine.js"></script>
+<script>
+defineTemplate({
+  build() {},
+  show(state, spec, timeline) {
+    const scene = timeline.scenes[state.scene] || { kind: "line" };
+    const end = scene.kind === "disclosure";
+    document.getElementById("end").classList.toggle("hidden", !end);
+    document.getElementById("end-line").textContent = spec.disclosure_text || "";
+    const cap = timeline.captions[state.caption];
+    document.getElementById("caption").textContent = end || !cap ? "" : cap.text;
+  },
+});
+</script>
+</body>
+</html>

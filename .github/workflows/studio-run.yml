@@ -1,0 +1,59 @@
+# The Studio's workers that need only Node: dispatched by the tick (every 15 minutes, from Supabase)
+# or by the Studio's screens (Run now). No schedule here: the clock is the database's, so the owner
+# changes a schedule in Settings without touching this file.
+name: studio-run
+run-name: "studio · ${{ inputs.worker }} (${{ inputs.trigger }})"
+
+on:
+  workflow_dispatch:
+    inputs:
+      worker:
+        description: The worker to run
+        required: true
+        type: choice
+        options: [strategist, community, analyst, metrics, publish, sky, sources, maintenance]
+      post_ids:
+        description: Pieces, comma-separated (publish only)
+        required: false
+        default: ""
+      trigger:
+        description: Who asked (tick, dispatch)
+        required: false
+        default: dispatch
+
+permissions:
+  contents: read
+
+concurrency:
+  # One run of a worker at a time; a second waits rather than doubling a post.
+  group: studio-${{ inputs.worker }}
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    # AGS's own secrets, already set for the Cloudflare deploy; every other key the workers need (the
+    # networks' apps, ElevenLabs, Postly, Stripe, MailerLite) is read from Supabase Vault, where the
+    # owner pastes it once in the Studio (Settings → Keys).
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      FREE_ASTRO_API_KEY: ${{ secrets.FREE_ASTRO_API_KEY }}
+      STUDY_OWNER_USER_ID: ${{ secrets.STUDY_OWNER_USER_ID }}
+      # Off (dry run) until the owner sets this Actions variable to true, as well as STUDIO_LIVE on Vercel.
+      STUDIO_LIVE: ${{ vars.STUDIO_LIVE }}
+      # Inputs reach the shell through the environment, never pasted into the script.
+      WORKER: ${{ inputs.worker }}
+      POSTS: ${{ inputs.post_ids }}
+      STUDIO_TRIGGER: ${{ inputs.trigger }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Run the worker
+        run: npm run studio:worker -- "$WORKER" --posts "$POSTS"
