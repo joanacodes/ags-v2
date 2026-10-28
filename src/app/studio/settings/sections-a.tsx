@@ -167,7 +167,7 @@ export function ConnectionsSection() {
             </div>
             {c.expiresAt && <p className="mt-1 text-xs text-ink-3">Reconnect by {paris(c.expiresAt, "date")}</p>}
             {c.scopes.length > 0 && <p className="mt-1 text-xs text-ink-3">{c.scopes.join(", ")}</p>}
-            {c.missingEnv.length > 0 && <p className="mt-2 rounded-xl bg-gold-soft p-2 text-xs">Set {c.missingEnv.join(" and ")} on Vercel first.</p>}
+            {c.missingEnv.length > 0 && <p className="mt-2 rounded-xl bg-gold-soft p-2 text-xs">Paste {c.missingEnv.join(" and ")} in <a className="underline" href="/studio/settings?section=keys">Keys</a> first.</p>}
             <div className="mt-3 flex flex-wrap gap-2">
               {c.kind === "oauth" && (c.missingEnv.length ? <button className="btn btn-primary btn-sm" disabled>{c.status === "disconnected" ? "Connect" : "Reconnect"}</button> : <a className="btn btn-primary btn-sm" href={`/api/studio/oauth/${c.key}/start`}>{c.status === "disconnected" ? "Connect" : "Reconnect"}</a>)}
               {c.status !== "disconnected" && <button className="btn btn-danger btn-sm" disabled={!!busy} onClick={() => confirm(`Disconnect ${c.label}? Its token is deleted.`) && run("disc", () => api(`/api/studio/connections/${c.key}`, { body: { action: "disconnect" } }).then(reload), "Disconnected")}>Disconnect</button>}

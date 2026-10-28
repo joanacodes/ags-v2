@@ -75,6 +75,7 @@ export class MemoryStore implements StudioStore {
   sourceRows: SourceRow[] = [];
   connectionRows = new Map<string, ConnectionRow>();
   secrets = new Map<string, string>();
+  secretTimes = new Map<string, string>();
   templateRows: TemplateRow[] = [];
   scorecardRows = new Map<string, ScorecardRow>();
   weeklyRows = new Map<string, WeeklyInputRow>();
@@ -543,6 +544,7 @@ export class MemoryStore implements StudioStore {
   }
   async putSecret(name: string, value: string) {
     this.secrets.set(name, value);
+    this.secretTimes.set(name, nowIso());
     return `memory:${name}`;
   }
   async secret(name: string) {
@@ -550,6 +552,10 @@ export class MemoryStore implements StudioStore {
   }
   async deleteSecret(name: string) {
     this.secrets.delete(name);
+    this.secretTimes.delete(name);
+  }
+  async studioKeys() {
+    return [...this.secrets.entries()].filter(([name]) => name.startsWith("key-")).map(([name, value]) => ({ name, value, updated_at: this.secretTimes.get(name) ?? nowIso() }));
   }
 
   async templates() {

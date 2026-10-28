@@ -12,6 +12,7 @@ import type { RunTrigger } from "../types";
 import { LocalMediaStorage } from "./local-storage";
 import { seedDemo } from "./demo";
 import { FakeTransport } from "../claude/fake-transport";
+import { hydrateKeys } from "../keys";
 import { serviceClientFromEnv, SupabaseMediaStorage, SupabaseStudioStore } from "./studio-store";
 
 export class ContextError extends Error {}
@@ -39,6 +40,8 @@ export async function contextFromEnv(trigger: RunTrigger, now: Date = new Date()
       await local.seeded;
     }
   } else throw new ContextError(`${missing}: set it, or STUDIO_LOCAL_DIR for a local dry run`);
+  // The keys pasted in Settings → Keys, into this process's environment before anything reads it.
+  await hydrateKeys(store);
   const { kit, version } = await loadKit(store);
   const settings = await loadSettings(store);
   setPriceOverrides(pricesFrom(settings.raw("prices")));

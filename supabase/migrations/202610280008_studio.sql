@@ -535,12 +535,27 @@ as $$
   delete from vault.secrets where name = 'studio:' || p_name;
 $$;
 
+-- The keys the owner pastes in Settings → Keys ('studio:key-…'): the server and the workers load them
+-- together, at most once a minute, so one call reads them all.
+create or replace function public.studio_keys()
+returns table (name text, secret text, updated_at timestamptz)
+language sql
+security definer
+set search_path = public, vault
+as $$
+  select substr(s.name, 8), s.decrypted_secret, s.updated_at
+  from vault.decrypted_secrets s
+  where s.name like 'studio:key-%';
+$$;
+
 revoke all on function public.studio_secret_put(text, text) from public, anon, authenticated;
 revoke all on function public.studio_secret_get(text) from public, anon, authenticated;
 revoke all on function public.studio_secret_delete(text) from public, anon, authenticated;
+revoke all on function public.studio_keys() from public, anon, authenticated;
 grant execute on function public.studio_secret_put(text, text) to service_role;
 grant execute on function public.studio_secret_get(text) to service_role;
 grant execute on function public.studio_secret_delete(text) to service_role;
+grant execute on function public.studio_keys() to service_role;
 
 -- ------------------------------------------------------------------------------------------------
 -- The check: run the real case, leave nothing behind. A made-up owner and a made-up stranger read a card
@@ -553,6 +568,7 @@ declare
   v_card uuid;
   v_seen int;
   v_wrote boolean;
+  v_read boolean;
 begin
   begin
     insert into public.studio_owner (user_id) values (v_owner);
@@ -600,6 +616,24 @@ begin
 
     if (select count(*) from public.studio_events where table_name = 'studio_cards' and row_id = v_card::text) <> 1 then
       raise exception 'studio check: the new card was not written to the audit trail';
+    end if;
+
+    -- A key pasted in Settings → Keys comes back to the server, and to nobody signed in.
+    perform public.studio_secret_put('key-studio-check', 'a value nobody keeps');
+    if not exists (select 1 from public.studio_keys() where name = 'key-studio-check' and secret = 'a value nobody keeps') then
+      raise exception 'studio check: a saved key does not come back';
+    end if;
+    perform set_config('request.jwt.claims', json_build_object('sub', v_owner, 'role', 'authenticated')::text, true);
+    execute 'set local role authenticated';
+    v_read := true;
+    begin
+      perform * from public.studio_keys();
+    exception when insufficient_privilege then
+      v_read := false;
+    end;
+    execute 'reset role';
+    if v_read then
+      raise exception 'studio check: a signed-in user can read the keys';
     end if;
 
     raise exception using errcode = 'P0001', message = 'studio-check-passed';

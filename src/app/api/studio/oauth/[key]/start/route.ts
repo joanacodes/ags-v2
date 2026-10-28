@@ -1,5 +1,6 @@
 import { cookies } from "next/headers";
 import { requireOwner } from "@/studio/server/owner";
+import { contextFromEnv } from "@/studio/server/context";
 import { missingEnv, newState, OAUTH, pkce } from "@/studio/outbox/oauth";
 import type { ConnectionKey } from "@/studio/outbox/types";
 
@@ -14,8 +15,10 @@ export async function GET(req: Request, { params }: { params: { key: string } })
   if (owner instanceof Response) return owner;
   const provider = OAUTH[params.key as ConnectionKey];
   if (!provider) return Response.json({ error: "this connection has no OAuth flow" }, { status: 404 });
+  // The app's id and secret may have been pasted in Settings → Keys: building the context loads them.
+  await contextFromEnv("interactive");
   const missing = missingEnv(provider.key);
-  if (missing.length) return Response.json({ error: `set ${missing.join(" and ")} first` }, { status: 503 });
+  if (missing.length) return Response.json({ error: `paste ${missing.join(" and ")} in Settings → Keys first` }, { status: 503 });
   const base = (process.env.STUDIO_BASE_URL ?? new URL(req.url).origin).replace(/\/$/, "");
   const state = newState();
   const { verifier, challenge } = pkce();

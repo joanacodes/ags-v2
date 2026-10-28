@@ -1,12 +1,14 @@
 "use client";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ConnectionsSection, KitSection, ModelsSection } from "./sections-a";
+import { KeysSection } from "./keys-section";
 import { AuditSection, ExportSection, KillSection, NotificationsSection, PromptsSection, RemindersSection, SchedulesSection, WeeklySection } from "./sections-b";
 
 const SECTIONS = [
   { id: "kit", label: "Brand kit" },
   { id: "models", label: "Models" },
   { id: "connections", label: "Connections" },
+  { id: "keys", label: "Keys" },
   { id: "schedules", label: "Schedules and slots" },
   { id: "prompts", label: "Prompts" },
   { id: "reminders", label: "Reminders" },
@@ -21,7 +23,7 @@ export function SettingsScreen() {
   const params = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const section = params.get("section") ?? "kit";
+  const section = params.get("section") || "kit";
   const go = (id: string) => router.replace(`${pathname}?section=${id}`, { scroll: false });
   return (
     <div>
@@ -46,6 +48,7 @@ export function SettingsScreen() {
           {section === "kit" && <KitSection />}
           {section === "models" && <ModelsSection />}
           {section === "connections" && <ConnectionsSection />}
+          {section === "keys" && <KeysSection />}
           {section === "schedules" && <SchedulesSection />}
           {section === "prompts" && <PromptsSection agent={params.get("agent")} />}
           {section === "reminders" && <RemindersSection />}

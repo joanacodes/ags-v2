@@ -6,7 +6,7 @@
  * the table, never silently skipped. No Next.js import here: the workers load this file too.
  */
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
-import type { z } from "zod/v4";
+import { z } from "zod/v4";
 import {
   calendarRowSchema,
   cardRowSchema,
@@ -497,6 +497,11 @@ export class SupabaseStudioStore implements StudioStore {
   async deleteSecret(name: string) {
     const { error } = await this.client.rpc("studio_secret_delete", { p_name: name });
     if (error) fail("vault", error);
+  }
+  async studioKeys() {
+    const { data, error } = await this.client.rpc("studio_keys");
+    if (error) fail("vault", error);
+    return z.array(z.object({ name: z.string(), secret: z.string(), updated_at: z.string() })).parse(data ?? []).map((k) => ({ name: k.name, value: k.secret, updated_at: k.updated_at }));
   }
 
   async templates() {

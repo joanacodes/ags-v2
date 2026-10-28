@@ -216,6 +216,8 @@ export interface StudioStore {
   putSecret(name: string, value: string): Promise<string>;
   secret(name: string): Promise<string | null>;
   deleteSecret(name: string): Promise<void>;
+  /** Every key pasted in Settings → Keys (Vault names `key-…`), values included: server-side only. */
+  studioKeys(): Promise<{ name: string; value: string; updated_at: string }[]>;
 
   // Presets, scorecards, the owner's Friday inputs
   templates(): Promise<TemplateRow[]>;
