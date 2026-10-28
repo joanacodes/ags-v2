@@ -154,3 +154,8 @@ this environment).
 
 ## Open questions
 None at authorization. The two raised in the proposal are answered under Decisions.
+
+- 2026-10-28, after merging `main`: Blockages & Repeating Patterns (TASK-0012) is now a reading domain.
+  The test keeps its ten areas, so a medium test stays at ten questions and a long one at twenty; the
+  area check names the exception. Asking it as an eleventh area needs the architect's decision (and a
+  question in English and French).

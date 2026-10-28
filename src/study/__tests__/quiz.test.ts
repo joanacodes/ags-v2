@@ -74,8 +74,13 @@ function chartFixture(timeKnown: boolean): Chart {
 
 /* ------------------------------- configuration ------------------------------- */
 
-test("the areas are the ten reading domains other than the summary, each with a question in both languages", () => {
-  const domains = READING_DOMAINS.map((d) => d.slug).filter((s) => s !== "summary");
+// Blockages & Repeating Patterns became a reading after the test was authorized with ten areas (medium
+// test: all ten). Asking it too would make a medium test eleven questions, so it stays out until the
+// architect decides otherwise (TASK-0013, open questions).
+const NOT_ASKED = new Set(["summary", "blockages-patterns"]);
+
+test("the areas are the ten reading domains other than the summary and blockages, each with a question in both languages", () => {
+  const domains = READING_DOMAINS.map((d) => d.slug).filter((s) => !NOT_ASKED.has(s));
   assert.deepEqual(STUDY_AREAS.map((a) => a.slug).sort(), [...domains].sort());
   for (const area of STUDY_AREAS) {
     assert.ok(area.anchors.length >= 2, `${area.slug} needs two anchors for long tests`);
