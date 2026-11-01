@@ -12,6 +12,7 @@ import termsJson from "../../study/banned-terms.json";
 import type { Kit } from "../kit/schema";
 import type { Figure, Format, Language, Platform, Slide } from "../types";
 import type { GateResult } from "../store/rows";
+import { notInherentHits } from "../library/library";
 
 export interface GateInput {
   readonly platform: Platform;
@@ -44,7 +45,10 @@ export type GateCheck =
   | "keyword"
   | "french"
   | "urls"
-  | "nogo";
+  | "nogo"
+  | "library"
+  | "sources"
+  | "terms";
 
 export type GateChecks = Readonly<Record<GateCheck, boolean>>;
 
@@ -61,6 +65,9 @@ export const ALL_CHECKS: GateChecks = {
   french: true,
   urls: true,
   nogo: true,
+  library: true,
+  sources: true,
+  terms: true,
 };
 
 export const CHECK_LABELS: Readonly<Record<GateCheck, string>> = {
@@ -76,6 +83,9 @@ export const CHECK_LABELS: Readonly<Record<GateCheck, string>> = {
   french: "French pieces in French, with vous",
   urls: "No link but the piece's own",
   nogo: "No no-go subject",
+  library: "Meanings agree with the AGS astrology library",
+  sources: "Myths and history carry their exact sources",
+  terms: "\"Modern tropical astrology\", never \"modern astrology\" alone",
 };
 
 interface Failure {
@@ -253,6 +263,20 @@ export function keywordsFor(card: { anchor: string | null }, language: Language)
   return card.anchor ? [card.anchor.toLowerCase(), ...base] : base;
 }
 
+// A myth or a piece of history: the words that say a piece is telling one. Such a piece needs its sources line.
+const MYTH: Readonly<Record<Language, RegExp>> = {
+  en: /\b(myths?|mytholog\w*|legends?|legendary|Greeks?|Romans?|Babylon\w*|Mesopotamia\w*|Egyptians?|Hesiod|Homer|Ovid|Aratus|Eratosthenes|Hyginus|Ptolemy|Manilius|Vettius Valens|the ancients)\b/i,
+  fr: /(?<![\p{L}])(mythes?|mytholog\p{L}*|légendes?|légendaires?|Grecs?|grecques?|Romains?|Babylon\p{L}*|Mésopotami\p{L}*|Égyptiens?|Hésiode|Homère|Ovide|Aratos|Ératosthène|Hygin|Ptolémée|Manilius|Vettius Valens|les Anciens)(?![\p{L}])/iu,
+};
+const SOURCES_LINE = /\bsources?\s*:\s*([^\n]+)/i;
+// a reference in brackets: a capitalised author or work, then a book, chapter or line ("(Hyginus, De Astronomia 2.27)")
+const INLINE_SOURCE = /\((?=[^()]*\p{Lu})[^()]*?(?:\d|\b[IVXL]+\.\d)[^()]*\)/u;
+// "modern astrology" said on its own, in either language; the sentence must name the system (tropical)
+const MODERN: Readonly<Record<Language, RegExp>> = {
+  en: /\bmodern\s+astrolog\w*/i,
+  fr: /\bastrolog\w*\s+modernes?\b/i,
+};
+
 export function checkText(input: GateInput, kit: Kit, enabled: GateChecks = ALL_CHECKS, now: Date = new Date()): GateResult {
   const failures: Failure[] = [];
   const warnings: { check: string; message: string }[] = [];
@@ -400,6 +424,39 @@ export function checkText(input: GateInput, kit: Kit, enabled: GateChecks = ALL_
       for (const { subject, re } of NO_GO[lang]) {
         const m = re.exec(text);
         if (m) fail("nogo", `${subject} is a no-go subject (${field})`, m[0]);
+      }
+    }
+  }
+
+  // The owner's standing rules (library/rules.ts): the library's meanings, exact sources, the system named.
+  if (enabled.library) {
+    for (const { field, text } of all) {
+      for (const hit of notInherentHits(text, lang)) {
+        fail("library", `the astrology library says ${hit.quality} is not part of ${hit.entity} (${field}): use its definition and boundaries`, hit.sentence);
+      }
+    }
+  }
+
+  if (enabled.sources) {
+    const whole = all.map((t) => t.text).join("\n");
+    const myth = MYTH[lang].exec(whole);
+    // sourced: a "Sources:" line whose references reach a book, chapter or line, or a citation in brackets that
+    // does ("(Ptolemy, Tetrabiblos I.17)")
+    const line = SOURCES_LINE.exec(whole);
+    const exact = (refs: string) => /\d|\b[IVXL]+\b/.test(refs);
+    if (myth && !(line && exact(line[1] ?? "")) && !INLINE_SOURCE.test(whole)) {
+      if (line) fail("sources", "the sources must be exact: author, work, and the book, chapter or line (e.g. Aratus, Phaenomena 634–646)", line[0]);
+      else fail("sources", `a myth or a piece of history (${myth[0]}) needs its exact source: a "${lang === "fr" ? "Sources :" : "Sources:"}" line, or the reference in brackets (author, work, book or line)`, myth[0]);
+    }
+  }
+
+  if (enabled.terms) {
+    for (const { field, text } of all) {
+      for (const sentence of text.split(/(?<=[.!?…])\s+|\n+/)) {
+        const m = MODERN[lang].exec(sentence);
+        if (m && !/tropi(cal|que|cale)/i.test(sentence)) {
+          fail("terms", lang === "fr" ? `écrivez « astrologie tropicale moderne », jamais « ${m[0]} » seul (${field})` : `write "modern tropical astrology", never "${m[0]}" on its own (${field})`, m[0]);
+        }
       }
     }
   }

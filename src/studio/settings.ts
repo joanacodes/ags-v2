@@ -115,8 +115,11 @@ export const SETTINGS_SCHEMAS = {
         french: z.boolean().default(true),
         urls: z.boolean().default(true),
         nogo: z.boolean().default(true),
+        library: z.boolean().default(true),
+        sources: z.boolean().default(true),
+        terms: z.boolean().default(true),
       })
-      .default({ length: true, extras: true, statements: true, jargon: true, emoji: true, disclosure: true, figures: true, prediction: true, keyword: true, french: true, urls: true, nogo: true }),
+      .default({ length: true, extras: true, statements: true, jargon: true, emoji: true, disclosure: true, figures: true, prediction: true, keyword: true, french: true, urls: true, nogo: true, library: true, sources: true, terms: true }),
   }),
   "render-video": z.object({
     enabled: z.boolean().default(true),

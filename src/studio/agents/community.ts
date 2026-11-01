@@ -7,6 +7,7 @@
 import type { AgentContext } from "./context";
 import { promptFor } from "./context";
 import { communitySystem } from "./system";
+import { librarySectionFor } from "../library/library";
 import { callStructured, StructuredCallError } from "../claude/call";
 import { classifyOut, draftOut } from "../prompts/schemas";
 import { modelCap } from "../caps";
@@ -89,9 +90,12 @@ async function draftOne(ctx: AgentContext, row: ReplyRow, log: RunLog): Promise<
   const post = row.post_id ? (await store.posts({ ids: [row.post_id] }))[0] ?? null : null;
   const card = post ? (await store.cards({ ids: [post.card_id] }))[0] ?? null : null;
   const history = row.author_ref ? (await store.replies({ authorRef: row.author_ref, since: new Date(ctx.now.getTime() - 30 * 86400_000).toISOString(), limit: 10 })).filter((r) => r.id !== row.id) : [];
+  // a reply that explains a placement uses the same meanings as the posts and the readings
+  const library = librarySectionFor([row.their_text, post?.caption ?? post?.title ?? "", card?.hook ?? ""].join("\n"), ["en", "fr"]);
   const user = [
     `<item>${JSON.stringify({ platform: row.platform, class: row.klass, language: lang, text: row.their_text, author: row.author_handle })}</item>`,
     post ? `<on_piece>${JSON.stringify({ caption: post.caption ?? post.title, hook: card?.hook ?? null })}</on_piece>` : "<on_piece>(unknown)</on_piece>",
+    library ? `<library>\nThe astrology library's entries for what this comment and its piece name. A reply that explains them agrees with these.\n\n${library}\n</library>` : "",
     `<their_last_30_days>\n${history.length ? history.map((h) => `- they said: ${h.their_text}${h.draft_reply ? ` / we answered: ${h.draft_reply}` : ""}`).join("\n") : "(nothing)"}\n</their_last_30_days>`,
     `<test_link>${testLink(kit, lang, platform)}</test_link>`,
     `<help_lines>${kit.help_lines[lang]}</help_lines>`,

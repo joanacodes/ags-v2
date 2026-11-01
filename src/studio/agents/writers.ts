@@ -25,6 +25,7 @@ import type { CardRow, GateResult } from "../store/rows";
 import type { NewPost } from "../store/store";
 import type { Language } from "../types";
 import { FORMAT_LABELS, PLATFORM_LABELS } from "../types";
+import { librarySectionFor } from "../library/library";
 
 interface Job {
   readonly card: CardRow;
@@ -53,8 +54,11 @@ function cardBlock(card: CardRow): string {
 
 export function writerUser(job: Job, keywordActive: boolean): string {
   const list = job.targets.map((t) => `- ${t.format} for ${PLATFORM_LABELS[t.platform]} (platform "${t.platform}", format "${t.format}")`).join("\n");
+  // the library's entries for everything the card names: the only meanings the pieces may give them
+  const library = librarySectionFor([job.card.idea, job.card.hook, ...job.card.points, job.card.anchor ?? ""].join("\n"), ["en", "fr"]);
   return [
     `<card>\n${cardBlock(job.card)}\n</card>`,
+    library ? `<library>\nThe astrology library's entries for what this card names. Every meaning in the pieces agrees with them.\n\n${library}\n</library>` : "",
     `<write>\nWrite exactly these pieces, one each, in ${job.language === "fr" ? "French" : "English"}:\n${list}\n</write>`,
     keywordActive ? "" : "<keyword>Before the keyword date: no \"comment TEST\" or \"reply TEST\" in any piece.</keyword>",
   ]

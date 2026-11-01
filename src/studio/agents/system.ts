@@ -11,6 +11,8 @@ import { PLATFORM_LABELS } from "../types";
 import type { SystemBlock } from "../claude/transport";
 import { lengthRule, keywordsFor } from "../gate/text";
 import { slotsFor } from "../kit/load";
+import { STANDING_RULES } from "../library/rules";
+import { coreLibrarySection } from "../library/library";
 
 function section(title: string, body: string): string {
   return `<${title}>\n${body.trim()}\n</${title}>`;
@@ -87,14 +89,20 @@ export function examplesFor(kit: Kit, language: Language): string {
   return out.join("\n\n");
 }
 
+// The owner's standing rules (library/rules.ts) follow every agent's prompt, added here by code so that no edit
+// of a prompt in Settings can drop them.
+const rules = () => section("standing_rules", STANDING_RULES);
+
 export function strategistSystem(prompt: string, kit: Kit): SystemBlock[] {
-  return [{ text: [prompt, section("kit", kitForStrategist(kit))].join("\n\n"), cache: "1h" }];
+  // the whole core library: the strategist writes the points the writers may use, so every meaning in them is
+  // checked against it at the source (read once a week, from the cache)
+  return [{ text: [prompt, rules(), section("astrology_library", coreLibrarySection()), section("kit", kitForStrategist(kit))].join("\n\n"), cache: "1h" }];
 }
 
 export function writerSystem(prompt: string, kit: Kit, language: Language): SystemBlock[] {
   return [
     {
-      text: [prompt, section("kit", kitForWriter(kit, language)), section("platform_rules", formatSheet(kit, language)), section("examples", examplesFor(kit, language))].join("\n\n"),
+      text: [prompt, rules(), section("kit", kitForWriter(kit, language)), section("platform_rules", formatSheet(kit, language)), section("examples", examplesFor(kit, language))].join("\n\n"),
       // The Sunday run calls the writers about fifty times within the hour: the 1-hour cache pays for itself.
       cache: "1h",
     },
@@ -106,6 +114,7 @@ export function communitySystem(prompt: string, kit: Kit): SystemBlock[] {
     {
       text: [
         prompt,
+        rules(),
         section(
           "kit",
           stringify(
@@ -120,5 +129,5 @@ export function communitySystem(prompt: string, kit: Kit): SystemBlock[] {
 }
 
 export function analystSystem(prompt: string, kit: Kit): SystemBlock[] {
-  return [{ text: [prompt, section("kit", stringify(pick(kit, ["brand", "voice", "no_go", "pillars", "scorecard"]), { lineWidth: 0 }))].join("\n\n") }];
+  return [{ text: [prompt, rules(), section("kit", stringify(pick(kit, ["brand", "voice", "no_go", "pillars", "scorecard"]), { lineWidth: 0 }))].join("\n\n") }];
 }
