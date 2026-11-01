@@ -8,8 +8,13 @@
  * The glossary's grammar holds throughout: a planet is a function (what), a sign the manner of it (how), a house
  * its context (where), an aspect a relationship between two functions, an angle an orientation.
  */
+import { stringify } from "yaml";
 import { coreKnowledgePack } from "../../knowledge/pack-loader";
 import type { Language } from "../types";
+
+// The modules the reading engine gives the AI (knowledge/manifest.json, promptModules); metadata, changelog, tests
+// and reasoning are bookkeeping and never sent.
+const PROMPT_MODULES = ["identity", "semantics", "grammar", "language", "modifier_types", "development", "expression", "query_rules"] as const;
 
 export interface LibraryEntry {
   /** The record's id in the pack, e.g. "signs/scorpio". */
@@ -22,6 +27,8 @@ export interface LibraryEntry {
   /** What the library says the entity does not carry: never written as its quality. */
   readonly notInherent: readonly string[];
   readonly boundaries: readonly string[];
+  /** The entry in full, as the library holds it: its prompt modules, unabridged. */
+  readonly modules: Readonly<Record<string, unknown>>;
 }
 
 // how each kind sits in the glossary's grammar, said once at the head of its entries
@@ -118,7 +125,9 @@ function entryOf(id: string, modules: Record<string, unknown>): LibraryEntry {
   const boundaries = [...strings(semantics.boundaries), ...strings(semantics.exclusions), ...strings(identity.angleBoundaries)];
   const names = NAMES[id];
   const name = names?.en[0] ?? words(id.split("/")[1] ?? id);
-  return { id, name: name.charAt(0).toUpperCase() + name.slice(1), kind: KIND[id.split("/")[0] ?? ""] ?? "point", definition, domains, notInherent, boundaries };
+  const full: Record<string, unknown> = {};
+  for (const m of PROMPT_MODULES) if (modules[m] !== undefined) full[m] = modules[m];
+  return { id, name: name.charAt(0).toUpperCase() + name.slice(1), kind: KIND[id.split("/")[0] ?? ""] ?? "point", definition, domains, notInherent, boundaries, modules: full };
 }
 
 let cache: ReadonlyMap<string, LibraryEntry> | null = null;
@@ -169,16 +178,35 @@ export function describeEntry(e: LibraryEntry): string {
 }
 
 /**
- * The library's entries for whatever a text names, or null when it names nothing astrological. A card may be
- * written in English for a French piece (a "both" card), so names are looked for in every language given.
+ * One entry in full: the library's own text, every module the readings use (identity, semantics, grammar, the
+ * approved language, development, expression…), unabridged and uncopied, read from the pack each time. Headed by
+ * what it is and what it must never be written as, so a writer meets the limits first.
+ */
+export function fullEntry(e: LibraryEntry): string {
+  return [
+    `### ${e.name} (${e.kind}, ${ROLE[e.kind]}) — library entry ${e.id}`,
+    e.notInherent.length ? `Never write these as ${e.name}'s: ${e.notInherent.join(", ")}.` : "",
+    stringify(e.modules, { lineWidth: 0 }).trim(),
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
+
+/**
+ * The library's entries, in full, for whatever a text names, or null when it names nothing astrological. A card
+ * may be written in English for a French piece (a "both" card), so names are looked for in every language given.
  */
 export function librarySectionFor(text: string, languages: readonly Language[]): string | null {
   const found = new Map<string, LibraryEntry>();
   for (const language of languages) for (const e of entitiesIn(text, language)) found.set(e.id, e);
-  return found.size ? [...found.values()].map(describeEntry).join("\n\n") : null;
+  return found.size ? [...found.values()].map(fullEntry).join("\n\n") : null;
 }
 
-/** The whole core library (planets, signs, houses, angles, the aspects, the points), for the weekly strategist. */
+/**
+ * The whole core library in short (planets, signs, houses, angles, the aspects, the points): the strategist's
+ * overview, every week. In full it is about 350,000 characters, so the full entries go only where they are needed:
+ * for what the week's inputs, a card or a comment names.
+ */
 export function coreLibrarySection(): string {
   return [...libraryEntries().values()].map(describeEntry).join("\n\n");
 }

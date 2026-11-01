@@ -21,6 +21,7 @@ import { PILLARS, type Figure, type Pillar } from "../types";
 import type { CardRow, HookRow } from "../store/rows";
 import type { NewCard } from "../store/store";
 import { writeCards } from "./writers";
+import { librarySectionFor } from "../library/library";
 
 export interface StrategistInputs {
   readonly week: string;
@@ -102,7 +103,7 @@ export async function strategistInputs(ctx: AgentContext, week: string): Promise
     .map(([src, n]) => `${src}: ${n.started} started, ${n.finished} finished`)
     .join("\n");
 
-  const user = [
+  const user: string[] = [
     `<week>${week}: Monday ${days[0]} to Sunday ${days[6]}. Planned on ${describeParis(now)} (Paris).</week>`,
     `<count>Write between ${conf.cards_min} and ${conf.cards_max} cards.</count>`,
     `<keyword>${keywordNote} ${warmup}</keyword>`,
@@ -118,9 +119,14 @@ export async function strategistInputs(ctx: AgentContext, week: string): Promise
     `<recent_hooks>\nHooks of the last eight weeks (no near copies unless declared in variant_of):\n${recentHooks.slice(-120).join("\n") || "(none yet)"}\n</recent_hooks>`,
     `<backlog>\n${backlog.length ? backlog.map((c) => `[${c.pillar}] ${c.hook} (approved for ${c.week}, not used: it will be posted this week as written)`).join("\n") : "(empty)"}\n</backlog>`,
     `<sources>\n${sources.length ? sources.map((s) => `[${s.site}/${s.language}] ${s.title}${s.description ? ` — ${s.description}` : ""}${s.url ? ` (${s.url})` : ""}`).join("\n") : "(none listed yet)"}\n</sources>`,
-  ].join("\n\n");
+  ];
+  // the library in full for everything the week's events, backlog and site pages name: the points the writers will
+  // use are written from these entries
+  const named = librarySectionFor([...events.map((e) => e.event), ...backlog.map((c) => c.hook), ...sources.map((s) => `${s.title} ${s.description ?? ""}`)].join("\n"), ["en", "fr"]);
+  if (named) user.push(`<library_full>\nThe astrology library's full entries for what this week's inputs name.\n\n${named}\n</library_full>`);
+  const userText = user.join("\n\n");
 
-  return { week, user, figures, events, recentHooks, bank, winners, recentCards, cardsMin: conf.cards_min, cardsMax: conf.cards_max };
+  return { week, user: userText, figures, events, recentHooks, bank, winners, recentCards, cardsMin: conf.cards_min, cardsMax: conf.cards_max };
 }
 
 const norm = (s: string) => s.toLowerCase().replace(/\s+/g, " ").trim();

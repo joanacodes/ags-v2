@@ -24,9 +24,12 @@ test("entities are found by name, in English and in French", () => {
 
 test("a card's library section names what the card names", () => {
   const section = librarySectionFor("The trine between your Sun and Moon", ["en", "fr"]) ?? "";
-  assert.match(section, /^Sun \(planet/m);
-  assert.match(section, /^Trine \(aspect/m);
-  assert.match(section, /not inherent, never write these as Trine's: .*luck/);
+  assert.match(section, /^### Sun \(planet/m);
+  assert.match(section, /^### Trine \(aspect/m);
+  assert.match(section, /Never write these as Trine's: .*luck/);
+  // the entry in full, as the library holds it: its modules, not a summary
+  for (const module of ["identity:", "semantics:", "grammar:", "language:", "development:", "expression:"]) assert.match(section, new RegExp(`^${module}`, "m"), module);
+  assert.match(section, /facilitative flow/);
   assert.equal(librarySectionFor("A quiet morning with coffee.", ["en"]), null);
 });
 

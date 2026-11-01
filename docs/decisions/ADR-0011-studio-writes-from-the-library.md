@@ -12,8 +12,11 @@ astrologies all exist.
 
 ## Decision
 - Meanings come from the AGS definition library (knowledge/vocabulary, built into src/data/knowledge-pack.json),
-  read by src/studio/library/library.ts. The strategist gets the whole core library in its weekly system block; each
-  writer gets the entries for what its card names; a reply draft gets the entries for what the comment names.
+  read by src/studio/library/library.ts where it lives: the Studio holds no copy, so an edit to the library reaches
+  it at once. Entries go out in full, every module the readings use (identity, semantics, grammar, language,
+  modifier types, development, expression, query rules). The strategist gets the whole core library in short in its
+  weekly system block (in full it is about 350,000 characters) and the full entries for what the week's inputs name;
+  each writer gets the full entries for what its card names; a reply draft, for what the comment names.
 - The owner's standing rules (src/studio/library/rules.ts) follow every agent's prompt, added by code, so no edit of a
   prompt in Settings can drop them: meanings from the library; every myth, piece of history or other fact with an
   exact, real source (author, work, book, chapter or line); "modern tropical astrology", never "modern astrology".
