@@ -30,6 +30,7 @@
     "src/study/**/*.ts",
     "src/study/*.json",
     "src/studio/**/*.ts",
+    "src/forecast/**/*.ts",
     "src/studio/**/*.json"
   ],
   "exclude": [

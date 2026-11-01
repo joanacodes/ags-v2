@@ -1,0 +1,24 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.lunations.identity",
+  "status": "DRAFT: written for the forecast (TASK-0015) on 2026-11-01; awaiting the owner's validation before it counts as validated",
+  "content": {
+    "canonicalFunction": "Describes new and full moons as short monthly markers that can bring a period already active in the chart into focus when they fall on the same natal point.",
+    "coreDomains": [
+      "monthly_rhythm",
+      "triggers",
+      "focus",
+      "timing"
+    ],
+    "notInherent": [
+      "independent_significance",
+      "guaranteed_events",
+      "fixed_fate"
+    ],
+    "constraints": [
+      "Used only as triggers inside a window already active by transit, progression, solar arc or eclipse.",
+      "One-degree orb; a full moon counts on either end of its axis.",
+      "Never read on its own as a forecast."
+    ]
+  }
+}

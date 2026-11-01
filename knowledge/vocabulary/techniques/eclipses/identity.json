@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.eclipses.identity",
+  "status": "DRAFT: written for the forecast (TASK-0015) on 2026-11-01; awaiting the owner's validation before it counts as validated",
+  "content": {
+    "canonicalFunction": "Describes a solar or lunar eclipse that falls on a natal point, or opposite it, as a period of symbolic emphasis for what that point and its house represent.",
+    "coreDomains": [
+      "timing",
+      "emphasis",
+      "activation",
+      "change_of_focus",
+      "life_context"
+    ],
+    "notInherent": [
+      "omens",
+      "catastrophe",
+      "guaranteed_events",
+      "fixed_fate",
+      "isolated_interpretation"
+    ],
+    "constraints": [
+      "Counts only within about three degrees of a natal point, on either end of the eclipse's axis.",
+      "Interpreted through the natal point and its house, never on its own.",
+      "A penumbral lunar eclipse weighs less than a total, annular or partial one.",
+      "Symbolic emphasis, never an omen."
+    ]
+  }
+}

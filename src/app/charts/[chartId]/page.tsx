@@ -130,6 +130,12 @@ export default function ChartOverviewPage() {
               Temporal
             </Link>
             <Link
+              href={`/charts/${chartId}/forecast`}
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-line px-4 text-sm font-medium text-ink-secondary transition-colors hover:border-line-strong hover:text-ink"
+            >
+              Forecast
+            </Link>
+            <Link
               href={`/synastry?a=${encodeURIComponent(chartId)}`}
               className="inline-flex h-9 items-center gap-2 rounded-lg border border-line px-4 text-sm font-medium text-ink-secondary transition-colors hover:border-line-strong hover:text-ink"
             >

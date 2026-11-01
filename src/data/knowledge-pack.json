@@ -18313,6 +18313,36 @@
     }
    }
   },
+  "techniques/eclipses": {
+   "id": "techniques/eclipses",
+   "category": "techniques",
+   "entity": "eclipses",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Describes a solar or lunar eclipse that falls on a natal point, or opposite it, as a period of symbolic emphasis for what that point and its house represent.",
+     "coreDomains": [
+      "timing",
+      "emphasis",
+      "activation",
+      "change_of_focus",
+      "life_context"
+     ],
+     "notInherent": [
+      "omens",
+      "catastrophe",
+      "guaranteed_events",
+      "fixed_fate",
+      "isolated_interpretation"
+     ],
+     "constraints": [
+      "Counts only within about three degrees of a natal point, on either end of the eclipse's axis.",
+      "Interpreted through the natal point and its house, never on its own.",
+      "A penumbral lunar eclipse weighs less than a total, annular or partial one.",
+      "Symbolic emphasis, never an omen."
+     ]
+    }
+   }
+  },
   "techniques/lunar_return": {
    "id": "techniques/lunar_return",
    "category": "techniques",
@@ -18339,6 +18369,60 @@
       "Focuses on symbolic monthly emphasis.",
       "Should not be read as deterministic.",
       "Integrates with broader timing techniques."
+     ]
+    }
+   }
+  },
+  "techniques/lunations": {
+   "id": "techniques/lunations",
+   "category": "techniques",
+   "entity": "lunations",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Describes new and full moons as short monthly markers that can bring a period already active in the chart into focus when they fall on the same natal point.",
+     "coreDomains": [
+      "monthly_rhythm",
+      "triggers",
+      "focus",
+      "timing"
+     ],
+     "notInherent": [
+      "independent_significance",
+      "guaranteed_events",
+      "fixed_fate"
+     ],
+     "constraints": [
+      "Used only as triggers inside a window already active by transit, progression, solar arc or eclipse.",
+      "One-degree orb; a full moon counts on either end of its axis.",
+      "Never read on its own as a forecast."
+     ]
+    }
+   }
+  },
+  "techniques/planetary_returns": {
+   "id": "techniques/planetary_returns",
+   "category": "techniques",
+   "entity": "planetary_returns",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Describes a planet's return to its own natal position (Jupiter about every twelve years, Saturn about every twenty-nine and a half) as the close of one cycle of that planet's function and the opening of the next.",
+     "coreDomains": [
+      "life_cycles",
+      "developmental_cycles",
+      "renewal",
+      "timing",
+      "maturation"
+     ],
+     "notInherent": [
+      "crisis",
+      "guaranteed_events",
+      "fixed_fate",
+      "age_based_destiny"
+     ],
+     "constraints": [
+      "Read through the returning planet's natal sign, house and aspects.",
+      "Saturn's return has its own entry (techniques/saturn_return).",
+      "Developmental themes take precedence over event claims."
      ]
     }
    }
@@ -18399,6 +18483,36 @@
       "Should be interpreted together with the natal chart and other timing techniques such as transits.",
       "Progressions unfold gradually and emphasize symbolic maturation rather than sudden change.",
       "Interpretations should distinguish symbolic progression from astronomical movement."
+     ]
+    }
+   }
+  },
+  "techniques/solar_arc_directions": {
+   "id": "techniques/solar_arc_directions",
+   "category": "techniques",
+   "entity": "solar_arc_directions",
+   "modules": {
+    "identity": {
+     "canonicalFunction": "Moves every natal point forward by the arc the progressed Sun has travelled since birth, about one degree a year, to describe the slow unfolding of the whole natal chart, timed when a directed point meets a natal point.",
+     "coreDomains": [
+      "symbolic_time",
+      "life_development",
+      "timing",
+      "activation",
+      "maturation"
+     ],
+     "notInherent": [
+      "literal_planetary_motion",
+      "guaranteed_events",
+      "fixed_fate",
+      "isolated_interpretation",
+      "exact_predictions"
+     ],
+     "constraints": [
+      "Must always be interpreted alongside the natal chart.",
+      "Orbs are narrow: about one degree, which is about a year either side of exact.",
+      "A direction gains weight when a transit, a progression or an eclipse meets the same natal point at the same time.",
+      "Developmental themes take precedence over event claims."
      ]
     }
    }

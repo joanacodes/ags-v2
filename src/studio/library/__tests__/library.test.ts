@@ -28,7 +28,7 @@ test("a card's library section names what the card names", () => {
   assert.match(section, /^### Trine \(aspect/m);
   assert.match(section, /Never write these as Trine's: .*luck/);
   // the entry in full, as the library holds it: its modules, not a summary
-  for (const module of ["identity:", "semantics:", "grammar:", "language:", "development:", "expression:"]) assert.match(section, new RegExp(`^${module}`, "m"), module);
+  for (const part of ["identity:", "semantics:", "grammar:", "language:", "development:", "expression:"]) assert.match(section, new RegExp(`^${part}`, "m"), part);
   assert.match(section, /facilitative flow/);
   assert.equal(librarySectionFor("A quiet morning with coffee.", ["en"]), null);
 });
