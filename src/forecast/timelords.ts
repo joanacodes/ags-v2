@@ -51,17 +51,23 @@ export function profections(natal: Natal, from: number, to: number): ProfectionY
 
 // Valens' periods by sign: the minor years of each sign's ruler, Capricorn 27 and Aquarius 30 for Saturn
 const PERIOD_YEARS: Readonly<Record<string, number>> = { Aries: 15, Taurus: 8, Gemini: 20, Cancer: 25, Leo: 19, Virgo: 20, Libra: 8, Scorpio: 15, Sagittarius: 12, Capricorn: 27, Aquarius: 30, Pisces: 12 };
-// releasing counts years of 360 days and months of 30, as Valens does
-const RELEASING_YEAR = 360 * DAY;
-const RELEASING_MONTH = 30 * DAY;
+/**
+ * How long releasing's years are. Valens counts years of 360 days and months of 30, so the chapters drift from the
+ * birthday by about five days a year; the calendar year (365.2425 days, months of a twelfth of it) keeps them on it.
+ * Valens is the default; the forecast says which one it used.
+ */
+export type ReleasingYear = "valens" | "calendar";
+export const RELEASING_YEAR_DAYS: Readonly<Record<ReleasingYear, number>> = { valens: 360, calendar: 365.2425 };
 
 /**
  * Zodiacal releasing from a lot: level 1 runs through the signs from the lot's sign, each for its period in years;
  * level 2 subdivides each level-1 period the same way in months, and when its sub-periods have gone round all
  * twelve signs, it jumps to the sign opposite (the "loosing of the bond"). Peaks are the signs angular to Fortune.
  */
-export function releasing(natal: Natal, lot: "spirit" | "fortune", from: number, to: number): ReleasingPeriod[] {
+export function releasing(natal: Natal, lot: "spirit" | "fortune", from: number, to: number, year: ReleasingYear = "valens"): ReleasingPeriod[] {
   if (!natal.lots || natal.ascSign === null) return [];
+  const RELEASING_YEAR = RELEASING_YEAR_DAYS[year] * DAY;
+  const RELEASING_MONTH = RELEASING_YEAR / 12;
   const lotSign = Math.floor(natal.lots[lot] / 30);
   const fortuneSign = Math.floor(natal.lots.fortune / 30);
   const ascSign = natal.ascSign;

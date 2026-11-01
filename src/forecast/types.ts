@@ -97,13 +97,20 @@ export interface Meaning {
   readonly draft: boolean;
 }
 
+/**
+ * Said when a chart has no birth time. The owner's rule (2026-11-01): there is always a birth time, or no reading.
+ * Without it the angles and the houses are unknown, and with them the profections, zodiacal releasing, the solar
+ * returns and every contact to an angle: what would be left is not a forecast of this person. Kept here, with the
+ * types, so the page can say it before anything is computed without loading the library.
+ */
+export const NO_BIRTH_TIME = "A forecast needs the birth time: without it there is no reading. Add the time to the birth chart first.";
+
 export interface Forecast {
   readonly chartId: string;
   readonly mode: "back" | "ahead";
   readonly from: string;
   readonly to: string;
   readonly generatedAt: string;
-  readonly timeKnown: boolean;
   /** What this forecast could not use, and why ("no birth time: no houses, no angles…"). */
   readonly limits: readonly string[];
   readonly years: readonly ProfectionYear[];
@@ -113,5 +120,5 @@ export interface Forecast {
   readonly indicators: readonly Indicator[];
   /** Library entries by id, for every planet, point, aspect, house and technique the forecast names. */
   readonly meanings: Readonly<Record<string, Meaning>>;
-  readonly settings: { readonly orbs: Readonly<Record<string, string>>; readonly solarReturnAt: string };
+  readonly settings: { readonly orbs: Readonly<Record<string, string>>; readonly solarReturnAt: string; readonly releasingYear: string };
 }

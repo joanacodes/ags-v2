@@ -8,7 +8,9 @@
 import type { Natal } from "./natal";
 import type { AspectName, Indicator, ProfectionYear, ReleasingPeriod } from "./types";
 
-const TRANSIT_BASE: Readonly<Record<string, number>> = { Pluto: 5, Neptune: 4.5, Uranus: 4.5, Saturn: 4, Jupiter: 3, "North Node": 2.5 };
+// Chiron (added 2026-11-01) weighs as Jupiter does: a slow body with a clear cycle (its return comes near fifty), read
+// in modern tropical astrology and absent from the traditional techniques the rest of the weighting draws on
+const TRANSIT_BASE: Readonly<Record<string, number>> = { Pluto: 5, Neptune: 4.5, Uranus: 4.5, Saturn: 4, Jupiter: 3, Chiron: 3, "North Node": 2.5 };
 const PROGRESSION_BASE: Readonly<Record<string, number>> = { "progressed Sun": 4, "progressed Mercury": 3, "progressed Venus": 3, "progressed Mars": 3, "progressed Moon": 1.5 };
 const SOLAR_ARC_BASE = 3.5;
 const ECLIPSE_BASE = 2.5;

@@ -2,13 +2,14 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import * as A from "astronomy-engine";
 import { houses, houseOf } from "../houses";
-import { delta, longitude, sunAt, trueNode } from "../sky";
+import { delta, longitude, speed, sunAt, trueNode } from "../sky";
+import { chironHeliocentric } from "../chiron";
 import { episodes, sampleTimes, DAY } from "../scan";
 import { birthMoment, natalOf } from "../natal";
 import { profections, releasing } from "../timelords";
-import { buildForecast } from "../index";
+import { buildForecast, NO_BIRTH_TIME } from "../index";
 import charts from "../../data/sample-charts.json";
-import type { Chart } from "../../types";
+import type { Chart, ZodiacSign } from "../../types";
 
 const sample = (charts as unknown as { charts: Chart[] }).charts;
 
@@ -108,11 +109,130 @@ test("a forecast ranks its signals and carries the library's words for them", ()
   assert.deepEqual(again.indicators.map((i) => i.key).sort(), f.indicators.map((i) => i.key).sort());
 });
 
-test("without a birth time only the planets are timed", () => {
+test("without a birth time there is no forecast", () => {
   const chart = sample.find((c) => !c.birth.timeKnown)!;
-  const f = buildForecast(chart, { mode: "back", from: "2020-01-01", to: "2022-01-01" });
-  assert.ok(f.limits.some((l) => /birth time/.test(l)));
-  assert.equal(f.years.length, 0);
-  assert.equal(f.solarReturns.length, 0);
-  assert.ok(f.indicators.every((i) => i.target.kind !== "angle"));
+  assert.throws(() => buildForecast(chart, { mode: "back", from: "2020-01-01", to: "2022-01-01" }), (e: unknown) => e instanceof Error && e.message === NO_BIRTH_TIME);
+});
+
+// Chiron's apparent longitude from the Swiss Ephemeris asteroid file's own positions (seas_18.se1, read 2026-11-01),
+// put through the same light-time, aberration and rotation as ours: the orbit chiron.ts integrates must stay on it
+const CHIRON_REFERENCE: readonly [string, number][] = [
+  ["1900-06-01", 262.77307],
+  ["1925-03-15", 22.35851],
+  ["1950-01-01", 255.77726],
+  ["1996-02-14", 194.09054],
+  ["2000-01-01T12:00:00Z", 251.61755],
+  ["2026-11-01", 28.07449],
+  ["2050-07-01", 246.53808],
+  ["2075-01-01", 18.09919],
+  ["2099-12-01", 238.01316],
+];
+
+test("transiting Chiron stays within 0.015° of the reference from 1900 to 2100", () => {
+  for (const [date, lon] of CHIRON_REFERENCE) {
+    const ours = longitude("Chiron", new Date(date));
+    assert.ok(Math.abs(delta(ours, lon)) < 0.015, `${date}: ${ours.toFixed(5)} against ${lon}`);
+  }
+  assert.throws(() => longitude("Chiron", new Date("1850-01-01")), /1900 to 2100/);
+});
+
+// the day, in New York, of each moment Chiron crosses a longitude or turns, between two dates
+function eastern(t: number): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(t));
+}
+function chironCrossings(lon: number, from: string, to: string): number[] {
+  const out: number[] = [];
+  let prev = delta(longitude("Chiron", new Date(from)), lon);
+  for (let t = Date.parse(from) + DAY; t <= Date.parse(to); t += DAY) {
+    const cur = delta(longitude("Chiron", new Date(t)), lon);
+    if (Math.sign(cur) !== Math.sign(prev) && Math.abs(cur) < 5) {
+      let lo = t - DAY;
+      let hi = t;
+      for (let k = 0; k < 30; k += 1) {
+        const mid = (lo + hi) / 2;
+        if (Math.sign(delta(longitude("Chiron", new Date(mid)), lon)) === Math.sign(prev)) lo = mid;
+        else hi = mid;
+      }
+      out.push(hi);
+    }
+    prev = cur;
+  }
+  return out;
+}
+
+test("transiting Chiron enters Aries and Taurus, and stations, on the published dates", () => {
+  // Café Astrology's event pages (Eastern time): Aries on 17 April 2018, back into Pisces on 25 September 2018 (8:12 pm),
+  // Aries again on 18 February 2019 (4:07 am); Taurus on 19 June 2026, back into Aries on 17 September 2026, Taurus
+  // again on 14 April 2027
+  assert.deepEqual(chironCrossings(0, "2018-01-01", "2019-06-01").map(eastern), ["2018-04-17", "2018-09-25", "2019-02-18"]);
+  assert.deepEqual(chironCrossings(30, "2026-01-01", "2027-12-31").map(eastern), ["2026-06-19", "2026-09-17", "2027-04-14"]);
+  const [, september, february] = chironCrossings(0, "2018-01-01", "2019-06-01");
+  assert.ok(Math.abs(september! - Date.parse("2018-09-26T00:12:00Z")) < 20 * 60_000);
+  assert.ok(Math.abs(february! - Date.parse("2019-02-18T09:07:00Z")) < 20 * 60_000);
+  // and the stations: retrograde on 3 August 2026 at 0°52′ Taurus, direct on 6 January 2027 at 26°16′ Aries
+  const turns: { t: number; lon: number }[] = [];
+  let before = speed("Chiron", new Date("2026-06-01"));
+  for (let t = Date.parse("2026-06-01") + DAY; t <= Date.parse("2027-03-01"); t += DAY) {
+    const now = speed("Chiron", new Date(t));
+    if (Math.sign(now) !== Math.sign(before)) {
+      let lo = t - DAY;
+      let hi = t;
+      for (let k = 0; k < 30; k += 1) {
+        const mid = (lo + hi) / 2;
+        if (Math.sign(speed("Chiron", new Date(mid))) === Math.sign(before)) lo = mid;
+        else hi = mid;
+      }
+      turns.push({ t: hi, lon: longitude("Chiron", new Date(hi)) });
+    }
+    before = now;
+  }
+  assert.deepEqual(turns.map((s) => eastern(s.t)), ["2026-08-03", "2027-01-06"]);
+  assert.ok(Math.abs(turns[0]!.lon - (30 + 52 / 60)) < 1 / 60);
+  assert.ok(Math.abs(turns[1]!.lon - (26 + 16 / 60)) < 1 / 60);
+});
+
+test("Chiron's orbit comes closest to the Sun on 14 February 1996, as NASA records", () => {
+  // NASA NSSDC, Chiron fact sheet: perihelion 14 February 1996, 18:06 UT
+  let closest = { t: 0, r: Infinity };
+  for (let t = Date.parse("1995-11-01"); t <= Date.parse("1996-05-01"); t += DAY / 4) {
+    const [x, y, z] = chironHeliocentric(A.MakeTime(new Date(t)).tt);
+    const r = Math.hypot(x, y, z);
+    if (r < closest.r) closest = { t, r };
+  }
+  assert.ok(Math.abs(closest.t - Date.parse("1996-02-14T18:06:00Z")) < 1.5 * DAY, new Date(closest.t).toISOString());
+  assert.ok(closest.r > 8.4 && closest.r < 8.5);
+});
+
+test("a forecast finds the Chiron return, around fifty", () => {
+  const base = sample.find((c) => c.id === "chart-clara-mercer")!;
+  const born = birthMoment(base);
+  const lon = longitude("Chiron", born);
+  const SIGN_NAMES: ZodiacSign[] = ["Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"];
+  const chart: Chart = {
+    ...base,
+    points: [{ point: "Chiron", sign: SIGN_NAMES[Math.floor(lon / 30)]!, degree: Math.floor(lon % 30), minute: Math.floor(((lon % 30) % 1) * 60), house: 1 }],
+  };
+  const year = born.getUTCFullYear();
+  const f = buildForecast(chart, { mode: "ahead", from: `${year + 48}-01-01`, to: `${year + 53}-01-01` });
+  const back = f.indicators.filter((i) => i.mover === "Chiron" && i.returnOf === "Chiron");
+  assert.ok(back.length >= 1);
+  assert.equal(back[0]!.moverId, "points/chiron");
+  assert.ok(back[0]!.reasons.includes("Chiron return"));
+  assert.ok(back.some((i) => i.exact.length >= 1));
+  assert.equal(f.limits.length, 0);
+});
+
+test("zodiacal releasing counts Valens's 360-day years unless calendar years are asked for", () => {
+  const natal = natalOf(sample.find((c) => c.id === "chart-clara-mercer")!);
+  const born = natal.birth.getTime();
+  const firstEnd = (year: "valens" | "calendar") => Date.parse(releasing(natal, "spirit", born, born + 40 * 365 * DAY, year).find((p) => p.level === 1)!.end);
+  const valens = firstEnd("valens");
+  const calendar = firstEnd("calendar");
+  // the same number of years, of 360 days against 365.2425
+  const years = (valens - born) / (360 * DAY);
+  assert.ok(Math.abs(years - Math.round(years)) < 1e-9);
+  assert.ok(Math.abs((calendar - born) / (365.2425 * DAY) - years) < 1e-9);
+  const chart = sample.find((c) => c.id === "chart-clara-mercer")!;
+  const f = buildForecast(chart, { mode: "ahead", from: "2026-11-01", to: "2027-11-01", releasingYear: "calendar" });
+  assert.match(f.settings.releasingYear, /calendar/);
 });

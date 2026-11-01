@@ -6,13 +6,14 @@
  */
 import type { Chart } from "../types";
 import { natalOf } from "./natal";
+import { chironCovers } from "./chiron";
 import { transits, TRANSIT_ORB } from "./transits";
 import { progressions, PROGRESSION_ORB } from "./progressions";
 import { attachTriggers, eclipseIndicators, ECLIPSE_ORB } from "./eclipses";
-import { profections, releasing, solarReturns } from "./timelords";
+import { profections, releasing, solarReturns, RELEASING_YEAR_DAYS, type ReleasingYear } from "./timelords";
 import { score } from "./score";
 import { meaningsFor } from "./meanings";
-import type { Forecast, Indicator } from "./types";
+import { NO_BIRTH_TIME, type Forecast, type Indicator } from "./types";
 
 export interface ForecastRequest {
   readonly mode: "back" | "ahead";
@@ -20,6 +21,8 @@ export interface ForecastRequest {
   readonly to: string;
   /** Where to cast the solar returns; the birthplace when absent. */
   readonly solarReturnAt?: { readonly latitude: number; readonly longitude: number; readonly label: string } | null;
+  /** The length of zodiacal releasing's years: Valens's 360 days when absent. */
+  readonly releasingYear?: ReleasingYear;
 }
 
 /** The longest stretch one forecast covers: twenty-five years. */
@@ -27,22 +30,22 @@ export const MAX_SPAN_DAYS = 25 * 366;
 
 export function buildForecast(chart: Chart, request: ForecastRequest, now: Date = new Date()): Forecast {
   const natal = natalOf(chart);
+  if (!natal.timeKnown) throw new Error(NO_BIRTH_TIME);
   const from = Date.parse(request.from);
   const to = Date.parse(request.to);
   if (!Number.isFinite(from) || !Number.isFinite(to) || to <= from) throw new Error("The forecast needs a start date before its end date.");
   if ((to - from) / 86_400_000 > MAX_SPAN_DAYS) throw new Error("A forecast covers twenty-five years at most.");
   if (to <= natal.birth.getTime()) throw new Error("The forecast ends before the birth.");
 
-  const limits: string[] = ["Transiting Chiron is not timed yet: it needs a Chiron ephemeris. Chiron in the birth chart is."];
-  if (!natal.timeKnown) {
-    limits.push("No birth time: the angles, the houses, the profections, zodiacal releasing and the solar returns need one, so only the planets are timed.");
-  }
+  const limits: string[] = [];
+  if (!chironCovers(from, to)) limits.push("Transiting Chiron is computed from 1900 to 2100; this stretch goes beyond, so Chiron's transits are left out.");
 
   const place = request.solarReturnAt ?? { latitude: natal.latitude, longitude: natal.longitude, label: `${chart.birth.place} (birthplace)` };
   const years = profections(natal, from, to);
-  const spirit = releasing(natal, "spirit", from, to);
-  const fortune = releasing(natal, "fortune", from, to);
-  const returns = natal.timeKnown ? solarReturns(natal, from, to, place) : [];
+  const releasingYear = request.releasingYear ?? "valens";
+  const spirit = releasing(natal, "spirit", from, to, releasingYear);
+  const fortune = releasing(natal, "fortune", from, to, releasingYear);
+  const returns = solarReturns(natal, from, to, place);
 
   const progressed = progressions(natal, from, to);
   const eclipsed = eclipseIndicators(natal, from, to);
@@ -83,7 +86,6 @@ export function buildForecast(chart: Chart, request: ForecastRequest, now: Date 
     from: new Date(from).toISOString(),
     to: new Date(to).toISOString(),
     generatedAt: now.toISOString(),
-    timeKnown: natal.timeKnown,
     limits,
     years,
     solarReturns: returns,
@@ -99,8 +101,10 @@ export function buildForecast(chart: Chart, request: ForecastRequest, now: Date 
         eclipses: `${ECLIPSE_ORB}°`,
       },
       solarReturnAt: place.label,
+      releasingYear: releasingYear === "valens" ? `years of ${RELEASING_YEAR_DAYS.valens} days (Valens)` : `calendar years (${RELEASING_YEAR_DAYS.calendar} days)`,
     },
   };
 }
 
+export { NO_BIRTH_TIME } from "./types";
 export type { Forecast } from "./types";

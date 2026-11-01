@@ -6,6 +6,7 @@
  * techniques hold, and tune the weights. It says when, and which part of life; never what will happen.
  */
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { History, RefreshCw, Telescope } from "lucide-react";
@@ -15,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useChart } from "@/hooks/use-charts";
-import { KEY, NOTABLE, type Forecast, type Indicator, type Meaning } from "@/forecast/types";
+import { KEY, NOTABLE, NO_BIRTH_TIME, type Forecast, type Indicator, type Meaning } from "@/forecast/types";
 
 type Mode = "back" | "ahead";
 interface Mark {
@@ -181,6 +182,7 @@ export default function ForecastPage() {
   const { chartId } = useParams<{ chartId: string }>();
   const { data: chart } = useChart(chartId);
   const person = chart ? `${chart.person.firstName} ${chart.person.lastName}` : "";
+  const noBirthTime = chart !== undefined && !(chart.birth.timeKnown && chart.birth.time);
   const queryClient = useQueryClient();
 
   const [mode, setMode] = useState<Mode>("back");
@@ -188,6 +190,7 @@ export default function ForecastPage() {
   const [custom, setCustom] = useState<{ from: string; to: string }>({ from: "", to: "" });
   const [elsewhere, setElsewhere] = useState<{ on: boolean; latitude: string; longitude: string; label: string }>({ on: false, latitude: "", longitude: "", label: "" });
   const [showOther, setShowOther] = useState(false);
+  const [releasingYear, setReleasingYear] = useState<"valens" | "calendar">("valens");
 
   const range = useMemo(() => {
     if (preset === "custom") return custom.from && custom.to ? { from: custom.from, to: custom.to } : null;
@@ -209,6 +212,7 @@ export default function ForecastPage() {
           from: range.from,
           to: range.to,
           solarReturnAt: elsewhere.on ? { latitude: Number(elsewhere.latitude), longitude: Number(elsewhere.longitude), label: elsewhere.label } : null,
+          releasingYear,
         }),
       });
       const body = await response.json();
@@ -252,6 +256,17 @@ export default function ForecastPage() {
       <PageHeader title="Forecast" crumbs={[{ label: "Birth Charts", href: "/charts" }, { label: person || "Chart", href: `/charts/${chartId}` }, { label: "Forecast" }]} />
       <main className="flex-1 px-4 py-5 sm:px-6 sm:py-6">
         <div className="mx-auto max-w-3xl space-y-5">
+          {noBirthTime && (
+            <Card className="p-5">
+              <p className="font-serif text-sm leading-relaxed text-ink-secondary">{NO_BIRTH_TIME}</p>
+              <p className="pt-3 text-xs">
+                <Link href={`/charts/${chartId}`} className="text-accent underline underline-offset-2">
+                  Back to {person || "the birth chart"}
+                </Link>
+              </p>
+            </Card>
+          )}
+          {!noBirthTime && (
           <Card className="p-5">
             <p className="font-serif text-sm leading-relaxed text-ink-secondary">
               When, and which part of life: the forecast times what the birth chart already holds. It never says what will happen.
@@ -306,6 +321,13 @@ export default function ForecastPage() {
                 </label>
               </div>
             )}
+            <label className="flex flex-wrap items-center gap-2 pt-4 text-xs text-ink-secondary">
+              Life chapters (zodiacal releasing) count
+              <select className="rounded border border-line bg-transparent px-2 py-1 text-ink" value={releasingYear} onChange={(e) => setReleasingYear(e.target.value === "calendar" ? "calendar" : "valens")}>
+                <option value="valens">years of 360 days, as Valens does</option>
+                <option value="calendar">calendar years</option>
+              </select>
+            </label>
             <div className="flex items-center gap-3 pt-4">
               <Button variant="primary" size="sm" disabled={!range || compute.isPending} onClick={() => compute.mutate()}>
                 {compute.isPending ? <RefreshCw size={13} className="animate-spin" /> : null}
@@ -315,6 +337,7 @@ export default function ForecastPage() {
             </div>
             {compute.isError && <p className="pt-2 text-xs text-danger">{compute.error instanceof Error ? compute.error.message : "The forecast failed."}</p>}
           </Card>
+          )}
 
           {compute.isPending && <Skeleton className="h-64 w-full rounded-card" />}
 
@@ -325,7 +348,7 @@ export default function ForecastPage() {
                   {key.length} key {key.length === 1 ? "period" : "periods"}, {notable.length} notable
                 </h2>
                 <p className="pt-1 text-xs text-ink-muted">
-                  {day(forecast.from)} – {day(forecast.to)} · solar returns cast at {forecast.settings.solarReturnAt} · orbs: {Object.entries(forecast.settings.orbs).map(([k, v]) => `${k} ${v}`).join("; ")}
+                  {day(forecast.from)} – {day(forecast.to)} · solar returns cast at {forecast.settings.solarReturnAt} · life chapters in {forecast.settings.releasingYear} · orbs: {Object.entries(forecast.settings.orbs).map(([k, v]) => `${k} ${v}`).join("; ")}
                 </p>
                 {forecast.limits.length > 0 && (
                   <ul className="list-disc space-y-1 pl-4 pt-3 text-xs text-ink-secondary">
@@ -423,7 +446,7 @@ export default function ForecastPage() {
               )}
 
               <p className="text-[11px] leading-relaxed text-ink-faint">
-                Tendencies, not fate: timing activates what the birth chart holds; it does not create events. Methods: Robert Hand, Planets in Transit (1976); Steven Forrest, The Changing Sky (1986); Noel Tyl, Solar Arcs (2001); Vettius Valens, Anthology, Book IV, and Chris Brennan, Hellenistic Astrology (2017), for profections and zodiacal releasing; Abu Ma&rsquo;shar, On the Revolutions of the Years of Nativities (trans. B. Dykes, 2019), for solar returns. Positions: astronomy-engine, tropical zodiac, true ecliptic of date.
+                Tendencies, not fate: timing activates what the birth chart holds; it does not create events. Methods: Robert Hand, Planets in Transit (1976); Steven Forrest, The Changing Sky (1986); Noel Tyl, Solar Arcs (2001); Vettius Valens, Anthology, Book IV, and Chris Brennan, Hellenistic Astrology (2017), for profections and zodiacal releasing; Abu Ma&rsquo;shar, On the Revolutions of the Years of Nativities (trans. B. Dykes, 2019), for solar returns. Positions: astronomy-engine, tropical zodiac, true ecliptic of date; Chiron from its orbit, computed from its position and speed on 1 January 2000 under the pull of the Sun and the planets (1900–2100).
               </p>
             </>
           )}

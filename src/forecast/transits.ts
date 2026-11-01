@@ -1,10 +1,10 @@
 /**
  * Transits (Robert Hand, Planets in Transit, 1976): the slow planets of the day against the birth chart. Jupiter to
- * Pluto and the lunar nodes, every major aspect to every natal point, with the passes a planet makes as it turns
- * back over a point, and the stations it makes on one. Transiting Chiron waits for a Chiron ephemeris (see the
- * forecast's limits); Chiron as a natal point is measured.
+ * Pluto, Chiron and the lunar nodes, every major aspect to every natal point, with the passes a planet makes as it
+ * turns back over a point, and the stations it makes on one. Chiron is timed from 1900 to 2100 (chiron.ts).
  */
 import { delta, longitude, speed, type SkyBody } from "./sky";
+import { CHIRON_FROM, CHIRON_TO, chironCovers } from "./chiron";
 import type { Natal } from "./natal";
 import { ASPECT_ANGLES, type AspectName, type Indicator } from "./types";
 import { DAY, episodes, iso, month, sampleTimes } from "./scan";
@@ -13,6 +13,8 @@ export const TRANSIT_ORB = { approaching: 1.5, separating: 1 } as const;
 const MOVERS: readonly { body: SkyBody; step: number }[] = [
   { body: "Jupiter", step: 1 },
   { body: "Saturn", step: 1 },
+  // up to about 0.18° a day near its perihelion, as fast as Saturn: the same daily step
+  { body: "Chiron", step: 1 },
   { body: "Uranus", step: 2 },
   { body: "Neptune", step: 2 },
   { body: "Pluto", step: 2 },
@@ -29,7 +31,9 @@ export function transits(natal: Natal, from: number, to: number): Indicator[] {
   const out: Indicator[] = [];
   const pad = 200 * DAY;
   for (const { body, step } of MOVERS) {
-    const times = sampleTimes(from - pad, to + pad, step);
+    // Chiron only where its orbit is computed (the forecast says so when a stretch falls outside)
+    if (body === "Chiron" && !chironCovers(from, to)) continue;
+    const times = body === "Chiron" ? sampleTimes(Math.max(from - pad, CHIRON_FROM), Math.min(to + pad, CHIRON_TO), step) : sampleTimes(from - pad, to + pad, step);
     const lons = times.map((t) => longitude(body, new Date(t)));
     // stations: where the planet's motion changes direction, and the degree it stands still on
     const stations: { t: number; lon: number }[] = [];
@@ -50,7 +54,7 @@ export function transits(natal: Natal, from: number, to: number): Indicator[] {
         }
       }
     }
-    const moverId = body === "North Node" ? "points/north_node" : `planets/${body.toLowerCase()}`;
+    const moverId = body === "North Node" ? "points/north_node" : body === "Chiron" ? "points/chiron" : `planets/${body.toLowerCase()}`;
     for (const target of natal.points) {
       for (const { aspect, angle } of ASPECT_SIDES) {
         // the nodes work as an axis: only conjunctions and oppositions count

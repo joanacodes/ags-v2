@@ -1,16 +1,17 @@
 /**
  * Where the sky's bodies are, for the forecast (TASK-0015): geocentric apparent longitudes in the tropical zodiac,
  * on the true ecliptic and equinox of date, from astronomy-engine (MIT; VSOP87 and the NOVAS-checked models, to
- * within about an arcminute), and the true lunar node from Meeus.
+ * within about an arcminute), the true lunar node from Meeus, and Chiron from its own integrated orbit (chiron.ts).
  *
  * Positions are of date, not J2000: the equinox moves about 50″ a year, so a J2000 longitude would be off by more
  * than half a degree for a chart from the 1970s, which is wider than some of the forecast's orbs.
  */
 import * as A from "astronomy-engine";
+import { chironLongitude } from "./chiron";
 
-export type SkyBody = "Sun" | "Moon" | "Mercury" | "Venus" | "Mars" | "Jupiter" | "Saturn" | "Uranus" | "Neptune" | "Pluto" | "North Node";
+export type SkyBody = "Sun" | "Moon" | "Mercury" | "Venus" | "Mars" | "Jupiter" | "Saturn" | "Chiron" | "Uranus" | "Neptune" | "Pluto" | "North Node";
 
-const BODIES: Readonly<Record<Exclude<SkyBody, "North Node">, A.Body>> = {
+const BODIES: Readonly<Record<Exclude<SkyBody, "North Node" | "Chiron">, A.Body>> = {
   Sun: A.Body.Sun,
   Moon: A.Body.Moon,
   Mercury: A.Body.Mercury,
@@ -46,6 +47,7 @@ export function trueNode(date: Date): number {
 /** A body's longitude at a moment. */
 export function longitude(body: SkyBody, date: Date): number {
   if (body === "North Node") return trueNode(date);
+  if (body === "Chiron") return chironLongitude(date);
   const time = A.MakeTime(date);
   if (body === "Sun") return norm(A.SunPosition(time).elon);
   if (body === "Moon") return norm(A.EclipticGeoMoon(time).lon);
