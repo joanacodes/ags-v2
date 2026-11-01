@@ -263,10 +263,12 @@ export function keywordsFor(card: { anchor: string | null }, language: Language)
   return card.anchor ? [card.anchor.toLowerCase(), ...base] : base;
 }
 
-// A myth or a piece of history: the words that say a piece is telling one. Such a piece needs its sources line.
+// A myth or a piece of history: the words that say a piece is telling one. Such a piece needs its sources. "Myth"
+// alone also means a misconception ("a common myth about Scorpio"), so it counts only as "the myth of…" or "the
+// myth behind…"; hashtags are left out.
 const MYTH: Readonly<Record<Language, RegExp>> = {
-  en: /\b(myths?|mytholog\w*|legends?|legendary|Greeks?|Romans?|Babylon\w*|Mesopotamia\w*|Egyptians?|Hesiod|Homer|Ovid|Aratus|Eratosthenes|Hyginus|Ptolemy|Manilius|Vettius Valens|the ancients)\b/i,
-  fr: /(?<![\p{L}])(mythes?|mytholog\p{L}*|légendes?|légendaires?|Grecs?|grecques?|Romains?|Babylon\p{L}*|Mésopotami\p{L}*|Égyptiens?|Hésiode|Homère|Ovide|Aratos|Ératosthène|Hygin|Ptolémée|Manilius|Vettius Valens|les Anciens)(?![\p{L}])/iu,
+  en: /(?<![#\w])(mytholog\w*|legends?|legendary|Greeks?|Romans?|Babylon\w*|Mesopotamia\w*|Egyptians?|Hesiod|Homer|Ovid|Aratus|Eratosthenes|Hyginus|Ptolemy|Manilius|Vettius Valens|the ancients|myths? (?:of|behind|about) (?:the )?[A-Z]\w*|myths? behind)\b/,
+  fr: /(?<![#\p{L}])(mytholog\p{L}*|légendes?|légendaires?|Grecs?|grecques?|Romains?|Babylon\p{L}*|Mésopotami\p{L}*|Égyptiens?|Hésiode|Homère|Ovide|Aratos|Ératosthène|Hygin|Ptolémée|Manilius|Vettius Valens|les Anciens|mythes? (?:de|d['’]|derrière))(?![\p{L}])/u,
 };
 const SOURCES_LINE = /\bsources?\s*:\s*([^\n]+)/i;
 // a reference in brackets: a capitalised author or work, then a book, chapter or line ("(Hyginus, De Astronomia 2.27)")

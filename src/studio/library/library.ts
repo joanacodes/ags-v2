@@ -213,7 +213,10 @@ function denied(sentence: string, at: number, length: number): boolean {
 export function notInherentHits(text: string, language: Language): { entity: string; quality: string; sentence: string }[] {
   if (language !== "en") return [];
   const hits: { entity: string; quality: string; sentence: string }[] = [];
-  const sentences = text.split(/(?<=[.!?…])\s+|\n+/).map((s) => s.trim()).filter(Boolean);
+  // a cliché quoted to be answered ("“Scorpios are vengeful.” Not quite.") is mentioned, not said: quotations are
+  // set aside before the sentences are read
+  const said = text.replace(/[“«"][^”»"]*[”»"]/g, " ");
+  const sentences = said.split(/(?<=[.!?…])\s+|\n+/).map((s) => s.trim()).filter(Boolean);
   for (const sentence of sentences) {
     for (const e of entitiesIn(sentence, language)) {
       for (const q of e.notInherent) {

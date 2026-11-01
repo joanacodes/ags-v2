@@ -51,3 +51,8 @@ test("only a negation next to the quality denies it", () => {
   assert.deepEqual(notInherentHits("It is not a house of death or catastrophe: transformation is not destruction, and depth is not obsession. The 8th house is about trust.", "en"), []);
   assert.deepEqual(notInherentHits("A trine isn't luck. Ease is not a guarantee, and flow is not passivity.", "en"), []);
 });
+
+test("a cliché in quotation marks is mentioned, not said", () => {
+  assert.deepEqual(notInherentHits("“Scorpios are vengeful.” Not quite.", "en"), []);
+  assert.equal(notInherentHits("Scorpios are vengeful. Not quite.", "en")[0]?.quality, "vengefulness");
+});

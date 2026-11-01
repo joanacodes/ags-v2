@@ -30,6 +30,9 @@ test("sources: a myth needs its exact references", () => {
   assert.ok(fails("Dans la mythologie grecque, Gaïa envoie un scorpion contre Orion.", "sources", "fr"));
   assert.ok(!fails("Dans la mythologie grecque, Gaïa envoie un scorpion contre Orion.\nSources : Pseudo-Ératosthène, Catastérismes 32", "sources", "fr"));
   assert.ok(!fails("Your Moon shows what you need to feel secure.", "sources"));
+  // "myth" as a misconception is not mythology
+  assert.ok(!fails("Common myth: Scorpios are vengeful. Not quite. #astrologymyths", "sources"));
+  assert.ok(fails("The myth behind the sign: Orion and the scorpion.", "sources"));
 });
 
 test("terms: never \"modern astrology\" on its own", () => {
