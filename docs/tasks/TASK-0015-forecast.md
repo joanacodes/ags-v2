@@ -60,3 +60,8 @@ page says so before anything is computed, and the API answers 422 with the same 
 1. Tune the weights from the marks once a few charts are tested.
 2. A written reading of a forecast in the library's words (as the readings do), once the signals are trusted.
 3. ~~A Chiron ephemeris for transiting Chiron~~: done (2026-11-01), see Calculation.
+4. Positions from FreeAstroAPI's ephemeris (the owner's choice, 2026-11-02, over a Swiss Ephemeris licence in the
+   app): `GET /api/v1/ephemeris` (start, end, step, bodies; Chiron and both Liliths among them), fetched once per
+   date range and kept, since an ephemeris is the same for every chart, with today's in-app positions as the
+   fallback. Its answer's shape is not in FreeAstroAPI's published API description, so it is built against real
+   answers once `FREE_ASTRO_API_KEY` is set in the Claude environment.
