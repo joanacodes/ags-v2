@@ -18,9 +18,12 @@ offered a "I don't know my exact time" box. The owner's rule: "There's always a 
 - A chart without a time can still be created and kept: the time may be found later.
 - The site's order form requires the time (both times for a synastry), and its pages say so (astrostudy repository).
 
+- "I don't know my birth time" on the site (order form and Astro Study test, 2026-11-02) shows the owner's words:
+  "We're working on a project to find people's birth data accurately. Unfortunately, for now I can only do a reading
+  with the time and place of birth" (or "run the test"); neither the order nor the test goes through without a time.
+
 ## Not covered
-- The Astro Study test still runs without a time, with fewer kinds of question: it is a test, not a reading. To be
-  confirmed by the owner.
+- AGS's test routes still accept a test without a time (the site no longer sends one).
 - The deterministic interpretation page (the library's sentences per placement) still opens: it is the material of a
   reading, used to check the engine, not a reading given to someone.
 
