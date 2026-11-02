@@ -22,6 +22,7 @@ import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { synastryKeys, useSynastry } from "@/hooks/use-synastry";
 import { getDefaultStyle, getReadingLanguage } from "@/lib/reading-prefs";
+import { NO_BIRTH_TIME_SYNASTRY } from "@/lib/birth-time";
 import { SynastryService, type SynastryPerson } from "@/services/synastry-service";
 
 function PersonBlock({ person }: { person: SynastryPerson }) {
@@ -191,7 +192,7 @@ export default function SynastryDetailPage() {
                       variant="primary"
                       className="mt-4"
                       onClick={() => void write()}
-                      disabled={!data.owner.calculated || !data.partner.calculated}
+                      disabled={!data.owner.calculated || !data.partner.calculated || !data.timeKnown.owner || !data.timeKnown.partner}
                     >
                       <Sparkles size={14} />
                       {failed ? "Try again" : "Write the reading"}
@@ -199,6 +200,7 @@ export default function SynastryDetailPage() {
                     {(!data.owner.calculated || !data.partner.calculated) && (
                       <p className="pt-2 text-xs text-danger">Both charts must be calculated first.</p>
                     )}
+                    {(!data.timeKnown.owner || !data.timeKnown.partner) && <p className="pt-2 text-xs text-danger">{NO_BIRTH_TIME_SYNASTRY}</p>}
                   </div>
                 )
               )}

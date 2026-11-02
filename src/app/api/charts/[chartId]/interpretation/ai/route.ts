@@ -12,6 +12,7 @@ import { allowFallbackFrom, resolveAiModel } from "@/interpretation/ai-models";
 import { PromptsStore } from "@/server/prompts-store";
 import { runInterpretationPipeline } from "@/interpretation/pipeline";
 import { AiInterpretationStore } from "@/server/readings-store";
+import { hasBirthTime, NO_BIRTH_TIME_READING } from "@/lib/birth-time";
 
 export async function POST(
   request: Request,
@@ -21,6 +22,9 @@ export async function POST(
   if (denied !== null) return denied;
   try {
     const chart = await ChartsStore.getChart(params.chartId);
+    if (!hasBirthTime(chart)) {
+      return NextResponse.json({ error: { code: "NO_BIRTH_TIME", message: NO_BIRTH_TIME_READING } }, { status: 422 });
+    }
     const pipeline = await runInterpretationPipeline(chart);
     const person = `${chart.person.firstName} ${chart.person.lastName}`.trim();
     const outcome = await generateAiInterpretation(pipeline, person, {

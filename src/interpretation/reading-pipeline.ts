@@ -18,6 +18,7 @@ import type {
 } from "@/types";
 import { runInterpretationPipeline } from "./pipeline";
 import type { ComposedGroup, ComposedSentence } from "./composer";
+import { hasBirthTime } from "../lib/birth-time";
 import { getDomain, type ReadingDomainDefinition } from "./domains";
 import {
   anthropicHeaders,
@@ -538,6 +539,7 @@ export type GeneratedReadingOutcome =
   | { status: "ok"; reading: Reading }
   | { status: "no_api_key" }
   | { status: "no_placements" }
+  | { status: "no_birth_time" }
   | { status: "refused"; message: string }
   | { status: "provider_error"; message: string };
 
@@ -558,6 +560,7 @@ export async function generateDomainReading(
   const domain = getDomain(slug);
   if (domain === undefined) return { status: "provider_error", message: `Unknown domain "${slug}".` };
   if (chart.planets.length === 0) return { status: "no_placements" };
+  if (!hasBirthTime(chart)) return { status: "no_birth_time" };
 
   const pipeline = await runInterpretationPipeline(chart);
   const domainMatches = pipeline.matches.filter((m) => matchBelongsToDomain(m, domain));

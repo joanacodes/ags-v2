@@ -35,6 +35,7 @@ import { AI_MODELS, resolveAiModel, type AiModelId } from "@/interpretation/ai-m
 import { Select } from "@/components/ui/select";
 import { ShareDialog } from "@/components/readings/share-panel";
 import { GenerateAllCard } from "@/components/readings/generate-all-button";
+import { hasBirthTime } from "@/lib/birth-time";
 import { PRIMARY_CHART_ID } from "@/lib/navigation";
 import { useReadingProgress, useReadings } from "@/hooks/use-readings";
 import { formatBirthMoment } from "@/lib/format";
@@ -213,6 +214,7 @@ export default function ChartOverviewPage() {
                 language={chart.configuration.language}
                 missing={readings?.filter((r) => r.status !== "complete").length}
                 total={readings?.length}
+                birthTimeMissing={!hasBirthTime(chart)}
               />
             )}
             {/* Person header */}

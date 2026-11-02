@@ -116,12 +116,14 @@ type FailedOutcome =
   | { status: "refused"; message: string }
   | { status: "provider_error"; message: string }
   | { status: "no_api_key" }
-  | { status: "no_placements" };
+  | { status: "no_placements" }
+  | { status: "no_birth_time" };
 
 function outcomeFailure(outcome: FailedOutcome): JobFailure {
   if (outcome.status === "refused") return { message: outcome.message, final: true };
   if (outcome.status === "no_api_key") return { message: "No AI key on the server.", final: true };
   if (outcome.status === "no_placements") return { message: "Calculate the chart first.", final: true };
+  if (outcome.status === "no_birth_time") return { message: "A reading needs the birth time.", final: true };
   return { message: outcome.message, final: false };
 }
 

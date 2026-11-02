@@ -31,7 +31,7 @@ npm start          # serve the production build
 | `/charts` | Birth Chart Library (search, filters, grid/list) |
 | `/charts/new` | Create Chart wizard (4 steps, Zod validation, local draft save) |
 | `/charts/[chartId]` | Chart Overview (interactive SVG wheel, placements, themes) |
-| `/charts/[chartId]/readings` | Reading Hub (11 life domains) |
+| `/charts/[chartId]/readings` | Reading Hub (11 life domains); no reading without a birth time (ADR-0012) |
 | `/charts/[chartId]/readings/[slug]` | Reading page (evidence, styles, factors rail, chart-facts mode) |
 | `/charts/[chartId]/report` | Full Report Preview (sections, locked content, export rail) |
 | `/reports`, `/settings` | Index / placeholder screens |

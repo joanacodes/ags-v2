@@ -19,6 +19,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { useChart } from "@/hooks/use-charts";
 import { useReadingProgress, useReadings } from "@/hooks/use-readings";
 import { GenerateAllCard } from "@/components/readings/generate-all-button";
+import { hasBirthTime } from "@/lib/birth-time";
 import { formatDate } from "@/lib/format";
 import { shortDegree } from "@/lib/astro";
 
@@ -137,6 +138,7 @@ export default function ReadingHubPage() {
                 missing={readings.filter((r) => r.status !== "complete").length}
                 total={readings.length}
                 className="mb-6"
+                birthTimeMissing={!hasBirthTime(chart)}
               />
             )}
             {isError && (
