@@ -19,7 +19,7 @@ export function Sidebar({ panel }: { panel?: React.ReactNode }) {
     <aside className="fixed inset-y-0 left-0 z-30 hidden w-60 flex-col border-r border-line bg-surface lg:flex print:hidden">
       {/* Brand */}
       <Link
-        href="/dashboard"
+        href="/"
         className="flex items-center gap-3 px-5 pb-5 pt-5"
         aria-label="AGS home"
       >

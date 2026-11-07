@@ -10,6 +10,7 @@ const NAV = [
   { href: "/studio/today", label: "Today", glyph: "☉" },
   { href: "/studio/map", label: "Map", glyph: "✦" },
   { href: "/studio/library", label: "Library", glyph: "□" },
+  { href: "/studio/files", label: "Files", glyph: "▦" },
   { href: "/studio/video", label: "Video", glyph: "▷" },
   { href: "/studio/settings", label: "Settings", glyph: "⚙" },
 ];
@@ -81,6 +82,13 @@ export function Shell({ children, live, paused, signOut }: { children: React.Rea
             ))}
           </nav>
           <div className="ml-auto flex items-center gap-1">
+            <Link href="/" className="btn btn-quiet px-3" title="Home: Open Studio or Open AGS" aria-label="Home: Open Studio or Open AGS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+                <path d="M4 11.5 12 5l8 6.5" />
+                <path d="M6.5 10v9h11v-9" />
+                <path d="M10 19v-5h4v5" />
+              </svg>
+            </Link>
             <Bell />
             <form action={signOut} className="hidden md:block">
               <button className="btn btn-quiet btn-sm">Sign out</button>
@@ -89,7 +97,7 @@ export function Shell({ children, live, paused, signOut }: { children: React.Rea
         </div>
       </header>
       <main className="mx-auto max-w-6xl px-4 pb-28 pt-6 md:pb-12">{children}</main>
-      <nav className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t border-line bg-paper/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-6 border-t border-line bg-paper/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
         {NAV.map((n) => (
           <Link key={n.href} href={n.href} className={`flex flex-col items-center gap-0.5 py-2 text-[11px] ${path.startsWith(n.href) ? "text-accent" : "text-ink-3"}`}>
             <span className="font-serif text-lg leading-none" aria-hidden="true">
