@@ -9,6 +9,8 @@
 import { NextResponse } from "next/server";
 import { requireSignedIn } from "@/lib/supabase/server";
 import { BackgroundUnavailableError, GenerationJobs } from "@/server/generation-jobs";
+import { ChartsStore } from "@/server/charts-store";
+import { hasBirthTime, NO_BIRTH_TIME_READING } from "@/lib/birth-time";
 
 export const dynamic = "force-dynamic";
 
@@ -26,6 +28,9 @@ export async function POST(request: Request, { params }: { params: { chartId: st
   const style = STYLES.includes(body.style ?? "") ? (body.style as string) : "conversational";
   const language = LANGUAGES.includes(body.language ?? "") ? (body.language as string) : "en";
   try {
+    if (!hasBirthTime(await ChartsStore.getChart(params.chartId))) {
+      return NextResponse.json({ error: { code: "NO_BIRTH_TIME", message: NO_BIRTH_TIME_READING } }, { status: 422 });
+    }
     const result = await GenerationJobs.enqueue(params.chartId, style, language);
     return NextResponse.json({ ...result, summary: await GenerationJobs.summary(params.chartId) });
   } catch (error) {

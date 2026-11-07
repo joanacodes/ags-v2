@@ -1,0 +1,57 @@
+/* The Studio's templates: the site's fonts, colours and glass, for pictures and video frames.
+   One file serves the Video studio's live preview (served by the app) and the renders on the runner
+   (opened from disk by Chromium), so what the owner previews is what gets rendered. */
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:300 600;src:url("../fonts/fraunces-normal-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fraunces";font-style:normal;font-weight:300 600;src:url("../fonts/fraunces-normal-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:300 600;src:url("../fonts/fraunces-italic-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Fraunces";font-style:italic;font-weight:300 600;src:url("../fonts/fraunces-italic-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Inter";font-style:normal;font-weight:300 600;src:url("../fonts/inter-normal-latin.woff2") format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Inter";font-style:normal;font-weight:300 600;src:url("../fonts/inter-normal-latin-ext.woff2") format("woff2");unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C4,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Astro Symbols";font-style:normal;font-weight:400;src:url("../fonts/noto-sans-symbols-astro.woff2") format("woff2");unicode-range:U+25A1,U+25B3,U+2605,U+2609,U+260C-260D,U+263D,U+263F-2640,U+2642-2653,U+26B7-26B8,U+2726}
+
+:root{
+  --paper:#f3f1ea; --ink:#1c211b; --ink-2:#474e44; --ink-3:#4b5249; --line:rgba(28,33,27,.14); --line-2:rgba(28,33,27,.3);
+  --accent:#b5512c; --accent-ink:#8f3d1f; --gold:#c98a2e; --cream:rgba(247,246,241,.93);
+  --serif:"Astro Symbols","Fraunces","Iowan Old Style",Georgia,serif;
+  --sans:"Astro Symbols","Inter",system-ui,sans-serif;
+  --W:1080px; --H:1920px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:var(--W);height:var(--H);overflow:hidden;background:transparent}
+body{position:relative;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-kerning:normal;font-optical-sizing:auto}
+em{font-style:italic;font-weight:300}
+
+/* The meadow, in the preview only: on the runner the frames are transparent and ffmpeg lays them over
+   the moving loop, with the glass's blur done there too. */
+.meadow{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.is-preview .meadow{display:block}
+
+/* Glass: the paper tint over a blur of the meadow under it. In a frame, only the tint (the blur is
+   ffmpeg's); in the preview, the browser's own backdrop blur stands in. */
+.glass{position:absolute;border-radius:44px;background:linear-gradient(180deg,rgba(247,246,241,.62),rgba(244,243,237,.72));border:1.5px solid rgba(255,255,255,.62);
+  box-shadow:0 34px 90px -40px rgba(20,40,20,.5),inset 0 1px 0 rgba(255,255,255,.5);overflow:hidden}
+.is-preview .glass{backdrop-filter:blur(28px) saturate(1.45) brightness(1.06);-webkit-backdrop-filter:blur(28px) saturate(1.45) brightness(1.06)}
+
+.label{display:flex;align-items:center;gap:20px;font:500 26px/1.25 var(--sans);letter-spacing:.15em;text-transform:uppercase;color:var(--ink-2)}
+.title{font-family:var(--serif);font-weight:330;letter-spacing:-.03em;line-height:1.05;color:var(--ink);text-wrap:balance}
+.text{font:400 40px/1.4 var(--sans);color:var(--ink-2);text-wrap:pretty}
+.wm{display:flex;align-items:baseline;gap:.2em;font-family:var(--serif);font-weight:360;letter-spacing:-.02em;color:var(--ink);white-space:nowrap}
+.wm em{font-weight:300}
+.wm__dot{align-self:center;width:.5em;height:.5em;margin-right:.28em;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff6df,#e9b26a 55%,#c76a35);box-shadow:0 0 .55em .12em rgba(255,214,150,.75)}
+.sunword{-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;padding-right:.04em;background-image:linear-gradient(to left,#f7c25a 0%,#eea23c 24%,#d77a33 46%,#8a4a26 60%,var(--ink) 72%)}
+
+/* The brand on every frame, top left, in white on the sky. */
+.brand{position:absolute;left:80px;top:150px;display:flex;align-items:center;gap:22px;color:#fff;text-shadow:0 2px 18px rgba(8,22,40,.35)}
+.brand__glyph{font:400 78px/1 "Astro Symbols",serif}
+.brand__name{font:500 26px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+
+/* Captions: the spoken words on a cream bar, inside TikTok's and Reels' safe area. */
+.captions{position:absolute;left:80px;right:150px;top:1330px;display:flex;justify-content:center}
+.captions__bar{max-width:100%;padding:18px 30px 20px;border-radius:26px;background:var(--cream);box-shadow:0 18px 40px -22px rgba(20,40,20,.55);
+  font:600 48px/1.22 var(--sans);color:var(--ink);text-align:center;letter-spacing:-.005em;text-wrap:balance}
+.captions__bar:empty{display:none}
+
+/* The disclosure, the last second of every voiced video. */
+.disclosure{position:absolute;left:80px;right:150px;top:1560px;text-align:center;font:500 30px/1.3 var(--sans);letter-spacing:.06em;color:#fff;text-shadow:0 2px 14px rgba(8,22,40,.5)}
+
+.hidden{display:none !important}

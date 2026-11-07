@@ -1,0 +1,65 @@
+{
+  "$comment": "Claude models the Studio may use, with their limits and list prices in US dollars per million tokens. Copied from Anthropic's models overview and pricing as of the date in 'checked'; the Models settings page shows and edits them (overrides live in studio_settings), and the list of ids is refreshed daily from the Models API. Cache writes: 1.25x input for 5 minutes, 2x for 1 hour. Batches: half price.",
+  "checked": "2026-10-06",
+  "models": {
+    "claude-opus-5-5": {
+      "label": "Claude Opus 5.5",
+      "note": "Judgement: weighs a week of data and says why each card exists.",
+      "context": 1000000,
+      "maxOutput": 128000,
+      "input": 4.0,
+      "output": 20.0,
+      "cacheWrite5m": 5.0,
+      "cacheWrite1h": 8.0,
+      "cacheRead": 0.2,
+      "batchFactor": 0.5,
+      "defaultEffort": "medium",
+      "fallbacks": true
+    },
+    "claude-sonnet-5-5": {
+      "label": "Claude Sonnet 5.5",
+      "note": "Volume in a fixed voice under a schema: fast, and the kit is cached.",
+      "context": 1000000,
+      "maxOutput": 128000,
+      "input": 2.0,
+      "output": 10.0,
+      "cacheWrite5m": 2.5,
+      "cacheWrite1h": 4.0,
+      "cacheRead": 0.2,
+      "batchFactor": 0.5,
+      "defaultEffort": "high",
+      "fallbacks": true
+    },
+    "claude-haiku-5-5": {
+      "label": "Claude Haiku 5.5",
+      "note": "Sorting short items: speed and price. Above 100,000 input tokens a call costs five times as much.",
+      "context": 1000000,
+      "maxOutput": 128000,
+      "input": 0.1,
+      "output": 0.5,
+      "cacheWrite5m": 0.125,
+      "cacheWrite1h": 0.2,
+      "cacheRead": 0.01,
+      "longInputAbove": 100000,
+      "longInput": 0.5,
+      "longOutput": 2.5,
+      "batchFactor": 0.5,
+      "defaultEffort": "medium",
+      "fallbacks": false
+    },
+    "claude-fable-5-1": {
+      "label": "Claude Fable 5.1",
+      "note": "Anthropic's most capable model. The most expensive; for a strategist run that must be excellent.",
+      "context": 1000000,
+      "maxOutput": 128000,
+      "input": 10.0,
+      "output": 50.0,
+      "cacheWrite5m": 12.5,
+      "cacheWrite1h": 20.0,
+      "cacheRead": 0.25,
+      "batchFactor": 0.5,
+      "defaultEffort": "high",
+      "fallbacks": true
+    }
+  }
+}

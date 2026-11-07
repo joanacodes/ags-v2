@@ -1,0 +1,31 @@
+# The checks every change to AGS passes before it is merged: types, lint, the tests (AGS's and the
+# Studio's, its draft-only guard among them) and the build. The Studio shares AGS's deploys, so a
+# Studio change that breaks the build is caught here, not on Vercel.
+name: checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      # The Studio guard's own promise: no test or build ever runs live.
+      STUDIO_LIVE: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build

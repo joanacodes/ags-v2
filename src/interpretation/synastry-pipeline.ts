@@ -11,6 +11,7 @@ import { createCoreKnowledgeRegistry } from "@/knowledge/pack-loader";
 import type { ComposedGroup } from "./composer";
 import { runInterpretationPipeline } from "./pipeline";
 import { resolveAiModel } from "./ai-models";
+import { hasBirthTime } from "../lib/birth-time";
 import {
   READING_OUTPUT_FORMAT,
   defaultPrompts,
@@ -167,6 +168,7 @@ export async function generateSynastryReading(
   options: SynastryOptions = {},
 ): Promise<GeneratedSynastryOutcome> {
   if (owner.planets.length === 0 || partner.planets.length === 0) return { status: "no_placements" };
+  if (!hasBirthTime(owner) || !hasBirthTime(partner)) return { status: "no_birth_time" };
   const names = pairNames(owner, partner);
   const overview = synastryOverview(owner, partner);
   const focus = composeSynastry(names[0], names[1], overview, createCoreKnowledgeRegistry());

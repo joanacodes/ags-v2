@@ -10,6 +10,7 @@ import { ReadingsStore } from "@/server/readings-store";
 import { generateDomainReading } from "@/interpretation/reading-pipeline";
 import { allowFallbackFrom } from "@/interpretation/ai-models";
 import { PromptsStore } from "@/server/prompts-store";
+import { NO_BIRTH_TIME_READING } from "@/lib/birth-time";
 
 export async function POST(
   request: Request,
@@ -44,6 +45,9 @@ export async function POST(
         },
         { status: 409 },
       );
+    }
+    if (outcome.status === "no_birth_time") {
+      return NextResponse.json({ error: { code: "NO_BIRTH_TIME", message: NO_BIRTH_TIME_READING } }, { status: 422 });
     }
     if (outcome.status === "refused") {
       return NextResponse.json(

@@ -1,0 +1,28 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.solar_arc_directions.identity",
+  "status": "DRAFT: written for the forecast (TASK-0015) on 2026-11-01; awaiting the owner's validation before it counts as validated",
+  "content": {
+    "canonicalFunction": "Moves every natal point forward by the arc the progressed Sun has travelled since birth, about one degree a year, to describe the slow unfolding of the whole natal chart, timed when a directed point meets a natal point.",
+    "coreDomains": [
+      "symbolic_time",
+      "life_development",
+      "timing",
+      "activation",
+      "maturation"
+    ],
+    "notInherent": [
+      "literal_planetary_motion",
+      "guaranteed_events",
+      "fixed_fate",
+      "isolated_interpretation",
+      "exact_predictions"
+    ],
+    "constraints": [
+      "Must always be interpreted alongside the natal chart.",
+      "Orbs are narrow: about one degree, which is about a year either side of exact.",
+      "A direction gains weight when a transit, a progression or an eclipse meets the same natal point at the same time.",
+      "Developmental themes take precedence over event claims."
+    ]
+  }
+}

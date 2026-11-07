@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>placement-callout</title>
+<link rel="stylesheet" href="./studio.css">
+<style>
+  .sky{position:absolute;left:0;right:0;top:300px;height:440px;display:flex;align-items:center;justify-content:center}
+  .sky::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(closest-side,rgba(8,22,40,.13),rgba(8,22,40,0))}
+  .glyph-big{position:relative;font:400 330px/1 "Astro Symbols",serif;color:#fff;text-shadow:0 6px 50px rgba(10,32,56,.38),0 0 2px rgba(10,32,56,.25)}
+  .panel{left:70px;top:780px;width:940px;height:500px}
+  .panel__in{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:20px;padding:50px 60px}
+  .panel .title{font-size:80px}
+  .panel.is-hook .title{font-size:92px}
+  .panel .wm{font-size:76px;justify-content:center}
+  .panel .frame-line{font:500 32px/1.35 var(--sans);letter-spacing:.06em;color:var(--ink-2);text-align:center}
+</style>
+</head>
+<body>
+<video class="meadow" src="../media/meadow-loop-tall.mp4" poster="../media/meadow-poster-tall.jpg" autoplay muted loop playsinline></video>
+<div class="sky"><div class="glyph-big" id="glyph"></div></div>
+<div class="glass panel" id="panel"><div class="panel__in" id="panel-in"></div></div>
+<div class="captions"><div class="captions__bar" id="caption"></div></div>
+<script src="./engine.js"></script>
+<script>
+const GLYPHS = { sun: "☉", moon: "☽", mercury: "☿", venus: "♀", mars: "♂", jupiter: "♃", saturn: "♄", uranus: "♅", neptune: "♆", pluto: "♇", chiron: "⚷", lilith: "⚸",
+  soleil: "☉", lune: "☽", mercure: "☿", "vénus": "♀", saturne: "♄", pluton: "♇" };
+defineTemplate({
+  glass() {
+    return [{ x: 70, y: 780, w: 940, h: 500, r: 44 }];
+  },
+  build(spec, h) {
+    const key = String(spec.anchor || spec.emphasis || "").toLowerCase().split(/\s+/)[0];
+    document.getElementById("glyph").textContent = (GLYPHS[key] || spec.glyph || "☉") + "︎";
+  },
+  show(state, spec, timeline, h) {
+    const scene = timeline.scenes[state.scene] || { kind: "line", text: "" };
+    const panel = document.getElementById("panel");
+    const inner = document.getElementById("panel-in");
+    panel.classList.toggle("is-hook", scene.kind === "hook");
+    inner.innerHTML = scene.kind === "disclosure"
+      ? '<div class="wm"><span class="wm__dot"></span><span>The Astro <em>Study</em></span></div><p class="frame-line">' + h.esc(spec.disclosure_text || "") + "</p>"
+      : '<p class="title" data-fit="44">' + h.plain(h.esc(scene.text)) + "</p>";
+    h.fit(inner);
+    const cap = timeline.captions[state.caption];
+    document.getElementById("caption").textContent = scene.kind === "disclosure" || !cap ? "" : cap.text;
+  },
+});
+</script>
+</body>
+</html>

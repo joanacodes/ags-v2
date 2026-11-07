@@ -1,0 +1,15 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "engine.temporal.forecast_weighting",
+  "status": "DRAFT: TASK-0015 starting values, approved in principle by the owner on 2026-11-01; to be tuned with the look-back marks",
+  "rules": [
+    "A timing signal counts by what moves: transits of Pluto 5, Neptune and Uranus 4.5, Saturn 4, Jupiter 3, Chiron 3 (added 2026-11-01, read in modern tropical astrology), the lunar nodes 2.5; progressions of the Sun 4, of Mercury, Venus and Mars 3, of the Moon 1.5; solar arcs 3.5 (x1.15 when an angle is involved); eclipses 2.5 (penumbral lunar x0.6, within 1 degree x1.2).",
+    "By its aspect: conjunction 1, opposition and square 0.9, trine 0.6, sextile 0.5.",
+    "By the natal point it meets: the Sun, the Moon, the Ascendant and the Midheaven 1.3; the chart ruler 1.25; Chiron and Lilith 1.1; the North Node 0.9; Uranus, Neptune and Pluto 0.8; any other point 1.",
+    "A station on the point multiplies by 1.3; the lord of the year as the moving body or the point by 1.5; a point in the year's profected sign by 1.2; a peak period of zodiacal releasing from Spirit by 1.1.",
+    "Convergence: when k different techniques meet the same natal point in overlapping windows, each one's weight is multiplied by 1 + 0.5 (k - 1). A single transit on its own is a weak signal.",
+    "New and full moons, and Mars's conjunctions, squares and oppositions, are triggers only: they date a window already active, never open one.",
+    "Tiers: 10 and above is a key period, 5 and above a notable one.",
+    "Orbs: transits 1.5 degrees approaching and 1 degree separating; progressions and solar arcs 1 degree; eclipses 3 degrees; triggers 1 degree."
+  ]
+}

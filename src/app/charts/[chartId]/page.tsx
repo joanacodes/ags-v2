@@ -35,6 +35,7 @@ import { AI_MODELS, resolveAiModel, type AiModelId } from "@/interpretation/ai-m
 import { Select } from "@/components/ui/select";
 import { ShareDialog } from "@/components/readings/share-panel";
 import { GenerateAllCard } from "@/components/readings/generate-all-button";
+import { hasBirthTime } from "@/lib/birth-time";
 import { PRIMARY_CHART_ID } from "@/lib/navigation";
 import { useReadingProgress, useReadings } from "@/hooks/use-readings";
 import { formatBirthMoment } from "@/lib/format";
@@ -130,6 +131,12 @@ export default function ChartOverviewPage() {
               Temporal
             </Link>
             <Link
+              href={`/charts/${chartId}/forecast`}
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-line px-4 text-sm font-medium text-ink-secondary transition-colors hover:border-line-strong hover:text-ink"
+            >
+              Forecast
+            </Link>
+            <Link
               href={`/synastry?a=${encodeURIComponent(chartId)}`}
               className="inline-flex h-9 items-center gap-2 rounded-lg border border-line px-4 text-sm font-medium text-ink-secondary transition-colors hover:border-line-strong hover:text-ink"
             >
@@ -207,6 +214,7 @@ export default function ChartOverviewPage() {
                 language={chart.configuration.language}
                 missing={readings?.filter((r) => r.status !== "complete").length}
                 total={readings?.length}
+                birthTimeMissing={!hasBirthTime(chart)}
               />
             )}
             {/* Person header */}

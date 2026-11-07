@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useGenerateAll } from "@/hooks/use-generate-all";
 import { cn } from "@/lib/utils";
+import { NO_BIRTH_TIME_READING } from "@/lib/birth-time";
 
 /** "Generate all categories" with live progress, for one chart. */
 export function GenerateAllCard({
@@ -13,6 +14,7 @@ export function GenerateAllCard({
   missing,
   total,
   className,
+  birthTimeMissing = false,
 }: {
   chartId: string;
   language?: string;
@@ -20,8 +22,18 @@ export function GenerateAllCard({
   missing: number | undefined;
   total: number | undefined;
   className?: string;
+  /** No birth time on the chart: no reading is written (src/lib/birth-time.ts). */
+  birthTimeMissing?: boolean;
 }) {
   const { state, start, stop, running } = useGenerateAll(chartId, language);
+  if (birthTimeMissing) {
+    return (
+      <Card className={cn("p-4 sm:p-5", className)}>
+        <p className="text-sm font-semibold text-ink">All reading categories</p>
+        <p className="pt-0.5 text-xs leading-relaxed text-ink-muted">{NO_BIRTH_TIME_READING}</p>
+      </Card>
+    );
+  }
   const allDone = missing === 0 && !running;
 
   return (

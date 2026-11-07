@@ -8,6 +8,7 @@
  *   DELETE → remove the synastry
  */
 import { NextResponse } from "next/server";
+import { hasBirthTime, NO_BIRTH_TIME_SYNASTRY } from "@/lib/birth-time";
 import { requireSignedIn } from "@/lib/supabase/server";
 import { ChartsStore } from "@/server/charts-store";
 import { PromptsStore } from "@/server/prompts-store";
@@ -100,6 +101,7 @@ export async function POST(request: Request, { params }: Params) {
   if (owner.planets.length === 0 || partner.planets.length === 0) {
     return fail("CHART_NOT_CALCULATED", "Both charts must be calculated first.", 409);
   }
+  if (!hasBirthTime(owner) || !hasBirthTime(partner)) return fail("NO_BIRTH_TIME", NO_BIRTH_TIME_SYNASTRY, 422);
   if (ChartsStore.isSample(pair.owner)) {
     return fail("SAMPLE_PAIR", "Pick at least one of your own charts: sample charts can't be saved.", 400);
   }
@@ -133,6 +135,7 @@ export async function POST(request: Request, { params }: Params) {
   if (outcome.status === "refused") return fail("AI_REFUSED", outcome.message, 422);
   if (outcome.status === "no_api_key") return fail("AI_NOT_CONFIGURED", "No AI key on the server.", 503);
   if (outcome.status === "no_placements") return fail("CHART_NOT_CALCULATED", "Both charts must be calculated first.", 409);
+  if (outcome.status === "no_birth_time") return fail("NO_BIRTH_TIME", NO_BIRTH_TIME_SYNASTRY, 422);
   return fail("AI_PROVIDER_ERROR", outcome.message, 502);
 }
 

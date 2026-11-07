@@ -1,14 +1,37 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import { Sparkles } from "lucide-react";
+import { Doors } from "@/components/landing/doors";
 import { NewsletterForm } from "@/components/landing/newsletter-form";
 import { NightPage } from "@/components/landing/night-page";
 import { ParisClock } from "@/components/landing/paris-clock";
+import { devOwner, viewer } from "@/studio/server/owner";
+
+export const dynamic = "force-dynamic";
+
+/**
+ * AGS's main page. The owner gets two doors, Open AGS and Open Studio; anyone else signed in goes to the
+ * dashboard; a visitor gets the landing page. Without a sign-in cookie, nobody is asked who they are.
+ */
+export default async function HomePage() {
+  const signedIn = cookies()
+    .getAll()
+    .some((c) => c.name.startsWith("sb-") && c.name.includes("-auth-token"));
+  if (signedIn || devOwner()) {
+    const who = await viewer();
+    if (who.kind === "owner") return <Doors />;
+    if (who.kind === "stranger") redirect("/dashboard");
+  }
+  return <LandingPage />;
+}
 
 /**
  * Public landing page while AGS is in private beta: no sign-up, a way to
- * hear the news, and one discreet sign-in (for the owner).
+ * hear the news, and one discreet sign-in (for the owner, who comes back
+ * to the doors).
  */
-export default function LandingPage() {
+function LandingPage() {
   return (
     <NightPage className="flex min-h-[100svh] flex-col items-center justify-center px-4 pb-28 pt-14 text-center">
       <main className="w-full max-w-xl animate-fade-up">
@@ -38,7 +61,7 @@ export default function LandingPage() {
         </section>
 
         <Link
-          href="/auth/sign-in"
+          href="/auth/sign-in?next=%2F"
           className="mt-8 inline-flex h-9 items-center rounded-full border border-white/15 px-5 text-xs font-medium tracking-wide text-ink-secondary transition-colors hover:border-white/30 hover:text-ink"
         >
           Sign in

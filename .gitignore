@@ -7,3 +7,9 @@ dist-test
 .open-next
 .wrangler
 .dev.vars
+
+# The Studio: render work folders and local dry runs
+.studio-work/
+.studio-demo/
+.studio-local/
+src/app/studio/studio.generated.css

@@ -59,6 +59,8 @@ jobs:
           FREE_ASTRO_API_KEY: ${{ secrets.FREE_ASTRO_API_KEY }}
           # Supabase secret key: lets the background timer write readings.
           SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          # The Astro Study test (TASK-0013): whose library and study the participants join.
+          STUDY_OWNER_USER_ID: ${{ secrets.STUDY_OWNER_USER_ID }}
         run: |
           if [ -z "$SUPABASE_SECRET_KEY" ]; then
             echo "::warning::No SUPABASE_SECRET_KEY secret: readings are generated in the browser only (see DEPLOY.md)."
@@ -68,7 +70,7 @@ jobs:
           file="$RUNNER_TEMP/worker-secrets.json"
           node -e '
             const out = {};
-            for (const k of ["ANTHROPIC_API_KEY", "FREE_ASTRO_API_KEY", "SUPABASE_SECRET_KEY", "CRON_SECRET"]) if (process.env[k]) out[k] = process.env[k];
+            for (const k of ["ANTHROPIC_API_KEY", "FREE_ASTRO_API_KEY", "SUPABASE_SECRET_KEY", "CRON_SECRET", "STUDY_OWNER_USER_ID"]) if (process.env[k]) out[k] = process.env[k];
             require("fs").writeFileSync(process.argv[1], JSON.stringify(out));
             console.log("Syncing:", Object.keys(out).join(", ") || "nothing");
           ' "$file"

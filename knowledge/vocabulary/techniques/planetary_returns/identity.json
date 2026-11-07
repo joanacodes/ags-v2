@@ -1,0 +1,26 @@
+{
+  "$schemaVersion": "1.0",
+  "id": "vocabulary.techniques.planetary_returns.identity",
+  "status": "DRAFT: written for the forecast (TASK-0015) on 2026-11-01; awaiting the owner's validation before it counts as validated",
+  "content": {
+    "canonicalFunction": "Describes a planet's return to its own natal position (Jupiter about every twelve years, Saturn about every twenty-nine and a half) as the close of one cycle of that planet's function and the opening of the next.",
+    "coreDomains": [
+      "life_cycles",
+      "developmental_cycles",
+      "renewal",
+      "timing",
+      "maturation"
+    ],
+    "notInherent": [
+      "crisis",
+      "guaranteed_events",
+      "fixed_fate",
+      "age_based_destiny"
+    ],
+    "constraints": [
+      "Read through the returning planet's natal sign, house and aspects.",
+      "Saturn's return has its own entry (techniques/saturn_return).",
+      "Developmental themes take precedence over event claims."
+    ]
+  }
+}
