@@ -11,6 +11,7 @@ const NAV = [
   { href: "/studio/map", label: "Map", glyph: "✦" },
   { href: "/studio/library", label: "Library", glyph: "□" },
   { href: "/studio/files", label: "Files", glyph: "▦" },
+  { href: "/studio/email", label: "Email", glyph: "✉" },
   { href: "/studio/video", label: "Video", glyph: "▷" },
   { href: "/studio/settings", label: "Settings", glyph: "⚙" },
 ];
@@ -97,7 +98,7 @@ export function Shell({ children, live, paused, signOut }: { children: React.Rea
         </div>
       </header>
       <main className="mx-auto max-w-6xl px-4 pb-28 pt-6 md:pb-12">{children}</main>
-      <nav className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-6 border-t border-line bg-paper/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
+      <nav className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-7 border-t border-line bg-paper/95 pb-[env(safe-area-inset-bottom)] backdrop-blur md:hidden">
         {NAV.map((n) => (
           <Link key={n.href} href={n.href} className={`flex flex-col items-center gap-0.5 py-2 text-[11px] ${path.startsWith(n.href) ? "text-accent" : "text-ink-3"}`}>
             <span className="font-serif text-lg leading-none" aria-hidden="true">

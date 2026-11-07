@@ -102,6 +102,21 @@ export class FakeTransport implements ModelTransport {
     }
     if (/You draft replies/.test(sys)) return JSON.stringify({ reply: "So was I. Take the test at https://astrostudy.co.uk/test/?src=ig and tell me your score.", flag: "none", flag_reason: null, reminders: [] });
     if (/You are the analyst/.test(sys)) return JSON.stringify({ verdicts: [], suggestions: [{ idea: "More Saturn", pillar: "placements", figure: null, reason: "it worked" }], for_owner: ["Read the scorecard."], reminders: [] });
+    if (/You write marketing emails inside the Studio/.test(sys)) {
+      const fr = /<language>French<\/language>/.test(req.user);
+      const link = /<links>\n(https:\/\/\S+)/.exec(req.user)?.[1] ?? "";
+      const block = (type: string, text: string, href = "") => ({ type, text, href, cite: "", level: 1 });
+      return JSON.stringify({
+        subject: fr ? "Votre résultat, et la suite" : "Your result, and what comes next",
+        preheader: fr ? "Trois minutes pour comprendre votre score." : "Three minutes to understand your score.",
+        blocks: [
+          block("heading", fr ? "Bonjour {{first_name}}," : "Hello {{first_name}},"),
+          block("text", fr ? "Merci d’avoir fait le test. Votre score dit combien de fois vous vous êtes reconnu·e.\n\nVoici comment le lire." : "Thank you for taking the test. Your score says how often you recognised yourself.\n\nHere is how to read it."),
+          block("image", fr ? "une image du ciel de la semaine" : "a picture of this week's sky"),
+          block("button", fr ? "Voir la suite" : "See what's next", link),
+        ],
+      });
+    }
     throw new Error("the fake model doesn't know this agent");
   }
   async send(req: ModelRequest): Promise<ModelResponse> {

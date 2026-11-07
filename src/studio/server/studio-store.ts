@@ -11,6 +11,10 @@ import {
   calendarRowSchema,
   cardRowSchema,
   connectionRowSchema,
+  emailBrandRowSchema,
+  emailContactRowSchema,
+  emailDesignRowSchema,
+  emailWorkflowRowSchema,
   eventRowSchema,
   hookRowSchema,
   kitVersionRowSchema,
@@ -44,9 +48,14 @@ import {
 import type {
   CardFilter,
   CardPatch,
+  EmailContactFilter,
+  EmailContactPatch,
   MediaStorage,
   NewCalendar,
   NewCard,
+  NewEmailContact,
+  NewEmailDesign,
+  NewEmailWorkflow,
   NewMedia,
   NewPost,
   NewReminder,
@@ -65,6 +74,7 @@ import type {
   StudioStore,
 } from "../store/store";
 import type { Language, Pillar } from "../types";
+import { CONTACT_STATUSES, type Brand, type ContactStatus } from "../email/model";
 
 export class StudioStorageError extends Error {}
 
@@ -593,6 +603,107 @@ export class SupabaseStudioStore implements StudioStore {
       fail("study_sessions", error);
     }
     return rows("study_sessions", studySessionRowSchema, data);
+  }
+
+  // The Studio's own email (202611070011_studio_email.sql)
+  async emailBrand(brand: Brand) {
+    const { data, error } = await this.client.from("studio_email_brands").select("*").eq("brand", brand).maybeSingle();
+    if (error) fail("studio_email_brands", error);
+    return one("studio_email_brands", emailBrandRowSchema, data);
+  }
+  async putEmailBrand(brand: Brand, settings: Record<string, unknown>, actor: string) {
+    const { error } = await this.client.from("studio_email_brands").upsert({ brand, settings, updated_by: actor });
+    if (error) fail("studio_email_brands", error);
+  }
+  async emailDesigns(brand: Brand) {
+    const { data, error } = await this.client.from("studio_email_designs").select("*").eq("brand", brand).order("updated_at", { ascending: false });
+    if (error) fail("studio_email_designs", error);
+    return rows("studio_email_designs", emailDesignRowSchema, data);
+  }
+  async emailDesign(id: string) {
+    const { data, error } = await this.client.from("studio_email_designs").select("*").eq("id", id).maybeSingle();
+    if (error) fail("studio_email_designs", error);
+    return one("studio_email_designs", emailDesignRowSchema, data);
+  }
+  async saveEmailDesign(row: NewEmailDesign & { id?: string }, actor: string) {
+    const { data, error } = await this.client.from("studio_email_designs").upsert({ ...row, updated_by: actor }).select("*").single();
+    if (error) fail("studio_email_designs", error);
+    const saved = one("studio_email_designs", emailDesignRowSchema, data);
+    if (!saved) throw new StudioStorageError("studio_email_designs: the row didn't come back");
+    return saved;
+  }
+  async deleteEmailDesign(id: string) {
+    const { error } = await this.client.from("studio_email_designs").delete().eq("id", id);
+    if (error) fail("studio_email_designs", error);
+  }
+  async emailWorkflows(brand: Brand) {
+    const { data, error } = await this.client.from("studio_email_workflows").select("*").eq("brand", brand).order("updated_at", { ascending: false });
+    if (error) fail("studio_email_workflows", error);
+    return rows("studio_email_workflows", emailWorkflowRowSchema, data);
+  }
+  async emailWorkflow(id: string) {
+    const { data, error } = await this.client.from("studio_email_workflows").select("*").eq("id", id).maybeSingle();
+    if (error) fail("studio_email_workflows", error);
+    return one("studio_email_workflows", emailWorkflowRowSchema, data);
+  }
+  async saveEmailWorkflow(row: NewEmailWorkflow & { id?: string }, actor: string) {
+    const { data, error } = await this.client.from("studio_email_workflows").upsert({ ...row, updated_by: actor }).select("*").single();
+    if (error) fail("studio_email_workflows", error);
+    const saved = one("studio_email_workflows", emailWorkflowRowSchema, data);
+    if (!saved) throw new StudioStorageError("studio_email_workflows: the row didn't come back");
+    return saved;
+  }
+  async deleteEmailWorkflow(id: string) {
+    const { error } = await this.client.from("studio_email_workflows").delete().eq("id", id);
+    if (error) fail("studio_email_workflows", error);
+  }
+  async emailContacts(filter: EmailContactFilter) {
+    const limit = Math.min(Math.max(filter.limit ?? 100, 1), 500);
+    const offset = Math.max(filter.offset ?? 0, 0);
+    let query = this.client.from("studio_email_contacts").select("*", { count: "exact" }).eq("brand", filter.brand);
+    if (filter.status) query = query.eq("status", filter.status);
+    // PostgREST reads commas, brackets and wildcards in a filter: they are dropped from the search.
+    const q = (filter.q ?? "").replace(/[,()%*\\]/g, " ").trim().toLowerCase();
+    if (q) query = query.or(`email.ilike.%${q}%,name.ilike.%${q}%`);
+    const { data, error, count } = await query.order("created_at", { ascending: false }).order("id", { ascending: false }).range(offset, offset + limit - 1);
+    if (error) fail("studio_email_contacts", error);
+    return { rows: rows("studio_email_contacts", emailContactRowSchema, data), total: count ?? 0 };
+  }
+  async emailContactCounts(brand: Brand) {
+    const counts = Object.fromEntries(CONTACT_STATUSES.map((s) => [s, 0])) as Record<ContactStatus, number>;
+    for (const status of CONTACT_STATUSES) {
+      const { count, error } = await this.client.from("studio_email_contacts").select("id", { count: "exact", head: true }).eq("brand", brand).eq("status", status);
+      if (error) fail("studio_email_contacts", error);
+      counts[status] = count ?? 0;
+    }
+    return counts;
+  }
+  async addEmailContacts(brand: Brand, list: readonly NewEmailContact[], actor: string) {
+    let added = 0;
+    for (let i = 0; i < list.length; i += 500) {
+      const chunk = list.slice(i, i + 500).map((r) => ({ ...r, email: r.email.trim().toLowerCase(), brand, updated_by: actor }));
+      const { data, error } = await this.client.from("studio_email_contacts").upsert(chunk, { onConflict: "brand,email", ignoreDuplicates: true }).select("id");
+      if (error) fail("studio_email_contacts", error);
+      added += Array.isArray(data) ? data.length : 0;
+    }
+    return { added, skipped: list.length - added };
+  }
+  async updateEmailContact(brand: Brand, id: string, patch: EmailContactPatch, actor: string) {
+    const { data: current, error: readError } = await this.client.from("studio_email_contacts").select("status").eq("id", id).eq("brand", brand).maybeSingle();
+    if (readError) fail("studio_email_contacts", readError);
+    if (!current) return false;
+    const was = (current as { status?: string }).status;
+    const extra: Record<string, unknown> = {};
+    if (patch.status === "unsubscribed" && was !== "unsubscribed") extra.unsubscribed_at = nowIso();
+    if (patch.status && patch.status !== "unsubscribed") extra.unsubscribed_at = null;
+    const { error } = await this.client.from("studio_email_contacts").update({ ...patch, ...extra, updated_by: actor }).eq("id", id).eq("brand", brand);
+    if (error) fail("studio_email_contacts", error);
+    return true;
+  }
+  async deleteEmailContact(brand: Brand, id: string) {
+    const { data, error } = await this.client.from("studio_email_contacts").delete().eq("id", id).eq("brand", brand).select("id");
+    if (error) fail("studio_email_contacts", error);
+    return Array.isArray(data) && data.length > 0;
   }
 }
 

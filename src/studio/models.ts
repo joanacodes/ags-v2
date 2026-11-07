@@ -149,6 +149,7 @@ export const MODEL_USES = [
   "analyst",
   "rewrite",
   "test-prompt",
+  "email-draft",
 ] as const;
 export type ModelUse = (typeof MODEL_USES)[number];
 
@@ -161,6 +162,7 @@ export const MODEL_USE_LABELS: Readonly<Record<ModelUse, string>> = {
   analyst: "Analyst",
   rewrite: "Rewrite a piece (interactive)",
   "test-prompt": "Test a prompt on one card",
+  "email-draft": "Write an email (interactive)",
 };
 
 /**
@@ -177,4 +179,5 @@ export const MODEL_DEFAULTS: Readonly<Record<ModelUse, AgentModelDefaults>> = {
   analyst: { model: "claude-opus-5-5", effort: "high", maxTokens: 16000, weeklyCapUsd: 1, fallbacks: true },
   rewrite: { model: "claude-sonnet-5-5", effort: "medium", maxTokens: 8000, weeklyCapUsd: 1, fallbacks: true },
   "test-prompt": { model: "claude-sonnet-5-5", effort: "medium", maxTokens: 8000, weeklyCapUsd: 1, fallbacks: true },
+  "email-draft": { model: "claude-sonnet-5-5", effort: "medium", maxTokens: 8000, weeklyCapUsd: 1, fallbacks: true },
 };

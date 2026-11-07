@@ -8,6 +8,10 @@ import type {
   CalendarRow,
   CardRow,
   ConnectionRow,
+  EmailBrandRow,
+  EmailContactRow,
+  EmailDesignRow,
+  EmailWorkflowRow,
   EventRow,
   HookRow,
   KitVersionRow,
@@ -30,6 +34,21 @@ import type {
 } from "./rows";
 import type { CardStatus, Format, Language, Pillar, Platform, PostStatus, ReminderStatus, ReplyStatus, RunOutcome, RunTrigger } from "../types";
 import type { Usage } from "../models";
+import type { Brand, ContactStatus } from "../email/model";
+
+/** A design or a workflow as the Studio saves it: its brand, never changed afterwards, and its content. */
+export type NewEmailDesign = Omit<EmailDesignRow, "id" | "created_at" | "updated_at" | "updated_by">;
+export type NewEmailWorkflow = Omit<EmailWorkflowRow, "id" | "created_at" | "updated_at" | "updated_by">;
+export type NewEmailContact = Pick<EmailContactRow, "email" | "name" | "language" | "status" | "tags" | "source" | "consent_text">;
+export type EmailContactPatch = Partial<Pick<EmailContactRow, "name" | "language" | "tags" | "status">>;
+export interface EmailContactFilter {
+  readonly brand: Brand;
+  readonly status?: ContactStatus;
+  /** Part of an address or a name. */
+  readonly q?: string;
+  readonly limit?: number;
+  readonly offset?: number;
+}
 
 export type NewCard = Pick<CardRow, "week" | "pillar" | "language" | "idea" | "hook" | "points" | "figures" | "cta" | "formats"> &
   Partial<Pick<CardRow, "anchor" | "sky_date" | "src" | "kit_version" | "prompt_version" | "parent" | "hook_id" | "status" | "reason" | "run_id" | "created_by">>;
@@ -243,6 +262,26 @@ export interface StudioStore {
 
   // AGS's Study data (read only)
   studySessions(filter: { from: string; to: string }): Promise<StudySessionRow[]>;
+
+  // The Studio's own email (TASK-0017): each call names its brand, and no row ever moves between brands
+  emailBrand(brand: Brand): Promise<EmailBrandRow | null>;
+  putEmailBrand(brand: Brand, settings: Record<string, unknown>, actor: string): Promise<void>;
+  emailDesigns(brand: Brand): Promise<EmailDesignRow[]>;
+  emailDesign(id: string): Promise<EmailDesignRow | null>;
+  saveEmailDesign(row: NewEmailDesign & { id?: string }, actor: string): Promise<EmailDesignRow>;
+  deleteEmailDesign(id: string): Promise<void>;
+  emailWorkflows(brand: Brand): Promise<EmailWorkflowRow[]>;
+  emailWorkflow(id: string): Promise<EmailWorkflowRow | null>;
+  saveEmailWorkflow(row: NewEmailWorkflow & { id?: string }, actor: string): Promise<EmailWorkflowRow>;
+  deleteEmailWorkflow(id: string): Promise<void>;
+  /** Newest first, with the number the filter matches in all. */
+  emailContacts(filter: EmailContactFilter): Promise<{ rows: EmailContactRow[]; total: number }>;
+  emailContactCounts(brand: Brand): Promise<Record<ContactStatus, number>>;
+  /** An address already in the brand's list is skipped, never overwritten: its consent and status stay. */
+  addEmailContacts(brand: Brand, rows: readonly NewEmailContact[], actor: string): Promise<{ added: number; skipped: number }>;
+  /** Only the brand's own contact changes; an id from the other brand matches nothing. */
+  updateEmailContact(brand: Brand, id: string, patch: EmailContactPatch, actor: string): Promise<boolean>;
+  deleteEmailContact(brand: Brand, id: string): Promise<boolean>;
 }
 
 /** Media files: Supabase Storage in production, a folder on disk in local runs. */

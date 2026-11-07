@@ -21,6 +21,7 @@ import {
   RUN_OUTCOMES,
   RUN_TRIGGERS,
 } from "../types";
+import { BRANDS, CONTACT_STATUSES, WORKFLOW_STATUSES } from "../email/model";
 
 const ts = z.string();
 const tsNull = z.string().nullable();
@@ -393,6 +394,62 @@ export const ttsRowSchema = z.object({
 });
 export type TtsRow = z.infer<typeof ttsRowSchema>;
 
+/* The Studio's own email (TASK-0017, 202611070011_studio_email.sql). The JSON columns (blocks, trigger,
+ * steps, settings) are checked against their shapes in src/studio/email/model.ts where they are used. */
+export const emailBrandRowSchema = z.object({
+  brand: z.enum(BRANDS),
+  settings: json.catch({}),
+  updated_at: ts,
+  updated_by: z.string(),
+});
+export type EmailBrandRow = z.infer<typeof emailBrandRowSchema>;
+
+export const emailDesignRowSchema = z.object({
+  id: z.string(),
+  brand: z.enum(BRANDS),
+  name: z.string(),
+  subject: z.string(),
+  preheader: z.string(),
+  language: z.enum(LANGUAGES),
+  blocks: z.array(z.unknown()).catch([]),
+  created_at: ts,
+  updated_at: ts,
+  updated_by: z.string(),
+});
+export type EmailDesignRow = z.infer<typeof emailDesignRowSchema>;
+
+export const emailWorkflowRowSchema = z.object({
+  id: z.string(),
+  brand: z.enum(BRANDS),
+  name: z.string(),
+  status: z.enum(WORKFLOW_STATUSES),
+  trigger: json.catch({}),
+  steps: z.array(z.unknown()).catch([]),
+  settings: json.catch({}),
+  created_at: ts,
+  updated_at: ts,
+  updated_by: z.string(),
+});
+export type EmailWorkflowRow = z.infer<typeof emailWorkflowRowSchema>;
+
+export const emailContactRowSchema = z.object({
+  id: z.string(),
+  brand: z.enum(BRANDS),
+  email: z.string(),
+  name: z.string(),
+  language: z.enum(LANGUAGES),
+  status: z.enum(CONTACT_STATUSES),
+  tags: z.array(z.string()).catch([]),
+  source: z.string(),
+  consent_text: z.string(),
+  consent_at: ts,
+  unsubscribed_at: tsNull,
+  created_at: ts,
+  updated_at: ts,
+  updated_by: z.string(),
+});
+export type EmailContactRow = z.infer<typeof emailContactRowSchema>;
+
 /** The few columns of AGS's study_sessions the Studio reads (never names, emails or birth details). */
 export const studySessionRowSchema = z.object({
   id: z.string(),
@@ -434,4 +491,8 @@ export const TABLE_SCHEMAS = {
   studio_weekly_inputs: weeklyInputRowSchema,
   studio_sources: sourceRowSchema,
   studio_tts: ttsRowSchema,
+  studio_email_brands: emailBrandRowSchema,
+  studio_email_designs: emailDesignRowSchema,
+  studio_email_workflows: emailWorkflowRowSchema,
+  studio_email_contacts: emailContactRowSchema,
 } as const;

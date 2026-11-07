@@ -28,6 +28,7 @@ export const USE_AGENT: Readonly<Record<ModelUse, string>> = {
   analyst: "analyst",
   rewrite: "interactive",
   "test-prompt": "interactive",
+  "email-draft": "interactive",
 };
 
 export async function modelCap(store: StudioStore, settings: StudioSettings, use: ModelUse, now: Date = new Date()): Promise<CapCheck> {

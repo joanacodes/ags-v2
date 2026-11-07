@@ -7,6 +7,10 @@ import type {
   CalendarRow,
   CardRow,
   ConnectionRow,
+  EmailBrandRow,
+  EmailContactRow,
+  EmailDesignRow,
+  EmailWorkflowRow,
   EventRow,
   HookRow,
   KitVersionRow,
@@ -30,7 +34,12 @@ import type {
 import type {
   CardFilter,
   CardPatch,
+  EmailContactFilter,
+  EmailContactPatch,
   MediaStorage,
+  NewEmailContact,
+  NewEmailDesign,
+  NewEmailWorkflow,
   NewCalendar,
   NewCard,
   NewMedia,
@@ -51,6 +60,7 @@ import type {
   StudioStore,
 } from "./store";
 import type { Language, Pillar } from "../types";
+import { CONTACT_STATUSES, type Brand, type ContactStatus } from "../email/model";
 
 const nowIso = () => new Date().toISOString();
 const within = <T>(list: readonly T[] | undefined, value: T) => !list || list.length === 0 || list.includes(value);
@@ -621,6 +631,99 @@ export class MemoryStore implements StudioStore {
 
   async studySessions(filter: { from: string; to: string }) {
     return this.studyRows.filter((s) => s.created_at >= filter.from && s.created_at < filter.to);
+  }
+
+  // The Studio's own email: the same rules as the tables (one row per brand and address, status audited).
+  emailBrandRows = new Map<Brand, EmailBrandRow>();
+  emailDesignRows: EmailDesignRow[] = [];
+  emailWorkflowRows: EmailWorkflowRow[] = [];
+  emailContactRows: EmailContactRow[] = [];
+
+  async emailBrand(brand: Brand) {
+    return this.emailBrandRows.get(brand) ?? null;
+  }
+  async putEmailBrand(brand: Brand, settings: Record<string, unknown>, actor: string) {
+    this.emailBrandRows.set(brand, { brand, settings, updated_at: nowIso(), updated_by: actor });
+  }
+  async emailDesigns(brand: Brand) {
+    return this.emailDesignRows.filter((d) => d.brand === brand).sort((a, b) => b.updated_at.localeCompare(a.updated_at));
+  }
+  async emailDesign(id: string) {
+    return this.emailDesignRows.find((d) => d.id === id) ?? null;
+  }
+  async saveEmailDesign(row: NewEmailDesign & { id?: string }, actor: string) {
+    const existing = row.id ? this.emailDesignRows.find((d) => d.id === row.id) : undefined;
+    const now = nowIso();
+    const saved: EmailDesignRow = { ...row, id: existing?.id ?? row.id ?? randomUUID(), created_at: existing?.created_at ?? now, updated_at: now, updated_by: actor };
+    this.emailDesignRows = [...this.emailDesignRows.filter((d) => d.id !== saved.id), saved];
+    return saved;
+  }
+  async deleteEmailDesign(id: string) {
+    this.emailDesignRows = this.emailDesignRows.filter((d) => d.id !== id);
+  }
+  async emailWorkflows(brand: Brand) {
+    return this.emailWorkflowRows.filter((w) => w.brand === brand).sort((a, b) => b.updated_at.localeCompare(a.updated_at));
+  }
+  async emailWorkflow(id: string) {
+    return this.emailWorkflowRows.find((w) => w.id === id) ?? null;
+  }
+  async saveEmailWorkflow(row: NewEmailWorkflow & { id?: string }, actor: string) {
+    const existing = row.id ? this.emailWorkflowRows.find((w) => w.id === row.id) : undefined;
+    const now = nowIso();
+    const saved: EmailWorkflowRow = { ...row, id: existing?.id ?? row.id ?? randomUUID(), created_at: existing?.created_at ?? now, updated_at: now, updated_by: actor };
+    this.emailWorkflowRows = [...this.emailWorkflowRows.filter((w) => w.id !== saved.id), saved];
+    if (!existing || existing.status !== saved.status) this.audit("studio_email_workflows", saved.id, existing?.status ?? null, saved.status, actor);
+    return saved;
+  }
+  async deleteEmailWorkflow(id: string) {
+    this.emailWorkflowRows = this.emailWorkflowRows.filter((w) => w.id !== id);
+  }
+  async emailContacts(filter: EmailContactFilter) {
+    const q = (filter.q ?? "").trim().toLowerCase();
+    const matching = this.emailContactRows
+      .filter((c) => c.brand === filter.brand && (!filter.status || c.status === filter.status) && (!q || c.email.includes(q) || c.name.toLowerCase().includes(q)))
+      .sort((a, b) => b.created_at.localeCompare(a.created_at) || b.id.localeCompare(a.id));
+    const offset = filter.offset ?? 0;
+    return { rows: matching.slice(offset, offset + (filter.limit ?? 100)), total: matching.length };
+  }
+  async emailContactCounts(brand: Brand) {
+    const counts = Object.fromEntries(CONTACT_STATUSES.map((s) => [s, 0])) as Record<ContactStatus, number>;
+    for (const c of this.emailContactRows) if (c.brand === brand) counts[c.status] += 1;
+    return counts;
+  }
+  async addEmailContacts(brand: Brand, rows: readonly NewEmailContact[], actor: string) {
+    let added = 0;
+    for (const r of rows) {
+      const email = r.email.trim().toLowerCase();
+      if (this.emailContactRows.some((c) => c.brand === brand && c.email === email)) continue;
+      const now = nowIso();
+      const row: EmailContactRow = { ...r, email, brand, id: randomUUID(), consent_at: now, unsubscribed_at: null, created_at: now, updated_at: now, updated_by: actor };
+      this.emailContactRows.push(row);
+      this.audit("studio_email_contacts", row.id, null, row.status, actor);
+      added += 1;
+    }
+    return { added, skipped: rows.length - added };
+  }
+  async updateEmailContact(brand: Brand, id: string, patch: EmailContactPatch, actor: string) {
+    const i = this.emailContactRows.findIndex((c) => c.id === id && c.brand === brand);
+    const current = this.emailContactRows[i];
+    if (!current) return false;
+    const now = nowIso();
+    const next: EmailContactRow = {
+      ...current,
+      ...patch,
+      unsubscribed_at: patch.status === "unsubscribed" && current.status !== "unsubscribed" ? now : patch.status && patch.status !== "unsubscribed" ? null : current.unsubscribed_at,
+      updated_at: now,
+      updated_by: actor,
+    };
+    this.emailContactRows[i] = next;
+    if (patch.status && patch.status !== current.status) this.audit("studio_email_contacts", id, current.status, patch.status, actor);
+    return true;
+  }
+  async deleteEmailContact(brand: Brand, id: string) {
+    const before = this.emailContactRows.length;
+    this.emailContactRows = this.emailContactRows.filter((c) => !(c.id === id && c.brand === brand));
+    return this.emailContactRows.length < before;
   }
 }
 
