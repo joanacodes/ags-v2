@@ -10,13 +10,26 @@ import "@xyflow/react/dist/style.css";
 
 export const dynamic = "force-dynamic";
 
+// On a phone the Studio can sit on the home screen like an app: Share → Add to Home Screen opens
+// /studio/today full screen, with the header's sun as its icon (public/studio). The scope is the whole
+// site, so signing in stays inside the app.
 export const metadata: Metadata = {
   title: { default: "The Studio", template: "%s · The Studio" },
   description: "The Astro Study's content studio: agents write, the owner approves.",
   robots: { index: false, follow: false },
+  manifest: "/studio/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/studio/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/studio/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: { url: "/studio/icons/apple-touch-icon.png", sizes: "180x180" },
+  },
+  appleWebApp: { capable: true, title: "Studio", statusBarStyle: "default" },
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f3f1ea" };
+// viewport-fit=cover lets the bottom menu clear the phone's home bar (its safe-area padding).
+export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover", themeColor: "#f3f1ea" };
 
 /**
  * Every screen is the owner's: AGS's middleware sends a signed-out visitor to sign in, this layout checks

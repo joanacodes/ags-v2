@@ -1,0 +1,17 @@
+{
+  "name": "The Studio",
+  "short_name": "Studio",
+  "description": "The Astro Study's content studio: agents write, the owner approves.",
+  "id": "/studio/today",
+  "start_url": "/studio/today",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f3f1ea",
+  "theme_color": "#f3f1ea",
+  "icons": [
+    { "src": "/studio/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/studio/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/studio/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

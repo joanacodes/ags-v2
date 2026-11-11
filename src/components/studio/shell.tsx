@@ -65,7 +65,7 @@ export function Shell({ children, live, paused, signOut }: { children: React.Rea
   const path = usePathname();
   return (
     <ToastProvider>
-      <header className="sticky top-0 z-40 border-b border-line bg-paper/90 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-line bg-paper/90 pt-[env(safe-area-inset-top)] backdrop-blur">
         <div className="mx-auto flex h-14 max-w-6xl items-center gap-3 px-4">
           <Link href="/studio/today" className="flex items-baseline gap-2 font-serif text-lg">
             <span className="h-2.5 w-2.5 self-center rounded-full bg-[radial-gradient(circle_at_35%_35%,#fff6df,#e9b26a_55%,#c76a35)] shadow-[0_0_10px_2px_rgba(255,214,150,.7)]" />
