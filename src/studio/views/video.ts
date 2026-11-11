@@ -37,7 +37,9 @@ export function previewTimeline(spec: VideoSpec, words = estimatedWords(spec.scr
 export async function videoState(ctx: AgentContext, pieceId: string | null): Promise<VideoState> {
   const video = ctx.settings.get("render-video");
   if (!pieceId) {
-    const spec = buildSpec({ script: "", lines: [], language: "en", spec: null }, { hook: "", anchor: null, figures: [], sky_date: null }, ctx.kit, video);
+    // A blank studio still needs words to preview (a spec's script is never empty): the kit's first hook.
+    const starter = ctx.kit.hooks.en[0]?.text ?? "Write the script here.";
+    const spec = buildSpec({ script: starter, lines: [], language: "en", spec: null }, { hook: starter, anchor: null, figures: [], sky_date: null }, ctx.kit, video);
     return { pieceId: null, cardId: null, status: null, approved: false, spec, timeline: previewTimeline(spec), estimated: true, templates: VIDEO_TEMPLATES, voiceReady: !!video.voice_id && !!process.env.ELEVENLABS_API_KEY };
   }
   const post = (await ctx.store.posts({ ids: [pieceId] }))[0];

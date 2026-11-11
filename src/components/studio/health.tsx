@@ -17,12 +17,13 @@ export function HealthStrip({ h }: { h: Health }) {
   ];
   const tone = { warn: "text-[#8a5a12]", bad: "text-rust", good: "text-moss" };
   return (
-    <div className="-mx-4 overflow-x-auto px-4 md:mx-0 md:px-0">
-      <dl className="flex min-w-max gap-5 rounded-2xl border border-line bg-card px-4 py-3 text-sm shadow-soft">
+    // On a phone the eight figures sit in two columns, all in view; from md up, one row that scrolls if it must.
+    <div className="md:overflow-x-auto">
+      <dl className="grid grid-cols-2 gap-x-5 gap-y-2 rounded-2xl border border-line bg-card px-4 py-3 text-sm shadow-soft md:flex md:min-w-max md:gap-5">
         {items.map((i) => (
-          <div key={i.label}>
+          <div key={i.label} className="min-w-0">
             <dt className="eyebrow">{i.label}</dt>
-            <dd className={`mt-0.5 whitespace-nowrap font-medium ${i.tone ? tone[i.tone] : ""}`}>{i.value}</dd>
+            <dd className={`mt-0.5 font-medium md:whitespace-nowrap ${i.tone ? tone[i.tone] : ""}`}>{i.value}</dd>
           </div>
         ))}
       </dl>
