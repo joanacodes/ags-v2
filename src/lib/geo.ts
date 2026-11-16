@@ -38,21 +38,58 @@ interface OpenMeteoResult {
   timezone?: string;
 }
 
-/** "Europe/Paris" -> "UTC +2:00" (DST-aware for the current date). */
-export function utcOffsetLabel(timezone: string): string {
+/** Minutes east of UTC for a zone at one moment ("GMT+02:00" -> 120), or null when the zone can't be read. */
+function offsetMinutesAt(timezone: string, at: Date): number | null {
   try {
     const formatted = new Intl.DateTimeFormat("en-US", {
       timeZone: timezone,
       timeZoneName: "longOffset",
-    }).formatToParts(new Date());
+    }).formatToParts(at);
     const raw = formatted.find((part) => part.type === "timeZoneName")?.value ?? "";
-    // "GMT+02:00" -> "UTC +2:00" · "GMT" -> "UTC +0:00"
+    if (raw === "GMT") return 0;
     const match = raw.match(/GMT([+-])(\d{2}):(\d{2})/);
-    if (match === null) return "UTC +0:00";
-    return `UTC ${match[1]}${Number(match[2])}:${match[3]}`;
+    if (match === null) return null;
+    const minutes = Number(match[2]) * 60 + Number(match[3]);
+    return match[1] === "-" ? -minutes : minutes;
   } catch {
-    return "UTC +0:00";
+    return null;
   }
+}
+
+/** 120 -> "UTC +2:00" · -210 -> "UTC -3:30" · 0 -> "UTC +0:00" */
+function offsetLabel(minutes: number): string {
+  const size = Math.abs(minutes);
+  return `UTC ${minutes < 0 ? "-" : "+"}${Math.floor(size / 60)}:${String(size % 60).padStart(2, "0")}`;
+}
+
+/** "Europe/Paris" -> "UTC +2:00" (DST-aware for the current date). */
+export function utcOffsetLabel(timezone: string): string {
+  const minutes = offsetMinutesAt(timezone, new Date());
+  return minutes === null ? "UTC +0:00" : offsetLabel(minutes);
+}
+
+/**
+ * The offset in force at a local birth date and time, from the zone's own history (TASK-0019):
+ * "Europe/Paris", "1997-01-02", "17:15" -> "UTC +1:00", whatever today's offset is. A birth without a time
+ * is taken at noon. Null when the zone or the date can't be read, so the caller keeps its own label.
+ */
+export function birthUtcOffsetLabel(timezone: string, date: string, time?: string): string | null {
+  const day = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+  if (day === null || timezone === "" || timezone === "AUTO") return null;
+  const clock = time === undefined ? null : /^(\d{1,2}):(\d{2})/.exec(time);
+  const local = Date.UTC(
+    Number(day[1]),
+    Number(day[2]) - 1,
+    Number(day[3]),
+    clock === null ? 12 : Number(clock[1]),
+    clock === null ? 0 : Number(clock[2]),
+  );
+  // The offset at the local time read as UTC, then again at the corrected instant (they differ only
+  // within hours of a clock change).
+  const first = offsetMinutesAt(timezone, new Date(local));
+  if (first === null) return null;
+  const second = offsetMinutesAt(timezone, new Date(local - first * 60_000)) ?? first;
+  return offsetLabel(second);
 }
 
 /**

@@ -7,6 +7,7 @@
  * the app keeps its historical mock behaviour.
  */
 import chartsJson from "@/data/sample-charts.json";
+import { birthUtcOffsetLabel } from "@/lib/geo";
 import { createSupabaseServerClient, getServerUserId } from "@/lib/supabase/server";
 import { calculateChart } from "@/server/providers/freeastroapi";
 import { resolveAiModel, type AiModelId } from "@/interpretation/ai-models";
@@ -74,7 +75,11 @@ export function newChartFromDraft(draft: ChartDraftParts, id: string, origin?: "
       place: location.birthPlace,
       country: location.country,
       timezone: location.timezone,
-      utcOffset: location.utcOffset ?? "UTC +0:00",
+      // The offset at the birth, not today's (TASK-0019); the place search's label is only a fallback.
+      utcOffset:
+        birthUtcOffsetLabel(location.timezone, dateTime.birthDate, dateTime.unknownTime ? undefined : dateTime.birthTime) ??
+        location.utcOffset ??
+        "UTC +0:00",
       latitude: location.latitude ?? 0,
       longitude: location.longitude ?? 0,
     },
